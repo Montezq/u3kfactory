@@ -688,6 +688,9 @@ video {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.pl-0 {
+  padding-left: 0px;
+}
 .uppercase {
   text-transform: uppercase;
 }
