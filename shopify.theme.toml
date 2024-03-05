@@ -1,0 +1,8 @@
+[theme]
+name = "U3Faktory"
+author = "Ion Talmaci"
+version = "1.0.0"
+
+[environments.dev]
+theme = "140838699228"
+store = "u3faktory.myshopify.com"
