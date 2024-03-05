@@ -1,11 +1,11 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Dawn",
-    "theme_version": "13.0.0",
-    "theme_author": "Shopify",
+    "theme_name": "U3Faktory",
+    "theme_version": "1.0.0",
+    "theme_author": "Ion Talmaci",
     "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
-    "theme_support_url": "https:\/\/support.shopify.com\/"
+    "theme_support_url": "https:\/\/www.upwork.com\/freelancers\/iontalmaci2"
   },
   {
     "name": "t:settings_schema.logo.name",
@@ -14,16 +14,6 @@
         "type": "image_picker",
         "id": "logo",
         "label": "t:settings_schema.logo.settings.logo_image.label"
-      },
-      {
-        "type": "range",
-        "id": "logo_width",
-        "min": 50,
-        "max": 300,
-        "step": 10,
-        "default": 100,
-        "unit": "px",
-        "label": "t:settings_schema.logo.settings.logo_width.label"
       },
       {
         "type": "image_picker",
