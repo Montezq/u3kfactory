@@ -59,7 +59,7 @@
     </div>
   {%- endif -%}
   <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width">
-    <div class="email-signup-banner__box banner__box newsletter newsletter__wrapper isolate{% if section.settings.show_background_image == false %} email-signup-banner__box--no-image{% endif %} content-container color-{{ section.settings.color_scheme }} gradient content-container--full-width-mobile">
+    <div class="email-signup-banner__box banner__box newsletter newsletter__wrapper isolate{% if section.settings.show_background_image == false %} email-signup-banner__box--no-image{% endif %} content-container  gradient content-container--full-width-mobile">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
@@ -263,13 +263,6 @@
       "label": "t:sections.email-signup-banner.settings.desktop_content_alignment.label"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.email-signup-banner.settings.color_scheme.info",
-      "default": "scheme-1"
-    },
-    {
       "type": "header",
       "content": "t:sections.email-signup-banner.settings.header.content"
     },
@@ -385,8 +378,6 @@
       ]
     }
   ],
-  "templates": [
-    "password"
-  ]
+  "templates": ["password"]
 }
 {% endschema %}
