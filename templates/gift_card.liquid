@@ -25,9 +25,6 @@
     {% style %}
       :root {
 
-        --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
-        --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
-
         --page-width: {{ settings.page_width | divided_by: 10 }}rem;
         --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
 
