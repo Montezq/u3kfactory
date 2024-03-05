@@ -143,9 +143,6 @@
         }
       }
     },
-    "inputs": {
-      "name": "Inputs"
-    },
     "content_containers": {
       "name": "Content containers"
     },
