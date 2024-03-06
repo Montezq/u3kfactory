@@ -772,7 +772,7 @@ video {
   line-height: 1;
 }
 .tracking-widest {
-  letter-spacing: .1em;
+  letter-spacing: .08em;
 }
 .text-white {
   --tw-text-opacity: 1;
