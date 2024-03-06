@@ -756,18 +756,6 @@ video {
 .font-helveticaThinCond {
   font-family: "Helvetica ThinCond", sans-serif;
 }
-.font-helveticaThinCondObl {
-  font-family: "Helvetica ThinCondObl", sans-serif;
-}
-.font-helveticaThinExtObl {
-  font-family: "Helvetica ThinExtObl", sans-serif;
-}
-.font-helveticaThinExt {
-  font-family: "Helvetica ThinExt", sans-serif;
-}
-.font-helvetica {
-  font-family: "Helvetica Thin", sans-serif;
-}
 .text-\[136px\] {
   font-size: 136px;
 }
@@ -808,7 +796,13 @@ body,
 html {
   width: 100%;
 }
-
+img{
+  image-rendering: -moz-crisp-edges !important;
+  image-rendering: -o-crisp-edges !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+  -ms-interpolation-mode: nearest-neighbor !important;
+}
 .text-logo span:nth-child(2){
     -webkit-transform: scale(-1, 1);
         -ms-transform: scale(-1, 1);
