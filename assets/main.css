@@ -691,6 +691,9 @@ video {
 .pl-0 {
   padding-left: 0px;
 }
+.font-helveticaThinCond {
+  font-family: "Helvetica ThinCond", sans-serif;
+}
 .uppercase {
   text-transform: uppercase;
 }
