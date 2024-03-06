@@ -780,8 +780,10 @@ html {
 }
 
 .text-logo{
-  -webkit-transform: scale(-1, 1);
-      -ms-transform: scale(-1, 1);
-       -o-transform: scale(-1, 1);
-          transform: scale(-1, 1);
+  span:nth-child(2){
+    -webkit-transform: scale(-1, 1);
+        -ms-transform: scale(-1, 1);
+         -o-transform: scale(-1, 1);
+            transform: scale(-1, 1);
+  }
 }
