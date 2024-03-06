@@ -738,14 +738,11 @@ video {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.pl-0 {
-  padding-left: 0px;
-}
-.pb-20 {
-  padding-bottom: 5rem;
-}
 .pb-16 {
   padding-bottom: 4rem;
+}
+.pl-0 {
+  padding-left: 0px;
 }
 .text-center {
   text-align: center;
