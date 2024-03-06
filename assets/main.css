@@ -738,14 +738,11 @@ video {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.pb-16 {
-  padding-bottom: 4rem;
+.pb-12 {
+  padding-bottom: 3rem;
 }
 .pl-0 {
   padding-left: 0px;
-}
-.pb-12 {
-  padding-bottom: 3rem;
 }
 .text-center {
   text-align: center;
@@ -779,6 +776,9 @@ video {
 }
 .tracking-widest {
   letter-spacing: .08em;
+}
+.tracking-xlwidest {
+  letter-spacing: .34em;
 }
 .text-white {
   --tw-text-opacity: 1;
