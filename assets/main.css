@@ -771,6 +771,9 @@ video {
 .leading-none {
   line-height: 1;
 }
+.tracking-widest {
+  letter-spacing: .1em;
+}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
