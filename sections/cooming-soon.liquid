@@ -1,4 +1,4 @@
-<div class="w-screen h-screen flex flex-col justify-center items-center">
+<div class="w-screen h-screen flex flex-col justify-center items-center relative overflow-hidden">
   {%- if section.settings.background != blank -%}
     {%- liquid
       assign image_height = section.settings.background.width | divided_by: section.settings.background.aspect_ratio

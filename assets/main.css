@@ -729,6 +729,9 @@ video {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.overflow-hidden {
+  overflow: hidden;
+}
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
