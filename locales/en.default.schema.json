@@ -342,6 +342,23 @@
         "info": "Standard-styled cards have no borders when an image shape is active."
       }
     },
+    "cooming-soon": {
+      "name": "Cooming Soon Website",
+      "settings": {
+        "banner": {
+          "labe": "Background Banner"
+        },
+        "heading": {
+          "labe": "Heading"
+        },
+        "subheading": {
+          "labe": "Subheading"
+        }
+      },
+      "presets": {
+        "name": "Cooming Soon Website"
+      }
+    },
     "announcement-bar": {
       "name": "Announcement bar",
       "settings": {
