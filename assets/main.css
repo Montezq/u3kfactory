@@ -756,6 +756,9 @@ video {
 .font-helveticaThinCondObl {
   font-family: "Helvetica ThinCondObl", sans-serif;
 }
+.font-helveticaThinExtObl {
+  font-family: "Helvetica ThinExtObl", sans-serif;
+}
 .text-\[136px\] {
   font-size: 136px;
 }
