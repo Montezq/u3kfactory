@@ -19,6 +19,22 @@ module.exports = {
       open: ['"Open Sans"', "sans-serif"],
       axis: ['"AXIS Extra"', "sans-serif"]
     },
+    colors:{
+      transparent: 'transparent',
+      current: 'currentColor',
+      white: '#ffffff',
+      black: '#000000'
+    },
+    letterSpacing: {
+      tightest: '-.08em',
+      tighter: '-.05em',
+      tight: '-.025em',
+      normal: '0',
+      wide: '.025em',
+      wider: '.05em',
+      widest: '.08em',
+      xlwidest: '.34em',
+    }
   },
   plugins: [],
 }

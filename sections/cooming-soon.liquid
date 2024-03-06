@@ -19,19 +19,19 @@
     }}
   {%- endif -%}
   <div class="relative z-[1] flex flex-col justify-center items-center text-center">
-    <div>
-      <h1 class="font-coutureBold text-[136px] text-white">
+    <div class="cooming-soong__logo pb-12">
+      <h1 class="font-coutureBold text-[136px] text-white text-logo leading-none flex items-center">
         <span>U</span>
         <span>3</span>
       </h1>
     </div>
     {%- if section.settings.heading != blank or section.settings.subgheading != blank -%}
-      <div>
+      <div class="text-white">
         {%- if section.settings.heading != blank -%}
-          <h2>{{ section.settings.heading }}</h2>
+          <h2 class="text-[40px] font-helveticaThinCond tracking-widest">{{ section.settings.heading }}</h2>
         {%- endif -%}
         {%- if section.settings.subgheading != blank -%}
-          <h3>{{ section.settings.subgheading }}</h3>
+          <h3 class=" font-helveticaThinCond text-[40px] tracking-xlwidest">{{ section.settings.subgheading }}</h3>
         {%- endif -%}
       </div>
     {%- endif -%}
