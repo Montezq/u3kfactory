@@ -647,12 +647,27 @@ video {
 .fixed {
   position: fixed;
 }
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
 .sticky {
   position: -webkit-sticky;
   position: sticky;
 }
+.left-0 {
+  left: 0px;
+}
+.top-0 {
+  top: 0px;
+}
 .isolate {
   isolation: isolate;
+}
+.z-\[1\] {
+  z-index: 1;
 }
 .block {
   display: block;
@@ -672,27 +687,65 @@ video {
 .hidden {
   display: none;
 }
+.h-full {
+  height: 100%;
+}
+.h-screen {
+  height: 100vh;
+}
+.w-full {
+  width: 100%;
+}
 .transform {
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
       -ms-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
        -o-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.flex-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 .flex-wrap {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+}
+.items-center {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.justify-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.overflow-hidden {
+  overflow: hidden;
 }
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .pl-0 {
   padding-left: 0px;
 }
-.font-helveticaThinCond {
-  font-family: "Helvetica ThinCond", sans-serif;
+.font-coutureBold {
+  font-family: "Couture Bold", sans-serif;
+}
+.text-\[136px\] {
+  font-size: 136px;
 }
 .uppercase {
   text-transform: uppercase;
@@ -702,6 +755,10 @@ video {
 }
 .italic {
   font-style: italic;
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .outline {
   outline-style: solid;

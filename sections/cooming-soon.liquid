@@ -1,0 +1,60 @@
+<div class="w-full h-screen flex flex-col justify-center items-center relative overflow-hidden">
+  {%- if section.settings.background != blank -%}
+    {%- liquid
+      assign image_height = section.settings.background.width | divided_by: section.settings.background.aspect_ratio
+      assign full_width = '100vw'
+      assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+      assign image_class = 'absolute top-0 left-0 w-full h-full object-cover'
+    -%}
+    {{
+      section.settings.background
+      | image_url: width: 3840
+      | image_tag:
+        width: section.settings.image.width,
+        height: image_height,
+        class: image_class,
+        sizes: full_width,
+        widths: widths,
+        fetchpriority: 'high'
+    }}
+  {%- endif -%}
+  <div class="relative z-[1] flex flex-col justify-center items-center">
+    <div>
+      <h1 class="font-coutureBold text-[136px] text-white">
+        <span>U</span>
+        <span>3</span>
+      </h1>
+    </div>
+    <div></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.cooming-soon.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background",
+      "label": "t:sections.cooming-soon.settings.banner.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:sections.cooming-soon.settings.heading.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subgheading",
+      "label": "t:sections.cooming-soon.settings.subheading.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.cooming-soon.presets.name"
+    }
+  ]
+}
+{% endschema %}
