@@ -669,6 +669,9 @@ video {
 .z-\[1\] {
   z-index: 1;
 }
+.mb-11 {
+  margin-bottom: 2.75rem;
+}
 .block {
   display: block;
 }

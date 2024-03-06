@@ -28,7 +28,9 @@
     {%- if section.settings.heading != blank or section.settings.subgheading != blank -%}
       <div class="text-white leading-none">
         {%- if section.settings.heading != blank -%}
-          <h2 class="text-[40px] font-helveticaThinCond tracking-widest">{{ section.settings.heading }}</h2>
+          <h2 class="text-[40px] font-helveticaThinCond tracking-widest pb-12 mb-11 relative">
+            {{ section.settings.heading }}
+          </h2>
         {%- endif -%}
         {%- if section.settings.subgheading != blank -%}
           <h3 class=" font-helveticaThinCond text-[40px] tracking-xlwidest">{{ section.settings.subgheading }}</h3>
