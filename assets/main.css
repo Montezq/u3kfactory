@@ -672,6 +672,9 @@ video {
 .block {
   display: block;
 }
+.inline-block {
+  display: inline-block;
+}
 .flex {
   display: -webkit-box;
   display: -webkit-flex;
