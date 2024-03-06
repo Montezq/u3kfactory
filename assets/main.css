@@ -672,9 +672,6 @@ video {
 .block {
   display: block;
 }
-.inline-block {
-  display: inline-block;
-}
 .flex {
   display: -webkit-box;
   display: -webkit-flex;
@@ -787,4 +784,5 @@ html {
         -ms-transform: scale(-1, 1);
          -o-transform: scale(-1, 1);
             transform: scale(-1, 1);
+    margin-left: -0.13em;
   }
