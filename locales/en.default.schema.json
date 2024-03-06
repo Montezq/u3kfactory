@@ -344,14 +344,14 @@
     },
     "cooming-soon": {
       "name": "Cooming Soon Website",
-      "settings":{
-        "banner":{
+      "settings": {
+        "banner": {
           "label": "Background Banner"
         },
-        "heading":{
+        "heading": {
           "label": "Heading"
         },
-        "subheading":{
+        "subheading": {
           "label": "Subheading"
         }
       },
