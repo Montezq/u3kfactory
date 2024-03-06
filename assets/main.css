@@ -694,6 +694,33 @@ video {
 .font-helveticaThinCond {
   font-family: "Helvetica ThinCond", sans-serif;
 }
+.font-axis {
+  font-family: "AXIS Extra", sans-serif;
+}
+.font-coutureBold {
+  font-family: "Couture Bold", sans-serif;
+}
+.font-coutureBoldIt {
+  font-family: "Couture BoldItalic", sans-serif;
+}
+.font-helvetica {
+  font-family: "Helvetica Thin", sans-serif;
+}
+.font-helveticaThinCondObl {
+  font-family: "Helvetica ThinCondObl", sans-serif;
+}
+.font-helveticaThinExt {
+  font-family: "Helvetica ThinExt", sans-serif;
+}
+.font-helveticaThinExtObl {
+  font-family: "Helvetica ThinExtObl", sans-serif;
+}
+.font-helveticaThinItalic {
+  font-family: "Helvetica ThinItalic", sans-serif;
+}
+.font-open {
+  font-family: "Open Sans", sans-serif;
+}
 .uppercase {
   text-transform: uppercase;
 }
