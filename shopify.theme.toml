@@ -4,5 +4,5 @@ author = "Ion Talmaci"
 version = "1.0.0"
 
 [environments.dev]
-theme = "140838699228"
+theme = "140869730524"
 store = "u3faktory.myshopify.com"
