@@ -346,13 +346,13 @@
       "name": "Cooming Soon Website",
       "settings": {
         "banner": {
-          "labe": "Background Banner"
+          "label": "Background Banner"
         },
         "heading": {
-          "labe": "Heading"
+          "label": "Heading"
         },
         "subheading": {
-          "labe": "Subheading"
+          "label": "Subheading"
         }
       },
       "presets": {
