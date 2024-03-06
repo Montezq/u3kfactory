@@ -697,6 +697,9 @@ video {
 .capitalize {
   text-transform: capitalize;
 }
+.italic {
+  font-style: italic;
+}
 .outline {
   outline-style: solid;
 }
