@@ -1,5 +1,7 @@
 {
   "current": {
+    "default_color": "#de6961",
+    "second_color": "#bd5851",
     "social_facebook_link": "",
     "social_instagram_link": "",
     "social_youtube_link": "",
@@ -16,7 +18,10 @@
     "cart_type": "notification",
     "show_vendor": false,
     "show_cart_note": false,
-    "cart_drawer_collection": ""
+    "cart_drawer_collection": "",
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Default": {
