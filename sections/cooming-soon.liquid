@@ -2,9 +2,9 @@
   {%- if section.settings.background != blank -%}
     {%- liquid
       assign image_height = section.settings.background.width | divided_by: section.settings.background.aspect_ratio
-      assign full_width = '110vw'
+      assign full_width = '100vw'
       assign widths = '2000, 3000, 3840'
-      assign image_class = 'absolute top-0 left-0 w-[110vw] h-full object-cover max-w-none'
+      assign image_class = 'absolute top-0 left-0 w-[100vw] h-full object-cover max-w-none'
     -%}
     {{
       section.settings.background
