@@ -62,13 +62,18 @@
                 {% endif %}
                 placeholder="{{ 'newsletter.label' | t }}"
               >
-              <div class="tooltip absolute top-full -left-[120px] mt-2.5 flex items-center whitespace-nowrap bg-white border border-black py-2 pr-[6px] pl-[8px]">
-                <div class="w-7 h-7 mr-[7px]">
-                  {%- render 'icon-info' -%}
+              <div
+                style="display:none;"
+                class="tooltip absolute top-full -left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-2 pr-[6px] pl-[8px]"
+              >
+                <div class="flex items-center">
+                  <div class="w-7 h-7 mr-[7px]">
+                    {%- render 'icon-info' -%}
+                  </div>
+                  <p class="leading-none text-[15px] tracking-wider font-open">
+                    Please write a valid email address to be able to recieve updates.
+                  </p>
                 </div>
-                <p class="leading-none text-[15px] tracking-wider font-open">
-                  Please write a valid email address to be able to recieve updates.
-                </p>
               </div>
             </div>
             <div class="checkbox captcha">
