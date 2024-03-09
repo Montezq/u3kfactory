@@ -669,6 +669,9 @@ video {
 .top-full {
   top: 100%;
 }
+.-left-\[120px\] {
+  left: -120px;
+}
 .isolate {
   isolation: isolate;
 }
