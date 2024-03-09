@@ -876,21 +876,6 @@ video {
 .font-open {
   font-family: "Open Sans", sans-serif;
 }
-.font-helvetica {
-  font-family: "Helvetica Thin", sans-serif;
-}
-.font-helveticaThinCondObl {
-  font-family: "Helvetica ThinCondObl", sans-serif;
-}
-.font-helveticaThinExt {
-  font-family: "Helvetica ThinExt", sans-serif;
-}
-.font-helveticaThinExtObl {
-  font-family: "Helvetica ThinExtObl", sans-serif;
-}
-.font-helveticaThinItalic {
-  font-family: "Helvetica ThinItalic", sans-serif;
-}
 .text-\[136px\] {
   font-size: 136px;
 }
@@ -903,10 +888,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 .font-semibold {
   font-weight: 600;
