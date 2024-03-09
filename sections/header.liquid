@@ -13,7 +13,11 @@
           {%- render 'icon-account' -%}
         </div>
         <div class="header__personal-data-user-name">
-
+          {%- if customer -%}
+            {{'customer.account_fallback' | t }}
+          {%- else -%}
+            {{'customer.guest' | t }}
+          {%- endif -%}
         </div>
       </a>
       <div class="header__personal-data-cart"></div>
