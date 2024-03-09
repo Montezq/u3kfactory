@@ -66,71 +66,24 @@
             </div>
             <button
               type="submit"
-              class="bg-black font-axis text-xl py-[5px] px-3 uppercase text-white whitespace-nowrap tracking-wider"
+              class="bg-black font-axis text-xl py-[5px] px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[224px]"
               name="commit"
               id="submitNewsletter"
               aria-label="{{ 'newsletter.keep_updated' | t }}"
             >
-              {{ 'newsletter.keep_updated' | t }}
+              {%- if form.posted_successfully? -%}
+                {{ 'newsletter.keep_updated' | t }}
+              {%- else -%}
+                {{ 'newsletter.keep_updated' | t }}
+              {%- endif -%}
             </button>
           </div>
         </div>
-        {%- if form.posted_successfully? -%}
-          <h3
-            class="newsletter-form__message newsletter-form__message--success form__message"
-            id="Newsletter-success--{{ section.id }}"
-            tabindex="-1"
-            autofocus
-          >
-            {% render 'icon-success' -%}
-            {{- 'newsletter.success' | t }}
-          </h3>
-        {%- endif -%}
       {% endform %}
     </div>
   </div>
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Find the form by its ID
-    const form = document.getElementById('newsletter-form');
-
-    // Listen for the form's submit event
-    form.addEventListener('submit', function (event) {
-      // Prevent the form from submitting the traditional way
-      event.preventDefault();
-
-      // Collect form data
-      const email = document.querySelector('input[name="contact[email]"]').value;
-      const formData = new FormData();
-      formData.append('contact[email]', email);
-      formData.append('contact[tags]', 'newsletter');
-
-      // Send an AJAX request
-      fetch('/contact', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-        .then((response) => {
-          if (response.ok) {
-            // Handle success
-            console.log('Form submitted successfully');
-            // Display success message or perform other actions
-          } else {
-            // Handle error
-            console.log('Form submission failed');
-            // Display error message or perform other actions
-          }
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-    });
-  });
-</script>
+<script></script>
 
 {% schema %}
 {
