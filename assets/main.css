@@ -715,6 +715,9 @@ video {
 .mb-0\.5 {
   margin-bottom: 0.125rem;
 }
+.mb-8 {
+  margin-bottom: 2rem;
+}
 .block {
   display: block;
 }
@@ -765,6 +768,9 @@ video {
 }
 .w-\[34px\] {
   width: 34px;
+}
+.w-\[38px\] {
+  width: 38px;
 }
 .min-w-\[224px\] {
   min-width: 224px;

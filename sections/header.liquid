@@ -13,7 +13,7 @@
     <div class="header__personal-data flex flex-col justify-center item items-center">
       <a
         href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-        class="header__personal-data-user flex flex-col justify-center item items-center"
+        class="header__personal-data-user flex flex-col justify-center item items-center mb-8"
       >
         <div class="header__personal-data-user-icon w-[34px] mb-0.5">
           {%- render 'icon-account' -%}
@@ -26,7 +26,9 @@
           {%- endif -%}
         </div>
       </a>
-      <div class="header__personal-data-cart"></div>
+      <div class="header__personal-data-cart w-[38px] flex justify-center">
+        {%- render 'icon-cart' -%}
+      </div>
     </div>
   </div>
 </header>
