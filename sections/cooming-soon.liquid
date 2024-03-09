@@ -98,25 +98,36 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     function validateAndSubmitForm() {
-      var form = document.getElementById('newsletter-form');
-      var tooltip = document.querySelector('.tooltip');
-      var submitButton = form.querySelector('.submit-button');
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        var emailField = form.querySelector('.email-input');
-        var email = emailField.value;
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        console.log(emailRegex.test(email));
-        if (emailRegex.test(email) && email) {
-          form.submit();
+      const form = document.getElementById('newsletter-form');
+      const tooltip = document.querySelector('.tooltip');
+      const submitButton = form.querySelector('.submit-button'); // Ensure your button has a class or ID for selection
+
+      // Listen to click event on the button instead of form submission
+      submitButton.addEventListener('click', function (event) {
+        const emailField = form.querySelector('.email-input');
+        const email = emailField.value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (emailRegex.test(email)) {
+          // Assuming here you check Google reCAPTCHA
+          // For example, if reCAPTCHA is valid or not required:
+          // You might need to integrate a callback or check a condition related to reCAPTCHA here
+          submitForm(); // Call a function to handle form submission
         } else {
+          // Show tooltip if validation fails
           tooltip.classList.remove('opacity-0', 'invisible');
           setTimeout(() => {
             tooltip.classList.add('opacity-0', 'invisible');
           }, 3000);
         }
       });
+
+      function submitForm() {
+        // Programmatically submit the form
+        form.submit();
+      }
     }
+
     validateAndSubmitForm();
     var live_url = window.location.href;
     var result = live_url.includes('form_type=customer');
