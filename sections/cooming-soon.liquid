@@ -63,8 +63,7 @@
                 placeholder="{{ 'newsletter.label' | t }}"
               >
               <div
-                style="display:none;"
-                class="tooltip absolute top-full -left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-2 pr-[6px] pl-[8px]"
+                class="tooltip absolute top-full -left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-2 pr-[6px] pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
               >
                 <div class="flex items-center">
                   <div class="w-7 h-7 mr-[7px]">
@@ -112,9 +111,9 @@
         if (emailRegex.test(email)) {
           form.submit();
         } else {
-          tooltip.style.display = 'block';
+          tooltip.classList.remove('opacity-0', 'invisbile');
           setTimeout(() => {
-            tooltip.style.display = 'none';
+            tooltip.classList.add('opacity-0', 'invisbile');
           }, 3000);
         }
       });
