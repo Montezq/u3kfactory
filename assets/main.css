@@ -745,6 +745,9 @@ video {
 .h-screen {
   height: 100vh;
 }
+.w-36 {
+  width: 9rem;
+}
 .w-7 {
   width: 1.75rem;
 }
@@ -768,9 +771,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-36 {
-  width: 9rem;
 }
 .min-w-\[224px\] {
   min-width: 224px;
@@ -831,8 +831,14 @@ video {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.overflow-auto {
+  overflow: auto;
+}
 .overflow-hidden {
   overflow: hidden;
+}
+.overflow-y-auto {
+  overflow-y: auto;
 }
 .truncate {
   overflow: hidden;
@@ -883,13 +889,13 @@ video {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.py-\[5px\] {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
 .py-\[50px\] {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+.py-\[5px\] {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .pb-\[2px\] {
   padding-bottom: 2px;
@@ -1051,6 +1057,9 @@ input:focus-visible{
 }
 .header__menu{
   padding-left: clamp(50px, 3.2vw, 3.2vw);
+}
+.header__menu-logo{
+  padding-bottom: clamp(50px, 8.17vh, 8.17vh);
 }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
