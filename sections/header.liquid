@@ -8,15 +8,18 @@
       </div>
     </div>
     <div class="header__personal-data flex flex-col justify-center item items-center">
-      <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__personal-data-user flex flex-col justify-center item items-center">
+      <a
+        href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+        class="header__personal-data-user flex flex-col justify-center item items-center"
+      >
         <div class="header__personal-data-user-icon w-[34px] mb-1">
           {%- render 'icon-account' -%}
         </div>
         <div class="header__personal-data-user-name text-[15px] text-center font-open uppercase">
           {%- if customer -%}
-            {{'customer.account_fallback' | t }}
+            {{ 'customer.account_fallback' | t }}
           {%- else -%}
-            {{'customer.guest' | t }}
+            {{ 'customer.guest' | t }}
           {%- endif -%}
         </div>
       </a>
