@@ -67,21 +67,14 @@
             </label>
             <button
               type="submit"
-              class="newsletter-form__button field__button"
+              class="bg-black font-axis text-xl"
               name="commit"
               id="Subscribe"
-              aria-label="{{ 'newsletter.button_label' | t }}"
+              aria-label="{{ 'newsletter.keep_updated' | t }}"
             >
-              {% render 'icon-arrow' %}
+              {{ 'newsletter.keep_updated' | t }}
             </button>
           </div>
-          {%- if form.errors -%}
-            <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
-              {%- render 'icon-error' -%}
-              {{- form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email -}}
-            </small>
-          {%- endif -%}
         </div>
         {%- if form.posted_successfully? -%}
           <h3

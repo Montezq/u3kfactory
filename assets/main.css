@@ -737,6 +737,10 @@ video {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -759,11 +763,18 @@ video {
 .font-helveticaThinCond {
   font-family: "Helvetica ThinCond", sans-serif;
 }
+.font-axis {
+  font-family: "AXIS Extra", sans-serif;
+}
 .text-\[136px\] {
   font-size: 136px;
 }
 .text-\[40px\] {
   font-size: 40px;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 .uppercase {
   text-transform: uppercase;
