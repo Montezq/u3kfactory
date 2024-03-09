@@ -111,9 +111,9 @@
         if (emailRegex.test(email)) {
           form.submit();
         } else {
-          tooltip.classList.remove('opacity-0', 'invisbile');
+          tooltip.classList.remove('opacity-0', 'invisible');
           setTimeout(() => {
-            tooltip.classList.add('opacity-0', 'invisbile');
+            tooltip.classList.add('opacity-0', 'invisible');
           }, 3000);
         }
       });
