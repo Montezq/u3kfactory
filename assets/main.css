@@ -669,9 +669,6 @@ video {
 .z-\[1\] {
   z-index: 1;
 }
-.mb-11 {
-  margin-bottom: 2.75rem;
-}
 .mb-\[38px\] {
   margin-bottom: 38px;
 }
@@ -747,11 +744,11 @@ video {
 .pb-12 {
   padding-bottom: 3rem;
 }
-.pl-0 {
-  padding-left: 0px;
-}
 .pb-\[42px\] {
   padding-bottom: 42px;
+}
+.pl-0 {
+  padding-left: 0px;
 }
 .text-center {
   text-align: center;
