@@ -19,7 +19,7 @@
     }}
   {%- endif -%}
   <div class="relative z-[1] flex flex-col items-center text-center my-auto">
-    <div class="cooming-soong__logo pb-12">
+    <div class="cooming-soong__logo pb-[66px]">
       <h1 class="font-coutureBold text-[136px] text-white text-logo leading-none flex items-center">
         <span>U</span>
         <span>3</span>
@@ -28,7 +28,7 @@
     {%- if section.settings.heading != blank or section.settings.subgheading != blank -%}
       <div class="text-white leading-none">
         {%- if section.settings.heading != blank -%}
-          <h2 class="text-[40px] font-helveticaThinCond tracking-widest pb-[42px] mb-[38px] cooming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[465px] after:min-w-[260px] after:w-[80%] after:h-[1px] after:bg-white">
+          <h2 class="text-[40px] font-helveticaThinCond tracking-widest pb-[38px] mb-[42px] cooming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[465px] after:min-w-[260px] after:w-[80%] after:h-[1px] after:bg-white">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
@@ -37,7 +37,7 @@
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="mt-[214px] max-w-[600px] w-full mx-auto">
+    <div class="mt-[208px] max-w-[600px] w-full mx-auto">
       {% form 'customer', class: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="newsletter">
         <div class="newsletter-form__field-wrapper">
