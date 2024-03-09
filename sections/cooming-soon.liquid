@@ -41,7 +41,7 @@
       {% form 'customer', class: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="newsletter">
         <div class="newsletter-form__field-wrapper">
-          <div class="field">
+          <div class="flex items-end">
             <input
               id="NewsletterForm--{{ section.id }}"
               type="email"
@@ -51,6 +51,7 @@
               autocorrect="off"
               autocapitalize="off"
               autocomplete="email"
+              class="flex-1 mr-5"
               {% if form.errors %}
                 autofocus
                 aria-invalid="true"
@@ -62,7 +63,7 @@
             >
             <button
               type="submit"
-              class="bg-black font-axis text-xl py-2.5 px-3.5 uppercase text-white"
+              class="bg-black font-axis text-xl py-2.5 px-3.5 uppercase text-white whitespace-nowrap"
               name="commit"
               id="Subscribe"
               aria-label="{{ 'newsletter.keep_updated' | t }}"
