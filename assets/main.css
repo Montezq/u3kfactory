@@ -716,6 +716,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-\[110vw\] {
+  width: 110vw;
+}
 .max-w-\[600px\] {
   max-width: 600px;
 }
