@@ -123,6 +123,15 @@
         }
       }
     },
+    "colors": {
+      "name": "Colors",
+      "default_color": {
+        "label": "Default Color"
+      },
+      "second_color": {
+        "label": "Second Color"
+      }
+    },
     "brand_information": {
       "name": "Brand information",
       "settings": {
