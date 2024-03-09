@@ -60,6 +60,7 @@
   "newsletter": {
     "label": "Email",
     "success": "Thanks for subscribing",
+    "keep_updated": "Keep me updated",
     "button_label": "Subscribe"
   },
   "accessibility": {
