@@ -118,17 +118,13 @@
             console.log(response);
             console.log('Response Status: ' + response.status);
             if (response.ok) {
-              alert.className = 'alert alert-success';
-              alert.innerHTML = 'Thank you for subscribing to our newsletter.';
+              console.log(response);
             } else {
-              alert.className = 'alert alert-danger';
-              alert.innerHTML = 'We had an issue subscribing you to our newsletter. Please try again later.';
+              console.log(response);
             }
           })
           .catch(function (error) {
             console.log(error);
-            alert.className = 'alert alert-danger';
-            alert.innerHTML = 'We had an issue subscribing you to our newsletter. Please try again later.';
           });
       });
     });
