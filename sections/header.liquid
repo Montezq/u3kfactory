@@ -26,9 +26,13 @@
           {%- endif -%}
         </div>
       </a>
-      <div class="header__personal-data-cart w-[38px] flex justify-center">
+      <a
+        href="{{ routes.cart_url }}"
+        class="header__personal-data-cart w-[38px] flex justify-center"
+        id="cart-icon-bubble"
+      >
         {%- render 'icon-cart' -%}
-      </div>
+      </a>
     </div>
   </div>
 </header>
