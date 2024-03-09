@@ -92,16 +92,8 @@
     </div>
   </div>
 </div>
-{%- form 'contact' -%}
+{%- form 'customer' -%}
   <div class="row">
-    <div class="col-md-4 mb-3">
-      <label for="name">
-        Name
-        <i class="fa fa-asterisk"></i
-      ></label>
-      <input type="text" class="form-control" name="contact[name]" autocomplete="name" required>
-    </div>
-
     <div class="col-md-4 mb-3">
       <label for="email">
         Email
@@ -109,19 +101,6 @@
       ></label>
       <input type="email" class="form-control" name="contact[email]" autocomplete="email" required>
     </div>
-
-    <div class="col-md-4 mb-3">
-      <label for="phone">
-        Phone
-        <i class="fa fa-asterisk"></i
-      ></label>
-      <input type="tel" class="form-control" name="contact[phone]" autocomplete="tel" required>
-    </div>
-  </div>
-
-  <div class="mb-3">
-    <label for="message">Text</label>
-    <textarea id="message" class="form-control" name="contact[body]" rows="7"></textarea>
   </div>
 
   <!-- 2019 Honeypot / Checkbox Placeholder -->
