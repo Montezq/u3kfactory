@@ -757,14 +757,14 @@ video {
 .text-center {
   text-align: center;
 }
+.font-axis {
+  font-family: "AXIS Extra", sans-serif;
+}
 .font-coutureBold {
   font-family: "Couture Bold", sans-serif;
 }
 .font-helveticaThinCond {
   font-family: "Helvetica ThinCond", sans-serif;
-}
-.font-axis {
-  font-family: "AXIS Extra", sans-serif;
 }
 .text-\[136px\] {
   font-size: 136px;
@@ -824,6 +824,9 @@ img{
             transform: scale(-1, 1);
     margin-left: -0.13em;
   }
+button {
+  line-height: 1;
+}
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
