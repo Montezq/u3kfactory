@@ -669,6 +669,10 @@ video {
 .z-\[1\] {
   z-index: 1;
 }
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .mb-\[38px\] {
   margin-bottom: 38px;
 }
@@ -701,6 +705,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.max-w-\[600px\] {
+  max-width: 600px;
 }
 .flex-1 {
   -webkit-box-flex: 1;
@@ -788,6 +795,10 @@ video {
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
+}
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 .pb-12 {
   padding-bottom: 3rem;
