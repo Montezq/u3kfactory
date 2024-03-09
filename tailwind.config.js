@@ -31,7 +31,7 @@ module.exports = {
       tight: '-.025em',
       normal: '0',
       wide: '.025em',
-      wider: '.05em',
+      wider: '.04em',
       widest: '.08em',
       xlwidest: '.34em',
     }

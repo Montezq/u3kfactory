@@ -6,10 +6,42 @@ body,
 html{
   @apply w-full;
 }
-
+img{
+  image-rendering: -moz-crisp-edges !important;
+  image-rendering: -o-crisp-edges !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+  -ms-interpolation-mode: nearest-neighbor !important;
+}
 .text-logo{
   span:nth-child(2){
     transform: scale(-1, 1);
     margin-left: -0.13em;
+  }
+}
+button{
+  @apply leading-none;
+}
+
+input{
+  &:focus-visible{
+    outline: none;
+  }
+}
+.tooltip{
+  &:after{
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid black;
+    border-left-width: 0;
+    border-bottom-width: 0;
+    position: absolute;
+    top: 0;
+    left: 130px;
+    transform: rotate(-45deg);
+    background-color: #fff;
+    margin-top: -7px;
   }
 }

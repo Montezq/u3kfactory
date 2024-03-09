@@ -1,10 +1,10 @@
-<div class="w-full h-screen flex flex-col justify-center items-center relative overflow-hidden">
+<div class="w-full h-screen flex flex-col items-center relative overflow-hidden">
   {%- if section.settings.background != blank -%}
     {%- liquid
       assign image_height = section.settings.background.width | divided_by: section.settings.background.aspect_ratio
       assign full_width = '100vw'
-      assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-      assign image_class = 'absolute top-0 left-0 w-full h-full object-cover'
+      assign widths = '2000, 3000, 3840'
+      assign image_class = 'absolute top-0 left-0 w-[100vw] h-full object-cover max-w-none'
     -%}
     {{
       section.settings.background
@@ -18,25 +18,119 @@
         fetchpriority: 'high'
     }}
   {%- endif -%}
-  <div class="relative z-[1] flex flex-col justify-center items-center text-center">
-    <div class="cooming-soong__logo pb-12">
+  <div class="relative z-[1] flex flex-col items-center text-center my-auto">
+    <div class="cooming-soong__logo pb-[66px]">
       <h1 class="font-coutureBold text-[136px] text-white text-logo leading-none flex items-center">
         <span>U</span>
         <span>3</span>
       </h1>
     </div>
     {%- if section.settings.heading != blank or section.settings.subgheading != blank -%}
-      <div class="text-white">
+      <div class="text-white leading-none">
         {%- if section.settings.heading != blank -%}
-          <h2 class="text-[40px] font-helveticaThinCond tracking-widest">{{ section.settings.heading }}</h2>
+          <h2 class="text-[40px] font-helveticaThinCond tracking-widest pb-[38px] mb-[42px] cooming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[465px] after:min-w-[260px] after:w-[80%] after:h-[1px] after:bg-white">
+            {{ section.settings.heading }}
+          </h2>
         {%- endif -%}
         {%- if section.settings.subgheading != blank -%}
-          <h3 class=" font-helveticaThinCond text-[40px] tracking-xlwidest">{{ section.settings.subgheading }}</h3>
+          <h3 class=" font-helveticaThinCond text-[40px] tracking-xlwidest font-semibold">
+            {{ section.settings.subgheading }}
+          </h3>
         {%- endif -%}
       </div>
     {%- endif -%}
+    <div class="mt-[208px] max-w-[600px] w-full mx-auto">
+      {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="newsletter-form__field-wrapper">
+          <div class="flex items-end">
+            <div class="relative flex-1 mr-5">
+              <input
+                id="NewsletterForm--{{ section.id }}"
+                name="contact[email]"
+                value="{{ form.email }}"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="off"
+                class="bg-transparent email-input w-full border-b border-b-white text-white pl-[4px] pb-[2px] tracking-wider placeholder:tracking-wider placeholder:text-white"
+                {% if form.errors %}
+                  autofocus
+                  aria-invalid="true"
+                  aria-describedby="Newsletter-error--{{ section.id }}"
+                {% elsif form.posted_successfully? %}
+                  aria-describedby="Newsletter-success--{{ section.id }}"
+                {% endif %}
+                placeholder="{{ 'newsletter.label' | t }}"
+              >
+              <div
+                class="tooltip absolute top-full -left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-2 pr-[6px] pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+              >
+                <div class="flex items-center">
+                  <div class="w-7 h-7 mr-[7px]">
+                    {%- render 'icon-info' -%}
+                  </div>
+                  <p class="leading-none text-[15px] tracking-wider font-open">
+                    Please write a valid email address to be able to recieve updates.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="checkbox captcha">
+              <input type="text" class="honeypot" autocomplete="off" style="display:none;">
+            </div>
+            <button
+              type="submit"
+              class="submit-button bg-black font-axis text-xl py-[5px] px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[224px]{%- if form.posted_successfully? -%} pointer-events-none{%- endif -%}"
+              name="commit"
+              id="submitNewsletter"
+              aria-label="{{ 'newsletter.keep_updated' | t }}"
+            >
+              {%- if form.posted_successfully? -%}
+                {{ 'newsletter.noted' | t }}
+              {%- else -%}
+                {{ 'newsletter.keep_updated' | t }}
+              {%- endif -%}
+            </button>
+          </div>
+        </div>
+      {% endform %}
+    </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function validateAndSubmitForm() {
+      const form = document.getElementById('newsletter-form');
+      const tooltip = document.querySelector('.tooltip');
+      const submitButton = form.querySelector('.submit-button');
+      submitButton.addEventListener('click', function (event) {
+        const emailField = form.querySelector('.email-input');
+        const email = emailField.value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (emailRegex.test(email) && email) {
+          submitForm();
+        } else {
+          tooltip.classList.remove('opacity-0', 'invisible');
+          setTimeout(() => {
+            tooltip.classList.add('opacity-0', 'invisible');
+          }, 3000);
+        }
+      });
+
+      function submitForm() {
+        form.submit();
+      }
+    }
+
+    validateAndSubmitForm();
+    var live_url = window.location.href;
+    var result = live_url.includes('form_type=customer');
+    if (result) {
+      console.log('already exist');
+    }
+  });
+</script>
 
 {% schema %}
 {
