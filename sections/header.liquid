@@ -7,8 +7,8 @@
         </div>
       </div>
     </div>
-    <div class="header__personal-data flex flex-col justify-center items-center items-center">
-      <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__personal-data-user">
+    <div class="header__personal-data flex flex-col justify-center item items-center">
+      <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__personal-data-user flex flex-col justify-center item items-center">
         <div class="header__personal-data-user-icon w-[34px] mb-1">
           {%- render 'icon-account' -%}
         </div>
