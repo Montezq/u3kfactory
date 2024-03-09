@@ -13,9 +13,9 @@
     <div class="header__personal-data flex flex-col justify-center item items-center">
       <a
         href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-        class="header__personal-data-user flex flex-col justify-center item items-center mb-8"
+        class="header__personal-data-user flex flex-col justify-center item items-center mb-6"
       >
-        <div class="header__personal-data-user-icon w-[34px] mb-0.5">
+        <div class="header__personal-data-user-icon w-[34px] mb-1.5">
           {%- render 'icon-account' -%}
         </div>
         <div class="header__personal-data-user-name text-[15px] text-center font-open uppercase">
