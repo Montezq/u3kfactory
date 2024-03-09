@@ -414,6 +414,7 @@
     },
     "log_in": "Log in",
     "log_out": "Log out",
+    "guest": "Guest",
     "login_page": {
       "cancel": "Cancel",
       "create_account": "Create account",

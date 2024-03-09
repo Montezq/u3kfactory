@@ -20,6 +20,8 @@
   },
   "presets": {
     "Default": {
+      "default_color": "#de6961",
+      "second_color": "#bd5851",
       "social_twitter_link": "",
       "social_facebook_link": "",
       "social_pinterest_link": "",
