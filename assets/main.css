@@ -900,6 +900,26 @@ input:focus-visible{
     outline: none;
   }
 
+.placeholder\:tracking-wider::-webkit-input-placeholder {
+  letter-spacing: .04em;
+}
+
+.placeholder\:tracking-wider::-moz-placeholder {
+  letter-spacing: .04em;
+}
+
+.placeholder\:tracking-wider:-ms-input-placeholder {
+  letter-spacing: .04em;
+}
+
+.placeholder\:tracking-wider::-ms-input-placeholder {
+  letter-spacing: .04em;
+}
+
+.placeholder\:tracking-wider::placeholder {
+  letter-spacing: .04em;
+}
+
 .placeholder\:text-white::-webkit-input-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
