@@ -97,31 +97,6 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    function validateAndSubmitForm() {
-      const form = document.getElementById('newsletter-form');
-      const tooltip = document.querySelector('.tooltip');
-      const submitButton = form.querySelector('.submit-button');
-      submitButton.addEventListener('click', function (event) {
-        const emailField = form.querySelector('.email-input');
-        const email = emailField.value;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (emailRegex.test(email) && email) {
-          submitForm();
-        } else {
-          tooltip.classList.remove('opacity-0', 'invisible');
-          setTimeout(() => {
-            tooltip.classList.add('opacity-0', 'invisible');
-          }, 3000);
-        }
-      });
-
-      function submitForm() {
-        form.submit();
-      }
-    }
-
-    validateAndSubmitForm();
     var live_url = window.location.href;
     var result = live_url.includes('form_type=customer');
     if (result) {
