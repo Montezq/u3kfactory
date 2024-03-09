@@ -38,103 +38,204 @@
       </div>
     {%- endif -%}
     <div class="mt-[208px] max-w-[600px] w-full mx-auto">
-      {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
-        <input type="hidden" name="contact[tags]" value="newsletter">
-        <div class="newsletter-form__field-wrapper">
-          <div class="flex items-end">
-            <input
-              id="NewsletterForm--{{ section.id }}"
-              type="email"
-              name="contact[email]"
-              value="{{ form.email }}"
-              aria-required="true"
-              autocorrect="off"
-              autocapitalize="off"
-              autocomplete="email"
-              class="flex-1 mr-5 bg-transparent border-b border-b-white placeholder:text-white text-white"
-              {% if form.errors %}
-                autofocus
-                aria-invalid="true"
-                aria-describedby="Newsletter-error--{{ section.id }}"
-              {% elsif form.posted_successfully? %}
-                aria-describedby="Newsletter-success--{{ section.id }}"
-              {% endif %}
-              placeholder="{{ 'newsletter.label' | t }}"
-            >
-            <div class="checkbox captcha">
-              <input type="text" class="honeypot" autocomplete="off" style="display:none;">
+      {% comment %}
+        {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="newsletter-form__field-wrapper">
+            <div class="flex items-end">
+              <input
+                id="NewsletterForm--{{ section.id }}"
+                type="email"
+                name="contact[email]"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                class="flex-1 mr-5 bg-transparent border-b border-b-white placeholder:text-white text-white"
+                {% if form.errors %}
+                  autofocus
+                  aria-invalid="true"
+                  aria-describedby="Newsletter-error--{{ section.id }}"
+                {% elsif form.posted_successfully? %}
+                  aria-describedby="Newsletter-success--{{ section.id }}"
+                {% endif %}
+                placeholder="{{ 'newsletter.label' | t }}"
+              >
+              <div class="checkbox captcha">
+                <input type="text" class="honeypot" autocomplete="off" style="display:none;">
+              </div>
+              <button
+                type="submit"
+                class="bg-black font-axis text-xl py-[5px] px-3 uppercase text-white whitespace-nowrap tracking-wider"
+                name="commit"
+                id="submitNewsletter"
+                aria-label="{{ 'newsletter.keep_updated' | t }}"
+              >
+                {{ 'newsletter.keep_updated' | t }}
+              </button>
             </div>
-            <button
-              type="submit"
-              class="bg-black font-axis text-xl py-[5px] px-3 uppercase text-white whitespace-nowrap tracking-wider"
-              name="commit"
-              id="submitNewsletter"
-              aria-label="{{ 'newsletter.keep_updated' | t }}"
-            >
-              {{ 'newsletter.keep_updated' | t }}
-            </button>
           </div>
-        </div>
-        {%- if form.posted_successfully? -%}
-          <h3
-            class="newsletter-form__message newsletter-form__message--success form__message"
-            id="Newsletter-success--{{ section.id }}"
-            tabindex="-1"
-            autofocus
-          >
-            {% render 'icon-success' -%}
-            {{- 'newsletter.success' | t }}
-          </h3>
-        {%- endif -%}
-      {% endform %}
+          {%- if form.posted_successfully? -%}
+            <h3
+              class="newsletter-form__message newsletter-form__message--success form__message"
+              id="Newsletter-success--{{ section.id }}"
+              tabindex="-1"
+              autofocus
+            >
+              {% render 'icon-success' -%}
+              {{- 'newsletter.success' | t }}
+            </h3>
+          {%- endif -%}
+        {% endform %}
+      {% endcomment %}
     </div>
   </div>
 </div>
+{%- form 'contact' -%}
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <label for="name">
+        {{- 'contact.form.name' | t }}
+        <i class="fa fa-asterisk"></i
+      ></label>
+      <input type="text" class="form-control" name="contact[name]" autocomplete="name" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="email">
+        {{- 'contact.form.email' | t }}
+        <i class="fa fa-asterisk"></i
+      ></label>
+      <input type="email" class="form-control" name="contact[email]" autocomplete="email" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="phone">
+        {{- 'contact.form.phone' | t }}
+        <i class="fa fa-asterisk"></i
+      ></label>
+      <input type="tel" class="form-control" name="contact[phone]" autocomplete="tel" required>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="message">{{ 'contact.form.message' | t }}</label>
+    <textarea id="message" class="form-control" name="contact[body]" rows="7"></textarea>
+  </div>
+
+  <!-- 2019 Honeypot / Checkbox Placeholder -->
+  <div class="checkbox captcha"><input type="text" class="honeypot" autocomplete="off" style="display:none;"></div>
+
+  <script type="application/json" class="form-alerts">
+    {
+      "error": "{{ 'general.forms.post_error' | t }}",
+      "success": "{{ 'contact.form.post_success' | t }}"
+    }
+  </script>
+
+  <div class="d-none" data-alert="status"></div>
+
+  <button type="button" class="btn btn-lg btn-outline-primary btn-submit disabled" disabled>
+    {{ 'contact.form.send' | t }}
+  </button>
+{%- endform -%}
 <script>
-  function initForm(selector) {
-    selector = selector || '.newsletter-form';
+  function formToJSON(elements) {
+    return [].reduce.call(
+      elements,
+      function (data, element) {
+        data[element.name] = element.value;
+        return data;
+      },
+      {}
+    );
+  }
 
-    document.querySelectorAll(selector).forEach(function (form) {
-      var action = form.getAttribute('action'),
-        alert = form.querySelector('[data-alert="status"]'),
-        inputs = form.querySelectorAll('[name]'),
-        btn = form.querySelector('[type="submit"]');
+  // Get Shopify Friendly URL String
+  function getUrlString(data) {
+    var urlParameters = Object.entries(data)
+      .map(function (e) {
+        return e.join('=');
+      })
+      .join('&');
 
-      // Submit data via Fetch
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
+    return urlParameters;
+  }
 
-        var formData = {};
-        inputs.forEach(function (input) {
-          formData[input.name] = input.value;
-        });
+  function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+      sURLVariables = sPageURL.split('&'),
+      sParameterName,
+      i;
 
-        fetch(action, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            Accept: 'application/json',
-          },
-          body: new URLSearchParams(formData),
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1] === undefined ? true : sParameterName[1];
+      }
+    }
+  }
+
+  function ajaxFormInit(form) {
+    var form_type = form.querySelector('[name=form_type]').value,
+      inputs = form.querySelectorAll('[name]'),
+      alert = form.querySelector('[data-alert="status"]'),
+      alert_msgs = form.querySelector('.form-alerts');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var action = form.getAttribute('action');
+
+      if (alert_msgs) {
+        var alert_msg = JSON.parse(alert_msgs.innerHTML);
+      }
+
+      console.log('Form Action: ' + action);
+      console.log('Submitting ' + form_type + ' form...');
+
+      fetch(action, {
+        method: 'POST',
+        body: getUrlString(formToJSON(inputs)),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          Accept: 'text/html, */*; q=0.01',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+      })
+        .then(function (response) {
+          console.log(response);
+          console.log(response.status);
+
+          if (alert) {
+            alert.className = 'alert alert-success';
+            alert.innerHTML = alert_msg.success;
+          }
+
+          var checkoutUrl = getUrlParameter('checkout_url');
+
+          if (checkoutUrl) {
+            window.location = getUrlParameter('checkout_url');
+          } else if (response.status === 200 && form_type !== 'contact') {
+            window.location.pathname = '/account';
+          }
         })
-          .then(function (response) {
-            console.log(response);
-            console.log('Response Status: ' + response.status);
-            if (response.ok) {
-              console.log(response);
-            } else {
-              console.log(response);
-            }
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      });
+        .catch(function (err) {
+          console.error(err);
+
+          if (alert) {
+            alert.className = 'alert alert-error';
+            alert.innerHTML = alert_msg.error;
+          }
+        });
     });
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    initForm();
+  // Init Shopify Forms
+  document.querySelectorAll('[name=form_type]').forEach(function (el) {
+    ajaxFormInit(el.closest('form'));
   });
 </script>
 
