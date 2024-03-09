@@ -731,6 +731,9 @@ video {
 .h-\[25px\] {
   height: 25px;
 }
+.h-7 {
+  height: 1.75rem;
+}
 .w-\[100vw\] {
   width: 100vw;
 }
@@ -739,6 +742,9 @@ video {
 }
 .w-\[25px\] {
   width: 25px;
+}
+.w-7 {
+  width: 1.75rem;
 }
 .min-w-\[224px\] {
   min-width: 224px;
