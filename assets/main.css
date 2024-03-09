@@ -666,6 +666,9 @@ video {
 .top-0 {
   top: 0px;
 }
+.top-full {
+  top: 100%;
+}
 .isolate {
   isolation: isolate;
 }
@@ -716,11 +719,17 @@ video {
 .h-screen {
   height: 100vh;
 }
+.h-\[25px\] {
+  height: 25px;
+}
 .w-\[100vw\] {
   width: 100vw;
 }
 .w-full {
   width: 100%;
+}
+.w-\[25px\] {
+  width: 25px;
 }
 .min-w-\[224px\] {
   min-width: 224px;
