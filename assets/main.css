@@ -1061,73 +1061,110 @@ input:focus-visible{
 .header__menu-logo{
   padding-bottom: clamp(50px, 8.17vh, 8.17vh);
 }
+
+.header__menu-wrapaper::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+
+.header__menu-wrapaper::-webkit-scrollbar-track {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+
+.header__menu-wrapaper::-webkit-scrollbar-thumb {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
+
 .placeholder\:tracking-wider::-moz-placeholder {
   letter-spacing: .04em;
 }
+
 .placeholder\:tracking-wider:-ms-input-placeholder {
   letter-spacing: .04em;
 }
+
 .placeholder\:tracking-wider::-ms-input-placeholder {
   letter-spacing: .04em;
 }
+
 .placeholder\:tracking-wider::placeholder {
   letter-spacing: .04em;
 }
+
 .placeholder\:text-white::-webkit-input-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .placeholder\:text-white::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .placeholder\:text-white:-ms-input-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .placeholder\:text-white::-ms-input-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .placeholder\:text-white::placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
 }
+
 .after\:left-1\/2::after {
   content: var(--tw-content);
   left: 50%;
 }
+
 .after\:top-full::after {
   content: var(--tw-content);
   top: 100%;
 }
+
 .after\:block::after {
   content: var(--tw-content);
   display: block;
 }
+
 .after\:h-\[1px\]::after {
   content: var(--tw-content);
   height: 1px;
 }
+
 .after\:w-\[80\%\]::after {
   content: var(--tw-content);
   width: 80%;
 }
+
 .after\:min-w-\[260px\]::after {
   content: var(--tw-content);
   min-width: 260px;
 }
+
 .after\:max-w-\[465px\]::after {
   content: var(--tw-content);
   max-width: 465px;
 }
+
 .after\:-translate-x-1\/2::after {
   content: var(--tw-content);
   --tw-translate-x: -50%;
@@ -1136,6 +1173,7 @@ input:focus-visible{
        -o-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+
 .after\:bg-white::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
