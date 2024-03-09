@@ -88,31 +88,54 @@
   </div>
 </div>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('submitNewsletter').addEventListener('click', function (e) {
-      e.preventDefault(); // Prevent default form submission
-      var form = document.getElementById('newsletter-form');
-      var formData = new FormData(form);
+  function initForm(selector) {
+    selector = selector || '.newsletter-form';
 
-      // AJAX request
-      var xhr = new XMLHttpRequest();
-      xhr.open(form.method, form.action, true);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 200) {
-            // Success
-            console.log('Form submitted successfully');
-            // You can handle success actions here
-          } else {
-            // Error
-            console.error('Form submission failed');
-            // You can handle error actions here
-          }
-        }
-      };
-      xhr.send(new URLSearchParams(formData));
+    document.querySelectorAll(selector).forEach(function (form) {
+      var action = form.getAttribute('action'),
+        alert = form.querySelector('[data-alert="status"]'),
+        inputs = form.querySelectorAll('[name]'),
+        btn = form.querySelector('[type="button"]');
+
+      // Submit data via Fetch
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var formData = {};
+        inputs.forEach(function (input) {
+          formData[input.name] = input.value;
+        });
+
+        fetch(action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Accept: 'application/json',
+          },
+          body: new URLSearchParams(formData),
+        })
+          .then(function (response) {
+            console.log(response);
+            console.log('Response Status: ' + response.status);
+            if (response.ok) {
+              alert.className = 'alert alert-success';
+              alert.innerHTML = 'Thank you for subscribing to our newsletter.';
+            } else {
+              alert.className = 'alert alert-danger';
+              alert.innerHTML = 'We had an issue subscribing you to our newsletter. Please try again later.';
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+            alert.className = 'alert alert-danger';
+            alert.innerHTML = 'We had an issue subscribing you to our newsletter. Please try again later.';
+          });
+      });
     });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    initForm();
   });
 </script>
 
