@@ -83,7 +83,13 @@
     </div>
   </div>
 </div>
-<script></script>
+<script>
+  var live_url = window.location.href;
+  var result = live_url.includes('form_type=customer');
+  if (result) {
+    console.log('already exist');
+  }
+</script>
 
 {% schema %}
 {
