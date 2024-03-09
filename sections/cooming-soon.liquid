@@ -94,11 +94,33 @@
   </div>
 </div>
 <script>
-  var live_url = window.location.href;
-  var result = live_url.includes('form_type=customer');
-  if (result) {
-    console.log('already exist');
-  }
+  document.addEventListener('DOMContentLoaded', function () {
+    function validateAndSubmitForm() {
+      const form = document.getElementById('newsletter-form');
+      const tooltip = document.getElementById('email-tooltip');
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const emailField = form.querySelector('input[type="email"]');
+        const email = emailField.value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (emailRegex.test(email)) {
+          form.submit();
+        } else {
+          tooltip.style.display = 'block';
+          setTimeout(() => {
+            tooltip.style.display = 'none';
+          }, 3000);
+        }
+      });
+    }
+    validateAndSubmitForm();
+    var live_url = window.location.href;
+    var result = live_url.includes('form_type=customer');
+    if (result) {
+      console.log('already exist');
+    }
+  });
 </script>
 
 {% schema %}
