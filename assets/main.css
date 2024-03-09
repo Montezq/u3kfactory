@@ -743,6 +743,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-\[84px\] {
+  width: 84px;
+}
 .min-w-\[224px\] {
   min-width: 224px;
 }
@@ -787,6 +790,12 @@ video {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.justify-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .overflow-hidden {
   overflow: hidden;
@@ -839,6 +848,10 @@ video {
 .py-\[5px\] {
   padding-top: 5px;
   padding-bottom: 5px;
+}
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 .pb-\[2px\] {
   padding-bottom: 2px;
