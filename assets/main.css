@@ -813,6 +813,12 @@ video {
 .pl-0 {
   padding-left: 0px;
 }
+.pb-\[2px\] {
+  padding-bottom: 2px;
+}
+.pl-\[4px\] {
+  padding-left: 4px;
+}
 .text-center {
   text-align: center;
 }
