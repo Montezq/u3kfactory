@@ -116,16 +116,11 @@
   function ajaxFormInit(form) {
     var inputs = form.querySelectorAll('[name]'),
       alert = form.querySelector('[data-alert="status"]'),
-      alert_msgs = form.querySelector('.form-alerts');
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
       var action = form.getAttribute('action');
-
-      if (alert_msgs) {
-        var alert_msg = JSON.parse(alert_msgs.innerHTML);
-      }
 
       console.log('Form Action: ' + action);
       console.log('Submitting form...');
@@ -143,18 +138,10 @@
           console.log(response);
           console.log(response.status);
 
-          if (alert) {
-            alert.className = 'alert alert-success';
-            alert.innerHTML = alert_msg.success;
-          }
         })
         .catch(function (err) {
           console.error(err);
 
-          if (alert) {
-            alert.className = 'alert alert-error';
-            alert.innerHTML = alert_msg.error;
-          }
         });
     });
   }
