@@ -942,6 +942,9 @@ video {
 .text-\[27px\] {
   font-size: 27px;
 }
+.text-\[29px\] {
+  font-size: 29px;
+}
 .text-\[40px\] {
   font-size: 40px;
 }
@@ -949,14 +952,11 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-.text-\[29px\] {
-  font-size: 29px;
+.font-bold {
+  font-weight: 700;
 }
 .font-semibold {
   font-weight: 600;
-}
-.font-bold {
-  font-weight: 700;
 }
 .uppercase {
   text-transform: uppercase;
@@ -978,6 +978,9 @@ video {
 }
 .tracking-xlwidest {
   letter-spacing: .34em;
+}
+.tracking-widerx {
+  letter-spacing: .06em;
 }
 .text-white {
   --tw-text-opacity: 1;
