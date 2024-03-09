@@ -105,7 +105,6 @@
         inputs.forEach(function (input) {
           formData[input.name] = input.value;
         });
-        return console.log(formData);
 
         fetch(action, {
           method: 'POST',
