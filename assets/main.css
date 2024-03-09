@@ -673,6 +673,10 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .mb-\[38px\] {
   margin-bottom: 38px;
 }
@@ -681,6 +685,9 @@ video {
 }
 .mb-\[214px\] {
   margin-bottom: 214px;
+}
+.mt-\[214px\] {
+  margin-top: 214px;
 }
 .block {
   display: block;
