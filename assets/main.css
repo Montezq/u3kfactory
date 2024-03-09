@@ -698,6 +698,12 @@ video {
 .mr-\[7px\] {
   margin-right: 7px;
 }
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-2\.5 {
+  margin-top: 0.625rem;
+}
 .block {
   display: block;
 }
@@ -879,6 +885,9 @@ video {
 }
 .text-\[14px\] {
   font-size: 14px;
+}
+.text-\[15px\] {
+  font-size: 15px;
 }
 .uppercase {
   text-transform: uppercase;
