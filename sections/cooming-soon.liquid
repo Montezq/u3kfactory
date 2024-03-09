@@ -95,7 +95,7 @@
       var action = form.getAttribute('action'),
         alert = form.querySelector('[data-alert="status"]'),
         inputs = form.querySelectorAll('[name]'),
-        btn = form.querySelector('[type="button"]');
+        btn = form.querySelector('[type="submit"]');
 
       // Submit data via Fetch
       form.addEventListener('submit', function (e) {
@@ -105,6 +105,7 @@
         inputs.forEach(function (input) {
           formData[input.name] = input.value;
         });
+        return console.log(formData);
 
         fetch(action, {
           method: 'POST',
