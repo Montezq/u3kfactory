@@ -674,6 +674,9 @@ video {
 .top-full {
   top: 100%;
 }
+.top-2 {
+  top: 0.5rem;
+}
 .isolate {
   isolation: isolate;
 }
