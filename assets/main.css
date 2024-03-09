@@ -706,6 +706,9 @@ video {
 .mt-\[208px\] {
   margin-top: 208px;
 }
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
 .block {
   display: block;
 }
@@ -747,6 +750,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-\[58px\] {
+  width: 58px;
 }
 .min-w-\[224px\] {
   min-width: 224px;

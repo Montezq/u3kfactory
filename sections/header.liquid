@@ -7,6 +7,17 @@
         </div>
       </div>
     </div>
+    <div class="header__personal-data flex flex-col justify-center items-center">
+      <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__personal-data-user">
+        <div class="header__personal-data-user-icon w-[58px] mb-1">
+          {%- render 'icon-account' -%}
+        </div>
+        <div class="header__personal-data-user-name">
+
+        </div>
+      </a>
+      <div class="header__personal-data-cart"></div>
+    </div>
   </div>
 </header>
 
