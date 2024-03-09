@@ -107,7 +107,7 @@
         var emailField = form.querySelector('input[type="email"]');
         var email = emailField.value;
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        console.log(email);
+        console.log(emailRegex.test(email));
         if (emailRegex.test(email) && email) {
           form.submit();
         } else {
