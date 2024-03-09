@@ -754,6 +754,12 @@ video {
 .w-\[58px\] {
   width: 58px;
 }
+.w-\[34ox\] {
+  width: 34ox;
+}
+.w-\[34px\] {
+  width: 34px;
+}
 .min-w-\[224px\] {
   min-width: 224px;
 }
