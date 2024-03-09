@@ -810,6 +810,10 @@ video {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
 }
+.py-\[5px\] {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 .pb-12 {
   padding-bottom: 3rem;
 }
