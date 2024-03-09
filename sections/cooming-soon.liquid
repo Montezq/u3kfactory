@@ -100,21 +100,15 @@
     function validateAndSubmitForm() {
       const form = document.getElementById('newsletter-form');
       const tooltip = document.querySelector('.tooltip');
-      const submitButton = form.querySelector('.submit-button'); // Ensure your button has a class or ID for selection
-
-      // Listen to click event on the button instead of form submission
+      const submitButton = form.querySelector('.submit-button');
       submitButton.addEventListener('click', function (event) {
         const emailField = form.querySelector('.email-input');
         const email = emailField.value;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (emailRegex.test(email)) {
-          // Assuming here you check Google reCAPTCHA
-          // For example, if reCAPTCHA is valid or not required:
-          // You might need to integrate a callback or check a condition related to reCAPTCHA here
-          submitForm(); // Call a function to handle form submission
+        if (emailRegex.test(email) && email) {
+          submitForm();
         } else {
-          // Show tooltip if validation fails
           tooltip.classList.remove('opacity-0', 'invisible');
           setTimeout(() => {
             tooltip.classList.add('opacity-0', 'invisible');
@@ -123,7 +117,6 @@
       });
 
       function submitForm() {
-        // Programmatically submit the form
         form.submit();
       }
     }
