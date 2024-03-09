@@ -179,6 +179,7 @@
   }
 
   function ajaxFormInit(form) {
+    console.log(form);
     var form_type = form.querySelector('[name=form_type]').value,
       inputs = form.querySelectorAll('[name]'),
       alert = form.querySelector('[data-alert="status"]'),
