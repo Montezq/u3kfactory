@@ -115,7 +115,7 @@
 
   function ajaxFormInit(form) {
     var inputs = form.querySelectorAll('[name]'),
-      alert = form.querySelector('[data-alert="status"]'),
+      alert = form.querySelector('[data-alert="status"]');
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -137,11 +137,9 @@
         .then(function (response) {
           console.log(response);
           console.log(response.status);
-
         })
         .catch(function (err) {
           console.error(err);
-
         });
     });
   }
