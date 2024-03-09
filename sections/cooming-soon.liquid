@@ -96,13 +96,13 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     function validateAndSubmitForm() {
-      const form = document.getElementById('newsletter-form');
-      const tooltip = document.getElementById('email-tooltip');
+      var form = document.getElementById('newsletter-form');
+      var tooltip = document.querySelector('.tooltip');
       form.addEventListener('submit', function (event) {
         event.preventDefault();
-        const emailField = form.querySelector('input[type="email"]');
-        const email = emailField.value;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var emailField = form.querySelector('input[type="email"]');
+        var email = emailField.value;
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (emailRegex.test(email)) {
           form.submit();
