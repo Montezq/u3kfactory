@@ -1319,6 +1319,7 @@ class AccordionItem extends HTMLElement {
       content.style.transition = 'height 0.3s ease-out';
       if (!this.isOpen) {
         this.isOpen = true;
+        this.classList.add('open')
         content.style.height = content.scrollHeight + 'px';
         content.setAttribute('aria-expanded', 'true');
         this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
@@ -1329,10 +1330,12 @@ class AccordionItem extends HTMLElement {
   connectedCallback() {
     const content = this.querySelector('.accordion-content');
     if (this.isOpen) {
+      this.classList.add('open')
       requestAnimationFrame(() => {
         content.style.height = `${content.scrollHeight}px`;
       });
     } else {
+      this.classList.remove('open')
       content.style.height = '0';
     }
     requestAnimationFrame(() => {
@@ -1343,6 +1346,7 @@ class AccordionItem extends HTMLElement {
   toggle() {
     const content = this.querySelector('.accordion-content');
     if (this.isOpen) {
+      this.classList.add('open')
       content.style.height = content.scrollHeight + 'px';
     } else {
       this.close();
@@ -1352,6 +1356,7 @@ class AccordionItem extends HTMLElement {
   close() {
     const content = this.querySelector('.accordion-content');
     if (!this.isOpen) return; 
+    this.classList.remove('open')
     this.isOpen = false;
     content.style.height = '0px';
     content.setAttribute('aria-expanded', 'false');
