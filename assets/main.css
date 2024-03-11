@@ -962,9 +962,6 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-.font-bold {
-  font-weight: 700;
-}
 .font-semibold {
   font-weight: 600;
 }
@@ -983,14 +980,14 @@ video {
 .tracking-wider {
   letter-spacing: .04em;
 }
+.tracking-widerx {
+  letter-spacing: .06em;
+}
 .tracking-widest {
   letter-spacing: .08em;
 }
 .tracking-xlwidest {
   letter-spacing: .34em;
-}
-.tracking-widerx {
-  letter-spacing: .06em;
 }
 .text-white {
   --tw-text-opacity: 1;
