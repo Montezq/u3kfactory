@@ -680,6 +680,9 @@ video {
 .top-full {
   top: 100%;
 }
+.right-0 {
+  right: 0px;
+}
 .isolate {
   isolation: isolate;
 }
@@ -1339,5 +1342,9 @@ input:focus-visible{
 
   .md\:h-screen {
     height: 100vh;
+  }
+
+  .md\:ring-\[auto\] {
+    --tw-ring-color: auto;
   }
 }
