@@ -811,6 +811,9 @@ video {
 .w-6 {
   width: 1.5rem;
 }
+.w-5 {
+  width: 1.25rem;
+}
 .min-w-\[224px\] {
   min-width: 224px;
 }
