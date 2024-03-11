@@ -51,19 +51,18 @@
         {%- if request.page_type == 'index' -%}
           <h1>
         {%- endif -%}
-            <a href="{{ routes.root_url }}" class="block">
-              {%- if settings.logo != blank -%}
-                <div class="w-36">
-                  {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                  {{ settings.logo | image_url: width: 400 | image_tag:
-                    class: 'w-full',
-                    width: settings.logo_width,
-                    alt: logo_alt,
-                    preload: true
-                  }}
-                </div>
-              {%- endif -%}
-            </a>
+        <a href="{{ routes.root_url }}" class="block">
+          {%- if settings.logo != blank -%}
+            <div class="w-36">
+              {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+              {{
+                settings.logo
+                | image_url: width: 400
+                | image_tag: class: 'w-full', width: settings.logo_width, alt: logo_alt, preload: true
+              }}
+            </div>
+          {%- endif -%}
+        </a>
         {%- if request.page_type == 'index' -%}
           </h1>
         {%- endif -%}
@@ -73,7 +72,7 @@
       </div>
     </div>
     <div class="header__menu-footer pt-3">
-      {% render 'header-menu-footer' %}
+      {% render 'social-icons' %}
     </div>
   </div>
 </header>
