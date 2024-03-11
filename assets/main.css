@@ -1184,7 +1184,7 @@ input:focus-visible{
   top: clamp(50px, 9.3vh, 9.3vh);
 }
 .header__menu{
-  padding-left: 60px;
+  padding-left: 50px;
 }
 @media (min-width: 768px){
 .header__menu{
