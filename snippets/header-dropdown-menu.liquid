@@ -12,7 +12,7 @@
         <li>
           {%- if link.links != blank -%}
             <accordion-item
-              {% if forloop.first %}
+              {% if link.child_active %}
                 data-open
               {% endif %}
             >
@@ -27,7 +27,7 @@
                 </span>
               </div>
               <div
-                class="accordion-content overflow-hidden{% if forloop.first %}  open-initially{%  else %} h-0 transition-all duration-300 ease-in-out{% endif %}"
+                class="accordion-content overflow-hidden{% if link.child_active %}  open-initially{%  else %} h-0 transition-all duration-300 ease-in-out{% endif %}"
               >
                 <ul
                   id="HeaderMenu-MenuList-{{ forloop.index }}"
