@@ -1194,6 +1194,10 @@ input:focus-visible{
   content: var(--tw-content);
   width: 100%;
 }
+.after\:w-0::after {
+  content: var(--tw-content);
+  width: 0px;
+}
 .after\:min-w-\[260px\]::after {
   content: var(--tw-content);
   min-width: 260px;
