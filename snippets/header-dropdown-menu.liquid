@@ -11,7 +11,7 @@
       {%- for link in section.settings.menu.links -%}
         <li>
           {%- if link.links != blank -%}
-            <accordion-item>
+            <accordion-item data-open>
               <div
                 id="HeaderMenu-{{ link.handle }}"
                 class="header__menu-item accordion-toggle cursor-pointer"
