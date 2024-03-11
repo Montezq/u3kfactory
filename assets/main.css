@@ -1126,6 +1126,7 @@ input:focus-visible{
   display: none;
 }
 .header__menu-item span:after{
+      width: calc(100% + 16px);
       -webkit-transform: scaleX(0);
           -ms-transform: scaleX(0);
            -o-transform: scaleX(0);
@@ -1138,7 +1139,7 @@ input:focus-visible{
       -webkit-transform-origin:100% 50%;
           -ms-transform-origin:100% 50%;
            -o-transform-origin:100% 50%;
-              transform-origin:100% 50%
+              transform-origin:100% 50%;
     }
 .header__menu-item:hover span:after{
         -webkit-transform: scaleX(1);
@@ -1189,13 +1190,13 @@ input:focus-visible{
   content: var(--tw-content);
   position: absolute;
 }
+.after\:-left-\[8px\]::after {
+  content: var(--tw-content);
+  left: -8px;
+}
 .after\:left-1\/2::after {
   content: var(--tw-content);
   left: 50%;
-}
-.after\:left-\[110\%\]::after {
-  content: var(--tw-content);
-  left: 110%;
 }
 .after\:top-1\/2::after {
   content: var(--tw-content);
@@ -1205,14 +1206,6 @@ input:focus-visible{
   content: var(--tw-content);
   top: 100%;
 }
-.after\:-left-\[10\%\]::after {
-  content: var(--tw-content);
-  left: -10%;
-}
-.after\:-left-\[8px\]::after {
-  content: var(--tw-content);
-  left: -8px;
-}
 .after\:block::after {
   content: var(--tw-content);
   display: block;
@@ -1221,17 +1214,9 @@ input:focus-visible{
   content: var(--tw-content);
   height: 1px;
 }
-.after\:w-0::after {
-  content: var(--tw-content);
-  width: 0px;
-}
 .after\:w-\[80\%\]::after {
   content: var(--tw-content);
   width: 80%;
-}
-.after\:w-\[110\%\]::after {
-  content: var(--tw-content);
-  width: 110%;
 }
 .after\:min-w-\[260px\]::after {
   content: var(--tw-content);
