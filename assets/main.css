@@ -988,6 +988,9 @@ video {
 .pl-\[4px\] {
   padding-left: 4px;
 }
+.pl-\[50px\] {
+  padding-left: 50px;
+}
 .pl-\[8px\] {
   padding-left: 8px;
 }
@@ -1002,9 +1005,6 @@ video {
 }
 .pt-5 {
   padding-top: 1.25rem;
-}
-.pl-\[50px\] {
-  padding-left: 50px;
 }
 .text-center {
   text-align: center;
@@ -1174,9 +1174,6 @@ input:focus-visible{
   }
 .header__personal-menu{
   top: clamp(50px, 9.3vh, 9.3vh);
-}
-.header__menu{
-  padding-left: 50px;
 }
 @media (min-width: 768px){
 .header__menu{
