@@ -733,9 +733,6 @@ video {
 .mt-\[208px\] {
   margin-top: 208px;
 }
-.mt-auto {
-  margin-top: auto;
-}
 .block {
   display: block;
 }
@@ -775,8 +772,8 @@ video {
 .w-12 {
   width: 3rem;
 }
-.w-36 {
-  width: 9rem;
+.w-28 {
+  width: 7rem;
 }
 .w-5 {
   width: 1.25rem;
@@ -807,9 +804,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-28 {
-  width: 7rem;
 }
 .min-w-\[224px\] {
   min-width: 224px;
@@ -881,12 +875,6 @@ video {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.gap-2 {
-  gap: 0.5rem;
-}
-.gap-2\.5 {
-  gap: 0.625rem;
-}
 .gap-\[1\.1rem\] {
   gap: 1.1rem;
 }
@@ -899,21 +887,6 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-}
-.space-y-3 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
-}
-.space-y-3\.5 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.875rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.875rem * var(--tw-space-y-reverse));
-}
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 .space-y-5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1051,14 +1024,14 @@ video {
 .text-\[15px\] {
   font-size: 15px;
 }
-.text-\[23px\] {
-  font-size: 23px;
-}
 .text-\[27px\] {
   font-size: 27px;
 }
 .text-\[29px\] {
   font-size: 29px;
+}
+.text-\[32px\] {
+  font-size: 32px;
 }
 .text-\[40px\] {
   font-size: 40px;
@@ -1070,9 +1043,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.text-\[32px\] {
-  font-size: 32px;
 }
 .font-semibold {
   font-weight: 600;
@@ -1214,6 +1184,9 @@ input:focus-visible{
 .header__menu-content{
     margin: 0;
     padding-top: clamp(0px, 12vh, 12vh);
+}
+.header__menu-footer{
+    margin-top: auto;
 }
   }
 .header__menu-logo{
@@ -1395,16 +1368,16 @@ input:focus-visible{
     height: 100vh;
   }
 
+  .md\:w-36 {
+    width: 9rem;
+  }
+
   .md\:w-\[22\%\] {
     width: 22%;
   }
 
   .md\:w-auto {
     width: auto;
-  }
-
-  .md\:w-36 {
-    width: 9rem;
   }
 
   .md\:min-w-\[350px\] {
