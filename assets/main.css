@@ -1209,6 +1209,10 @@ input:focus-visible{
   content: var(--tw-content);
   left: -10%;
 }
+.after\:-left-\[8px\]::after {
+  content: var(--tw-content);
+  left: -8px;
+}
 .after\:block::after {
   content: var(--tw-content);
   display: block;
