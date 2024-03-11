@@ -97,7 +97,7 @@
     {%- if section.settings.mobile_image != blank -%}
       {%- liquid
         assign image_height = section.settings.mobile_image.width | divided_by: section.settings.mobile_image.aspect_ratio
-        assign image_class = 'absolute top-0 left-0 w-full h-full object-cover'
+        assign image_class = 'absolute top-0 left-0 w-full h-full object-cover md:hidden'
         assign widths = '450, 660, 900, 1320'
       -%}
       {{
