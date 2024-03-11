@@ -683,6 +683,9 @@ video {
 .right-0 {
   right: 0px;
 }
+.top-1 {
+  top: 0.25rem;
+}
 .isolate {
   isolation: isolate;
 }
@@ -804,6 +807,9 @@ video {
 }
 .w-9 {
   width: 2.25rem;
+}
+.w-6 {
+  width: 1.5rem;
 }
 .min-w-\[224px\] {
   min-width: 224px;

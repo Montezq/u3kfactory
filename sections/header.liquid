@@ -7,18 +7,18 @@
       <a
         href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
       >
-        <div class="w-9">
+        <div class="w-6">
           {%- render 'icon-account' -%}
         </div>
       </a>
       <a
         href="{{ routes.cart_url }}"
-        class="w-8 flex justify-center relative font-coutureBold text-xl"
+        class="w-6 flex justify-center relative font-coutureBold text-xl"
         id="cart-icon-bubble"
       >
         {%- render 'icon-cart' -%}
         {%- if cart != empty -%}
-          <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-2">
+          <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-1">
             {%- if cart.item_count < 100 -%}
               <span aria-hidden="true">{{ cart.item_count }}</span>
             {%- endif -%}
