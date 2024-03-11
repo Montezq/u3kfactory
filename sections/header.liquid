@@ -4,11 +4,8 @@
       {%- render 'icon-hamburger' -%}
     </div>
     <div class="flex items-end gap-x-[22px]">
-      <div>
-        <div class="w-7">
-          {% render 'icon-search' %}
-        </div>
-        <form action="{{ routes.search_url }}">
+      <div class="flex itmes-end">
+        <form action="{{ routes.search_url }}" class="hidden">
           <input
             type="text"
             placeholder="Search"
@@ -20,6 +17,9 @@
           <input type="hidden" name="options[prefix]" value="last">
           <input type="submit" value="Search">
         </form>
+        <div class="w-6">
+          {% render 'icon-search' %}
+        </div>
       </div>
       <a
         href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
