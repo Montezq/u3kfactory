@@ -1315,7 +1315,7 @@ class AccordionItem extends HTMLElement {
     if (!button || !content) return;
     content.style.height = '0px';
     content.style.overflow = 'hidden';
-    content.style.transition = 'height 0.5s ease-out';
+    content.style.transition = 'height 0.3s ease-out';
 
     button.addEventListener('click', () => {
       this.isOpen = !this.isOpen;
