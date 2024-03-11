@@ -1344,6 +1344,10 @@ input:focus-visible{
     height: 100vh;
   }
 
+  .md\:w-auto {
+    width: auto;
+  }
+
   .md\:ring-\[auto\] {
     --tw-ring-color: auto;
   }
