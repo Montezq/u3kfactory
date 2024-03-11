@@ -6,8 +6,8 @@
 {% endcomment %}
 
 <nav>
-  <accordion-list role="list" class="space-y-3.5">
-    <ul>
+  <accordion-list>
+    <ul role="list" class="space-y-3.5">
       {%- for link in section.settings.menu.links -%}
         <li>
           {%- if link.links != blank -%}
