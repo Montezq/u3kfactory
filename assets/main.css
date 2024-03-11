@@ -1385,6 +1385,19 @@ input:focus-visible{
     width: auto;
   }
 
+  .md\:w-\[22\%\] {
+    width: 22%;
+  }
+
+  .md\:min-w-\[350px\] {
+    min-width: 350px;
+  }
+
+  .md\:py-\[50px\] {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   .md\:ring-\[auto\] {
     --tw-ring-color: auto;
   }
