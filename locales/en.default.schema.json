@@ -123,7 +123,7 @@
         }
       }
     },
-    "colors":{
+    "colors": {
       "name": "Colors",
       "default_color": {
         "label": "Default Color"
@@ -984,7 +984,7 @@
         "menu": {
           "label": "Menu"
         },
-        "mobile_image":{
+        "mobile_image": {
           "label": "Image for mobile menu"
         }
       }
