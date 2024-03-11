@@ -1126,19 +1126,29 @@ input:focus-visible{
   display: none;
 }
 .header__menu-item span:after{
-      -webkit-transition-property: width;
-      -o-transition-property: width;
-      transition-property: width;
-      -webkit-transition-duration: .5s;
-           -o-transition-duration: .5s;
-              transition-duration: .5s;
-      -webkit-transition-timing-function: ease-in-out;
-           -o-transition-timing-function: ease-in-out;
-              transition-timing-function: ease-in-out;
+      -webkit-transform: scaleX(0);
+          -ms-transform: scaleX(0);
+           -o-transform: scaleX(0);
+              transform: scaleX(0);  
+      -webkit-transition: -webkit-transform 250ms ease-in-out;  
+      transition: -webkit-transform 250ms ease-in-out;  
+      -o-transition: -o-transform 250ms ease-in-out;  
+      transition: transform 250ms ease-in-out;  
+      transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out, -o-transform 250ms ease-in-out;
+      -webkit-transform-origin:100% 50%;
+          -ms-transform-origin:100% 50%;
+           -o-transform-origin:100% 50%;
+              transform-origin:100% 50%
     }
 .header__menu-item:hover span:after{
-        left: -5%;
-        width: 110%;
+        -webkit-transform: scaleX(1);
+            -ms-transform: scaleX(1);
+             -o-transform: scaleX(1);
+                transform: scaleX(1);
+        -webkit-transform-origin:0 50%;
+            -ms-transform-origin:0 50%;
+             -o-transform-origin:0 50%;
+                transform-origin:0 50%;
       }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
@@ -1195,6 +1205,10 @@ input:focus-visible{
   content: var(--tw-content);
   top: 100%;
 }
+.after\:-left-\[10\%\]::after {
+  content: var(--tw-content);
+  left: -10%;
+}
 .after\:block::after {
   content: var(--tw-content);
   display: block;
@@ -1210,6 +1224,10 @@ input:focus-visible{
 .after\:w-\[80\%\]::after {
   content: var(--tw-content);
   width: 80%;
+}
+.after\:w-\[110\%\]::after {
+  content: var(--tw-content);
+  width: 110%;
 }
 .after\:min-w-\[260px\]::after {
   content: var(--tw-content);
