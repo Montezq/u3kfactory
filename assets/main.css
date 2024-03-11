@@ -1099,13 +1099,6 @@ input:focus-visible{
   display: none;
 }
 
-.accordion-content.open-initially {
-  height: 300px;
-  max-height: -webkit-fit-content;
-  max-height: -moz-fit-content;
-  max-height: fit-content;
-}
-
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
