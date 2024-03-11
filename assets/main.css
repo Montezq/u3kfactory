@@ -1347,6 +1347,10 @@ input:focus-visible{
 }
 @media (min-width: 768px) {
 
+  .md\:block {
+    display: block;
+  }
+
   .md\:flex {
     display: -webkit-box;
     display: -webkit-flex;
