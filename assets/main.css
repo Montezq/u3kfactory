@@ -1099,7 +1099,7 @@ input:focus-visible{
   top: clamp(50px, 9.3vh, 9.3vh);
 }
 .header__menu{
-  padding-left: clamp(42px, 3.2vw, 3.2vw);
+  padding-left: clamp(42px, 3.4vw, 3.4vw);
 }
 .header__menu-logo{
   padding-bottom: clamp(50px, 8.17vh, 8.17vh);
