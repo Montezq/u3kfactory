@@ -1123,12 +1123,12 @@ input:focus-visible{
       -webkit-transition-property: width;
       -o-transition-property: width;
       transition-property: width;
-      -webkit-transition-duration: 0.3s;
-           -o-transition-duration: 0.3s;
-              transition-duration: 0.3s;
-      -webkit-transition-timing-function: ease-out;
-           -o-transition-timing-function: ease-out;
-              transition-timing-function: ease-out;
+      -webkit-transition-duration: .5s;
+           -o-transition-duration: .5s;
+              transition-duration: .5s;
+      -webkit-transition-timing-function: ease-in-out;
+           -o-transition-timing-function: ease-in-out;
+              transition-timing-function: ease-in-out;
     }
 .header__menu-item:hover span:after{
         left: -5%;
@@ -1178,9 +1178,9 @@ input:focus-visible{
   content: var(--tw-content);
   left: 50%;
 }
-.after\:left-\[110\%\]::after {
+.after\:right-0::after {
   content: var(--tw-content);
-  left: 110%;
+  right: 0px;
 }
 .after\:top-1\/2::after {
   content: var(--tw-content);
@@ -1189,10 +1189,6 @@ input:focus-visible{
 .after\:top-full::after {
   content: var(--tw-content);
   top: 100%;
-}
-.after\:right-0::after {
-  content: var(--tw-content);
-  right: 0px;
 }
 .after\:block::after {
   content: var(--tw-content);
