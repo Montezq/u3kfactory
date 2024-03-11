@@ -1119,10 +1119,10 @@ input:focus-visible{
   height: 0px;
   display: none;
 }
-.header__menu-item:hover:after{
-      left: -5%;
-      width: 110%;
-    }
+.header__menu-item:hover span:after{
+        left: -5%;
+        width: 110%;
+      }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
