@@ -1372,4 +1372,8 @@ input:focus-visible{
     padding-top: 50px;
     padding-bottom: 50px;
   }
+
+  .md\:pl-2 {
+    padding-left: 0.5rem;
+  }
 }
