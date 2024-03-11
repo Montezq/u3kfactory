@@ -47,7 +47,7 @@
   </div>
   <div class="header__menu flex flex-col w-[22%] min-w-[350px] h-full py-[50px]">
     <div class="header__menu-content my-auto flex flex-col overflow-auto">
-      <div class="header__menu-logo">
+      <div class="header__menu-logo pl-2">
         {%- if request.page_type == 'index' -%}
           <h1>
         {%- endif -%}
@@ -68,7 +68,7 @@
           </h1>
         {%- endif -%}
       </div>
-      <div class="overflow-y-auto header__menu-wrapaper pl-2 -ml-2">
+      <div class="overflow-y-auto header__menu-wrapaper pl-2">
         {% render 'header-dropdown-menu' %}
       </div>
     </div>
