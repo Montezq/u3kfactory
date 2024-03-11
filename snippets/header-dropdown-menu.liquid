@@ -12,6 +12,7 @@
         <li>
           {%- if link.links != blank -%}
             <accordion-item
+              class="{% if link.child_active %}open{% endif %}"
               {% if link.child_active %}
                 data-open
               {% endif %}
@@ -41,7 +42,8 @@
                         <a
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                           href="{{ childlink.url }}"
-                          class="font-coutureBold text-[23px] text-gray-200 uppercase{% if childlink.current %} list-menu__item--active{% endif %}"
+                          class="font-coutureBold text-[23px] text-gray-200 uppercase duration-300 ease-in-out{% if childlink.current %} header__menu-item-active{% endif %}"
+                          style="{% if childlink.current %}color: {{settings.second_color}}{% endif %}"
                           {% if childlink.current %}
                             aria-current="page"
                           {% endif %}
