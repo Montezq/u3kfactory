@@ -1,11 +1,11 @@
 <header class="flex header h-screen fixed top-0 left-0 bottom-0 z-[2]">
   <div class="header__mobile px-5 py-4 bg-gray-10 flex items-center md:hidden">
-    <div class="header__mobile-hamburger w-[60px]">
+    <div class="header__mobile-hamburger w-12">
       {%- render 'icon-hamburger' -%}
     </div>
   </div>
   <div
-    class="header__personal relative w-[84px] flex items-center justify-center px-1"
+    class="header__personal relative w-[84px] hidden md:flex items-center justify-center px-1"
     style="background-color: {{ settings.default_color }}"
   >
     <div class="header__personal-menu absolute left-1/2 -translate-x-1/2">
@@ -50,7 +50,7 @@
       </a>
     </div>
   </div>
-  <div class="header__menu flex flex-col w-[22%] min-w-[350px] h-full py-[50px]">
+  <div class="header__menu hidden md:flex flex-col w-[22%] min-w-[350px] h-full py-[50px]">
     <div class="header__menu-content my-auto flex flex-col overflow-auto">
       <div class="header__menu-logo pl-2">
         {%- if request.page_type == 'index' -%}
