@@ -1283,3 +1283,85 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
+
+
+// Custom JS 
+
+class AccordionList extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.addEventListener('toggleItem', this.handleToggleItem.bind(this));
+  }
+
+  handleToggleItem(e) {
+    this.querySelectorAll('accordion-item').forEach((item) => {
+      if (e.detail !== item) {
+        item.close();
+      }
+    });
+  }
+}
+
+class AccordionItem extends HTMLElement {
+  constructor() {
+    super();
+    this.isOpen = this.hasAttribute('data-open');
+    const button = this.querySelector('.accordion-toggle');
+    const content = this.querySelector('.accordion-content');
+
+    if (!button || !content) return;
+
+    content.style.overflow = 'hidden';
+    button.addEventListener('click', () => {
+      content.style.transition = 'height 0.3s ease-out';
+      if (!this.isOpen) {
+        this.isOpen = true;
+        this.classList.add('open')
+        content.style.height = content.scrollHeight + 'px';
+        content.setAttribute('aria-expanded', 'true');
+        this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
+      }
+    });
+  }
+
+  connectedCallback() {
+    const content = this.querySelector('.accordion-content');
+    if (this.isOpen) {
+      this.classList.add('open')
+      requestAnimationFrame(() => {
+        content.style.height = `${content.scrollHeight}px`;
+      });
+    } else {
+      this.classList.remove('open')
+      content.style.height = '0';
+    }
+    requestAnimationFrame(() => {
+      content.style.transition = 'height 0.3s ease-out';
+    });
+  }
+
+  toggle() {
+    const content = this.querySelector('.accordion-content');
+    if (this.isOpen) {
+      this.classList.add('open')
+      content.style.height = content.scrollHeight + 'px';
+    } else {
+      this.close();
+    }
+  }
+
+  close() {
+    const content = this.querySelector('.accordion-content');
+    if (!this.isOpen) return; 
+    this.classList.remove('open')
+    this.isOpen = false;
+    content.style.height = '0px';
+    content.setAttribute('aria-expanded', 'false');
+  }
+}
+
+customElements.define('accordion-list', AccordionList);
+customElements.define('accordion-item', AccordionItem);

@@ -1,4 +1,4 @@
-<header class="flex header h-screen">
+<header class="flex header h-screen fixed top-0 left-0 bottom-0 z-[2]">
   <div
     class="header__personal relative w-[84px] flex items-center justify-center px-1"
     style="background-color: {{ settings.default_color }}"
@@ -45,11 +45,35 @@
       </a>
     </div>
   </div>
-  <div class="header__menu flex flex-col">
-    <div class="header__menu-content">
-      
+  <div class="header__menu flex flex-col w-[22%] min-w-[350px] h-full py-[50px]">
+    <div class="header__menu-content my-auto flex flex-col overflow-auto">
+      <div class="header__menu-logo pl-2">
+        {%- if request.page_type == 'index' -%}
+          <h1>
+        {%- endif -%}
+        <a href="{{ routes.root_url }}" class="block">
+          {%- if settings.logo != blank -%}
+            <div class="w-36">
+              {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+              {{
+                settings.logo
+                | image_url: width: 400
+                | image_tag: class: 'w-full', width: settings.logo_width, alt: logo_alt, preload: true
+              }}
+            </div>
+          {%- endif -%}
+        </a>
+        {%- if request.page_type == 'index' -%}
+          </h1>
+        {%- endif -%}
+      </div>
+      <div class="overflow-y-auto header__menu-wrapaper pl-2">
+        {% render 'header-dropdown-menu' %}
+      </div>
     </div>
-    <div class="header__menu-footer"></div>
+    <div class="header__menu-footer pt-3">
+      {% render 'social-icons' %}
+    </div>
   </div>
 </header>
 

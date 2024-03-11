@@ -23,7 +23,10 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       white: '#ffffff',
-      black: '#000000'
+      black: '#000000',
+      gray:{
+        200: '#5f5f5f'
+      }
     },
     letterSpacing: {
       tightest: '-.08em',
@@ -32,6 +35,7 @@ module.exports = {
       normal: '0',
       wide: '.025em',
       wider: '.04em',
+      widerx: '.06em',
       widest: '.08em',
       xlwidest: '.34em',
     }
