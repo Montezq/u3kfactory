@@ -721,8 +721,14 @@ video {
 .mt-2\.5 {
   margin-top: 0.625rem;
 }
+.mt-\[18px\] {
+  margin-top: 18px;
+}
 .mt-\[208px\] {
   margin-top: 208px;
+}
+.mt-3 {
+  margin-top: 0.75rem;
 }
 .block {
   display: block;
@@ -751,20 +757,23 @@ video {
 .h-7 {
   height: 1.75rem;
 }
+.h-8 {
+  height: 2rem;
+}
 .h-full {
   height: 100%;
 }
 .h-screen {
   height: 100vh;
 }
-.h-8 {
-  height: 2rem;
-}
 .w-36 {
   width: 9rem;
 }
 .w-7 {
   width: 1.75rem;
+}
+.w-8 {
+  width: 2rem;
 }
 .w-\[100vw\] {
   width: 100vw;
@@ -787,9 +796,6 @@ video {
 .w-full {
   width: 100%;
 }
-.w-8 {
-  width: 2rem;
-}
 .min-w-\[224px\] {
   min-width: 224px;
 }
@@ -801,6 +807,9 @@ video {
 }
 .max-w-none {
   max-width: none;
+}
+.max-w-\[212px\] {
+  max-width: 212px;
 }
 .flex-1 {
   -webkit-box-flex: 1;
@@ -854,8 +863,11 @@ video {
       -ms-flex-pack: center;
           justify-content: center;
 }
-.gap-\[5px\] {
-  gap: 5px;
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-2\.5 {
+  gap: 0.625rem;
 }
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1004,6 +1016,10 @@ video {
 .text-\[40px\] {
   font-size: 40px;
 }
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1034,6 +1050,9 @@ video {
 }
 .tracking-xlwidest {
   letter-spacing: .34em;
+}
+.tracking-wide {
+  letter-spacing: .02em;
 }
 .text-gray-200 {
   --tw-text-opacity: 1;
