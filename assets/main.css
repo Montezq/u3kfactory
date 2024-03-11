@@ -1196,6 +1196,10 @@ input:focus-visible{
   content: var(--tw-content);
   top: 100%;
 }
+.after\:left-\[110\%\]::after {
+  content: var(--tw-content);
+  left: 110%;
+}
 .after\:block::after {
   content: var(--tw-content);
   display: block;
