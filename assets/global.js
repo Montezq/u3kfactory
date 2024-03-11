@@ -1283,3 +1283,62 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
+
+
+// Custom JS 
+
+class AccordionList extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.addEventListener('toggleItem', this.handleToggleItem.bind(this));
+  }
+
+  handleToggleItem(e) {
+    this.querySelectorAll('accordion-item').forEach((item) => {
+      if (e.detail !== item) {
+        item.close();
+      }
+    });
+  }
+}
+
+class AccordionItem extends HTMLElement {
+  constructor() {
+    super();
+    this.isOpen = false;
+    const button = this.querySelector('.accordion-toggle');
+    const content = this.querySelector('.accordion-content');
+
+    if (!button || !content) return;
+    content.style.height = '0px';
+    content.style.overflow = 'hidden';
+    content.style.transition = 'height 0.3s ease-out';
+
+    button.addEventListener('click', () => {
+      this.isOpen = !this.isOpen;
+      this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
+      this.toggle();
+    });
+  }
+
+  toggle() {
+    const content = this.querySelector('.accordion-content');
+    if (this.isOpen) {
+      content.style.height = content.scrollHeight + 'px';
+    } else {
+      this.close();
+    }
+  }
+
+  close() {
+    const content = this.querySelector('.accordion-content');
+    this.isOpen = false;
+    content.style.height = '0px';
+  }
+}
+
+customElements.define('accordion-list', AccordionList);
+customElements.define('accordion-item', AccordionItem);
