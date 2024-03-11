@@ -975,6 +975,9 @@ video {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
 .pb-\[2px\] {
   padding-bottom: 2px;
 }
@@ -990,9 +993,6 @@ video {
 .pl-0 {
   padding-left: 0px;
 }
-.pl-2 {
-  padding-left: 0.5rem;
-}
 .pl-\[4px\] {
   padding-left: 4px;
 }
@@ -1007,9 +1007,6 @@ video {
 }
 .pt-3 {
   padding-top: 0.75rem;
-}
-.pb-6 {
-  padding-bottom: 1.5rem;
 }
 .pt-5 {
   padding-top: 1.25rem;
@@ -1189,6 +1186,12 @@ input:focus-visible{
 @media (min-width: 768px){
 .header__menu{
     padding-left: clamp(42px, 3.4vw, 3.4vw);
+}
+  }
+@media screen and (min-height: 1100px){
+.header__menu-content{
+    margin: 0;
+    padding-top: clamp(0, 25vh, 25vh);
 }
   }
 .header__menu-logo{
