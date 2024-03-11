@@ -21,7 +21,7 @@
                 class="header__menu-item accordion-toggle cursor-pointer"
               >
                 <span
-                  class="inline-block font-coutureBold tracking-widerx text-[29px] uppercase leading-none relative after:content-[''] after:block after:w-0 after:h-[1px] after:absolute after:left-[110%] after:top-1/2 after:bg-black after:duration-500 after:ease-in-out{%- if link.child_active %} header__active-menu-item{% endif %}"
+                  class="inline-block font-coutureBold tracking-widerx text-[29px] uppercase leading-none relative after:content-[''] after:block after:w-0 after:h-[1px] after:absolute after:left-[110%] after:top-1/2 after:bg-black{%- if link.child_active %} header__active-menu-item{% endif %}"
                 >
                   {{- link.title | escape -}}
                 </span>
