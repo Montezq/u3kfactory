@@ -1336,4 +1336,8 @@ input:focus-visible{
   .md\:hidden {
     display: none;
   }
+
+  .md\:h-screen {
+    height: 100vh;
+  }
 }
