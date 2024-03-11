@@ -123,11 +123,7 @@
         }
       }
     },
-<<<<<<< HEAD
-    "colors":{
-=======
     "colors": {
->>>>>>> fa3e1e0040f15efcd8120ef0f9b818ac0b7fdcaf
       "name": "Colors",
       "default_color": {
         "label": "Default Color"
@@ -987,6 +983,9 @@
         },
         "menu": {
           "label": "Menu"
+        },
+        "mobile_image": {
+          "label": "Image for mobile menu"
         }
       }
     },
