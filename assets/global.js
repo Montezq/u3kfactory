@@ -1283,35 +1283,3 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
-
-
-class AccordionItem extends HTMLElement {
-  constructor() {
-    super();
-
-    // Initially, the content is not visible
-    this.isOpen = false;
-
-    const button = this.querySelector('.accordion-toggle');
-    const content = this.querySelector('.accordion-content');
-
-    if (!button || !content) return;
-
-    // Hide content initially without animation
-    content.style.height = '0px';
-    content.style.overflow = 'hidden';
-    content.style.transition = 'height 0.3s ease-out';
-
-    button.addEventListener('click', () => {
-      this.isOpen = !this.isOpen; // Toggle the open state
-      
-      if (this.isOpen) {
-        content.style.height = content.scrollHeight + 'px';
-      } else {
-        content.style.height = '0px';
-      }
-    });
-  }
-}
-
-customElements.define('accordion-item', AccordionItem);
