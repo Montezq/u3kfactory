@@ -101,7 +101,7 @@
         {%- endif -%}
         <a href="{{ routes.root_url }}" class="block">
           {%- if settings.logo != blank -%}
-            <div class="w-36">
+            <div class="w-28 md:w-36">
               {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
               {{
                 settings.logo
