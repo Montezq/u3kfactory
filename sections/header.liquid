@@ -10,7 +10,7 @@
         </div>
       </div>
     </div>
-    <div class="header__personal-data flex flex-col justify-center item items-center">
+    <div class="header__personal-data hidden md:flex flex-col justify-center item items-center">
       <a
         href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
         class="header__personal-data-user flex flex-col justify-center item items-center mb-6"

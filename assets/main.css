@@ -1309,3 +1309,12 @@ input:focus-visible{
   --tw-content: '';
   content: var(--tw-content);
 }
+@media (min-width: 768px) {
+
+  .md\:flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
