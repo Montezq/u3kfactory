@@ -1100,7 +1100,10 @@ input:focus-visible{
 }
 
 .accordion-content.open-initially {
-  height: auto;
+  height: 300px;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
 }
 
 .placeholder\:tracking-wider::-webkit-input-placeholder {
