@@ -26,7 +26,13 @@
                   {{- link.title | escape -}}
                 </span>
               </div>
-              <div class="accordion-content overflow-hidden transition-all duration-300 ease-in-out h-0">
+              <div
+                class="
+                  accordion-content overflow-hidden transition-all duration-300 ease-in-out h-0 {% if forloop.first %}
+                    open-initially
+                  {% endif %}
+                "
+              >
                 <ul
                   id="HeaderMenu-MenuList-{{ forloop.index }}"
                   class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
