@@ -895,6 +895,11 @@ video {
      -moz-column-gap: 1.5rem;
           column-gap: 1.5rem;
 }
+.gap-x-\[22px\] {
+  -webkit-column-gap: 22px;
+     -moz-column-gap: 22px;
+          column-gap: 22px;
+}
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
