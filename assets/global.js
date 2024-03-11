@@ -1308,34 +1308,41 @@ class AccordionList extends HTMLElement {
 class AccordionItem extends HTMLElement {
   constructor() {
     super();
-    this.isOpen = this.hasAttribute('data-open'); 
+
+    this.isOpen = this.hasAttribute('data-open');
     const button = this.querySelector('.accordion-toggle');
     const content = this.querySelector('.accordion-content');
 
-    if (!button || !content) return;
-
     content.style.overflow = 'hidden';
-    content.style.transition = 'height 0.3s ease-out';
+    content.style.transition = 'none'; // Disable transition initially
 
     if (this.isOpen) {
+      content.classList.add('open-initially'); // Apply initial open styling
       content.style.height = 'auto';
-      content.setAttribute('aria-expanded', 'true');
     } else {
-      content.style.height = '0px';
-      content.setAttribute('aria-expanded', 'false'); 
+      content.style.height = '0';
     }
 
+    // Re-enable transition after initial layout
+    window.requestAnimationFrame(() => {
+      content.style.transition = 'height 0.3s ease-out';
+    });
+
     button.addEventListener('click', () => {
-      if (!this.isOpen) {
+      // Allow toggle only if closing or if it's not already open
+      if (this.isOpen) {
+        this.isOpen = false;
+        content.style.height = '0';
+      } else {
         this.isOpen = true;
         content.style.height = content.scrollHeight + 'px';
-        content.setAttribute('aria-expanded', 'true');
-        this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
+        this.dispatchEvent(new CustomEvent('toggleItem', {bubbles: true, detail: this}));
       }
     });
   }
 
   toggle() {
+    // This method can be adjusted or expanded as needed.
     const content = this.querySelector('.accordion-content');
     if (this.isOpen) {
       content.style.height = content.scrollHeight + 'px';
@@ -1346,12 +1353,11 @@ class AccordionItem extends HTMLElement {
 
   close() {
     const content = this.querySelector('.accordion-content');
-    if (!this.isOpen) return; 
     this.isOpen = false;
-    content.style.height = '0px';
-    content.setAttribute('aria-expanded', 'false');
+    content.style.height = '0';
   }
 }
 
 customElements.define('accordion-list', AccordionList);
 customElements.define('accordion-item', AccordionItem);
+
