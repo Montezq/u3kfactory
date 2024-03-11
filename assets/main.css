@@ -887,6 +887,9 @@ video {
 .gap-2\.5 {
   gap: 0.625rem;
 }
+.gap-\[1\.1rem\] {
+  gap: 1.1rem;
+}
 .gap-x-\[20px\] {
   -webkit-column-gap: 20px;
      -moz-column-gap: 20px;
@@ -1406,6 +1409,14 @@ input:focus-visible{
 
   .md\:min-w-\[350px\] {
     min-width: 350px;
+  }
+
+  .md\:gap-2 {
+    gap: 0.5rem;
+  }
+
+  .md\:gap-2\.5 {
+    gap: 0.625rem;
   }
 
   .md\:space-y-3 > :not([hidden]) ~ :not([hidden]) {
