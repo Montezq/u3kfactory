@@ -7,7 +7,7 @@
 
 <nav>
   <accordion-list>
-    <ul role="list" class="space-y-3.5">
+    <ul role="list" class=" space-y-4 md:space-y-3.5">
       {%- for link in section.settings.menu.links -%}
         <li>
           {%- if link.links != blank -%}
@@ -42,7 +42,7 @@
                         <a
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                           href="{{ childlink.url }}"
-                          class="font-coutureBold text-[23px] text-gray-200 uppercase duration-300 ease-in-out tracking-widerx{% if childlink.current %} header__menu-item-active{% endif %}"
+                          class="font-coutureBold text-[32px] md:text-[23px] text-gray-200 uppercase duration-300 ease-in-out tracking-widerx{% if childlink.current %} header__menu-item-active{% endif %}"
                           style="{% if childlink.current %}color: {{settings.second_color}}{% endif %}"
                           {% if childlink.current %}
                             aria-current="page"
@@ -60,7 +60,7 @@
             <a
               id="HeaderMenu-{{ link.handle }}"
               href="{{ link.url }}"
-              class="header__menu-item {% if link.current %}open{% endif %}"
+              class="header__menu-item font-coutureBold text-[32px] md:text-[23px] text-gray-200 uppercase duration-300 ease-in-out tracking-widerx{% if link.current %} open{% endif %}"
               {% if link.current %}
                 aria-current="page"
               {% endif %}
