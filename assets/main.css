@@ -757,6 +757,9 @@ video {
 .h-screen {
   height: 100vh;
 }
+.h-8 {
+  height: 2rem;
+}
 .w-36 {
   width: 9rem;
 }
@@ -783,6 +786,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-8 {
+  width: 2rem;
 }
 .min-w-\[224px\] {
   min-width: 224px;
@@ -825,6 +831,11 @@ video {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.flex-wrap {
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
 .items-end {
   -webkit-box-align: end;
   -webkit-align-items: flex-end;
@@ -842,6 +853,9 @@ video {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.gap-\[5px\] {
+  gap: 5px;
 }
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;

@@ -9,10 +9,10 @@
   %}
 {% endcomment %}
 
-<ul class="list-unstyled list-social{% if class %} {{ class}}{% endif %}" role="list">
+<ul class="flex items-center justify-center flex-wrap gap-[5px]{% if class %} {{ class}}{% endif %}" role="list">
   {%- if settings.social_facebook_link != blank -%}
-    <li class="list-social__item">
-      <a href="{{ settings.social_facebook_link }}" class="link list-social__link">
+    <li class="w-8 h-8">
+      <a href="{{ settings.social_facebook_link }}" class="block">
         {%- render 'icon-facebook' -%}
         <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
       </a>
