@@ -1193,6 +1193,16 @@ input:focus-visible{
   top: 100%;
 }
 
+.after\:left-\[110\%\]::after {
+  content: var(--tw-content);
+  left: 110%;
+}
+
+.after\:top-1\/2::after {
+  content: var(--tw-content);
+  top: 50%;
+}
+
 .after\:block::after {
   content: var(--tw-content);
   display: block;
@@ -1206,6 +1216,11 @@ input:focus-visible{
 .after\:w-\[80\%\]::after {
   content: var(--tw-content);
   width: 80%;
+}
+
+.after\:w-full::after {
+  content: var(--tw-content);
+  width: 100%;
 }
 
 .after\:min-w-\[260px\]::after {
@@ -1231,4 +1246,15 @@ input:focus-visible{
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.after\:bg-black::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.after\:content-\[\'\'\]::after {
+  --tw-content: '';
+  content: var(--tw-content);
 }
