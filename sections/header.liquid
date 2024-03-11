@@ -4,9 +4,23 @@
       {%- render 'icon-hamburger' -%}
     </div>
     <div class="flex items-end gap-x-[22px]">
-      <svg class="icon icon-search" aria-hidden="true" focusable="false">
-        <use href="#icon-search">
-      </svg>
+      <div>
+        <div class="w-7">
+          {% render 'icon-search' %}
+        </div>
+        <form action="{{ routes.search_url }}">
+          <input
+            type="text"
+            placeholder="Search"
+            name="q"
+            value="{{ search.terms | escape }}"
+          >
+          <input type="hidden" name="type" value="product,page">
+          <input type="hidden" name="options[unavailable_products]" value="hide">
+          <input type="hidden" name="options[prefix]" value="last">
+          <input type="submit" value="Search">
+        </form>
+      </div>
       <a
         href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
       >
