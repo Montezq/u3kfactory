@@ -1286,7 +1286,6 @@ customElements.define('product-recommendations', ProductRecommendations);
 
 
 // Custom JS 
-
 class AccordionList extends HTMLElement {
   constructor() {
     super();
@@ -1297,11 +1296,20 @@ class AccordionList extends HTMLElement {
   }
 
   handleToggleItem(e) {
-    this.querySelectorAll('accordion-item').forEach((item) => {
-      if (e.detail !== item) {
+    const allItems = this.querySelectorAll('accordion-item');
+    let isAnyOtherItemOpen = false;
+
+    allItems.forEach((item) => {
+      if (e.detail !== item && item.isOpen) {
+        isAnyOtherItemOpen = true;
         item.close();
       }
     });
+
+    // If no other item is open, toggle the state of the clicked item.
+    if (!isAnyOtherItemOpen) {
+      e.detail.toggle();
+    }
   }
 }
 
@@ -1314,40 +1322,29 @@ class AccordionItem extends HTMLElement {
     const content = this.querySelector('.accordion-content');
 
     content.style.overflow = 'hidden';
-    content.style.transition = 'none'; // Disable transition initially
+    // Initially set height directly if open, or to 0 if not.
+    content.style.height = this.isOpen ? `${content.scrollHeight}px` : '0';
 
-    if (this.isOpen) {
-      content.classList.add('open-initially'); // Apply initial open styling
-      content.style.height = 'auto';
-    } else {
-      content.style.height = '0';
-    }
-
-    // Re-enable transition after initial layout
+    // Re-enable transitions after initial setup
     window.requestAnimationFrame(() => {
       content.style.transition = 'height 0.3s ease-out';
     });
 
     button.addEventListener('click', () => {
-      // Allow toggle only if closing or if it's not already open
-      if (this.isOpen) {
-        this.isOpen = false;
-        content.style.height = '0';
-      } else {
-        this.isOpen = true;
-        content.style.height = content.scrollHeight + 'px';
-        this.dispatchEvent(new CustomEvent('toggleItem', {bubbles: true, detail: this}));
-      }
+      // Dispatch event to accordion-list to handle opening/closing logic.
+      this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
     });
   }
 
   toggle() {
-    // This method can be adjusted or expanded as needed.
     const content = this.querySelector('.accordion-content');
-    if (this.isOpen) {
-      content.style.height = content.scrollHeight + 'px';
+    // Toggle only if the item is currently closed.
+    if (!this.isOpen) {
+      this.isOpen = true;
+      content.style.height = `${content.scrollHeight}px`;
     } else {
-      this.close();
+      this.isOpen = false;
+      content.style.height = '0';
     }
   }
 
@@ -1360,4 +1357,3 @@ class AccordionItem extends HTMLElement {
 
 customElements.define('accordion-list', AccordionList);
 customElements.define('accordion-item', AccordionItem);
-
