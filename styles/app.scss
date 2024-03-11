@@ -61,7 +61,21 @@ input{
   top: clamp(50px, 9.3vh, 9.3vh);
 }
 .header__menu{
-  padding-left: clamp(42px, 3.4vw, 3.4vw);
+  padding-left: 50px;
+  @screen md{
+    padding-left: clamp(42px, 3.4vw, 3.4vw);
+  }
+}
+.header__menu-content{
+  @media screen and (min-height: 1100px){
+    margin: 0;
+    padding-top: clamp(0px, 12vh, 12vh);
+  }
+}
+.header__menu-footer{
+  @media screen and (min-height: 1100px){
+    margin-top: auto;
+  }
 }
 .header__menu-logo{
   padding-bottom: clamp(50px, 8.17vh, 8.17vh);

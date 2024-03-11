@@ -1,6 +1,54 @@
-<header class="flex header h-screen fixed top-0 left-0 bottom-0 z-[2]">
+<header class="md:flex header w-full md:w-auto md:h-screen fixed top-0 left-0 bottom-0 right-0 z-[2]">
+  <div class="header__mobile px-[18px] py-4 bg-gray-10 flex items-center justify-between md:hidden">
+    <div class="header__mobile-hamburger w-12">
+      {%- render 'icon-hamburger' -%}
+    </div>
+    <div class="flex items-end gap-x-[20px]">
+      <div class="flex itmes-end">
+        <form action="{{ routes.search_url }}" class="hidden">
+          <input
+            type="text"
+            placeholder="Search"
+            name="q"
+            value="{{ search.terms | escape }}"
+          >
+          <input type="hidden" name="type" value="product,page">
+          <input type="hidden" name="options[unavailable_products]" value="hide">
+          <input type="hidden" name="options[prefix]" value="last">
+          <input type="submit" value="Search">
+        </form>
+        <div class="w-5">
+          {% render 'icon-search' %}
+        </div>
+      </div>
+      <a
+        href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+      >
+        <div class="w-7">
+          {%- render 'icon-account' -%}
+        </div>
+      </a>
+      <a
+        href="{{ routes.cart_url }}"
+        class="w-6 flex justify-center relative font-coutureBold text-xl"
+        id="cart-icon-bubble"
+      >
+        {%- render 'icon-cart' -%}
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-1">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- else -%}
+          <span class="absolute left-1/2 -translate-x-1/2 top-1"> 0 </span>
+        {%- endif -%}
+      </a>
+    </div>
+  </div>
   <div
-    class="header__personal relative w-[84px] flex items-center justify-center px-1"
+    class="header__personal relative w-[84px] hidden md:flex items-center justify-center px-1"
     style="background-color: {{ settings.default_color }}"
   >
     <div class="header__personal-menu absolute left-1/2 -translate-x-1/2">
@@ -10,7 +58,7 @@
         </div>
       </div>
     </div>
-    <div class="header__personal-data flex flex-col justify-center item items-center">
+    <div class="header__personal-data hidden md:flex flex-col justify-center item items-center">
       <a
         href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
         class="header__personal-data-user flex flex-col justify-center item items-center mb-6"
@@ -45,15 +93,15 @@
       </a>
     </div>
   </div>
-  <div class="header__menu flex flex-col w-[22%] min-w-[350px] h-full py-[50px]">
+  <div class="header__menu flex flex-col w-full md:w-[22%] md:min-w-[350px] h-full pb-6 pt-5 md:py-[50px] fixed md:relative top-0 left-0">
     <div class="header__menu-content my-auto flex flex-col overflow-auto">
-      <div class="header__menu-logo pl-2">
+      <div class="header__menu-logo md:pl-2">
         {%- if request.page_type == 'index' -%}
           <h1>
         {%- endif -%}
         <a href="{{ routes.root_url }}" class="block">
           {%- if settings.logo != blank -%}
-            <div class="w-36">
+            <div class="w-28 md:w-36">
               {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
               {{
                 settings.logo
@@ -67,13 +115,13 @@
           </h1>
         {%- endif -%}
       </div>
-      <div class="overflow-y-auto header__menu-wrapaper pl-2">
+      <div class="overflow-y-auto header__menu-wrapaper md:pl-2">
         {% render 'header-dropdown-menu' %}
       </div>
     </div>
-    <div class="header__menu-footer pt-3 pl-2">
+    <div class="header__menu-footer pt-3 md:pl-2">
       {% render 'social-icons' %}
-      <div class="mt-3 tracking-wide max-w-[212px]">
+      <div class="mt-3 tracking-wide max-w-[212px] hidden md:block">
         <small class="text-lg font-open">
           U3&copy; All rights reserved
           {{ 'now' | date: '%Y' }}
@@ -135,9 +183,18 @@
   "class": "section-header",
   "settings": [
     {
+      "type": "header",
+      "content": "t:sections.header.settings.logo_help.content"
+    },
+    {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
       "label": "t:sections.header.settings.menu.label"
     }
   ]
