@@ -1308,7 +1308,7 @@ class AccordionList extends HTMLElement {
 class AccordionItem extends HTMLElement {
   constructor() {
     super();
-    this.isOpen = this.hasAttribute('data-open'); 
+    this.isOpen = this.hasAttribute('data-open');
     const button = this.querySelector('.accordion-toggle');
     const content = this.querySelector('.accordion-content');
 
@@ -1317,22 +1317,38 @@ class AccordionItem extends HTMLElement {
     content.style.overflow = 'hidden';
     content.style.transition = 'height 0.3s ease-out';
 
+    // Initially, do not set height to auto here, we'll handle it in connectedCallback
     if (this.isOpen) {
-      content.style.height = 'auto';
       content.setAttribute('aria-expanded', 'true');
     } else {
       content.style.height = '0px';
-      content.setAttribute('aria-expanded', 'false'); 
+      content.setAttribute('aria-expanded', 'false');
     }
 
     button.addEventListener('click', () => {
       if (!this.isOpen) {
         this.isOpen = true;
+        // Ensure we set an explicit height for the transition to work smoothly
         content.style.height = content.scrollHeight + 'px';
         content.setAttribute('aria-expanded', 'true');
         this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
       }
     });
+  }
+
+  connectedCallback() {
+    if (this.isOpen) {
+      const content = this.querySelector('.accordion-content');
+      // Temporarily reset transition to avoid initial animation
+      content.style.transition = '';
+      requestAnimationFrame(() => {
+        content.style.height = `${content.scrollHeight}px`;
+        // Re-apply transition after height has been set
+        requestAnimationFrame(() => {
+          content.style.transition = 'height 0.3s ease-out';
+        });
+      });
+    }
   }
 
   toggle() {
