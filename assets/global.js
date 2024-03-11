@@ -1286,6 +1286,7 @@ customElements.define('product-recommendations', ProductRecommendations);
 
 
 // Custom JS 
+
 class AccordionList extends HTMLElement {
   constructor() {
     super();
@@ -1296,62 +1297,59 @@ class AccordionList extends HTMLElement {
   }
 
   handleToggleItem(e) {
-    const allItems = this.querySelectorAll('accordion-item');
-    let isAnyOtherItemOpen = false;
-
-    allItems.forEach((item) => {
-      if (e.detail !== item && item.isOpen) {
-        isAnyOtherItemOpen = true;
+    this.querySelectorAll('accordion-item').forEach((item) => {
+      if (e.detail !== item) {
         item.close();
       }
     });
-
-    // If no other item is open, toggle the state of the clicked item.
-    if (!isAnyOtherItemOpen) {
-      e.detail.toggle();
-    }
   }
 }
 
 class AccordionItem extends HTMLElement {
   constructor() {
     super();
-
-    this.isOpen = this.hasAttribute('data-open');
+    this.isOpen = this.hasAttribute('data-open'); 
     const button = this.querySelector('.accordion-toggle');
     const content = this.querySelector('.accordion-content');
 
-    content.style.overflow = 'hidden';
-    // Initially set height directly if open, or to 0 if not.
-    content.style.height = this.isOpen ? `${content.scrollHeight}px` : '0';
+    if (!button || !content) return;
 
-    // Re-enable transitions after initial setup
-    window.requestAnimationFrame(() => {
-      content.style.transition = 'height 0.3s ease-out';
-    });
+    content.style.overflow = 'hidden';
+    content.style.transition = 'height 0.3s ease-out';
+
+    if (this.isOpen) {
+      content.style.height = 'auto';
+      content.setAttribute('aria-expanded', 'true');
+    } else {
+      content.style.height = '0px';
+      content.setAttribute('aria-expanded', 'false'); 
+    }
 
     button.addEventListener('click', () => {
-      // Dispatch event to accordion-list to handle opening/closing logic.
-      this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
+      if (!this.isOpen) {
+        this.isOpen = true;
+        content.style.height = content.scrollHeight + 'px';
+        content.setAttribute('aria-expanded', 'true');
+        this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
+      }
     });
   }
 
   toggle() {
     const content = this.querySelector('.accordion-content');
-    // Toggle only if the item is currently closed.
-    if (!this.isOpen) {
-      this.isOpen = true;
-      content.style.height = `${content.scrollHeight}px`;
+    if (this.isOpen) {
+      content.style.height = content.scrollHeight + 'px';
     } else {
-      this.isOpen = false;
-      content.style.height = '0';
+      this.close();
     }
   }
 
   close() {
     const content = this.querySelector('.accordion-content');
+    if (!this.isOpen) return; 
     this.isOpen = false;
-    content.style.height = '0';
+    content.style.height = '0px';
+    content.setAttribute('aria-expanded', 'false');
   }
 }
 
