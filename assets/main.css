@@ -1119,8 +1119,20 @@ input:focus-visible{
   height: 0px;
   display: none;
 }
+.header__menu-item span:after{
+      -webkit-transition-property: width;
+      -o-transition-property: width;
+      transition-property: width;
+      -webkit-transition-duration: 0.3s;
+           -o-transition-duration: 0.3s;
+              transition-duration: 0.3s;
+      -webkit-transition-timing-function: ease-out;
+           -o-transition-timing-function: ease-out;
+              transition-timing-function: ease-out;
+    }
 .header__menu-item:hover span:after{
         left: -5%;
+        right: auto;
         width: 110%;
       }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
@@ -1178,6 +1190,10 @@ input:focus-visible{
   content: var(--tw-content);
   top: 100%;
 }
+.after\:right-0::after {
+  content: var(--tw-content);
+  right: 0px;
+}
 .after\:block::after {
   content: var(--tw-content);
   display: block;
@@ -1186,17 +1202,13 @@ input:focus-visible{
   content: var(--tw-content);
   height: 1px;
 }
-.after\:w-\[80\%\]::after {
-  content: var(--tw-content);
-  width: 80%;
-}
-.after\:w-full::after {
-  content: var(--tw-content);
-  width: 100%;
-}
 .after\:w-0::after {
   content: var(--tw-content);
   width: 0px;
+}
+.after\:w-\[80\%\]::after {
+  content: var(--tw-content);
+  width: 80%;
 }
 .after\:min-w-\[260px\]::after {
   content: var(--tw-content);
@@ -1223,18 +1235,6 @@ input:focus-visible{
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-.after\:duration-500::after {
-  content: var(--tw-content);
-  -webkit-transition-duration: 500ms;
-       -o-transition-duration: 500ms;
-          transition-duration: 500ms;
-}
-.after\:ease-in-out::after {
-  content: var(--tw-content);
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-       -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .after\:content-\[\'\'\]::after {
   --tw-content: '';
