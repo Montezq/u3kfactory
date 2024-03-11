@@ -1315,20 +1315,13 @@ class AccordionItem extends HTMLElement {
     if (!button || !content) return;
 
     content.style.overflow = 'hidden';
-    content.style.transition = 'height 0.3s ease-out';
-
-    // Initially, do not set height to auto here, we'll handle it in connectedCallback
-    if (this.isOpen) {
-      content.setAttribute('aria-expanded', 'true');
-    } else {
-      content.style.height = '0px';
-      content.setAttribute('aria-expanded', 'false');
-    }
+    // Initially, don't set any height or transition here for the open state
 
     button.addEventListener('click', () => {
+      // This ensures transitions are applied only after the initial setup
+      content.style.transition = 'height 0.3s ease-out';
       if (!this.isOpen) {
         this.isOpen = true;
-        // Ensure we set an explicit height for the transition to work smoothly
         content.style.height = content.scrollHeight + 'px';
         content.setAttribute('aria-expanded', 'true');
         this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
@@ -1337,18 +1330,19 @@ class AccordionItem extends HTMLElement {
   }
 
   connectedCallback() {
+    const content = this.querySelector('.accordion-content');
     if (this.isOpen) {
-      const content = this.querySelector('.accordion-content');
-      // Temporarily reset transition to avoid initial animation
-      content.style.transition = '';
+      // Set height immediately without transition for initially open items
       requestAnimationFrame(() => {
         content.style.height = `${content.scrollHeight}px`;
-        // Re-apply transition after height has been set
-        requestAnimationFrame(() => {
-          content.style.transition = 'height 0.3s ease-out';
-        });
       });
+    } else {
+      content.style.height = '0';
     }
+    // Ensure transitions are enabled after this initial setup for any future changes
+    requestAnimationFrame(() => {
+      content.style.transition = 'height 0.3s ease-out';
+    });
   }
 
   toggle() {
