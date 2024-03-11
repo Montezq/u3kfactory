@@ -1191,7 +1191,7 @@ input:focus-visible{
 @media screen and (min-height: 1100px){
 .header__menu-content{
     margin: 0;
-    padding-top: clamp(0, 25vh, 25vh);
+    padding-top: clamp(0px, 25vh, 25vh);
 }
   }
 .header__menu-logo{
