@@ -1308,19 +1308,30 @@ class AccordionList extends HTMLElement {
 class AccordionItem extends HTMLElement {
   constructor() {
     super();
-    this.isOpen = false;
+    this.isOpen = this.hasAttribute('data-open'); 
     const button = this.querySelector('.accordion-toggle');
     const content = this.querySelector('.accordion-content');
 
     if (!button || !content) return;
-    content.style.height = '0px';
+
     content.style.overflow = 'hidden';
     content.style.transition = 'height 0.3s ease-out';
 
+    if (this.isOpen) {
+      content.style.height = 'auto';
+      content.setAttribute('aria-expanded', 'true');
+    } else {
+      content.style.height = '0px';
+      content.setAttribute('aria-expanded', 'false'); 
+    }
+
     button.addEventListener('click', () => {
-      this.isOpen = !this.isOpen;
-      this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
-      this.toggle();
+      if (!this.isOpen) {
+        this.isOpen = true;
+        content.style.height = content.scrollHeight + 'px';
+        content.setAttribute('aria-expanded', 'true');
+        this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
+      }
     });
   }
 
@@ -1335,8 +1346,10 @@ class AccordionItem extends HTMLElement {
 
   close() {
     const content = this.querySelector('.accordion-content');
+    if (!this.isOpen) return; 
     this.isOpen = false;
     content.style.height = '0px';
+    content.setAttribute('aria-expanded', 'false');
   }
 }
 
