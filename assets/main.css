@@ -802,6 +802,9 @@ video {
 .w-12 {
   width: 3rem;
 }
+.w-9 {
+  width: 2.25rem;
+}
 .min-w-\[224px\] {
   min-width: 224px;
 }
@@ -880,6 +883,11 @@ video {
 }
 .gap-2\.5 {
   gap: 0.625rem;
+}
+.gap-x-6 {
+  -webkit-column-gap: 1.5rem;
+     -moz-column-gap: 1.5rem;
+          column-gap: 1.5rem;
 }
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
