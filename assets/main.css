@@ -1025,6 +1025,9 @@ video {
 .font-open {
   font-family: "Open Sans", sans-serif;
 }
+.font-helveticaCond {
+  font-family: "Helvetica Cond", sans-serif;
+}
 .text-\[136px\] {
   font-size: 136px;
 }
