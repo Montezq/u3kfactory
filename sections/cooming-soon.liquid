@@ -39,7 +39,7 @@
       </div>
     {%- endif -%}
     <div class="mt-[208px] max-w-[600px] w-full mx-auto">
-      {% form 'customer', class: 'newsletter-form', id: 'newsletter-form', novalidate %}
+      {% form 'customer', class: 'newsletter-form', id: 'newsletter-form', novalidate: 'novalidate' %}
         <input type="hidden" name="contact[tags]" value="newsletter">
         <div class="newsletter-form__field-wrapper">
           <div class="flex items-end">
