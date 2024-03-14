@@ -78,7 +78,7 @@
 
             <button
               type="button"
-              class="submit-button bg-black font-axis text-xl py-[5px] px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[224px] {%- if form.posted_successfully? -%} pointer-events-none{%- endif -%}"
+              class="submit-button bg-black font-axis text-xl py-[5px] px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
               name="commit"
               id="submitNewsletter"
               aria-label="{{ 'newsletter.keep_updated' | t }}"
