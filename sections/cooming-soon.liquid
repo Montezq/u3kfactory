@@ -39,8 +39,8 @@
       </div>
     {%- endif -%}
     <div class="mt-[208px] max-w-[600px] w-full mx-auto">
-      {% form 'customer', class: 'newsletter-form', id: 'newsletter-form', novalidate: 'novalidate' %}
-        <input type="hidden" name="contact[tags]" value="newsletter">
+      {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter, cooming-soon">
         <div class="newsletter-form__field-wrapper">
           <div class="flex items-end">
             <div class="relative flex-1 mr-5">
@@ -60,7 +60,6 @@
                   aria-describedby="Newsletter-success--{{ section.id }}"
                 {% endif %}
                 placeholder="{{ 'newsletter.label' | t }}"
-                required
               >
               <div
                 class="tooltip absolute top-full -left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-2 pr-[6px] pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
