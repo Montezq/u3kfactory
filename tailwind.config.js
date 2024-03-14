@@ -8,17 +8,34 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      helvetica: ['"Helvetica Thin"', "sans-serif"],
+      helveticaCond: ['"Helvetica Cond"', "sans-serif"],
       helveticaThinCond: ['"Helvetica ThinCond"', "sans-serif"],
-      helveticaThinCondObl: ['"Helvetica ThinCondObl"', "sans-serif"],
-      helveticaThinItalic: ['"Helvetica ThinItalic"', "sans-serif"],
-      helveticaThinExtObl: ['"Helvetica ThinExtObl"', "sans-serif"],
-      helveticaThinExt: ['"Helvetica ThinExt"', "sans-serif"],
       coutureBoldIt: ['"Couture BoldItalic"', "sans-serif"],
       coutureBold: ['"Couture Bold"', "sans-serif"],
       open: ['"Open Sans"', "sans-serif"],
       axis: ['"AXIS Extra"', "sans-serif"]
     },
+    colors:{
+      transparent: 'transparent',
+      current: 'currentColor',
+      white: '#ffffff',
+      black: '#000000',
+      gray:{
+        10: '#fafafa',
+        200: '#5f5f5f'
+      }
+    },
+    letterSpacing: {
+      tightest: '-.08em',
+      tighter: '-.05em',
+      tight: '-.025em',
+      normal: '0',
+      wide: '.02em',
+      wider: '.04em',
+      widerx: '.06em',
+      widest: '.08em',
+      xlwidest: '.34em',
+    }
   },
   plugins: [],
 }

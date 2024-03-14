@@ -60,6 +60,8 @@
   "newsletter": {
     "label": "Email",
     "success": "Thanks for subscribing",
+    "keep_updated": "Keep me updated",
+    "noted": "Noted!",
     "button_label": "Subscribe"
   },
   "accessibility": {
@@ -412,6 +414,7 @@
     },
     "log_in": "Log in",
     "log_out": "Log out",
+    "guest": "Guest",
     "login_page": {
       "cancel": "Cancel",
       "create_account": "Create account",

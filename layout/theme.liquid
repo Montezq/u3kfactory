@@ -33,69 +33,26 @@
 
     {{ content_for_header }}
     {% style %}
+
       @font-face {
           font-family: 'Helvetica ThinCond';
-          src: url("{{ 'HelveticaNeue-ThinCond.woff2' | asset_url }}") format('woff2');
-          src: url("{{ 'HelveticaNeue-ThinCond.eot#iefix' | asset_url }}") format('embedded-opentype'),
-              url("{{ 'HelveticaNeue-ThinCond.woff2' | asset_url }}") format('woff2'),
-              url("{{ 'HelveticaNeue-ThinCond.woff' | asset_url }}") format('woff'),
-              url("{{ 'HelveticaNeue-ThinCond.ttf' | asset_url }}") format('truetype'),
-              url("{{ 'HelveticaNeue-ThinCond.svg#HelveticaNeue-ThinCond' | asset_url }}") format('svg');
+          src: url("{{ 'HelveticaNeueLTStd-ThCn.woff2' | asset_url }}") format('woff2');
+          src: url("{{ 'HelveticaNeueLTStd-ThCn.eot#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'HelveticaNeueLTStd-ThCn.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'HelveticaNeueLTStd-ThCn.woff' | asset_url }}") format('woff'),
+              url("{{ 'HelveticaNeueLTStd-ThCn.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'HelveticaNeueLTStd-ThCn.svg#HelveticaNeueLTStd-ThCn' | asset_url }}") format('svg');
           font-display: swap;
       }
 
       @font-face {
-          font-family: 'Helvetica ThinCondObl';
-          src: url("{{ 'HelveticaNeue-ThinCondObl.woff2' | asset_url }}") format('woff2');
-          src: url("{{ 'HelveticaNeue-ThinCondObl.?#iefix' | asset_url }}") format('embedded-opentype'),
-              url("{{ 'HelveticaNeue-ThinCondObl.woff2' | asset_url }}") format('woff2'),
-              url("{{ 'HelveticaNeue-ThinCondObl.woff' | asset_url }}") format('woff'),
-              url("{{ 'HelveticaNeue-ThinCondObl.ttf' | asset_url }}") format('truetype'),
-              url("{{ 'HelveticaNeue-ThinCondObl.svg#HelveticaNeue-ThinCondObl' | asset_url }}") format('svg');
-          font-display: swap;
-      }
-
-      @font-face {
-          font-family: 'Helvetica ThinItalic';
-          src: url("{{ 'HelveticaNeue-ThinItalic.woff2' | asset_url }}") format('woff2');
-          src: url("{{ 'HelveticaNeue-ThinItalic.?#iefix' | asset_url }}") format('embedded-opentype'),
-              url("{{ 'HelveticaNeue-ThinItalic.woff2' | asset_url }}") format('woff2'),
-              url("{{ 'HelveticaNeue-ThinItalic.woff' | asset_url }}") format('woff'),
-              url("{{ 'HelveticaNeue-ThinItalic.ttf' | asset_url }}") format('truetype'),
-              url("{{ 'HelveticaNeue-ThinItalic.svg#HelveticaNeue-ThinItalic' | asset_url }}") format('svg');
-          font-display: swap;
-      }
-
-      @font-face {
-          font-family: 'Helvetica ThinExtObl';
-          src: url("{{ 'HelveticaNeue-ThinExtObl.woff2' | asset_url }}") format('woff2');
-          src: url("{{ 'HelveticaNeue-ThinExtObl.?#iefix' | asset_url }}") format('embedded-opentype'),
-              url("{{ 'HelveticaNeue-ThinExtObl.woff2' | asset_url }}") format('woff2'),
-              url("{{ 'HelveticaNeue-ThinExtObl.woff' | asset_url }}") format('woff'),
-              url("{{ 'HelveticaNeue-ThinExtObl.ttf' | asset_url }}") format('truetype'),
-              url("{{ 'HelveticaNeue-ThinExtObl.svg#HelveticaNeue-ThinExtObl' | asset_url }}") format('svg');
-          font-display: swap;
-      }
-
-      @font-face {
-          font-family: 'Helvetica Thin';
-          src: url("{{ 'HelveticaNeue-Thin.woff2' | asset_url }}") format('woff2');
-          src: url("{{ 'HelveticaNeue-Thin.?#iefix' | asset_url }}") format('embedded-opentype'),
-              url("{{ 'HelveticaNeue-Thin.woff2' | asset_url }}") format('woff2'),
-              url("{{ 'HelveticaNeue-Thin.woff' | asset_url }}") format('woff'),
-              url("{{ 'HelveticaNeue-Thin.ttf' | asset_url }}") format('truetype'),
-              url("{{ 'HelveticaNeue-Thin.svg#HelveticaNeue-Thin' | asset_url }}") format('svg');
-          font-display: swap;
-      }
-
-      @font-face {
-          font-family: 'Helvetica ThinExt';
-          src: url("{{ 'HelveticaNeue-ThinExt.woff2' | asset_url }}") format('woff2');
-          src: url("{{ 'HelveticaNeue-ThinExt.?#iefix' | asset_url }}") format('embedded-opentype'),
-              url("{{ 'HelveticaNeue-ThinExt.woff2' | asset_url }}") format('woff2'),
-              url("{{ 'HelveticaNeue-ThinExt.woff' | asset_url }}") format('woff'),
-              url("{{ 'HelveticaNeue-ThinExt.ttf' | asset_url }}") format('truetype'),
-              url("{{ 'HelveticaNeue-ThinExt.svg#HelveticaNeue-ThinExt' | asset_url }}") format('svg');
+          font-family: 'Helvetica Cond';
+          src: url("{{ 'HelveticaNeueLTStd-Cn.woff2' | asset_url }}") format('woff2');
+          src: url("{{ 'HelveticaNeueLTStd-Cn.?#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'HelveticaNeueLTStd-Cn.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'HelveticaNeueLTStd-Cn.woff' | asset_url }}") format('woff'),
+              url("{{ 'HelveticaNeueLTStd-Cn.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'HelveticaNeueLTStd-Cn.svg#HelveticaNeueLTStd-Cn' | asset_url }}") format('svg');
           font-display: swap;
       }
 
@@ -191,10 +148,6 @@
   </head>
 
   <body class="pl-0 gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
-    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-      {{ 'accessibility.skip_to_text' | t }}
-    </a>
-
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}

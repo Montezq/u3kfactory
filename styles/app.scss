@@ -1,3 +1,130 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body,
+html{
+  @apply w-full;
+}
+img{
+  image-rendering: -moz-crisp-edges !important;
+  image-rendering: -o-crisp-edges !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+  -ms-interpolation-mode: nearest-neighbor !important;
+}
+.text-logo{
+  span:nth-child(2){
+    transform: scale(-1, 1);
+    margin-left: -0.13em;
+  }
+}
+button{
+  @apply leading-none;
+}
+
+input{
+  &:focus-visible{
+    outline: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  word-wrap: normal !important;
+}
+.tooltip{
+  &:after{
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid black;
+    border-left-width: 0;
+    border-bottom-width: 0;
+    position: absolute;
+    top: 0;
+    left: 130px;
+    transform: rotate(-45deg);
+    background-color: #fff;
+    margin-top: -7px;
+  }
+}
+.header__personal-menu{
+  top: clamp(50px, 9.3vh, 9.3vh);
+}
+.header__menu{
+  @screen md{
+    padding-left: clamp(42px, 3.4vw, 3.4vw);
+  }
+}
+.header__menu-content{
+  @media screen and (min-height: 1100px){
+    margin: 0;
+    padding-top: clamp(0px, 12vh, 12vh);
+  }
+}
+.header__menu-footer{
+  @media screen and (min-height: 1100px){
+    margin-top: auto;
+  }
+}
+.header__menu-logo{
+  padding-bottom: clamp(50px, 8.17vh, 8.17vh);
+}
+
+.header__menu-wrapaper{
+  &::-webkit-scrollbar {
+    @apply w-0;
+    @apply h-0;
+    @apply hidden;
+  }
+  
+  &::-webkit-scrollbar-track {
+    @apply w-0;
+    @apply h-0;
+    @apply hidden;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    @apply w-0;
+    @apply h-0;
+    @apply hidden;
+  }
+}
+.header__menu-item{
+  span{
+    &:after{
+      width: calc(100% + 16px);
+      transform: scaleX(0);  
+      transition: transform 250ms ease-in-out;
+      transform-origin:100% 50%;
+    }
+  }
+  &:hover{
+    span{
+      &:after{
+        transform: scaleX(1);
+        transform-origin:0 50%;
+      }
+    }
+  }
+}
+accordion-item.open,
+.header__menu-item.open{
+  .header__menu-item{
+    span{
+      &:after{
+        transform: scaleX(1);
+        transform-origin:0 50%;
+      }
+    }
+  }
+}

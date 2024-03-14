@@ -1,12 +1,15 @@
 {
   "current": {
-    "social_facebook_link": "",
-    "social_instagram_link": "",
-    "social_youtube_link": "",
+    "logo": "shopify:\/\/shop_images\/FULL_ICON_SET_WEBSITE_FINAL_LOGO_3.svg",
+    "default_color": "#de6961",
+    "second_color": "#bd5851",
+    "social_facebook_link": "#",
+    "social_instagram_link": "#",
+    "social_youtube_link": "#",
     "social_tiktok_link": "",
-    "social_twitter_link": "",
+    "social_twitter_link": "#",
     "social_snapchat_link": "",
-    "social_pinterest_link": "",
+    "social_pinterest_link": "#",
     "social_tumblr_link": "",
     "social_vimeo_link": "",
     "predictive_search_enabled": true,
@@ -16,10 +19,15 @@
     "cart_type": "notification",
     "show_vendor": false,
     "show_cart_note": false,
-    "cart_drawer_collection": ""
+    "cart_drawer_collection": "",
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Default": {
+      "default_color": "#de6961",
+      "second_color": "#bd5851",
       "social_twitter_link": "",
       "social_facebook_link": "",
       "social_pinterest_link": "",

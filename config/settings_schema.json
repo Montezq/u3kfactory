@@ -24,6 +24,21 @@
     ]
   },
   {
+    "name": "t:settings_schema.colors.name",
+    "settings": [
+      {
+        "type": "color",
+        "id": "default_color",
+        "label": "t:settings_schema.colors.default_color.label"
+      },
+      {
+        "type": "color",
+        "id": "second_color",
+        "label": "t:settings_schema.colors.second_color.label"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.animations.name",
     "settings": [
       {
