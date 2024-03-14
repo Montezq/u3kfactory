@@ -61,7 +61,6 @@ input{
   top: clamp(50px, 9.3vh, 9.3vh);
 }
 .header__menu{
-  padding-left: 50px;
   @screen md{
     padding-left: clamp(42px, 3.4vw, 3.4vw);
   }
