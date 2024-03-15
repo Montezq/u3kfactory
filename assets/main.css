@@ -1188,6 +1188,7 @@ video {
 body,
 html {
   width: 100%;
+  font-family: "Open Sans", sans-serif;
 }
 img{
   image-rendering: -moz-crisp-edges !important;
@@ -1431,10 +1432,6 @@ input:focus-visible{
     position: relative;
   }
 
-  .md\:z-\[3\] {
-    z-index: 3;
-  }
-
   .md\:my-auto {
     margin-top: auto;
     margin-bottom: auto;
@@ -1467,22 +1464,18 @@ input:focus-visible{
     width: 22vw;
   }
 
-  .md\:w-auto {
-    width: auto;
-  }
-
   .md\:w-fit {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
   }
 
-  .md\:min-w-\[350px\] {
-    min-width: 350px;
-  }
-
   .md\:min-w-40 {
     min-width: 10rem;
+  }
+
+  .md\:min-w-\[350px\] {
+    min-width: 350px;
   }
 
   .md\:translate-x-0 {
@@ -1540,12 +1533,12 @@ input:focus-visible{
     padding-left: 0;
   }
 
-  .md\:pt-0 {
-    padding-top: 0px;
-  }
-
   .md\:pr-0 {
     padding-right: 0px;
+  }
+
+  .md\:pt-0 {
+    padding-top: 0px;
   }
 
   .md\:text-\[23px\] {
