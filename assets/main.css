@@ -1555,6 +1555,10 @@ input:focus-visible{
   .max-md\:pb-4 {
     padding-bottom: 1rem;
   }
+
+  .max-md\:pt-9 {
+    padding-top: 2.25rem;
+  }
 }
 @media (min-width: 768px) {
 
