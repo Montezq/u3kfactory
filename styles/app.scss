@@ -77,7 +77,10 @@ input{
   }
 }
 .header__menu-logo{
-  padding-bottom: clamp(50px, 8.17vh, 8.17vh);
+  @apply pb-10;
+  @screen md{
+    padding-bottom: clamp(50px, 8.17vh, 8.17vh);
+  }
 }
 
 .header__menu-wrapaper{
@@ -126,5 +129,13 @@ accordion-item.open,
         transform-origin:0 50%;
       }
     }
+  }
+}
+.menu-open{
+  @apply bg-white;
+}
+.main{
+  @media screen and (max-width: 767px) {
+    @apply !pl-0;
   }
 }

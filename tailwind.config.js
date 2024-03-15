@@ -3,7 +3,8 @@ module.exports = {
   content: [
     "./layout/*.liquid",
     "./sections/*.liquid",
-    "./snippets/*.liquid"
+    "./snippets/*.liquid",
+    "./assets/global.js"
   ],
   theme: {
     extend: {},
@@ -22,7 +23,8 @@ module.exports = {
       black: '#000000',
       gray:{
         10: '#fafafa',
-        200: '#5f5f5f'
+        200: '#5f5f5f',
+        800: '#212121'
       }
     },
     letterSpacing: {

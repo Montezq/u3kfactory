@@ -1,4 +1,19 @@
-<header class="md:flex header w-full md:w-auto md:h-screen fixed top-0 left-0 bottom-0 right-0 z-[2]">
+{%- liquid
+  assign menu_open = false
+  for link in section.settings.menu.links
+    if link.links != blank
+      for childlink in link.links
+        if childlink.current
+          assign menu_open = true
+        endif
+      endfor
+    endif
+    if link.current
+      assign menu_open = true
+    endif
+  endfor
+-%}
+<header class="md:flex header md:w-fit md:h-screen fixed top-0 left-0 bottom-0 right-0 z-[2]{% if menu_open %} menu-open{% endif %}">
   <div class="header__mobile px-[18px] py-4 bg-gray-10 flex items-center justify-between md:hidden">
     <div class="header__mobile-hamburger w-12">
       {%- render 'icon-hamburger' -%}
@@ -51,13 +66,37 @@
     class="header__personal relative w-[84px] hidden md:flex items-center justify-center px-1"
     style="background-color: {{ settings.default_color }}"
   >
-    <div class="header__personal-menu absolute left-1/2 -translate-x-1/2">
-      <div class="header__personal-menu-icon cursor-pointer">
-        <div class="header__personal-menu-icon-closed w-[46px]">
-          {%- render 'icon-hamburger' -%}
+    {%- if section.settings.personal_menu != blank -%}
+      <div class="header__personal-menu absolute left-1/2 -translate-x-1/2">
+        <div class="header__personal-menu-icon cursor-pointer">
+          <div class="header__personal-menu-icon-closed w-[46px]">
+            {%- render 'icon-hamburger' -%}
+          </div>
+        </div>
+        <div
+          class="header__personal-menu-wrapper absolute top-0 left-0 p-5"
+          style="background-color:{{ settings.default_color }}"
+        >
+          <nav>
+            <ul>
+              {%- for link in section.settings.personal_menu.links -%}
+                <li>
+                  <a
+                    id="PersonalMenu-{{ link.handle }}"
+                    href="{{ link.url  }}"
+                    {% if link.current %}
+                      aria-current="page"
+                    {% endif %}
+                  >
+                    {{- link.title | escape -}}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </nav>
         </div>
       </div>
-    </div>
+    {%- endif -%}
     <div class="header__personal-data hidden md:flex flex-col justify-center item items-center">
       <a
         href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -93,7 +132,7 @@
       </a>
     </div>
   </div>
-  <div class="header__menu flex flex-col w-full md:w-[22%] md:min-w-[350px] h-full pb-6 pt-5 md:py-[50px] fixed md:relative top-0 left-0">
+  <div class="header__menu flex flex-col w-full md:w-[22vw] md:min-w-[350px] h-full pb-6 pt-4 md:py-[50px] fixed md:relative top-0 left-0 -translate-x-full md:translate-x-0 duration-300 md:duration-0 ease-in-out">
     {%- if section.settings.mobile_image != blank -%}
       {%- liquid
         assign image_height = section.settings.mobile_image.width | divided_by: section.settings.mobile_image.aspect_ratio
@@ -111,8 +150,15 @@
           widths: widths
       }}
     {%- endif -%}
-    <div class="flex items-center justify-between md:hidden px-5 relative z-[1]"></div>
-    <div class="header__menu-content pl-[50px] md:pl-[0] my-auto flex flex-col overflow-auto relative z-[1]">
+    <div class="flex items-center justify-between md:hidden pl-3 pr-5 relative z-[1]">
+      <div class="header__menu-personal-icon w-4">
+        {%- render 'icon-caret' -%}
+      </div>
+      <div class="header__menu-close w-5">
+        {%- render 'icon-close-small' -%}
+      </div>
+    </div>
+    <div class="header__menu-content pl-[45px] md:pl-[0] pr-5 md:pr-0 mt-20 md:my-auto flex flex-col overflow-auto relative z-[1]">
       <div class="header__menu-logo md:pl-2">
         {%- if request.page_type == 'index' -%}
           <h1>
@@ -137,7 +183,7 @@
         {% render 'header-dropdown-menu' %}
       </div>
     </div>
-    <div class="header__menu-footer pt-3 pl-[50px] md:pl-2 relative z-[1]">
+    <div class="header__menu-footer pt-3 pl-[50px] md:pl-2 relative z-[1] mt-auto">
       {% render 'social-icons' %}
       <div class="mt-3 tracking-wide max-w-[212px] hidden md:block">
         <small class="text-lg font-open">
@@ -209,6 +255,11 @@
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "link_list",
+      "id": "personal_menu",
+      "label": "t:sections.header.settings.personal_menu.label"
     },
     {
       "type": "image_picker",

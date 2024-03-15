@@ -1365,3 +1365,52 @@ class AccordionItem extends HTMLElement {
 
 customElements.define('accordion-list', AccordionList);
 customElements.define('accordion-item', AccordionItem);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  function adjustMainPadding() {
+    var mainElement = document.querySelector('.main');
+    var headerPersonal = document.querySelector('.header__personal');
+    var headerMenu = document.querySelector('.header__menu');
+  
+    var adjustPadding = () => {
+      var screenWidth = window.innerWidth;
+      if (screenWidth > 767) {
+        var headerPersonalWidth = headerPersonal?.offsetWidth || 0;
+        var headerMenuWidth = headerMenu?.offsetWidth || 0;
+        var totalPadding = headerPersonalWidth + headerMenuWidth;
+        mainElement.style.paddingLeft = `${totalPadding}px`;
+      } 
+    };
+    var timeoutId = null;
+    var throttledAdjustPadding = () => {
+      if (!timeoutId) {
+        timeoutId = setTimeout(() => {
+          adjustPadding();
+          timeoutId = null;
+        }, 100); 
+      }
+    };
+  
+    adjustPadding();
+    window.addEventListener('resize', throttledAdjustPadding);
+  }
+  adjustMainPadding();
+
+  const customClassName = '!translate-x-0',
+        body = document.querySelector('body'),
+        hamburger = document.querySelector('.header__mobile-hamburger'),
+        menu = document.querySelector('.header__menu'),
+        closeButton = document.querySelector('.header__menu-close');
+
+  if (hamburger && menu && closeButton) {
+    hamburger.addEventListener('click', () => {
+      menu.classList.add(customClassName);
+      body.classList.add('overflow-hidden');
+    });
+    closeButton.addEventListener('click', () => {
+      menu.classList.remove(customClassName);
+      body.classList.remove('overflow-hidden');
+    });
+  }
+});
