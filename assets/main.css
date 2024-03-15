@@ -817,6 +817,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-\[84vw\] {
+  width: 84vw;
+}
 .min-w-\[224px\] {
   min-width: 224px;
 }
@@ -1542,6 +1545,10 @@ input:focus-visible{
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+  }
+
+  .md\:w-\[84px\] {
+    width: 84px;
   }
 
   .md\:min-w-40 {
