@@ -22,7 +22,7 @@
                 class="header__menu-item accordion-toggle cursor-pointer"
               >
                 <span
-                  class="inline-block font-coutureBold tracking-widerx text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{%- if link.child_active %} header__active-menu-item{% endif %}"
+                  class="inline-block font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{%- if link.child_active %} header__active-menu-item{% endif %}"
                 >
                   {{- link.title | escape -}}
                 </span>
@@ -60,7 +60,7 @@
             <a
               id="HeaderMenu-{{ link.handle }}"
               href="{{ link.url }}"
-              class="header__menu-item font-coutureBold text-[32px] md:text-[23px] text-gray-200 uppercase duration-300 ease-in-out tracking-widerx{% if link.current %} open{% endif %}"
+              class="header__menu-item font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{% if link.current %} open{% endif %}"
               {% if link.current %}
                 aria-current="page"
               {% endif %}
