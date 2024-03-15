@@ -73,7 +73,10 @@
             {%- render 'icon-hamburger' -%}
           </div>
         </div>
-        <div class="header__personal-menu-wrapper">
+        <div
+          class="header__personal-menu-wrapper absolute top-0 left-0 p-5"
+          style="background-color:{{ settings.default_color }}"
+        >
           <nav>
             <ul>
               {%- for link in section.settings.personal_menu.links -%}
