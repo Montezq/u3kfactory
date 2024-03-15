@@ -1397,17 +1397,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   adjustMainPadding();
 
-  const customClassName = '!translate-x-0';
-  const hamburger = document.querySelector('.header__mobile-hamburger');
-  const menu = document.querySelector('.header__menu');
-  const closeButton = document.querySelector('.header__menu-close');
+  const customClassName = '!translate-x-0',
+        body = document.querySelector('body'),
+        hamburger = document.querySelector('.header__mobile-hamburger'),
+        menu = document.querySelector('.header__menu'),
+        closeButton = document.querySelector('.header__menu-close');
 
   if (hamburger && menu && closeButton) {
     hamburger.addEventListener('click', () => {
       menu.classList.add(customClassName);
+      body.classList.add('overflow-hidden');
     });
     closeButton.addEventListener('click', () => {
       menu.classList.remove(customClassName);
+      body.classList.remove('overflow-hidden');
     });
   }
 });
