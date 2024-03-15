@@ -1287,6 +1287,23 @@ customElements.define('product-recommendations', ProductRecommendations);
 
 // Custom JS 
 
+function adjustMainPadding() {
+  const adjustPadding = () => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth > 767) {
+      const headerPersonalWidth = document.querySelector('.header__personal')?.offsetWidth || 0;
+      const headerMenuWidth = document.querySelector('.header__menu')?.offsetWidth || 0;
+      const totalPadding = headerPersonalWidth + headerMenuWidth;
+      document.querySelector('.main').style.paddingLeft = `${totalPadding}px`;
+    }
+  };
+
+  adjustPadding();
+  window.addEventListener('resize', adjustPadding);
+}
+adjustMainPadding();
+
+
 class AccordionList extends HTMLElement {
   constructor() {
     super();
