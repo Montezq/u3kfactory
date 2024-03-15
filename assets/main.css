@@ -1509,6 +1509,10 @@ input:focus-visible{
 }
 @media not all and (min-width: 768px) {
 
+  .max-md\:h-full {
+    height: 100%;
+  }
+
   .max-md\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1525,8 +1529,20 @@ input:focus-visible{
     visibility: hidden;
   }
 
+  .md\:absolute {
+    position: absolute;
+  }
+
   .md\:relative {
     position: relative;
+  }
+
+  .md\:left-0 {
+    left: 0px;
+  }
+
+  .md\:top-0 {
+    top: 0px;
   }
 
   .md\:my-auto {
