@@ -1614,6 +1614,10 @@ input:focus-visible{
             transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
+  .md\:cursor-pointer {
+    cursor: pointer;
+  }
+
   .md\:items-center {
     -webkit-box-align: center;
     -webkit-align-items: center;
