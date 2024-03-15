@@ -984,6 +984,9 @@
         "menu": {
           "label": "Menu"
         },
+        "personal_menu": {
+          "label": "Personal Menu"
+        },
         "mobile_image": {
           "label": "Image for mobile menu"
         }
