@@ -66,13 +66,34 @@
     class="header__personal relative w-[84px] hidden md:flex items-center justify-center px-1"
     style="background-color: {{ settings.default_color }}"
   >
-    <div class="header__personal-menu absolute left-1/2 -translate-x-1/2">
-      <div class="header__personal-menu-icon cursor-pointer">
-        <div class="header__personal-menu-icon-closed w-[46px]">
-          {%- render 'icon-hamburger' -%}
+    {%- if section.settings.personal_menu != blank -%}
+      <div class="header__personal-menu absolute left-1/2 -translate-x-1/2">
+        <div class="header__personal-menu-icon cursor-pointer">
+          <div class="header__personal-menu-icon-closed w-[46px]">
+            {%- render 'icon-hamburger' -%}
+          </div>
+        </div>
+        <div class="header__personal-menu-wrapper">
+          <nav>
+            <ul>
+              {%- for link in section.settings.personal_menu.links -%}
+                <li>
+                  <a
+                    id="PersonalMenu-{{ link.handle }}"
+                    href="{{ link.url  }}"
+                    {% if link.current %}
+                      aria-current="page"
+                    {% endif %}
+                  >
+                    {{- link.title | escape -}}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </nav>
         </div>
       </div>
-    </div>
+    {%- endif -%}
     <div class="header__personal-data hidden md:flex flex-col justify-center item items-center">
       <a
         href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -128,10 +149,10 @@
     {%- endif -%}
     <div class="flex items-center justify-between md:hidden pl-3 pr-5 relative z-[1]">
       <div class="header__menu-personal-icon w-4">
-        {%- render 'icon-caret'-%}
+        {%- render 'icon-caret' -%}
       </div>
       <div class="header__menu-close w-5">
-        {%- render 'icon-close-small'-%}
+        {%- render 'icon-close-small' -%}
       </div>
     </div>
     <div class="header__menu-content pl-[45px] md:pl-[0] pr-5 md:pr-0 mt-20 md:my-auto flex flex-col overflow-auto relative z-[1]">
@@ -231,6 +252,11 @@
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "link_list",
+      "id": "personal_menu",
+      "label": "t:sections.header.settings.personal_menu.label"
     },
     {
       "type": "image_picker",
