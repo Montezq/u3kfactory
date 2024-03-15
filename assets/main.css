@@ -1394,6 +1394,10 @@ input:focus-visible{
     width: auto;
   }
 
+  .md\:w-\[22vw\] {
+    width: 22vw;
+  }
+
   .md\:min-w-\[350px\] {
     min-width: 350px;
   }
