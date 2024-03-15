@@ -1640,6 +1640,9 @@ input:focus-visible{
     content: var(--tw-content);
   }
 }
+.hover\:\[\&\+div\]\:block+div:hover {
+  display: block;
+}
 .\[\&\>a\]\:border-b-0>a {
   border-bottom-width: 0px;
 }
