@@ -33,7 +33,6 @@
 
     {{ content_for_header }}
     {% style %}
-
       @font-face {
           font-family: 'Helvetica ThinCond';
           src: url("{{ 'HelveticaNeueLTStd-ThCn.woff2' | asset_url }}") format('woff2');
@@ -154,7 +153,7 @@
 
     {% sections 'header-group' %}
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main id="MainContent" class="content-for-layout focus-none main" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
