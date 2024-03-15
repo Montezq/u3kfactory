@@ -1497,6 +1497,13 @@ input:focus-visible{
     height: 100%;
   }
 
+  .max-md\:flex-1 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 0%;
+        -ms-flex: 1 1 0%;
+            flex: 1 1 0%;
+  }
+
   .max-md\:flex-col {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1510,6 +1517,10 @@ input:focus-visible{
     -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
             justify-content: flex-end;
+  }
+
+  .max-md\:overflow-y-auto {
+    overflow-y: auto;
   }
 
   .max-md\:\!bg-white {
