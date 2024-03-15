@@ -1257,6 +1257,9 @@ input:focus-visible{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.main{
+  padding-left: clamp(350px, calc(22%+50px+84px), calc(22%+50px+84px));
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
