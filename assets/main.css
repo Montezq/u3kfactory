@@ -817,6 +817,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-\[82vw\] {
+  width: 82vw;
+}
 .min-w-\[224px\] {
   min-width: 224px;
 }
@@ -1532,6 +1535,10 @@ input:focus-visible{
 
   .max-md\:pt-\[18px\] {
     padding-top: 18px;
+  }
+
+  .max-md\:pr-2 {
+    padding-right: 0.5rem;
   }
 }
 @media (min-width: 768px) {
