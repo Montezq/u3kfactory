@@ -1253,6 +1253,10 @@ input:focus-visible{
              -o-transform-origin:0 50%;
                 transform-origin:0 50%;
       }
+.menu-open {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
