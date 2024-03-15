@@ -1288,20 +1288,35 @@ customElements.define('product-recommendations', ProductRecommendations);
 // Custom JS 
 
 function adjustMainPadding() {
-  const adjustPadding = () => {
-    const screenWidth = window.innerWidth;
+  var mainElement = document.querySelector('.main');
+  var headerPersonal = document.querySelector('.header__personal');
+  var headerMenu = document.querySelector('.header__menu');
+
+  var adjustPadding = () => {
+    var screenWidth = window.innerWidth;
     if (screenWidth > 767) {
-      const headerPersonalWidth = document.querySelector('.header__personal')?.offsetWidth || 0;
-      const headerMenuWidth = document.querySelector('.header__menu')?.offsetWidth || 0;
-      const totalPadding = headerPersonalWidth + headerMenuWidth;
-      document.querySelector('.main').style.paddingLeft = `${totalPadding}px`;
+      var headerPersonalWidth = headerPersonal?.offsetWidth || 0;
+      var headerMenuWidth = headerMenu?.offsetWidth || 0;
+      var totalPadding = headerPersonalWidth + headerMenuWidth;
+      mainElement.style.paddingLeft = `${totalPadding}px`;
+    } 
+  };
+  var timeoutId = null;
+  var throttledAdjustPadding = () => {
+    if (!timeoutId) {
+      timeoutId = setTimeout(() => {
+        adjustPadding();
+        timeoutId = null;
+      }, 100); 
     }
   };
 
   adjustPadding();
-  window.addEventListener('resize', adjustPadding);
+  window.addEventListener('resize', throttledAdjustPadding);
 }
+
 adjustMainPadding();
+
 
 
 class AccordionList extends HTMLElement {
