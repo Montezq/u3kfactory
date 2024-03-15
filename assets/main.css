@@ -1635,3 +1635,9 @@ input:focus-visible{
     content: var(--tw-content);
   }
 }
+.last\:\[\&\>a\]\:border-b-0>a:last-child {
+  border-bottom-width: 0px;
+}
+.last\:\[\&\>a\]\:pb-0>a:last-child {
+  padding-bottom: 0px;
+}

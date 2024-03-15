@@ -80,7 +80,7 @@
           <nav>
             <ul class="space-y-2.5">
               {%- for link in section.settings.personal_menu.links -%}
-                <li>
+                <li class="last:[&>a]:border-b-0 last:[&>a]:pb-0">
                   <a
                     id="PersonalMenu-{{ link.handle }}"
                     class="inline-block md:whitespace-nowrap leading-none pb-3 min-w-[72px] text-xl tracking-wide border-b border-b-black"
