@@ -81,10 +81,9 @@
             <ul class="space-y-[18px]">
               {%- for link in section.settings.personal_menu.links -%}
                 <li
-                  {% if forloop.first %}
-                    class="pt-12 md:pt-0"
+                  {% if forloop.last %}
+                    class="[&>a]:border-b-0 [&>a]:pb-0"
                   {% endif -%}
-                  class="last:[a]:border-b-0 last:[&>a]:pb-0"
                 >
                   <a
                     id="PersonalMenu-{{ link.handle }}"
