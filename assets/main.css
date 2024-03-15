@@ -820,6 +820,9 @@ video {
 .min-w-\[224px\] {
   min-width: 224px;
 }
+.min-w-\[72px\] {
+  min-width: 72px;
+}
 .max-w-\[212px\] {
   max-width: 212px;
 }
@@ -1052,6 +1055,9 @@ video {
 }
 .pt-4 {
   padding-top: 1rem;
+}
+.pb-3 {
+  padding-bottom: 0.75rem;
 }
 .text-center {
   text-align: center;
