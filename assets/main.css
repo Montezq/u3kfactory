@@ -1195,7 +1195,7 @@ body,
 html {
   width: 100%;
   font-family: "Open Sans", sans-serif;
-  letter-spacing: .02em;
+  letter-spacing: .04em;
 }
 img{
   image-rendering: -moz-crisp-edges !important;
