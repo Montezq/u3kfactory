@@ -108,7 +108,7 @@
       </a>
     </div>
   </div>
-  <div class="header__menu flex flex-col w-full md:w-[22vw] md:min-w-[350px] h-full pb-6 pt-5 md:py-[50px] fixed md:relative top-0 left-0">
+  <div class="header__menu flex flex-col w-full md:w-[22vw] md:min-w-[350px] h-full pb-6 pt-4 md:py-[50px] fixed md:relative top-0 left-0">
     {%- if section.settings.mobile_image != blank -%}
       {%- liquid
         assign image_height = section.settings.mobile_image.width | divided_by: section.settings.mobile_image.aspect_ratio
@@ -126,15 +126,15 @@
           widths: widths
       }}
     {%- endif -%}
-    <div class="flex items-center justify-between md:hidden px-5 relative z-[1]">
-      <div class="header__menu-personal-icon w-5">
+    <div class="flex items-center justify-between md:hidden pl-3 pr-5 relative z-[1]">
+      <div class="header__menu-personal-icon w-4">
         {%- render 'icon-caret'-%}
       </div>
       <div class="header__menu-close w-5">
         {%- render 'icon-close-small'-%}
       </div>
     </div>
-    <div class="header__menu-content pl-[50px] md:pl-[0] my-auto flex flex-col overflow-auto relative z-[1]">
+    <div class="header__menu-content pl-[45px] md:pl-[0] mt-20 md:my-auto flex flex-col overflow-auto relative z-[1]">
       <div class="header__menu-logo md:pl-2">
         {%- if request.page_type == 'index' -%}
           <h1>
