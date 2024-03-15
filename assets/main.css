@@ -1566,4 +1566,45 @@ input:focus-visible{
          -o-transition-duration: 0s;
             transition-duration: 0s;
   }
+
+  .md\:after\:absolute::after {
+    content: var(--tw-content);
+    position: absolute;
+  }
+
+  .md\:after\:left-0::after {
+    content: var(--tw-content);
+    left: 0px;
+  }
+
+  .md\:after\:top-0::after {
+    content: var(--tw-content);
+    top: 0px;
+  }
+
+  .md\:after\:block::after {
+    content: var(--tw-content);
+    display: block;
+  }
+
+  .md\:after\:h-12::after {
+    content: var(--tw-content);
+    height: 3rem;
+  }
+
+  .md\:after\:w-\[3px\]::after {
+    content: var(--tw-content);
+    width: 3px;
+  }
+
+  .md\:after\:bg-black::after {
+    content: var(--tw-content);
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  }
+
+  .md\:after\:content-\[\'\'\]::after {
+    --tw-content: '';
+    content: var(--tw-content);
+  }
 }
