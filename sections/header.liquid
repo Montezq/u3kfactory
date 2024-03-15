@@ -1,3 +1,18 @@
+{%- liquid
+  assign menu_open = false
+  for link in section.settings.menu.links
+    if link.links != blank
+      for childlink in link.links
+        if childlink.current
+          assign menu_open = true
+        endif
+      endfor
+    endif
+    if link.current
+      assign menu_open = true
+    endif
+  endfor
+-%}
 <header class="md:flex header w-full md:w-auto md:h-screen fixed top-0 left-0 bottom-0 right-0 z-[2]">
   <div class="header__mobile px-[18px] py-4 bg-gray-10 flex items-center justify-between md:hidden">
     <div class="header__mobile-hamburger w-12">
