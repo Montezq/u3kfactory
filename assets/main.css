@@ -1257,9 +1257,6 @@ input:focus-visible{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-.main{
-  padding-left: clamp(calc(350px + 84px), calc(22% + 50px + 84px), calc(22% + 50px + 84px));
-}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
@@ -1386,16 +1383,12 @@ input:focus-visible{
     width: 9rem;
   }
 
-  .md\:w-\[22\%\] {
-    width: 22%;
+  .md\:w-\[22vw\] {
+    width: 22vw;
   }
 
   .md\:w-auto {
     width: auto;
-  }
-
-  .md\:w-\[22vw\] {
-    width: 22vw;
   }
 
   .md\:min-w-\[350px\] {
