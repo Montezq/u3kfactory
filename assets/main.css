@@ -1461,6 +1461,12 @@ input:focus-visible{
   --tw-content: '';
   content: var(--tw-content);
 }
+.group:hover .group-hover\:visible {
+  visibility: visible;
+}
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
 @media (min-width: 768px) {
 
   .md\:relative {

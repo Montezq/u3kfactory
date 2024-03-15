@@ -67,14 +67,14 @@
     style="background-color: {{ settings.default_color }}"
   >
     {%- if section.settings.personal_menu != blank -%}
-      <div class="header__personal-menu absolute left-1/2 -translate-x-1/2">
+      <div class="header__personal-menu absolute left-1/2 -translate-x-1/2 group">
         <div class="header__personal-menu-icon cursor-pointer">
           <div class="header__personal-menu-icon-closed w-[46px]">
             {%- render 'icon-hamburger' -%}
           </div>
         </div>
         <div
-          class="header__personal-menu-wrapper absolute top-0 left-0 px-5 py-4 md:w-fit md:min-w-[164px] md:after:content-[''] md:after:block md:after:w-[3px] md:after:h-12 md:after:bg-black md:after:absolute md:after:top-0 md:after:left-0 transition-all duration-300 ease-in-out opacity-0 invisible"
+          class="header__personal-menu-wrapper absolute top-0 left-0 px-5 py-4 md:w-fit md:min-w-[164px] md:after:content-[''] md:after:block md:after:w-[3px] md:after:h-12 md:after:bg-black md:after:absolute md:after:top-0 md:after:left-0 transition-all duration-300 ease-in-out opacity-0 invisible group-hover:opacity-100 group-hover:visible"
           style="background-color:{{ settings.default_color }}"
         >
           <nav>
