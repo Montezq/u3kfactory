@@ -153,7 +153,12 @@
 
     {% sections 'header-group' %}
 
-    <main id="MainContent" class="content-for-layout focus-none main relative min-h-screen" role="main" tabindex="-1">
+    <main
+      id="MainContent"
+      class="content-for-layout focus-none main relative min-h-screen z-[1]"
+      role="main"
+      tabindex="-1"
+    >
       {{ content_for_layout }}
     </main>
 
