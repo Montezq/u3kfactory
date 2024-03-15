@@ -1555,6 +1555,10 @@ input:focus-visible{
     width: 84px;
   }
 
+  .md\:w-auto {
+    width: auto;
+  }
+
   .md\:min-w-40 {
     min-width: 10rem;
   }

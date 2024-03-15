@@ -67,7 +67,7 @@
     style="background-color: {{ settings.default_color }}"
   >
     {%- if section.settings.personal_menu != blank -%}
-      <div class="header__personal-menu absolute left-1/2 -translate-x-1/2 group">
+      <div class="header__personal-menu absolute w-full md:w-auto left-1/2 -translate-x-1/2 group">
         <div class="header__personal-menu-icon cursor-pointer hidden md:block">
           <div class="header__personal-menu-icon-closed w-[46px]">
             {%- render 'icon-hamburger' -%}
