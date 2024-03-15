@@ -1008,6 +1008,9 @@ video {
 .pb-2\.5 {
   padding-bottom: 0.625rem;
 }
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
 .pb-6 {
   padding-bottom: 1.5rem;
 }
@@ -1055,9 +1058,6 @@ video {
 }
 .pt-4 {
   padding-top: 1rem;
-}
-.pb-3 {
-  padding-bottom: 0.75rem;
 }
 .text-center {
   text-align: center;
@@ -1195,6 +1195,7 @@ body,
 html {
   width: 100%;
   font-family: "Open Sans", sans-serif;
+  letter-spacing: .02em;
 }
 img{
   image-rendering: -moz-crisp-edges !important;
