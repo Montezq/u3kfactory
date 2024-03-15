@@ -1468,6 +1468,12 @@ input:focus-visible{
     width: auto;
   }
 
+  .md\:w-fit {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
   .md\:min-w-\[350px\] {
     min-width: 350px;
   }

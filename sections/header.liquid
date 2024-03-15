@@ -13,7 +13,7 @@
     endif
   endfor
 -%}
-<header class="md:flex header md:w-auto md:h-screen fixed top-0 left-0 bottom-0 right-0 z-[2]{% if menu_open %} menu-open{% endif %}">
+<header class="md:flex header md:w-fit md:h-screen fixed top-0 left-0 bottom-0 right-0 z-[2]{% if menu_open %} menu-open{% endif %}">
   <div class="header__mobile px-[18px] py-4 bg-gray-10 flex items-center justify-between md:hidden">
     <div class="header__mobile-hamburger w-12">
       {%- render 'icon-hamburger' -%}
