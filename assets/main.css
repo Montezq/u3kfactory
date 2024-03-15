@@ -838,6 +838,9 @@ video {
 .max-w-none {
   max-width: none;
 }
+.max-w-60 {
+  max-width: 15rem;
+}
 .flex-1 {
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 0%;
