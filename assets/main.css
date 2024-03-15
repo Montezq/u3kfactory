@@ -980,6 +980,9 @@ video {
 .border-b {
   border-bottom-width: 1px;
 }
+.border-b-2 {
+  border-bottom-width: 2px;
+}
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -1672,6 +1675,10 @@ input:focus-visible{
 
   .md\:whitespace-nowrap {
     white-space: nowrap;
+  }
+
+  .md\:border-b {
+    border-bottom-width: 1px;
   }
 
   .md\:px-5 {
