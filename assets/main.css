@@ -1363,6 +1363,10 @@ input:focus-visible{
     position: relative;
   }
 
+  .md\:z-\[3\] {
+    z-index: 3;
+  }
+
   .md\:block {
     display: block;
   }
