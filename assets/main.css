@@ -1030,6 +1030,9 @@ video {
 .pt-4 {
   padding-top: 1rem;
 }
+.pb-12 {
+  padding-bottom: 3rem;
+}
 .text-center {
   text-align: center;
 }
@@ -1470,6 +1473,10 @@ input:focus-visible{
 
   .md\:pl-\[0\] {
     padding-left: 0;
+  }
+
+  .md\:pb-0 {
+    padding-bottom: 0px;
   }
 
   .md\:text-\[23px\] {

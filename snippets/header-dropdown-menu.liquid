@@ -9,7 +9,11 @@
   <accordion-list>
     <ul role="list" class="space-y-5 md:space-y-3.5">
       {%- for link in section.settings.menu.links -%}
-        <li>
+        <li
+          {% if forloop.first %}
+            class="pt-12 md:pt-0"
+          {% endif %}
+        >
           {%- if link.links != blank -%}
             <accordion-item
               class="{% if link.child_active %}open{% endif %}"
