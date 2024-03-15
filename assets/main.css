@@ -1148,6 +1148,10 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
 .font-semibold {
   font-weight: 600;
 }
@@ -1676,6 +1680,11 @@ input:focus-visible{
 
   .md\:text-\[29px\] {
     font-size: 29px;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 
   .md\:text-gray-200 {
