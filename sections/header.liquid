@@ -80,7 +80,12 @@
           <nav>
             <ul class="space-y-[18px]">
               {%- for link in section.settings.personal_menu.links -%}
-                <li class="last:[&>a]:border-b-0 last:[&>a]:pb-0">
+                <li
+                  {% if forloop.first %}
+                    class="pt-12 md:pt-0"
+                  {% endif -%}
+                  class="last:[a]:border-b-0 last:[&>a]:pb-0"
+                >
                   <a
                     id="PersonalMenu-{{ link.handle }}"
                     class="inline-block md:whitespace-nowrap leading-none pb-3 min-w-[72px] text-xl tracking-wide border-b border-b-black"
