@@ -915,6 +915,11 @@ video {
   margin-top: calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.625rem * var(--tw-space-y-reverse));
 }
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
 .overflow-auto {
   overflow: auto;
 }
@@ -1036,6 +1041,12 @@ video {
 }
 .pt-4 {
   padding-top: 1rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+.pb-2\.5 {
+  padding-bottom: 0.625rem;
 }
 .text-center {
   text-align: center;
@@ -1480,6 +1491,10 @@ input:focus-visible{
 
   .md\:pl-\[0\] {
     padding-left: 0;
+  }
+
+  .md\:pb-\[30px\] {
+    padding-bottom: 30px;
   }
 
   .md\:text-\[23px\] {
