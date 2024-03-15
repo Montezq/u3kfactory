@@ -1397,7 +1397,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   adjustMainPadding();
 
-  const customClassName = 'translate-x-0';
+  const customClassName = '!translate-x-0';
   const hamburger = document.querySelector('.header__mobile-hamburger');
   const menu = document.querySelector('.header__menu');
   const closeButton = document.querySelector('.header__menu-close');
