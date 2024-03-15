@@ -1515,6 +1515,10 @@ input:focus-visible{
     margin-bottom: calc(0.875rem * var(--tw-space-y-reverse));
   }
 
+  .md\:whitespace-nowrap {
+    white-space: nowrap;
+  }
+
   .md\:py-\[50px\] {
     padding-top: 50px;
     padding-bottom: 50px;
