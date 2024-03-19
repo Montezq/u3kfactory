@@ -1788,6 +1788,14 @@ input:focus-visible{
     padding-top: 0px;
   }
 
+  .md\:pr-\[27px\] {
+    padding-right: 27px;
+  }
+
+  .md\:pt-\[27px\] {
+    padding-top: 27px;
+  }
+
   .md\:text-\[23px\] {
     font-size: 23px;
   }
