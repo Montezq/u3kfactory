@@ -1401,7 +1401,10 @@ document.addEventListener('DOMContentLoaded', () => {
         body = document.querySelector('body'),
         hamburger = document.querySelector('.header__mobile-hamburger'),
         menu = document.querySelector('.header__menu'),
-        closeButton = document.querySelector('.header__menu-close');
+        closeButton = document.querySelector('.header__menu-close'),
+        personalMenu = document.querySelector('.header__personal'),
+        personalMenuBtnClose = document.querySelector('.header__personal-menu-icon-mobile'),
+        personalMenuBtnOpen = document.querySelector('.header__menu-personal-icon');
 
   if (hamburger && menu && closeButton) {
     hamburger.addEventListener('click', () => {
