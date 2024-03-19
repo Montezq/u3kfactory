@@ -1416,4 +1416,7 @@ document.addEventListener('DOMContentLoaded', () => {
       body.classList.remove('overflow-hidden');
     });
   }
+  if (personalMenu && personalMenuBtnClose && personalMenuBtnOpen){
+    
+  }
 });
