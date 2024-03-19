@@ -13,8 +13,8 @@
     endif
   endfor
 -%}
-<header class="md:flex max-md:h-fit header md:w-fit md:h-screen fixed top-0 left-0 bottom-0 right-0 z-[2]{% if menu_open %} menu-open{% endif %}">
-  <div class="header__mobile px-[18px] py-4 bg-gray-10 flex items-center justify-between md:hidden">
+<header class="lg:flex max-lg:h-fit header lg:w-fit lg:h-screen fixed top-0 left-0 bottom-0 right-0 z-[2]{% if menu_open %} menu-open{% endif %}">
+  <div class="header__mobile px-[18px] py-4 bg-gray-10 flex items-center justify-between lg:hidden">
     <div class="header__mobile-hamburger w-12">
       {%- render 'icon-hamburger' -%}
     </div>
@@ -63,37 +63,37 @@
     </div>
   </div>
   <div
-    class="header__personal max-md:!bg-white max-md:h-full fixed md:relative top-0 left-0 w-[82vw] md:w-[84px] md:flex md:items-center md:justify-center px-1 z-[1] max-md:-translate-x-full max-md:duration-300 max-md:ease-in-out"
+    class="header__personal max-lg:!bg-white max-lg:h-full fixed lg:relative top-0 left-0 w-[82vw] lg:w-[84px] lg:flex lg:items-center lg:justify-center px-1 z-[1] max-lg:-translate-x-full max-lg:duration-300 max-lg:ease-in-out"
     style="background-color: {{ settings.default_color }}"
   >
     {%- if section.settings.personal_menu != blank -%}
-      <div class="header__personal-menu relative max-md:flex max-md:flex-col max-md:pt-[18px] max-md:pr-2 max-md:pb-8 max-md:pl-11 md:absolute max-md:h-full w-full md:w-auto left-1/2 -translate-x-1/2 group">
-        <div class="header__personal-menu-icon md:cursor-pointer max-md:pb-4 max-md:flex max-md:justify-end">
-          <div class="header__personal-menu-icon-closed w-[46px] hidden md:block">
+      <div class="header__personal-menu relative max-lg:flex max-lg:flex-col max-lg:pt-[18px] max-lg:pr-2 max-lg:pb-8 max-lg:pl-11 lg:absolute max-lg:h-full w-full lg:w-auto left-1/2 -translate-x-1/2 group">
+        <div class="header__personal-menu-icon lg:cursor-pointer max-lg:pb-4 max-lg:flex max-lg:justify-end">
+          <div class="header__personal-menu-icon-closed w-[46px] hidden lg:block">
             {%- render 'icon-hamburger' -%}
           </div>
-          <div class="header__personal-menu-icon-mobile w-4 rotate-180 md:hidden">
+          <div class="header__personal-menu-icon-mobile w-4 rotate-180 lg:hidden">
             {%- render 'icon-caret' -%}
           </div>
         </div>
         <div
-          class="header__personal-menu-wrapper max-md:overflow-y-auto max-md:!bg-white md:absolute md:top-0 md:left-0 md:px-5 md:py-4 md:w-fit md:min-w-[164px] md:after:content-[''] md:after:block md:after:w-[3px] md:after:h-12 md:after:bg-black md:after:absolute md:after:top-0 md:after:left-0 transition-all duration-300 md:duration-200 translate-y-6 ease-in-out md:opacity-0 md:invisible md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-hover:visible"
+          class="header__personal-menu-wrapper max-lg:overflow-y-auto max-lg:!bg-white lg:absolute lg:top-0 lg:left-0 lg:px-5 lg:py-4 lg:w-fit lg:min-w-[164px] lg:after:content-[''] lg:after:block lg:after:w-[3px] lg:after:h-12 lg:after:bg-black lg:after:absolute lg:after:top-0 lg:after:left-0 transition-all duration-300 lg:duration-200 translate-y-6 ease-in-out lg:opacity-0 lg:invisible lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-hover:visible"
           style="background-color:{{ settings.default_color }}"
         >
           <nav>
-            <ul class="space-y-[26px] md:space-y-2.5">
+            <ul class="space-y-[26px] lg:space-y-2.5">
               {%- for link in section.settings.personal_menu.links -%}
                 <li
                   {% if forloop.last %}
-                    class="[&>a]:border-b-0 [&>a]:pb-0  max-md:pb-4"
+                    class="[&>a]:border-b-0 [&>a]:pb-0  max-lg:pb-4"
                   {% endif -%}
                   {% if forloop.first %}
-                    class="max-md:pt-9"
+                    class="max-lg:pt-9"
                   {% endif -%}
                 >
                   <a
                     id="PersonalMenu-{{ link.handle }}"
-                    class="inline-block md:whitespace-nowrap leading-none pb-6 md:pb-3 min-w-[166px] md:min-w-[72px] text-5xl md:text-xl tracking-wide border-b-2 md:border-b border-b-black"
+                    class="inline-block lg:whitespace-nowrap leading-none pb-6 lg:pb-3 min-w-[166px] lg:min-w-[72px] text-5xl lg:text-xl tracking-wide border-b-2 lg:border-b border-b-black"
                     href="{{ link.url  }}"
                     {% if link.current %}
                       aria-current="page"
@@ -106,7 +106,7 @@
             </ul>
           </nav>
         </div>
-        <div class="header__personal-menu-footer mt-auto md:hidden">
+        <div class="header__personal-menu-footer mt-auto lg:hidden">
           <div class="tracking-wide max-w-60 pt-4">
             <small class="text-xl font-open">
               U3&copy; All rights reserved
@@ -116,7 +116,7 @@
         </div>
       </div>
     {%- endif -%}
-    <div class="header__personal-data hidden md:flex flex-col justify-center item items-center">
+    <div class="header__personal-data hidden lg:flex flex-col justify-center item items-center">
       <a
         href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
         class="header__personal-data-user flex flex-col justify-center item items-center mb-6"
@@ -151,11 +151,11 @@
       </a>
     </div>
   </div>
-  <div class="header__menu flex flex-col w-full md:w-[22vw] md:min-w-[350px] h-full pb-6 pt-4 md:py-[50px] fixed md:relative top-0 left-0 -translate-x-full md:translate-x-0 duration-300 md:duration-0 ease-in-out">
+  <div class="header__menu flex flex-col w-full lg:w-[22vw] lg:min-w-[350px] h-full pb-6 pt-4 lg:py-[50px] fixed lg:relative top-0 left-0 -translate-x-full lg:translate-x-0 duration-300 lg:duration-0 ease-in-out">
     {%- if section.settings.mobile_image != blank -%}
       {%- liquid
         assign image_height = section.settings.mobile_image.width | divided_by: section.settings.mobile_image.aspect_ratio
-        assign image_class = 'absolute top-0 left-0 w-full h-full object-cover md:hidden'
+        assign image_class = 'absolute top-0 left-0 w-full h-full object-cover lg:hidden'
         assign widths = '450, 660, 900, 1320'
       -%}
       {{
@@ -169,7 +169,7 @@
           widths: widths
       }}
     {%- endif -%}
-    <div class="flex items-center justify-between md:hidden pl-3 pr-5 relative z-[1]">
+    <div class="flex items-center justify-between lg:hidden pl-3 pr-5 relative z-[1]">
       <div class="header__menu-personal-icon w-4">
         {%- render 'icon-caret' -%}
       </div>
@@ -177,14 +177,14 @@
         {%- render 'icon-close-small' -%}
       </div>
     </div>
-    <div class="header__menu-content pl-[45px] md:pl-[0] pr-5 md:pr-0 mt-20 md:my-auto flex flex-col overflow-auto relative z-[1]">
-      <div class="header__menu-logo md:pl-2">
+    <div class="header__menu-content pl-[45px] lg:pl-[0] pr-5 lg:pr-0 mt-20 lg:my-auto flex flex-col overflow-auto relative z-[1]">
+      <div class="header__menu-logo lg:pl-2">
         {%- if request.page_type == 'index' -%}
           <h1>
         {%- endif -%}
         <a href="{{ routes.root_url }}" class="block">
           {%- if settings.logo != blank -%}
-            <div class="w-28 md:w-36">
+            <div class="w-28 lg:w-36">
               {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
               {{
                 settings.logo
@@ -198,13 +198,13 @@
           </h1>
         {%- endif -%}
       </div>
-      <div class="overflow-y-auto header__menu-wrapaper md:pl-2">
+      <div class="overflow-y-auto header__menu-wrapaper lg:pl-2">
         {% render 'header-dropdown-menu' %}
       </div>
     </div>
-    <div class="header__menu-footer pt-3 pl-[50px] md:pl-2 relative z-[1] mt-auto">
+    <div class="header__menu-footer pt-3 pl-[50px] lg:pl-2 relative z-[1] mt-auto">
       {% render 'social-icons' %}
-      <div class="mt-3 tracking-wide max-w-[212px] hidden md:block">
+      <div class="mt-3 tracking-wide max-w-[212px] hidden lg:block">
         <small class="text-lg font-open">
           U3&copy; All rights reserved
           {{ 'now' | date: '%Y' }}

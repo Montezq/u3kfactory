@@ -1904,6 +1904,14 @@ input:focus-visible{
 }
 @media (min-width: 1024px) {
 
+  .lg\:pr-\[27px\] {
+    padding-right: 27px;
+  }
+
+  .lg\:pt-\[27px\] {
+    padding-top: 27px;
+  }
+
   .lg\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
