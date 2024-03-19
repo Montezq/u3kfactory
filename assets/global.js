@@ -1368,6 +1368,7 @@ customElements.define('accordion-item', AccordionItem);
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  const body = document.querySelector('body');
   function adjustMainPadding() {
     var mainElement = document.querySelector('.main');
     var headerPersonal = document.querySelector('.header__personal');
@@ -1380,6 +1381,7 @@ document.addEventListener('DOMContentLoaded', () => {
         var headerMenuWidth = headerMenu?.offsetWidth || 0;
         var totalPadding = headerPersonalWidth + headerMenuWidth;
         mainElement.style.paddingLeft = `${totalPadding}px`;
+        body.classList.remove('overflow-hidden')
       } 
     };
     var timeoutId = null;
@@ -1398,7 +1400,6 @@ document.addEventListener('DOMContentLoaded', () => {
   adjustMainPadding();
 
   const customClassName = '!translate-x-0',
-        body = document.querySelector('body'),
         hamburger = document.querySelector('.header__mobile-hamburger'),
         menu = document.querySelector('.header__menu'),
         closeButton = document.querySelector('.header__menu-close'),
