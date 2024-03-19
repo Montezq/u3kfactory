@@ -1380,7 +1380,7 @@ document.addEventListener('DOMContentLoaded', () => {
         var headerPersonalWidth = headerPersonal?.offsetWidth || 0;
         var headerMenuWidth = headerMenu?.offsetWidth || 0;
         var totalPadding = headerPersonalWidth + headerMenuWidth;
-        mainElement.style.paddingLeft = `${totalPadding}px`;
+        mainElement?.style?.paddingLeft = `${totalPadding}px`;
         body.classList.remove('overflow-hidden')
       } 
     };
