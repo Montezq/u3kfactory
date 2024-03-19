@@ -4,13 +4,13 @@
   Accepts:
   - card_collection: {Object} Collection Liquid object
   - wrapper_class: {String} Wrapper class for card (optional)
-  - title: {String} Custom collection title (optional)
+  - custom_title: {String} Custom collection title (optional)
   - placeholder_image: {String} Placeholder image when collection is empty (optional)
 
   Usage:
   {% render 'card-collection' %}
 {% endcomment %}
-
+{{ custom_title }}
 <div class="{% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% endif %}">
   {%- if card_collection.featured_image -%}
     <a
@@ -48,8 +48,8 @@
       </div>
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
         <h3 class="font-helveticaThinCond text-[74px] tracking-widest text-center text-white uppercase font-thin">
-          {%- if title != blank -%}
-            {{- title -}}
+          {%- if custom_title != blank -%}
+            {{- custom_title -}}
           {%- elsif card_collection.title != blank -%}
             {{- card_collection.title | escape -}}
           {%- else -%}
