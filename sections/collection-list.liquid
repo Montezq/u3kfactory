@@ -1,10 +1,10 @@
 <div>
   <div>
     {%- unless section.settings.title == blank -%}
-      <div>
+      <div class="md:hidden">
         <h2
           id="SectionHeading-{{ section.id }}"
-          class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="text-center font-coutureBold text-xl{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         >
           {{ section.settings.title }}
         </h2>
