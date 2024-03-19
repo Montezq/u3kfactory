@@ -1421,7 +1421,7 @@ document.addEventListener('DOMContentLoaded', () => {
       personalMenu.classList.add(customClassName);
       body.classList.add('overflow-hidden');
     });
-    personalMenuBtnOpen.addEventListener('click', () => {
+    personalMenuBtnClose.addEventListener('click', () => {
       personalMenu.classList.remove(customClassName);
       body.classList.remove('overflow-hidden');
     });
