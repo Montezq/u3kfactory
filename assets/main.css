@@ -1389,7 +1389,7 @@ input:focus-visible{
   }
   }
 .collection-list__card{
-  height: calc(100vh / 3 - 54px);
+  height: calc(100vh / 3 - 36px);
 }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
