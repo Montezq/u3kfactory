@@ -1376,7 +1376,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     var adjustPadding = () => {
       var screenWidth = window.innerWidth;
-      if (screenWidth > 767) {
+      if (screenWidth > 1024) { // 767
         var headerPersonalWidth = headerPersonal?.offsetWidth || 0;
         var headerMenuWidth = headerMenu?.offsetWidth || 0;
         var totalPadding = headerPersonalWidth + headerMenuWidth;
