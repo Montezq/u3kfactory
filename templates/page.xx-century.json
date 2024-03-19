@@ -14,31 +14,36 @@
         "featured_collection_VCtbQF": {
           "type": "featured_collection",
           "settings": {
-            "collection": "realismo-magico-prints"
+            "collection": "realismo-magico-prints",
+            "collection_title": ""
           }
         },
         "featured_collection_jgLr4k": {
           "type": "featured_collection",
           "settings": {
-            "collection": "revisited-pop-prints"
+            "collection": "revisited-pop-prints",
+            "collection_title": ""
           }
         },
         "featured_collection_3xkKH4": {
           "type": "featured_collection",
           "settings": {
-            "collection": "suprematism-prints"
+            "collection": "suprematism-prints",
+            "collection_title": ""
           }
         },
         "featured_collection_xwfWj6": {
           "type": "featured_collection",
           "settings": {
-            "collection": "studies-prints"
+            "collection": "studies-prints",
+            "collection_title": ""
           }
         },
         "featured_collection_qtyCjU": {
           "type": "featured_collection",
           "settings": {
-            "collection": "all-xx-century-prints"
+            "collection": "all-xx-century-prints",
+            "collection_title": ""
           }
         }
       },
@@ -50,7 +55,7 @@
         "featured_collection_qtyCjU"
       ],
       "settings": {
-        "title": "Collections"
+        "title": ""
       }
     }
   },
