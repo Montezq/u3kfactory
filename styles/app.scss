@@ -6,7 +6,8 @@ body,
 html{
   @apply w-full;
   @apply font-open;
-  @apply tracking-wider
+  @apply tracking-wider;
+  @apply max-md:bg-gray-10;
 }
 img{
   image-rendering: -moz-crisp-edges !important;
@@ -144,5 +145,8 @@ accordion-item.open,
   }
 }
 .collection-list__card{
-  height: calc(100vh / 3 - 36px);
+  height: calc(100vh / 3 - 46px);
+  @screen md{
+    height: calc(100vh / 3 - 36px);
+  }
 }

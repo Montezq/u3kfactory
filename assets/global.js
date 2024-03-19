@@ -1368,6 +1368,7 @@ customElements.define('accordion-item', AccordionItem);
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  const body = document.querySelector('body');
   function adjustMainPadding() {
     var mainElement = document.querySelector('.main');
     var headerPersonal = document.querySelector('.header__personal');
@@ -1380,6 +1381,7 @@ document.addEventListener('DOMContentLoaded', () => {
         var headerMenuWidth = headerMenu?.offsetWidth || 0;
         var totalPadding = headerPersonalWidth + headerMenuWidth;
         mainElement.style.paddingLeft = `${totalPadding}px`;
+        body.classList.remove('overflow-hidden')
       } 
     };
     var timeoutId = null;
@@ -1398,10 +1400,12 @@ document.addEventListener('DOMContentLoaded', () => {
   adjustMainPadding();
 
   const customClassName = '!translate-x-0',
-        body = document.querySelector('body'),
         hamburger = document.querySelector('.header__mobile-hamburger'),
         menu = document.querySelector('.header__menu'),
-        closeButton = document.querySelector('.header__menu-close');
+        closeButton = document.querySelector('.header__menu-close'),
+        personalMenu = document.querySelector('.header__personal'),
+        personalMenuBtnClose = document.querySelector('.header__personal-menu-icon-mobile'),
+        personalMenuBtnOpen = document.querySelector('.header__menu-personal-icon');
 
   if (hamburger && menu && closeButton) {
     hamburger.addEventListener('click', () => {
@@ -1411,6 +1415,15 @@ document.addEventListener('DOMContentLoaded', () => {
     closeButton.addEventListener('click', () => {
       menu.classList.remove(customClassName);
       body.classList.remove('overflow-hidden');
+      personalMenu.classList.remove(customClassName);
+    });
+  }
+  if (personalMenu && personalMenuBtnClose && personalMenuBtnOpen){
+    personalMenuBtnOpen.addEventListener('click', () => {
+      personalMenu.classList.add(customClassName);
+    });
+    personalMenuBtnClose.addEventListener('click', () => {
+      personalMenu.classList.remove(customClassName);
     });
   }
 });
