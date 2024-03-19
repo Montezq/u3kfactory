@@ -1417,6 +1417,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   if (personalMenu && personalMenuBtnClose && personalMenuBtnOpen){
-    
+    personalMenuBtnOpen.addEventListener('click', () => {
+      personalMenu.classList.add(customClassName);
+      body.classList.add('overflow-hidden');
+    });
+    personalMenuBtnOpen.addEventListener('click', () => {
+      personalMenu.classList.remove(customClassName);
+      body.classList.remove('overflow-hidden');
+    });
   }
 });
