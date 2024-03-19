@@ -1082,6 +1082,12 @@ video {
 .pt-4 {
   padding-top: 1rem;
 }
+.pr-\[27px\] {
+  padding-right: 27px;
+}
+.pt-\[27px\] {
+  padding-top: 27px;
+}
 .text-center {
   text-align: center;
 }
