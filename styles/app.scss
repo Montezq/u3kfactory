@@ -143,3 +143,6 @@ accordion-item.open,
     @apply !pl-0;
   }
 }
+.collection-list__card{
+  height: calc(100vh / 3 - 54px);
+}

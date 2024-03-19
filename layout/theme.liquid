@@ -34,13 +34,15 @@
     {{ content_for_header }}
     {% style %}
       @font-face {
-          font-family: 'Helvetica ThinCond';
-          src: url("{{ 'HelveticaNeueLTStd-ThCn.woff2' | asset_url }}") format('woff2');
+          font-family: 'Helvetica Neue LT Std';
+          src: url("{{ 'HelveticaNeueLTStd-ThCn.ttf' | asset_url }}") format('truetype');
           src: url("{{ 'HelveticaNeueLTStd-ThCn.eot#iefix' | asset_url }}") format('embedded-opentype'),
               url("{{ 'HelveticaNeueLTStd-ThCn.woff2' | asset_url }}") format('woff2'),
               url("{{ 'HelveticaNeueLTStd-ThCn.woff' | asset_url }}") format('woff'),
               url("{{ 'HelveticaNeueLTStd-ThCn.ttf' | asset_url }}") format('truetype'),
               url("{{ 'HelveticaNeueLTStd-ThCn.svg#HelveticaNeueLTStd-ThCn' | asset_url }}") format('svg');
+          font-weight: 100;
+          font-style: normal;
           font-display: swap;
       }
 
@@ -129,14 +131,16 @@
       <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.predictive_search_enabled -%}
-      <link
-        rel="stylesheet"
-        href="{{ 'component-predictive-search.css' | asset_url }}"
-        media="print"
-        onload="this.media='all'"
-      >
-    {%- endif -%}
+    {% comment %}
+      {%- if settings.predictive_search_enabled -%}
+        <link
+          rel="stylesheet"
+          href="{{ 'component-predictive-search.css' | asset_url }}"
+          media="print"
+          onload="this.media='all'"
+        >
+      {%- endif -%}
+    {% endcomment %}
 
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -155,7 +159,7 @@
 
     <main
       id="MainContent"
-      class="content-for-layout focus-none main relative min-h-screen"
+      class="content-for-layout focus-none main relative min-h-screen pt-[27px] pr-[27px]"
       role="main"
       tabindex="-1"
     >
