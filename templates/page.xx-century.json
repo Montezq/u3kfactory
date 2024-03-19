@@ -11,28 +11,42 @@
     "collection_list_bLgNT6": {
       "type": "collection-list",
       "blocks": {
+        "featured_collection_VCtbQF": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "realismo-magico-prints"
+          }
+        },
         "featured_collection_jgLr4k": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "revisited-pop-prints"
           }
         },
         "featured_collection_3xkKH4": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "suprematism-prints"
+          }
+        },
+        "featured_collection_xwfWj6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "studies-prints"
           }
         },
         "featured_collection_qtyCjU": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "all-xx-century-prints"
           }
         }
       },
       "block_order": [
+        "featured_collection_VCtbQF",
         "featured_collection_jgLr4k",
         "featured_collection_3xkKH4",
+        "featured_collection_xwfWj6",
         "featured_collection_qtyCjU"
       ],
       "settings": {
