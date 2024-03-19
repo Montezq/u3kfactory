@@ -31,6 +31,7 @@
             {% render 'card-collection',
               card_collection: block.settings.collection,
               media_aspect_ratio: section.settings.image_ratio,
+              title: section.settings.collection_title,
               placeholder_image: placeholder_image
             %}
           </li>
@@ -66,6 +67,12 @@
           "type": "collection",
           "id": "collection",
           "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "collection_title",
+          "label": "Collection titlte",
+          "info": "If blank the defaul collection name will be used"
         }
       ]
     }
