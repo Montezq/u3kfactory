@@ -2,13 +2,46 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "collection_list_kUanfH": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_CUwmgz": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_ADBTTa": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_NCKARM": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_CUwmgz",
+        "featured_collection_ADBTTa",
+        "featured_collection_NCKARM"
+      ],
+      "settings": {
+        "title": "XX Century Prints"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "collection_list_kUanfH"
   ]
 }
