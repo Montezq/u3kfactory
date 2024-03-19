@@ -1101,6 +1101,9 @@ video {
 .pt-\[27px\] {
   padding-top: 27px;
 }
+.pb-\[27px\] {
+  padding-bottom: 27px;
+}
 .text-center {
   text-align: center;
 }
@@ -1389,7 +1392,7 @@ input:focus-visible{
   }
   }
 .collection-list__card{
-  height: calc(100vh / 3 - 54px);
+  height: calc(100vh / 3 - 36px);
 }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
