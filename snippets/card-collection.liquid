@@ -11,22 +11,6 @@
   {% render 'card-collection' %}
 {% endcomment %}
 
-{%- liquid
-  assign ratio = 1
-  if card_collection.featured_image and media_aspect_ratio == 'portrait'
-    assign ratio = 0.8
-  elsif card_collection.featured_image and media_aspect_ratio == 'adapt'
-    assign ratio = card_collection.featured_image.aspect_ratio
-  endif
-  if ratio == 0 or ratio == null
-    assign ratio = 1
-  endif
-  assign card_style = settings.card_style
-  if wrapper_class == null or wrapper_class == 'none'
-    assign card_style = settings.collection_card_style
-  endif
--%}
-
 <div class="{% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% endif %}">
   {%- if card_collection.featured_image -%}
     <a
