@@ -5,6 +5,8 @@
 body,
 html{
   @apply w-full;
+  @apply font-open;
+  @apply tracking-wider
 }
 img{
   image-rendering: -moz-crisp-edges !important;
@@ -58,7 +60,9 @@ input{
   }
 }
 .header__personal-menu{
-  top: clamp(50px, 9.3vh, 9.3vh);
+  @screen md{
+    top: clamp(50px, 9.3vh, 9.3vh);
+  }
 }
 .header__menu{
   @screen md{
