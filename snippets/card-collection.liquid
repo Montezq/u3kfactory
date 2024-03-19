@@ -36,7 +36,7 @@
     >
       {%- if card_collection.featured_image -%}
         <a
-          class="collection-list__card relative"
+          class="collection-list__card relative block"
           {% if card_collection == blank %}
             role="link" aria-disabled="true"
           {% else %}
@@ -65,7 +65,7 @@
               height="{{ card_collection.featured_image.height }}"
               width="{{ card_collection.featured_image.width }}"
               loading="lazy"
-              class="motion-reduce"
+              class="w-full h-full object-cover"
             >
           </div>
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
