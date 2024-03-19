@@ -1050,6 +1050,9 @@ video {
 .pb-6 {
   padding-bottom: 1.5rem;
 }
+.pb-\[27px\] {
+  padding-bottom: 27px;
+}
 .pb-\[2px\] {
   padding-bottom: 2px;
 }
@@ -1100,9 +1103,6 @@ video {
 }
 .pt-\[27px\] {
   padding-top: 27px;
-}
-.pb-\[27px\] {
-  padding-bottom: 27px;
 }
 .text-center {
   text-align: center;
@@ -1251,6 +1251,15 @@ html {
   width: 100%;
   font-family: "Open Sans", sans-serif;
   letter-spacing: .04em;
+}
+
+@media not all and (min-width: 768px) {
+
+  body,
+html {
+    --tw-bg-opacity: 1;
+    background-color: rgb(250 250 250 / var(--tw-bg-opacity));
+  }
 }
 img{
   image-rendering: -moz-crisp-edges !important;
