@@ -36,7 +36,7 @@
     >
       {%- if card_collection.featured_image -%}
         <a
-          class=""
+          class="collection-list__card relative"
           {% if card_collection == blank %}
             role="link" aria-disabled="true"
           {% else %}
@@ -68,8 +68,8 @@
               class="motion-reduce"
             >
           </div>
-          <div>
-            <h3>
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <h3 class="font-helveticaThinCond text-[74px] tracking-widest">
               {%- if card_collection.title != blank -%}
                 {{- card_collection.title | escape -}}
               {%- else -%}
