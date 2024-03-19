@@ -1414,14 +1414,15 @@ document.addEventListener('DOMContentLoaded', () => {
     closeButton.addEventListener('click', () => {
       menu.classList.remove(customClassName);
       body.classList.remove('overflow-hidden');
+      personalMenu.classList.remove(customClassName);
     });
   }
   if (personalMenu && personalMenuBtnClose && personalMenuBtnOpen){
     personalMenuBtnOpen.addEventListener('click', () => {
-      personalMenu.classList.add(customClassName)
+      personalMenu.classList.add(customClassName);
     });
     personalMenuBtnClose.addEventListener('click', () => {
-      personalMenu.classList.remove(customClassName)
+      personalMenu.classList.remove(customClassName);
     });
   }
 });
