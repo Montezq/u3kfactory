@@ -33,15 +33,16 @@
 
     {{ content_for_header }}
     {% style %}
-
       @font-face {
-          font-family: 'Helvetica ThinCond';
-          src: url("{{ 'HelveticaNeueLTStd-ThCn.woff2' | asset_url }}") format('woff2');
+          font-family: 'Helvetica Neue LT Std';
+          src: url("{{ 'HelveticaNeueLTStd-ThCn.ttf' | asset_url }}") format('truetype');
           src: url("{{ 'HelveticaNeueLTStd-ThCn.eot#iefix' | asset_url }}") format('embedded-opentype'),
               url("{{ 'HelveticaNeueLTStd-ThCn.woff2' | asset_url }}") format('woff2'),
               url("{{ 'HelveticaNeueLTStd-ThCn.woff' | asset_url }}") format('woff'),
               url("{{ 'HelveticaNeueLTStd-ThCn.ttf' | asset_url }}") format('truetype'),
               url("{{ 'HelveticaNeueLTStd-ThCn.svg#HelveticaNeueLTStd-ThCn' | asset_url }}") format('svg');
+          font-weight: 100;
+          font-style: normal;
           font-display: swap;
       }
 
@@ -130,14 +131,16 @@
       <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.predictive_search_enabled -%}
-      <link
-        rel="stylesheet"
-        href="{{ 'component-predictive-search.css' | asset_url }}"
-        media="print"
-        onload="this.media='all'"
-      >
-    {%- endif -%}
+    {% comment %}
+      {%- if settings.predictive_search_enabled -%}
+        <link
+          rel="stylesheet"
+          href="{{ 'component-predictive-search.css' | asset_url }}"
+          media="print"
+          onload="this.media='all'"
+        >
+      {%- endif -%}
+    {% endcomment %}
 
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -154,11 +157,16 @@
 
     {% sections 'header-group' %}
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main
+      id="MainContent"
+      class="content-for-layout focus-none main relative min-h-screen pt-[67px] md:pt-[27px] md:pr-[27px]"
+      role="main"
+      tabindex="-1"
+    >
       {{ content_for_layout }}
     </main>
 
-    {% sections 'footer-group' %}
+    {% comment %} {% sections 'footer-group' %} {% endcomment %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>

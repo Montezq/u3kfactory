@@ -5,6 +5,9 @@
 body,
 html{
   @apply w-full;
+  @apply font-open;
+  @apply tracking-wider;
+  @apply max-md:bg-gray-10;
 }
 img{
   image-rendering: -moz-crisp-edges !important;
@@ -58,7 +61,9 @@ input{
   }
 }
 .header__personal-menu{
-  top: clamp(50px, 9.3vh, 9.3vh);
+  @screen md{
+    top: clamp(50px, 9.3vh, 9.3vh);
+  }
 }
 .header__menu{
   @screen md{
@@ -77,7 +82,10 @@ input{
   }
 }
 .header__menu-logo{
-  padding-bottom: clamp(50px, 8.17vh, 8.17vh);
+  @apply pb-10;
+  @screen md{
+    padding-bottom: clamp(50px, 8.17vh, 8.17vh);
+  }
 }
 
 .header__menu-wrapaper{
@@ -126,5 +134,19 @@ accordion-item.open,
         transform-origin:0 50%;
       }
     }
+  }
+}
+.menu-open{
+  @apply bg-white;
+}
+.main{
+  @media screen and (max-width: 767px) {
+    @apply !pl-0;
+  }
+}
+.collection-list__card{
+  height: calc(100vh / 3 - 46px);
+  @screen md{
+    height: calc(100vh / 3 - 36px);
   }
 }

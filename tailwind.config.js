@@ -3,13 +3,14 @@ module.exports = {
   content: [
     "./layout/*.liquid",
     "./sections/*.liquid",
-    "./snippets/*.liquid"
+    "./snippets/*.liquid",
+    "./assets/global.js"
   ],
   theme: {
     extend: {},
     fontFamily: {
       helveticaCond: ['"Helvetica Cond"', "sans-serif"],
-      helveticaThinCond: ['"Helvetica ThinCond"', "sans-serif"],
+      helveticaThinCond: ['"Helvetica Neue LT Std"', "sans-serif"],
       coutureBoldIt: ['"Couture BoldItalic"', "sans-serif"],
       coutureBold: ['"Couture Bold"', "sans-serif"],
       open: ['"Open Sans"', "sans-serif"],
@@ -22,7 +23,8 @@ module.exports = {
       black: '#000000',
       gray:{
         10: '#fafafa',
-        200: '#5f5f5f'
+        200: '#5f5f5f',
+        800: '#212121'
       }
     },
     letterSpacing: {
