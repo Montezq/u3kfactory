@@ -1575,6 +1575,12 @@ input:focus-visible{
             transition-duration: 500ms;
   }
 
+  .max-md\:duration-300 {
+    -webkit-transition-duration: 300ms;
+         -o-transition-duration: 300ms;
+            transition-duration: 300ms;
+  }
+
   .max-md\:ease-in-out {
     -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
          -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
