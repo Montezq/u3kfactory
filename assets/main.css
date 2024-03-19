@@ -1399,11 +1399,6 @@ input:focus-visible{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-@media screen and (max-width: 767px) {
-.main {
-    padding-left: 0px !important;
-  }
-  }
 .collection-list__card{
   height: calc(100vh / 3 - 46px);
 }
@@ -1582,6 +1577,10 @@ input:focus-visible{
 
   .max-lg\:pt-\[18px\] {
     padding-top: 18px;
+  }
+
+  .max-lg\:\!pl-0 {
+    padding-left: 0px !important;
   }
 
   .max-lg\:duration-300 {
