@@ -2,13 +2,65 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "collection_list_aajrad": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_a9gVNc": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "urban-prints",
+            "collection_title": "Urban"
+          }
+        },
+        "featured_collection_aRbzBk": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "surrealist-prints",
+            "collection_title": "Surrealist"
+          }
+        },
+        "featured_collection_fFNy89": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "artistic-prints",
+            "collection_title": "Artistic"
+          }
+        },
+        "featured_collection_r37qTP": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "classicism-prints",
+            "collection_title": "Classicism"
+          }
+        },
+        "featured_collection_NqCFcp": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "all-photography-prints",
+            "collection_title": "All"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_a9gVNc",
+        "featured_collection_aRbzBk",
+        "featured_collection_fFNy89",
+        "featured_collection_r37qTP",
+        "featured_collection_NqCFcp"
+      ],
+      "settings": {
+        "title": "Photography"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "collection_list_aajrad"
   ]
 }
