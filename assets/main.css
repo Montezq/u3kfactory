@@ -1278,20 +1278,20 @@ html {
     background-color: rgb(250 250 250 / var(--tw-bg-opacity));
   }
 }
-::-webkit-scrollbar {
-  width: 7px;
-}
-::-webkit-scrollbar-track {
-  background: #e3e3e3;
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-  background: #191919; 
-  -webkit-border-radius: 6px;
-  border: 4px solid transparent;
-  border-radius: 6px;
-  background-clip: padding-box; 
-}
+body::-webkit-scrollbar {
+    width: 7px;
+  }
+body::-webkit-scrollbar-track {
+    background: #e3e3e3;
+    border-radius: 10px;
+  }
+body::-webkit-scrollbar-thumb {
+    background: #191919; 
+    -webkit-border-radius: 6px;
+    border: 4px solid transparent;
+    border-radius: 6px;
+    background-clip: padding-box; 
+  }
 img{
   image-rendering: -moz-crisp-edges !important;
   image-rendering: -o-crisp-edges !important;
