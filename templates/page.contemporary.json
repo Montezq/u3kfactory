@@ -2,73 +2,13 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
-    },
-    "collection_list_97LfFX": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_MqcNxA": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "cc-clash-prints",
-            "collection_title": "CC Clash"
-          }
-        },
-        "featured_collection_CPUdQb": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "geometric-prints",
-            "collection_title": "Geometric"
-          }
-        },
-        "featured_collection_63pkXH": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "multiple-points-prints",
-            "collection_title": "Multiple Points"
-          }
-        },
-        "featured_collection_C7EApA": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "cosmos-prints",
-            "collection_title": "Cosmos"
-          }
-        },
-        "featured_collection_QiBmaq": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "bottle-series-prints",
-            "collection_title": "Bottle Series"
-          }
-        },
-        "featured_collection_FiJDym": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "all-contemporary-prints",
-            "collection_title": "All"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_MqcNxA",
-        "featured_collection_CPUdQb",
-        "featured_collection_63pkXH",
-        "featured_collection_C7EApA",
-        "featured_collection_QiBmaq",
-        "featured_collection_FiJDym"
-      ],
-      "settings": {
-        "title": "Contemporary"
-      }
     }
   },
   "order": [
-    "main",
-    "collection_list_97LfFX"
+    "main"
   ]
 }
