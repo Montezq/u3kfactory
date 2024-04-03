@@ -1304,15 +1304,18 @@ class AccordionList extends HTMLElement {
     });
   }
 }
-
 class AccordionItem extends HTMLElement {
   constructor() {
     super();
     this.isOpen = this.hasAttribute('data-open');
     const button = this.querySelector('.accordion-toggle');
     const content = this.querySelector('.accordion-content');
+    this.headerMenuContent = document.querySelector('.header__menu-content');
 
-    if (!button || !content) return;
+    if (!button || !content || !this.headerMenuContent) return;
+
+    // Prepare for transition effect
+    this.headerMenuContent.style.transition = 'opacity 0.3s ease';
 
     content.style.overflow = 'hidden';
     button.addEventListener('click', () => {
@@ -1320,12 +1323,21 @@ class AccordionItem extends HTMLElement {
       if (!this.isOpen) {
         this.isOpen = true;
         document.body.classList.add('accordion-menu__opened');
-        document.querySelector('.header__menu-content').classList.remove('lg:my-auto');
-        document.querySelector('.header__menu-content').classList.add('lg:mt-0');
-        this.classList.add('open')
+
+        // Animate opacity for smoother transition
+        this.headerMenuContent.style.opacity = '0';
+        setTimeout(() => {
+          this.headerMenuContent.classList.remove('lg:my-auto');
+          this.headerMenuContent.classList.add('lg:mt-0');
+          this.headerMenuContent.style.opacity = '1';
+        }, 300); // Match the duration of the opacity transition
+
+        this.classList.add('open');
         content.style.height = content.scrollHeight + 'px';
         content.setAttribute('aria-expanded', 'true');
         this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
+      } else {
+        this.close();
       }
     });
   }
@@ -1333,15 +1345,15 @@ class AccordionItem extends HTMLElement {
   connectedCallback() {
     const content = this.querySelector('.accordion-content');
     if (this.isOpen) {
-      this.classList.add('open')
+      this.classList.add('open');
       document.body.classList.add('accordion-menu__opened');
-      document.querySelector('.header__menu-content').classList.remove('lg:my-auto');
-      document.querySelector('.header__menu-content').classList.add('lg:mt-0');
+      this.headerMenuContent.classList.remove('lg:my-auto');
+      this.headerMenuContent.classList.add('lg:mt-0');
       requestAnimationFrame(() => {
         content.style.height = `${content.scrollHeight}px`;
       });
     } else {
-      this.classList.remove('open')
+      this.classList.remove('open');
       content.style.height = '0';
     }
     requestAnimationFrame(() => {
@@ -1349,23 +1361,21 @@ class AccordionItem extends HTMLElement {
     });
   }
 
-  toggle() {
-    const content = this.querySelector('.accordion-content');
-    if (this.isOpen) {
-      this.classList.add('open')
-      content.style.height = content.scrollHeight + 'px';
-    } else {
-      this.close();
-    }
-  }
-
   close() {
     const content = this.querySelector('.accordion-content');
-    if (!this.isOpen) return; 
-    this.classList.remove('open')
+    if (!this.isOpen) return;
     this.isOpen = false;
+    this.classList.remove('open');
     content.style.height = '0px';
     content.setAttribute('aria-expanded', 'false');
+
+    // Reverse the transition effect when closing
+    this.headerMenuContent.style.opacity = '0';
+    setTimeout(() => {
+      this.headerMenuContent.classList.add('lg:my-auto');
+      this.headerMenuContent.classList.remove('lg:mt-0');
+      this.headerMenuContent.style.opacity = '1';
+    }, 300); // Match the duration of the opacity transition
   }
 }
 
