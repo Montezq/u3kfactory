@@ -1350,6 +1350,9 @@ class AccordionItem extends HTMLElement {
     const content = this.querySelector('.accordion-content');
     if (this.isOpen) {
       this.classList.add('open')
+      document.body.classList.add('accordion-menu__opened');
+      document.querySelector('.header__menu-content').classList.remove('lg:my-auto');
+      document.querySelector('.header__menu-content').classList.add('lg:mt-0');
       content.style.height = content.scrollHeight + 'px';
     } else {
       this.close();
