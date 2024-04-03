@@ -1291,6 +1291,7 @@ html{
 ::-webkit-scrollbar-thumb {
   background: #191919; 
   border-radius: 6px; 
+  background-clip: padding-box;
 }
 img{
   image-rendering: -moz-crisp-edges !important;
