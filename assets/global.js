@@ -1304,6 +1304,7 @@ class AccordionList extends HTMLElement {
     });
   }
 }
+
 class AccordionItem extends HTMLElement {
   constructor() {
     super();
@@ -1315,40 +1316,28 @@ class AccordionItem extends HTMLElement {
 
     content.style.overflow = 'hidden';
     button.addEventListener('click', () => {
-      this.toggle(); // Use the toggle method for click handling
+      content.style.transition = 'height 0.3s ease-out';
+      if (!this.isOpen) {
+        this.isOpen = true;
+        this.classList.add('open')
+        content.style.height = content.scrollHeight + 'px';
+        content.setAttribute('aria-expanded', 'true');
+        this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
+      }
     });
   }
 
   connectedCallback() {
     const content = this.querySelector('.accordion-content');
-    const body = document.querySelector('body');
-    const headerMenuContent = document.querySelector('.header__menu-content');
-    
-    // Ensure the transition for margin changes is smooth
-    if (headerMenuContent) {
-      headerMenuContent.style.transition = 'margin 0.3s ease-out';
-    }
-
     if (this.isOpen) {
-      this.classList.add('open');
-      body.classList.add('accordion-menu__opened');
-      if (headerMenuContent) {
-        headerMenuContent.classList.remove('lg:my-auto');
-        headerMenuContent.classList.add('mt-0');
-      }
+      this.classList.add('open')
       requestAnimationFrame(() => {
         content.style.height = `${content.scrollHeight}px`;
       });
     } else {
-      this.classList.remove('open');
-      body.classList.remove('accordion-menu__opened');
-      if (headerMenuContent) {
-        headerMenuContent.classList.add('lg:my-auto');
-        headerMenuContent.classList.remove('mt-0');
-      }
+      this.classList.remove('open')
       content.style.height = '0';
     }
-
     requestAnimationFrame(() => {
       content.style.transition = 'height 0.3s ease-out';
     });
@@ -1356,20 +1345,21 @@ class AccordionItem extends HTMLElement {
 
   toggle() {
     const content = this.querySelector('.accordion-content');
-    const body = document.querySelector('body');
-    const headerMenuContent = document.querySelector('.header__menu-content');
-    if (!this.isOpen) {
-      this.isOpen = true;
-      this.classList.add('open');
+    if (this.isOpen) {
+      this.classList.add('open')
       content.style.height = content.scrollHeight + 'px';
-      content.setAttribute('aria-expanded', 'true');
-      body.classList.add('accordion-menu__opened');
-      if (headerMenuContent){
-        headerMenuContent.classList.remove('lg:my-auto');
-        headerMenuContent.classList.add('mt-0')
-      } 
-      this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
+    } else {
+      this.close();
     }
+  }
+
+  close() {
+    const content = this.querySelector('.accordion-content');
+    if (!this.isOpen) return; 
+    this.classList.remove('open')
+    this.isOpen = false;
+    content.style.height = '0px';
+    content.setAttribute('aria-expanded', 'false');
   }
 }
 
