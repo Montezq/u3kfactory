@@ -1290,8 +1290,9 @@ html{
 }
 ::-webkit-scrollbar-thumb {
   background: #191919; 
+  -webkit-border-radius: 6px;
   border: 4px solid transparent;
-  border-radius: 8px;
+  border-radius: 6px;
   background-clip: padding-box; 
 }
 img{
