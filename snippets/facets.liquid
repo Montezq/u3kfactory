@@ -27,9 +27,7 @@
   endif
 -%}
 Hello
-{% for i in results %}
-  ---{{ i }}
-{% endfor %}
+{{ results.terms }}
 Hello 2
 <div class="facets-container{% if filter_type == 'drawer' %} facets-container-drawer{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
   {%- if filter_type == 'vertical' or filter_type == 'horizontal' -%}
