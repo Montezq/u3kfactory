@@ -1555,6 +1555,10 @@ input:focus-visible{
     background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
   }
 
+  .max-lg\:\!pl-0 {
+    padding-left: 0px !important;
+  }
+
   .max-lg\:pb-4 {
     padding-bottom: 1rem;
   }
@@ -1577,10 +1581,6 @@ input:focus-visible{
 
   .max-lg\:pt-\[18px\] {
     padding-top: 18px;
-  }
-
-  .max-lg\:\!pl-0 {
-    padding-left: 0px !important;
   }
 
   .max-lg\:duration-300 {
