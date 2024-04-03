@@ -1290,8 +1290,9 @@ html{
 }
 ::-webkit-scrollbar-thumb {
   background: #191919; 
-  border-radius: 6px; 
-  background-clip: padding-box;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box; 
 }
 img{
   image-rendering: -moz-crisp-edges !important;
