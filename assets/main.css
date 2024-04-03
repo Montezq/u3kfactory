@@ -1066,6 +1066,9 @@ video {
 .pb-6 {
   padding-bottom: 1.5rem;
 }
+.pb-\[27px\] {
+  padding-bottom: 27px;
+}
 .pb-\[2px\] {
   padding-bottom: 2px;
 }
@@ -1113,9 +1116,6 @@ video {
 }
 .pt-\[67px\] {
   padding-top: 67px;
-}
-.pb-\[27px\] {
-  padding-bottom: 27px;
 }
 .text-center {
   text-align: center;
@@ -1348,6 +1348,7 @@ input:focus-visible{
     top: clamp(50px, 9.3vh, 9.3vh);
 }
 .header__menu{
+    padding-top: clamp(50px, 9.3vh, 9.3vh);
     padding-left: clamp(42px, 3.4vw, 3.4vw);
 }
   }
@@ -1837,13 +1838,12 @@ input:focus-visible{
     padding-bottom: 1rem;
   }
 
-  .lg\:py-\[50px\] {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
   .lg\:pb-3 {
     padding-bottom: 0.75rem;
+  }
+
+  .lg\:pb-\[50px\] {
+    padding-bottom: 50px;
   }
 
   .lg\:pl-2 {
