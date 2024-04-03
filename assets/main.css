@@ -1866,6 +1866,10 @@ input:focus-visible{
     padding-top: 27px;
   }
 
+  .lg\:pt-\[11vh\] {
+    padding-top: 11vh;
+  }
+
   .lg\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
