@@ -659,6 +659,10 @@ video {
 .relative {
   position: relative;
 }
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
 .-left-\[120px\] {
   left: -120px;
 }
@@ -688,6 +692,9 @@ video {
 }
 .top-full {
   top: 100%;
+}
+.top-\[67px\] {
+  top: 67px;
 }
 .isolate {
   isolation: isolate;
