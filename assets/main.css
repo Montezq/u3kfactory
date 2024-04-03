@@ -1285,6 +1285,7 @@ html {
 }
 body::-webkit-scrollbar {
     width: 7px;
+    height: 7px;
   }
 body::-webkit-scrollbar-track {
     background: #e3e3e3; 
@@ -1725,11 +1726,6 @@ input:focus-visible{
     top: 0px;
   }
 
-  .lg\:my-auto {
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-
   .lg\:mt-0 {
     margin-top: 0px;
   }
@@ -1867,12 +1863,12 @@ input:focus-visible{
     padding-right: 20px;
   }
 
-  .lg\:pt-\[27px\] {
-    padding-top: 27px;
-  }
-
   .lg\:pt-\[11vh\] {
     padding-top: 11vh;
+  }
+
+  .lg\:pt-\[27px\] {
+    padding-top: 27px;
   }
 
   .lg\:text-6xl {
