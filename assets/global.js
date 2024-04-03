@@ -1355,14 +1355,12 @@ class AccordionItem extends HTMLElement {
   close() {
     const content = this.querySelector('.accordion-content');
     const body = document.querySelector('body');
-    const headerMenuContent = document.querySelector('.header__menu-content');
     if (!this.isOpen) return;
     this.classList.remove('open');
     this.isOpen = false;
     content.style.height = '0px';
     content.setAttribute('aria-expanded', 'false');
     body.classList.remove('accordion-menu__opened');
-    if (headerMenuContent) headerMenuContent.classList.add('lg:my-auto');
   }
 }
 
