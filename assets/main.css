@@ -1860,6 +1860,10 @@ input:focus-visible{
     padding-top: 27px;
   }
 
+  .lg\:pr-\[20px\] {
+    padding-right: 20px;
+  }
+
   .lg\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
