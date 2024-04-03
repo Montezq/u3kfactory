@@ -1,7 +1,7 @@
 <div class="max-md:px-1.5">
   <div>
     {%- unless section.settings.title == blank -%}
-      <div class="mb-3 sticky top-[67px] md:hidden">
+      <div class="mb-3 sticky top-[67px] bg-white z-[2] md:hidden">
         <h2
           id="SectionHeading-{{ section.id }}"
           class="text-center font-coutureBold text-xl{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
