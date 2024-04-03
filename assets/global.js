@@ -1335,6 +1335,7 @@ class AccordionItem extends HTMLElement {
       this.classList.add('open')
       document.body.classList.add('accordion-menu__opened');
       document.querySelector('.header__menu-content').classList.remove('lg:my-auto');
+      document.querySelector('.header__menu-content').classList.add('lg:mt-0');
       requestAnimationFrame(() => {
         content.style.height = `${content.scrollHeight}px`;
       });
