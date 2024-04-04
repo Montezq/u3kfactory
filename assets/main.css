@@ -1190,6 +1190,9 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-\[19px\] {
+  font-size: 19px;
+}
 .font-bold {
   font-weight: 700;
 }
