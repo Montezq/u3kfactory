@@ -50,7 +50,7 @@
         </a>
       {%- endif -%}
     </div>
-    <div class="card__content flex justify-between">
+    <div class="card__content flex justify-between px-2.5">
       <div class="card__information">
         <h3
           class="card__heading"
@@ -61,7 +61,7 @@
           <a
             href="{{ card_product.url }}"
             id="CardLink-{{ section_id }}-{{ card_product.id }}"
-            class="full-unstyled-link"
+            class="text-xl font-helveticaThinCond uppercase"
             aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
           >
             {{ card_product.title | escape }}
