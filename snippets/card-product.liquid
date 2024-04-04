@@ -67,10 +67,15 @@
             {{ card_product.title | escape }}
           </a>
         </h3>
-        <div class="card-information">
-          <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-          <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
-        </div>
+        <h4>
+          <a
+            class="text-xl font-helveticaThinCond italic"
+            href="{{ card_product.metafields.custom.artis_page }}"
+          >
+            <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+            by {{ card_product.vendor }}
+          </a>
+        </h4>
       </div>
       <div>
         {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
