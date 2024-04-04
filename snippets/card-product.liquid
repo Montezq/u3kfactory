@@ -68,8 +68,9 @@
             </a>
           </h3>
           <h4 class="leading-none text-[19px] font-helveticaThinCond italic tracking-wide font-semibold">
+            {{ card_product.metafields.custom.artist_page.value }}
             <a
-              href="{{ card_product.metafields.custom.artist_page | metafield_tag }}"
+              href="{{ card_product.metafields.custom.artist_page.value }}"
             >
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               by {{ card_product.vendor }}
