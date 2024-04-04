@@ -1561,17 +1561,13 @@
     "main-cart-items": {
       "name": "Items"
     },
-    "main-collection-banner": {
-      "name": "Collection banner",
-      "settings": {
-        "heading": {
-          "label": "Custom Title"
-        }
-      }
-    },
     "main-collection-product-grid": {
       "name": "Product grid",
       "settings": {
+        "heading": {
+          "label": "Custom Title",
+          "info": "If left empty, the default collection title will be set."
+        },
         "products_per_page": {
           "label": "Products per page"
         },
