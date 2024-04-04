@@ -24,7 +24,8 @@ module.exports = {
       gray:{
         10: '#fafafa',
         200: '#5f5f5f',
-        800: '#212121'
+        800: '#212121',
+        900: '#191919'
       }
     },
     letterSpacing: {

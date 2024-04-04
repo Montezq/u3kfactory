@@ -153,7 +153,7 @@
       </a>
     </div>
   </div>
-  <div class="header__menu flex flex-col w-full lg:w-[22vw] lg:min-w-[350px] h-full pb-6 pt-4 lg:py-[50px] fixed lg:relative top-0 left-0 -translate-x-full lg:translate-x-0 duration-300 lg:duration-0 ease-in-out">
+  <div class="header__menu flex flex-col w-full lg:w-[22vw] lg:min-w-[350px] h-full pb-6 pt-4 lg:pb-[50px] fixed lg:relative top-0 left-0 -translate-x-full lg:translate-x-0 duration-300 lg:duration-0 ease-in-out">
     {%- if section.settings.mobile_image != blank -%}
       {%- liquid
         assign image_height = section.settings.mobile_image.width | divided_by: section.settings.mobile_image.aspect_ratio
@@ -179,7 +179,7 @@
         {%- render 'icon-close-small' -%}
       </div>
     </div>
-    <div class="header__menu-content pl-[45px] lg:pl-[0] pr-5 lg:pr-0 mt-20 lg:my-auto flex flex-col overflow-auto relative z-[1]">
+    <div class="header__menu-content transition-all duration-500 pl-[45px] lg:pl-[0] pr-5 lg:pr-0 mt-20 lg:pt-[11vh] lg:mt-0 flex flex-col overflow-auto relative z-[1]">
       <div class="header__menu-logo lg:pl-2">
         {%- if request.page_type == 'index' -%}
           <h1>

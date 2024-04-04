@@ -9,6 +9,20 @@ html{
   @apply tracking-wider;
   @apply max-lg:bg-gray-10;
 }
+body{
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #e3e3e3; 
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #191919; 
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+  }
+}
 img{
   image-rendering: -moz-crisp-edges !important;
   image-rendering: -o-crisp-edges !important;
@@ -67,6 +81,7 @@ input{
 }
 .header__menu{
   @screen lg{
+    padding-top: clamp(50px, 9.3vh, 9.3vh);
     padding-left: clamp(42px, 3.4vw, 3.4vw);
   }
 }
@@ -90,21 +105,21 @@ input{
 
 .header__menu-wrapaper{
   &::-webkit-scrollbar {
-    @apply w-0;
-    @apply h-0;
-    @apply hidden;
+    @apply !w-0;
+    @apply !h-0;
+    @apply !hidden;
   }
   
   &::-webkit-scrollbar-track {
-    @apply w-0;
-    @apply h-0;
-    @apply hidden;
+    @apply !w-0;
+    @apply !h-0;
+    @apply !hidden;
   }
   
   &::-webkit-scrollbar-thumb {
-    @apply w-0;
-    @apply h-0;
-    @apply hidden;
+    @apply !w-0;
+    @apply !h-0;
+    @apply !hidden;
   }
 }
 .header__menu-item{
@@ -143,5 +158,10 @@ accordion-item.open,
   height: calc(100vh / 3 - 46px);
   @screen lg{
     height: calc(100vh / 3 - 36px);
+  }
+}
+.card-collection__title{
+  @media screen and (max-width: 1200px) and (min-width: 1024px) {
+    font-size: 5cqw;
   }
 }
