@@ -67,7 +67,7 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
-          {{ card_product.metafields.custom.artist_page | page_reference }}
+          {{ card_product.metafields.custom.artist_page | metafield_tag }}
           <h4 class="leading-none text-[19px] font-helveticaThinCond italic tracking-wide font-semibold">
             <a
               href="{{ card_product.metafields.custom.artist_page.url }}"
