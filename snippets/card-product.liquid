@@ -22,7 +22,11 @@
       class="card__inner"
     >
       {%- if card_product.featured_media -%}
-        <div class="card__media">
+        <a
+          href="{{ card_product.url }}"
+          aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+          class="card__media block"
+        >
           <img
             srcset="
               {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -43,10 +47,10 @@
             width="{{ card_product.featured_media.width }}"
             height="{{ card_product.featured_media.height }}"
           >
-        </div>
+        </a>
       {%- endif -%}
     </div>
-    <div class="card__content test-2">
+    <div class="card__content flex justify-between">
       <div class="card__information">
         <h3
           class="card__heading"
