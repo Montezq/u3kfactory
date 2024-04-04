@@ -690,14 +690,14 @@ video {
 .top-2 {
   top: 0.5rem;
 }
+.top-\[27px\] {
+  top: 27px;
+}
 .top-\[67px\] {
   top: 67px;
 }
 .top-full {
   top: 100%;
-}
-.top-\[27px\] {
-  top: 27px;
 }
 .isolate {
   isolation: isolate;
@@ -961,13 +961,13 @@ video {
      -moz-column-gap: 20px;
           column-gap: 20px;
 }
-.gap-y-4 {
-  row-gap: 1rem;
-}
 .gap-x-\[4vw\] {
   -webkit-column-gap: 4vw;
      -moz-column-gap: 4vw;
           column-gap: 4vw;
+}
+.gap-y-4 {
+  row-gap: 1rem;
 }
 .space-y-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1462,6 +1462,12 @@ input:focus-visible{
   }
 .collection-hero{
   padding-top: clamp(25px, calc(5vh - 25px), calc(5vh - 25px));
+}
+.collection-grid__list{
+  -webkit-column-gap: clamp(27px, 4vw, 4vw);
+     -moz-column-gap: clamp(27px, 4vw, 4vw);
+          column-gap: clamp(27px, 4vw, 4vw);
+  row-gap: clamp(27px, 4vh, 4vh);
 }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
