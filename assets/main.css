@@ -1135,6 +1135,10 @@ video {
 .font-open {
   font-family: "Open Sans", sans-serif;
 }
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -1168,10 +1172,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 .font-bold {
   font-weight: 700;
@@ -1446,6 +1446,9 @@ input:focus-visible{
     font-size: 5cqw;
 }
   }
+.collection-hero{
+  padding-top: clamp(25px, calc(5vh - 25px), calc(5vh - 25px));
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
