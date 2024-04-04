@@ -1040,6 +1040,14 @@ video {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1059,14 +1067,6 @@ video {
 .py-\[5px\] {
   padding-top: 5px;
   padding-bottom: 5px;
-}
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-.px-2\.5 {
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
 }
 .pb-1 {
   padding-bottom: 0.25rem;
@@ -1472,6 +1472,9 @@ input:focus-visible{
           column-gap: clamp(27px, 4vw, 4vw);
   row-gap: clamp(27px, 6vh, 6vh);
 }
+.collection-grid__list .card__media{
+    margin-bottom: clamp(10px, 1.1vh, 1.1vh);
+  }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
