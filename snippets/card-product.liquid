@@ -53,7 +53,7 @@
     <div class="card__content flex justify-between px-2.5">
       <div class="card__information">
         <h3
-          class="card__heading leading-none"
+          class="card__heading text-xl font-helveticaThinCond font-bold uppercase tracking-widest leading-none"
           {% if card_product.featured_media %}
             id="title-{{ section_id }}-{{ card_product.id }}"
           {% endif %}
@@ -61,15 +61,13 @@
           <a
             href="{{ card_product.url }}"
             id="CardLink-{{ section_id }}-{{ card_product.id }}"
-            class="text-xl font-helveticaThinCond font-bold uppercase tracking-widest"
             aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
           >
             {{ card_product.title | escape }}
           </a>
         </h3>
-        <h4 class="leading-none">
+        <h4 class="leading-none text-xl font-helveticaThinCond italic tracking-wide">
           <a
-            class="text-xl font-helveticaThinCond italic tracking-wide"
             href="{{ card_product.metafields.custom.artis_page }}"
           >
             <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
