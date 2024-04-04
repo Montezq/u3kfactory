@@ -911,6 +911,9 @@ video {
 .resize {
   resize: both;
 }
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 .flex-col {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -957,6 +960,11 @@ video {
 }
 .gap-y-4 {
   row-gap: 1rem;
+}
+.gap-x-\[4vw\] {
+  -webkit-column-gap: 4vw;
+     -moz-column-gap: 4vw;
+          column-gap: 4vw;
 }
 .space-y-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
