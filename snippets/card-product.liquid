@@ -53,7 +53,7 @@
     <div class="card__content flex justify-between px-2.5">
       <div class="card__information">
         <h3
-          class="card__heading"
+          class="card__heading leading-none"
           {% if card_product.featured_media %}
             id="title-{{ section_id }}-{{ card_product.id }}"
           {% endif %}
@@ -67,7 +67,7 @@
             {{ card_product.title | escape }}
           </a>
         </h3>
-        <h4>
+        <h4 class="leading-none">
           <a
             class="text-xl font-helveticaThinCond italic"
             href="{{ card_product.metafields.custom.artis_page }}"
