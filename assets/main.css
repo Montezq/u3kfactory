@@ -776,6 +776,9 @@ video {
 .hidden {
   display: none;
 }
+.aspect-\[25\/24\] {
+  aspect-ratio: 25/24;
+}
 .h-0 {
   height: 0px;
 }
