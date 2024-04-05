@@ -147,14 +147,11 @@
         });
         updateGridClass(value);
       }
-
       rangeInputs.forEach(function (input) {
-        input.addEventListener('change', function () {
+        input.addEventListener('input', function () {
           syncRangeInputs(this.value);
         });
       });
-
-      // Initialize with the default value
       if (rangeInputs.length > 0) {
         updateGridClass(rangeInputs[0].value);
       }
