@@ -842,6 +842,9 @@ video {
 .w-\[17px\] {
   width: 17px;
 }
+.w-3 {
+  width: 0.75rem;
+}
 .min-w-\[166px\] {
   min-width: 166px;
 }
@@ -967,6 +970,9 @@ video {
 }
 .gap-\[1\.1rem\] {
   gap: 1.1rem;
+}
+.gap-6 {
+  gap: 1.5rem;
 }
 .gap-x-\[20px\] {
   -webkit-column-gap: 20px;
