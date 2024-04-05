@@ -3,6 +3,11 @@
 
   Accepts:
   - card_product: {Object} Product Liquid object (optional)
+<<<<<<< HEAD
+  - show_vendor: {Boolean} Show the product vendor. Default: false
+  - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+  - section_id: {String} The ID of the section that contains this card.
+=======
   - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
   - image_shape: {String} Image mask to apply to the product image card. Values are "arch", "blob", "chevronleft", "chevronright", "diamond", "parallelogram", and "round". (optional)
   - show_secondary_image: {Boolean} Show the secondary image on hover. Default: false (optional)
@@ -14,6 +19,7 @@
   - section_id: {String} The ID of the section that contains this card.
   - horizontal_class: {Boolean} Add a card--horizontal class if set to true. Default: false (optional)
   - horizontal_quick_add: {Boolean} Changes the quick add button styles when set to true. Default: false (optional)
+>>>>>>> 8001e4a8ab11ae43b2f6258276e25c033b0ebfc3
   - placeholder_image: {String} The placeholder image to use when no product exists. Default: 'product-apparel-2' (optional)
 
   Usage:
@@ -24,6 +30,8 @@
 {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
 
 {%- if card_product and card_product != empty -%}
+<<<<<<< HEAD
+=======
   {%- liquid
     assign ratio = 1
     if card_product.featured_media and media_aspect_ratio == 'portrait'
@@ -35,6 +43,7 @@
       assign ratio = 1
     endif
   -%}
+>>>>>>> 8001e4a8ab11ae43b2f6258276e25c033b0ebfc3
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
       class="
