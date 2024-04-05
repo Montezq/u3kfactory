@@ -830,6 +830,9 @@ video {
 .w-\[100vw\] {
   width: 100vw;
 }
+.w-\[166px\] {
+  width: 166px;
+}
 .w-\[17px\] {
   width: 17px;
 }
@@ -847,9 +850,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-\[166px\] {
-  width: 166px;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -1107,6 +1107,9 @@ video {
 .pb-6 {
   padding-bottom: 1.5rem;
 }
+.pb-9 {
+  padding-bottom: 2.25rem;
+}
 .pb-\[27px\] {
   padding-bottom: 27px;
 }
@@ -1157,9 +1160,6 @@ video {
 }
 .pt-\[67px\] {
   padding-top: 67px;
-}
-.pb-9 {
-  padding-bottom: 2.25rem;
 }
 .text-center {
   text-align: center;
@@ -1225,9 +1225,6 @@ video {
 }
 .font-bold {
   font-weight: 700;
-}
-.font-normal {
-  font-weight: 400;
 }
 .font-semibold {
   font-weight: 600;
@@ -1530,6 +1527,21 @@ input:focus-visible{
 }
 .collection-grid__list .card__media{
     margin-bottom: clamp(10px, 1.1vh, 1.1vh);
+  }
+.grid_template{
+  -webkit-appearance: none; 
+  width: 100%;
+  background: transparent;
+}
+.grid_template::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+.grid_template::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
   }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
