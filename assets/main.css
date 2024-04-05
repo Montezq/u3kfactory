@@ -1541,7 +1541,7 @@ input:focus-visible{
     --tw-bg-opacity: 1;
     background-color: rgb(27 25 25 / var(--tw-bg-opacity));
     cursor: pointer;
-    margin-top: -0.5rem;
+    margin-top: -7px;
   }
 .range::-moz-range-thumb {
   width: 1rem;
