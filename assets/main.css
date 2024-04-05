@@ -1533,7 +1533,7 @@ input:focus-visible{
   width: 100%;
   background: transparent;
 }
-.grid_template:-webkit-slider-thumb {
+.grid_template[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: 1px solid #000000;
     height: 36px;
@@ -1545,7 +1545,7 @@ input:focus-visible{
     -webkit-box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
             box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
   }
-.grid_template:-ms-track {
+.grid_template[type=range]::-ms-track {
     width: 100%;
     cursor: pointer;
     background: transparent; 
