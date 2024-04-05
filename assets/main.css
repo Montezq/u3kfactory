@@ -1484,18 +1484,20 @@ input:focus-visible{
 .collection-hero{
   padding-top: clamp(25px, calc(5vh - 25px), calc(5vh - 25px));
 }
-.collection-grid__list.collection-grid__list-big{
+.collection-grid__list.collection-grid__list-big {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
     -webkit-column-gap: clamp(27px, 4vw, 4vw);
        -moz-column-gap: clamp(27px, 4vw, 4vw);
             column-gap: clamp(27px, 4vw, 4vw);
-    row-gap: clamp(27px, 6vh, 6vh);
-  }
-.collection-grid__list.collection-grid__list-medium{
-    -webkit-column-gap: clamp(27px, 4vw, 4vw);
-       -moz-column-gap: clamp(27px, 4vw, 4vw);
-            column-gap: clamp(27px, 4vw, 4vw);
-    row-gap: clamp(27px, 6vh, 6vh);
-  }
+    row-gap: clamp(50px, 9vh, 160px);
+}
+.collection-grid__list.collection-grid__list-medium {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+    -webkit-column-gap: clamp(27px, 2.14vw, 2.14vw);
+       -moz-column-gap: clamp(27px, 2.14vw, 2.14vw);
+            column-gap: clamp(27px, 2.14vw, 2.14vw);
+    row-gap: clamp(50px, 9vh, 160px);
+}
 .collection-grid__list .card__media{
     margin-bottom: clamp(10px, 1.1vh, 1.1vh);
   }
