@@ -1,33 +1,35 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<div class="collection-hero pb-2.5 sticky top-[27px] bg-gray-10 lg:bg-white z-[2]">
-  <h1 class="collection-hero__title text-3xl font-coutureBold text-center">
-    <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-    {%- if section.settings.heading != blank -%}
-      {{ section.settings.heading }}
-    {%- else -%}
-      {{- collection.title | escape -}}
-    {%- endif -%}
-  </h1>
-</div>
 <div class="section-{{ section.id }} pb-12">
   {%- paginate collection.products by section.settings.products_per_page -%}
     <div>
-      <div class="flex items-center pb-9 sticky top-0 bg-gray-10 lg:bg-white z-[2]">
-        <div class="mr-5">
-          <button class="uppercase font-semibold text-[13px] tracking-wider">+ Filters (0)</button>
+      <div class="collection-hero sticky pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
+        <div class="pb-2.5">
+          <h1 class="collection-hero__title text-3xl font-coutureBold text-center">
+            <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+            {%- if section.settings.heading != blank -%}
+              {{ section.settings.heading }}
+            {%- else -%}
+              {{- collection.title | escape -}}
+            {%- endif -%}
+          </h1>
         </div>
-        <div class="w-[166px]">
-          <input
-            class="w-full block"
-            type="range"
-            id="grid_template"
-            name="Grid Template"
-            min="1"
-            max="3"
-            value="3"
-            step="1"
-          >
+        <div class="flex items-center">
+          <div class="mr-5">
+            <button class="uppercase font-semibold text-[13px] tracking-wider">+ Filters (0)</button>
+          </div>
+          <div class="w-[166px]">
+            <input
+              class="w-full block"
+              type="range"
+              id="grid_template"
+              name="Grid Template"
+              min="1"
+              max="3"
+              value="3"
+              step="1"
+            >
+          </div>
         </div>
       </div>
       {% comment %}
