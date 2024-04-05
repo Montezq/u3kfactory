@@ -1559,13 +1559,36 @@ input:focus-visible{
   background-color: rgb(27 25 25 / var(--tw-bg-opacity));
   cursor: pointer;
 }
+.range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  --tw-bg-opacity: 1;
+  background-color: rgb(27 25 25 / var(--tw-bg-opacity));
+}
+.range::-moz-range-track {
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  --tw-bg-opacity: 1;
+  background-color: rgb(27 25 25 / var(--tw-bg-opacity));
+}
 .range::-ms-track {
-    width: 100%;
-    cursor: pointer;
-    background: transparent; 
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+    background: transparent;
     border-color: transparent;
     color: transparent;
-  }
+}
+.range::-ms-fill-lower {
+  --tw-bg-opacity: 1;
+  background-color: rgb(27 25 25 / var(--tw-bg-opacity));
+}
+.range::-ms-fill-upper {
+  --tw-bg-opacity: 1;
+  background-color: rgb(27 25 25 / var(--tw-bg-opacity));
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
