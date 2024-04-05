@@ -76,6 +76,11 @@
             </a>
           </h4>
         </div>
+        <div class="flex items-center">
+          <div>
+            {%- render 'favorites' -%}
+          </div>
+        </div>
       </div>
       <div class="flex justify-end">
         {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
