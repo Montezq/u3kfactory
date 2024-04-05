@@ -1214,6 +1214,9 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-\[13px\] {
+  font-size: 13px;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -1222,6 +1225,9 @@ video {
 }
 .font-thin {
   font-weight: 100;
+}
+.font-normal {
+  font-weight: 400;
 }
 .uppercase {
   text-transform: uppercase;
