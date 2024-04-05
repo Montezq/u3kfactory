@@ -1538,7 +1538,8 @@ input:focus-visible{
     width: 1rem;
     height: 1rem;
     border-radius: 9999px;
-    background-color: 1b1919;
+    --tw-bg-opacity: 1;
+    background-color: rgb(27 25 25 / var(--tw-bg-opacity));
     cursor: pointer;
     margin-top: -0.5rem;
   }
