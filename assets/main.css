@@ -920,9 +920,6 @@ video {
 .resize {
   resize: both;
 }
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
 .flex-col {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -1496,6 +1493,13 @@ input:focus-visible{
     -webkit-column-gap: clamp(27px, 2.14vw, 2.14vw);
        -moz-column-gap: clamp(27px, 2.14vw, 2.14vw);
             column-gap: clamp(27px, 2.14vw, 2.14vw);
+    row-gap: clamp(50px, 9vh, 160px);
+}
+.collection-grid__list.collection-grid__list-small {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+    -webkit-column-gap: clamp(27px, 1.41vw, 1.41vw);
+       -moz-column-gap: clamp(27px, 1.41vw, 1.41vw);
+            column-gap: clamp(27px, 1.41vw, 1.41vw);
     row-gap: clamp(50px, 9vh, 160px);
 }
 .collection-grid__list .card__media{
