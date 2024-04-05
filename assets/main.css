@@ -1176,6 +1176,9 @@ video {
 .text-\[15px\] {
   font-size: 15px;
 }
+.text-\[19px\] {
+  font-size: 19px;
+}
 .text-\[20px\] {
   font-size: 20px;
 }
@@ -1195,9 +1198,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.text-\[19px\] {
-  font-size: 19px;
 }
 .font-bold {
   font-weight: 700;
