@@ -1565,6 +1565,8 @@ input:focus-visible{
   cursor: pointer;
   --tw-bg-opacity: 1;
   background-color: rgb(27 25 25 / var(--tw-bg-opacity));
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 }
 .range::-moz-range-track {
   width: 100%;
@@ -1572,6 +1574,8 @@ input:focus-visible{
   cursor: pointer;
   --tw-bg-opacity: 1;
   background-color: rgb(27 25 25 / var(--tw-bg-opacity));
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 }
 .range::-ms-track {
   width: 100%;
@@ -1579,15 +1583,21 @@ input:focus-visible{
   cursor: pointer;
     background: transparent;
     border-color: transparent;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
     color: transparent;
 }
 .range::-ms-fill-lower {
   --tw-bg-opacity: 1;
   background-color: rgb(27 25 25 / var(--tw-bg-opacity));
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 }
 .range::-ms-fill-upper {
   --tw-bg-opacity: 1;
   background-color: rgb(27 25 25 / var(--tw-bg-opacity));
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
