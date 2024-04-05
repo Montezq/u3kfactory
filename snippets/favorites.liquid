@@ -1,0 +1,15 @@
+{% comment %}
+  Renders add to favorites button.
+  Usage:
+  {% render 'favorites' %}
+{% endcomment %}
+
+<button
+  class="w-full"
+  type="button"
+  aria-label="{{ 'general.favorites.save_product' | t  }}"
+  title="{{ 'general.favorites.save_product' | t  }}"
+>
+  <span class="visually-hidden">{{ 'general.favorites.save_product' | t }}</span>
+  {%- render 'icon-heart' -%}
+</button>

@@ -8,6 +8,7 @@ html{
   @apply font-open;
   @apply tracking-wider;
   @apply max-lg:bg-gray-10;
+  @apply font-helveticaThinCond;
 }
 body{
   &::-webkit-scrollbar {
@@ -163,5 +164,87 @@ accordion-item.open,
 .card-collection__title{
   @media screen and (max-width: 1200px) and (min-width: 1024px) {
     font-size: 5cqw;
+  }
+}
+.collection-hero{
+  padding-top: clamp(25px, calc(5vh - 25px), calc(5vh - 25px));
+}
+.collection-grid__list{
+  &.collection-grid__list-big{
+    @apply grid-cols-2;
+    column-gap: clamp(27px, 4vw, 4vw);
+    row-gap: clamp(50px, 9vh, 160px);
+  }
+  &.collection-grid__list-medium{
+    @apply grid-cols-3;
+    column-gap: clamp(27px, 2.14vw, 2.14vw);
+    row-gap: clamp(50px, 9vh, 160px);
+  }
+  &.collection-grid__list-small{
+    @apply grid-cols-4;
+    column-gap: clamp(27px, 1.41vw, 1.41vw);
+    row-gap: clamp(50px, 9vh, 160px);
+  }
+  .card__media{
+    margin-bottom: clamp(10px, 1.1vh, 1.1vh);
+  }
+}
+.range{
+  -webkit-appearance: none; 
+  width: 100%;
+  background: transparent;
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @apply w-4;
+    @apply h-4;
+    @apply rounded-full;
+    @apply bg-gray-700;
+    @apply cursor-pointer;
+    @apply -mt-[7px];
+  }
+  &::-moz-range-thumb {
+    @apply w-4;
+    @apply h-4;
+    @apply rounded-full;
+    @apply bg-gray-700;
+    @apply cursor-pointer;
+  }
+  &::-ms-thumb {
+    @apply w-4;
+    @apply h-4;
+    @apply rounded-full;
+    @apply bg-gray-700;
+    @apply cursor-pointer;
+  }
+  &::-webkit-slider-runnable-track {
+    @apply w-full;
+    @apply h-[1px];
+    @apply cursor-pointer;
+    @apply bg-gray-700;
+    @apply px-2.5;
+  }
+  &::-moz-range-track {
+    @apply w-full;
+    @apply h-[1px];
+    @apply cursor-pointer;
+    @apply bg-gray-700;
+    @apply px-2.5;
+  }
+  &::-ms-track {
+    @apply w-full;
+    @apply h-[1px];
+    @apply cursor-pointer;
+    background: transparent;
+    border-color: transparent;
+    @apply px-2.5;
+    color: transparent;
+  }
+  &::-ms-fill-lower {
+    @apply bg-gray-700;
+    @apply px-2.5;
+  }
+  &::-ms-fill-upper {
+    @apply bg-gray-700;
+    @apply px-2.5;
   }
 }
