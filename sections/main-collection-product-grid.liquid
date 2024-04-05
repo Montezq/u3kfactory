@@ -19,6 +19,16 @@
             <button class="uppercase font-semibold text-[13px] tracking-wider">+ Filters (0)</button>
           </div>
           <div class="w-[162px] mt-0.5">
+            {%- liquid
+              assign value = 3
+              if section.settings.grid_template == 'small'
+                assign value = 3
+              elsif section.settings.grid_template == 'medium'
+                assign value = 2
+              else
+                assign value = 1
+              endif
+            -%}
             <input
               class="w-full block range"
               type="range"
@@ -26,7 +36,7 @@
               name="Grid Template"
               min="1"
               max="3"
-              value="3"
+              value="{{ value }}"
               step="1"
             >
           </div>
