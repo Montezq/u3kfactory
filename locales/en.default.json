@@ -47,6 +47,9 @@
     "share": {
       "share_product": "Share This Product"
     },
+    "favorites": {
+      "save_product": "Save To My Favorites"
+    },
     "slider": {
       "of": "of",
       "next_slide": "Slide right",

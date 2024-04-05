@@ -4,7 +4,12 @@
   {% render 'favorites' %}
 {% endcomment %}
 
-<button class="w-full" type="button" aria-label="Save To My Favorites" title="Save To My Favorites">
-  <span class="visually-hidden">Save to my favorites</span>
+<button
+  class="w-full"
+  type="button"
+  aria-label="{{ 'general.favorites.save_product' | t  }}"
+  title="{{ 'general.favorites.save_product' | t  }}"
+>
+  <span class="visually-hidden">{{ 'general.favorites.save_product' | t }}</span>
   {%- render 'icon-heart' -%}
 </button>
