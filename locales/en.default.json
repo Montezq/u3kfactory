@@ -45,10 +45,7 @@
       "item_added": "Item added to your cart"
     },
     "share": {
-      "close": "Close share",
-      "copy_to_clipboard": "Copy link",
-      "share_url": "Link",
-      "success_message": "Link copied to clipboard"
+      "share_product": "Share This Product"
     },
     "slider": {
       "of": "of",
