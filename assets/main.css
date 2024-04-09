@@ -1671,6 +1671,10 @@ input:focus-visible{
   #product-grid-wrapper.collection-grid__list-small .card__content {
     display: none;
   }
+
+  #product-grid-wrapper.collection-grid__list-small .card__media {
+    margin-bottom: 0px !important;
+  }
 }
 #product-grid-wrapper .card__media{
     margin-bottom: clamp(10px, 1.1vh, 1.1vh);
