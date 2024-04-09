@@ -809,6 +809,9 @@ video {
 .aspect-\[25\/24\] {
   aspect-ratio: 25/24;
 }
+.\!h-0 {
+  height: 0px !important;
+}
 .h-0 {
   height: 0px;
 }
@@ -827,11 +830,11 @@ video {
 .h-screen {
   height: 100vh;
 }
-.\!h-0 {
-  height: 0px !important;
-}
 .min-h-screen {
   min-height: 100vh;
+}
+.\!w-0 {
+  width: 0px !important;
 }
 .w-12 {
   width: 3rem;
@@ -891,9 +894,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.\!w-0 {
-  width: 0px !important;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -1217,6 +1217,12 @@ video {
 }
 .pt-\[67px\] {
   padding-top: 67px;
+}
+.pt-1 {
+  padding-top: 0.25rem;
+}
+.pt-1\.5 {
+  padding-top: 0.375rem;
 }
 .text-center {
   text-align: center;
@@ -1745,6 +1751,16 @@ input:focus-visible{
   top: 100%;
 }
 
+.after\:left-full::after {
+  content: var(--tw-content);
+  left: 100%;
+}
+
+.after\:top-0::after {
+  content: var(--tw-content);
+  top: 0px;
+}
+
 .after\:block::after {
   content: var(--tw-content);
   display: block;
@@ -1755,9 +1771,19 @@ input:focus-visible{
   height: 1px;
 }
 
+.after\:h-\[57px\]::after {
+  content: var(--tw-content);
+  height: 57px;
+}
+
 .after\:w-\[80\%\]::after {
   content: var(--tw-content);
   width: 80%;
+}
+
+.after\:w-\[1px\]::after {
+  content: var(--tw-content);
+  width: 1px;
 }
 
 .after\:min-w-\[260px\]::after {
@@ -1789,6 +1815,12 @@ input:focus-visible{
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.after\:bg-gray-100::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(167 167 167 / var(--tw-bg-opacity));
 }
 
 .after\:content-\[\'\'\]::after {
