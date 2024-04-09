@@ -207,15 +207,34 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var filterLinks = document.querySelectorAll('.filter__item');
+
     filterLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
+      link.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Determine whether the filter is currently active
+        var isActiveFilter = this.parentNode.querySelector('input[type="checkbox"]').checked;
+
+        // Toggle active state visuals here if necessary
+        // This might involve adding or removing CSS classes to indicate active/inactive state
+
+        // Extract URL from data-href attribute
         var urlToFetch = this.getAttribute('data-href');
+
+        // Conditionally modify URL if needed based on active state
+        // If your logic requires changing the URL based on whether the filter is active, adjust here
+
+        // Fetch and update content
         fetch(urlToFetch)
-          .then((response) => response.text()) // Convert the response to text
+          .then((response) => response.text())
           .then((html) => {
-            document.getElementById('ProductGridContainer').innerHTML = new DOMParser()
+            var newContent = new DOMParser()
               .parseFromString(html, 'text/html')
               .getElementById('ProductGridContainer').innerHTML;
+            document.getElementById('ProductGridContainer').innerHTML = newContent;
+
+            // Optionally, re-apply event listeners to new filter items if they are replaced in the DOM
+            // This step is necessary if the Ajax call replaces the filter items in the DOM
           })
           .catch((error) => {
             console.error('Error fetching filtered results:', error);
