@@ -45,14 +45,12 @@
       {%- for filter in collection.filters -%}
         <br>
         {%- for value in filter.values -%}
-          <facet-remove>
-            <a href="{{ value.url_to_add }}" class="active-facets__button active-facets__button--light">
-              <span class="active-facets__button-inner button button--tertiary">
-                {{ filter.label | escape }}: {{ value.label | escape }}
-                <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
-              </span>
-            </a>
-          </facet-remove>
+          <a href="{{ value.url_to_add }}" class="active-facets__button active-facets__button--light">
+            <span class="active-facets__button-inner button button--tertiary">
+              {{ filter.label | escape }}: {{ value.label | escape }}
+              <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+            </span>
+          </a>
         {%- endfor -%}
       {%- endfor -%}
       {% comment %}
@@ -75,7 +73,39 @@
           </aside>
         {%- endif -%}
       {% endcomment %}
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          // Select all filter links
+          var filterLinks = document.querySelectorAll('a.active-facets__button');
 
+          // Add click event listener to each link
+          filterLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+              // Prevent the default link action
+              event.preventDefault();
+
+              // Get the URL to fetch from the href attribute of the clicked link
+              var urlToFetch = this.getAttribute('href');
+
+              // Perform the AJAX request
+              fetch(urlToFetch)
+                .then((response) => response.text()) // Convert the response to text
+                .then((html) => {
+                  // Here, update the page content with the fetched HTML
+                  // For example, if you have a <div> with an id of "filter-results" where the results should go:
+                  document.getElementById('filter-results').innerHTML = html;
+
+                  // You might need to re-initialize some JavaScript functionality here if the new content requires it
+                })
+                .catch((error) => {
+                  console.error('Error fetching filtered results:', error);
+                });
+            });
+          });
+        });
+      </script>
+
+      <div id="filter-results"></div>
       <div
         class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         id="ProductGridContainer"
