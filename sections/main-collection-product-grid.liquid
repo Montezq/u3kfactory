@@ -56,7 +56,7 @@
                   Close
                 </button>
                 <div
-                  class="uppercase cursor-pointer font-semibold text-[13px] tracking-wider close-filter inline-block text-gray-600 filter__item"
+                  class="uppercase cursor-pointer font-semibold text-[13px] tracking-wider close-filter inline-block text-gray-600 filter__item-clear"
                   data-href="{{  results_url }}"
                 >
                   Clear
@@ -207,6 +207,7 @@
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    // Function to update filter links with new data-href values
     const updateFilterLinks = (htmlDocument) => {
       const newFilterLinks = htmlDocument.querySelectorAll('.filter__item');
       const currentFilterLinks = document.querySelectorAll('.filter__item');
@@ -217,33 +218,56 @@
         }
       });
     };
-    var filterLinks = document.querySelectorAll('.filter__item');
 
-    filterLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
-        var urlToFetch = this.getAttribute('data-href');
+    // Function to handle fetching and updating the content
+    const fetchAndUpdateContent = (urlToFetch) => {
+      fetch(urlToFetch)
+        .then((response) => response.text())
+        .then((htmlString) => {
+          const parser = new DOMParser();
+          const htmlDocument = parser.parseFromString(htmlString, 'text/html');
+          const newContent = htmlDocument.getElementById('ProductGridContainer').innerHTML;
+          document.getElementById('ProductGridContainer').innerHTML = newContent;
 
-        fetch(urlToFetch)
-          .then((response) => response.text())
-          .then((htmlString) => {
-            // Parse the fetched HTML string into a document object
-            const parser = new DOMParser();
-            const htmlDocument = parser.parseFromString(htmlString, 'text/html');
-            const newContent = htmlDocument.getElementById('ProductGridContainer').innerHTML;
-            document.getElementById('ProductGridContainer').innerHTML = newContent;
-            updateFilterLinks(htmlDocument);
-            document.querySelectorAll('.filter__item').forEach((link) => {
-              link.addEventListener('click', filterLinkClickHandler); // Attach the new event listener
-            });
-          })
-          .catch((error) => {
-            console.error('Error fetching filtered results:', error);
+          updateFilterLinks(htmlDocument);
+
+          // Re-attach event listeners to both filter items and clear buttons
+          document.querySelectorAll('.filter__item').forEach((link) => {
+            link.removeEventListener('click', filterLinkClickHandler); // Avoid duplicate listeners
+            link.addEventListener('click', filterLinkClickHandler);
           });
+          attachClearButtonListener(); // Call function to attach listener to clear button
+        })
+        .catch((error) => {
+          console.error('Error fetching filtered results:', error);
+        });
+    };
+
+    // Event handler for filter items
+    const filterLinkClickHandler = function () {
+      const urlToFetch = this.getAttribute('data-href');
+      fetchAndUpdateContent(urlToFetch);
+    };
+
+    // Function to attach click event listener to clear button
+    const attachClearButtonListener = () => {
+      document.querySelector('.filter__item-clear')?.addEventListener('click', function () {
+        // Uncheck all inputs
+        document.querySelectorAll('.filter-label input[type="checkbox"]').forEach((input) => {
+          input.checked = false;
+        });
+
+        // Fetch and update content based on the data-href attribute of the clear button
+        const urlToFetch = this.getAttribute('data-href');
+        fetchAndUpdateContent(urlToFetch);
       });
+    };
+
+    // Attach initial event listeners
+    document.querySelectorAll('.filter__item').forEach((link) => {
+      link.addEventListener('click', filterLinkClickHandler);
     });
-    function filterLinkClickHandler() {
-      var urlToFetch = this.getAttribute('data-href');
-    }
+    attachClearButtonListener(); // Attach listener to clear button
   });
 </script>
 
