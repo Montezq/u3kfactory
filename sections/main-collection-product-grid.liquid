@@ -163,50 +163,50 @@
             {%- endif -%}
           </div>
         {%- endif -%}
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            var rangeInputs = document.querySelectorAll('.range-input');
+            var productList = document.getElementById('product-grid');
+
+            function updateGridClass(value) {
+              productList.classList.remove(
+                'collection-grid__list-small',
+                'collection-grid__list-medium',
+                'collection-grid__list-big'
+              );
+              switch (value) {
+                case '1':
+                  productList.classList.add('collection-grid__list-big');
+                  break;
+                case '2':
+                  productList.classList.add('collection-grid__list-medium');
+                  break;
+                case '3':
+                  productList.classList.add('collection-grid__list-small');
+                  break;
+              }
+            }
+
+            function syncRangeInputs(value) {
+              rangeInputs.forEach(function (input) {
+                input.value = value;
+              });
+              updateGridClass(value);
+            }
+            rangeInputs.forEach(function (input) {
+              input.addEventListener('input', function () {
+                syncRangeInputs(this.value);
+              });
+            });
+            if (rangeInputs.length > 0) {
+              updateGridClass(rangeInputs[0].value);
+            }
+          });
+        </script>
       </div>
     </div>
   {%- endpaginate -%}
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var rangeInputs = document.querySelectorAll('.range-input');
-    var productList = document.getElementById('product-grid');
-
-    function updateGridClass(value) {
-      productList.classList.remove(
-        'collection-grid__list-small',
-        'collection-grid__list-medium',
-        'collection-grid__list-big'
-      );
-      switch (value) {
-        case '1':
-          productList.classList.add('collection-grid__list-big');
-          break;
-        case '2':
-          productList.classList.add('collection-grid__list-medium');
-          break;
-        case '3':
-          productList.classList.add('collection-grid__list-small');
-          break;
-      }
-    }
-
-    function syncRangeInputs(value) {
-      rangeInputs.forEach(function (input) {
-        input.value = value;
-      });
-      updateGridClass(value);
-    }
-    rangeInputs.forEach(function (input) {
-      input.addEventListener('input', function () {
-        syncRangeInputs(this.value);
-      });
-    });
-    if (rangeInputs.length > 0) {
-      updateGridClass(rangeInputs[0].value);
-    }
-  });
-</script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     function filterToggle() {
