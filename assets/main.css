@@ -764,6 +764,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -859,6 +862,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-48 {
+  width: 12rem;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -985,6 +991,9 @@ video {
 }
 .gap-\[1\.1rem\] {
   gap: 1.1rem;
+}
+.gap-5 {
+  gap: 1.25rem;
 }
 .gap-x-\[20px\] {
   -webkit-column-gap: 20px;
