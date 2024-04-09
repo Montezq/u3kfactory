@@ -2043,6 +2043,11 @@ input:focus-visible{
     position: relative;
   }
 
+  .lg\:sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
   .lg\:left-0 {
     left: 0px;
   }

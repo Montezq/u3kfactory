@@ -3,7 +3,7 @@
 <div class="section-{{ section.id }} pb-12" id="product-grid-wrapper">
   {%- paginate collection.products by 24 -%}
     <div>
-      <div class="collection-hero sticky pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
+      <div class="collection-hero lg:sticky pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
         <div class="pb-2.5">
           <h1 class="collection-hero__title text-3xl font-coutureBold text-center">
             <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
