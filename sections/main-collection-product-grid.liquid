@@ -212,26 +212,14 @@
       link.addEventListener('click', function () {
         // Extract URL from data-href attribute
         var urlToFetch = this.getAttribute('data-href');
-        const queryString = urlToFetch.includes('?') ? urlToFetch.slice(urlToFetch.indexOf('?')) : '';
 
-        // Determine the new URL based on whether the query string is already present
-        let newUrl = '';
-        const currentUrl = window.location.href;
-        const currentQueryString = window.location.search;
+        // Update URL hash based on data-href attribute
+        // Extracting just the query string part for the hash
+        const queryString = urlToFetch.includes('?') ? urlToFetch.slice(urlToFetch.indexOf('?') + 1) : '';
+        window.location.hash = queryString;
 
-        if (currentQueryString === queryString) {
-          // If the current query string is the same as this filter's, remove it
-          newUrl = window.location.pathname;
-        } else {
-          // Otherwise, update the URL with this filter's query string
-          newUrl = window.location.pathname + queryString;
-        }
-
-        // Update browser URL without reloading the page
-        window.history.pushState({ path: newUrl }, '', newUrl);
-        console.log(newUrl);
         // Fetch and update content
-        fetch(newUrl)
+        fetch(urlToFetch)
           .then((response) => response.text())
           .then((html) => {
             var newContent = new DOMParser()
