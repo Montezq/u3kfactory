@@ -23,9 +23,12 @@ module.exports = {
       black: '#000000',
       gray:{
         10: '#fafafa',
+        100: '#a7a7a7',
         200: '#5f5f5f',
+        600: '#5b5b5b',
         700: '#1b1919',
         800: '#212121',
+        850: '#292929',
         900: '#191919'
       }
     },
@@ -38,6 +41,7 @@ module.exports = {
       wider: '.04em',
       widerx: '.06em',
       widest: '.08em',
+      xwidest: '.12em',
       xlwidest: '.34em',
     }
   },

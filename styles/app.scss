@@ -169,21 +169,60 @@ accordion-item.open,
 .collection-hero{
   padding-top: clamp(25px, calc(5vh - 25px), calc(5vh - 25px));
 }
-.collection-grid__list{
+.collection-product-grid{
+  @apply max-lg:px-4;
+  @apply max-md:px-[6px];
+  .collection-hero{
+    @apply max-md:px-[12px]
+  }
+}
+#product-grid-wrapper{
   &.collection-grid__list-big{
-    @apply grid-cols-2;
-    column-gap: clamp(27px, 4vw, 4vw);
-    row-gap: clamp(50px, 9vh, 160px);
+    &.collection-product-grid{
+      @apply max-md:px-0;
+      .collection-hero{
+        @apply max-md:px-[18px]
+      }
+    }
+    .collection-grid__list{
+      @apply xl:grid-cols-2;
+      @apply grid-cols-1;
+      row-gap: 70px;
+      @screen md{
+        column-gap: clamp(27px, 4vw, 4vw);
+        row-gap: clamp(50px, 9vh, 160px);
+      }
+    }
   }
   &.collection-grid__list-medium{
-    @apply grid-cols-3;
-    column-gap: clamp(27px, 2.14vw, 2.14vw);
-    row-gap: clamp(50px, 9vh, 160px);
+    .collection-grid__list{
+      @apply xl:grid-cols-3;
+      @apply grid-cols-2;
+      column-gap: 8px;
+      row-gap: 70px;
+      @screen md{
+        column-gap: clamp(27px, 2.14vw, 2.14vw);
+        row-gap: clamp(50px, 9vh, 160px);
+      }
+    }
   }
   &.collection-grid__list-small{
-    @apply grid-cols-4;
-    column-gap: clamp(27px, 1.41vw, 1.41vw);
-    row-gap: clamp(50px, 9vh, 160px);
+    .collection-grid__list{
+      @apply xl:grid-cols-4;
+      @apply grid-cols-3;
+      column-gap: 8px;
+      row-gap: 70px;
+      @screen md{
+        column-gap: clamp(27px, 1.41vw, 1.41vw);
+        row-gap: clamp(50px, 9vh, 160px);
+      }
+    }
+    .card__content{
+      @apply max-lg:hidden;
+    }
+    .card__media{
+      @apply max-lg:!mb-0;
+    }
   }
   .card__media{
     margin-bottom: clamp(10px, 1.1vh, 1.1vh);
@@ -247,4 +286,21 @@ accordion-item.open,
     @apply bg-gray-700;
     @apply px-2.5;
   }
+}
+
+.filter-label{
+  input{
+    &:checked{
+      &+.filter__item{
+        .filter_checked{
+          @apply opacity-100
+        }
+      }
+    }
+  }
+}
+.filter-modal{
+  width: calc(100% + 36px);
+  @apply max-md:-ml-[18px];
+  @apply max-md:px-4;
 }
