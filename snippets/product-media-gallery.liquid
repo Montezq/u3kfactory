@@ -10,3 +10,19 @@
   Usage:
   {% render 'product-media-gallery', is_duplicate: true %}
 {% endcomment %}
+
+{%- liquid
+  assign id_append = ''
+  if is_duplicate
+    assign id_append = '-duplicate'
+  endif
+-%}
+
+
+<div class="splide" aria-label="Product Slider"  id="MediaGallery-{{ section.id }}{{ id_append }}">
+  <div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide">Slide 03</li>
+		</ul>
+  </div>
+</div>
