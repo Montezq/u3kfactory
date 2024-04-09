@@ -216,9 +216,9 @@
         // Extract URL from data-href attribute
         var urlToFetch = this.getAttribute('data-href');
         const queryString = urlToFetch.includes('?') ? urlToFetch.slice(urlToFetch.indexOf('?') + 1) : '';
-
+        console.log(queryString);
         // Fetch and update content
-        fetch(queryString)
+        fetch(urlToFetch)
           .then((response) => response.text())
           .then((html) => {
             var newContent = new DOMParser()
