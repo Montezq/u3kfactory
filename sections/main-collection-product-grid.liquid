@@ -197,7 +197,6 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Range input functionality
     var rangeInputs = document.querySelectorAll('.range-input');
     var productList = document.getElementById('product-grid');
 
@@ -226,19 +225,18 @@
       });
       updateGridClass(value);
     }
-
-    // Attach event listener to range inputs
     rangeInputs.forEach(function (input) {
       input.addEventListener('input', function () {
         syncRangeInputs(this.value);
       });
     });
-
     if (rangeInputs.length > 0) {
       updateGridClass(rangeInputs[0].value);
     }
-
-    // Filter toggle functionality
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
     function filterToggle() {
       let openFilter = document.querySelector('.open-filter'),
         closeFilter = document.querySelector('.close-filter'),
@@ -253,40 +251,44 @@
     }
     filterToggle();
 
-    // Function to update the filter counter
     const updateFilterCounter = () => {
       const checkedFiltersCount = document.querySelectorAll('.filter-label input[type="checkbox"]:checked').length;
       document.querySelectorAll('.filter_counter').forEach((counterElement) => {
         counterElement.textContent = checkedFiltersCount;
       });
     };
-    updateFilterCounter(); // Initial update
 
-    // General click event handling for filter items and clear button
+    // Event listener for click events within the document
     document.addEventListener('click', function (event) {
       const filterLink = event.target.closest('.filter__item');
       const filterClear = event.target.closest('.filter__item-clear');
 
-      if (filterLink || filterClear) {
-        const urlToFetch = (filterLink || filterClear).getAttribute('data-href');
+      // Process clicks on filter items
+      if (filterLink) {
+        const urlToFetch = filterLink.getAttribute('data-href');
+        fetchAndUpdateContent(urlToFetch);
+      } else if (filterClear) {
+        document.querySelectorAll('.filter-label input[type="checkbox"]').forEach((input) => {
+          input.checked = false;
+        });
+        const urlToFetch = filterClear.getAttribute('data-href');
         fetchAndUpdateContent(urlToFetch);
       }
     });
 
-    // Function to fetch and update content, also re-initializes range inputs and updates counters
     const fetchAndUpdateContent = (urlToFetch) => {
       fetch(urlToFetch)
         .then((response) => response.text())
         .then((htmlString) => {
           const parser = new DOMParser();
           const htmlDocument = parser.parseFromString(htmlString, 'text/html');
-          document.getElementById('ProductGridContainer').innerHTML =
-            htmlDocument.getElementById('ProductGridContainer').innerHTML;
+          // Update the main content area with the new HTML
+          const newContent = htmlDocument.getElementById('ProductGridContainer').innerHTML;
+          document.getElementById('ProductGridContainer').innerHTML = newContent;
 
-          // Re-initialize dynamic UI elements after content update
-          updateFilterLinks(htmlDocument);
           updateFilterCounter();
-          syncRangeInputs(rangeInputs.length > 0 ? rangeInputs[0].value : '1'); // Adjust based on actual default or current value
+          // Update the data-href attributes for the filter items
+          updateFilterLinks(htmlDocument);
         })
         .catch((error) => console.error('Error fetching filtered results:', error));
     };
@@ -294,14 +296,18 @@
     // Function to update filter links with new data-href values
     const updateFilterLinks = (htmlDocument) => {
       const newFilterLinks = htmlDocument.querySelectorAll('.filter__item');
+      // Ensure to target the container that will definitely include all your .filter__item elements
       const currentFilterLinks = document.querySelectorAll('.filter__item');
 
       newFilterLinks.forEach((newLink, index) => {
         if (currentFilterLinks[index]) {
+          // Update the current filter link with the new data-href attribute from the fetched content
           currentFilterLinks[index].setAttribute('data-href', newLink.getAttribute('data-href'));
         }
       });
+      updateFilterCounter();
     };
+    updateFilterCounter();
   });
 </script>
 
