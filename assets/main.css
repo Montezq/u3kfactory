@@ -1602,8 +1602,8 @@ input:focus-visible{
   }
 
   .collection-product-grid .collection-hero {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   #product-grid-wrapper.collection-grid__list-big.collection-product-grid {
@@ -1612,8 +1612,8 @@ input:focus-visible{
   }
 
   #product-grid-wrapper.collection-grid__list-big.collection-product-grid .collection-hero {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 }
 @media (min-width: 1280px) {
