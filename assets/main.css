@@ -785,11 +785,11 @@ video {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
-.block {
-  display: block;
-}
 .\!block {
   display: block !important;
+}
+.block {
+  display: block;
 }
 .inline-block {
   display: inline-block;
@@ -1200,11 +1200,17 @@ video {
 .pr-5 {
   padding-right: 1.25rem;
 }
-.pr-6 {
-  padding-right: 1.5rem;
+.pr-\[22px\] {
+  padding-right: 22px;
 }
 .pr-\[6px\] {
   padding-right: 6px;
+}
+.pt-1 {
+  padding-top: 0.25rem;
+}
+.pt-1\.5 {
+  padding-top: 0.375rem;
 }
 .pt-12 {
   padding-top: 3rem;
@@ -1220,15 +1226,6 @@ video {
 }
 .pt-\[67px\] {
   padding-top: 67px;
-}
-.pt-1 {
-  padding-top: 0.25rem;
-}
-.pt-1\.5 {
-  padding-top: 0.375rem;
-}
-.pr-\[22px\] {
-  padding-right: 22px;
 }
 .text-center {
   text-align: center;
@@ -1587,30 +1584,30 @@ input:focus-visible{
 .collection-hero{
   padding-top: clamp(25px, calc(5vh - 25px), calc(5vh - 25px));
 }
-.collection-grid__list.collection-grid__list-big {
+#product-grid-wrapper.collection-grid__list-big .collection-grid__list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-    -webkit-column-gap: clamp(27px, 4vw, 4vw);
-       -moz-column-gap: clamp(27px, 4vw, 4vw);
-            column-gap: clamp(27px, 4vw, 4vw);
-    row-gap: clamp(50px, 9vh, 160px);
+        -webkit-column-gap: clamp(27px, 4vw, 4vw);
+           -moz-column-gap: clamp(27px, 4vw, 4vw);
+                column-gap: clamp(27px, 4vw, 4vw);
+        row-gap: clamp(50px, 9vh, 160px);
 }
-.collection-grid__list.collection-grid__list-medium {
+#product-grid-wrapper.collection-grid__list-medium .collection-grid__list {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-    -webkit-column-gap: clamp(27px, 2.14vw, 2.14vw);
-       -moz-column-gap: clamp(27px, 2.14vw, 2.14vw);
-            column-gap: clamp(27px, 2.14vw, 2.14vw);
-    row-gap: clamp(50px, 9vh, 160px);
+        -webkit-column-gap: clamp(27px, 2.14vw, 2.14vw);
+           -moz-column-gap: clamp(27px, 2.14vw, 2.14vw);
+                column-gap: clamp(27px, 2.14vw, 2.14vw);
+        row-gap: clamp(50px, 9vh, 160px);
 }
-.collection-grid__list.collection-grid__list-small {
+#product-grid-wrapper.collection-grid__list-small .collection-grid__list {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-    -webkit-column-gap: clamp(27px, 1.41vw, 1.41vw);
-       -moz-column-gap: clamp(27px, 1.41vw, 1.41vw);
-            column-gap: clamp(27px, 1.41vw, 1.41vw);
-    row-gap: clamp(50px, 9vh, 160px);
+        -webkit-column-gap: clamp(27px, 1.41vw, 1.41vw);
+           -moz-column-gap: clamp(27px, 1.41vw, 1.41vw);
+                column-gap: clamp(27px, 1.41vw, 1.41vw);
+        row-gap: clamp(50px, 9vh, 160px);
 }
-.collection-grid__list .card__media{
-    margin-bottom: clamp(10px, 1.1vh, 1.1vh);
-  }
+#product-grid-wrapper .card__media{
+      margin-bottom: clamp(10px, 1.1vh, 1.1vh);
+    }
 .range{
   -webkit-appearance: none; 
   width: 100%;
@@ -1747,16 +1744,6 @@ input:focus-visible{
   left: 50%;
 }
 
-.after\:top-1\/2::after {
-  content: var(--tw-content);
-  top: 50%;
-}
-
-.after\:top-full::after {
-  content: var(--tw-content);
-  top: 100%;
-}
-
 .after\:left-full::after {
   content: var(--tw-content);
   left: 100%;
@@ -1765,6 +1752,16 @@ input:focus-visible{
 .after\:top-0::after {
   content: var(--tw-content);
   top: 0px;
+}
+
+.after\:top-1\/2::after {
+  content: var(--tw-content);
+  top: 50%;
+}
+
+.after\:top-full::after {
+  content: var(--tw-content);
+  top: 100%;
 }
 
 .after\:block::after {
@@ -1782,14 +1779,14 @@ input:focus-visible{
   height: 57px;
 }
 
-.after\:w-\[80\%\]::after {
-  content: var(--tw-content);
-  width: 80%;
-}
-
 .after\:w-\[1px\]::after {
   content: var(--tw-content);
   width: 1px;
+}
+
+.after\:w-\[80\%\]::after {
+  content: var(--tw-content);
+  width: 80%;
 }
 
 .after\:min-w-\[260px\]::after {
@@ -1817,16 +1814,16 @@ input:focus-visible{
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.after\:bg-white::after {
-  content: var(--tw-content);
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .after\:bg-gray-100::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(167 167 167 / var(--tw-bg-opacity));
+}
+
+.after\:bg-white::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .after\:content-\[\'\'\]::after {
