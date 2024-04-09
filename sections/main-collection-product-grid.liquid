@@ -55,11 +55,12 @@
                 <button class="uppercase font-semibold text-[13px] tracking-wider close-filter text-gray-850 mb-2">
                   Close
                 </button>
-                <a
+                <div
                   class="uppercase font-semibold text-[13px] tracking-wider close-filter inline-block text-gray-600 filter__item"
                   href="{{  results_url }}"
-                  >Clear</a
                 >
+                  Clear
+                </div>
               </div>
               <div class="flex flex-wrap gap-5">
                 {%- for filter in collection.filters -%}
