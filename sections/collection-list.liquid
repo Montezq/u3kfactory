@@ -1,7 +1,7 @@
 <div class="max-md:px-1.5">
   <div>
     {%- unless section.settings.title == blank -%}
-      <div class="mb-3 md:hidden">
+      <div class="mb-3 sticky top-[67px] bg-gray-10 z-[2] md:hidden pb-1.5">
         <h2
           id="SectionHeading-{{ section.id }}"
           class="text-center font-coutureBold text-xl{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -32,6 +32,7 @@
               card_collection: block.settings.collection,
               media_aspect_ratio: section.settings.image_ratio,
               custom_title: block.settings.collection_title,
+              custom_image: block.settings.collection_image,
               placeholder_image: placeholder_image
             %}
           </li>
@@ -69,10 +70,16 @@
           "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
         },
         {
+          "type": "image_picker",
+          "id": "collection_image",
+          "label": "t:sections.collection-list.blocks.featured_collection.settings.collection_image.label",
+          "info": "t:sections.collection-list.blocks.featured_collection.settings.collection_image.info"
+        },
+        {
           "type": "inline_richtext",
           "id": "collection_title",
-          "label": "Collection titlte",
-          "info": "If blank the defaul collection title will be used"
+          "label": "t:sections.collection-list.blocks.featured_collection.settings.collection_title.label",
+          "info": "t:sections.collection-list.blocks.featured_collection.settings.collection_title.info"
         }
       ]
     }
