@@ -42,6 +42,7 @@
           </div>
           <div class="absolute top-0 left-0 bg-gray-10 lg:bg-white z-[2] w-full filter-modal pb-14">
             {%- liquid
+              assign sort_by = collection.sort_by | default: collection.default_sort_by
               if collection.url
                 assign results_url = collection.url
               else
