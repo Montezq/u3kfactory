@@ -1,7 +1,7 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 <div class="section-{{ section.id }} pb-12">
-  {%- paginate collection.products by section.settings.products_per_page -%}
+  {%- paginate collection.products by 3 -%}
     <div>
       <div class="collection-hero sticky pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
         <div class="pb-2.5">
@@ -171,47 +171,47 @@
       </div>
     </div>
   {%- endpaginate -%}
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var rangeInputs = document.querySelectorAll('.range-input');
-      var productList = document.getElementById('product-grid');
-
-      function updateGridClass(value) {
-        productList.classList.remove(
-          'collection-grid__list-small',
-          'collection-grid__list-medium',
-          'collection-grid__list-big'
-        );
-        switch (value) {
-          case '1':
-            productList.classList.add('collection-grid__list-big');
-            break;
-          case '2':
-            productList.classList.add('collection-grid__list-medium');
-            break;
-          case '3':
-            productList.classList.add('collection-grid__list-small');
-            break;
-        }
-      }
-
-      function syncRangeInputs(value) {
-        rangeInputs.forEach(function (input) {
-          input.value = value;
-        });
-        updateGridClass(value);
-      }
-      rangeInputs.forEach(function (input) {
-        input.addEventListener('input', function () {
-          syncRangeInputs(this.value);
-        });
-      });
-      if (rangeInputs.length > 0) {
-        updateGridClass(rangeInputs[0].value);
-      }
-    });
-  </script>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var rangeInputs = document.querySelectorAll('.range-input');
+    var productList = document.getElementById('product-grid');
+
+    function updateGridClass(value) {
+      productList.classList.remove(
+        'collection-grid__list-small',
+        'collection-grid__list-medium',
+        'collection-grid__list-big'
+      );
+      switch (value) {
+        case '1':
+          productList.classList.add('collection-grid__list-big');
+          break;
+        case '2':
+          productList.classList.add('collection-grid__list-medium');
+          break;
+        case '3':
+          productList.classList.add('collection-grid__list-small');
+          break;
+      }
+    }
+
+    function syncRangeInputs(value) {
+      rangeInputs.forEach(function (input) {
+        input.value = value;
+      });
+      updateGridClass(value);
+    }
+    rangeInputs.forEach(function (input) {
+      input.addEventListener('input', function () {
+        syncRangeInputs(this.value);
+      });
+    });
+    if (rangeInputs.length > 0) {
+      updateGridClass(rangeInputs[0].value);
+    }
+  });
+</script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // Select all filter links
