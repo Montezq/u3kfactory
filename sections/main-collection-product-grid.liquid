@@ -207,44 +207,31 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const updateFilterLinks = (htmlDocument) => {
-      // Assuming your filter items are within a container with an identifiable class or ID
       const newFilterLinks = htmlDocument.querySelectorAll('.filter__item');
       const currentFilterLinks = document.querySelectorAll('.filter__item');
 
       newFilterLinks.forEach((newLink, index) => {
         if (currentFilterLinks[index]) {
-          // Check if the current filter link exists to avoid errors
-          // Replace the data-href attribute of the current filter link with the new one
           currentFilterLinks[index].setAttribute('data-href', newLink.getAttribute('data-href'));
         }
       });
     };
-
     var filterLinks = document.querySelectorAll('.filter__item');
 
     filterLinks.forEach(function (link) {
       link.addEventListener('click', function () {
         var urlToFetch = this.getAttribute('data-href');
 
-        // Fetch and update content
         fetch(urlToFetch)
           .then((response) => response.text())
           .then((htmlString) => {
             // Parse the fetched HTML string into a document object
             const parser = new DOMParser();
             const htmlDocument = parser.parseFromString(htmlString, 'text/html');
-
-            // Update the #ProductGridContainer with the new content
             const newContent = htmlDocument.getElementById('ProductGridContainer').innerHTML;
             document.getElementById('ProductGridContainer').innerHTML = newContent;
-
-            // Update the filter links with new data-href values from the fetched content
             updateFilterLinks(htmlDocument);
-
-            // Reattach click event listeners to the updated filter links
-            // This step is necessary because replacing innerHTML removes previously attached event listeners
             document.querySelectorAll('.filter__item').forEach((link) => {
-              link.removeEventListener('click'); // Remove any existing event listener to avoid duplicates
               link.addEventListener('click', filterLinkClickHandler); // Attach the new event listener
             });
           })
@@ -253,11 +240,8 @@
           });
       });
     });
-
-    // Extracted click handler for reusability
     function filterLinkClickHandler() {
       var urlToFetch = this.getAttribute('data-href');
-      // Repeating the fetch logic here
     }
   });
 </script>
