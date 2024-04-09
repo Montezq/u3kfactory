@@ -107,6 +107,37 @@
                     </ul>
                   </div>
                 {%- endfor -%}
+                <div class="w-48">
+                  <h3 class="uppercase font-bold mb-0.5 text-[13px] tracking-xwidest text-gray-850">Added</h3>
+                  <ul>
+                    {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+                    {%- for option in collection.sort_options -%}
+                      <li>
+                        <label class="block w-fit filter-label relative cursor-pointer">
+                          <input
+                            class="!w-0 !h-0 opacity-0 absolute top-0 left-0"
+                            type="checkbox"
+                            value="{{ option.value | escape }}"
+                            {% if filter_active %}
+                              checked
+                            {% endif %}
+                          >
+                          <div
+                            data-href="{{ filter_url }}"
+                            class="flex items-center filter__item uppercase font-bold text-[11px] tracking-widest text-gray-850"
+                          >
+                            <span>
+                              {{ option.name | escape }}
+                            </span>
+                            <span
+                              class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
+                            ></span>
+                          </div>
+                        </label>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
