@@ -268,7 +268,6 @@
       const filterClear = event.target.closest('.filter__item-clear');
 
       if (filterLink || filterClear) {
-        event.preventDefault(); // Optional: Prevent default if it's an anchor tag and needed
         const urlToFetch = (filterLink || filterClear).getAttribute('data-href');
         fetchAndUpdateContent(urlToFetch);
       }
