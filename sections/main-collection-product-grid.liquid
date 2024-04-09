@@ -1,6 +1,6 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<div class="section-{{ section.id }} pb-12" id="filter-results">
+<div class="section-{{ section.id }} pb-12">
   {%- paginate collection.products by 24 -%}
     <div>
       <div class="collection-hero sticky pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
@@ -204,13 +204,14 @@
     var filterLinks = document.querySelectorAll('.filter__item');
     filterLinks.forEach(function (link) {
       link.addEventListener('click', function (event) {
-        alert(event);
         event.preventDefault();
         var urlToFetch = this.getAttribute('href');
         fetch(urlToFetch)
           .then((response) => response.text()) // Convert the response to text
           .then((html) => {
-            document.getElementById('filter-results').innerHTML = html;
+            document.getElementById('ProductGridContainer').innerHTML = new DOMParser()
+              .parseFromString(html, 'text/html')
+              .getElementById('ProductGridContainer').innerHTML;
           })
           .catch((error) => {
             console.error('Error fetching filtered results:', error);
