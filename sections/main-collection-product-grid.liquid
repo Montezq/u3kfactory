@@ -209,14 +209,15 @@
     var filterLinks = document.querySelectorAll('.filter__item');
 
     filterLinks.forEach(function (link) {
-      link.addEventListener('click', function (event) {
-        // Determine whether the filter is currently active
-        var isActiveFilter = this.parentNode.querySelector('input[type="checkbox"]').checked;
-
+      link.addEventListener('click', function () {
         // Extract URL from data-href attribute
         var urlToFetch = this.getAttribute('data-href');
+
+        // Update URL hash based on data-href attribute
+        // Extracting just the query string part for the hash
         const queryString = urlToFetch.includes('?') ? urlToFetch.slice(urlToFetch.indexOf('?') + 1) : '';
-        console.log(queryString);
+        window.location.hash = queryString;
+
         // Fetch and update content
         fetch(urlToFetch)
           .then((response) => response.text())
@@ -225,9 +226,6 @@
               .parseFromString(html, 'text/html')
               .getElementById('ProductGridContainer').innerHTML;
             document.getElementById('ProductGridContainer').innerHTML = newContent;
-
-            // Optionally, re-apply event listeners to new filter items if they are replaced in the DOM
-            // This step is necessary if the Ajax call replaces the filter items in the DOM
           })
           .catch((error) => {
             console.error('Error fetching filtered results:', error);
