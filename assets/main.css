@@ -809,9 +809,6 @@ video {
 .aspect-\[25\/24\] {
   aspect-ratio: 25/24;
 }
-.\!h-0 {
-  height: 0px !important;
-}
 .h-0 {
   height: 0px;
 }
@@ -832,9 +829,6 @@ video {
 }
 .min-h-screen {
   min-height: 100vh;
-}
-.\!w-0 {
-  width: 0px !important;
 }
 .w-12 {
   width: 3rem;
@@ -1671,9 +1665,9 @@ input:focus-visible{
   padding-right: 0.625rem;
 }
 
-.filter-label input:checked {
-      background-color: red;
-    }
+:is(.filter-label input:checked)+.filter__item .filter_checked {
+  opacity: 1;
+}
 
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
