@@ -207,33 +207,11 @@
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const productGridContainer = document.getElementById('ProductGridContainer');
-
-    // Use event delegation to handle clicks on filter items
-    productGridContainer.addEventListener('click', function (event) {
-      const filterLink = event.target.closest('.filter__item');
-      if (filterLink) {
-        const urlToFetch = filterLink.getAttribute('data-href');
-        fetchAndUpdateContent(urlToFetch);
-        return; // Exit to avoid further actions
-      }
-
-      const filterClear = event.target.closest('.filter__item-clear');
-      if (filterClear) {
-        // Uncheck all inputs
-        document.querySelectorAll('.filter-label input[type="checkbox"]').forEach((input) => {
-          input.checked = false;
-        });
-
-        // Fetch and update content based on the data-href attribute of the clear button
-        const urlToFetch = filterClear.getAttribute('data-href');
-        fetchAndUpdateContent(urlToFetch);
-      }
-    });
-
+    // Function to update filter links with new data-href values
     const updateFilterLinks = (htmlDocument) => {
       const newFilterLinks = htmlDocument.querySelectorAll('.filter__item');
       const currentFilterLinks = document.querySelectorAll('.filter__item');
+
       newFilterLinks.forEach((newLink, index) => {
         if (currentFilterLinks[index]) {
           currentFilterLinks[index].setAttribute('data-href', newLink.getAttribute('data-href'));
@@ -241,18 +219,55 @@
       });
     };
 
-    // Consolidated function for fetching and updating content
+    // Function to handle fetching and updating the content
     const fetchAndUpdateContent = (urlToFetch) => {
       fetch(urlToFetch)
         .then((response) => response.text())
         .then((htmlString) => {
           const parser = new DOMParser();
           const htmlDocument = parser.parseFromString(htmlString, 'text/html');
-          productGridContainer.innerHTML = htmlDocument.getElementById('ProductGridContainer').innerHTML;
+          const newContent = htmlDocument.getElementById('ProductGridContainer').innerHTML;
+          document.getElementById('ProductGridContainer').innerHTML = newContent;
+
           updateFilterLinks(htmlDocument);
+
+          // Re-attach event listeners to both filter items and clear buttons
+          document.querySelectorAll('.filter__item').forEach((link) => {
+            link.removeEventListener('click', filterLinkClickHandler); // Avoid duplicate listeners
+            link.addEventListener('click', filterLinkClickHandler);
+          });
+          attachClearButtonListener(); // Call function to attach listener to clear button
         })
-        .catch((error) => console.error('Error fetching filtered results:', error));
+        .catch((error) => {
+          console.error('Error fetching filtered results:', error);
+        });
     };
+
+    // Event handler for filter items
+    const filterLinkClickHandler = function () {
+      const urlToFetch = this.getAttribute('data-href');
+      fetchAndUpdateContent(urlToFetch);
+    };
+
+    // Function to attach click event listener to clear button
+    const attachClearButtonListener = () => {
+      document.querySelector('.filter__item-clear')?.addEventListener('click', function () {
+        // Uncheck all inputs
+        document.querySelectorAll('.filter-label input[type="checkbox"]').forEach((input) => {
+          input.checked = false;
+        });
+
+        // Fetch and update content based on the data-href attribute of the clear button
+        const urlToFetch = this.getAttribute('data-href');
+        fetchAndUpdateContent(urlToFetch);
+      });
+    };
+
+    // Attach initial event listeners
+    document.querySelectorAll('.filter__item').forEach((link) => {
+      link.addEventListener('click', filterLinkClickHandler);
+    });
+    attachClearButtonListener(); // Attach listener to clear button
   });
 </script>
 
