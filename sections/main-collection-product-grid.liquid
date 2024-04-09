@@ -86,8 +86,8 @@
                                 checked
                               {% endif %}
                             >
-                            <a
-                              href="{{ filter_url }}"
+                            <div
+                              data-href="{{ filter_url }}"
                               class="flex items-center filter__item uppercase font-bold text-[11px] tracking-widest text-gray-850"
                             >
                               <span>
@@ -96,7 +96,7 @@
                               <span
                                 class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
                               ></span>
-                            </a>
+                            </div>
                           </label>
                         </li>
                       {%- endfor -%}
@@ -207,9 +207,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     var filterLinks = document.querySelectorAll('.filter__item');
     filterLinks.forEach(function (link) {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        var urlToFetch = this.getAttribute('href');
+      link.addEventListener('click', function () {
+        var urlToFetch = this.getAttribute('data-href');
         fetch(urlToFetch)
           .then((response) => response.text()) // Convert the response to text
           .then((html) => {
