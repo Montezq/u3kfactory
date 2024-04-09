@@ -229,7 +229,7 @@
 
         // Update browser URL without reloading the page
         window.history.pushState({ path: newUrl }, '', newUrl);
-
+        console.log(newUrl);
         // Fetch and update content
         fetch(urlToFetch)
           .then((response) => response.text())
