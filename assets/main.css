@@ -1671,7 +1671,7 @@ input:focus-visible{
   padding-right: 0.625rem;
 }
 
-:is(.filter-label input:checked)+.filter__item .filter_checked {
+:is(.filter-label input):checked + .filter__item .filter_checked {
   opacity: 1;
 }
 
