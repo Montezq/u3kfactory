@@ -215,11 +215,9 @@
       const filterClear = event.target.closest('.filter__item-clear');
 
       if (filterLink) {
-        event.preventDefault(); // Prevent default action if it's an anchor tag
         const urlToFetch = filterLink.getAttribute('data-href');
         fetchAndUpdateContent(urlToFetch);
       } else if (filterClear) {
-        // Uncheck all inputs within the filter container
         document.querySelectorAll('.filter-label input[type="checkbox"]').forEach((input) => {
           input.checked = false;
         });
@@ -238,8 +236,6 @@
           const htmlDocument = parser.parseFromString(htmlString, 'text/html');
           const newContent = htmlDocument.getElementById('ProductGridContainer').innerHTML;
           document.getElementById('ProductGridContainer').innerHTML = newContent;
-
-          // Update filter links here if needed, similarly to previous explanations
         })
         .catch((error) => console.error('Error fetching filtered results:', error));
     };
