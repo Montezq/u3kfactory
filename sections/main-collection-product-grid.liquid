@@ -68,9 +68,21 @@
                         -%}
                         <li>
                           <label class="inline-block filter-label">
-                            <input type="checkbox" value="{{value.label}}" checked="{{ filter_active }}">
-                            <a href="{{ filter_url }}">
-                              {{ value.label | escape }}
+                            <input
+                              type="checkbox"
+                              class="visually-hidden"
+                              value="{{value.label}}"
+                              {% if filter_active %}
+                                checked
+                              {% endif %}
+                            >
+                            <a href="{{ filter_url }}" class="flex items-center">
+                              <span>
+                                {{ value.label | escape }}
+                              </span>
+                              {% if filter_active %}
+                                <span class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2"></span>
+                              {% endif %}
                             </a>
                           </label>
                         </li>
@@ -83,17 +95,6 @@
           </div>
         </div>
       </div>
-      {%- for filter in collection.filters -%}
-        <br>
-        {%- for value in filter.values -%}
-          <a href="{{ value.url_to_add }}" class="active-facets__button active-facets__button--light">
-            <span class="active-facets__button-inner button button--tertiary">
-              {{ filter.label | escape }}: {{ value.label | escape }}
-              <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
-            </span>
-          </a>
-        {%- endfor -%}
-      {%- endfor -%}
       {% comment %}
         {{ 'component-facets.css' | asset_url | stylesheet_tag }}
         <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
