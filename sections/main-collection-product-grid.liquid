@@ -14,7 +14,7 @@
             {%- endif -%}
           </h1>
         </div>
-        <div class="flex items-center relative">
+        <div class="flex items-center relative pb-14">
           <div class="mr-6">
             <button class="uppercase font-semibold text-[13px] tracking-wider open-filter">+ Filters (0)</button>
           </div>
@@ -58,11 +58,21 @@
                     <h3>{{ filter.label | escape }}</h3>
                     <ul>
                       {%- for value in filter.values -%}
+                        {%- liquid
+                          assign filter_active = false
+                          assign filter_url = value.url_to_add
+                          if value.active
+                            assign filter_url = value.url_to_remove
+                            assign filter_active = true
+                          endif
+                        -%}
                         <li>
-                          <a href="{{ value.url_to_add }}">
-                            {{ value.label | escape }} --
-                            {{ value.active | escape }}
-                          </a>
+                          <label class="inline-block filter-label">
+                            <input type="checkbox" value="{{value.label}}" checked="{{ filter_active }}">
+                            <a href="{{ filter_url }}">
+                              {{ value.label | escape }}
+                            </a>
+                          </label>
                         </li>
                       {%- endfor -%}
                     </ul>
