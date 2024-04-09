@@ -207,17 +207,19 @@
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const filterContainer = document; // Adjust this to a more specific parent if possible, for better performance
-
-    // Handles clicks on both filter items and clear button within the filter container
-    filterContainer.addEventListener('click', function (event) {
+    // Event listener for click events within the document
+    document.addEventListener('click', function (event) {
       const filterLink = event.target.closest('.filter__item');
       const filterClear = event.target.closest('.filter__item-clear');
 
+      // Process clicks on filter items
       if (filterLink) {
         const urlToFetch = filterLink.getAttribute('data-href');
         fetchAndUpdateContent(urlToFetch);
-      } else if (filterClear) {
+      }
+      // Process clicks on the clear filter button
+      else if (filterClear) {
+        // Uncheck all inputs within the filter container
         document.querySelectorAll('.filter-label input[type="checkbox"]').forEach((input) => {
           input.checked = false;
         });
@@ -227,17 +229,36 @@
       }
     });
 
-    // Function to fetch and update content
+    // Function to fetch and update content, including updating data-href attributes
     const fetchAndUpdateContent = (urlToFetch) => {
       fetch(urlToFetch)
         .then((response) => response.text())
         .then((htmlString) => {
           const parser = new DOMParser();
           const htmlDocument = parser.parseFromString(htmlString, 'text/html');
+
+          // Update the main content area with the new HTML
           const newContent = htmlDocument.getElementById('ProductGridContainer').innerHTML;
           document.getElementById('ProductGridContainer').innerHTML = newContent;
+
+          // Update the data-href attributes for the filter items
+          updateFilterLinks(htmlDocument);
         })
         .catch((error) => console.error('Error fetching filtered results:', error));
+    };
+
+    // Function to update filter links with new data-href values
+    const updateFilterLinks = (htmlDocument) => {
+      const newFilterLinks = htmlDocument.querySelectorAll('.filter__item');
+      // Ensure to target the container that will definitely include all your .filter__item elements
+      const currentFilterLinks = document.querySelectorAll('.filter__item');
+
+      newFilterLinks.forEach((newLink, index) => {
+        if (currentFilterLinks[index]) {
+          // Update the current filter link with the new data-href attribute from the fetched content
+          currentFilterLinks[index].setAttribute('data-href', newLink.getAttribute('data-href'));
+        }
+      });
     };
   });
 </script>
