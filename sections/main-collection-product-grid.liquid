@@ -15,6 +15,14 @@
           </h1>
         </div>
         <div class="flex items-center relative pb-14">
+          {%- liquid
+            if collection.url
+              assign results_url = collection.url
+            else
+              assign terms = collection.terms | escape
+              assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+            endif
+          -%}
           <div class="mr-6">
             <button class="uppercase font-semibold text-[13px] tracking-wider open-filter">+ Filters (0)</button>
           </div>
@@ -48,7 +56,7 @@
                 </button>
                 <a
                   class="uppercase font-semibold text-[13px] tracking-wider close-filter inline-block text-gray-600"
-                  href="{{ collection.filters.url_to_remove }}"
+                  href="{{  results_url }}"
                   >Clear</a
                 >
               </div>
