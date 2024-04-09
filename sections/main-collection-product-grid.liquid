@@ -112,7 +112,7 @@
                   <ul>
                     {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
                     {%- for option in collection.sort_options -%}
-                      {%- if option.value contains 'created-ascending' -%}
+                      {%- if option.value contains 'created-descending' -%}
                         <li>
                           <label class="block w-fit filter-label relative cursor-pointer">
                             <input
@@ -124,16 +124,14 @@
                               data-href="?sort_by={{ option.value }}"
                               class="flex items-center filter__item uppercase font-bold text-[11px] tracking-widest text-gray-850"
                             >
-                              <span>
-                                {{ option.name | escape }}
-                              </span>
+                              <span> Newest First </span>
                               <span
                                 class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
                               ></span>
                             </div>
                           </label>
                         </li>
-                      {%- elsif option.value contains 'created-descending' -%}
+                      {%- elsif option.value contains 'created-ascending' -%}
                         <li>
                           <label class="block w-fit filter-label relative cursor-pointer">
                             <input
@@ -145,9 +143,7 @@
                               data-href="?sort_by={{ option.value }}"
                               class="flex items-center filter__item uppercase font-bold text-[11px] tracking-widest text-gray-850"
                             >
-                              <span>
-                                {{ option.name | escape }}
-                              </span>
+                              <span> Oldest First </span>
                               <span
                                 class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
                               ></span>
