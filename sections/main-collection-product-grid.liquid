@@ -213,7 +213,15 @@
       let openFilter = document.querySelector('.open-filter'),
         closeFilter = document.querySelector('.close-filter'),
         filterWrapper = document.querySelector('.filter-modal');
+
+      openFilter.addEventListener('click', function () {
+        filterWrapper.classList.add('!block');
+      });
+      closeFilter.addEventListener('click', function () {
+        filterWrapper.classList.remove('block');
+      });
     }
+    filterToggle();
 
     const updateFilterCounter = () => {
       const checkedFiltersCount = document.querySelectorAll('.filter-label input[type="checkbox"]:checked').length;
