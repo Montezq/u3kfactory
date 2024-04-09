@@ -209,6 +209,13 @@
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    const updateFilterCounter = () => {
+      const checkedFiltersCount = document.querySelectorAll('.filter-label input[type="checkbox"]:checked').length;
+      document.querySelectorAll('.filter_counter').forEach((counterElement) => {
+        counterElement.textContent = checkedFiltersCount;
+      });
+    };
+
     // Event listener for click events within the document
     document.addEventListener('click', function (event) {
       const filterLink = event.target.closest('.filter__item');
