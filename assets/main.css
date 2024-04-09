@@ -1587,8 +1587,19 @@ input:focus-visible{
 .collection-hero{
   padding-top: clamp(25px, calc(5vh - 25px), calc(5vh - 25px));
 }
-.collection-grid__list{
-  @m
+@media not all and (min-width: 1024px) {
+
+  .collection-product-grid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media not all and (min-width: 768px) {
+
+  .collection-product-grid {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
 }
 @media (min-width: 1280px) {
 
