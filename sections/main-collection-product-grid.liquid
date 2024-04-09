@@ -215,12 +215,10 @@
 
         // Extract URL from data-href attribute
         var urlToFetch = this.getAttribute('data-href');
-
-        // Conditionally modify URL if needed based on active state
-        // If your logic requires changing the URL based on whether the filter is active, adjust here
+        const queryString = urlToFetch.includes('?') ? urlToFetch.slice(urlToFetch.indexOf('?') + 1) : '';
 
         // Fetch and update content
-        fetch(urlToFetch)
+        fetch(queryString)
           .then((response) => response.text())
           .then((html) => {
             var newContent = new DOMParser()
