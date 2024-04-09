@@ -1,6 +1,6 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<div class="section-{{ section.id }} pb-12">
+<div class="section-{{ section.id }} pb-12" id="product-grid-wrapper">
   {%- paginate collection.products by 24 -%}
     <div>
       <div class="collection-hero sticky pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
@@ -198,7 +198,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var rangeInputs = document.querySelectorAll('.range-input');
-    var productList = document.getElementById('product-grid');
+    var productList = document.getElementById('product-grid-wrapper');
 
     function updateGridClass(value) {
       productList.classList.remove(
