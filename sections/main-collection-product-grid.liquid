@@ -231,7 +231,7 @@
         window.history.pushState({ path: newUrl }, '', newUrl);
         console.log(newUrl);
         // Fetch and update content
-        fetch(urlToFetch)
+        fetch(newUrl)
           .then((response) => response.text())
           .then((html) => {
             var newContent = new DOMParser()
