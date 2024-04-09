@@ -210,13 +210,8 @@
 
     filterLinks.forEach(function (link) {
       link.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent default link behavior
-
         // Determine whether the filter is currently active
         var isActiveFilter = this.parentNode.querySelector('input[type="checkbox"]').checked;
-
-        // Toggle active state visuals here if necessary
-        // This might involve adding or removing CSS classes to indicate active/inactive state
 
         // Extract URL from data-href attribute
         var urlToFetch = this.getAttribute('data-href');
