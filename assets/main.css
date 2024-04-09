@@ -895,6 +895,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-32 {
+  width: 8rem;
+}
 .min-w-\[166px\] {
   min-width: 166px;
 }
@@ -2029,6 +2032,10 @@ input:focus-visible{
 
   .md\:hidden {
     display: none;
+  }
+
+  .md\:w-48 {
+    width: 12rem;
   }
 
   .md\:gap-2 {

@@ -66,7 +66,7 @@
               </div>
               <div class="flex flex-wrap gap-5">
                 {%- for filter in collection.filters -%}
-                  <div class="w-48">
+                  <div class="w-32 md:w-48">
                     <h3 class="uppercase font-bold mb-0.5 text-[13px] tracking-xwidest text-gray-850">
                       {{ filter.label | escape }}
                     </h3>
@@ -107,7 +107,7 @@
                     </ul>
                   </div>
                 {%- endfor -%}
-                <div class="w-48">
+                <div class="w-32 md:w-48">
                   <h3 class="uppercase font-bold mb-0.5 text-[13px] tracking-xwidest text-gray-850">Added</h3>
                   <ul>
                     {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
@@ -156,7 +156,7 @@
                     {%- endfor -%}
                   </ul>
                 </div>
-                <div class="w-48 hidden lg:block">
+                <div class="w-32 md:w-48 hidden lg:block">
                   {%- liquid
                     assign value = 3
                     if section.settings.grid_template == 'small'
