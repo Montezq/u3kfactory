@@ -207,19 +207,29 @@
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Function to update filter links with new data-href values
-    const updateFilterLinks = (htmlDocument) => {
-      const newFilterLinks = htmlDocument.querySelectorAll('.filter__item');
-      const currentFilterLinks = document.querySelectorAll('.filter__item');
+    const filterContainer = document; // Adjust this to a more specific parent if possible, for better performance
 
-      newFilterLinks.forEach((newLink, index) => {
-        if (currentFilterLinks[index]) {
-          currentFilterLinks[index].setAttribute('data-href', newLink.getAttribute('data-href'));
-        }
-      });
-    };
+    // Handles clicks on both filter items and clear button within the filter container
+    filterContainer.addEventListener('click', function (event) {
+      const filterLink = event.target.closest('.filter__item');
+      const filterClear = event.target.closest('.filter__item-clear');
 
-    // Function to handle fetching and updating the content
+      if (filterLink) {
+        event.preventDefault(); // Prevent default action if it's an anchor tag
+        const urlToFetch = filterLink.getAttribute('data-href');
+        fetchAndUpdateContent(urlToFetch);
+      } else if (filterClear) {
+        // Uncheck all inputs within the filter container
+        document.querySelectorAll('.filter-label input[type="checkbox"]').forEach((input) => {
+          input.checked = false;
+        });
+
+        const urlToFetch = filterClear.getAttribute('data-href');
+        fetchAndUpdateContent(urlToFetch);
+      }
+    });
+
+    // Function to fetch and update content
     const fetchAndUpdateContent = (urlToFetch) => {
       fetch(urlToFetch)
         .then((response) => response.text())
@@ -229,45 +239,10 @@
           const newContent = htmlDocument.getElementById('ProductGridContainer').innerHTML;
           document.getElementById('ProductGridContainer').innerHTML = newContent;
 
-          updateFilterLinks(htmlDocument);
-
-          // Re-attach event listeners to both filter items and clear buttons
-          document.querySelectorAll('.filter__item').forEach((link) => {
-            link.removeEventListener('click', filterLinkClickHandler); // Avoid duplicate listeners
-            link.addEventListener('click', filterLinkClickHandler);
-          });
-          attachClearButtonListener(); // Call function to attach listener to clear button
+          // Update filter links here if needed, similarly to previous explanations
         })
-        .catch((error) => {
-          console.error('Error fetching filtered results:', error);
-        });
+        .catch((error) => console.error('Error fetching filtered results:', error));
     };
-
-    // Event handler for filter items
-    const filterLinkClickHandler = function () {
-      const urlToFetch = this.getAttribute('data-href');
-      fetchAndUpdateContent(urlToFetch);
-    };
-
-    // Function to attach click event listener to clear button
-    const attachClearButtonListener = () => {
-      document.querySelector('.filter__item-clear')?.addEventListener('click', function () {
-        // Uncheck all inputs
-        document.querySelectorAll('.filter-label input[type="checkbox"]').forEach((input) => {
-          input.checked = false;
-        });
-
-        // Fetch and update content based on the data-href attribute of the clear button
-        const urlToFetch = this.getAttribute('data-href');
-        fetchAndUpdateContent(urlToFetch);
-      });
-    };
-
-    // Attach initial event listeners
-    document.querySelectorAll('.filter__item').forEach((link) => {
-      link.addEventListener('click', filterLinkClickHandler);
-    });
-    attachClearButtonListener(); // Attach listener to clear button
   });
 </script>
 
