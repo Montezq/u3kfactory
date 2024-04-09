@@ -273,7 +273,7 @@
     filterToggle();
 
     const updateFilterCounter = () => {
-      const checkedFiltersCount = document.querySelectorAll('.filter-label input[type="checkbox"]:checked').length;
+      const checkedFiltersCount = document.querySelectorAll('.filter-label input:checked').length;
       document.querySelectorAll('.filter_counter').forEach((counterElement) => {
         counterElement.textContent = checkedFiltersCount;
       });
