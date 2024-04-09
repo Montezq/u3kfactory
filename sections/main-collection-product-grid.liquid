@@ -240,11 +240,11 @@
         .then((htmlString) => {
           const parser = new DOMParser();
           const htmlDocument = parser.parseFromString(htmlString, 'text/html');
-
           // Update the main content area with the new HTML
           const newContent = htmlDocument.getElementById('ProductGridContainer').innerHTML;
           document.getElementById('ProductGridContainer').innerHTML = newContent;
 
+          updateFilterCounter();
           // Update the data-href attributes for the filter items
           updateFilterLinks(htmlDocument);
         })
@@ -263,7 +263,9 @@
           currentFilterLinks[index].setAttribute('data-href', newLink.getAttribute('data-href'));
         }
       });
+      updateFilterCounter();
     };
+    updateFilterCounter();
   });
 </script>
 
