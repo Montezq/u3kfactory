@@ -16,7 +16,9 @@
         </div>
         <div class="flex items-center relative">
           <div class="mr-6">
-            <button class="uppercase font-semibold text-[13px] tracking-wider open-filter">+ Filters (0)</button>
+            <button class="uppercase font-semibold text-[13px] tracking-wider open-filter">
+              + Filters (<span class="filter_counter">0</span>)
+            </button>
           </div>
           <div class="w-[162px] mt-0.5">
             {%- liquid
@@ -216,20 +218,15 @@
       if (filterLink) {
         const urlToFetch = filterLink.getAttribute('data-href');
         fetchAndUpdateContent(urlToFetch);
-      }
-      // Process clicks on the clear filter button
-      else if (filterClear) {
-        // Uncheck all inputs within the filter container
+      } else if (filterClear) {
         document.querySelectorAll('.filter-label input[type="checkbox"]').forEach((input) => {
           input.checked = false;
         });
-
         const urlToFetch = filterClear.getAttribute('data-href');
         fetchAndUpdateContent(urlToFetch);
       }
     });
 
-    // Function to fetch and update content, including updating data-href attributes
     const fetchAndUpdateContent = (urlToFetch) => {
       fetch(urlToFetch)
         .then((response) => response.text())
