@@ -118,12 +118,9 @@
                             class="!w-0 !h-0 opacity-0 absolute top-0 left-0"
                             type="checkbox"
                             value="{{ option.value | escape }}"
-                            {% if filter_active %}
-                              checked
-                            {% endif %}
                           >
                           <div
-                            data-href="{{ filter_url }}"
+                            data-href="{{ option.value }}"
                             class="flex items-center filter__item uppercase font-bold text-[11px] tracking-widest text-gray-850"
                           >
                             <span>
