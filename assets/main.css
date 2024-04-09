@@ -1770,8 +1770,9 @@ input:focus-visible{
 @media not all and (min-width: 1024px) {
 
   .filter-modal {
-    margin-left: -1rem;
+    margin-left: -2rem;
     padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
@@ -2126,6 +2127,10 @@ input:focus-visible{
     height: 100vh;
   }
 
+  .lg\:\!w-full {
+    width: 100% !important;
+  }
+
   .lg\:w-36 {
     width: 9rem;
   }
@@ -2150,10 +2155,6 @@ input:focus-visible{
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-  }
-
-  .lg\:\!w-full {
-    width: 100% !important;
   }
 
   .lg\:min-w-\[164px\] {
