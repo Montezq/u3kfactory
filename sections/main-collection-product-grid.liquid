@@ -14,15 +14,7 @@
             {%- endif -%}
           </h1>
         </div>
-        <div class="flex items-center relative pb-14">
-          {%- liquid
-            if collection.url
-              assign results_url = collection.url
-            else
-              assign terms = collection.terms | escape
-              assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
-            endif
-          -%}
+        <div class="flex items-center relative">
           <div class="mr-6">
             <button class="uppercase font-semibold text-[13px] tracking-wider open-filter">+ Filters (0)</button>
           </div>
@@ -48,7 +40,15 @@
               step="1"
             >
           </div>
-          <div class="absolute top-0 left-0 bg-gray-10 lg:bg-white z-[2] w-full filter-modal">
+          <div class="absolute top-0 left-0 bg-gray-10 lg:bg-white z-[2] w-full filter-modal pb-14">
+            {%- liquid
+              if collection.url
+                assign results_url = collection.url
+              else
+                assign terms = collection.terms | escape
+                assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+              endif
+            -%}
             <div class="flex">
               <div class="flex flex-col pr-6 mr-3 relative">
                 <button class="uppercase font-semibold text-[13px] tracking-wider close-filter text-gray-850 mb-2">
