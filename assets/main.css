@@ -1671,9 +1671,9 @@ input:focus-visible{
   padding-right: 0.625rem;
 }
 
-:is(.filter-label input):checked + .filter__item .filter_checked {
-  opacity: 1;
-}
+.filter-label input:checked {
+      background-color: red;
+    }
 
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
