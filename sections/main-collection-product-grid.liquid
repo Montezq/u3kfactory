@@ -1,6 +1,6 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<div class="section-{{ section.id }} pb-12" id="product-grid-wrapper">
+<div class="section-{{ section.id }} pb-12 collection-product-grid" id="product-grid-wrapper">
   {%- paginate collection.products by 24 -%}
     <div>
       <div class="collection-hero lg:sticky pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
