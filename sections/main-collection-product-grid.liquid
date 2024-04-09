@@ -212,10 +212,22 @@
       link.addEventListener('click', function () {
         // Extract URL from data-href attribute
         var urlToFetch = this.getAttribute('data-href');
-
-        // Update browser URL with query parameters using history.pushState
         const queryString = urlToFetch.includes('?') ? urlToFetch.slice(urlToFetch.indexOf('?')) : '';
-        const newUrl = window.location.pathname + queryString;
+
+        // Determine the new URL based on whether the query string is already present
+        let newUrl = '';
+        const currentUrl = window.location.href;
+        const currentQueryString = window.location.search;
+
+        if (currentQueryString === queryString) {
+          // If the current query string is the same as this filter's, remove it
+          newUrl = window.location.pathname;
+        } else {
+          // Otherwise, update the URL with this filter's query string
+          newUrl = window.location.pathname + queryString;
+        }
+
+        // Update browser URL without reloading the page
         window.history.pushState({ path: newUrl }, '', newUrl);
 
         // Fetch and update content
