@@ -213,10 +213,10 @@
         // Extract URL from data-href attribute
         var urlToFetch = this.getAttribute('data-href');
 
-        // Update URL hash based on data-href attribute
-        // Extracting just the query string part for the hash
-        const queryString = urlToFetch.includes('?') ? urlToFetch.slice(urlToFetch.indexOf('?') + 1) : '';
-        window.location.hash = queryString;
+        // Update browser URL with query parameters using history.pushState
+        const queryString = urlToFetch.includes('?') ? urlToFetch.slice(urlToFetch.indexOf('?')) : '';
+        const newUrl = window.location.pathname + queryString;
+        window.history.pushState({ path: newUrl }, '', newUrl);
 
         // Fetch and update content
         fetch(urlToFetch)
