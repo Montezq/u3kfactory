@@ -1765,12 +1765,12 @@ input:focus-visible{
   opacity: 1;
 }
 .filter-modal{
-  width: calc(100% + 32px);
+  width: calc(100% + 36px);
 }
 @media not all and (min-width: 768px) {
 
   .filter-modal {
-    margin-left: -1rem;
+    margin-left: -18px;
     padding-left: 1rem;
     padding-right: 1rem;
   }
