@@ -64,7 +64,9 @@
               <div class="flex flex-wrap gap-5">
                 {%- for filter in collection.filters -%}
                   <div class="w-48">
-                    <h3>{{ filter.label | escape }}</h3>
+                    <h3 class="uppercase font-semibold text-[13px] tracking-wider text-gray-850">
+                      {{ filter.label | escape }}
+                    </h3>
                     <ul>
                       {%- for value in filter.values -%}
                         {%- liquid
@@ -85,7 +87,10 @@
                                 checked
                               {% endif %}
                             >
-                            <a href="{{ filter_url }}" class="flex items-center filter__item">
+                            <a
+                              href="{{ filter_url }}"
+                              class="flex items-center filter__item uppercase font-semibold text-[11px] tracking-widest text-gray-850"
+                            >
                               <span>
                                 {{ value.label | escape }}
                               </span>
