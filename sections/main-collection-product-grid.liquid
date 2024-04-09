@@ -42,7 +42,7 @@
               step="1"
             >
           </div>
-          <div class="absolute top-0 left-0 bg-gray-10 lg:bg-white z-[2] w-full filter-modal pb-10">
+          <div class="absolute top-0 left-0 bg-gray-10 lg:bg-white z-[2] w-full filter-modal pb-10 hidden">
             {%- liquid
               assign sort_by = collection.sort_by | default: collection.default_sort_by
               if collection.url
@@ -58,7 +58,7 @@
                   Close
                 </button>
                 <div
-                  class="uppercase cursor-pointer font-semibold text-[13px] tracking-wider close-filter inline-block text-gray-600 filter__item-clear"
+                  class="uppercase cursor-pointer font-semibold text-[13px] tracking-wider inline-block text-gray-600 filter__item-clear"
                   data-href="{{  results_url }}"
                 >
                   Clear
@@ -209,6 +209,12 @@
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    function filterToggle() {
+      let openFilter = document.querySelector('.open-filter'),
+        closeFilter = document.querySelector('.close-filter'),
+        filterWrapper = document.querySelector('.filter-modal');
+    }
+
     const updateFilterCounter = () => {
       const checkedFiltersCount = document.querySelectorAll('.filter-label input[type="checkbox"]:checked').length;
       document.querySelectorAll('.filter_counter').forEach((counterElement) => {
