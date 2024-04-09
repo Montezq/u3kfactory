@@ -699,6 +699,9 @@ video {
 .top-full {
   top: 100%;
 }
+.top-6 {
+  top: 1.5rem;
+}
 .isolate {
   isolation: isolate;
 }
@@ -2032,6 +2035,10 @@ input:focus-visible{
 }
 
 @media (min-width: 768px) {
+
+  .md\:top-0 {
+    top: 0px;
+  }
 
   .md\:hidden {
     display: none;
