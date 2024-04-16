@@ -901,6 +901,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-3\/5 {
+  width: 60%;
+}
 .min-w-\[166px\] {
   min-width: 166px;
 }
@@ -1038,6 +1041,9 @@ video {
 }
 .gap-\[1\.1rem\] {
   gap: 1.1rem;
+}
+.gap-12 {
+  gap: 3rem;
 }
 .gap-x-\[20px\] {
   -webkit-column-gap: 20px;
