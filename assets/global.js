@@ -992,7 +992,7 @@ class VariantSelects extends HTMLElement {
     this.currentVariant = this.getVariantData().find((variant) => {
       return !variant.options
         .map((option, index) => {
-          return this.options[index] === option;
+          return this.options[index] === option.dataset.value;
         })
         .includes(false);
     });
