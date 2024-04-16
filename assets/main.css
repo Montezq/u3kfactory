@@ -1853,7 +1853,7 @@ input:focus-visible{
   margin-top: clamp(50px, 6.79vh, 6.79vh);
 }
 
-.product__info-wrappe{
+.product__info-wrapper{
   padding-top: clamp(32px, 5.24vh, 5.24vh);
 }
 .product__title{
