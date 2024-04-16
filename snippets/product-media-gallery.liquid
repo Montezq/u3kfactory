@@ -14,6 +14,7 @@
 {%- liquid
   assign id_append = ''
   assign media_count = product.media.size
+  assign media_width = 0.65
   if is_duplicate
     assign id_append = '-duplicate'
   endif
@@ -29,7 +30,12 @@
             data-media-id="{{ section.id }}-{{ media.id }}"
           >
             {%- assign media_position = 1 -%}
-            {% render 'product-thumbnail', media: media, media_count: media_count, lazy_load: lazy_load %}
+            {% render 'product-thumbnail',
+              media: media,
+              media_width: media_width,
+              media_count: media_count,
+              lazy_load: lazy_load
+            %}
           </li>
         {%- endif -%}
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
@@ -44,7 +50,12 @@
                 assign lazy_load = true
               endif
             -%}
-            {% render 'product-thumbnail', media: media, media_count: media_count, lazy_load: lazy_load %}
+            {% render 'product-thumbnail',
+              media: media,
+              media_width: media_width,
+              media_count: media_count,
+              lazy_load: lazy_load
+            %}
           </li>
         {%- endunless -%}
       {%- endfor -%}
