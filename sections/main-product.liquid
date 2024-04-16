@@ -206,42 +206,6 @@
     mainCarousel.sync(thumbnailsCarousel);
     mainCarousel.mount();
     thumbnailsCarousel.mount();
-
-    document.querySelectorAll('.select-container').forEach(function (container) {
-      const shopifySelect = container.querySelector('.shopifySelect');
-      const customSelectTrigger = container.querySelector('.custom-select__trigger span');
-      const customOptions = container.querySelectorAll('.custom-option');
-
-      // Function to toggle dropdown visibility
-      container.querySelector('.custom-select__trigger').addEventListener('click', function () {
-        let display = container.querySelector('.custom-select__options').style.display;
-        container.querySelector('.custom-select__options').style.display = display === 'block' ? 'none' : 'block';
-      });
-
-      // Update Shopify select when custom option is clicked
-      customOptions.forEach((option) => {
-        option.addEventListener('click', function () {
-          shopifySelect.value = this.dataset.value; // Update Shopify select
-          customSelectTrigger.textContent = this.textContent; // Update custom select display
-          container.querySelector('.custom-select__options').style.display = 'none'; // Hide options
-        });
-      });
-
-      // Update custom select when Shopify select changes
-      shopifySelect.addEventListener('change', function () {
-        const selectedOption = shopifySelect.options[shopifySelect.selectedIndex];
-        customSelectTrigger.textContent = selectedOption.text;
-      });
-    });
-
-    // Handling clicks outside custom selects to close them
-    window.addEventListener('click', function (e) {
-      document.querySelectorAll('.custom-select__options').forEach(function (optionList) {
-        if (!optionList.closest('.select-container').contains(e.target)) {
-          optionList.style.display = 'none';
-        }
-      });
-    });
   });
 </script>
 
