@@ -1346,6 +1346,25 @@ class AccordionItem extends HTMLElement {
       content.style.transition = 'height 0.3s ease-out';
     });
   }
+
+  toggle() {
+    const content = this.querySelector('.accordion-content');
+    if (this.isOpen) {
+      this.classList.add('open')
+      content.style.height = content.scrollHeight + 'px';
+    } else {
+      this.close();
+    }
+  }
+
+  close() {
+    const content = this.querySelector('.accordion-content');
+    if (!this.isOpen) return; 
+    this.classList.remove('open')
+    this.isOpen = false;
+    content.style.height = '0px';
+    content.setAttribute('aria-expanded', 'false');
+  }
 }
 
 customElements.define('accordion-list', AccordionList);
