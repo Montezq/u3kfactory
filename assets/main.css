@@ -702,6 +702,9 @@ video {
 .top-full {
   top: 100%;
 }
+.top-8 {
+  top: 2rem;
+}
 .isolate {
   isolation: isolate;
 }
@@ -930,6 +933,9 @@ video {
 }
 .max-w-\[60\%\] {
   max-width: 60%;
+}
+.max-w-96 {
+  max-width: 24rem;
 }
 .flex-1 {
   -webkit-box-flex: 1;
