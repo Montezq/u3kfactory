@@ -1859,6 +1859,9 @@ input:focus-visible{
   margin-top: clamp(50px, 6.79vh, 6.79vh);
 }
 
+.product{
+  padding-top: 1vh;
+}
 .splide-main{
   margin-bottom: clamp(26px, 2.4vh, 34px);
 }
