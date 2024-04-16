@@ -1,3 +1,14 @@
+{% comment %}
+  Renders product variant-picker
+
+  Accepts:
+  - product: {Object} product object.
+  - block: {Object} passing the block information.
+  - product_form_id: {String} Id of the product form to which the variant picker is associated.
+  - update_url: {Boolean} whether or not to update url when changing variants. If false, the url isn't updated. Default: true (optional).
+  Usage:
+  {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+{% endcomment %}
 {%- unless product.has_only_default_variant -%}
   <variant-selects
     id="variant-selects-{{ section.id }}"
@@ -11,6 +22,9 @@
   >
     {%- for option in product.options_with_values -%}
       <div class="product-form__input product-form__input--dropdown">
+        <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+          {{ option.name }}
+        </label>
         <div class="select">
           <select
             id="Option-{{ section.id }}-{{ forloop.index0 }}"
@@ -19,13 +33,38 @@
             form="{{ product_form_id }}"
           >
             {%- for value in option.values -%}
+              {%- liquid
+                assign option_disabled = true
+
+                for option1_name in variants_option1_arr
+                  case option.position
+                    when 1
+                      if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 2
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                    when 3
+                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                        assign option_disabled = false
+                      endif
+                  endcase
+                endfor
+              -%}
+
               <option
                 value="{{ value | escape }}"
                 {% if option.selected_value == value %}
                   selected="selected"
                 {% endif %}
               >
-                {{- value -}}
+                {% if option_disabled -%}
+                  {{- 'products.product.value_unavailable' | t: option_value: value -}}
+                {%- else -%}
+                  {{- value -}}
+                {%- endif %}
               </option>
             {%- endfor -%}
           </select>
@@ -33,22 +72,8 @@
         </div>
       </div>
     {%- endfor -%}
+    <script type="application/json">
+      {{ product.variants | json }}
+    </script>
   </variant-selects>
-  {%- for option in product.options_with_values -%}
-    <div class="custom-select">
-      {%- for value in option.values -%}
-        <div class="custom-select__trigger">
-          <span>{{- value -}}</span>
-        </div>
-      {%- endfor -%}
-      <div class="custom-select__options">
-        {%- for value in option.values -%}
-          <span class="custom-option" data-value="{{ value | escape }}">{{- value -}}</span>
-        {%- endfor -%}
-      </div>
-    </div>
-  {%- endfor -%}
-  <script type="application/json">
-    {{ product.variants | json }}
-  </script>
 {%- endunless -%}
