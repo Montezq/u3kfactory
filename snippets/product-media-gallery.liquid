@@ -13,6 +13,7 @@
 
 {%- liquid
   assign id_append = ''
+  assign media_count = product.media.size
   if is_duplicate
     assign id_append = '-duplicate'
   endif
