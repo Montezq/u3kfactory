@@ -2,7 +2,6 @@
   unless lazy_load == false
     assign lazy = 'lazy'
   endunless
-
 -%}
 
 {%- capture sizes -%}
@@ -10,9 +9,13 @@
 {%- endcapture -%}
 
 <div>
-  {{ media.preview_image | image_url: width: 1946 | image_tag:
-    loading: lazy,
-    sizes: sizes,
-    widths: '493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
+  {{
+    media.preview_image
+    | image_url: width: 1946
+    | image_tag:
+      loading: lazy,
+      sizes: sizes,
+      class: 'aspect-square object-cover',
+      widths: '493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
   }}
 </div>
