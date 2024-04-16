@@ -20,7 +20,7 @@
   endif
 -%}
 
-<div class="splide" aria-label="Product Slider" id="MediaGallery-{{ section.id }}{{ id_append }}">
+<div class="splide splide-main" aria-label="Product Slider" id="MediaGallery-{{ section.id }}{{ id_append }}">
   <div class="splide__track">
     <ul class="splide__list">
       {%- for media in product.media -%}
@@ -56,7 +56,7 @@
   </div>
 </div>
 <div
-  class="splide-thumbnails"
+  class="splide-thumbnails splide"
   aria-label="Product Slider Thumbnails"
   id="GalleryThumbnails-{{ section.id }}{{ id_append }}"
 >
