@@ -197,13 +197,13 @@
                 {{ 'sections.collection_template.empty_title' | t -}}
               </h2>
             </div>
+            <div class="w-[360px]">
+              {%- render 'icon-empty' -%}
+            </div>
             <div>
               <h3 class="text-center uppercase text-[25px] tracking-[0.5em] font-open">
                 {{ 'sections.collection_template.empty_products' | t }}
               </h3>
-            </div>
-            <div class="w-[360px]">
-              {%- render 'icon-empty' -%}
             </div>
             <div class="flex justify-center">
               <a class="btn btn_primary" href="{{ shop.url }}">
