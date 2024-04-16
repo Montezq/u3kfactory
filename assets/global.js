@@ -1333,8 +1333,7 @@ class AccordionItem extends HTMLElement {
     if (this.isOpen) {
       this.classList.add('open')
       document.body.classList.add('accordion-menu__opened');
-      document.querySelector('.header__menu-content').classList.remove('lg:pt-[11vh]');
-      document.querySelector('.header__menu-content').classList.add('lg:mt-0');
+      
       requestAnimationFrame(() => {
         content.style.height = `${content.scrollHeight}px`;
       });
