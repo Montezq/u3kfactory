@@ -48,12 +48,15 @@
                 {% render block %}
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
-                  <h1>{{ product.title | escape }}</h1>
-                  <a href="{{ product.url }}" class="product__title">
-                    <h2 class="h1">
-                      {{ product.title | escape }}
-                    </h2>
-                  </a>
+                  <h1 class="text-[32px]">{{ product.title | escape }}</h1>
+                  <h2 class="leading-none text-[19px] font-helveticaThinCond italic tracking-wide font-semibold">
+                    <a
+                      href="{{ card_product.metafields.custom.artist_page.value.url }}"
+                    >
+                      <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+                      by {{ card_product.vendor }}
+                    </a>
+                  </h2>
                 </div>
               {%- when 'price' -%}
                 <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
