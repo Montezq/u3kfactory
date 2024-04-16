@@ -963,8 +963,6 @@ class VariantSelects extends HTMLElement {
   onClick(event) {
     const target = event.target;
     const withinCustomSelect = target.closest('.custom-select');
-
-    // Handle clicks within a custom select
     if (withinCustomSelect) {
       if (target.classList.contains('custom-select__trigger') || target.closest('.custom-select__trigger')) {
         this.toggleDropdown(withinCustomSelect);
@@ -986,8 +984,13 @@ class VariantSelects extends HTMLElement {
     const customSelect = option.closest('.custom-select');
     const trigger = customSelect.querySelector('.custom-select__trigger span');
     trigger.textContent = option.textContent;
-    customSelect.querySelector('.custom-select__options').style.display = 'none'; 
-    this.updateCustomSelectData(option.dataset.value);
+    customSelect.querySelector('.custom-select__options').style.display = 'none';
+
+    // Assuming the variant data is embedded as JSON in a script tag or similar
+    this.currentVariant = this.getVariantData().find(variant => variant.id == option.dataset.value);
+    if (this.currentVariant) {
+      this.renderProductInfo();
+    }
   }
 
   updateCustomSelectData(value) {
@@ -1012,6 +1015,26 @@ class VariantSelects extends HTMLElement {
     if (!this.contains(event.target)) {
       this.closeAllDropdowns();
     }
+  }
+
+  getVariantData() {
+    // Example of how to get variant data; adjust based on actual data source
+    const jsonScript = this.querySelector('script[type="application/json"]');
+    return jsonScript ? JSON.parse(jsonScript.textContent) : [];
+  }
+
+  renderProductInfo() {
+    const requestedVariantId = this.currentVariant.id;
+    const sectionId = this.dataset.originalSection || this.dataset.section;
+    fetch(`${this.dataset.url}?variant=${requestedVariantId}&section_id=${sectionId}`)
+      .then(response => response.text())
+      .then(responseText => {
+        if (this.currentVariant.id !== requestedVariantId) return;
+        const html = new DOMParser().parseFromString(responseText, 'text/html');
+        const destination = document.getElementById(`price-${this.dataset.section}`);
+        const source = html.getElementById(`price-${sectionId}`);
+        if (source && destination) destination.innerHTML = source.innerHTML;
+      });
   }
 }
 
