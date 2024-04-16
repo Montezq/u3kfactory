@@ -82,23 +82,31 @@
         {{ product.variants | json }}
       </script>
     </variant-selects>
-    {%- for option in product.options_with_values -%}
-      <div class="custom-select">
-        {%- for value in option.values -%}
-          {% if option.selected_value == value %}
-            <div class="custom-select__trigger">
-              <span>{{- value -}}</span>
-            </div>
-          {% endif %}
-        {%- endfor -%}
-        <ul class="custom-select__options">
+    <div
+      {{ block.shopify_attributes }}
+      data-section="{{ section.id }}"
+      id="variant-selects-{{ section.id }}"
+      data-url="{{ product.url }}"
+      class=""
+    >
+      {%- for option in product.options_with_values -%}
+        <div class="custom-select">
           {%- for value in option.values -%}
-            <li>
-              <span class="custom-option" data-value="{{ value | escape }}">{{- value -}}</span>
-            </li>
+            {% if option.selected_value == value %}
+              <div class="custom-select__trigger">
+                <span>{{- value -}}</span>
+              </div>
+            {% endif %}
           {%- endfor -%}
-        </ul>
-      </div>
-    {%- endfor -%}
+          <ul class="custom-select__options">
+            {%- for value in option.values -%}
+              <li>
+                <span class="custom-option" data-value="{{ value | escape }}">{{- value -}}</span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endfor -%}
+    </div>
   </div>
 {%- endunless -%}
