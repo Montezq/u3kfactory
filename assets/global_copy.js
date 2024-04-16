@@ -980,27 +980,6 @@ class VariantSelects extends HTMLElement {
     // }
   }
 
-  toggleDropdown(target) {
-    const dropdown = target.closest('.custom-select').querySelector('.custom-select__options');
-    dropdown.style.display = (dropdown.style.display === 'block' ? 'none' : 'block');
-  }
-
-  selectOption(option) {
-    const customSelect = option.closest('.custom-select');
-    const trigger = customSelect.querySelector('.custom-select__trigger span');
-    trigger.textContent = option.textContent; // Update the trigger to show the selected option
-    customSelect.querySelector('.custom-select__options').style.display = 'none'; // Close the dropdown
-
-    // If you have associated data that needs to be updated, handle that here
-    this.updateCustomSelectData(option.dataset.value);
-  }
-
-  updateCustomSelectData(value) {
-    // Placeholder method to update the component's data
-    console.log(`Selected value: ${value}`);
-    // Here, you might update other elements or component state based on the selection
-  }
-
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('.custom-select__options'), (element) => {
       console.log(element.tagName)
