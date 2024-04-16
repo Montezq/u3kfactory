@@ -1139,13 +1139,13 @@ video {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.py-\[5px\] {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.py-\[5px\] {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .pb-1 {
   padding-bottom: 0.25rem;
@@ -1242,9 +1242,6 @@ video {
 }
 .font-coutureBold {
   font-family: "Couture Bold", sans-serif;
-}
-.font-helveticaCond {
-  font-family: "Helvetica Cond", sans-serif;
 }
 .font-helveticaThinCond {
   font-family: "Helvetica Neue LT Std", sans-serif;
