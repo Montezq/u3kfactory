@@ -1026,6 +1026,7 @@ class VariantSelects extends HTMLElement {
   renderProductInfo() {
     const requestedVariantId = this.currentVariant.id;
     const sectionId = this.dataset.originalSection || this.dataset.section;
+    console.log(requestedVariantId, sectionId)
     fetch(`${this.dataset.url}?variant=${requestedVariantId}&section_id=${sectionId}`)
       .then(response => response.text())
       .then(responseText => {
