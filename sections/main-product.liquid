@@ -206,6 +206,36 @@
     mainCarousel.sync(thumbnailsCarousel);
     mainCarousel.mount();
     thumbnailsCarousel.mount();
+
+    document.addEventListener('click', function (e) {
+      const target = e.target;
+      let trigger = target.closest('.custom-select__trigger');
+
+      // If a trigger was clicked, toggle its dropdown visibility
+      if (trigger) {
+        let options = trigger.closest('.custom-select').querySelector('.custom-select__options');
+        options.style.display = options.style.display === 'block' ? 'none' : 'block';
+        return;
+      }
+
+      // If an option was clicked, update the trigger text and close the dropdown
+      let option = target.closest('.custom-option');
+      if (option) {
+        let select = option.closest('.custom-select');
+        let trigger = select.querySelector('.custom-select__trigger span');
+        trigger.textContent = option.textContent;
+        select.querySelector('.custom-select__options').style.display = 'none';
+      }
+    });
+
+    // Close all custom select options if the click is outside of any custom select
+    window.addEventListener('click', function (e) {
+      if (!e.target.closest('.custom-select')) {
+        document.querySelectorAll('.custom-select__options').forEach(function (options) {
+          options.style.display = 'none';
+        });
+      }
+    });
   });
 </script>
 
