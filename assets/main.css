@@ -1852,6 +1852,10 @@ input:focus-visible{
 .collection__empty-btn{
   margin-top: clamp(50px, 6.79vh, 6.79vh);
 }
+
+.product__info-wrappe{
+  padding-top: clamp(32px, 5.24vh, 5.24vh);
+}
 .product__title{
   margin-bottom: clamp(32px, 2.94vh, 32px);
 }
