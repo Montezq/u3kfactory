@@ -1321,7 +1321,6 @@ class AccordionItem extends HTMLElement {
         this.isOpen = true;
         document.body.classList.add('accordion-menu__opened');
         this.classList.add('open')
-        document.querySelector('.header__menu-content').classList.remove('lg:pt-[11vh]');
         content.style.height = content.scrollHeight + 'px';
         content.setAttribute('aria-expanded', 'true');
         this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
@@ -1334,8 +1333,9 @@ class AccordionItem extends HTMLElement {
     if (this.isOpen) {
       this.classList.add('open')
       document.body.classList.add('accordion-menu__opened');
-      document.querySelector('.header__menu-content').classList.remove('lg:pt-[11vh]');
       requestAnimationFrame(() => {
+        document.querySelector('.header__menu-content').classList.remove('lg:pt-[11vh]');
+        document.querySelector('.header__menu-content').classList.add('lg:mt-0');
         content.style.height = `${content.scrollHeight}px`;
       });
     } else {
@@ -1345,6 +1345,16 @@ class AccordionItem extends HTMLElement {
     requestAnimationFrame(() => {
       content.style.transition = 'height 0.3s ease-out';
     });
+  }
+
+  toggle() {
+    const content = this.querySelector('.accordion-content');
+    if (this.isOpen) {
+      this.classList.add('open')
+      content.style.height = content.scrollHeight + 'px';
+    } else {
+      this.close();
+    }
   }
 
   close() {
