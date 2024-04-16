@@ -1479,7 +1479,7 @@ input:focus-visible{
   padding-bottom: 0.75rem;
   display: inline-block;
 }
-_primary.btn {
+.btn_primary {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
