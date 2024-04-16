@@ -693,6 +693,9 @@ video {
 .top-6 {
   top: 1.5rem;
 }
+.top-8 {
+  top: 2rem;
+}
 .top-\[27px\] {
   top: 27px;
 }
@@ -701,9 +704,6 @@ video {
 }
 .top-full {
   top: 100%;
-}
-.top-8 {
-  top: 2rem;
 }
 .isolate {
   isolation: isolate;
@@ -854,6 +854,9 @@ video {
 .w-3 {
   width: 0.75rem;
 }
+.w-3\/5 {
+  width: 60%;
+}
 .w-4 {
   width: 1rem;
 }
@@ -904,9 +907,6 @@ video {
 .w-full {
   width: 100%;
 }
-.w-3\/5 {
-  width: 60%;
-}
 .min-w-\[166px\] {
   min-width: 166px;
 }
@@ -916,26 +916,20 @@ video {
 .max-w-60 {
   max-width: 15rem;
 }
+.max-w-96 {
+  max-width: 24rem;
+}
 .max-w-\[212px\] {
   max-width: 212px;
-}
-.max-w-\[600px\] {
-  max-width: 600px;
-}
-.max-w-\[90\%\] {
-  max-width: 90%;
-}
-.max-w-none {
-  max-width: none;
-}
-.max-w-\[70\%\] {
-  max-width: 70%;
 }
 .max-w-\[60\%\] {
   max-width: 60%;
 }
-.max-w-96 {
-  max-width: 24rem;
+.max-w-\[600px\] {
+  max-width: 600px;
+}
+.max-w-none {
+  max-width: none;
 }
 .flex-1 {
   -webkit-box-flex: 1;
@@ -1039,6 +1033,9 @@ video {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.gap-12 {
+  gap: 3rem;
+}
 .gap-5 {
   gap: 1.25rem;
 }
@@ -1047,9 +1044,6 @@ video {
 }
 .gap-\[1\.1rem\] {
   gap: 1.1rem;
-}
-.gap-12 {
-  gap: 3rem;
 }
 .gap-x-\[20px\] {
   -webkit-column-gap: 20px;
@@ -1163,10 +1157,6 @@ video {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
 .py-\[5px\] {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -1255,11 +1245,11 @@ video {
 .pt-4 {
   padding-top: 1rem;
 }
-.pt-\[67px\] {
-  padding-top: 67px;
-}
 .pt-8 {
   padding-top: 2rem;
+}
+.pt-\[67px\] {
+  padding-top: 67px;
 }
 .text-center {
   text-align: center;
@@ -1300,6 +1290,9 @@ video {
 .text-\[15px\] {
   font-size: 15px;
 }
+.text-\[17px\] {
+  font-size: 17px;
+}
 .text-\[19px\] {
   font-size: 19px;
 }
@@ -1308,6 +1301,9 @@ video {
 }
 .text-\[27px\] {
   font-size: 27px;
+}
+.text-\[32px\] {
+  font-size: 32px;
 }
 .text-\[34px\] {
   font-size: 34px;
@@ -1322,12 +1318,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.text-\[17px\] {
-  font-size: 17px;
-}
-.text-\[32px\] {
-  font-size: 32px;
 }
 .font-bold {
   font-weight: 700;
@@ -1431,11 +1421,6 @@ video {
        -o-transition-duration: 500ms;
           transition-duration: 500ms;
 }
-.duration-0 {
-  -webkit-transition-duration: 0s;
-       -o-transition-duration: 0s;
-          transition-duration: 0s;
-}
 .ease-in-out {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
        -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1466,6 +1451,7 @@ html {
 body,
 html {
   font-family: "Helvetica Neue LT Std", sans-serif;
+  font-weight: 400;
 }
 body::-webkit-scrollbar {
     width: 7px;
