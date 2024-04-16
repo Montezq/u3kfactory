@@ -848,6 +848,9 @@ video {
 .\!w-0 {
   width: 0px !important;
 }
+.w-1\/5 {
+  width: 20%;
+}
 .w-12 {
   width: 3rem;
 }
@@ -909,9 +912,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-1\/5 {
-  width: 20%;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -1859,6 +1859,9 @@ input:focus-visible{
   margin-top: clamp(50px, 6.79vh, 6.79vh);
 }
 
+.splide-thumbnails .splide__list{
+  gap: clamp(26px, 1.83vw, 1.83vw)
+}
 .product__info-wrapper{
   padding-top: clamp(32px, 5.4vh, 5.4vh);
 }
