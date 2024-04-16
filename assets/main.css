@@ -1813,7 +1813,7 @@ input:focus-visible{
   }
 }
 .collection__empty{
-  padding-top: clamp(150px, 18vh, 18vh);
+  padding-top: clamp(100px, 12vh, 12vh);
 }
 .collection__empty-eye{
   margin-top: clamp(50px, 7.16vh, 7.16vh);
