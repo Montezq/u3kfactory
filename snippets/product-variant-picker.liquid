@@ -33,7 +33,10 @@
           <ul class="custom-select__options absolute z-[2] w-full top-full left-0">
             {%- for value in option.values -%}
               <li class="custom-option">
-                <span data-value="{{ value | escape }}">{{- value -}}</span>
+                <span data-id="{{ value | escape }}">
+                  {{- value -}}
+                  {{ option.id -}}
+                </span>
               </li>
             {%- endfor -%}
           </ul>
