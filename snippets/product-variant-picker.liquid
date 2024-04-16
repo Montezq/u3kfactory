@@ -34,10 +34,8 @@
             {%- for value in option.values -%}
               <li class="custom-option">
                 <span data-id="{{ value | escape }}">
-                  {{ option.name }}
-                  {{ value.name }}
+                  {{ option | option_id }}
                   {{- value -}}
-                  {{ value.id -}}
                 </span>
               </li>
             {%- endfor -%}
