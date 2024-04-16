@@ -964,20 +964,24 @@ class VariantSelects extends HTMLElement {
     const target = event.target;
     const withinCustomSelect = target.closest('.custom-select');
 
+    // Handle clicks within a custom select
     if (withinCustomSelect) {
       if (target.classList.contains('custom-select__trigger') || target.closest('.custom-select__trigger')) {
         this.toggleDropdown(withinCustomSelect);
-      } else if (target.classList.contains('custom-option')) {
-        this.selectOption(target);
+      } else if (target.classList.contains('custom-option') || target.closest('.custom-option')) {
+        // Ensure we're getting the span inside the li.custom-option to pass the correct element
+        this.selectOption(target.closest('.custom-option').querySelector('span'));
       }
     } else {
+      // Close all dropdowns if the click is outside any custom-select
       this.closeAllDropdowns();
     }
   }
 
   toggleDropdown(selectedCustomSelect) {
+    // Close all other dropdowns
     this.closeAllDropdownsExcept(selectedCustomSelect);
-
+    // Then toggle the current dropdown
     const dropdown = selectedCustomSelect.querySelector('.custom-select__options');
     dropdown.style.display = (dropdown.style.display === 'block' ? 'none' : 'block');
   }
@@ -985,14 +989,16 @@ class VariantSelects extends HTMLElement {
   selectOption(option) {
     const customSelect = option.closest('.custom-select');
     const trigger = customSelect.querySelector('.custom-select__trigger span');
-    trigger.textContent = option.textContent; 
-    customSelect.querySelector('.custom-select__options').style.display = 'none'; 
+    trigger.textContent = option.textContent; // Update the trigger to show the selected option
+    customSelect.querySelector('.custom-select__options').style.display = 'none'; // Close the dropdown
 
+    // Here you might want to update some data or trigger other updates based on the selection
     this.updateCustomSelectData(option.dataset.value);
   }
 
   updateCustomSelectData(value) {
     console.log(`Selected value: ${value}`);
+    // Implement any additional updates that need to occur when a value is selected
   }
 
   closeAllDropdowns() {
@@ -1017,7 +1023,6 @@ class VariantSelects extends HTMLElement {
 }
 
 customElements.define('variant-selects', VariantSelects);
-
 
 class ProductRecommendations extends HTMLElement {
   constructor() {
