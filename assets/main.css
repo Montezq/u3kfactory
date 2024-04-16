@@ -878,9 +878,6 @@ video {
 .w-\[100vw\] {
   width: 100vw;
 }
-.w-\[16\.7\%\] {
-  width: 16.7%;
-}
 .w-\[17px\] {
   width: 17px;
 }
@@ -1863,7 +1860,7 @@ input:focus-visible{
   padding-top: 1vh;
 }
 .product__media-wrapper{
-  height: calc(100vh - (1vh + 27px) - (1vh + 27px));
+  max-width: calc(100vh - (1vh + 27px) - (1vh + 27px));
 }
 .splide-main{
   margin-bottom: clamp(26px, 2.4vh, 34px);
