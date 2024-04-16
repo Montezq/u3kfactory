@@ -58,75 +58,22 @@
     endif
   -%}
 
-  {%- capture input_id -%}
-    {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
-  {%- endcapture -%}
-
-  {%- capture label_unavailable -%}
-    <span class="visually-hidden label-unavailable">
-      {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
-    </span>
-  {%- endcapture -%}
-
-  {%- if picker_type == 'swatch' -%}
-    {% liquid
-      assign checked = false
-      if option.selected_value == value
-        assign checked = true
-      endif
-    %}
-    {%- capture help_text -%}
-      <span class="visually-hidden">{{ value | escape }}</span>
-      {{ label_unavailable }}
-    {%- endcapture -%}
-    {%
-      render 'swatch-input',
-      id: input_id,
-      name: option.name,
-      value: value | escape,
-      swatch: value.swatch,
-      product_form_id: product_form_id,
-      checked: checked,
-      visually_disabled: option_disabled,
-      shape: block.settings.swatch_shape,
-      help_text: help_text
-    %}
-  {%- elsif picker_type == 'button' -%}
-    <input
-      type="radio"
-      id="{{ input_id }}"
-      name="{{ option.name }}"
-      value="{{ value | escape }}"
-      form="{{ product_form_id }}"
-      {% if option.selected_value == value %}
-        checked
+  <option
+    value="{{ value | escape }}"
+    {% if option.selected_value == value %}
+      selected="selected"
+    {% endif %}
+    {% if swatch_value and picker_type == 'swatch_dropdown' %}
+      data-option-swatch-value="{{ swatch_value }}"
+      {% if swatch_focal_point %}
+        data-option-swatch-focal-point="{{ swatch_focal_point }}"
       {% endif %}
-      {% if option_disabled %}
-        class="disabled"
-      {% endif %}
-    >
-    <label for="{{ input_id }}">
-      {{ value -}}
-      {{ label_unavailable }}
-    </label>
-  {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
-    <option
-      value="{{ value | escape }}"
-      {% if option.selected_value == value %}
-        selected="selected"
-      {% endif %}
-      {% if swatch_value and picker_type == 'swatch_dropdown' %}
-        data-option-swatch-value="{{ swatch_value }}"
-        {% if swatch_focal_point %}
-          data-option-swatch-focal-point="{{ swatch_focal_point }}"
-        {% endif %}
-      {% endif %}
-    >
-      {% if option_disabled -%}
-        {{- 'products.product.value_unavailable' | t: option_value: value -}}
-      {%- else -%}
-        {{- value -}}
-      {%- endif %}
-    </option>
-  {%- endif -%}
+    {% endif %}
+  >
+    {% if option_disabled -%}
+      {{- 'products.product.value_unavailable' | t: option_value: value -}}
+    {%- else -%}
+      {{- value -}}
+    {%- endif %}
+  </option>
 {%- endfor -%}
