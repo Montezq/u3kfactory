@@ -100,8 +100,8 @@
           {%- endfor -%}
           <ul class="custom-select__options absolute z-[2] w-full top-full left-0">
             {%- for value in option.values -%}
-              <li>
-                <span class="custom-option" data-value="{{ value | escape }}">{{- value -}}</span>
+              <li class="custom-option">
+                <span data-value="{{ value | escape }}">{{- value -}}</span>
               </li>
             {%- endfor -%}
           </ul>
