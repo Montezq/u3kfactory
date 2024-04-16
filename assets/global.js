@@ -956,43 +956,33 @@ customElements.define('slideshow-component', SlideshowComponent);
 class VariantSelects extends HTMLElement {
   constructor() {
     super();
-    this.addEventListener('click', this.onVariantChange);
+    this.addEventListener('click', this.onClick);
+    document.addEventListener('click', this.handleOutsideClick.bind(this), true);
   }
 
-  onVariantChange(event) {
+  onClick(event) {
     const target = event.target;
+    const withinCustomSelect = target.closest('.custom-select');
 
-    // Toggle dropdown when the trigger is clicked
-    if (target.classList.contains('custom-select__trigger') || target.closest('.custom-select__trigger')) {
-      this.toggleDropdown(target);
+    if (withinCustomSelect) {
+      // Handle clicks within a custom select
+      if (target.classList.contains('custom-select__trigger') || target.closest('.custom-select__trigger')) {
+        this.toggleDropdown(withinCustomSelect);
+      } else if (target.classList.contains('custom-option')) {
+        this.selectOption(target);
+      }
+    } else {
+      // Close all dropdowns if the click is outside any custom-select
+      this.closeAllDropdowns();
     }
-
-    // Update the display and close the dropdown when an option is selected
-    if (target.classList.contains('custom-option')) {
-      this.selectOption(target);
-    }
-    this.updateOptions();
-    // this.updateMasterId();
-    // this.updateSelectedSwatchValue(event);
-    // this.toggleAddButton(true, '', false);
-    // this.updatePickupAvailability();
-    // this.removeErrorMessage();
-    // this.updateVariantStatuses();
-
-    // if (!this.currentVariant) {
-    //   this.toggleAddButton(true, '', true);
-    //   this.setUnavailable();
-    // } else {
-    //   this.updateMedia();
-    //   this.updateURL();
-    //   this.updateVariantInput();
-    //   this.renderProductInfo();
-    //   this.updateShareUrl();
-    // }
   }
 
-  toggleDropdown(target) {
-    const dropdown = target.closest('.custom-select').querySelector('.custom-select__options');
+  toggleDropdown(selectedCustomSelect) {
+    // First, close all other dropdowns
+    this.closeAllDropdownsExcept(selectedCustomSelect);
+
+    // Then toggle the current dropdown
+    const dropdown = selectedCustomSelect.querySelector('.custom-select__options');
     dropdown.style.display = (dropdown.style.display === 'block' ? 'none' : 'block');
   }
 
@@ -1007,275 +997,33 @@ class VariantSelects extends HTMLElement {
   }
 
   updateCustomSelectData(value) {
-    // Placeholder method to update the component's data
     console.log(`Selected value: ${value}`);
-    // Here, you might update other elements or component state based on the selection
+    // Update data or other components as necessary
   }
 
-  updateOptions() {
-    this.options = Array.from(this.querySelectorAll('.custom-select__options'), (element) => {
-      console.log(element.tagName)
-      if (element.tagName === 'SELECT') {
-        return element.value;
-      }
-      if (element.tagName === 'FIELDSET') {
-        return Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value;
+  closeAllDropdowns() {
+    this.querySelectorAll('.custom-select__options').forEach(options => {
+      options.style.display = 'none';
+    });
+  }
+
+  closeAllDropdownsExcept(activeCustomSelect) {
+    this.querySelectorAll('.custom-select').forEach(customSelect => {
+      if (customSelect !== activeCustomSelect) {
+        customSelect.querySelector('.custom-select__options').style.display = 'none';
       }
     });
   }
 
-  updateMasterId() {
-    this.currentVariant = this.getVariantData().find((variant) => {
-      return !variant.options
-        .map((option, index) => {
-          return this.options[index] === option;
-        })
-        .includes(false);
-    });
-  }
-
-  updateSelectedSwatchValue({ target }) {
-    const { name, value, tagName } = target;
-
-    if (tagName === 'SELECT' && target.selectedOptions.length) {
-      const swatchValue = target.selectedOptions[0].dataset.optionSwatchValue;
-      const selectedDropdownSwatchValue = this.querySelector(`[data-selected-dropdown-swatch="${name}"] > .swatch`);
-      if (!selectedDropdownSwatchValue) return;
-      if (swatchValue) {
-        selectedDropdownSwatchValue.style.setProperty('--swatch--background', swatchValue);
-        selectedDropdownSwatchValue.classList.remove('swatch--unavailable');
-      } else {
-        selectedDropdownSwatchValue.style.setProperty('--swatch--background', 'unset');
-        selectedDropdownSwatchValue.classList.add('swatch--unavailable');
-      }
-
-      selectedDropdownSwatchValue.style.setProperty(
-        '--swatch-focal-point',
-        target.selectedOptions[0].dataset.optionSwatchFocalPoint || 'unset'
-      );
-    } else if (tagName === 'INPUT' && target.type === 'radio') {
-      const selectedSwatchValue = this.querySelector(`[data-selected-swatch-value="${name}"]`);
-      if (selectedSwatchValue) selectedSwatchValue.innerHTML = value;
+  handleOutsideClick(event) {
+    if (!this.contains(event.target)) {
+      this.closeAllDropdowns();
     }
-  }
-
-  updateMedia() {
-    if (!this.currentVariant) return;
-    if (!this.currentVariant.featured_media) return;
-
-    const mediaGalleries = document.querySelectorAll(`[id^="MediaGallery-${this.dataset.section}"]`);
-    mediaGalleries.forEach((mediaGallery) =>
-      mediaGallery.setActiveMedia(`${this.dataset.section}-${this.currentVariant.featured_media.id}`, true)
-    );
-
-    const modalContent = document.querySelector(`#ProductModal-${this.dataset.section} .product-media-modal__content`);
-    if (!modalContent) return;
-    const newMediaModal = modalContent.querySelector(`[data-media-id="${this.currentVariant.featured_media.id}"]`);
-    modalContent.prepend(newMediaModal);
-  }
-
-  updateURL() {
-    if (!this.currentVariant || this.dataset.updateUrl === 'false') return;
-    window.history.replaceState({}, '', `${this.dataset.url}?variant=${this.currentVariant.id}`);
-  }
-
-  updateShareUrl() {
-    const shareButton = document.getElementById(`Share-${this.dataset.section}`);
-    if (!shareButton || !shareButton.updateUrl) return;
-    shareButton.updateUrl(`${window.shopUrl}${this.dataset.url}?variant=${this.currentVariant.id}`);
-  }
-
-  updateVariantInput() {
-    const productForms = document.querySelectorAll(
-      `#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}`
-    );
-    productForms.forEach((productForm) => {
-      const input = productForm.querySelector('input[name="id"]');
-      input.value = this.currentVariant.id;
-      input.dispatchEvent(new Event('change', { bubbles: true }));
-    });
-  }
-
-  updateVariantStatuses() {
-    const selectedOptionOneVariants = this.variantData.filter(
-      (variant) => this.querySelector(':checked').value === variant.option1
-    );
-    const inputWrappers = [...this.querySelectorAll('.product-form__input')];
-    inputWrappers.forEach((option, index) => {
-      if (index === 0) return;
-      const optionInputs = [...option.querySelectorAll('input[type="radio"], option')];
-      const previousOptionSelected = inputWrappers[index - 1].querySelector(':checked').value;
-      const availableOptionInputsValue = selectedOptionOneVariants
-        .filter((variant) => variant.available && variant[`option${index}`] === previousOptionSelected)
-        .map((variantOption) => variantOption[`option${index + 1}`]);
-      this.setInputAvailability(optionInputs, availableOptionInputsValue);
-    });
-  }
-
-  setInputAvailability(elementList, availableValuesList) {
-    elementList.forEach((element) => {
-      const value = element.getAttribute('value');
-      const availableElement = availableValuesList.includes(value);
-
-      if (element.tagName === 'INPUT') {
-        element.classList.toggle('disabled', !availableElement);
-      } else if (element.tagName === 'OPTION') {
-        element.innerText = availableElement
-          ? value
-          : window.variantStrings.unavailable_with_option.replace('[value]', value);
-      }
-    });
-  }
-
-  updatePickupAvailability() {
-    const pickUpAvailability = document.querySelector('pickup-availability');
-    if (!pickUpAvailability) return;
-
-    if (this.currentVariant && this.currentVariant.available) {
-      pickUpAvailability.fetchAvailability(this.currentVariant.id);
-    } else {
-      pickUpAvailability.removeAttribute('available');
-      pickUpAvailability.innerHTML = '';
-    }
-  }
-
-  removeErrorMessage() {
-    const section = this.closest('section');
-    if (!section) return;
-
-    const productForm = section.querySelector('product-form');
-    if (productForm) productForm.handleErrorMessage();
-  }
-
-  renderProductInfo() {
-    const requestedVariantId = this.currentVariant.id;
-    const sectionId = this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section;
-
-    fetch(
-      `${this.dataset.url}?variant=${requestedVariantId}&section_id=${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section
-      }`
-    )
-      .then((response) => response.text())
-      .then((responseText) => {
-        // prevent unnecessary ui changes from abandoned selections
-        if (this.currentVariant.id !== requestedVariantId) return;
-
-        const html = new DOMParser().parseFromString(responseText, 'text/html');
-        const destination = document.getElementById(`price-${this.dataset.section}`);
-        const source = html.getElementById(
-          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
-        );
-        const skuSource = html.getElementById(
-          `Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
-        );
-        const skuDestination = document.getElementById(`Sku-${this.dataset.section}`);
-        const inventorySource = html.getElementById(
-          `Inventory-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
-        );
-        const inventoryDestination = document.getElementById(`Inventory-${this.dataset.section}`);
-
-        const volumePricingSource = html.getElementById(
-          `Volume-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
-        );
-
-        const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
-        const pricePerItemSource = html.getElementById(`Price-Per-Item-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
-
-        const volumePricingDestination = document.getElementById(`Volume-${this.dataset.section}`);
-        const qtyRules = document.getElementById(`Quantity-Rules-${this.dataset.section}`);
-        const volumeNote = document.getElementById(`Volume-Note-${this.dataset.section}`);
-
-        if (volumeNote) volumeNote.classList.remove('hidden');
-        if (volumePricingDestination) volumePricingDestination.classList.remove('hidden');
-        if (qtyRules) qtyRules.classList.remove('hidden');
-
-        if (source && destination) destination.innerHTML = source.innerHTML;
-        if (inventorySource && inventoryDestination) inventoryDestination.innerHTML = inventorySource.innerHTML;
-        if (skuSource && skuDestination) {
-          skuDestination.innerHTML = skuSource.innerHTML;
-          skuDestination.classList.toggle('hidden', skuSource.classList.contains('hidden'));
-        }
-
-        if (volumePricingSource && volumePricingDestination) {
-          volumePricingDestination.innerHTML = volumePricingSource.innerHTML;
-        }
-
-        if (pricePerItemSource && pricePerItemDestination) {
-          pricePerItemDestination.innerHTML = pricePerItemSource.innerHTML;
-          pricePerItemDestination.classList.toggle('hidden', pricePerItemSource.classList.contains('hidden'));
-        }
-
-        const price = document.getElementById(`price-${this.dataset.section}`);
-
-        if (price) price.classList.remove('hidden');
-
-        if (inventoryDestination)
-          inventoryDestination.classList.toggle('hidden', inventorySource.innerText === '');
-
-        const addButtonUpdated = html.getElementById(`ProductSubmitButton-${sectionId}`);
-        this.toggleAddButton(
-          addButtonUpdated ? addButtonUpdated.hasAttribute('disabled') : true,
-          window.variantStrings.soldOut
-        );
-
-        publish(PUB_SUB_EVENTS.variantChange, {
-          data: {
-            sectionId,
-            html,
-            variant: this.currentVariant,
-          },
-        });
-      });
-  }
-
-  toggleAddButton(disable = true, text, modifyClass = true) {
-    const productForm = document.getElementById(`product-form-${this.dataset.section}`);
-    if (!productForm) return;
-    const addButton = productForm.querySelector('[name="add"]');
-    const addButtonText = productForm.querySelector('[name="add"] > span');
-    if (!addButton) return;
-
-    if (disable) {
-      addButton.setAttribute('disabled', 'disabled');
-      if (text) addButtonText.textContent = text;
-    } else {
-      addButton.removeAttribute('disabled');
-      addButtonText.textContent = window.variantStrings.addToCart;
-    }
-
-    if (!modifyClass) return;
-  }
-
-  setUnavailable() {
-    const button = document.getElementById(`product-form-${this.dataset.section}`);
-    const addButton = button.querySelector('[name="add"]');
-    const addButtonText = button.querySelector('[name="add"] > span');
-    const price = document.getElementById(`price-${this.dataset.section}`);
-    const inventory = document.getElementById(`Inventory-${this.dataset.section}`);
-    const sku = document.getElementById(`Sku-${this.dataset.section}`);
-    const pricePerItem = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
-    const volumeNote = document.getElementById(`Volume-Note-${this.dataset.section}`);
-    const volumeTable = document.getElementById(`Volume-${this.dataset.section}`);
-    const qtyRules = document.getElementById(`Quantity-Rules-${this.dataset.section}`);
-
-    if (!addButton) return;
-    addButtonText.textContent = window.variantStrings.unavailable;
-    if (price) price.classList.add('hidden');
-    if (inventory) inventory.classList.add('hidden');
-    if (sku) sku.classList.add('hidden');
-    if (pricePerItem) pricePerItem.classList.add('hidden');
-    if (volumeNote) volumeNote.classList.add('hidden');
-    if (volumeTable) volumeTable.classList.add('hidden');
-    if (qtyRules) qtyRules.classList.add('hidden');
-  }
-
-  getVariantData() {
-    this.variantData = this.variantData || JSON.parse(this.querySelector('[type="application/json"]').textContent);
-    return this.variantData;
   }
 }
 
 customElements.define('variant-selects', VariantSelects);
+
 
 class ProductRecommendations extends HTMLElement {
   constructor() {
