@@ -992,7 +992,10 @@ class VariantSelects extends HTMLElement {
 
   updateOptions(customSelect) {
     const selectedOptionValue = customSelect.querySelector('.custom-select__trigger span').textContent;
-    this.currentVariant = this.getVariantData().find(variant => variant.name === selectedOptionValue);
+    this.currentVariant = this.getVariantData().find(variant => {
+      console.log(variant.name)
+      variant.name === selectedOptionValue
+    });
     console.log(selectedOptionValue, this.currentVariant)
   }
 
