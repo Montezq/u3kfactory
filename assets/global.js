@@ -986,17 +986,8 @@ class VariantSelects extends HTMLElement {
     trigger.textContent = option.textContent;
     customSelect.querySelector('.custom-select__options').style.display = 'none';
 
-    console.log(this.getVariantData())
     // Assuming the variant data is embedded as JSON in a script tag or similar
-    // this.currentVariant = this.getVariantData().find(variant => variant.title == option.dataset.value);
-    this.currentVariant = this.getVariantData().find((variant) => {
-      return !variant.options
-        .map((option, index) => {
-          return this.options[index] === option.dataset.value;
-        })
-        .includes(false);
-    });
-    console.log(this.currentVariant)
+    this.currentVariant = this.getVariantData().find(variant => variant.id == option.dataset.value);
     if (this.currentVariant) {
       this.renderProductInfo();
     }
@@ -1035,7 +1026,6 @@ class VariantSelects extends HTMLElement {
   renderProductInfo() {
     const requestedVariantId = this.currentVariant.id;
     const sectionId = this.dataset.originalSection || this.dataset.section;
-    console.log(requestedVariantId, sectionId)
     fetch(`${this.dataset.url}?variant=${requestedVariantId}&section_id=${sectionId}`)
       .then(response => response.text())
       .then(responseText => {
