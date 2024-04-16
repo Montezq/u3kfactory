@@ -922,6 +922,9 @@ video {
 .max-w-none {
   max-width: none;
 }
+.max-w-\[70\%\] {
+  max-width: 70%;
+}
 .flex-1 {
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 0%;
@@ -2072,6 +2075,10 @@ input:focus-visible{
 
   .md\:w-48 {
     width: 12rem;
+  }
+
+  .md\:max-w-\[70\%\] {
+    max-width: 70%;
   }
 
   .md\:gap-2 {
