@@ -1350,6 +1350,9 @@ video {
 .tracking-xwidest {
   letter-spacing: .12em;
 }
+.tracking-\[0\.3em\] {
+  letter-spacing: 0.3em;
+}
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(91 91 91 / var(--tw-text-opacity));
@@ -2401,6 +2404,20 @@ input:focus-visible{
 
   .group:hover .lg\:group-hover\:opacity-100 {
     opacity: 1;
+  }
+}
+@media (min-width: 1280px) {
+
+  .xl\:text-\[25px\] {
+    font-size: 25px;
+  }
+
+  .xl\:text-\[50px\] {
+    font-size: 50px;
+  }
+
+  .xl\:tracking-\[0\.5em\] {
+    letter-spacing: 0.5em;
   }
 }
 @media (min-width: 1536px) {
