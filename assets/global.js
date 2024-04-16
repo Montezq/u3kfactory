@@ -987,7 +987,7 @@ class VariantSelects extends HTMLElement {
         return element.value;
       }
       if (element.tagName === 'UL') {
-        console.log(Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value;)
+        console.log(Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value)
         return Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value;
       }
     });
