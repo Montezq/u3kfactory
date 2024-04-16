@@ -1339,8 +1339,6 @@ class AccordionItem extends HTMLElement {
         content.style.height = `${content.scrollHeight}px`;
       });
     } else {
-      document.querySelector('.header__menu-content').classList.remove('lg:pt-[11vh]');
-      document.querySelector('.header__menu-content').classList.add('lg:mt-0');
       this.classList.remove('open')
       content.style.height = '0';
     }
