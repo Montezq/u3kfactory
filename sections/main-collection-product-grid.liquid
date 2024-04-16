@@ -1,6 +1,9 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<div class="section-{{ section.id }} pb-12 collection-product-grid" id="product-grid-wrapper">
+<div
+  class="section-{{ section.id }} pb-12 collection-product-grid{%- if collection.products.size == 0 -%} collection__empty{%- endif -%}"
+  id="product-grid-wrapper"
+>
   {%- paginate collection.products by 24 -%}
     <div class="collection__wrapper flex flex-col">
       {%- if collection.products.size > 0 -%}

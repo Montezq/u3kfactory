@@ -1812,9 +1812,6 @@ input:focus-visible{
     padding-right: 1rem;
   }
 }
-.collection__wrapper{
-  min-height: calc(100vh - (48px + 27px));
-}
 .collection__empty-eye{
   margin-top: clamp(50px, 7.16vh, 7.16vh);
   margin-bottom: clamp(50px, 8.17vh, 8.17vh);
