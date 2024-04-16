@@ -1278,6 +1278,9 @@ video {
 .text-\[20px\] {
   font-size: 20px;
 }
+.text-\[25px\] {
+  font-size: 25px;
+}
 .text-\[27px\] {
   font-size: 27px;
 }
@@ -1287,6 +1290,9 @@ video {
 .text-\[40px\] {
   font-size: 40px;
 }
+.text-\[50px\] {
+  font-size: 50px;
+}
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1294,12 +1300,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.text-\[25px\] {
-  font-size: 25px;
-}
-.text-\[50px\] {
-  font-size: 50px;
 }
 .font-bold {
   font-weight: 700;
@@ -1322,6 +1322,9 @@ video {
 .leading-none {
   line-height: 1;
 }
+.tracking-\[0\.5em\] {
+  letter-spacing: 0.5em;
+}
 .tracking-wide {
   letter-spacing: .02em;
 }
@@ -1339,9 +1342,6 @@ video {
 }
 .tracking-xwidest {
   letter-spacing: .12em;
-}
-.tracking-\[0\.5em\] {
-  letter-spacing: 0.5em;
 }
 .text-gray-600 {
   --tw-text-opacity: 1;
@@ -1789,6 +1789,9 @@ input:focus-visible{
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
+.collection__wrapper{
+  min-height: calc(100vh - (48px + 27px));
 }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
