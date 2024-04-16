@@ -981,7 +981,7 @@ class VariantSelects extends HTMLElement {
   }
 
   updateOptions() {
-    this.options = Array.from(this.querySelectorAll('select, fieldset'), (element) => {
+    this.options = Array.from(this.querySelectorAll('.custom-select__options'), (element) => {
       console.log(element.tagName)
       if (element.tagName === 'SELECT') {
         return element.value;
