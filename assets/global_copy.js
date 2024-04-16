@@ -960,17 +960,6 @@ class VariantSelects extends HTMLElement {
   }
 
   onVariantChange(event) {
-    const target = event.target;
-
-    // Toggle dropdown when the trigger is clicked
-    if (target.classList.contains('custom-select__trigger') || target.closest('.custom-select__trigger')) {
-      this.toggleDropdown(target);
-    }
-
-    // Update the display and close the dropdown when an option is selected
-    if (target.classList.contains('custom-option')) {
-      this.selectOption(target);
-    }
     this.updateOptions();
     // this.updateMasterId();
     // this.updateSelectedSwatchValue(event);
