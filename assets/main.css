@@ -1473,10 +1473,10 @@ input:focus-visible{
   letter-spacing: .12em;
   line-height: 1;
   text-transform: uppercase;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
   display: inline-block;
 }
 .btn_primary {
