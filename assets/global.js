@@ -991,9 +991,9 @@ class VariantSelects extends HTMLElement {
   }
 
   updateOptions(customSelect) {
-    const options = Array.from(customSelect.querySelectorAll('.custom-option'), element => element.getAttribute('data-value'));
-    this.currentVariant = this.getVariantData().find(variant => options.includes(variant.id));
-  }
+    const selectedOptionValue = customSelect.querySelector('.custom-select__trigger span').textContent;
+    this.currentVariant = this.getVariantData().find(variant => variant.name === selectedOptionValue);
+}
 
   closeAllDropdowns() {
     this.querySelectorAll('.custom-select__options').forEach(options => {
