@@ -1858,6 +1858,15 @@ input:focus-visible{
 .product__description{
   margin-bottom: clamp(32px, 6.43vh, 70px);
 }
+.product__description * {
+  font-family: Times New Roman, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.product__description strong,
+.product__description b {
+  font-weight: 700;
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
