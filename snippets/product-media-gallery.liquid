@@ -25,11 +25,11 @@
     <ul class="splide__list">
       {%- for media in product.media -%}
         {%- if product.selected_or_first_available_variant.featured_media != null -%}
+          {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
           <li
             class="splide__slide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
           >
-            {%- assign media_position = 1 -%}
             {% render 'product-thumbnail',
               media: media,
               media_width: media_width,
@@ -43,19 +43,66 @@
             class="splide__slide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
           >
-            {%- liquid
-              assign media_position = media_position | default: 0 | plus: 1
-              assign lazy_load = false
-              if media_position > 1
-                assign lazy_load = true
-              endif
-            -%}
             {% render 'product-thumbnail',
               media: media,
               media_width: media_width,
               media_count: media_count,
               lazy_load: lazy_load
             %}
+          </li>
+        {%- endunless -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+<div
+  class="splide-thumbnails"
+  aria-label="Product Slider Thumbnails"
+  id="GalleryThumbnails-{{ section.id }}{{ id_append }}"
+>
+  <div class="splide__track">
+    <ul class="splide__list">
+      {%- capture sizes -%}
+        (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width | minus: 100 | times: media_width | round }} - 4rem) / 4),
+        (min-width: 990px) calc(({{ media_width | times: 100 }}vw - 4rem) / 4),
+        (min-width: 750px) calc((100vw - 15rem) / 8),
+        calc((100vw - 8rem) / 3)
+      {%- endcapture -%}
+      {%- if featured_media != null -%}
+        <li
+          class="splide__slide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+          data-media-id="{{ section.id }}-{{ media.id }}"
+        >
+          {{
+            featured_media.preview_image
+            | image_url: width: 416
+            | image_tag:
+              loading: 'lazy',
+              sizes: sizes,
+              widths: '54, 74, 104, 162, 208, 324, 416',
+              id: thumbnail_id,
+              alt: featured_media.alt
+            | escape
+          }}
+        </li>
+      {%- endif -%}
+      {%- for media in product.media -%}
+        {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+          <li
+            class="splide__slide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            data-media-id="{{ section.id }}-{{ media.id }}"
+          >
+            {{
+              media.preview_image
+              | image_url: width: 416
+              | image_tag:
+                loading: 'lazy',
+                sizes: sizes,
+                widths: '54, 74, 104, 162, 208, 324, 416',
+                id: thumbnail_id,
+                alt: media.alt
+              | escape
+            }}
           </li>
         {%- endunless -%}
       {%- endfor -%}
