@@ -956,7 +956,7 @@ customElements.define('slideshow-component', SlideshowComponent);
 class VariantSelects extends HTMLElement {
   constructor() {
     super();
-    this.addEventListener('change', this.onVariantChange);
+    this.addEventListener('click', this.onVariantChange);
   }
 
   onVariantChange(event) {
@@ -982,6 +982,7 @@ class VariantSelects extends HTMLElement {
 
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select, fieldset'), (element) => {
+      console.log(element.tagName)
       if (element.tagName === 'SELECT') {
         return element.value;
       }
