@@ -848,9 +848,6 @@ video {
 .\!w-0 {
   width: 0px !important;
 }
-.w-1\/5 {
-  width: 20%;
-}
 .w-12 {
   width: 3rem;
 }
@@ -859,9 +856,6 @@ video {
 }
 .w-3 {
   width: 0.75rem;
-}
-.w-3\/5 {
-  width: 60%;
 }
 .w-4 {
   width: 1rem;
@@ -884,6 +878,9 @@ video {
 .w-\[100vw\] {
   width: 100vw;
 }
+.w-\[16\.7\%\] {
+  width: 16.7%;
+}
 .w-\[17px\] {
   width: 17px;
 }
@@ -899,6 +896,9 @@ video {
 .w-\[46px\] {
   width: 46px;
 }
+.w-\[61\%\] {
+  width: 61%;
+}
 .w-\[7px\] {
   width: 7px;
 }
@@ -912,12 +912,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-\[16\.7\%\] {
-  width: 16.7%;
-}
-.w-\[61\%\] {
-  width: 61%;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -1865,6 +1859,9 @@ input:focus-visible{
   margin-top: clamp(50px, 6.79vh, 6.79vh);
 }
 
+.splide-main{
+  margin-bottom: clamp(26px, 2.4vh, 34px);
+}
 .splide-thumbnails .splide__list{
   gap: clamp(26px, 1.83vw, 1.83vw)
 }
