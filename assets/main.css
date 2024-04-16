@@ -1854,7 +1854,7 @@ input:focus-visible{
 }
 
 .product__info-wrapper{
-  padding-top: clamp(28px, 5.1vh, 5.1vh);
+  padding-top: clamp(32px, 5.4vh, 5.4vh);
 }
 .product__title{
   margin-bottom: clamp(32px, 2.94vh, 32px);
