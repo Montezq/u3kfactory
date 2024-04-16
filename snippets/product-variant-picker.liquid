@@ -34,7 +34,6 @@
             {%- for value in option.values -%}
               <li class="custom-option">
                 <span data-id="{{ value | escape }}">
-                  {{ option | option_id }}
                   {{- value -}}
                 </span>
               </li>
@@ -47,4 +46,7 @@
       </script>
     </variant-selects>
   </div>
+  {% for option in product.variants %}
+    <option value="{{option.id}}">{{ option.title }}</option>
+  {% endfor %}
 {%- endunless -%}
