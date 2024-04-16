@@ -1860,8 +1860,10 @@ input:focus-visible{
   padding-top: 1vh;
 }
 .product__media-wrapper{
-  max-width: calc(100vh - (1vh + 27px));
-  padding-bottom: calc(1vh + 27px);
+  max-width: calc(80.2vh -(1vh + 27px));
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 .splide-main{
   margin-bottom: clamp(26px, 2.4vh, 34px);
