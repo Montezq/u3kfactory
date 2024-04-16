@@ -1912,7 +1912,6 @@ input:focus-visible{
   border: 1px solid #ccc;
 }
 .custom-select__options {
-  display: none; 
   background: white; /* Background color for visibility */
   border: 1px solid #ccc; /* Add a border for clarity */
 }
