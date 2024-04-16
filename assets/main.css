@@ -1416,6 +1416,11 @@ video {
        -o-transition-duration: 500ms;
           transition-duration: 500ms;
 }
+.duration-0 {
+  -webkit-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
 .ease-in-out {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
        -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
