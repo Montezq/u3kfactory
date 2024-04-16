@@ -1867,6 +1867,7 @@ input:focus-visible{
   font-size: 1.25rem;
   line-height: 1.75rem;
   letter-spacing: .02em;
+  line-height: 1.25;
 }
 .product__description strong,
 .product__description b {
