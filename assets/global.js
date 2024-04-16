@@ -1347,16 +1347,6 @@ class AccordionItem extends HTMLElement {
     });
   }
 
-  toggle() {
-    const content = this.querySelector('.accordion-content');
-    if (this.isOpen) {
-      this.classList.add('open')
-      content.style.height = content.scrollHeight + 'px';
-    } else {
-      this.close();
-    }
-  }
-
   close() {
     const content = this.querySelector('.accordion-content');
     if (!this.isOpen) return; 
