@@ -988,7 +988,7 @@ class VariantSelects extends HTMLElement {
 
     // Assuming the variant data is embedded as JSON in a script tag or similar
     this.currentVariant = this.getVariantData().find(variant => variant.id == option.dataset.value);
-    console.log(currentVariant)
+    console.log(this.currentVariant)
     if (this.currentVariant) {
       this.renderProductInfo();
     }
