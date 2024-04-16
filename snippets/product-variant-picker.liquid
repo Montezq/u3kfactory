@@ -90,7 +90,7 @@
       class="product__options grid gap-7 max-w-[218px]"
     >
       {%- for option in product.options_with_values -%}
-        <div class="custom-select">
+        <div class="custom-select relative">
           {%- for value in option.values -%}
             {% if option.selected_value == value %}
               <div class="custom-select__trigger">
@@ -98,7 +98,7 @@
               </div>
             {% endif %}
           {%- endfor -%}
-          <ul class="custom-select__options">
+          <ul class="custom-select__options absolute z-[2] w-full top-full left-0">
             {%- for value in option.values -%}
               <li>
                 <span class="custom-option" data-value="{{ value | escape }}">{{- value -}}</span>
