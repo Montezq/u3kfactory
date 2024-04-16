@@ -965,23 +965,19 @@ class VariantSelects extends HTMLElement {
     const withinCustomSelect = target.closest('.custom-select');
 
     if (withinCustomSelect) {
-      // Handle clicks within a custom select
       if (target.classList.contains('custom-select__trigger') || target.closest('.custom-select__trigger')) {
         this.toggleDropdown(withinCustomSelect);
       } else if (target.classList.contains('custom-option')) {
         this.selectOption(target);
       }
     } else {
-      // Close all dropdowns if the click is outside any custom-select
       this.closeAllDropdowns();
     }
   }
 
   toggleDropdown(selectedCustomSelect) {
-    // First, close all other dropdowns
     this.closeAllDropdownsExcept(selectedCustomSelect);
 
-    // Then toggle the current dropdown
     const dropdown = selectedCustomSelect.querySelector('.custom-select__options');
     dropdown.style.display = (dropdown.style.display === 'block' ? 'none' : 'block');
   }
@@ -989,16 +985,14 @@ class VariantSelects extends HTMLElement {
   selectOption(option) {
     const customSelect = option.closest('.custom-select');
     const trigger = customSelect.querySelector('.custom-select__trigger span');
-    trigger.textContent = option.textContent; // Update the trigger to show the selected option
-    customSelect.querySelector('.custom-select__options').style.display = 'none'; // Close the dropdown
+    trigger.textContent = option.textContent; 
+    customSelect.querySelector('.custom-select__options').style.display = 'none'; 
 
-    // If you have associated data that needs to be updated, handle that here
     this.updateCustomSelectData(option.dataset.value);
   }
 
   updateCustomSelectData(value) {
     console.log(`Selected value: ${value}`);
-    // Update data or other components as necessary
   }
 
   closeAllDropdowns() {
