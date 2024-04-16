@@ -986,15 +986,13 @@ class VariantSelects extends HTMLElement {
     trigger.textContent = option.textContent;
     customSelect.querySelector('.custom-select__options').style.display = 'none';
 
-    // Assuming the variant data is embedded as JSON in a script tag or similar
-    this.currentVariant = this.getVariantData().find(variant => variant.id == option.dataset.value);
-    if (this.currentVariant) {
-      this.renderProductInfo();
-    }
+    this.updateOptions(customSelect);
+    this.renderProductInfo();
   }
 
-  updateCustomSelectData(value) {
-    console.log(`Selected value: ${value}`);
+  updateOptions(customSelect) {
+    const options = Array.from(customSelect.querySelectorAll('.custom-option'), element => element.getAttribute('data-value'));
+    this.currentVariant = this.getVariantData().find(variant => options.includes(variant.id));
   }
 
   closeAllDropdowns() {
@@ -1018,27 +1016,49 @@ class VariantSelects extends HTMLElement {
   }
 
   getVariantData() {
-    // Example of how to get variant data; adjust based on actual data source
     const jsonScript = this.querySelector('script[type="application/json"]');
     return jsonScript ? JSON.parse(jsonScript.textContent) : [];
   }
 
   renderProductInfo() {
+    if (!this.currentVariant) return;
+
     const requestedVariantId = this.currentVariant.id;
     const sectionId = this.dataset.originalSection || this.dataset.section;
+
     fetch(`${this.dataset.url}?variant=${requestedVariantId}&section_id=${sectionId}`)
       .then(response => response.text())
       .then(responseText => {
         if (this.currentVariant.id !== requestedVariantId) return;
+
         const html = new DOMParser().parseFromString(responseText, 'text/html');
-        const destination = document.getElementById(`price-${this.dataset.section}`);
-        const source = html.getElementById(`price-${sectionId}`);
-        if (source && destination) destination.innerHTML = source.innerHTML;
+        const updates = [
+          { id: `price-${this.dataset.section}`, query: `price-${sectionId}` },
+          { id: `Sku-${this.dataset.section}`, query: `Sku-${sectionId}` },
+          { id: `Inventory-${this.dataset.section}`, query: `Inventory-${sectionId}` },
+          { id: `Volume-${this.dataset.section}`, query: `Volume-${sectionId}` },
+          { id: `Price-Per-Item-${this.dataset.section}`, query: `Price-Per-Item-${sectionId}` },
+          { id: `Quantity-Rules-${this.dataset.section}`, query: `Quantity-Rules-${sectionId}` },
+          { id: `Volume-Note-${this.dataset.section}`, query: `Volume-Note-${sectionId}` }
+        ];
+
+        updates.forEach(({ id, query }) => {
+          const destination = document.getElementById(id);
+          const source = html.getElementById(query);
+          if (source && destination) {
+            destination.innerHTML = source.innerHTML;
+            destination.classList.toggle('hidden', source.classList.contains('hidden'));
+          }
+        });
+
+        const price = document.getElementById(`price-${this.dataset.section}`);
+        if (price) price.classList.remove('hidden');
       });
   }
 }
 
 customElements.define('variant-selects', VariantSelects);
+
 
 class ProductRecommendations extends HTMLElement {
   constructor() {
