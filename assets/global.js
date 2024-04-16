@@ -986,6 +986,7 @@ class VariantSelects extends HTMLElement {
     trigger.textContent = option.textContent;
     customSelect.querySelector('.custom-select__options').style.display = 'none';
 
+    console.log(option.dataset.value)
     // Assuming the variant data is embedded as JSON in a script tag or similar
     this.currentVariant = this.getVariantData().find(variant => variant.id == option.dataset.value);
     console.log(this.currentVariant)
