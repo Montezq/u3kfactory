@@ -13,13 +13,81 @@
   <div class="select-container">
     <variant-selects
       id="variant-selects-{{ section.id }}"
-      class="no-js-hidden product__options grid gap-7 max-w-[218px]"
+      class="no-js-hidden"
       data-section="{{ section.id }}"
       data-url="{{ product.url }}"
       {% if update_url == false %}
         data-update-url="false"
       {% endif %}
       {{ block.shopify_attributes }}
+    >
+      {%- for option in product.options_with_values -%}
+        <div class="product-form__input product-form__input--dropdown">
+          <div class="select">
+            <select
+              id="Option-{{ section.id }}-{{ forloop.index0 }} shopifySelect"
+              class="select__select shopifySelect"
+              name="options[{{ option.name | escape }}]"
+              form="{{ product_form_id }}"
+            >
+              {%- liquid
+                assign variants_available_arr = product.variants | map: 'available'
+                assign variants_option1_arr = product.variants | map: 'option1'
+                assign variants_option2_arr = product.variants | map: 'option2'
+                assign variants_option3_arr = product.variants | map: 'option3'
+
+                assign product_form_id = 'product-form-' | append: section.id
+              -%}
+              {%- for value in option.values -%}
+                {%- liquid
+                  assign option_disabled = true
+
+                  for option1_name in variants_option1_arr
+                    case option.position
+                      when 1
+                        if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                          assign option_disabled = false
+                        endif
+                      when 2
+                        if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                          assign option_disabled = false
+                        endif
+                      when 3
+                        if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                          assign option_disabled = false
+                        endif
+                    endcase
+                  endfor
+                -%}
+
+                <option
+                  value="{{ value | escape }}"
+                  {% if option.selected_value == value %}
+                    selected="selected"
+                  {% endif %}
+                >
+                  {% if option_disabled -%}
+                    {{- 'products.product.value_unavailable' | t: option_value: value -}}
+                  {%- else -%}
+                    {{- value -}}
+                  {%- endif %}
+                </option>
+              {%- endfor -%}
+            </select>
+            {% comment %} {% render 'icon-caret' %} {% endcomment %}
+          </div>
+        </div>
+      {%- endfor -%}
+      <script type="application/json">
+        {{ product.variants | json }}
+      </script>
+    </variant-selects>
+    <div
+      {{ block.shopify_attributes }}
+      data-section="{{ section.id }}"
+      id="variant-selects-{{ section.id }}"
+      data-url="{{ product.url }}"
+      class="product__options grid gap-7 max-w-[218px]"
     >
       {%- for option in product.options_with_values -%}
         <div class="custom-select relative">
@@ -39,9 +107,6 @@
           </ul>
         </div>
       {%- endfor -%}
-      <script type="application/json">
-        {{ product.variants | json }}
-      </script>
-    </variant-selects>
+    </div>
   </div>
 {%- endunless -%}
