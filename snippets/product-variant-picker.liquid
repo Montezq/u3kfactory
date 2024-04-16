@@ -84,9 +84,11 @@
   {%- for option in product.options_with_values -%}
     <div class="custom-select">
       {%- for value in option.values -%}
-        <div class="custom-select__trigger">
-          <span>{{- value -}}</span>
-        </div>
+        {% if option.selected_value == value %}
+          <div class="custom-select__trigger">
+            <span>{{- value -}}</span>
+          </div>
+        {% endif %}
       {%- endfor -%}
       <div class="custom-select__options">
         {%- for value in option.values -%}
