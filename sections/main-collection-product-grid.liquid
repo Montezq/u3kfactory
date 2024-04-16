@@ -191,7 +191,7 @@
         {% endif %}
       >
         {%- if collection.products.size == 0 -%}
-          <div class="py-8" id="product-grid" data-id="{{ section.id }}">
+          <div class="py-8 flex flex-col items-center" id="product-grid" data-id="{{ section.id }}">
             <div class="title-wrapper center">
               <h2 class="text-center text-[50px] uppercase tracking-widerx font-open">
                 {{ 'sections.collection_template.empty_title' | t -}}
@@ -202,7 +202,7 @@
                 {{ 'sections.collection_template.empty_products' | t }}
               </h3>
             </div>
-            <div>
+            <div class="w-[360px]">
               {%- render 'icon-empty' -%}
             </div>
             <div class="flex justify-center">
