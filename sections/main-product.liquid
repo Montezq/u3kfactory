@@ -198,20 +198,20 @@
 </section>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var main = new Splide('.splide', {
+    var mainCarousel = new Splide('.splide', {
       rewind: true,
       pagination: false,
       arrows: false,
     });
-    var thumbnails = new Splide('.splide-thumbnails', {
+    var thumbnailsCarousel = new Splide('.splide-thumbnails', {
       gap: 10,
       rewind: true,
       pagination: false,
       isNavigation: true,
     });
-    main.sync(thumbnails);
-    main.mount();
-    thumbnails.mount();
+    mainCarousel.sync(thumbnailsCarousel);
+    mainCarousel.mount();
+    thumbnailsCarousel.mount();
   });
 </script>
 
