@@ -1321,6 +1321,8 @@ class AccordionItem extends HTMLElement {
         this.isOpen = true;
         document.body.classList.add('accordion-menu__opened');
         this.classList.add('open')
+        document.querySelector('.header__menu-content').classList.remove('lg:pt-[11vh]');
+        document.querySelector('.header__menu-content').classList.add('lg:mt-0');
         content.style.height = content.scrollHeight + 'px';
         content.setAttribute('aria-expanded', 'true');
         this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
