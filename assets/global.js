@@ -1320,8 +1320,6 @@ class AccordionItem extends HTMLElement {
       if (!this.isOpen) {
         this.isOpen = true;
         document.body.classList.add('accordion-menu__opened');
-        document.querySelector('.header__menu-content').classList.remove('lg:pt-[11vh]');
-        document.querySelector('.header__menu-content').classList.add('lg:mt-0');
         this.classList.add('open')
         content.style.height = content.scrollHeight + 'px';
         content.setAttribute('aria-expanded', 'true');
@@ -1341,6 +1339,8 @@ class AccordionItem extends HTMLElement {
         content.style.height = `${content.scrollHeight}px`;
       });
     } else {
+      document.querySelector('.header__menu-content').classList.remove('lg:pt-[11vh]');
+      document.querySelector('.header__menu-content').classList.add('lg:mt-0');
       this.classList.remove('open')
       content.style.height = '0';
     }
