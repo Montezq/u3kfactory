@@ -1860,7 +1860,7 @@ input:focus-visible{
   padding-top: 1vh;
 }
 .product__media-wrapper{
-  max-width: calc(80.2vh -(1vh + 27px));
+  max-width: calc(80.2vh - (1vh + 27px));
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
