@@ -76,4 +76,18 @@
       {{ product.variants | json }}
     </script>
   </variant-selects>
+  {%- for option in product.options_with_values -%}
+    <div class="custom-select">
+      {%- for value in option.values -%}
+        <div class="custom-select__trigger">
+          <span>{{- value -}}</span>
+        </div>
+      {%- endfor -%}
+      <div class="custom-select__options">
+        {%- for value in option.values -%}
+          <span class="custom-option" data-value="{{ value | escape }}">{{- value -}}</span>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endfor -%}
 {%- endunless -%}
