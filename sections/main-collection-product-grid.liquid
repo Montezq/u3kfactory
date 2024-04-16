@@ -293,7 +293,7 @@
       let openFilter = document.querySelector('.open-filter'),
         closeFilter = document.querySelector('.close-filter'),
         filterWrapper = document.querySelector('.filter-modal');
-
+      if (!openFilter) return;
       openFilter.addEventListener('click', function () {
         filterWrapper.classList.add('!block');
       });
