@@ -1021,7 +1021,7 @@ class VariantSelects extends HTMLElement {
   }
 
   renderProductInfo() {
-    console.log('here')
+    console.log(his.currentVariant)
     if (!this.currentVariant) return;
 
     const requestedVariantId = this.currentVariant.id;
