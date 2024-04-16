@@ -46,6 +46,21 @@ input{
     outline: none;
   }
 }
+.btn{
+  @apply font-helveticaThinCond;
+  @apply text-2xl;
+  @apply md:text-[28px];
+  @apply tracking-xwidest;
+  @apply leading-none;
+  @apply uppercase;
+  @apply px-3.5;
+  @apply py-2.5;
+  @apply inline-block;
+}
+.btn_primary{
+  @apply bg-black;
+  @apply text-white;
+}
 
 .visually-hidden {
   position: absolute !important;
@@ -185,8 +200,8 @@ accordion-item.open,
       }
     }
     .collection-grid__list{
-      @apply xl:grid-cols-2;
       @apply grid-cols-1;
+      @apply xl:grid-cols-2;
       row-gap: 70px;
       @screen md{
         column-gap: clamp(27px, 4vw, 4vw);
@@ -196,8 +211,8 @@ accordion-item.open,
   }
   &.collection-grid__list-medium{
     .collection-grid__list{
-      @apply xl:grid-cols-3;
       @apply grid-cols-2;
+      @apply xl:grid-cols-3;
       column-gap: 8px;
       row-gap: 70px;
       @screen md{
@@ -208,8 +223,8 @@ accordion-item.open,
   }
   &.collection-grid__list-small{
     .collection-grid__list{
-      @apply xl:grid-cols-4;
       @apply grid-cols-3;
+      @apply xl:grid-cols-4;
       column-gap: 8px;
       row-gap: 70px;
       @screen md{
@@ -303,4 +318,14 @@ accordion-item.open,
   width: calc(100% + 36px);
   @apply max-md:-ml-[18px];
   @apply max-md:px-4;
+}
+.collection__empty{
+  padding-top: clamp(100px, 12vh, 12vh);
+}
+.collection__empty-eye{
+  margin-top: clamp(50px, 7.16vh, 7.16vh);
+  margin-bottom: clamp(50px, 8.17vh, 8.17vh);
+}
+.collection__empty-btn{
+  margin-top: clamp(50px, 6.79vh, 6.79vh);
 }

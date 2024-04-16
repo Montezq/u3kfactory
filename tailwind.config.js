@@ -9,7 +9,6 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      helveticaCond: ['"Helvetica Cond"', "sans-serif"],
       helveticaThinCond: ['"Helvetica Neue LT Std"', "sans-serif"],
       coutureBoldIt: ['"Couture BoldItalic"', "sans-serif"],
       coutureBold: ['"Couture Bold"', "sans-serif"],
