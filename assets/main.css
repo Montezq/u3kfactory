@@ -1295,6 +1295,12 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-\[25px\] {
+  font-size: 25px;
+}
+.text-\[50px\] {
+  font-size: 50px;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -1333,6 +1339,9 @@ video {
 }
 .tracking-xwidest {
   letter-spacing: .12em;
+}
+.tracking-\[0\.5em\] {
+  letter-spacing: 0.5em;
 }
 .text-gray-600 {
   --tw-text-opacity: 1;

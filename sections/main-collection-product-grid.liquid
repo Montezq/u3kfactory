@@ -194,11 +194,14 @@
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>
             <div class="title-wrapper center">
-              <h2 class="title title--primary">
+              <h2 class="text-center text-[50px] uppercase tracking-widerx font-open">
                 {{ 'sections.collection_template.empty_title' | t -}}
-                <br>
-                {{ 'sections.collection_template.empty_products' | t }}
               </h2>
+            </div>
+            <div>
+              <h3 class="text-center uppercase text-[25px] tracking-[0.5em] font-open">
+                {{ 'sections.collection_template.empty_products' | t }}
+              </h3>
             </div>
           </div>
         {%- else -%}
