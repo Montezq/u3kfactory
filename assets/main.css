@@ -1862,6 +1862,7 @@ input:focus-visible{
   font-family: Times New Roman, sans-serif;
   font-size: 1.25rem;
   line-height: 1.75rem;
+  letter-spacing: .02em;
 }
 .product__description strong,
 .product__description b {
