@@ -901,6 +901,9 @@ video {
 .w-\[360px\] {
   width: 360px;
 }
+.w-\[352px\] {
+  width: 352px;
+}
 .min-w-\[166px\] {
   min-width: 166px;
 }
