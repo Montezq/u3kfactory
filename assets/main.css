@@ -1467,6 +1467,23 @@ button {
 input:focus-visible{
     outline: none;
   }
+.btn {
+  font-family: "Helvetica Neue LT Std", sans-serif;
+  font-size: 28px;
+  letter-spacing: .12em;
+  line-height: 1;
+  text-transform: uppercase;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+_primary.btn {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
 
 .visually-hidden {
   position: absolute !important;
