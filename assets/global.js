@@ -1128,7 +1128,7 @@ class VariantSelects extends HTMLElement {
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const destination = document.getElementById(`price-${this.dataset.section}`);
         const source = html.getElementById(
-          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
+          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}-buy`
         );
         const skuSource = html.getElementById(
           `Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
@@ -1170,7 +1170,7 @@ class VariantSelects extends HTMLElement {
           pricePerItemDestination.classList.toggle('hidden', pricePerItemSource.classList.contains('hidden'));
         }
 
-        const price = document.getElementById(`price-${this.dataset.section}`);
+        const price = document.getElementById(`price-${this.dataset.section}-buy`);
 
         if (price) price.classList.remove('hidden');
 
