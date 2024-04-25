@@ -2166,11 +2166,18 @@ input:focus-visible{
     display: none;
   }
 }
+.product__media-wrapper .splide__pagination {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.625rem;
+}
 .product__media-wrapper .splide__pagination button {
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 9999px;
-  border-width: 2px;
+  border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
       background-color: var(--default-color);
