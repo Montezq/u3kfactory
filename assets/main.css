@@ -2208,9 +2208,11 @@ input:focus-visible{
 .product__title{
   margin-bottom: clamp(32px, 2.94vh, 32px);
 }
+@media (min-width: 768px){
 .product__description{
-  margin-bottom: clamp(32px, 6.43vh, 70px);
+    margin-bottom: clamp(32px, 6.43vh, 70px);
 }
+  }
 .product__description * {
   font-family: Times New Roman, sans-serif;
   font-size: 1.25rem;
