@@ -33,10 +33,12 @@
           <ul class="custom-select__options absolute z-[2] w-full top-full left-0">
             {%- for value in option.values -%}
               <li class="custom-option">
-                <input type="radio" name="{{ option.name }}" value="{{- value -}}">
-                <span data-id="{{ value | escape }}">
-                  {{- value -}}
-                </span>
+                <label>
+                  <input type="radio" name="{{ option.name }}" value="{{- value -}}">
+                  <span data-id="{{ value | escape }}">
+                    {{- value -}}
+                  </span>
+                </label>
               </li>
             {%- endfor -%}
           </ul>
