@@ -23,56 +23,32 @@
     >
       {%- for option in product.options_with_values -%}
         <div class="custom-select relative">
-          <select
-            id="Option-{{ section.id }}-{{ forloop.index0 }} shopifySelect"
-            class="select__select shopifySelect"
-            name="options[{{ option.name | escape }}]"
-            form="{{ product_form_id }}"
-          >
-            {%- liquid
-              assign variants_available_arr = product.variants | map: 'available'
-              assign variants_option1_arr = product.variants | map: 'option1'
-              assign variants_option2_arr = product.variants | map: 'option2'
-              assign variants_option3_arr = product.variants | map: 'option3'
-
-              assign product_form_id = 'product-form-' | append: section.id
-            -%}
+          {%- for value in option.values -%}
+            {% if option.selected_value == value %}
+              <div class="custom-select__trigger">
+                <span>{{- value -}}</span>
+              </div>
+            {% endif %}
+          {%- endfor -%}
+          <ul class="custom-select__options absolute z-[2] w-full top-full left-0">
             {%- for value in option.values -%}
-              {%- liquid
-                assign option_disabled = true
-
-                for option1_name in variants_option1_arr
-                  case option.position
-                    when 1
-                      if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
-                        assign option_disabled = false
-                      endif
-                    when 2
-                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
-                        assign option_disabled = false
-                      endif
-                    when 3
-                      if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
-                        assign option_disabled = false
-                      endif
-                  endcase
-                endfor
-              -%}
-
-              <option
-                value="{{ value | escape }}"
-                {% if option.selected_value == value %}
-                  selected="selected"
-                {% endif %}
-              >
-                {% if option_disabled -%}
-                  {{- 'products.product.value_unavailable' | t: option_value: value -}}
-                {%- else -%}
-                  {{- value -}}
-                {%- endif %}
-              </option>
+              <li class="custom-option">
+                <label>
+                  <input
+                    {% if option.selected_value == value %}
+                      checked
+                    {% endif %}
+                    type="radio"
+                    name="{{ option.name }}"
+                    value="{{- value -}}"
+                  >
+                  <span data-id="{{ value | escape }}">
+                    {{- value -}}
+                  </span>
+                </label>
+              </li>
             {%- endfor -%}
-          </select>
+          </ul>
         </div>
       {%- endfor -%}
       <script type="application/json">
