@@ -1072,9 +1072,6 @@ video {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.gap-12 {
-  gap: 3rem;
-}
 .gap-5 {
   gap: 1.25rem;
 }
@@ -2169,6 +2166,15 @@ input:focus-visible{
     display: none;
   }
 }
+.product__media-wrapper .splide__pagination button {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+      background-color: var(--default-color);
+}
 @media not all and (min-width: 768px) {
 
   .product__media-wrapper .splide-thumbnails {
@@ -2540,16 +2546,16 @@ input:focus-visible{
     max-width: 70%;
   }
 
+  .md\:gap-12 {
+    gap: 3rem;
+  }
+
   .md\:gap-2 {
     gap: 0.5rem;
   }
 
   .md\:gap-2\.5 {
     gap: 0.625rem;
-  }
-
-  .md\:gap-12 {
-    gap: 3rem;
   }
 
   .md\:gap-y-\[27px\] {
