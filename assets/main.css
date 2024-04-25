@@ -711,6 +711,9 @@ video {
 .right-5 {
   right: 1.25rem;
 }
+.top-4 {
+  top: 1rem;
+}
 .isolate {
   isolation: isolate;
 }
