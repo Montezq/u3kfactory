@@ -2173,6 +2173,7 @@ input:focus-visible{
   display: flex;
   gap: 0.625rem;
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .product__media-wrapper .splide__pagination button {
   width: 0.75rem;
