@@ -212,10 +212,25 @@
     const customSelect = target.closest('.custom-select');
     const allCustomSelects = document.querySelectorAll('.custom-select');
 
+    // Clicking on the trigger toggles the current dropdown and closes others
     if (customSelect && target.closest('.select-trigger')) {
+      // Close all dropdowns first
+      allCustomSelects.forEach((select) => {
+        if (select !== customSelect) {
+          select.classList.remove('open');
+        }
+      });
       // Toggle the clicked custom select
       customSelect.classList.toggle('open');
     } else if (customSelect && target.tagName === 'INPUT' && target.type === 'radio') {
+      // Remove selected class from all options
+      customSelect.querySelectorAll('li').forEach((li) => {
+        li.classList.remove('selected');
+      });
+
+      // Add selected class to parent li of the checked radio
+      target.closest('li').classList.add('selected');
+
       // Update the trigger text and close the dropdown
       const selectedText = target.nextElementSibling.textContent;
       customSelect.querySelector('.selected-text').textContent = selectedText;
