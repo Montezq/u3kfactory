@@ -981,7 +981,7 @@ class VariantSelects extends HTMLElement {
   }
 
   updateOptions() {
-    this.options = Array.from(this.querySelectorAll('.custom-select'), (element) => {
+    this.options = Array.from(this.querySelectorAll('.select-options'), (element) => {
       if (element.tagName === 'UL') {
         console.log(Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value)
         return Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value;
