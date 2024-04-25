@@ -33,6 +33,10 @@
 
     {{ content_for_header }}
     {% style %}
+      :root {
+        --default-color: {{ settings.default_color }};
+        --secodn-color: {{ settings.second_color }};
+      }
       @font-face {
           font-family: 'Helvetica Neue LT Std';
           src: url("{{ 'HelveticaNeueLTStd-ThCn.ttf' | asset_url }}") format('truetype');
@@ -120,6 +124,18 @@
           font-weight: bold;
           font-style: normal;
           font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'icomoon';
+        src:  url("{{ 'icomoon.eot?2nrby7' | asset_url }}");
+        src:  url("{{ 'icomoon.eot?2nrby7#iefix' | asset_url }}") format('embedded-opentype'),
+          url("{{ 'icomoon.ttf?2nrby7' | asset_url }}") format('truetype'),
+          url("{{ 'icomoon.woff?2nrby7' | asset_url }}") format('woff'),
+          url("{{ 'icomoon.svg?2nrby7#icomoon' | asset_url }}") format('svg');
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
       }
     {% endstyle %}
 

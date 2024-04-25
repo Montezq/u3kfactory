@@ -961,28 +961,32 @@ class VariantSelects extends HTMLElement {
 
   onVariantChange(event) {
     this.updateOptions();
-    this.updateMasterId();
-    this.updateSelectedSwatchValue(event);
-    this.toggleAddButton(true, '', false);
-    this.updatePickupAvailability();
-    this.removeErrorMessage();
-    this.updateVariantStatuses();
+    // this.updateMasterId();
+    // this.updateSelectedSwatchValue(event);
+    // this.toggleAddButton(true, '', false);
+    // this.updatePickupAvailability();
+    // this.removeErrorMessage();
+    // this.updateVariantStatuses();
 
-    if (!this.currentVariant) {
-      this.toggleAddButton(true, '', true);
-      this.setUnavailable();
-    } else {
-      // this.updateMedia();
-      this.updateURL();
-      this.updateVariantInput();
-      this.renderProductInfo();
-      this.updateShareUrl();
-    }
+    // if (!this.currentVariant) {
+    //   this.toggleAddButton(true, '', true);
+    //   this.setUnavailable();
+    // } else {
+    //   this.updateMedia();
+    //   this.updateURL();
+    //   this.updateVariantInput();
+    //   this.renderProductInfo();
+    //   this.updateShareUrl();
+    // }
   }
 
   updateOptions() {
-    this.options = Array.from(this.querySelectorAll('.select-options'), (element) => {
-      if (element.tagName === 'UL') {
+    this.options = Array.from(this.querySelectorAll('.custom-select__options'), (element) => {
+      console.log(element.tagName)
+      if (element.tagName === 'SELECT') {
+        return element.value;
+      }
+      if (element.tagName === 'FIELDSET') {
         return Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value;
       }
     });
@@ -1125,12 +1129,8 @@ class VariantSelects extends HTMLElement {
         if (this.currentVariant.id !== requestedVariantId) return;
 
         const html = new DOMParser().parseFromString(responseText, 'text/html');
-        const destination = document.getElementById(`price-${this.dataset.section}-buy`);
-        const destination2 = document.getElementById(`price-${this.dataset.section}`);
+        const destination = document.getElementById(`price-${this.dataset.section}`);
         const source = html.getElementById(
-          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}-buy`
-        );
-        const source2 = html.getElementById(
           `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
         const skuSource = html.getElementById(
@@ -1158,7 +1158,6 @@ class VariantSelects extends HTMLElement {
         if (qtyRules) qtyRules.classList.remove('hidden');
 
         if (source && destination) destination.innerHTML = source.innerHTML;
-        if (source2 && destination2) destination2.innerHTML = source2.innerHTML;
         if (inventorySource && inventoryDestination) inventoryDestination.innerHTML = inventorySource.innerHTML;
         if (skuSource && skuDestination) {
           skuDestination.innerHTML = skuSource.innerHTML;
@@ -1174,7 +1173,7 @@ class VariantSelects extends HTMLElement {
           pricePerItemDestination.classList.toggle('hidden', pricePerItemSource.classList.contains('hidden'));
         }
 
-        const price = document.getElementById(`price-${this.dataset.section}-buy`);
+        const price = document.getElementById(`price-${this.dataset.section}`);
 
         if (price) price.classList.remove('hidden');
 

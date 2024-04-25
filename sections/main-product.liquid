@@ -1,11 +1,10 @@
 <section
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient "
+  class="section-{{ section.id }}-padding gradient pb-12 product-section"
   data-section="{{ section.id }}"
 >
   {% comment %}
     {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-    {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {% endcomment %}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {% unless product.has_only_default_variant %}
@@ -19,8 +18,8 @@
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" defer="defer"></script>
-  <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+  {{ 'splide-core.min.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'splide.min.js' | asset_url }}" defer="defer"></script>
   {% comment %}
     {%- if product.quantity_price_breaks_configured? -%}
       <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
@@ -30,16 +29,16 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
-    <div class="product">
-      <div class="grid__item product__media-wrapper">
+    <div class="product flex gap-12 max-xl:flex-col">
+      <div class="grid__item product__media-wrapper xl:w-[61%]">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
-      <div class="product__info-wrapper grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="product__info-wrapper xl:min-w-[360px] grid__item flex-1{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <product-info
           id="ProductInfo-{{ section.id }}"
           data-section="{{ section.id }}"
           data-url="{{ product.url }}"
-          class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+          class="max-w-96 block{% if section.settings.enable_sticky_info %} sticky top-8{% endif %}"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -49,70 +48,98 @@
                 {% render block %}
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
-                  <h1>{{ product.title | escape }}</h1>
-                  <a href="{{ product.url }}" class="product__title">
-                    <h2 class="h1">
-                      {{ product.title | escape }}
-                    </h2>
-                  </a>
-                </div>
-              {%- when 'price' -%}
-                <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                  {%- render 'price',
-                    product: product,
-                    use_variant: true,
-                    show_badges: true,
-                    price_class: 'price--large'
-                  -%}
-                </div>
-                {%- if product.quantity_price_breaks_configured? -%}
-                  <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
-                    <span>{{ 'products.product.volume_pricing.note' | t }}</span>
-                  </div>
-                {%- endif -%}
-                <div class="product__tax caption rte">
-                  {%- if cart.taxes_included -%}
-                    {{ 'products.product.include_taxes' | t }}
-                  {%- endif -%}
-                  {%- if shop.shipping_policy.body != blank -%}
-                    {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                  {%- endif -%}
-                </div>
-                <div {{ block.shopify_attributes }}>
-                  {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
-                  {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
-                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                    {{ form | payment_terms }}
-                  {%- endform -%}
+                  <h1 class="text-[32px] font-semibold leading-none mb-3">{{ product.title | escape }}</h1>
+                  <h2 class="leading-none text-[26px] font-helveticaThinCond italic tracking-wide font-normal">
+                    <a
+                      href="{{ product.metafields.custom.artist_page.value.url }}"
+                    >
+                      <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+                      by {{ product.vendor }}
+                    </a>
+                  </h2>
                 </div>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
-                  <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                  <div class="product__description" {{ block.shopify_attributes }}>
                     {{ product.description }}
                   </div>
                 {%- endif -%}
-              {%- when 'sku' -%}
-                <p
-                  class="product__sku no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
-                  id="Sku-{{ section.id }}"
-                  role="status"
-                  {{ block.shopify_attributes }}
-                >
-                  <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
-                  {{- product.selected_or_first_available_variant.sku -}}
-                </p>
+                {% comment %}
+                  {%- when 'price' -%}
+                  <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                    {%- render 'price',
+                      product: product,
+                      use_variant: true,
+                      show_badges: true,
+                      price_class: 'price--large'
+                    -%}
+                  </div>
+                  {%- if product.quantity_price_breaks_configured? -%}
+                    <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
+                      <span>{{ 'products.product.volume_pricing.note' | t }}</span>
+                    </div>
+                  {%- endif -%}
+                  <div {{ block.shopify_attributes }}>
+                    {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
+                    {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
+                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                      {{ form | payment_terms }}
+                    {%- endform -%}
+                  </div>
+                {% endcomment %}
               {%- when 'variant_picker' -%}
-                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+                <div class="mb-24">
+                  {% render 'product-variant-picker',
+                    product: product,
+                    block: block,
+                    product_form_id: product_form_id
+                  %}
+                </div>
               {%- when 'buy_buttons' -%}
-                {%- render 'buy-buttons',
-                  block: block,
-                  product: product,
-                  product_form_id: product_form_id,
-                  section_id: section.id,
-                  show_pickup_availability: true
-                -%}
+                {%- if block.settings.taxes_text != blank -%}
+                  <div class="mb-3">
+                    <p class="text-[13px] text-gray-850 italic font-semibold">
+                      {{ block.settings.taxes_text }}
+                    </p>
+                  </div>
+                {%- endif -%}
+                <div class="flex max-w-[360px]">
+                  <div
+                    id="price-{{ section.id }}-buy"
+                    class="max-w-[136px] w-full border-2 border-black text-center flex items-center justify-center no-js-hidden"
+                    role="status"
+                  >
+                    {%- render 'price',
+                      product: product,
+                      currency: 'symbol',
+                      use_variant: true,
+                      show_badges: true,
+                      price_class: 'price--large'
+                    -%}
+                  </div>
+                  <div class="flex-1">
+                    {%- render 'buy-buttons',
+                      block: block,
+                      product: product,
+                      product_form_id: product_form_id,
+                      section_id: section.id,
+                      show_pickup_availability: true
+                    -%}
+                  </div>
+                </div>
             {%- endcase -%}
           {%- endfor -%}
+          <div class="max-w-[360px] mt-4">
+            {%- render 'favorites-button' -%}
+          </div>
+          <div class="max-w-[360px] mt-4">
+            <p class="italic uppercase text-lg text-gray-300 cursor-pointer w-fit font-semibold">
+              Contact us for larger sizes
+              <span
+                class="icon-FULL-ICON-SET-WEBSITE-FINAL_Big-Envelope text-[#121212] !font-semibold inline-block ml-1.5 mt-1"
+              ></span>
+            </p>
+          </div>
         </product-info>
       </div>
     </div>
@@ -198,8 +225,57 @@
 </section>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var splide = new Splide('.splide');
-    splide.mount();
+    var mainCarousel = new Splide('.splide-main', {
+      rewind: true,
+      pagination: false,
+      arrows: false,
+    });
+    var thumbnailsCarousel = new Splide('.splide-thumbnails', {
+      gap: 26,
+      rewind: true,
+      pagination: false,
+      arrows: false,
+      isNavigation: true,
+      perPage: 5,
+    });
+    mainCarousel.sync(thumbnailsCarousel);
+    mainCarousel.mount();
+    thumbnailsCarousel.mount();
+  });
+  document.addEventListener('click', function (e) {
+    const target = e.target;
+    const customSelect = target.closest('.custom-select');
+    const allCustomSelects = document.querySelectorAll('.custom-select');
+
+    // Clicking on the trigger toggles the current dropdown and closes others
+    if (customSelect && target.closest('.select-trigger')) {
+      // Close all dropdowns first
+      allCustomSelects.forEach((select) => {
+        if (select !== customSelect) {
+          select.classList.remove('open');
+        }
+      });
+      // Toggle the clicked custom select
+      customSelect.classList.toggle('open');
+    } else if (customSelect && target.tagName === 'INPUT' && target.type === 'radio') {
+      // Remove selected class from all options
+      customSelect.querySelectorAll('li').forEach((li) => {
+        li.classList.remove('selected');
+      });
+
+      // Add selected class to parent li of the checked radio
+      target.closest('li').classList.add('selected');
+
+      // Update the trigger text and close the dropdown
+      const selectedText = target.nextElementSibling.textContent;
+      customSelect.querySelector('.selected-text').textContent = selectedText;
+      customSelect.classList.remove('open');
+    } else {
+      // Clicking outside any custom select should close all
+      allCustomSelects.forEach((select) => {
+        select.classList.remove('open');
+      });
+    }
   });
 </script>
 
@@ -272,18 +348,10 @@
       "limit": 1,
       "settings": [
         {
-          "type": "checkbox",
-          "id": "show_dynamic_checkout",
-          "default": true,
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
-          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_gift_card_recipient",
-          "default": true,
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
-          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+          "type": "text",
+          "id": "taxes_text",
+          "default": "* VAT INCLUDED / EXCLUDED SHIPPING COST",
+          "label": "Taxes text"
         }
       ]
     },

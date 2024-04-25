@@ -10,141 +10,58 @@
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
 {%- unless product.has_only_default_variant -%}
-  <variant-selects
-    id="variant-selects-{{ section.id }}"
-    class="no-js-hidden"
-    data-section="{{ section.id }}"
-    data-url="{{ product.url }}"
-    {% if update_url == false %}
-      data-update-url="false"
-    {% endif %}
-    {{ block.shopify_attributes }}
-  >
-    {%- for option in product.options_with_values -%}
-      {%- liquid
-        assign swatch_count = option.values | map: 'swatch' | compact | size
-        assign picker_type = block.settings.picker_type
-
-        if swatch_count > 0 and block.settings.swatch_shape != 'none'
-          if block.settings.picker_type == 'dropdown'
-            assign picker_type = 'swatch_dropdown'
-          else
-            assign picker_type = 'swatch'
-          endif
-        endif
-      -%}
-      {%- if picker_type == 'swatch' -%}
-        <fieldset class="js product-form__input product-form__input--swatch">
-          <legend class="form__label">
-            {{ option.name }}:
-            <span data-selected-swatch-value="{{ option.name }}">
-              {{- option.selected_value -}}
-            </span>
-          </legend>
-          {% render 'product-variant-options',
-            product: product,
-            option: option,
-            block: block,
-            picker_type: picker_type
-          %}
-        </fieldset>
-      {%- elsif picker_type == 'button' -%}
-        <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label">{{ option.name }}</legend>
-          {% render 'product-variant-options',
-            product: product,
-            option: option,
-            block: block,
-            picker_type: picker_type
-          %}
-        </fieldset>
-      {%- else -%}
-        <div class="product-form__input product-form__input--dropdown">
-          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
-            {{ option.name }}
-          </label>
-          <div class="select">
-            {%- if picker_type == 'swatch_dropdown' -%}
-              <span
-                data-selected-dropdown-swatch="options[{{ option.name | escape }}]"
-                class="dropdown-swatch"
-              >
-                {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
-              </span>
-            {%- endif -%}
-            <select
-              id="Option-{{ section.id }}-{{ forloop.index0 }}"
-              class="select__select"
-              name="options[{{ option.name | escape }}]"
-              form="{{ product_form_id }}"
-            >
-              {% render 'product-variant-options',
-                product: product,
-                option: option,
-                block: block,
-                picker_type: picker_type
-              %}
-            </select>
-            {% render 'icon-caret' %}
-          </div>
+  <div class="select-container">
+    <variant-selects
+      id="variant-selects-{{ section.id }}"
+      class="no-js-hidden product__options grid gap-7 max-w-[218px]"
+      data-section="{{ section.id }}"
+      data-url="{{ product.url }}"
+      {% if update_url == false %}
+        data-update-url="false"
+      {% endif %}
+      {{ block.shopify_attributes }}
+    >
+      {%- for option in product.options_with_values -%}
+        <div class="custom-select relative">
+          {%- for value in option.values -%}
+            {% if option.selected_value == value %}
+              <div class="select-trigger cursor-pointer border-2 border-black flex h-12">
+                <div class="flex items-center pl-2.5 flex-1">
+                  <span class="selected-text line-clamp-1 text-2xl">{{- value -}}</span>
+                </div>
+                <div class="w-11 select-icon border-l-2 border-black flex items-center justify-center">
+                  <span
+                    class="icon-FULL-ICON-SET-WEBSITE-FINAL_Dropdown-arrow font-semibold text-2xl duration-100 ease-in-out"
+                  ></span>
+                </div>
+              </div>
+            {% endif %}
+          {%- endfor -%}
+          <ul class="select-options hidden absolute z-[2] top-full left-0 border-2 border-t-0 border-black bg-white">
+            {%- for value in option.values -%}
+              <li class="custom-option{% if option.selected_value == value %} selected{% endif %}">
+                <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                  <input
+                    {% if option.selected_value == value %}
+                      checked
+                    {% endif %}
+                    type="radio"
+                    name="{{ option.name }}"
+                    value="{{- value -}}"
+                    class="invisible w-0 h-0"
+                  >
+                  <span data-id="{{ value | escape }}" class="line-clamp-1 text-2xl">
+                    {{- value -}}
+                  </span>
+                </label>
+              </li>
+            {%- endfor -%}
+          </ul>
         </div>
-      {%- endif -%}
-    {%- endfor -%}
-    <script type="application/json">
-      {{ product.variants | json }}
-    </script>
-  </variant-selects>
-{%- endunless -%}
-
-<noscript class="product-form__noscript-wrapper-{{ section.id }}">
-  <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
-    <label class="form__label" for="Variants-{{ section.id }}">
-      {{- 'products.product.product_variants' | t -}}
-    </label>
-    <div class="select">
-      <select
-        name="id"
-        id="Variants-{{ section.id }}"
-        class="select__select"
-        form="{{ product_form_id }}"
-      >
-        {%- for variant in product.variants -%}
-          <option
-            {% if variant == product.selected_or_first_available_variant %}
-              selected="selected"
-            {% endif %}
-            {% if variant.available == false %}
-              disabled
-            {% endif %}
-            value="{{ variant.id }}"
-          >
-            {%- liquid
-              echo variant.title
-              echo variant.price | money | strip_html | prepend: ' - '
-              if variant.available == false
-                echo 'products.product.sold_out' | t | prepend: ' - '
-              endif
-              if variant.quantity_rule.increment > 1
-                echo 'products.product.quantity.multiples_of' | t: quantity: variant.quantity_rule.increment | prepend: ' - '
-              endif
-              if variant.quantity_rule.min > 1
-                echo 'products.product.quantity.minimum_of' | t: quantity: variant.quantity_rule.min | prepend: ' - '
-              endif
-              if variant.quantity_rule.max != null
-                echo 'products.product.quantity.maximum_of' | t: quantity: variant.quantity_rule.max | prepend: ' - '
-              endif
-              # TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter
-              # theme-check-disable
-              assign cart_quantity = cart | item_count_for_variant: variant.id
-              # theme-check-enable
-              if cart_quantity > 0
-                echo 'products.product.quantity.in_cart_html' | t: quantity: cart_quantity | prepend: ' - '
-              endif
-            -%}
-          </option>
-        {%- endfor -%}
-      </select>
-      {% render 'icon-caret' %}
-    </div>
+      {%- endfor -%}
+      <script type="application/json">
+        {{ product.variants | json }}
+      </script>
+    </variant-selects>
   </div>
-</noscript>
+{%- endunless -%}
