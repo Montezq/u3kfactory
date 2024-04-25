@@ -983,8 +983,8 @@ class VariantSelects extends HTMLElement {
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('.custom-select'), (element) => {
       if (element.tagName === 'DIV') {
-        console.log(Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value)
-        return Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value;
+        console.log(Array.from(element.querySelectorAll('div')).find((div) => div.classList.contains('same-as-selected'))?.textContent)
+        return Array.from(element.querySelectorAll('div')).find((div) => div.classList.contains('same-as-selected'))?.textContent;
       }
     });
   }
