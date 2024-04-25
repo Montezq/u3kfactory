@@ -2657,6 +2657,11 @@ input:focus-visible{
     font-size: 29px;
   }
 
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .md\:text-gray-200 {
     --tw-text-opacity: 1;
     color: rgb(95 95 95 / var(--tw-text-opacity));
