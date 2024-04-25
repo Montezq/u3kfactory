@@ -1460,16 +1460,6 @@ video {
        -o-transition-duration: 150ms;
           transition-duration: 150ms;
 }
-.duration-300 {
-  -webkit-transition-duration: 300ms;
-       -o-transition-duration: 300ms;
-          transition-duration: 300ms;
-}
-.duration-500 {
-  -webkit-transition-duration: 500ms;
-       -o-transition-duration: 500ms;
-          transition-duration: 500ms;
-}
 .duration-100 {
   -webkit-transition-duration: 100ms;
        -o-transition-duration: 100ms;
@@ -1479,6 +1469,16 @@ video {
   -webkit-transition-duration: 200ms;
        -o-transition-duration: 200ms;
           transition-duration: 200ms;
+}
+.duration-300 {
+  -webkit-transition-duration: 300ms;
+       -o-transition-duration: 300ms;
+          transition-duration: 300ms;
+}
+.duration-500 {
+  -webkit-transition-duration: 500ms;
+       -o-transition-duration: 500ms;
+          transition-duration: 500ms;
 }
 .ease-in-out {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -2142,6 +2142,9 @@ input:focus-visible{
     background-color: var(--default-color);
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+.custom-option.selected label{
+    background-color: #e7e6e1 !important;
   }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
