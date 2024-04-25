@@ -96,6 +96,13 @@
                   %}
                 </div>
               {%- when 'buy_buttons' -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="mb-3">
+                    <p class="text-[13px] text-gray-850 italic">
+                      {{ block.settings.text }}
+                    </p>
+                  </div>
+                {%- endif -%}
                 <div class="flex max-w-[360px]">
                   <div
                     id="price-{{ section.id }}-buy"
