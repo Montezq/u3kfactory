@@ -91,7 +91,7 @@
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
                 <div class="flex max-w-[360px]">
-                  <div class="w-[136px] border-2 text-center flex items-center justify-center">
+                  <div class="max-w-[136px] w-full border-2 border-black text-center flex items-center justify-center">
                     {%- render 'price',
                       product: product,
                       use_variant: true,
