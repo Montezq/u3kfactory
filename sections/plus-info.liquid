@@ -12,8 +12,19 @@
     </div>
   {%- endif -%}
   {%- if section.settings.image != blank -%}
-    <div class="plus-info__image text-lg font-open text-[#1b1b1b]">
-      {{ section.settings.image }}
+    <div class="plus-info__image">
+      {%- liquid
+        assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+      -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          width: section.settings.image.width,
+          height: image_height,
+          widths: '450, 660, 900, 1320, 1800',
+          fetchpriority: 'auto'
+      }}
     </div>
   {%- endif -%}
 </div>
