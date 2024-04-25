@@ -693,9 +693,6 @@ video {
 .top-2 {
   top: 0.5rem;
 }
-.top-4 {
-  top: 1rem;
-}
 .top-6 {
   top: 1.5rem;
 }
@@ -1437,13 +1434,13 @@ video {
   --tw-text-opacity: 1;
   color: rgb(41 41 41 / var(--tw-text-opacity));
 }
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
 .text-red {
   --tw-text-opacity: 1;
   color: rgb(222 105 97 / var(--tw-text-opacity));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .opacity-0 {
   opacity: 0;
