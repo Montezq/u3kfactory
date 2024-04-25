@@ -1126,11 +1126,13 @@ class VariantSelects extends HTMLElement {
 
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const destination = document.getElementById(`price-${this.dataset.section}-buy`);
+        const destination2 = document.getElementById(`price-${this.dataset.section}`);
         const source = html.getElementById(
           `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}-buy`
         );
-        console.log('source', source)
-        console.log('destination', destination)
+        const source2 = html.getElementById(
+          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
+        );
         const skuSource = html.getElementById(
           `Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
@@ -1156,6 +1158,7 @@ class VariantSelects extends HTMLElement {
         if (qtyRules) qtyRules.classList.remove('hidden');
 
         if (source && destination) destination.innerHTML = source.innerHTML;
+        if (source2 && destination2) destination2.innerHTML = source2.innerHTML;
         if (inventorySource && inventoryDestination) inventoryDestination.innerHTML = inventorySource.innerHTML;
         if (skuSource && skuDestination) {
           skuDestination.innerHTML = skuSource.innerHTML;
