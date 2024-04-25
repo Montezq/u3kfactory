@@ -97,7 +97,10 @@
                 </div>
               {%- when 'buy_buttons' -%}
                 <div class="flex max-w-[360px]">
-                  <div class="max-w-[136px] w-full border-2 border-black text-center flex items-center justify-center">
+                  <div
+                    class="max-w-[136px] w-full border-2 border-black text-center flex items-center justify-center no-js-hidden"
+                    role="status"
+                  >
                     {%- render 'price',
                       product: product,
                       use_variant: true,
