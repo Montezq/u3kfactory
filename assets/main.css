@@ -2119,6 +2119,9 @@ input:focus-visible{
 .custom-select.open .select-options {
   display: block;
 }
+.select-options{
+  width: calc(100% - 44px);
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
