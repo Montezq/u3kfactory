@@ -1,4 +1,22 @@
-<div class="plus-info"></div>
+<div class="plus-info">
+  {%- if section.settings.heading != blank -%}
+    <div class="plus-info__heading mb-[27px]">
+      <p class="w-fit bg-black font-open text-xl leading-none px-1.5 py-1">
+        {{ section.settings.heading }}
+      </p>
+    </div>
+  {%- endif -%}
+  {%- if section.settings.content != blank -%}
+    <div class="plus-info__content text-lg font-open text-[#1b1b1b]">
+      {{ section.settings.content }}
+    </div>
+  {%- endif -%}
+  {%- if section.settings.image != blank -%}
+    <div class="plus-info__image text-lg font-open text-[#1b1b1b]">
+      {{ section.settings.image }}
+    </div>
+  {%- endif -%}
+</div>
 
 {% schema %}
 {
@@ -8,7 +26,19 @@
   "disabled_on": {
     "groups": ["header", "footer"]
   },
-  "settings": [],
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "+ Info"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    }
+  ],
   "presets": [
     {
       "name": "Product Plus Info"
