@@ -207,6 +207,27 @@
     mainCarousel.mount();
     thumbnailsCarousel.mount();
   });
+  document.addEventListener('click', function (e) {
+    const target = e.target;
+    const customSelect = target.closest('.custom-select');
+    const allCustomSelects = document.querySelectorAll('.custom-select');
+    const trigger = customSelect ? customSelect.querySelector('.select-trigger') : null;
+
+    if (trigger && target === trigger) {
+      // Toggle the visibility of the options on trigger click
+      customSelect.classList.toggle('open');
+    } else if (customSelect && target.tagName === 'INPUT' && target.type === 'radio') {
+      // Update the trigger text and close the dropdown
+      const selectedText = target.nextElementSibling.textContent;
+      customSelect.querySelector('.selected-text').textContent = selectedText;
+      customSelect.classList.remove('open');
+    } else {
+      // Close all custom selects if the click is outside
+      allCustomSelects.forEach((select) => {
+        select.classList.remove('open');
+      });
+    }
+  });
 </script>
 
 {% schema %}
