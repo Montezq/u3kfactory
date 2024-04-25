@@ -2158,6 +2158,12 @@ input:focus-visible{
     height: max-content;
 }
   }
+@media (min-width: 1024px) {
+
+  .product__media-wrapper .splide__pagination {
+    display: none;
+  }
+}
 .splide-main{
   margin-bottom: clamp(26px, 2.4vh, 34px);
 }
