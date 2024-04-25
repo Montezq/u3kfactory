@@ -1308,6 +1308,9 @@ video {
 .text-center {
   text-align: center;
 }
+.text-end {
+  text-align: end;
+}
 .font-axis {
   font-family: "AXIS Extra", sans-serif;
 }
@@ -1382,6 +1385,14 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 .\!font-semibold {
   font-weight: 600 !important;

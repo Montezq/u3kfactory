@@ -29,6 +29,49 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
+    <div class="md:hidden">
+      <div class="flex justify-between">
+        <div class="flex-1 line-clamp-1">
+          <h2 class="text-2xl leading-none">
+            {{ product.title | escape }}
+          </h2>
+        </div>
+        <div class="text-end">
+          {%- render 'price',
+            product: product,
+            currency: 'symbol',
+            use_variant: true,
+            show_badges: true,
+            price_class: 'price--large'
+          -%}
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <div class="flex-1 line-clamp-1">
+          <a
+            href="{{ product.metafields.custom.artist_page.value.url }}"
+            class="text-base italic"
+          >
+            <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+            by {{ product.vendor }}
+          </a>
+        </div>
+        <div class="text-end">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'buy_buttons' -%}
+                {%- if block.settings.taxes_text != blank -%}
+                  <div class="mb-3 max-md:hidden">
+                    <p class="text-xs text-gray-850 italic font-semibold">
+                      {{ block.settings.taxes_text }}
+                    </p>
+                  </div>
+                {%- endif -%}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
     <div class="product flex md:gap-12 max-xl:flex-col">
       <div class="grid__item product__media-wrapper xl:w-[61%]">
         {% render 'product-media-gallery', variant_images: variant_images %}
