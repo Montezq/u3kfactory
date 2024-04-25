@@ -40,7 +40,7 @@
           <ul class="select-options hidden absolute z-[2] top-full left-0 border-2 border-t-0 border-black bg-white">
             {%- for value in option.values -%}
               <li class="custom-option">
-                <label class="block cursor-pointer">
+                <label class="cursor-pointer px-2.5 h-11 flex items-center duration-300 ease-in-out">
                   <input
                     {% if option.selected_value == value %}
                       checked
@@ -48,8 +48,9 @@
                     type="radio"
                     name="{{ option.name }}"
                     value="{{- value -}}"
+                    class="invisible w-0 h-0"
                   >
-                  <span data-id="{{ value | escape }}">
+                  <span data-id="{{ value | escape }}" class="line-clamp-1 text-2xl">
                     {{- value -}}
                   </span>
                 </label>
