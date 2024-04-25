@@ -2158,15 +2158,23 @@ input:focus-visible{
     height: max-content;
 }
   }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
 
   .product__media-wrapper .splide__pagination {
     display: none;
   }
 }
-.splide-main{
-  margin-bottom: clamp(26px, 2.4vh, 34px);
+@media not all and (min-width: 768px) {
+
+  .product__media-wrapper .splide-thumbnails {
+    display: none;
+  }
 }
+@media screen and (min-width: 768px) {
+.splide-main{
+    margin-bottom: clamp(26px, 2.4vh, 34px);
+}
+  }
 .product__info-wrapper{
   padding-top: clamp(32px, 5.4vh, 5.4vh);
 }
