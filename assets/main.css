@@ -2592,6 +2592,10 @@ input:focus-visible{
     max-width: 24rem;
   }
 
+  .md\:max-w-\[218px\] {
+    max-width: 218px;
+  }
+
   .md\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
