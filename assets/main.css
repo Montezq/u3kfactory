@@ -803,6 +803,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -2680,6 +2683,10 @@ input:focus-visible{
 
   .lg\:mt-0 {
     margin-top: 0px;
+  }
+
+  .lg\:mb-24 {
+    margin-bottom: 6rem;
   }
 
   .lg\:block {
