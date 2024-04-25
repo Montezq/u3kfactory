@@ -25,12 +25,12 @@
         <div class="custom-select relative">
           {%- for value in option.values -%}
             {% if option.selected_value == value %}
-              <div class="custom-select__trigger">
-                <span>{{- value -}}</span>
+              <div class="select-trigger">
+                <span class="selected-text">{{- value -}}</span>
               </div>
             {% endif %}
           {%- endfor -%}
-          <ul class="custom-select__options absolute z-[2] w-full top-full left-0">
+          <ul class="select-options absolute z-[2] w-full top-full left-0">
             {%- for value in option.values -%}
               <li class="custom-option">
                 <label>
