@@ -2291,6 +2291,16 @@ input:focus-visible{
   --tw-content: '';
   content: var(--tw-content);
 }
+@media not all and (min-width: 1280px) {
+
+  .max-xl\:flex-col {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 @media not all and (min-width: 1024px) {
 
   .max-lg\:-order-1 {

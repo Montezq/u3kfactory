@@ -29,7 +29,7 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
-    <div class="product flex gap-12">
+    <div class="product flex gap-12 max-xl:flex-col">
       <div class="grid__item product__media-wrapper w-[61%]">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
