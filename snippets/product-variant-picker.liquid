@@ -26,7 +26,7 @@
           {%- for value in option.values -%}
             {% if option.selected_value == value %}
               <div class="select-trigger cursor-pointer border-2 border-black flex h-12">
-                <div class="flex items-center pl-2.5 flex-1">
+                <div class="flex items-center pl-2.5 flex-1 line-clamp-1 text-2xl">
                   <span class="selected-text">{{- value -}}</span>
                 </div>
                 <div class="w-11 border-l-2 border-black flex items-center justify-center">
@@ -38,7 +38,7 @@
           <ul class="select-options hidden absolute z-[2] w-full top-full left-0 border-2 border-t-0 border-black bg-white">
             {%- for value in option.values -%}
               <li class="custom-option">
-                <label>
+                <label class="block cursor-pointer">
                   <input
                     {% if option.selected_value == value %}
                       checked
