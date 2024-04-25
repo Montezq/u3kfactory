@@ -79,7 +79,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit flex items-center btn btn_primary btn_small"
+            class="product-form__submit flex items-center btn btn_primary btn_small w-full"
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
