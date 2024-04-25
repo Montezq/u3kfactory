@@ -33,6 +33,10 @@
 
     {{ content_for_header }}
     {% style %}
+      :root {
+        --default-color: {{ settings.default_color }};
+        --secodn-color: {{ settings.second_color }};
+      }
       @font-face {
           font-family: 'Helvetica Neue LT Std';
           src: url("{{ 'HelveticaNeueLTStd-ThCn.ttf' | asset_url }}") format('truetype');
