@@ -982,11 +982,7 @@ class VariantSelects extends HTMLElement {
 
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('.custom-select'), (element) => {
-      console.log(element.tagName)
-      if (element.tagName === 'INPUT') {
-        return element.value;
-      }
-      if (element.tagName === 'UL') {
+      if (element.tagName === 'DIV') {
         console.log(Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value)
         return Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value;
       }
