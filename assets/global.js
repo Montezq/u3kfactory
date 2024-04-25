@@ -1129,6 +1129,8 @@ class VariantSelects extends HTMLElement {
         const source = html.getElementById(
           `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
+        console.log('source', source)
+        console.log('destination', destination)
         const skuSource = html.getElementById(
           `Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
