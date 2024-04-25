@@ -5,6 +5,7 @@
 >
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
+  <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {{ 'splide-core.min.css' | asset_url | stylesheet_tag }}
@@ -230,6 +231,12 @@
     </script>
   </div>
 </section>
+{%- if settings.cart_type == 'notification' -%}
+  {%- render 'cart-notification',
+    color_scheme: section.settings.color_scheme,
+    desktop_menu_type: section.settings.menu_type_desktop
+  -%}
+{%- endif -%}
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var mainCarousel = new Splide('.splide-main', {
