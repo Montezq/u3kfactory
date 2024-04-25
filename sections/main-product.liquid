@@ -29,7 +29,7 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
-    <div class="md:hidden">
+    <div class="md:hidden px-[18px]">
       <div class="flex justify-between">
         <div class="flex-1 line-clamp-1">
           <h2 class="text-2xl leading-none font-semibold">
