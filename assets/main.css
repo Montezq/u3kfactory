@@ -2145,6 +2145,8 @@ input:focus-visible{
   }
 .custom-option.selected label{
     background-color: #e7e6e1 !important;
+    --tw-text-opacity: 1 !important;
+    color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
   }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
