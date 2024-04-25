@@ -2786,6 +2786,10 @@ input:focus-visible{
 }
 @media (min-width: 1280px) {
 
+  .xl\:w-\[61\%\] {
+    width: 61%;
+  }
+
   .xl\:min-w-\[360px\] {
     min-width: 360px;
   }
