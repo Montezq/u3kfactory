@@ -79,7 +79,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit flex items-center btn btn_primary btn_small w-full"
+            class="product-form__submit flex items-center btn btn_primary btn_small w-full relative"
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
@@ -91,7 +91,8 @@
                 {{ 'products.product.add_to_cart' | t }}
               {%- endif -%}
             </span>
-            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Add-to-Cart-v1"> </span>
+            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Add-to-Cart-v1 absolute top-1/2 -translate-y-1/2 right-5">
+            </span>
           </button>
           {% comment %}
             {%- if show_dynamic_checkout -%}
