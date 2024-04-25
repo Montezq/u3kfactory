@@ -1389,6 +1389,9 @@ video {
 .font-thin {
   font-weight: 100;
 }
+.\!font-semibold {
+  font-weight: 600 !important;
+}
 .uppercase {
   text-transform: uppercase;
 }
