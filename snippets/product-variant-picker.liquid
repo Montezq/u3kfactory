@@ -37,7 +37,7 @@
               </div>
             {% endif %}
           {%- endfor -%}
-          <ul class="select-options hidden absolute z-[2] top-full left-0 border md:border-2 border-t-0 border-black bg-white">
+          <ul class="select-options hidden absolute z-[2] top-full -mt-[1px] md:-mt-[2px] left-0 border md:border-2 border-t-0 border-black bg-white">
             {%- for value in option.values -%}
               <li class="custom-option{% if option.selected_value == value %} selected{% endif %}">
                 <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
