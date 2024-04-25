@@ -910,6 +910,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-11 {
+  width: 2.75rem;
+}
 .min-w-\[166px\] {
   min-width: 166px;
 }
@@ -1105,6 +1108,9 @@ video {
 }
 .border-b-2 {
   border-bottom-width: 2px;
+}
+.border-l-2 {
+  border-left-width: 2px;
 }
 .border-black {
   --tw-border-opacity: 1;
