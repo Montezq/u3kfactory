@@ -26,7 +26,9 @@
           {%- for value in option.values -%}
             {% if option.selected_value == value %}
               <div class="select-trigger cursor-pointer border-2 border-black flex h-12">
-                <span class="selected-text">{{- value -}}</span>
+                <div class="flex items-center pl-2.5 flex-1">
+                  <span class="selected-text">{{- value -}}</span>
+                </div>
                 <div class="w-11 border-l-2 border-black flex items-center justify-center"></div>
               </div>
             {% endif %}
