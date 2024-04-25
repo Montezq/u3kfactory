@@ -111,6 +111,7 @@
                   >
                     {%- render 'price',
                       product: product,
+                      currency: 'symbol',
                       use_variant: true,
                       show_badges: true,
                       price_class: 'price--large'
@@ -120,7 +121,6 @@
                     {%- render 'buy-buttons',
                       block: block,
                       product: product,
-                      currency: 'symbol',
                       product_form_id: product_form_id,
                       section_id: section.id,
                       show_pickup_availability: true
