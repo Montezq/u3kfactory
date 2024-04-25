@@ -226,11 +226,12 @@
   </div>
 </header>
 
-{% comment %}
-  {%- if settings.cart_type == "notification" -%}
-    {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
-  {%- endif -%}
-{% endcomment %}
+{%- if settings.cart_type == 'notification' -%}
+  {%- render 'cart-notification',
+    color_scheme: section.settings.color_scheme,
+    desktop_menu_type: section.settings.menu_type_desktop
+  -%}
+{%- endif -%}
 
 <script type="application/ld+json">
   {
