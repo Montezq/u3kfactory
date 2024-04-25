@@ -2582,6 +2582,10 @@ input:focus-visible{
     max-width: 360px;
   }
 
+  .md\:max-w-96 {
+    max-width: 24rem;
+  }
+
   .md\:gap-12 {
     gap: 3rem;
   }
