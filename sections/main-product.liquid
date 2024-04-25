@@ -211,10 +211,9 @@
     const target = e.target;
     const customSelect = target.closest('.custom-select');
     const allCustomSelects = document.querySelectorAll('.custom-select');
-    const trigger = customSelect ? customSelect.querySelector('.select-trigger') : null;
 
-    if (trigger && target === trigger) {
-      // Toggle the visibility of the options on trigger click
+    if (customSelect && target.closest('.select-trigger')) {
+      // Toggle the clicked custom select
       customSelect.classList.toggle('open');
     } else if (customSelect && target.tagName === 'INPUT' && target.type === 'radio') {
       // Update the trigger text and close the dropdown
@@ -222,7 +221,7 @@
       customSelect.querySelector('.selected-text').textContent = selectedText;
       customSelect.classList.remove('open');
     } else {
-      // Close all custom selects if the click is outside
+      // Clicking outside any custom select should close all
       allCustomSelects.forEach((select) => {
         select.classList.remove('open');
       });
