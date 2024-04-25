@@ -2219,9 +2219,9 @@ input:focus-visible{
     height: max-content;
 }
   }
-.plus-info__section:last-child .plus-info{
-      padding-bottom: 0;
-    }
+.plus-info__section:last-child .plus-info {
+  padding-bottom: 3rem;
+}
 
 .plus-info__image{
   margin-top: clamp(32px, 5.24vh, 81px);
