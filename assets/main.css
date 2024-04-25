@@ -827,6 +827,9 @@ video {
 .h-0 {
   height: 0px;
 }
+.h-11 {
+  height: 2.75rem;
+}
 .h-12 {
   height: 3rem;
 }
@@ -845,14 +848,14 @@ video {
 .h-screen {
   height: 100vh;
 }
-.h-11 {
-  height: 2.75rem;
-}
 .min-h-screen {
   min-height: 100vh;
 }
 .\!w-0 {
   width: 0px !important;
+}
+.w-0 {
+  width: 0px;
 }
 .w-11 {
   width: 2.75rem;
@@ -918,9 +921,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-0 {
-  width: 0px;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -2128,6 +2128,9 @@ input:focus-visible{
 .select-options{
   width: calc(100% - 44px);
 }
+.custom-option label:hover{
+    background-color: var(--default-color);
+  }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
