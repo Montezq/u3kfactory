@@ -2638,6 +2638,10 @@ input:focus-visible{
     margin-bottom: calc(0.875rem * var(--tw-space-y-reverse));
   }
 
+  .md\:border-l-2 {
+    border-left-width: 2px;
+  }
+
   .md\:pb-\[30px\] {
     padding-bottom: 30px;
   }
