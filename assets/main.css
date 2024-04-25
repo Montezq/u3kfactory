@@ -2536,6 +2536,17 @@ input:focus-visible{
 
 @media not all and (min-width: 768px) {
 
+  .max-md\:order-5 {
+    -webkit-box-ordinal-group: 6;
+    -webkit-order: 5;
+        -ms-flex-order: 5;
+            order: 5;
+  }
+
+  .max-md\:hidden {
+    display: none;
+  }
+
   .max-md\:px-1 {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
