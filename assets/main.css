@@ -2754,6 +2754,10 @@ input:focus-visible{
 }
 @media (min-width: 1280px) {
 
+  .xl\:min-w-\[360px\] {
+    min-width: 360px;
+  }
+
   .xl\:text-\[25px\] {
     font-size: 25px;
   }
