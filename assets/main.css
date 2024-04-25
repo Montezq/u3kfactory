@@ -2147,7 +2147,7 @@ input:focus-visible{
 }
 
 .product-section{
-  margin-bottom: clamp(50px, 14vh, 146px);
+  margin-bottom: clamp(2px, calc(14vh - 48px), calc(146px - 48px));
 }
 .product{
   padding-top: 1vh;
