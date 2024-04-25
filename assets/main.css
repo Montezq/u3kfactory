@@ -2461,6 +2461,11 @@ input:focus-visible{
     background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
   }
 
+  .max-lg\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .max-lg\:\!pl-0 {
     padding-left: 0px !important;
   }
