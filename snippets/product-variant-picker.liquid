@@ -25,7 +25,7 @@
         <div class="custom-select relative">
           {%- for value in option.values -%}
             {% if option.selected_value == value %}
-              <div class="select-trigger">
+              <div class="select-trigger cursor-pointer border-[2px] border-black">
                 <span class="selected-text">{{- value -}}</span>
               </div>
             {% endif %}
