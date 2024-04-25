@@ -1127,7 +1127,7 @@ class VariantSelects extends HTMLElement {
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const destination = document.getElementById(`price-${this.dataset.section}-buy`);
         const source = html.getElementById(
-          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
+          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}-buy`
         );
         console.log('source', source)
         console.log('destination', destination)
