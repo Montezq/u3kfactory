@@ -1293,9 +1293,6 @@ video {
 .font-helveticaThinCond {
   font-family: "Helvetica Neue LT Std", sans-serif;
 }
-.font-icomoon {
-  font-family: "icomoon", sans-serif;
-}
 .font-open {
   font-family: "Open Sans", sans-serif;
 }
@@ -2105,104 +2102,125 @@ input:focus-visible{
   font-weight: 700;
 }
 
-.custom-select {
-  position: relative;
-  font-family: Arial;
-}
 .custom-select.open .select-options {
   display: block;
 }
+
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
+
 .placeholder\:tracking-wider::-moz-placeholder {
   letter-spacing: .04em;
 }
+
 .placeholder\:tracking-wider:-ms-input-placeholder {
   letter-spacing: .04em;
 }
+
 .placeholder\:tracking-wider::-ms-input-placeholder {
   letter-spacing: .04em;
 }
+
 .placeholder\:tracking-wider::placeholder {
   letter-spacing: .04em;
 }
+
 .placeholder\:text-white::-webkit-input-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .placeholder\:text-white::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .placeholder\:text-white:-ms-input-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .placeholder\:text-white::-ms-input-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .placeholder\:text-white::placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
 }
+
 .after\:-left-\[8px\]::after {
   content: var(--tw-content);
   left: -8px;
 }
+
 .after\:left-1\/2::after {
   content: var(--tw-content);
   left: 50%;
 }
+
 .after\:left-full::after {
   content: var(--tw-content);
   left: 100%;
 }
+
 .after\:top-0::after {
   content: var(--tw-content);
   top: 0px;
 }
+
 .after\:top-1\/2::after {
   content: var(--tw-content);
   top: 50%;
 }
+
 .after\:top-full::after {
   content: var(--tw-content);
   top: 100%;
 }
+
 .after\:block::after {
   content: var(--tw-content);
   display: block;
 }
+
 .after\:h-\[1px\]::after {
   content: var(--tw-content);
   height: 1px;
 }
+
 .after\:h-\[57px\]::after {
   content: var(--tw-content);
   height: 57px;
 }
+
 .after\:w-\[1px\]::after {
   content: var(--tw-content);
   width: 1px;
 }
+
 .after\:w-\[80\%\]::after {
   content: var(--tw-content);
   width: 80%;
 }
+
 .after\:min-w-\[260px\]::after {
   content: var(--tw-content);
   min-width: 260px;
 }
+
 .after\:max-w-\[465px\]::after {
   content: var(--tw-content);
   max-width: 465px;
 }
+
 .after\:-translate-x-1\/2::after {
   content: var(--tw-content);
   --tw-translate-x: -50%;
@@ -2211,25 +2229,30 @@ input:focus-visible{
        -o-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+
 .after\:bg-black::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
+
 .after\:bg-gray-100::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(167 167 167 / var(--tw-bg-opacity));
 }
+
 .after\:bg-white::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+
 .after\:content-\[\'\'\]::after {
   --tw-content: '';
   content: var(--tw-content);
 }
+
 @media not all and (min-width: 1024px) {
 
   .max-lg\:-order-1 {
@@ -2332,6 +2355,7 @@ input:focus-visible{
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
 @media not all and (min-width: 768px) {
 
   .max-md\:px-1 {
@@ -2344,6 +2368,7 @@ input:focus-visible{
     padding-right: 0.375rem;
   }
 }
+
 @media (min-width: 768px) {
 
   .md\:hidden {
@@ -2418,6 +2443,7 @@ input:focus-visible{
     color: rgb(95 95 95 / var(--tw-text-opacity));
   }
 }
+
 @media (min-width: 1024px) {
 
   .lg\:invisible {
@@ -2694,6 +2720,7 @@ input:focus-visible{
     opacity: 1;
   }
 }
+
 @media (min-width: 1280px) {
 
   .xl\:text-\[25px\] {
@@ -2708,15 +2735,18 @@ input:focus-visible{
     letter-spacing: 0.5em;
   }
 }
+
 @media (min-width: 1536px) {
 
   .\32xl\:text-\[74px\] {
     font-size: 74px;
   }
 }
+
 .\[\&\>a\]\:border-b-0>a {
   border-bottom-width: 0px;
 }
+
 .\[\&\>a\]\:pb-0>a {
   padding-bottom: 0px;
 }
