@@ -1290,11 +1290,18 @@ video {
 .font-coutureBold {
   font-family: "Couture Bold", sans-serif;
 }
+.font-helveticaCond {
+  font-family: "Helvetica Cond", sans-serif;
+}
 .font-helveticaThinCond {
   font-family: "Helvetica Neue LT Std", sans-serif;
 }
 .font-open {
   font-family: "Open Sans", sans-serif;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .text-3xl {
   font-size: 1.875rem;
@@ -1351,10 +1358,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 .font-bold {
   font-weight: 700;
@@ -1490,7 +1493,7 @@ html {
 
 body,
 html {
-  font-family: "Helvetica Neue LT Std", sans-serif;
+  font-family: "Helvetica Cond", sans-serif;
   font-weight: 400;
 }
 body::-webkit-scrollbar {
