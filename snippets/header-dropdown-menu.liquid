@@ -5,8 +5,6 @@
   {% render 'header-dropdown-menu' %}
 {% endcomment %}
 <nav>
-  {{ template.name }}
-  {% if template.name == 'products' %}true{% endif %}
   <accordion-list>
     <ul role="list" class="space-y-5 md:space-y-3.5">
       {%- for link in section.settings.menu.links -%}
@@ -16,6 +14,13 @@
           {% endif %}
         >
           {%- if link.links != blank -%}
+            {% if template.name == 'product' %}
+              {% for collection in product.collections %}
+                <li>
+                  <a href="{{ collection.url }}">{{ collection.title }}</a>
+                </li>
+              {% endfor %}
+            {% endif %}
             <accordion-item
               class="{% if link.child_active %}open{% endif %}"
               {% if link.child_active %}
