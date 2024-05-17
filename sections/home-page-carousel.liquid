@@ -5,7 +5,7 @@
     <div class="splide__track h-full">
       <ul class="splide__list h-full">
         {%- for block in section.blocks -%}
-          <li class="splide__slide relative h-full">
+          <li class="splide__slide relative h-full" data-url="{{ block.settings.btn_url }}">
             <div class="absolute top-0 left-0 w-full h-full">
               {{
                 block.settings.carousel_image
@@ -32,6 +32,13 @@
         {%- endfor -%}
       </ul>
     </div>
+    <div class="home-page__carousel-wrapper-btn">
+      {% assign first_block = section.blocks | first %}
+      <a href="{{ first_block.settings.btn_url }}" class="btn main-btn btn_white-outlined">
+        {{ section.settings.button_title }}
+      </a>
+      <ul class="splide__pagination"></ul>
+    </div>
   </div>
 </div>
 <script>
@@ -39,7 +46,7 @@
     const homePageCarousel = new Splide('.splide', {
       arrows: false,
       type: 'loop',
-      speed: 800,
+      speed: 600,
       mediaQuery: 'min',
       breakpoints: {
         1024: {
