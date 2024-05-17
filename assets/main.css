@@ -2457,7 +2457,7 @@ input:focus-visible{
 }
   }
 .product__title{
-  margin-bottom: clamp(32px, 2.94vh, 32px);
+  margin-bottom: clamp(27px, 2.94vh, 32px);
 }
 @media (min-width: 768px){
 .product__description{
@@ -2863,10 +2863,6 @@ input:focus-visible{
 
   .md\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-
-  .md\:gap-12 {
-    gap: 3rem;
   }
 
   .md\:gap-2 {
