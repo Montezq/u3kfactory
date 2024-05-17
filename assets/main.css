@@ -2505,6 +2505,8 @@ input:focus-visible{
 }
 .desktop-search-wrapper{
   padding-right: clamp(35px, 3.13vw, 3.13vw);
+  padding-bottom: 4px;
+  padding-top: 3px;
 }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
