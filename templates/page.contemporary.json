@@ -2,13 +2,73 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "collection_list_n7494m": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_CxPKcF": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bottle-series-prints",
+            "collection_title": ""
+          }
+        },
+        "featured_collection_CtVybF": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bottle-series-prints",
+            "collection_title": ""
+          }
+        },
+        "featured_collection_n8wRGY": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "collection_title": ""
+          }
+        },
+        "featured_collection_WCgw44": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "all-contemporary-prints",
+            "collection_title": ""
+          }
+        },
+        "featured_collection_cNFpC9": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "collection_title": ""
+          }
+        },
+        "featured_collection_GzETjP": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "collection_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_CxPKcF",
+        "featured_collection_CtVybF",
+        "featured_collection_n8wRGY",
+        "featured_collection_WCgw44",
+        "featured_collection_cNFpC9",
+        "featured_collection_GzETjP"
+      ],
+      "settings": {
+        "title": "CONTEMPORARY"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "collection_list_n7494m"
   ]
 }
