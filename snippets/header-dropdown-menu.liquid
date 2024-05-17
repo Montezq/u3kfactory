@@ -51,7 +51,7 @@
                         for collection in product.collections
                           assign collection_title = collection.title | escape | downcase
                           assign childlink_title = childlink.title | escape | downcase
-                          if childlink_title contains collection.title
+                          if childlink_title contains collection_title
                             assign active_item = true
                           endif
                         endfor
