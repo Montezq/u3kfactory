@@ -2849,6 +2849,17 @@ input:focus-visible{
     margin-bottom: 3.5rem;
   }
 
+  .md\:ml-auto {
+    margin-left: auto;
+  }
+
+  .md\:flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
   .md\:hidden {
     display: none;
   }
