@@ -1318,9 +1318,6 @@ video {
 .pt-8 {
   padding-top: 2rem;
 }
-.pt-\[12\%\] {
-  padding-top: 12%;
-}
 .pt-\[67px\] {
   padding-top: 67px;
 }
@@ -1852,7 +1849,7 @@ input:focus-visible{
 .accordion-menu__opened .content-for-layout:after{
       content: "";
       display: block;
-      width: 20px;
+      width: 27px;
       height: 100vh;
       position: fixed;
       top: 0;
