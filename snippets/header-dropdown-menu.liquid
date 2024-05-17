@@ -68,7 +68,7 @@
                             aria-current="page"
                           {% endif %}
                         >
-                          {%- if 'all-xx-century-prints' contains childlink.url -%}
+                          {%- if childlink.url contains 'all-xx-century-prints' -%}
                             true text
                           {%- endif -%}
                           {{ childlink.title | escape }}
