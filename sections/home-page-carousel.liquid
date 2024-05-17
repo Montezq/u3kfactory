@@ -1,11 +1,11 @@
 {{ 'splide-core.min.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'splide.min.js' | asset_url }}" defer="defer"></script>
 <div class="home-page__carousel absolute top-0 left-0 w-full h-screen">
-  <div class="splide">
-    <div class="splide__track">
-      <ul class="splide__list">
+  <div class="splide h-full">
+    <div class="splide__track h-full">
+      <ul class="splide__list h-full">
         {%- for block in section.blocks -%}
-          <li class="splide__slide relative">
+          <li class="splide__slide relative h-full">
             <div class="absolute top-0 left-0 w-full h-full">
               {{
                 block.settings.carousel_image
