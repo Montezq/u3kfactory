@@ -137,6 +137,11 @@
         font-style: normal;
         font-display: block;
       }
+      {% if template.name != "index" %}
+        body{
+          overflow: hidden;
+        }
+      {% endif %}
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
@@ -166,7 +171,7 @@
     </script>
   </head>
 
-  <body class="pl-0 gradient{% if template.name == "index" %} overflow-hidden{% endif %}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="pl-0 gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
@@ -175,7 +180,7 @@
 
     <main
       id="MainContent"
-      class="content-for-layout focus-none main relative min-h-screen lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0 {% if template.name == "index" %} h-screen overflow-hidden{% else %}  pt-[67px]{% endif %}"
+      class="content-for-layout focus-none main relative min-h-screen pt-[67px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0"
       role="main"
       tabindex="-1"
     >
