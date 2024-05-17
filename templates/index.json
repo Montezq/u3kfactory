@@ -6,7 +6,9 @@
         "cover_type": "video",
         "video": "shopify:\/\/files\/videos\/Video Homepage Temporar.mp4",
         "heading": "<em>20 OFF<\/em>",
-        "sub_heading": "SITE LAUNCH DISCOUNTS"
+        "sub_heading": "SITE LAUNCH DISCOUNTS",
+        "btn_url": "shopify:\/\/collections\/all-xx-century-prints",
+        "button_title": "SHOP NOW"
       }
     }
   },
