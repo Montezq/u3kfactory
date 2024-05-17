@@ -1923,7 +1923,7 @@ input:focus-visible{
   width: 0.875rem;
   height: 0.875rem;
   border-radius: 9999px;
-  border-width: 2px;
+  border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
   background-color: transparent;
