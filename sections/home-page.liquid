@@ -1,0 +1,43 @@
+<div class=""></div>
+
+{% schema %}
+{
+  "name": "Home Page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "cover_type",
+      "options": [
+        {
+          "value": "video",
+          "label": "Video"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "video",
+      "label": "Cover Type"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Home Page"
+    }
+  ]
+}
+{% endschema %}
