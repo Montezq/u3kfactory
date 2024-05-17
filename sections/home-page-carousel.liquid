@@ -59,10 +59,12 @@
     const carouselWrapperBtnBack = document.querySelector('.home-page__carousel-btn-top');
 
     carouselWrapperBtn.addEventListener('click', () => {
+      document.querySelector('body').classList.add('scrolled');
       carouselWrapper.classList.add('scrolled');
       productsWrapper.classList.add('scrolled');
     });
     carouselWrapperBtnBack.addEventListener('click', () => {
+      document.querySelector('body').classList.remove('scrolled');
       carouselWrapper.classList.remove('scrolled');
       productsWrapper.classList.remove('scrolled');
     });
