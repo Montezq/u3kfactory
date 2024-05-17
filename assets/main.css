@@ -717,6 +717,9 @@ video {
 .z-\[2\] {
   z-index: 2;
 }
+.z-\[4\] {
+  z-index: 4;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
