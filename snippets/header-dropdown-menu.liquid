@@ -5,11 +5,6 @@
   {% render 'header-dropdown-menu' %}
 {% endcomment %}
 <nav>
-  {% for collection in product.collections %}
-    <li>
-      <a href="{{ collection.url }}">{{ collection.title }}</a>
-    </li>
-  {% endfor %}
   <accordion-list>
     <ul role="list" class="space-y-5 md:space-y-3.5">
       {%- for link in section.settings.menu.links -%}
