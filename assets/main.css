@@ -2398,6 +2398,15 @@ input:focus-visible{
 .product{
   padding-top: 1vh;
 }
+@media (min-width: 768px) {
+
+  .product .price__container {
+    font-size: 24px;
+  }
+}
+.product .price__container {
+  font-weight: 700;
+}
 @media screen and (min-width: 1280px){
 .product__media-wrapper{
     max-width: calc(80.2vh - (1vh + 27px));
