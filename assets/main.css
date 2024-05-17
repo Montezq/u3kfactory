@@ -1641,6 +1641,23 @@ body::-webkit-scrollbar-thumb {
     background-color: rgb(250 250 250 / var(--tw-bg-opacity));
   }
 }
+input[type="search"] {
+  -webkit-appearance: none; /* Remove default styling in Safari */
+  -moz-appearance: none;    /* Remove default styling in Firefox */
+  appearance: none;         /* Remove default styling in other browsers */
+  
+  background: none;
+  border: none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  font: inherit;
+  color: inherit;
+}
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
