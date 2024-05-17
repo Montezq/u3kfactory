@@ -1937,6 +1937,9 @@ input:focus-visible{
 .home-page__carousel .splide__pagination .is-active{
       background-color: var(--default-color);
     }
+.home-page__carousel .splide__slide.is-active.is-visible .home-page__carousel-content{
+        opacity: 1;
+      }
 .home-page__carousel-wrapper-btn{
   top: calc(35vh + 145px);
 }
