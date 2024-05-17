@@ -51,7 +51,7 @@
                         for collection in product.collections
                           assign collection_title = collection.title | escape | downcase
                           assign childlink_title = childlink.title | escape | downcase
-                          if childlink_title contains collection_title
+                          if collection_title contains childlink_title
                             assign active_item = true
                           endif
                         endfor
@@ -68,6 +68,12 @@
                             aria-current="page"
                           {% endif %}
                         >
+                          {% assign test = childlink.title | escape | downcase %}
+                          {% assign test2 = 'ALL XX Century PRINTS' | escape | downcase %}
+                          <span class="text-sm"> {{ test }} - {{ test2 }} </span> <br>
+                          {%- if test2 contains test -%}
+                            true text
+                          {%- endif -%}
                           {{ childlink.title | escape }} - {{ active_item }}
                         </a>
                       {%- endif -%}
