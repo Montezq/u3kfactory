@@ -1933,6 +1933,12 @@ input:focus-visible{
        -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+@media (min-width: 1024px) {
+
+  .section-product-list_homepage {
+    display: none !important;
+  }
+}
 .section-product-list_homepage.scrolled{
     -webkit-transform: translateY(0);
         -ms-transform: translateY(0);
