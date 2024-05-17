@@ -1315,14 +1315,11 @@ video {
 .pt-8 {
   padding-top: 2rem;
 }
-.pt-\[10\%\] {
-  padding-top: 10%;
+.pt-\[12\%\] {
+  padding-top: 12%;
 }
 .pt-\[67px\] {
   padding-top: 67px;
-}
-.pt-\[12\%\] {
-  padding-top: 12%;
 }
 .text-center {
   text-align: center;
@@ -1838,6 +1835,10 @@ input:focus-visible{
 }
 .btn_white-outlined {
   border-width: 3px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
   font-size: 24px;
   font-family: "AXIS Extra", sans-serif;
   font-weight: 800;
