@@ -1625,9 +1625,12 @@ body::-webkit-scrollbar-thumb {
     background: #191919;
     border-radius: 6px;
   }
-body.scrolled header {
-  --tw-bg-opacity: 1;
-  background-color: rgb(250 250 250 / var(--tw-bg-opacity));
+@media not all and (min-width: 1024px) {
+
+  body.scrolled header {
+    --tw-bg-opacity: 1;
+    background-color: rgb(250 250 250 / var(--tw-bg-opacity));
+  }
 }
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
