@@ -68,12 +68,6 @@
                             aria-current="page"
                           {% endif %}
                         >
-                          {% assign test = childlink.title | escape | downcase %}
-                          {% assign test2 = 'ALL XX Century PRINTS' | escape | downcase %}
-                          <span class="text-sm"> {{ test }} - {{ test2 }} </span> <br>
-                          {%- if test2 contains test -%}
-                            true text
-                          {%- endif -%}
                           {{ childlink.title | escape }} - {{ active_item }}
                         </a>
                       {%- endif -%}
