@@ -1915,8 +1915,7 @@ input:focus-visible{
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: transparent;
   -webkit-transition-duration: 200ms;
        -o-transition-duration: 200ms;
           transition-duration: 200ms;
