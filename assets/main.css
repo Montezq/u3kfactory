@@ -1849,7 +1849,15 @@ input:focus-visible{
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  font-size: 23px;
+  font-size: 28px;
+}
+@media (min-width: 768px) {
+
+  .btn_white-outlined {
+    font-size: 23px;
+  }
+}
+.btn_white-outlined {
   font-family: "AXIS Extra", sans-serif;
   font-weight: 800;
   letter-spacing: 0;
