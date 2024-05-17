@@ -49,7 +49,9 @@
                       assign active_item = false
                       if template.name == 'product'
                         for collection in product.collections
-                          if collection.url contains childlink.url
+                          assign collection_url = collection.url
+                          assign childlink_url = childlink.url
+                          if collection_url contains childlink_url
                             assign active_item = true
                           endif
                         endfor
@@ -66,10 +68,11 @@
                             aria-current="page"
                           {% endif %}
                         >
-                          {%- if 'all-xx-century-prints' contains 'xx-century' -%}
+                          {%- if 'all-xx-century-prints' contains childlink.url -%}
                             true text
                           {%- endif -%}
                           {{ childlink.title | escape }}
+                          {{ active_item }}
                         </a>
                       {%- endif -%}
                     </li>
