@@ -49,9 +49,8 @@
                       assign active_item = false
                       if template.name == 'product'
                         for collection in product.collections
-                          assign collection_url = collection.url | append: ''
-                          assign childlink_url = childlink.url | append: ''
-                          if collection_url contains childlink_url
+                          assign childlink_title = childlink.title | escape
+                          if childlink_title contains collection.title
                             assign active_item = true
                           endif
                         endfor
@@ -71,7 +70,7 @@
                           {% endif %}
                         >
                           {% assign test = childlink.title | escape %}
-                          {%- if test contains 'XX Century' -%}
+                          {%- if test contains 'ALL XX CENTURY PRINTS' -%}
                             true text
                           {%- endif -%}
                           {{ childlink.title | escape }}
