@@ -2881,6 +2881,10 @@ input:focus-visible{
     gap: 1.75rem;
   }
 
+  .md\:gap-\[46px\] {
+    gap: 46px;
+  }
+
   .md\:gap-y-\[27px\] {
     row-gap: 27px;
   }
