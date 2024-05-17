@@ -788,9 +788,6 @@ video {
 .mt-1 {
   margin-top: 0.25rem;
 }
-.mt-10 {
-  margin-top: 2.5rem;
-}
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -809,11 +806,11 @@ video {
 .mt-\[208px\] {
   margin-top: 208px;
 }
-.mt-auto {
-  margin-top: auto;
-}
 .mt-\[50px\] {
   margin-top: 50px;
+}
+.mt-auto {
+  margin-top: auto;
 }
 .line-clamp-1 {
   overflow: hidden;
@@ -1854,6 +1851,18 @@ input:focus-visible{
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.accordion-menu__opened .content-for-layout:after{
+      content: "";
+      display: block;
+      width: 20px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      right: 0;
+      --tw-bg-opacity: 1;
+      background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    }
 
 .accordion-menu__opened .header__menu {
   --tw-bg-opacity: 1;
