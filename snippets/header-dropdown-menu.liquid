@@ -49,8 +49,8 @@
                       assign active_item = false
                       if template.name == 'product'
                         for collection in product.collections
-                          assign collection_url = collection.url
-                          assign childlink_url = childlink.url
+                          assign collection_url = collection.url | append: ''
+                          assign childlink_url = childlink.url | append: ''
                           if collection_url contains childlink_url
                             assign active_item = true
                           endif
