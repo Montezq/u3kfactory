@@ -183,7 +183,7 @@
       role="main"
       tabindex="-1"
     >
-      <div class="max-lg:hidden fixed w-[80vw] top-0 right-0 desktop-search-wrapper flex justify-end z-[2]{% if template.name == "index" %} bg-gray-10{% endif %}">
+      <div class="max-lg:hidden fixed w-[80vw] top-0 right-0 desktop-search-wrapper flex justify-end z-[2]{% if template.name != "index" %} bg-gray-10{% endif %}">
         <form action="{{ routes.search_url }}" method="get" role="search" class="search" autocomplete="off">
           <div class="flex items-end">
             <input
