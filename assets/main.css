@@ -958,6 +958,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-\[80vw\] {
+  width: 80vw;
+}
 .min-w-\[166px\] {
   min-width: 166px;
 }
@@ -1147,6 +1150,9 @@ video {
 }
 .border-2 {
   border-width: 2px;
+}
+.border-0 {
+  border-width: 0px;
 }
 .border-b {
   border-bottom-width: 1px;
@@ -2670,6 +2676,10 @@ input:focus-visible{
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+  }
+
+  .max-lg\:hidden {
+    display: none;
   }
 
   .max-lg\:h-fit {
