@@ -1874,6 +1874,12 @@ input:focus-visible{
     display: none !important;
   }
 }
+@media (min-width: 1024px) {
+
+  .home-page__carousel {
+    display: none !important;
+  }
+}
 .home-page__banner-content-heading h2{
     font-size:  clamp(20px,  3.7vw, 54px);
   }
@@ -2529,10 +2535,6 @@ input:focus-visible{
     display: flex;
   }
 
-  .max-lg\:\!hidden {
-    display: none !important;
-  }
-
   .max-lg\:h-fit {
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -2844,10 +2846,6 @@ input:focus-visible{
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-  }
-
-  .lg\:\!hidden {
-    display: none !important;
   }
 
   .lg\:hidden {
