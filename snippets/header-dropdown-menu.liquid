@@ -14,13 +14,6 @@
           {% endif %}
         >
           {%- if link.links != blank -%}
-            {% if template.name == 'product' %}
-              {% for collection in product.collections %}
-                <li>
-                  <a href="{{ collection.url }}">{{ collection.title }}</a>
-                </li>
-              {% endfor %}
-            {% endif %}
             <accordion-item
               class="{% if link.child_active %}open{% endif %}"
               {% if link.child_active %}
@@ -47,6 +40,16 @@
                   tabindex="-1"
                 >
                   {%- for childlink in link.links -%}
+                    {%- liquid
+                      assign active_item = false
+                      if template.name == 'product'
+                        for collection in product.collections
+                          if collection.title contains {{ childlink.title }}
+                            assign active_item = true
+                          endif
+                        endfor
+                      endif
+                    -%}
                     <li>
                       {%- if childlink.links == blank -%}
                         <a
@@ -59,6 +62,7 @@
                           {% endif %}
                         >
                           {{ childlink.title | escape }}
+                          {{ active_item }}
                         </a>
                       {%- endif -%}
                     </li>
