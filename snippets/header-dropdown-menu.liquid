@@ -70,7 +70,8 @@
                             aria-current="page"
                           {% endif %}
                         >
-                          {%- if childlink.title contains 'ALL XX Century PRINTS' -%}
+                          {% assign test = childlink.title | escape %}
+                          {%- if test contains 'XX Century' -%}
                             true text
                           {%- endif -%}
                           {{ childlink.title | escape }}
