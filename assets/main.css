@@ -1321,6 +1321,9 @@ video {
 .pt-\[67px\] {
   padding-top: 67px;
 }
+.pt-\[12\%\] {
+  padding-top: 12%;
+}
 .text-center {
   text-align: center;
 }

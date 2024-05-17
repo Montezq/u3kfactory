@@ -12,7 +12,7 @@
     }}
   </div>
   <div class="relative z-[1] h-full home-page__banner-content border-b-[27px] border-b-transparent">
-    <div class="flex flex-col items-center justify-center text-center pt-[10%] h-full px-[35px]">
+    <div class="flex flex-col items-center justify-center text-center pt-[12%] h-full px-[35px]">
       {%- if section.settings.heading -%}
         <div class="mb-16">
           <h2 class="text-[54px] text-white tracking-widest">{{ section.settings.heading }}</h2>
@@ -21,6 +21,13 @@
       {%- if section.settings.sub_heading -%}
         <div class="mb-16">
           <h2 class="text-[74px] text-white tracking-widest">{{ section.settings.sub_heading }}</h2>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.btn_url -%}
+        <div>
+          <a href="{{ section.settings.btn_url }}" class="btn btn_white-outlined">
+            {{ section.settings.button_title | escape }}
+          </a>
         </div>
       {%- endif -%}
     </div>
@@ -70,6 +77,17 @@
       "id": "sub_heading",
       "default": "SITE LAUNCH DISCOUNTS",
       "label": "Sub Heading"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "button_title",
+      "label": "Button Title",
+      "default": "SHOP NOW"
     }
   ],
   "blocks": [],
