@@ -1645,9 +1645,7 @@ input[type="search"] {
   -webkit-appearance: none; /* Remove default styling in Safari */
   -moz-appearance: none;    /* Remove default styling in Firefox */
   appearance: none;         /* Remove default styling in other browsers */
-  
   background: none;
-  border: none;
   border-radius: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
