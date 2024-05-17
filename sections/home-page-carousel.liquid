@@ -1,6 +1,6 @@
 {{ 'splide-core.min.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'splide.min.js' | asset_url }}" defer="defer"></script>
-<div class="home-page__carousel absolute top-0 left-0 w-full h-screen">
+<div class="home-page__carousel-wrapper h-full">
   <div class="splide h-full">
     <div class="splide__track h-full">
       <ul class="splide__list h-full">
@@ -40,7 +40,7 @@
 {
   "name": "Home Page Carousel",
   "tag": "section",
-  "class": "section home-page__carousel",
+  "class": "section home-page__carousel absolute top-0 left-0 w-full h-screen",
   "settings": [
     {
       "type": "inline_richtext",
