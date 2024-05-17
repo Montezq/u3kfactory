@@ -17,7 +17,11 @@
             style="--animation-order: {{ forloop.index }};"
           {% endif %}
         >
-          {% render 'card-product', card_product: product, lazy_load: lazy_load, section_id: section.id %}
+          {% render 'card-product',
+            card_product: product.settings.product,
+            lazy_load: lazy_load,
+            section_id: section.id
+          %}
         </li>
       {%- endfor -%}
     </ul>
