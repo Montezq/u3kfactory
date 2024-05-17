@@ -1656,6 +1656,13 @@ input[type="search"] {
   font: inherit;
   color: inherit;
 }
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+input[type="search"]::-moz-search-clear {
+  display: none;
+}
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
