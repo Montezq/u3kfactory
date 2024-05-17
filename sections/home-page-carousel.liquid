@@ -56,10 +56,15 @@
     const carouselWrapper = document.querySelector('.home-page__carousel');
     const productsWrapper = document.querySelector('.section-product-list_homepage');
     const carouselWrapperBtn = document.querySelector('.home-page__carousel-btn');
+    const carouselWrapperBtnBack = document.querySelector('.home-page__carousel-btn-top');
 
     carouselWrapperBtn.addEventListener('click', () => {
       carouselWrapper.classList.add('scrolled');
       productsWrapper.classList.add('scrolled');
+    });
+    carouselWrapperBtnBack.addEventListener('click', () => {
+      carouselWrapper.classList.remove('scrolled');
+      productsWrapper.classList.remove('scrolled');
     });
 
     const homePageCarousel = new Splide('.splide', {
