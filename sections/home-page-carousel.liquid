@@ -32,7 +32,7 @@
         {%- endfor -%}
       </ul>
     </div>
-    <div class="home-page__carousel-wrapper-btn">
+    <div class="home-page__carousel-wrapper-btn absolute z-[2]">
       {% assign first_block = section.blocks | first %}
       <a href="{{ first_block.settings.btn_url }}" class="btn main-btn btn_white-outlined">
         {{ section.settings.button_title }}
