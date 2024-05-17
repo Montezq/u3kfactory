@@ -1868,6 +1868,12 @@ input:focus-visible{
   --tw-border-opacity: 1;
   border-bottom-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
+@media not all and (min-width: 1024px) {
+
+  .home-page__section {
+    display: none !important;
+  }
+}
 .home-page__banner-content-heading h2{
     font-size:  clamp(20px,  3.7vw, 54px);
   }
@@ -2840,12 +2846,12 @@ input:focus-visible{
     display: flex;
   }
 
-  .lg\:hidden {
-    display: none;
-  }
-
   .lg\:\!hidden {
     display: none !important;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 
   .lg\:h-screen {
