@@ -1926,6 +1926,12 @@ input:focus-visible{
        -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.section-product-list_homepage.scrolled{
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0);
+  }
 .home-page__carousel {
   -webkit-transition-duration: 300ms;
        -o-transition-duration: 300ms;
@@ -1940,6 +1946,12 @@ input:focus-visible{
     display: none !important;
   }
 }
+.home-page__carousel.scrolled{
+    -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+         -o-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
 @media (min-width: 768px) {
 
   .home-page__carousel .splide__pagination {
