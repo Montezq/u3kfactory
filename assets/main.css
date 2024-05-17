@@ -1419,6 +1419,9 @@ video {
   font-size: 0.75rem;
   line-height: 1rem;
 }
+.text-\[37px\] {
+  font-size: 37px;
+}
 .\!font-semibold {
   font-weight: 600 !important;
 }
