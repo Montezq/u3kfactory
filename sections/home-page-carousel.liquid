@@ -57,6 +57,11 @@
     const productsWrapper = document.querySelector('.section-product-list_homepage');
     const carouselWrapperBtn = document.querySelector('.home-page__carousel-btn');
 
+    carouselWrapperBtn.addEventListener('click', () => {
+      carouselWrapper.classList.add('scrolled');
+      productsWrapper.classList.add('scrolled');
+    });
+
     const homePageCarousel = new Splide('.splide', {
       arrows: false,
       type: 'loop',
