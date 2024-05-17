@@ -14,7 +14,18 @@
                 | escape
               }}
             </div>
-            {{ block.settings.carouse_label }}
+            <div class="relative z-[1] h-full home-page__carousel-content text-center text-black">
+              {%- if block.settings.carouse_label -%}
+                <div class="home-page__carousel-content-label mb-6">
+                  <h2 class="font-semibold leading-none text-[40px]">{{ block.settings.carouse_label }}</h2>
+                </div>
+              {%- endif -%}
+              {%- if block.settings.carouse_heading -%}
+                <div class="home-page__carousel-content-label leading-none">
+                  <h2 class="text-[40px]">{{ block.settings.carouse_heading }}</h2>
+                </div>
+              {%- endif -%}
+            </div>
           </li>
         {%- endfor -%}
       </ul>
