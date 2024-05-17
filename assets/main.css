@@ -1849,7 +1849,7 @@ input:focus-visible{
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  font-size: 28px;
+  font-size: 26px;
 }
 @media (min-width: 768px) {
 
