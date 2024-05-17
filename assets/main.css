@@ -2844,6 +2844,10 @@ input:focus-visible{
     display: none;
   }
 
+  .lg\:\!hidden {
+    display: none !important;
+  }
+
   .lg\:h-screen {
     height: 100vh;
   }
