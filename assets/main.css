@@ -2523,6 +2523,10 @@ input:focus-visible{
     display: flex;
   }
 
+  .max-lg\:\!hidden {
+    display: none !important;
+  }
+
   .max-lg\:h-fit {
     height: -webkit-fit-content;
     height: -moz-fit-content;
