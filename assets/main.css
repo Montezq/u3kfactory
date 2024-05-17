@@ -696,9 +696,6 @@ video {
 .top-6 {
   top: 1.5rem;
 }
-.top-8 {
-  top: 2rem;
-}
 .top-\[27px\] {
   top: 27px;
 }
@@ -2417,7 +2414,7 @@ input:focus-visible{
 @media (min-width: 768px) {
 
   .product__media-wrapper .splide__pagination {
-    display: none;
+    display: none !important;
   }
 }
 .product__media-wrapper .splide__pagination {
