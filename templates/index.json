@@ -4,7 +4,9 @@
       "type": "home-page",
       "settings": {
         "cover_type": "video",
-        "video": "shopify:\/\/files\/videos\/Video Homepage Temporar.mp4"
+        "video": "shopify:\/\/files\/videos\/Video Homepage Temporar.mp4",
+        "heading": "<em>20 OFF<\/em>",
+        "sub_heading": "SITE LAUNCH DISCOUNTS"
       }
     }
   },
