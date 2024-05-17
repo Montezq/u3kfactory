@@ -5,6 +5,11 @@
   {% render 'header-dropdown-menu' %}
 {% endcomment %}
 <nav>
+  {% for collection in product.collections %}
+    <li>
+      <a href="{{ collection.url }}">{{ collection.title }}</a>
+    </li>
+  {% endfor %}
   <accordion-list>
     <ul role="list" class="space-y-5 md:space-y-3.5">
       {%- for link in section.settings.menu.links -%}
@@ -61,8 +66,10 @@
                             aria-current="page"
                           {% endif %}
                         >
+                          {%- if 'all-xx-century-prints' contains 'xx-century' -%}
+                            true text
+                          {%- endif -%}
                           {{ childlink.title | escape }}
-                          {{ active_item }}
                         </a>
                       {%- endif -%}
                     </li>
