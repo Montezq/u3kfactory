@@ -1935,7 +1935,7 @@ input:focus-visible{
       background-color: var(--default-color);
     }
 .home-page__carousel-wrapper-btn{
-  top: calc(35vh + 100px);
+  top: calc(35vh + 145px);
 }
 .home-page__banner-content-heading h2{
     font-size:  clamp(20px,  3.7vw, 54px);
