@@ -62,13 +62,13 @@
                         <a
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                           href="{{ childlink.url }}"
-                          class="font-coutureBold text-[20px] md:text-[23px] text-gray-800 md:text-gray-200 uppercase duration-300 ease-in-out tracking-widerx{% if childlink.current %} header__menu-item-active{% endif %}"
-                          style="{% if childlink.current %}color: {{settings.second_color}}{% endif %}"
+                          class="font-coutureBold text-[20px] md:text-[23px] text-gray-800 md:text-gray-200 uppercase duration-300 ease-in-out tracking-widerx{% if childlink.current or active_item %} header__menu-item-active{% endif %}"
+                          style="{% if childlink.current or active_item %}color: {{settings.second_color}}{% endif %}"
                           {% if childlink.current %}
                             aria-current="page"
                           {% endif %}
                         >
-                          {{ childlink.title | escape }} - {{ active_item }}
+                          {{ childlink.title | escape }}
                         </a>
                       {%- endif -%}
                     </li>
