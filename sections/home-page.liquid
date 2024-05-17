@@ -1,15 +1,29 @@
 <div class="home-page__banner h-full">
   <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full">
-    {{
-      section.settings.video
-      | video_tag:
-        image_size: '1100x',
-        autoplay: true,
-        loop: true,
-        controls: false,
-        class: 'w-full h-full object-cover',
-        muted: true
-    }}
+    {%- if section.settings.cover_type == 'video' -%}
+      {{
+        section.settings.video
+        | video_tag:
+          image_size: '1100x',
+          autoplay: true,
+          loop: true,
+          controls: false,
+          class: 'w-full h-full object-cover',
+          muted: true
+      }}
+    {%- else -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          width: section.settings.image.width,
+          class: 'w-full h-full object-cover',
+          height: '100vh',
+          sizes: '100vw',
+          widths: '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680',
+          fetchpriority: 'high'
+      }}
+    {%- endif -%}
   </div>
   <div class="relative z-[1] h-full home-page__banner-content border-b-[27px] border-b-transparent">
     <div class="flex flex-col items-center justify-center text-center pt-[12%] h-full px-[35px]">
