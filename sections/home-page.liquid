@@ -12,7 +12,18 @@
     }}
   </div>
   <div class="relative z-[1] h-full home-page__banner-content border-r-[27px] border-r-transparent border-b-[27px] border-b-transparent">
-    <div class="flex flex-col items-center justify-center text-center"></div>
+    <div class="flex flex-col items-center justify-center text-center pt-[10%]">
+      {%- if section.settings.heading -%}
+        <div class="mb-16">
+          <h2 class="text-[54px] text-white tracking-widest">{{ section.settings.heading }}</h2>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.sub_heading -%}
+        <div class="mb-16">
+          <h2 class="text-[74px] text-white tracking-widest">{{ section.settings.sub_heading }}</h2>
+        </div>
+      {%- endif -%}
+    </div>
   </div>
 </div>
 
@@ -49,14 +60,15 @@
       "label": "Image"
     },
     {
-      "type": "richtext",
+      "type": "inline_richtext",
       "id": "heading",
-      "label": "Heading",
-      "default": "<p>20% OFF</p>"
+      "default": "20 OFF",
+      "label": "Heading"
     },
     {
       "type": "inline_richtext",
       "id": "sub_heading",
+      "default": "SITE LAUNCH DISCOUNTS",
       "label": "Sub Heading"
     }
   ],
