@@ -55,6 +55,13 @@
       },
     });
     homePageCarousel.mount();
+
+    homePageCarousel.on('active', function (slide) {
+      var activeSlide = slide.slide;
+      var dataUrl = activeSlide.getAttribute('data-url');
+      var mainBtn = document.querySelector('.main-btn');
+      mainBtn.setAttribute('href', dataUrl);
+    });
   });
 </script>
 
