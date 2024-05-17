@@ -49,7 +49,8 @@
                       assign active_item = false
                       if template.name == 'product'
                         for collection in product.collections
-                          assign childlink_title = childlink.title | escape
+                          assign collection_title = collection.title | escape | downcase
+                          assign childlink_title = childlink.title | escape | downcase
                           if childlink_title contains collection.title
                             assign active_item = true
                           endif
@@ -67,13 +68,7 @@
                             aria-current="page"
                           {% endif %}
                         >
-                          {% assign test = childlink.title | escape | downcase %}
-                          {% assign test2 = 'ALL XX Century PRINTS' | escape | downcase %}
-                          <span class="text-sm"> {{ test }} - {{ test2 }} </span> <br>
-                          {%- if test2 contains test -%}
-                            true text
-                          {%- endif -%}
-                          {{ childlink.title | escape }}
+                          {{ childlink.title | escape }} - {{ active_item }}
                         </a>
                       {%- endif -%}
                     </li>
