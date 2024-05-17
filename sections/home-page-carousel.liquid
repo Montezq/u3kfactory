@@ -14,9 +14,9 @@
                 | escape
               }}
             </div>
-            <div class="relative z-[1] h-full home-page__carousel-content text-center text-black">
+            <div class="relative z-[1] h-full home-page__carousel-content text-center text-black pt-[35vh]">
               {%- if block.settings.carouse_label -%}
-                <div class="home-page__carousel-content-label mb-6">
+                <div class="home-page__carousel-content-label mb-[18px]">
                   <h2 class="font-semibold leading-none text-[40px] tracking-widerx">
                     {{ block.settings.carouse_label }}
                   </h2>
@@ -24,7 +24,7 @@
               {%- endif -%}
               {%- if block.settings.carouse_heading -%}
                 <div class="home-page__carousel-content-label leading-none">
-                  <h2 class="text-[40px] tracking-widerx">{{ block.settings.carouse_heading }}</h2>
+                  <h2 class="text-[40px] tracking-widerx font-normal">{{ block.settings.carouse_heading }}</h2>
                 </div>
               {%- endif -%}
             </div>
