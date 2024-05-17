@@ -818,6 +818,12 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.mb-2\.5 {
+  margin-bottom: 0.625rem;
+}
+.mb-\[3px\] {
+  margin-bottom: 3px;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1443,6 +1449,9 @@ video {
 }
 .font-thin {
   font-weight: 100;
+}
+.font-extrabold {
+  font-weight: 800;
 }
 .uppercase {
   text-transform: uppercase;
