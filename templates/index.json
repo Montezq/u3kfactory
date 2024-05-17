@@ -51,10 +51,41 @@
       "settings": {
         "button_title": "<em>SHOP NOW<\/em>"
       }
+    },
+    "product_list_fjgKQ3": {
+      "type": "product-list",
+      "blocks": {
+        "product_item_8f9xFB": {
+          "type": "product_item",
+          "settings": {
+            "product": "anatomy-study-1"
+          }
+        },
+        "product_item_iiGkWf": {
+          "type": "product_item",
+          "settings": {
+            "product": "anatomy-study-3"
+          }
+        },
+        "product_item_ULgqkj": {
+          "type": "product_item",
+          "settings": {
+            "product": "car-crash-blue"
+          }
+        }
+      },
+      "block_order": [
+        "product_item_8f9xFB",
+        "product_item_iiGkWf",
+        "product_item_ULgqkj"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "home_page_jFgCyG",
-    "home_page_carousel_CmtNEK"
+    "home_page_carousel_CmtNEK",
+    "product_list_fjgKQ3"
   ]
 }
