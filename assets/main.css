@@ -1896,6 +1896,16 @@ input:focus-visible{
 .accordion-menu__opened .content-for-layout:after{
       content: "";
       display: block;
+    }
+
+@media not all and (min-width: 1024px) {
+
+  .accordion-menu__opened .content-for-layout:after {
+    display: none !important;
+  }
+}
+
+.accordion-menu__opened .content-for-layout:after{
       width: 27px;
       height: 100vh;
       position: fixed;
