@@ -19,12 +19,6 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
-    {{ product.collections }}
-    {% for collection in product.collections %}
-      <li>
-        <a href="{{ collection.url }}">{{ collection.title }}</a>
-      </li>
-    {% endfor %}
     <div class="md:hidden px-[18px]">
       <div class="flex justify-between">
         <div class="flex-1 line-clamp-1">
