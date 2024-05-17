@@ -1829,7 +1829,9 @@ input:focus-visible{
   --tw-border-opacity: 1;
   border-bottom-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
-
+.home-page__section{
+  height: calc(100vh - 27px);
+}
 .visually-hidden {
   position: absolute !important;
   overflow: hidden;
