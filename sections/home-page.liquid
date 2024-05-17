@@ -25,15 +25,15 @@
       }}
     {%- endif -%}
   </div>
-  <div class="relative z-[1] h-full home-page__banner-content border-b-[27px] border-b-transparent">
+  <div class="relative z-[1] h-full home-page__banner-content hidden border-b-[27px] border-b-transparent">
     <div class="flex flex-col items-center justify-center text-center pt-[12%] h-full px-[35px]">
       {%- if section.settings.heading -%}
-        <div>
+        <div class="home-page__banner-content-heading">
           <h2 class="text-[54px] text-white tracking-widest mb-4">{{ section.settings.heading }}</h2>
         </div>
       {%- endif -%}
       {%- if section.settings.sub_heading -%}
-        <div class="mt-2.5">
+        <div class="mt-2.5 home-page__banner-content-subheading">
           <h2 class="text-[74px] text-white tracking-widest">{{ section.settings.sub_heading }}</h2>
         </div>
       {%- endif -%}
