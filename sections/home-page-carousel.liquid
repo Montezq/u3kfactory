@@ -13,6 +13,20 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const homePageCarousel = new Splide('splide', {
+      arrows: false,
+      mediaQuery: 'min',
+      breakpoints: {
+        1024: {
+          destroy: true,
+        },
+      },
+    });
+    homePageCarousel.mount();
+  });
+</script>
 
 {% schema %}
 {
