@@ -4,8 +4,9 @@
   Usage:
   {% render 'header-dropdown-menu' %}
 {% endcomment %}
-{% if template.name == 'products' %}true{% endif %}
 <nav>
+  {{ template.name }}
+  {% if template.name == 'products' %}true{% endif %}
   <accordion-list>
     <ul role="list" class="space-y-5 md:space-y-3.5">
       {%- for link in section.settings.menu.links -%}
