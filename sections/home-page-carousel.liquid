@@ -1,12 +1,62 @@
-<div class="home-page__banner h-full lg:!hidden"></div>
+{{ 'splide-core.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'splide.min.js' | asset_url }}" defer="defer"></script>
+<div class="home-page__banner h-full lg:!hidden">
+  <div class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {%- for block in section.blocks -%}
+          <li class="splide__slide">
+            {{ block.settings.carouse_label }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</div>
 
 {% schema %}
 {
   "name": "Home Page Carousel",
   "tag": "section",
   "class": "section home-page__carousel",
-  "settings": [],
-  "blocks": [],
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "button_title",
+      "label": "Button Title",
+      "default": "SHOP NOW"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "carousel_item",
+      "name": "Carousel Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "carousel_image",
+          "label": "Carousel Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "carouse_label",
+          "label": "Label",
+          "default": "NEW"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "carouse_heading",
+          "label": "SUPREMATIST",
+          "default": "SLIDE TITLE"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Home Page Carousel"
