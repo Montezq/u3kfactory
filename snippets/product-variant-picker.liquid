@@ -27,7 +27,9 @@
             {% if option.selected_value == value %}
               <div class="select-trigger cursor-pointer border md:border-2 border-black flex h-12">
                 <div class="flex items-center pl-2.5 flex-1">
-                  <span class="selected-text line-clamp-1 text-xl md:text-2xl">{{- value -}}</span>
+                  <span class="selected-text line-clamp-1 text-xl md:text-2xl text-black font-normal tracking-widerx">
+                    {{- value -}}
+                  </span>
                 </div>
                 <div class="w-11 select-icon md:border-l-2 border-black flex items-center justify-center">
                   <span
@@ -50,7 +52,10 @@
                     value="{{- value -}}"
                     class="invisible w-0 h-0"
                   >
-                  <span data-id="{{ value | escape }}" class="line-clamp-1 text-xl md:text-2xl">
+                  <span
+                    data-id="{{ value | escape }}"
+                    class="line-clamp-1 text-xl md:text-2xl text-black tracking-widerx"
+                  >
                     {{- value -}}
                   </span>
                 </label>
