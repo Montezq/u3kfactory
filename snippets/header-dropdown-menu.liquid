@@ -14,6 +14,20 @@
           {% endif %}
         >
           {%- if link.links != blank -%}
+            {%- liquid
+              assign active_item = false
+              for childlink in link.links
+                if template.name == 'product'
+                  for collection in product.collections
+                    assign collection_title = collection.title | escape | downcase
+                    assign childlink_title = childlink.title | escape | downcase
+                    if collection_title contains childlink_title
+                      assign active_item = true
+                    endif
+                  endfor
+                endif
+              endfor
+            -%}
             <accordion-item
               class="{% if link.child_active %}open{% endif %}"
               {% if link.child_active %}
