@@ -3,7 +3,8 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "show_vendor": false,
+        "heading": "",
+        "grid_template": "medium",
         "enable_filtering": true,
         "enable_sorting": true
       }

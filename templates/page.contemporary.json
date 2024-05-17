@@ -25,31 +25,10 @@
             "collection_title": ""
           }
         },
-        "featured_collection_n8wRGY": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "collection_title": ""
-          }
-        },
         "featured_collection_WCgw44": {
           "type": "featured_collection",
           "settings": {
             "collection": "all-contemporary-prints",
-            "collection_title": ""
-          }
-        },
-        "featured_collection_cNFpC9": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "collection_title": ""
-          }
-        },
-        "featured_collection_GzETjP": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
             "collection_title": ""
           }
         }
@@ -57,10 +36,7 @@
       "block_order": [
         "featured_collection_CxPKcF",
         "featured_collection_CtVybF",
-        "featured_collection_n8wRGY",
-        "featured_collection_WCgw44",
-        "featured_collection_cNFpC9",
-        "featured_collection_GzETjP"
+        "featured_collection_WCgw44"
       ],
       "settings": {
         "title": "CONTEMPORARY"
