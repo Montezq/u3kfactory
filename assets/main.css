@@ -1824,7 +1824,7 @@ input:focus-visible{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.accordion-menu__opened .home-page__banner {
+.accordion-menu__opened .home-page__banner-content {
   border-right-color: rgb(255 255 255 / var(--tw-border-opacity));
   --tw-border-opacity: 1;
   border-bottom-color: rgb(255 255 255 / var(--tw-border-opacity));
