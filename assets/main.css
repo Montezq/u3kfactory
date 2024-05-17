@@ -1872,7 +1872,7 @@ input:focus-visible{
     font-size:  clamp(20px,  3.7vw, 54px);
   }
 .home-page__banner-content-subheading h2{
-    font-size:  clamp(24px,  3.7vw, 74px);
+    font-size:  clamp(24px,  5.1vw, 74px);
   }
 .home-page__section{
   height: calc(100vh - 27px);
