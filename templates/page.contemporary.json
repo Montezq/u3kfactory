@@ -31,12 +31,20 @@
             "collection": "cc-clash-prints",
             "collection_title": "CC Clash"
           }
+        },
+        "featured_collection_HJrGn9": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "revisited-pop-prints",
+            "collection_title": "Revisited Pop"
+          }
         }
       },
       "block_order": [
         "featured_collection_CxPKcF",
         "featured_collection_WCgw44",
-        "featured_collection_tR4RBN"
+        "featured_collection_tR4RBN",
+        "featured_collection_HJrGn9"
       ],
       "settings": {
         "title": "CONTEMPORARY"
