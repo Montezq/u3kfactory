@@ -14,28 +14,28 @@
           "type": "featured_collection",
           "settings": {
             "collection": "color-block-prints",
-            "collection_title": ""
+            "collection_title": "Color Block"
           }
         },
         "featured_collection_YzV8MH": {
           "type": "featured_collection",
           "settings": {
             "collection": "travel-poster-prints",
-            "collection_title": ""
+            "collection_title": "Travel Posters"
           }
         },
         "featured_collection_9qUbRD": {
           "type": "featured_collection",
           "settings": {
             "collection": "planets-and-stars-prints",
-            "collection_title": ""
+            "collection_title": "Planets"
           }
         },
         "featured_collection_wqBYLN": {
           "type": "featured_collection",
           "settings": {
             "collection": "anatomy-prints",
-            "collection_title": ""
+            "collection_title": "Anatomy"
           }
         }
       },
