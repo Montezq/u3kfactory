@@ -18,6 +18,13 @@
             "collection_title": "CC Clash"
           }
         },
+        "featured_collection_Jz34gn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "geometric-prints",
+            "collection_title": "Geometric"
+          }
+        },
         "featured_collection_CxPKcF": {
           "type": "featured_collection",
           "settings": {
@@ -32,19 +39,20 @@
             "collection_title": ""
           }
         },
-        "featured_collection_Jz34gn": {
+        "featured_collection_YWwraQ": {
           "type": "featured_collection",
           "settings": {
-            "collection": "geometric-prints",
-            "collection_title": "Geometric"
+            "collection": "multiple-points-prints",
+            "collection_title": "Multiple Points"
           }
         }
       },
       "block_order": [
         "featured_collection_tR4RBN",
+        "featured_collection_Jz34gn",
         "featured_collection_CxPKcF",
         "featured_collection_WCgw44",
-        "featured_collection_Jz34gn"
+        "featured_collection_YWwraQ"
       ],
       "settings": {
         "title": "CONTEMPORARY"
