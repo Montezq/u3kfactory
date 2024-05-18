@@ -43,13 +43,20 @@
           "type": "featured_collection",
           "settings": {
             "collection": "bottle-series-prints",
-            "collection_title": ""
+            "collection_title": "Bottle Series"
           }
         },
         "featured_collection_WCgw44": {
           "type": "featured_collection",
           "settings": {
             "collection": "all-contemporary-prints",
+            "collection_title": ""
+          }
+        },
+        "featured_collection_e97pRD": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
             "collection_title": ""
           }
         }
@@ -60,7 +67,8 @@
         "featured_collection_YWwraQ",
         "featured_collection_XmMPaN",
         "featured_collection_CxPKcF",
-        "featured_collection_WCgw44"
+        "featured_collection_WCgw44",
+        "featured_collection_e97pRD"
       ],
       "settings": {
         "title": "CONTEMPORARY"
