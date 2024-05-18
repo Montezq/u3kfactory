@@ -25,6 +25,13 @@
             "collection_title": "Geometric"
           }
         },
+        "featured_collection_YWwraQ": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "multiple-points-prints",
+            "collection_title": "Multiple Points"
+          }
+        },
         "featured_collection_CxPKcF": {
           "type": "featured_collection",
           "settings": {
@@ -39,20 +46,21 @@
             "collection_title": ""
           }
         },
-        "featured_collection_YWwraQ": {
+        "featured_collection_XmMPaN": {
           "type": "featured_collection",
           "settings": {
-            "collection": "multiple-points-prints",
-            "collection_title": "Multiple Points"
+            "collection": "cosmos-prints",
+            "collection_title": "Cosmos"
           }
         }
       },
       "block_order": [
         "featured_collection_tR4RBN",
         "featured_collection_Jz34gn",
+        "featured_collection_YWwraQ",
         "featured_collection_CxPKcF",
         "featured_collection_WCgw44",
-        "featured_collection_YWwraQ"
+        "featured_collection_XmMPaN"
       ],
       "settings": {
         "title": "CONTEMPORARY"
