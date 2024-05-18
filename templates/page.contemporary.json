@@ -11,6 +11,13 @@
     "collection_list_n7494m": {
       "type": "collection-list",
       "blocks": {
+        "featured_collection_tR4RBN": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "cc-clash-prints",
+            "collection_title": "CC Clash"
+          }
+        },
         "featured_collection_CxPKcF": {
           "type": "featured_collection",
           "settings": {
@@ -25,26 +32,19 @@
             "collection_title": ""
           }
         },
-        "featured_collection_tR4RBN": {
+        "featured_collection_Jz34gn": {
           "type": "featured_collection",
           "settings": {
-            "collection": "cc-clash-prints",
-            "collection_title": "CC Clash"
-          }
-        },
-        "featured_collection_HJrGn9": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "revisited-pop-prints",
-            "collection_title": "Revisited Pop"
+            "collection": "geometric-prints",
+            "collection_title": "Geometric"
           }
         }
       },
       "block_order": [
+        "featured_collection_tR4RBN",
         "featured_collection_CxPKcF",
         "featured_collection_WCgw44",
-        "featured_collection_tR4RBN",
-        "featured_collection_HJrGn9"
+        "featured_collection_Jz34gn"
       ],
       "settings": {
         "title": "CONTEMPORARY"
