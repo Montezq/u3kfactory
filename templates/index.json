@@ -45,9 +45,10 @@
         "carousel_item_xMTV7a": {
           "type": "carousel_item",
           "settings": {
+            "carousel_image": "shopify:\/\/shop_images\/SMARPTHONE-HOMEPAGE-SLIDE-4.jpg",
             "carouse_label": "NEW",
-            "carouse_heading": "SLIDE TITLE",
-            "btn_url": ""
+            "carouse_heading": "POP ART PRINTS",
+            "btn_url": "shopify:\/\/collections\/revisited-pop-prints"
           }
         }
       },
