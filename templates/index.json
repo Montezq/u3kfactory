@@ -36,17 +36,26 @@
         "carousel_item_LX6UYq": {
           "type": "carousel_item",
           "settings": {
-            "carousel_image": "shopify:\/\/shop_images\/GEOMETRIC-COMPOSITION-3-INTERIOR-IMAGE-2_fd8c4f7f-2dbd-4088-a202-8e7ff59474dd.jpg",
+            "carousel_image": "shopify:\/\/shop_images\/SMARPTHONE-HOMEPAGE-SLIDE-3.jpg",
+            "carouse_label": "NEW",
+            "carouse_heading": "URBAN PGOTOGRAPHY",
+            "btn_url": "shopify:\/\/collections\/urban-prints"
+          }
+        },
+        "carousel_item_xMTV7a": {
+          "type": "carousel_item",
+          "settings": {
             "carouse_label": "NEW",
             "carouse_heading": "SLIDE TITLE",
-            "btn_url": "shopify:\/\/pages\/mihu-artist-page"
+            "btn_url": ""
           }
         }
       },
       "block_order": [
         "carousel_item_CgwQFb",
         "carousel_item_pyAfWq",
-        "carousel_item_LX6UYq"
+        "carousel_item_LX6UYq",
+        "carousel_item_xMTV7a"
       ],
       "settings": {
         "button_title": "<em>SHOP NOW<\/em>"
