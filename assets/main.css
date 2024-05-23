@@ -3393,6 +3393,10 @@ input:focus-visible{
     padding-top: 14h;
   }
 
+  .lg\:pt-\[14vh\] {
+    padding-top: 14vh;
+  }
+
   .lg\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
