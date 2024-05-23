@@ -28,6 +28,7 @@
                 endif
               endfor
             -%}
+            {{ active_item }}
             <accordion-item
               class="{% if link.child_active %}open{% endif %}"
               {% if link.child_active %}
