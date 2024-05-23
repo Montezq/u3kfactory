@@ -104,12 +104,14 @@
       <div class="flex flex-col items-center pb-5">
         <a
           href="{{ routes.cart_url }}"
-          class="btn btn_outlined !text-[24px] mb-4 w-full max-w-[328px]"
+          class="btn btn_outlined text-[20px] md:!text-[24px] mb-4 w-full max-w-[328px]"
         >
           Go To Cart
         </a>
         <form action="{{ routes.cart_url }}" method="post" id="cart-notification-form" class="w-full max-w-[328px]">
-          <button class="btn btn_primary w-full !text-[24px] !py-3" name="checkout">Proceed to order</button>
+          <button class="btn btn_primary w-full text-[20px] md:!text-[24px] !py-3" name="checkout">
+            Proceed to order
+          </button>
         </form>
       </div>
     </div>
