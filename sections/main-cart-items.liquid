@@ -28,6 +28,11 @@
   <div class="page-width">
     <div class="flex justify-between border-b border-b-black pb-1.5">
       <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none">{{ 'sections.cart.title' | t }}</h1>
+      <div class="totals">
+        <h2 class="totals__total text-[25px] font-bold">
+          Total <span class="totals__total-value">{{ cart.total_price | money_with_currency }}</span>
+        </h2>
+      </div>
     </div>
 
     <div class="cart__warnings">
