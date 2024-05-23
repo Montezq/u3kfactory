@@ -1605,6 +1605,9 @@ video {
 .font-light {
   font-weight: 300;
 }
+.font-\[100\] {
+  font-weight: 100;
+}
 .uppercase {
   text-transform: uppercase;
 }
