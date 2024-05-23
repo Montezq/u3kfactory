@@ -1216,6 +1216,10 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
+.border-\[\#8c8c8c\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(140 140 140 / var(--tw-border-opacity));
+}
 .border-b-black {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -1406,6 +1410,12 @@ video {
 }
 .pt-\[8\%\] {
   padding-top: 8%;
+}
+.pr-2 {
+  padding-right: 0.5rem;
+}
+.pr-2\.5 {
+  padding-right: 0.625rem;
 }
 .text-center {
   text-align: center;

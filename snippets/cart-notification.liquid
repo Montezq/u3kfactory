@@ -36,10 +36,16 @@
         </div>
       </div>
       <div class="mb-1.5 max-h-[340px] cart-notification__wrapper overflow-x-hidden overflow-y-auto">
-        <div id="cart-notification-product" class="cart-notification-product flex items-center"></div>
+        <div
+          id="cart-notification-product"
+          class="cart-notification-product flex items-center mb-4 pb-4 border-b border-[#8c8c8c] pr-2.5"
+        ></div>
         {%- if cart != empty -%}
           {%- for item in cart.items -%}
-            <div id="cart-notification-product-{{ item.key }}" class="cart-item flex items-center">
+            <div
+              id="cart-notification-product-{{ item.key }}"
+              class="cart-item flex items-center mb-4 pb-4 border-b border-[#8c8c8c] pr-2.5"
+            >
               {%- if item.image -%}
                 <div class="cart-notification-product__image global-media-settings w-[107px] h-[107px]">
                   <img
