@@ -68,17 +68,17 @@
                     </div>
                   {% endif %}
                 </div>
-                <div>
+                <div class="flex ml-[22px] justify-between items-end">
                   <div>
-                    <a
-                      href="{{ item.url }}"
-                      class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
-                    >
-                      {{- item.product.title | escape -}}
-                    </a>
-                    <p class="text-[17px] italic">{{ item.product.vendor }}</p>
-                  </div>
-                  <div class="flex justify-between items-end">
+                    <div>
+                      <a
+                        href="{{ item.url }}"
+                        class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
+                      >
+                        {{- item.product.title | escape -}}
+                      </a>
+                      <p class="text-[17px] italic">{{ item.product.vendor }}</p>
+                    </div>
                     <dl>
                       {%- unless item.product.has_only_default_variant -%}
                         {%- for option in item.options_with_values -%}
