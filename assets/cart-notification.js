@@ -17,10 +17,7 @@ class CartNotification extends HTMLElement {
   }
 
   close() {
-    this.notification.classList.remove('active');
-    document.body.removeEventListener('click', this.onBodyClick);
-
-    removeTrapFocus(this.activeElement);
+    this.notification.classList.remove('!block');
   }
 
   renderContents(parsedState) {
