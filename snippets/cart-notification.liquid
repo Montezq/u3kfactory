@@ -38,15 +38,15 @@
       <div class="mb-1.5 max-h-[340px] cart-notification__wrapper overflow-x-hidden overflow-y-auto">
         <div
           id="cart-notification-product"
-          class="cart-notification-product"
+          class="cart-notification-product pr-2.5"
         ></div>
         {%- if cart != empty -%}
           {%- for item in cart.items -%}
             <div
               id="cart-notification-product-{{ item.key }}"
-              class="cart-item"
+              class="cart-item pr-2.5"
             >
-              <div class="flex items-center mb-4 pb-4 border-b border-[#8c8c8c] pr-2.5">
+              <div class="flex items-center mb-4 pb-4 border-b border-[#8c8c8c]">
                 {%- if item.image -%}
                   <div class="cart-notification-product__image global-media-settings w-[107px] h-[107px]">
                     <img
