@@ -815,9 +815,6 @@ video {
 .mt-1 {
   margin-top: 0.25rem;
 }
-.mt-10 {
-  margin-top: 2.5rem;
-}
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -844,15 +841,6 @@ video {
 }
 .mt-auto {
   margin-top: auto;
-}
-.mt-\[28px\] {
-  margin-top: 28px;
-}
-.mb-\[20px\] {
-  margin-bottom: 20px;
-}
-.mb-\[24px\] {
-  margin-bottom: 24px;
 }
 .line-clamp-1 {
   overflow: hidden;
@@ -1011,9 +999,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-\[90px\] {
-  width: 90px;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -1462,9 +1447,6 @@ video {
 .font-open {
   font-family: "Open Sans", sans-serif;
 }
-.\!text-\[24px\] {
-  font-size: 24px !important;
-}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1508,12 +1490,6 @@ video {
 .text-\[22px\] {
   font-size: 22px;
 }
-<<<<<<< HEAD
-=======
-.text-\[25px\] {
-  font-size: 25px;
-}
->>>>>>> 09bd7a9f668f212a12e66584fcaea98867e17eb7
 .text-\[26px\] {
   font-size: 26px;
 }
@@ -1561,15 +1537,6 @@ video {
   font-size: 0.75rem;
   line-height: 1rem;
 }
-<<<<<<< HEAD
-=======
-.text-\[38px\] {
-  font-size: 38px;
-}
-.text-\[50px\] {
-  font-size: 50px;
-}
->>>>>>> 09bd7a9f668f212a12e66584fcaea98867e17eb7
 .\!font-extrabold {
   font-weight: 800 !important;
 }
@@ -3115,13 +3082,10 @@ input:focus-visible{
     padding-top: 0px;
   }
 
-<<<<<<< HEAD
   .md\:\!text-\[24px\] {
     font-size: 24px !important;
   }
 
-=======
->>>>>>> 09bd7a9f668f212a12e66584fcaea98867e17eb7
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -3231,10 +3195,6 @@ input:focus-visible{
     height: 100vh;
   }
 
-  .lg\:h-\[107px\] {
-    height: 107px;
-  }
-
   .lg\:w-36 {
     width: 9rem;
   }
@@ -3263,10 +3223,6 @@ input:focus-visible{
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-  }
-
-  .lg\:w-\[107px\] {
-    width: 107px;
   }
 
   .lg\:min-w-\[164px\] {
@@ -3386,10 +3342,6 @@ input:focus-visible{
     padding-top: 27px;
   }
 
-  .lg\:pb-4 {
-    padding-bottom: 1rem;
-  }
-
   .lg\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -3410,18 +3362,6 @@ input:focus-visible{
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .lg\:text-\[58px\] {
-    font-size: 58px;
-  }
-
-  .lg\:text-\[22px\] {
-    font-size: 22px;
-  }
-
-  .lg\:text-\[25px\] {
-    font-size: 25px;
   }
 
   .lg\:opacity-0 {
