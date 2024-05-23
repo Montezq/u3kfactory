@@ -842,6 +842,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.mt-\[28px\] {
+  margin-top: 28px;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1545,6 +1548,9 @@ video {
 }
 .text-\[38px\] {
   font-size: 38px;
+}
+.text-\[50px\] {
+  font-size: 50px;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
@@ -3154,6 +3160,10 @@ input:focus-visible{
     margin-top: 0px;
   }
 
+  .lg\:mt-10 {
+    margin-top: 2.5rem;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -3324,6 +3334,10 @@ input:focus-visible{
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-\[58px\] {
+    font-size: 58px;
   }
 
   .lg\:opacity-0 {
