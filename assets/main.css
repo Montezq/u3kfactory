@@ -1543,6 +1543,9 @@ video {
   font-size: 0.75rem;
   line-height: 1rem;
 }
+.text-\[38px\] {
+  font-size: 38px;
+}
 .\!font-extrabold {
   font-weight: 800 !important;
 }
@@ -3097,6 +3100,10 @@ input:focus-visible{
 
   .md\:text-\[29px\] {
     font-size: 29px;
+  }
+
+  .md\:text-\[42px\] {
+    font-size: 42px;
   }
 
   .md\:text-gray-200 {
