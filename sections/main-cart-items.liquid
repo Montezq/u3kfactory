@@ -99,10 +99,15 @@
                       {%- endfor -%}
                     </dl>
                   </div>
-                  <div class="text-end">
-                    <p class="text-[22px] lg:text-[25px] font-bold text-right leading-none">
-                      {{ item.price | money_with_currency }}
-                    </p>
+                  <div class="text-right">
+                    <div>
+                      <p class="text-[22px] lg:text-[25px] font-bold text-right leading-none">
+                        {{ item.price | money_with_currency }}
+                      </p>
+                      <p class="text-[13px] font-bold text-right leading-none italic">
+                        * VAT INCLUDED / EXCLUDED SHIPPING COST
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
