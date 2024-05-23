@@ -13,7 +13,7 @@ class CartNotification extends HTMLElement {
   }
 
   open() {
-    console.log(this.notification)
+    console.log('open')
     this.notification.classList.add('animate', 'active');
 
     this.notification.addEventListener(
@@ -37,15 +37,13 @@ class CartNotification extends HTMLElement {
 
   renderContents(parsedState) {
     this.cartItemKey = parsedState.key;
-    console.log(this.getSectionsToRender())
-    console.log(this.cartItemKey)
     this.getSectionsToRender().forEach((section) => {
       document.getElementById(section.id).innerHTML = this.getSectionInnerHTML(
         parsedState.sections[section.id],
         section.selector
       );
     });
-
+    console.log(this.notification)
     if (this.header) this.header.reveal();
     this.open();
   }
