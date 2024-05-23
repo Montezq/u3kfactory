@@ -1,36 +1,18 @@
 {
   "sections": {
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
+    "home_page_DPyT89": {
+      "type": "home-page",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "cover_type": "video",
+        "video": "shopify:\/\/files\/videos\/Video Homepage Temporar.mp4",
+        "heading": "20 OFF",
+        "sub_heading": "SITE LAUNCH DISCOUNTS",
+        "btn_url": "",
+        "button_title": "SHOP NOW"
       }
     }
   },
   "order": [
-    "rich_text"
+    "home_page_DPyT89"
   ]
 }
