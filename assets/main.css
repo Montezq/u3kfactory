@@ -869,6 +869,9 @@ video {
 .hidden {
   display: none;
 }
+.\!hidden {
+  display: none !important;
+}
 .aspect-\[25\/24\] {
   aspect-ratio: 25/24;
 }
