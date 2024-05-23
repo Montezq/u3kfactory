@@ -70,7 +70,7 @@
                 </div>
                 <div class="flex w-full ml-[22px] pl-2 justify-between border-b border-b-[#8c8c8c]">
                   <div>
-                    <div>
+                    <div class="pt-1.5 mb-2">
                       <a
                         href="{{ item.url }}"
                         class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
@@ -79,7 +79,7 @@
                       </a>
                       <p class="text-[17px] italic">by {{ item.product.vendor }}</p>
                     </div>
-                    <dl>
+                    <dl class="space-y-1.5">
                       {%- unless item.product.has_only_default_variant -%}
                         {%- for option in item.options_with_values -%}
                           <div class="product-option">
