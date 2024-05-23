@@ -845,6 +845,9 @@ video {
 .ml-\[22px\] {
   margin-left: 22px;
 }
+.mt-\[16vh\] {
+  margin-top: 16vh;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
