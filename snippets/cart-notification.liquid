@@ -37,6 +37,51 @@
       </div>
       <div class="mb-1.5">
         <div id="cart-notification-product" class="cart-notification-product flex items-center"></div>
+        {%- if cart != empty -%}
+          <div class="flex items-center">
+            {%- for item in cart.items -%}
+              <div id="cart-notification-product-{{ item.key }}" class="cart-item">
+                {%- if item.image -%}
+                  <div class="cart-notification-product__image global-media-settings w-[107px] h-[107px]">
+                    <img
+                      src="{{ item.image | image_url: width: 140 }}"
+                      alt="{{ item.image.alt | escape }}"
+                      class="w-full h-full object-cover"
+                      width="107"
+                      height="{{ 107 | divided_by: item.image.aspect_ratio | ceil }}"
+                      loading="lazy"
+                    >
+                  </div>
+                {%- endif -%}
+                <div class="flex-1 ml-[25px]">
+                  <h3 class="cart-notification-product__name text-[25px] font-bold leading-none">
+                    {{ item.product.title | escape }}
+                  </h3>
+                  <p class="text-gray-850 italic">by {{ item.product.vendor }}</p>
+                  <dl>
+                    {%- unless item.product.has_only_default_variant -%}
+                      {%- for option in item.options_with_values -%}
+                        <div class="product-option">
+                          <dd class="text-[22px]">{{ option.value }}</dd>
+                        </div>
+                      {%- endfor -%}
+                    {%- endunless -%}
+                    {%- for property in item.properties -%}
+                      {%- assign property_first_char = property.first | slice: 0 -%}
+                      {%- if property.last != blank and property_first_char != '_' -%}
+                        <div class="product-option">
+                          <dd class="text-[22px]">
+                            {{ property.last }}
+                          </dd>
+                        </div>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </dl>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
       </div>
       <div>
         <p class="text-[11px] leading-none tracking-widest uppercase mb-5 italic font-bold">
