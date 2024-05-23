@@ -2722,6 +2722,9 @@ input:focus-visible{
 .cart__items{
   margin-bottom: clamp(32px, 3.5vh, 3.5vh);
 }
+.cart__items:last-child{
+    margin-bottom: 0;
+  }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
