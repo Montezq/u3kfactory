@@ -705,6 +705,9 @@ video {
 .top-full {
   top: 100%;
 }
+.bottom-full {
+  bottom: 100%;
+}
 .isolate {
   isolation: isolate;
 }
@@ -889,6 +892,9 @@ video {
 }
 .h-screen {
   height: 100vh;
+}
+.h-\[34px\] {
+  height: 34px;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1153,6 +1159,9 @@ video {
 }
 .whitespace-nowrap {
   white-space: nowrap;
+}
+.rounded-full {
+  border-radius: 9999px;
 }
 .border {
   border-width: 1px;
@@ -1468,6 +1477,9 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.text-\[18px\] {
+  font-size: 18px;
 }
 .\!font-extrabold {
   font-weight: 800 !important;

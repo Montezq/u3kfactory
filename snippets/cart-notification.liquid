@@ -11,6 +11,11 @@
 
 <cart-notification>
   <div class="cart-notification-wrapper fixed left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full z-10">
+    <button
+      type="button"
+      class="cart-notification__close modal__close-button font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-[34px] h-[34px] rounded-full bg-black leading-none flex justify-center items-center cursor-pointer"
+      aria-label="{{ 'accessibility.close' | t }}"
+    ></button>
     <div
       id="cart-notification"
       class="cart-notification focus-inset max-w-[471px] border border-[#5a5a5a] bg-white px-2.5 pt-5 pb-4"
@@ -24,15 +29,6 @@
           {%- render 'icon-checkmark' -%}
           {{ 'general.cart.item_added' | t }}
         </h2>
-        <button
-          type="button"
-          class="cart-notification__close modal__close-button link link--text focus-inset"
-          aria-label="{{ 'accessibility.close' | t }}"
-        >
-          <svg class="icon icon-close" aria-hidden="true" focusable="false">
-            <use href="#icon-close">
-          </svg>
-        </button>
       </div>
       <div id="cart-notification-product" class="cart-notification-product"></div>
       <div class="cart-notification__links">
