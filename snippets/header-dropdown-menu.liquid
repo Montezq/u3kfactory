@@ -76,6 +76,7 @@
                       endif
                     -%}
                     <li>
+                      {{ template.name }}
                       {%- if childlink.links == blank -%}
                         <a
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
