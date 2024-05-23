@@ -28,9 +28,8 @@
                 endif
               endfor
             -%}
-            {{ active_item }}
             <accordion-item
-              class="{% if link.child_active %}open{% endif %}"
+              class="{% if link.child_active or active_item %}open{% endif %}"
               {% if link.child_active %}
                 data-open
               {% endif %}
@@ -40,13 +39,13 @@
                 class="header__menu-item accordion-toggle cursor-pointer"
               >
                 <span
-                  class="inline-block font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{%- if link.child_active %} header__active-menu-item{% endif %}"
+                  class="inline-block font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{%- if link.child_active or active_item %} header__active-menu-item{% endif %}"
                 >
                   {{- link.title | escape -}}
                 </span>
               </div>
               <div
-                class="accordion-content overflow-hidden{% if link.child_active %}  open-initially{%  else %} h-0 transition-all duration-300 ease-in-out{% endif %}"
+                class="accordion-content overflow-hidden{% if link.child_active or active_item %}  open-initially{%  else %} h-0 transition-all duration-300 ease-in-out{% endif %}"
               >
                 <ul
                   id="HeaderMenu-MenuList-{{ forloop.index }}"
