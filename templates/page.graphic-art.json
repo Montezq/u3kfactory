@@ -2,65 +2,13 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
-    },
-    "collection_list_XmMKiE": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_B3xYzj": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "color-block-prints",
-            "collection_title": "Color Block"
-          }
-        },
-        "featured_collection_YzV8MH": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "travel-poster-prints",
-            "collection_title": "Travel Posters"
-          }
-        },
-        "featured_collection_9qUbRD": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "planets-and-stars-prints",
-            "collection_title": "Planets"
-          }
-        },
-        "featured_collection_wqBYLN": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "anatomy-prints",
-            "collection_title": "Anatomy"
-          }
-        },
-        "featured_collection_LAwm6H": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "all-graphic-art-prints",
-            "collection_title": "All"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_B3xYzj",
-        "featured_collection_YzV8MH",
-        "featured_collection_9qUbRD",
-        "featured_collection_wqBYLN",
-        "featured_collection_LAwm6H"
-      ],
-      "settings": {
-        "title": "Collections"
-      }
     }
   },
   "order": [
-    "main",
-    "collection_list_XmMKiE"
+    "main"
   ]
 }
