@@ -2577,12 +2577,12 @@ input:focus-visible{
   -webkit-box-shadow: 6px 0 11px rgba(0, 0, 0, .35);
           box-shadow: 6px 0 11px rgba(0, 0, 0, .35);
 }
-.cart-notification__header {
+.cart-notification__header p {
   padding-bottom: 18px;
   margin-bottom: 4;
   position: relative;
 }
-.cart-notification__header:after{
+.cart-notification__header p:after{
     content: "";
     display: block;
     width: 20px;
