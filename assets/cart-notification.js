@@ -13,6 +13,7 @@ class CartNotification extends HTMLElement {
   }
 
   open() {
+    console.log(this.notification)
     this.notification.classList.add('animate', 'active');
 
     this.notification.addEventListener(
