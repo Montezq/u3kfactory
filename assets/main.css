@@ -1452,6 +1452,9 @@ video {
 .pb-3 {
   padding-bottom: 0.75rem;
 }
+.pr-7 {
+  padding-right: 1.75rem;
+}
 .text-center {
   text-align: center;
 }
