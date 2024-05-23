@@ -2926,6 +2926,10 @@ input:focus-visible{
     padding-top: 18px;
   }
 
+  .max-lg\:text-\[1px\] {
+    font-size: 1px;
+  }
+
   .max-lg\:duration-300 {
     -webkit-transition-duration: 300ms;
          -o-transition-duration: 300ms;
@@ -3367,6 +3371,14 @@ input:focus-visible{
 
   .lg\:text-\[58px\] {
     font-size: 58px;
+  }
+
+  .lg\:text-\[22px\] {
+    font-size: 22px;
+  }
+
+  .lg\:text-\[25px\] {
+    font-size: 25px;
   }
 
   .lg\:opacity-0 {
