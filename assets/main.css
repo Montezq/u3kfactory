@@ -845,6 +845,9 @@ video {
 .mt-\[28px\] {
   margin-top: 28px;
 }
+.mb-\[20px\] {
+  margin-bottom: 20px;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -3170,6 +3173,14 @@ input:focus-visible{
     margin-top: 2.5rem;
   }
 
+  .lg\:mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .lg\:mb-\[32px\] {
+    margin-bottom: 32px;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -3338,6 +3349,10 @@ input:focus-visible{
 
   .lg\:pt-\[27px\] {
     padding-top: 27px;
+  }
+
+  .lg\:pb-4 {
+    padding-bottom: 1rem;
   }
 
   .lg\:text-6xl {
