@@ -77,7 +77,7 @@
                       >
                         {{- item.product.title | escape -}}
                       </a>
-                      <p class="text-[17px] italic">{{ item.product.vendor }}</p>
+                      <p class="text-[17px] italic">by {{ item.product.vendor }}</p>
                     </div>
                     <dl>
                       {%- unless item.product.has_only_default_variant -%}
