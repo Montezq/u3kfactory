@@ -2642,7 +2642,7 @@ input:focus-visible{
 }
 .cart-notification-wrapper{
   width: calc(100% - 18px);
-  top: calc(50% + 50px);
+  top: calc(50% + 25px);
 }
 .modal__close-button,
 .cart-notification-wrapper-block{
