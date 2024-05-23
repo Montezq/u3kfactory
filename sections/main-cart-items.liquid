@@ -54,7 +54,7 @@
         <div class="js-contents">
           {%- if cart != empty -%}
             {%- for item in cart.items -%}
-              <div class="cart-item flex" id="CartItem-{{ item.index | plus: 1 }}">
+              <div class="cart-item cart-item__block flex" id="CartItem-{{ item.index | plus: 1 }}">
                 <div class="cart-item__media">
                   {% if item.image %}
                     <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>

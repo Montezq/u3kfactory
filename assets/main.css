@@ -2719,10 +2719,10 @@ input:focus-visible{
     background: #191919;
     border-radius: 6px;
   }
-.cart__items{
+.cart-item__block{
   margin-bottom: clamp(32px, 3.5vh, 3.5vh);
 }
-.cart__items:last-child{
+.cart-item__block:last-child{
     margin-bottom: 0;
   }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
