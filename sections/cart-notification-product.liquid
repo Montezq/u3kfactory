@@ -14,13 +14,15 @@
         </div>
       {%- endif -%}
       <div class="flex-1 ml-[25px]">
-        <h3 class="cart-notification-product__name text-[25px] font-bold">{{ item.product.title | escape }}</h3>
-        <p class="text-gray-850">{{ item.product.vendor }}</p>
+        <h3 class="cart-notification-product__name text-[25px] font-bold leading-none">
+          {{ item.product.title | escape }}
+        </h3>
+        <p class="text-gray-850 italic">by {{ item.product.vendor }}</p>
         <dl>
           {%- unless item.product.has_only_default_variant -%}
             {%- for option in item.options_with_values -%}
               <div class="product-option">
-                <dd>{{ option.value }}</dd>
+                <dd class="text-[22px]">{{ option.value }}</dd>
               </div>
             {%- endfor -%}
           {%- endunless -%}
@@ -28,14 +30,8 @@
             {%- assign property_first_char = property.first | slice: 0 -%}
             {%- if property.last != blank and property_first_char != '_' -%}
               <div class="product-option">
-                <dd>
-                  {%- if property.last contains '/uploads/' -%}
-                    <a href="{{ property.last }}" class="link" target="_blank">
-                      {{ property.last | split: '/' | last }}
-                    </a>
-                  {%- else -%}
-                    {{ property.last }}
-                  {%- endif -%}
+                <dd class="text-[22px]">
+                  {{ property.last }}
                 </dd>
               </div>
             {%- endif -%}
