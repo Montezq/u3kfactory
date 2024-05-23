@@ -1939,6 +1939,7 @@ input:focus-visible{
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
   display: inline-block;
+  text-align: center;
 }
 .btn_small {
   font-size: 1.5rem;
