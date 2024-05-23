@@ -708,6 +708,9 @@ video {
 .top-full {
   top: 100%;
 }
+.left-\[63\%\] {
+  left: 63%;
+}
 .isolate {
   isolation: isolate;
 }
