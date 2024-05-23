@@ -2579,7 +2579,7 @@ input:focus-visible{
 }
 .cart-notification__header p {
   padding-bottom: 18px;
-  margin-bottom: 4;
+  margin-bottom: 4px;
   position: relative;
 }
 .cart-notification__header p:after{
