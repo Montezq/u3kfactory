@@ -2233,10 +2233,6 @@ input:focus-visible{
 }
   }
 @media screen and (min-height: 1100px){
-.header__menu-content{
-    margin: 0;
-    padding-top: clamp(0px, 12vh, 12vh);
-}
 .header__menu-footer{
     margin-top: auto;
 }
@@ -3385,12 +3381,16 @@ input:focus-visible{
     padding-top: 11vh;
   }
 
+  .lg\:pt-\[12vh\] {
+    padding-top: 12vh;
+  }
+
   .lg\:pt-\[27px\] {
     padding-top: 27px;
   }
 
-  .lg\:pt-\[12vh\] {
-    padding-top: 12vh;
+  .lg\:pt-\[14h\] {
+    padding-top: 14h;
   }
 
   .lg\:text-6xl {
