@@ -101,6 +101,20 @@
                   </div>
                   <div class="text-right">
                     <div>
+                      <cart-remove-button
+                        id="Remove-{{ item.index | plus: 1 }}"
+                        data-index="{{ item.index | plus: 1 }}"
+                      >
+                        <a
+                          href="{{ item.url_to_remove }}"
+                          class="flex items-end text-right text-[20px]"
+                          aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                        >
+                          Remove <span class="font-coutureBold text-[15px]">x</span>
+                        </a>
+                      </cart-remove-button>
+                    </div>
+                    <div>
                       <p class="text-[22px] lg:text-[25px] font-bold text-right leading-none">
                         {{ item.price | money_with_currency }}
                       </p>
