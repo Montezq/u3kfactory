@@ -26,11 +26,8 @@
 
 <cart-items class="gradient  isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="page-width">
-    <div class="title-wrapper-with-link">
-      <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
-        {{- 'general.continue_shopping' | t -}}
-      </a>
+    <div class="flex justify-between border-b border-b-black pb-1.5">
+      <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none">{{ 'sections.cart.title' | t }}</h1>
     </div>
 
     <div class="cart__warnings">
