@@ -2705,9 +2705,6 @@ input:focus-visible{
          -o-transform: translateX(-50%);
             transform: translateX(-50%);
   }
-.cart-notification__wrapper{
-  max-height: calc(100vh);
-}
 .cart-notification__wrapper::-webkit-scrollbar {
     width: 4px;
     height: 4px;
@@ -3381,20 +3378,12 @@ input:focus-visible{
     padding-right: 20px;
   }
 
-  .lg\:pt-\[11vh\] {
-    padding-top: 11vh;
-  }
-
   .lg\:pt-\[14vh\] {
     padding-top: 14vh;
   }
 
   .lg\:pt-\[27px\] {
     padding-top: 27px;
-  }
-
-  .lg\:pt-\[12vh\] {
-    padding-top: 12vh;
   }
 
   .lg\:text-6xl {
