@@ -36,20 +36,20 @@
         </div>
       </div>
       <div id="cart-notification-product" class="cart-notification-product"></div>
-      <div class="cart-notification__links">
+      <div>
+        <p class="text-[11px] leading-none tracking-widest uppercase mb-5">*FREE SHIPPING FOR ORDERS OVER 100 EUR</p>
+      </div>
+      <div class="flex flex-col items-center">
         <a
           href="{{ routes.cart_url }}"
           id="cart-notification-button"
-          class="button button--secondary button--full-width"
+          class="btn btn_white-outlined !text-[24px] mb-4 w-full max-w-[328px]"
         >
-          {{- 'general.cart.view_empty_cart' | t -}}
+          Go To Cart
         </a>
         <form action="{{ routes.cart_url }}" method="post" id="cart-notification-form">
-          <button class="button button--primary button--full-width" name="checkout">
-            {{ 'sections.cart.checkout' | t }}
-          </button>
+          <button class="btn btn-primary w-full max-w-[328px] !text-[24px]" name="checkout">Proceed to order</button>
         </form>
-        <button type="button" class="link button-label">{{ 'general.continue_shopping' | t }}</button>
       </div>
     </div>
   </div>

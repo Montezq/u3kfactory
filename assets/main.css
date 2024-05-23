@@ -1009,6 +1009,9 @@ video {
 .max-w-none {
   max-width: none;
 }
+.max-w-\[328px\] {
+  max-width: 328px;
+}
 .flex-1 {
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 0%;
@@ -1492,6 +1495,9 @@ video {
 }
 .text-\[58px\] {
   font-size: 58px;
+}
+.\!text-\[24px\] {
+  font-size: 24px !important;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
