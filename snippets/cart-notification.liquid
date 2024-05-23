@@ -38,8 +38,8 @@
       <div class="mb-1.5">
         <div id="cart-notification-product" class="cart-notification-product flex items-center"></div>
         {%- if cart != empty -%}
-          <div class="flex items-center">
-            {%- for item in cart.items -%}
+          {%- for item in cart.items -%}
+            <div class="flex items-center">
               <div id="cart-notification-product-{{ item.key }}" class="cart-item">
                 {%- if item.image -%}
                   <div class="cart-notification-product__image global-media-settings w-[107px] h-[107px]">
