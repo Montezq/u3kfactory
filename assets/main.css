@@ -920,6 +920,9 @@ video {
 .max-h-\[740px\] {
   max-height: 740px;
 }
+.max-h-\[36vh\] {
+  max-height: 36vh;
+}
 .min-h-screen {
   min-height: 100vh;
 }
