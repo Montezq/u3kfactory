@@ -1418,6 +1418,9 @@ video {
 .text-\[27px\] {
   font-size: 27px;
 }
+.text-\[28px\] {
+  font-size: 28px;
+}
 .text-\[32px\] {
   font-size: 32px;
 }
@@ -1449,9 +1452,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-\[28px\] {
-  font-size: 28px;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
@@ -2793,10 +2793,6 @@ input:focus-visible{
 
   .max-md\:top-1\/2 {
     top: 50%;
-  }
-
-  .max-md\:right-4 {
-    right: 1rem;
   }
 
   .max-md\:order-10 {
