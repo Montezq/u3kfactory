@@ -59,11 +59,15 @@
                     {%- liquid
                       assign active_item = false
                       if template.name == 'collection'
-                        assign collection_title = collection.title | escape | downcase | remove: 'all'
-                        assign childlink_title = childlink.title | escape | downcase
-                        if collection_title contains childlink_title
-                          assign active_item = true
-                        endif
+                        for product in collection.products
+                          for collection in product.collections
+                            assign collection_title = collection.title | escape | downcase | remove: 'all'
+                            assign childlink_title = childlink.title | escape | downcase
+                            if collection_title contains childlink_title
+                              assign active_item = true
+                            endif
+                          endfor
+                        endfor
                       endif
                       if template.name == 'product'
                         for collection in product.collections
@@ -76,7 +80,6 @@
                       endif
                     -%}
                     <li>
-                      {{ collection.template_suffix }}
                       {%- if childlink.links == blank -%}
                         <a
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
