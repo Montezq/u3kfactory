@@ -41,7 +41,7 @@
           class="cart-notification-product pr-2.5"
         ></div>
         {%- if cart != empty -%}
-          {%- for i in (1..item.quantity) -%}
+          {%- for i in item.quantity -%}
             <div id="cart-notification-product-{{ item.key }}-{{ i }}" class="cart-item">
               <div class="flex items-center mb-4 pb-4 border-b border-[#8c8c8c]">
                 {%- if item.image -%}
