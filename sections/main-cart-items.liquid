@@ -68,7 +68,7 @@
                     </div>
                   {% endif %}
                 </div>
-                <div class="flex w-full ml-[22px] pl-2 pt-1.5 justify-between border-b border-b-[#8c8c8c]">
+                <div class="flex w-full ml-[22px] px-2 pt-1.5 justify-between border-b border-b-[#8c8c8c]">
                   <div>
                     <div class="mb-2">
                       <a
@@ -98,6 +98,11 @@
                         {%- endif -%}
                       {%- endfor -%}
                     </dl>
+                  </div>
+                  <div class="text-end">
+                    <p class="text-[22px] lg:text-[25px] font-bold text-right leading-none">
+                      {{ item.price | money_with_currency }}
+                    </p>
                   </div>
                 </div>
               </div>
