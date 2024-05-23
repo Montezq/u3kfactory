@@ -914,6 +914,9 @@ video {
 .h-screen {
   height: 100vh;
 }
+.h-\[122px\] {
+  height: 122px;
+}
 .max-h-\[36vh\] {
   max-height: 36vh;
 }
@@ -999,6 +1002,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-\[122px\] {
+  width: 122px;
 }
 .min-w-\[166px\] {
   min-width: 166px;
