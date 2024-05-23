@@ -24,6 +24,36 @@ body{
     -webkit-border-radius: 6px;
     border-radius: 6px;
   }
+  &.scrolled{
+    header{
+      @apply max-lg:bg-gray-10;
+    }
+  }
+}
+input[type="search"] {
+  -webkit-appearance: none; /* Remove default styling in Safari */
+  -moz-appearance: none;    /* Remove default styling in Firefox */
+  appearance: none;         /* Remove default styling in other browsers */
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  font: inherit;
+  color: inherit;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+input[type="search"]::-moz-search-clear {
+  display: none;
 }
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
@@ -243,6 +273,7 @@ input{
   @apply px-3.5;
   @apply py-2.5;
   @apply inline-block;
+  @apply text-center;
 }
 .btn_small{
   @apply text-2xl;
@@ -252,7 +283,110 @@ input{
   @apply bg-black;
   @apply text-white;
 }
+.btn_outlined{
+  @apply border-[2px];
+  @apply border-black;
+  @apply text-black;
+}
+.btn_white-outlined{
+  @apply border-[3px];
+  @apply border-white;
+  @apply text-white;
+  @apply text-[26px];
+  @apply md:text-[23px];
+  @apply font-axis;
+  @apply font-extrabold;
+  @apply tracking-normal;
+  @apply py-[9px];
+  @apply px-[20px];
+}
 
+.accordion-menu__opened {
+  .content-for-layout{
+    &:after{
+      content: "";
+      display: block;
+      @apply max-lg:!hidden;
+      width: 27px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      right: 0;
+      @apply bg-white;
+    }
+  }
+  .header__menu,
+  .desktop-search-wrapper{
+    @apply bg-white;
+  }
+  .home-page__banner-content{
+    @apply block;
+    @apply border-b-white;
+  }
+}
+.home-page__section{
+  @apply max-lg:!hidden;
+}
+.section-product-list_homepage{
+  transform: translateY(100%);
+  @apply duration-300;
+  @apply ease-in-out;
+  @apply lg:!hidden;
+  &.scrolled{
+    transform: translateY(0);
+  }
+}
+.home-page__carousel{
+  @apply duration-300;
+  @apply ease-in-out;
+  @apply lg:!hidden;
+  &.scrolled{
+    transform: translateY(-100%);
+  }
+  .splide__pagination{
+    @apply md:hidden;
+    @apply flex;
+    @apply gap-2.5;
+    @apply mt-2;
+    @apply mb-2;
+    button{
+      @apply w-3.5;
+      @apply h-3.5;
+      @apply rounded-full;
+      @apply border;
+      @apply border-black;
+      @apply bg-transparent;
+      @apply duration-200;
+      @apply ease-in-out;
+    }
+    .is-active{
+      background-color: var(--default-color);
+    }
+  }
+  .splide__slide{
+    &.is-active.is-visible{
+      .home-page__carousel-content{
+        @apply opacity-100;
+      }
+    }
+  }
+}
+.home-page__carousel-wrapper-btn{
+  top: calc(35vh + 145px);
+}
+.home-page__banner-content-heading{
+  h2{
+    font-size:  clamp(20px,  3.7vw, 54px);
+  }
+}
+.home-page__banner-content-subheading{
+  h2{
+    font-size:  clamp(24px,  4.4vw, 74px);
+  }
+}
+.home-page__section{
+  height: calc(100vh - 27px);
+}
 .visually-hidden {
   position: absolute !important;
   overflow: hidden;
@@ -522,28 +656,61 @@ accordion-item.open,
 }
 
 .product-section{
-  margin-bottom: clamp(50px, 14vh, 146px);
+  margin-bottom: clamp(2px, calc(14vh - 48px), calc(146px - 48px));
 }
 .product{
   padding-top: 1vh;
+  .price__container{
+    @apply md:text-[24px];
+    @apply font-bold;
+  }
 }
 .product__media-wrapper{
   @media screen and (min-width: 1280px){
     max-width: calc(80.2vh - (1vh + 27px));
     height: max-content;
   }
-}
-.splide-main{
-  margin-bottom: clamp(26px, 2.4vh, 34px);
+  .splide-main{
+    @media screen and (min-width: 768px) {
+      margin-bottom: clamp(26px, 2.4vh, 34px);
+    }
+  }
+  .splide__pagination{
+    @apply md:!hidden;
+    @apply flex;
+    @apply gap-2.5;
+    @apply mt-2;
+    @apply mb-2;
+    button{
+      @apply w-3;
+      @apply h-3;
+      @apply rounded-full;
+      @apply border;
+      @apply border-black;
+      @apply bg-white;
+      @apply duration-200;
+      @apply ease-in-out;
+    }
+    .is-active{
+      background-color: var(--default-color);
+    }
+  }
+  .splide-thumbnails{
+    @apply max-md:hidden;
+  }
 }
 .product__info-wrapper{
-  padding-top: clamp(32px, 5.4vh, 5.4vh);
+  @screen md{
+    padding-top: clamp(32px, 5.4vh, 5.4vh);
+  }
 }
 .product__title{
-  margin-bottom: clamp(32px, 2.94vh, 32px);
+  margin-bottom: clamp(27px, 2.94vh, 32px);
 }
 .product__description{
-  margin-bottom: clamp(32px, 6.43vh, 70px);
+  @screen md{
+    margin-bottom: clamp(32px, 6.43vh, 70px);
+  }
 }
 .product__description *{
   @apply font-roman;
@@ -563,7 +730,10 @@ accordion-item.open,
   @apply block
 }
 .select-options{
-  width: calc(100% - 44px);
+  @apply w-full;
+  @screen md{
+    width: calc(100% - 44px);
+  }
 }
 .custom-option label{
   &:hover{
@@ -579,9 +749,65 @@ accordion-item.open,
 }
 
 .plus-info{
-  padding-bottom: clamp(50px, 14.6vh, 178px)
+  padding-bottom: clamp(50px, 14.6vh, 178px);
+  @media screen and (min-width: 1280px){
+    max-width: calc(80.2vh + 23.2rem);
+    height: max-content;
+  }
+}
+.plus-info__section{
+  &:last-child{
+    .plus-info{
+      @apply pb-12;
+    }
+  }
 }
 
 .plus-info__image{
   margin-top: clamp(32px, 5.24vh, 81px);
+}
+.desktop-search-wrapper{
+  padding-right: clamp(35px, 3.13vw, 3.13vw);
+  padding-bottom: 4px;
+  padding-top: 3px;
+}
+.cart-notification-wrapper{
+  width: calc(100% - 18px);
+  top: calc(50% + 25px);
+}
+.modal__close-button,
+.cart-notification-wrapper-block{
+  box-shadow: 6px 0 11px rgba(0, 0, 0, .35);
+}
+.cart-notification__header p{
+  @apply pb-4;
+  @apply mb-[11px];
+  @apply relative;
+  &:after{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 1px;
+    @apply bg-black;
+    position: absolute;
+    top: 100%;
+    margin-top: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.cart-notification__wrapper{
+  max-height: calc(100vh);
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #191919; 
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+  }
 }

@@ -14,9 +14,8 @@
   endfor
 -%}
 
-{% comment %} // TODO: Logo fixat {% endcomment %}
 <header class="lg:flex max-lg:h-fit header lg:w-fit lg:h-screen fixed top-0 left-0 bottom-0 right-0 z-[2]{% if menu_open %} menu-open{% endif %}">
-  <div class="header__mobile px-[18px] py-4 bg-gray-10 flex items-center justify-between lg:hidden">
+  <div class="header__mobile px-[18px] py-4 flex items-center justify-between lg:hidden{% if template.name != "index" %} bg-gray-10{% endif %}">
     <div class="header__mobile-hamburger w-12">
       {%- render 'icon-hamburger' -%}
     </div>
@@ -225,12 +224,6 @@
     </div>
   </div>
 </header>
-
-{% comment %}
-  {%- if settings.cart_type == "notification" -%}
-    {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
-  {%- endif -%}
-{% endcomment %}
 
 <script type="application/ld+json">
   {

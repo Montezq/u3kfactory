@@ -13,7 +13,7 @@
   <div class="select-container">
     <variant-selects
       id="variant-selects-{{ section.id }}"
-      class="no-js-hidden product__options grid gap-7 max-w-[218px]"
+      class="no-js-hidden product__options grid grid-cols-2 md:grid-cols-1 gap-5 md:gap-7 md:max-w-[218px]"
       data-section="{{ section.id }}"
       data-url="{{ product.url }}"
       {% if update_url == false %}
@@ -25,19 +25,21 @@
         <div class="custom-select relative">
           {%- for value in option.values -%}
             {% if option.selected_value == value %}
-              <div class="select-trigger cursor-pointer border-2 border-black flex h-12">
+              <div class="select-trigger cursor-pointer border md:border-2 border-black flex h-12">
                 <div class="flex items-center pl-2.5 flex-1">
-                  <span class="selected-text line-clamp-1 text-2xl">{{- value -}}</span>
+                  <span class="selected-text line-clamp-1 text-xl md:text-2xl text-black font-normal tracking-widerx">
+                    {{- value -}}
+                  </span>
                 </div>
-                <div class="w-11 select-icon border-l-2 border-black flex items-center justify-center">
+                <div class="w-11 select-icon md:border-l-2 border-black flex items-center justify-center">
                   <span
-                    class="icon-FULL-ICON-SET-WEBSITE-FINAL_Dropdown-arrow font-semibold text-2xl duration-100 ease-in-out"
+                    class="icon-FULL-ICON-SET-WEBSITE-FINAL_Dropdown-arrow font-semibold text-xl md:text-2xl duration-100 ease-in-out"
                   ></span>
                 </div>
               </div>
             {% endif %}
           {%- endfor -%}
-          <ul class="select-options hidden absolute z-[2] top-full left-0 border-2 border-t-0 border-black bg-white">
+          <ul class="select-options hidden absolute z-[2] top-full -mt-[1px] md:-mt-[2px] left-0 border md:border-2 border-t-0 border-black bg-white">
             {%- for value in option.values -%}
               <li class="custom-option{% if option.selected_value == value %} selected{% endif %}">
                 <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
@@ -50,7 +52,10 @@
                     value="{{- value -}}"
                     class="invisible w-0 h-0"
                   >
-                  <span data-id="{{ value | escape }}" class="line-clamp-1 text-2xl">
+                  <span
+                    data-id="{{ value | escape }}"
+                    class="line-clamp-1 text-xl md:text-2xl text-black tracking-widerx"
+                  >
                     {{- value -}}
                   </span>
                 </label>

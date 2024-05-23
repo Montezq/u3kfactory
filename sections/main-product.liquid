@@ -3,19 +3,9 @@
   class="section-{{ section.id }}-padding gradient pb-12 product-section"
   data-section="{{ section.id }}"
 >
-  {% comment %}
-    {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-  {% endcomment %}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
-  {% unless product.has_only_default_variant %}
-    {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
-    {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
-    {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
-  {% endunless %}
-  {%- if product.quantity_price_breaks_configured? -%}
-    {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
-  {%- endif -%}
 
+  <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {{ 'splide-core.min.css' | asset_url | stylesheet_tag }}
@@ -29,16 +19,57 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
-    <div class="product flex gap-12 max-xl:flex-col">
+    <div class="md:hidden px-[18px]">
+      <div class="flex justify-between">
+        <div class="flex-1 line-clamp-1">
+          <h2 class="text-2xl leading-none font-semibold">
+            {{ product.title | escape }}
+          </h2>
+        </div>
+        <div class="text-end">
+          {%- render 'price',
+            product: product,
+            currency: 'symbol',
+            use_variant: true,
+            show_badges: true,
+            price_class: 'price--large'
+          -%}
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <div class="flex-1 line-clamp-1">
+          <a
+            href="{{ product.metafields.custom.artist_page.value.url }}"
+            class="text-base italic"
+          >
+            <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+            by {{ product.vendor }}
+          </a>
+        </div>
+        <div class="text-end">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'buy_buttons' -%}
+                {%- if block.settings.taxes_text != blank -%}
+                  <p class="text-xs text-gray-850 italic font-semibold">
+                    {{ block.settings.taxes_text }}
+                  </p>
+                {%- endif -%}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+    <div class="product flex md:gap-[46px] max-xl:flex-col">
       <div class="grid__item product__media-wrapper xl:w-[61%]">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
-      <div class="product__info-wrapper xl:min-w-[360px] grid__item flex-1{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="product__info-wrapper xl:min-w-[360px] max-lg:px-4 grid__item flex-1{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <product-info
           id="ProductInfo-{{ section.id }}"
           data-section="{{ section.id }}"
           data-url="{{ product.url }}"
-          class="max-w-96 block{% if section.settings.enable_sticky_info %} sticky top-8{% endif %}"
+          class="md:max-w-96 flex flex-col"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -47,7 +78,7 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'title' -%}
-                <div class="product__title" {{ block.shopify_attributes }}>
+                <div class="product__title max-md:hidden" {{ block.shopify_attributes }}>
                   <h1 class="text-[32px] font-semibold leading-none mb-3">{{ product.title | escape }}</h1>
                   <h2 class="leading-none text-[26px] font-helveticaThinCond italic tracking-wide font-normal">
                     <a
@@ -60,35 +91,12 @@
                 </div>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
-                  <div class="product__description" {{ block.shopify_attributes }}>
+                  <div class="product__description max-md:mt-14 max-md:order-5" {{ block.shopify_attributes }}>
                     {{ product.description }}
                   </div>
                 {%- endif -%}
-                {% comment %}
-                  {%- when 'price' -%}
-                  <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                    {%- render 'price',
-                      product: product,
-                      use_variant: true,
-                      show_badges: true,
-                      price_class: 'price--large'
-                    -%}
-                  </div>
-                  {%- if product.quantity_price_breaks_configured? -%}
-                    <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
-                      <span>{{ 'products.product.volume_pricing.note' | t }}</span>
-                    </div>
-                  {%- endif -%}
-                  <div {{ block.shopify_attributes }}>
-                    {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
-                    {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
-                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                      {{ form | payment_terms }}
-                    {%- endform -%}
-                  </div>
-                {% endcomment %}
               {%- when 'variant_picker' -%}
-                <div class="mb-24">
+                <div class="mb-5 md:mb-14 lg:mb-24">
                   {% render 'product-variant-picker',
                     product: product,
                     block: block,
@@ -97,16 +105,16 @@
                 </div>
               {%- when 'buy_buttons' -%}
                 {%- if block.settings.taxes_text != blank -%}
-                  <div class="mb-3">
+                  <div class="mb-3 max-md:hidden">
                     <p class="text-[13px] text-gray-850 italic font-semibold">
                       {{ block.settings.taxes_text }}
                     </p>
                   </div>
                 {%- endif -%}
-                <div class="flex max-w-[360px]">
+                <div class="flex md:max-w-[360px]">
                   <div
                     id="price-{{ section.id }}-buy"
-                    class="max-w-[136px] w-full border-2 border-black text-center flex items-center justify-center no-js-hidden"
+                    class="max-w-[136px] max-md:hidden w-full border-2 border-black text-center flex items-center justify-center no-js-hidden"
                     role="status"
                   >
                     {%- render 'price',
@@ -129,11 +137,11 @@
                 </div>
             {%- endcase -%}
           {%- endfor -%}
-          <div class="max-w-[360px] mt-4">
+          <div class="md:max-w-[360px] mt-4">
             {%- render 'favorites-button' -%}
           </div>
-          <div class="max-w-[360px] mt-4">
-            <p class="italic uppercase text-lg text-gray-300 cursor-pointer w-fit font-semibold">
+          <div class="max-w-[360px] mt-4 max-md:order-10">
+            <p class="italic uppercase text-lg text-gray-300 cursor-pointer w-fit font-semibold tracking-widerx">
               Contact us for larger sizes
               <span
                 class="icon-FULL-ICON-SET-WEBSITE-FINAL_Big-Envelope text-[#121212] !font-semibold inline-block ml-1.5 mt-1"
@@ -223,11 +231,17 @@
     </script>
   </div>
 </section>
+{%- if settings.cart_type == 'notification' -%}
+  {%- render 'cart-notification',
+    color_scheme: section.settings.color_scheme,
+    desktop_menu_type: section.settings.menu_type_desktop
+  -%}
+{%- endif -%}
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var mainCarousel = new Splide('.splide-main', {
       rewind: true,
-      pagination: false,
+      pagination: true,
       arrows: false,
     });
     var thumbnailsCarousel = new Splide('.splide-thumbnails', {
@@ -361,13 +375,6 @@
       "limit": 1
     }
   ],
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "enable_sticky_info",
-      "default": true,
-      "label": "t:sections.main-product.settings.enable_sticky_info.label"
-    }
-  ]
+  "settings": []
 }
 {% endschema %}
