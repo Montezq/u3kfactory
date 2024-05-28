@@ -4,7 +4,7 @@
       "type": "main-collection-product-grid",
       "settings": {
         "heading": "",
-        "grid_template": "big",
+        "grid_template": "medium",
         "enable_filtering": true,
         "enable_sorting": true
       }
