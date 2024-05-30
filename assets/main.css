@@ -1629,6 +1629,9 @@ video {
 .font-bold {
   font-weight: 700;
 }
+.font-extrabold {
+  font-weight: 800;
+}
 .font-normal {
   font-weight: 400;
 }
@@ -2939,6 +2942,10 @@ input:focus-visible{
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
     padding-left: 8px;
     padding-right: 8px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    --tw-text-opacity: 1;
+    color: rgb(99 98 98 / var(--tw-text-opacity));
 }
 .contact-us__modal-body input,
   .contact-us__modal-body select{
