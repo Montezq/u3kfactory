@@ -3218,6 +3218,14 @@ input:focus-visible{
     font-size: 28px;
   }
 
+  .max-md\:font-bold {
+    font-weight: 700;
+  }
+
+  .max-md\:leading-none {
+    line-height: 1;
+  }
+
   .max-md\:tracking-xwidest {
     letter-spacing: .12em;
   }
@@ -3246,6 +3254,10 @@ input:focus-visible{
 
   .md\:ml-auto {
     margin-left: auto;
+  }
+
+  .md\:mb-2 {
+    margin-bottom: 0.5rem;
   }
 
   .md\:flex {
@@ -3407,6 +3419,10 @@ input:focus-visible{
 
   .md\:text-\[42px\] {
     font-size: 42px;
+  }
+
+  .md\:text-\[17px\] {
+    font-size: 17px;
   }
 
   .md\:text-gray-200 {

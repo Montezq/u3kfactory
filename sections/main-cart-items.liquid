@@ -72,20 +72,24 @@
                   </div>
                   <div class="flex max-md:flex-col w-full ml-[22px] pl-2 md:pr-[14px] pt-1.5 justify-between md:border-b md:border-b-[#8c8c8c]">
                     <div class="pb-3 cart-item__content-left">
-                      <div class="mb-2">
+                      <div class="mb-5 md:mb-2">
                         <a
                           href="{{ item.url }}"
                           class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
                         >
                           {{- item.product.title | escape -}}
                         </a>
-                        <p class="text-[17px] italic">by {{ item.product.vendor }}</p>
+                        <p class="text-[15px] md:text-[17px] italic max-md:leading-none">
+                          by {{ item.product.vendor }}
+                        </p>
                       </div>
                       <dl class="space-y-1.5">
                         {%- unless item.product.has_only_default_variant -%}
                           {%- for option in item.options_with_values -%}
                             <div class="product-option">
-                              <dd class="text-[18px] lg:text-[22px] leading-none">{{ option.value }}</dd>
+                              <dd class="text-[18px] lg:text-[22px] leading-none max-md:font-bold">
+                                {{ option.value }}
+                              </dd>
                             </div>
                           {%- endfor -%}
                         {%- endunless -%}
@@ -93,7 +97,7 @@
                           {%- assign property_first_char = property.first | slice: 0 -%}
                           {%- if property.last != blank and property_first_char != '_' -%}
                             <div class="product-option">
-                              <dd class="text-[18px] lg:text-[22px] leading-none">
+                              <dd class="text-[18px] lg:text-[22px] leading-none max-md:font-bold">
                                 {{ property.last }}
                               </dd>
                             </div>
