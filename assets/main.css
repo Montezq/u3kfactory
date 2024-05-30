@@ -1432,9 +1432,6 @@ video {
 .pr-5 {
   padding-right: 1.25rem;
 }
-.pr-7 {
-  padding-right: 1.75rem;
-}
 .pr-\[14px\] {
   padding-right: 14px;
 }
@@ -2772,17 +2769,17 @@ input:focus-visible{
   padding-top: clamp(42px, 6.4vh ,126px);
 }
 .cart__footer-wrapper,
-.cart__heading{
-  left: 0;
-  right: 0;
-  padding-right: 3rem;
+.cart__heading {
+  left: 0px;
+  right: 0px;
   z-index: 1;
 }
 @media (min-width: 1024px){
 .cart__footer-wrapper,
-.cart__heading{
+.cart__heading {
+    padding-right: 3rem;
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
-}
+  }
   }
 .cart__footer-wrapper{
   height: clamp(92px, 9.2vh, 154px);
@@ -3456,6 +3453,10 @@ input:focus-visible{
 
   .lg\:pr-0 {
     padding-right: 0px;
+  }
+
+  .lg\:pr-7 {
+    padding-right: 1.75rem;
   }
 
   .lg\:pr-\[20px\] {
