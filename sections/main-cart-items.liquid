@@ -15,7 +15,7 @@
     <div class="page-width">
       <div
         id="bar"
-        class="cart__heading fixed top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out"
+        class="cart__heading ds_element fixed top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out"
       >
         <div class="flex justify-between lg:border-b lg:border-b-black lg:pb-[3px] w-full">
           <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
@@ -142,6 +142,28 @@
                           </p>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                  <div class="md:hidden px-1 mt-3">
+                    <div class="border-b border-b-[#8c8c8c] pb-[9px]">
+                      <button class="flex items-center text-right font-bold text-[21px] md:text-[20px] whitespace-nowrap max-md:mb-[3px]">
+                        <span
+                          class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v2 text-[14px] max-md:mr-4 md:ml-0.5"
+                        ></span>
+                        save for later
+                      </button>
+                      <cart-remove-button
+                        id="Remove-{{ item.index | plus: 1 }}"
+                        data-index="{{ item.index | plus: 1 }}"
+                      >
+                        <a
+                          href="{{ item.url_to_remove }}"
+                          class="text-right text-[20px] font-bold whitespace-nowrap"
+                          aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                        >
+                          <span class="font-coutureBold text-[15px] font-bold max-md:mr-4">x</span> remove
+                        </a>
+                      </cart-remove-button>
                     </div>
                   </div>
                 </div>

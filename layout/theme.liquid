@@ -149,24 +149,26 @@
           font-weight: bold;
           font-style: normal;
           font-display: swap;
-      }
+        }
 
         @font-face {
-          font-family: 'Neue Helvetica';
-          src:  url("{{ 'NeueHelveticaforZara-Lt.woff2' | asset_url }}");
-          src:  url("{{ 'NeueHelveticaforZara-Lt.eot?#iefix' | asset_url }}") format('embedded-opentype'),
-            url("{{ 'icomoon.ttf?2nrby7' | asset_url }}") format('truetype'),
-            url("{{ 'icomoon.woff?2nrby7' | asset_url }}") format('woff'),
-            url("{{ 'icomoon.svg?2nrby7#icomoon' | asset_url }}") format('svg');
-          font-weight: normal;
+          font-family: 'Neue Helvetica Light';
+          src: url("{{ 'HelveticaNeueLTStd-LtCn.woff2' | asset_url }}") format('woff2');
+          src: url("{{ 'HelveticaNeueLTStd-LtCn.eot?#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.woff' | asset_url }}") format('woff'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.svg#HelveticaNeueLTStd-LtCn' | asset_url }}") format('svg');
+          font-weight: bold;
           font-style: normal;
-          font-display: block;
+          font-display: swap;
         }
-        {% if template.name == "index" %}
-          body{
-            overflow: hidden;
-          }
-        {% endif %}
+
+      {% if template.name == "index" %}
+        body{
+          overflow: hidden;
+        }
+      {% endif %}
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}

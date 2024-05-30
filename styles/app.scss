@@ -381,6 +381,9 @@ input{
       }
     }
   }
+  .btn_white-outlined{
+    @apply max-sm:!text-[22px];
+  }
 }
 .home-page__carousel-wrapper-btn{
   top: calc(35vh + 145px);
@@ -991,4 +994,24 @@ accordion-item.open,
   @media screen and (max-width: 767px){
     margin-top: clamp(70px, 12vh, 208px);
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ds_element{
+  @apply max-sm:bg-[#3d5eda];
 }

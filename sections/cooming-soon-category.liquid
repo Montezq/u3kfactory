@@ -34,7 +34,10 @@
           </h2>
         {%- endif -%}
         {%- if section.settings.subgheading != blank -%}
-          <h3 class="font-helveticaThinCond text-[70px] tracking-widest font-bold uppercase">
+          <h3 class="font-helveticaCond text-[70px] tracking-widest uppercase">
+            {{ section.settings.subgheading }}
+          </h3>
+          <h3 class="font-helveticaLight text-[70px] tracking-widest uppercase">
             {{ section.settings.subgheading }}
           </h3>
         {%- endif -%}
