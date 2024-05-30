@@ -2782,6 +2782,13 @@ input:focus-visible{
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
   }
+@media not all and (min-width: 768px) {
+
+  .cart__footer-wrapper {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
 @media not all and (min-width: 1024px) {
 
   .cart__footer-wrapper {
