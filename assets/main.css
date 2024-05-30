@@ -2998,6 +2998,16 @@ input:focus-visible{
 .cooming-soon__category{
   height: calc(100vh - 27px);
 }
+@media screen and (max-width: 1360px){
+.cooming-soon__category h2{
+      font-size: 5vw;
+  }
+    }
+@media screen and (max-width: 1200px){
+.cooming-soon__category h2{
+      font-size: 4vw;
+  }
+    }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
