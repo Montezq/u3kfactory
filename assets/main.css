@@ -2854,7 +2854,7 @@ input:focus-visible{
   margin-bottom: clamp(50px, 7.62vh, 7.62vh);
 }
 .cart__empty-text-h2{
-  margin-top: clamp(50px, 10.38vh, 10.38vh);
+  margin-top: clamp(50px, 10vh, 10vh);
 }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
