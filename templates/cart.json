@@ -9,7 +9,7 @@
     "cart-footer": {
       "type": "main-cart-footer",
       "settings": {
-        "privacy_menu": ""
+        "privacy_menu": "footer"
       }
     }
   },
