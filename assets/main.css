@@ -3084,12 +3084,20 @@ input:focus-visible{
     position: absolute;
   }
 
+  .max-md\:relative {
+    position: relative;
+  }
+
   .max-md\:right-5 {
     right: 1.25rem;
   }
 
   .max-md\:top-1\/2 {
     top: 50%;
+  }
+
+  .max-md\:right-6 {
+    right: 1.5rem;
   }
 
   .max-md\:order-10 {

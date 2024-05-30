@@ -182,7 +182,7 @@
           <button
             type="submit"
             id="checkout"
-            class="cart__checkout-button btn btn_primary !flex items-center !tracking-wide whitespace-nowrap max-md:w-full"
+            class="cart__checkout-button btn btn_primary !flex items-center !tracking-wide whitespace-nowrap max-md:w-full max-md:relative"
             name="checkout"
             {% if cart == empty %}
               disabled
@@ -192,7 +192,9 @@
             <span class="font-coutureBold text-[22px] leading-none">
               {{ 'sections.cart.checkout' | t }}
             </span>
-            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Hand-Truck-Icon"></span>
+            <span
+              class="icon-FULL-ICON-SET-WEBSITE-FINAL_Hand-Truck-Icon max-md:absolute max-md:top-1/2 max-md:-translate-y-1/2 max-md:right-6"
+            ></span>
           </button>
         </div>
         <div id="cart-errors"></div>
