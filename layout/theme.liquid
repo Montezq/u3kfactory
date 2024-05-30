@@ -151,6 +151,19 @@
           font-display: swap;
         }
 
+        @font-face {
+          font-family: 'Neue Helvetica Light';
+          src: url("{{ 'HelveticaNeueLTStd-LtCn.woff2' | asset_url }}") format('woff2');
+          src: url("{{ 'HelveticaNeueLTStd-LtCn.eot?#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.woff' | asset_url }}") format('woff'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.svg#HelveticaNeueLTStd-LtCn' | asset_url }}") format('svg');
+          font-weight: bold;
+          font-style: normal;
+          font-display: swap;
+        }
+
       {% if template.name == "index" %}
         body{
           overflow: hidden;
