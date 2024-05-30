@@ -1401,6 +1401,9 @@ video {
 .pl-\[8px\] {
   padding-left: 8px;
 }
+.pr-10 {
+  padding-right: 2.5rem;
+}
 .pr-2 {
   padding-right: 0.5rem;
 }
@@ -1409,9 +1412,6 @@ video {
 }
 .pr-5 {
   padding-right: 1.25rem;
-}
-.pr-7 {
-  padding-right: 1.75rem;
 }
 .pr-\[14px\] {
   padding-right: 14px;
@@ -1458,6 +1458,9 @@ video {
 .pt-\[8\%\] {
   padding-top: 8%;
 }
+.pb-\[3px\] {
+  padding-bottom: 3px;
+}
 .text-center {
   text-align: center;
 }
@@ -1473,6 +1476,9 @@ video {
 .font-coutureBold {
   font-family: "Couture Bold", sans-serif;
 }
+.font-helvetica {
+  font-family: "Neue Helvetica", sans-serif;
+}
 .font-helveticaCond {
   font-family: "Helvetica Cond", sans-serif;
 }
@@ -1481,9 +1487,6 @@ video {
 }
 .font-open {
   font-family: "Open Sans", sans-serif;
-}
-.font-helvetica {
-  font-family: "Neue Helvetica", sans-serif;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -1587,6 +1590,12 @@ video {
 .\!font-semibold {
   font-weight: 600 !important;
 }
+.font-\[100\] {
+  font-weight: 100;
+}
+.font-\[900\] {
+  font-weight: 900;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -1598,18 +1607,6 @@ video {
 }
 .font-thin {
   font-weight: 100;
-}
-.font-extrabold {
-  font-weight: 800;
-}
-.font-light {
-  font-weight: 300;
-}
-.font-\[100\] {
-  font-weight: 100;
-}
-.font-\[900\] {
-  font-weight: 900;
 }
 .uppercase {
   text-transform: uppercase;
@@ -2738,6 +2735,9 @@ input:focus-visible{
 .cart-item__block:last-child{
     margin-bottom: 0;
   }
+.cart__heading{
+  padding-top: clamp(42px, 6.4vh ,126px);
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
