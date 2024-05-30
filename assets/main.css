@@ -1024,6 +1024,9 @@ video {
 .w-\[60vw\] {
   width: 60vw;
 }
+.w-\[32vw\] {
+  width: 32vw;
+}
 .min-w-\[166px\] {
   min-width: 166px;
 }
