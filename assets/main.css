@@ -2893,9 +2893,14 @@ input:focus-visible{
     font-size: 27px;
   }
   }
-.copies-left__wrapper{
-  margin-bottom: clamp(32px, 4.14vh, 45px);
+.copies-left__wrapper {
+  margin-bottom: 1.25rem;
 }
+@media (min-width: 768px){
+.copies-left__wrapper{
+    margin-bottom: clamp(32px, 4.14vh, 45px);
+}
+  }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
@@ -3317,12 +3322,12 @@ input:focus-visible{
     margin-bottom: 0.5rem;
   }
 
-  .md\:ml-auto {
-    margin-left: auto;
-  }
-
   .md\:ml-2 {
     margin-left: 0.5rem;
+  }
+
+  .md\:ml-auto {
+    margin-left: auto;
   }
 
   .md\:flex {
