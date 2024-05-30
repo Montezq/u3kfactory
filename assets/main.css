@@ -2762,8 +2762,11 @@ input:focus-visible{
 .cart-item__block:last-child{
     margin-bottom: 0;
   }
-.cart__heading{
-  padding-top: clamp(42px, 6.4vh ,126px);
+@media not all and (min-width: 768px) {
+
+  .cart__heading {
+    top: 70px;
+  }
 }
 @media not all and (min-width: 1024px) {
 
@@ -2772,6 +2775,11 @@ input:focus-visible{
     padding-right: 18px;
   }
 }
+@media (min-width: 768px){
+.cart__heading{
+    padding-top: clamp(42px, 6.4vh ,126px);
+}
+  }
 .cart__footer-wrapper,
 .cart__heading {
   left: 0px;
