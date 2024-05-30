@@ -917,9 +917,6 @@ video {
 .h-8 {
   height: 2rem;
 }
-.h-\[200px\] {
-  height: 200px;
-}
 .h-\[34px\] {
   height: 34px;
 }
@@ -934,12 +931,6 @@ video {
 }
 .h-screen {
   height: 100vh;
-}
-.h-\[204px\] {
-  height: 204px;
-}
-.h-\[180px\] {
-  height: 180px;
 }
 .max-h-\[36vh\] {
   max-height: 36vh;
@@ -995,9 +986,6 @@ video {
 .w-\[17px\] {
   width: 17px;
 }
-.w-\[200px\] {
-  width: 200px;
-}
 .w-\[34px\] {
   width: 34px;
 }
@@ -1029,12 +1017,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-\[204px\] {
-  width: 204px;
-}
-.w-\[180px\] {
-  width: 180px;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -1272,6 +1254,10 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
+.border-b-\[\#8c8c8c\] {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(140 140 140 / var(--tw-border-opacity));
+}
 .border-b-black {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -1282,10 +1268,6 @@ video {
 .border-b-white {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-.border-b-\[\#8c8c8c\] {
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(140 140 140 / var(--tw-border-opacity));
 }
 .bg-black {
   --tw-bg-opacity: 1;
@@ -1405,6 +1387,9 @@ video {
 .pb-\[66px\] {
   padding-bottom: 66px;
 }
+.pb-\[9px\] {
+  padding-bottom: 9px;
+}
 .pl-0 {
   padding-left: 0px;
 }
@@ -1480,9 +1465,6 @@ video {
 .pt-\[8\%\] {
   padding-top: 8%;
 }
-.pb-\[9px\] {
-  padding-bottom: 9px;
-}
 .text-center {
   text-align: center;
 }
@@ -1553,6 +1535,9 @@ video {
 .text-\[20px\] {
   font-size: 20px;
 }
+.text-\[21px\] {
+  font-size: 21px;
+}
 .text-\[22px\] {
   font-size: 22px;
 }
@@ -1611,9 +1596,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-\[21px\] {
-  font-size: 21px;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
@@ -2853,14 +2835,15 @@ input:focus-visible{
 @media (min-width: 768px){
 .cart__wrapper-items{
     padding-bottom: clamp(92px, 9.2vh, 154px);
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-top: 100px;
 }
   }
 @media (min-width: 1024px){
-.cart__wrapper-items{
+.cart__wrapper-items {
+    padding-left: 0px;
+    padding-right: 0px;
     padding-top: clamp(146px, 23.97vh, 417px);
-}
+  }
 .cart-item__content-left {
     min-width: 465px;
   }
@@ -3150,28 +3133,20 @@ input:focus-visible{
             order: 5;
   }
 
-  .max-md\:mr-2 {
-    margin-right: 0.5rem;
-  }
-
-  .max-md\:mt-14 {
-    margin-top: 3.5rem;
-  }
-
   .max-md\:mb-\[3px\] {
     margin-bottom: 3px;
   }
 
-  .max-md\:mr-5 {
-    margin-right: 1.25rem;
-  }
-
-  .max-md\:mr-\[17px\] {
-    margin-right: 17px;
+  .max-md\:mr-2 {
+    margin-right: 0.5rem;
   }
 
   .max-md\:mr-4 {
     margin-right: 1rem;
+  }
+
+  .max-md\:mt-14 {
+    margin-top: 3.5rem;
   }
 
   .max-md\:flex {
@@ -3189,12 +3164,12 @@ input:focus-visible{
     aspect-ratio: 1 / 1;
   }
 
-  .max-md\:w-full {
-    width: 100%;
-  }
-
   .max-md\:w-\[48vw\] {
     width: 48vw;
+  }
+
+  .max-md\:w-full {
+    width: 100%;
   }
 
   .max-md\:max-w-\[204px\] {
@@ -3286,20 +3261,16 @@ input:focus-visible{
     margin-top: -2px;
   }
 
+  .md\:mb-1 {
+    margin-bottom: 0.25rem;
+  }
+
   .md\:mb-14 {
     margin-bottom: 3.5rem;
   }
 
-  .md\:ml-auto {
-    margin-left: auto;
-  }
-
   .md\:mb-2 {
     margin-bottom: 0.5rem;
-  }
-
-  .md\:mb-1 {
-    margin-bottom: 0.25rem;
   }
 
   .md\:ml-0 {
@@ -3308,6 +3279,10 @@ input:focus-visible{
 
   .md\:ml-0\.5 {
     margin-left: 0.125rem;
+  }
+
+  .md\:ml-auto {
+    margin-left: auto;
   }
 
   .md\:flex {
@@ -3436,16 +3411,16 @@ input:focus-visible{
     padding-bottom: 30px;
   }
 
+  .md\:pl-2 {
+    padding-left: 0.5rem;
+  }
+
   .md\:pr-\[14px\] {
     padding-right: 14px;
   }
 
   .md\:pt-0 {
     padding-top: 0px;
-  }
-
-  .md\:pl-2 {
-    padding-left: 0.5rem;
   }
 
   .md\:pt-1 {
@@ -3478,6 +3453,14 @@ input:focus-visible{
     line-height: 1;
   }
 
+  .md\:text-\[17px\] {
+    font-size: 17px;
+  }
+
+  .md\:text-\[20px\] {
+    font-size: 20px;
+  }
+
   .md\:text-\[22px\] {
     font-size: 22px;
   }
@@ -3492,14 +3475,6 @@ input:focus-visible{
 
   .md\:text-\[42px\] {
     font-size: 42px;
-  }
-
-  .md\:text-\[17px\] {
-    font-size: 17px;
-  }
-
-  .md\:text-\[20px\] {
-    font-size: 20px;
   }
 
   .md\:text-gray-200 {
