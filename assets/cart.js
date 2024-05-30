@@ -182,6 +182,7 @@ class CartItems extends HTMLElement {
         if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
 
         this.getSectionsToRender().forEach((section) => {
+          console.log(document.getElementById(section.id))
           console.log(document.getElementById(section.id).querySelector(section.selector))
           console.log(section)
           const elementToReplace =
