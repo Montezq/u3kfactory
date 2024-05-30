@@ -2795,6 +2795,9 @@ input:focus-visible{
   padding-top: clamp(146px, 23.97vh, 417px);
   padding-bottom: clamp(92px, 9.2vh, 154px);
 }
+.cart-item__content-left{
+  min-width: 465px;
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
