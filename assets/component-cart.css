@@ -145,14 +145,6 @@ cart-items {
     width: 35rem;
   }
 
-  .cart__footer > * + * {
-    margin-left: 4rem;
-    margin-top: 0;
-  }
-}
-
-.cart__ctas button {
-  width: 100%;
 }
 
 .cart__ctas > *:not(noscript:first-child) + * {
