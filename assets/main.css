@@ -3271,6 +3271,10 @@ input:focus-visible{
     padding-top: 0px;
   }
 
+  .md\:font-coutureBold {
+    font-family: "Couture Bold", sans-serif;
+  }
+
   .md\:\!text-\[24px\] {
     font-size: 24px !important;
   }
