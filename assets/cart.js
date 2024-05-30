@@ -47,6 +47,7 @@ class CartItems extends HTMLElement {
   }
 
   onCartUpdate() {
+    console.log(this.tagName)
     if (this.tagName === 'CART-DRAWER-ITEMS') {
       fetch(`${routes.cart_url}?section_id=cart-drawer`)
         .then((response) => response.text())
