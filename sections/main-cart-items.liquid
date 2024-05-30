@@ -13,7 +13,7 @@
 <div class="cart__wrapper flex flex-col relative lg:pr-7">
   <cart-items class="gradient  isolate{% if cart == empty %} is-empty{% endif %}">
     <div class="page-width">
-      <div class="cart__heading fixed top-[27px] bg-gray-10 lg:bg-white">
+      <div id="bar" class="cart__heading fixed top-[27px] bg-gray-10 lg:bg-white duration-300 ease-in-out">
         <div class="flex justify-between lg:border-b lg:border-b-black lg:pb-[3px] w-full">
           <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
             {{ 'sections.cart.title' | t }}
@@ -213,13 +213,10 @@
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       if (scrollTop > lastScrollTop) {
-        // Scrolling down
         bar.style.transform = 'translateY(-100%)';
       } else {
-        // Scrolling up
         bar.style.transform = 'translateY(0)';
       }
-
       lastScrollTop = scrollTop;
     });
 
