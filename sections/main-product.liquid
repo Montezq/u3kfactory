@@ -135,6 +135,7 @@
                     -%}
                   </div>
                 </div>
+              {%- when 'copies_left' -%}
             {%- endcase -%}
           {%- endfor -%}
           <div class="md:max-w-[360px] mt-4">
@@ -310,6 +311,11 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
+      "limit": 1
+    },
+    {
+      "type": "copies_left",
+      "name": "tCopies Left",
       "limit": 1
     },
     {
