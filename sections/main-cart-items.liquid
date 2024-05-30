@@ -206,6 +206,23 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    const bar = document.getElementById('bar');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', function () {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        bar.style.transform = 'translateY(-100%)';
+      } else {
+        // Scrolling up
+        bar.style.transform = 'translateY(0)';
+      }
+
+      lastScrollTop = scrollTop;
+    });
+
     function isIE() {
       const ua = window.navigator.userAgent;
       const msie = ua.indexOf('MSIE ');
