@@ -103,13 +103,13 @@
                         >
                           <a
                             href="{{ item.url_to_remove }}"
-                            class="text-right text-[20px] font-bold"
+                            class="text-right text-[20px] font-bold whitespace-nowrap"
                             aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                           >
                             Remove <span class="font-coutureBold text-[15px] font-bold">x</span>
                           </a>
                         </cart-remove-button>
-                        <button class="flex items-center text-right font-bold text-[20px] ml-auto">
+                        <button class="flex items-center text-right font-bold text-[20px] ml-auto whitespace-nowrap">
                           Save for later
                           <span
                             class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v2 text-[14px] ml-0.5"
@@ -117,10 +117,10 @@
                         </button>
                       </div>
                       <div class="mb-1">
-                        <p class="text-[22px] lg:text-[25px] font-bold text-right leading-none mb-1.5">
+                        <p class="text-[22px] lg:text-[25px] font-bold text-right leading-none mb-1.5 whitespace-nowrap">
                           {{ item.price | money_with_currency }}
                         </p>
-                        <p class="text-[13px] font-bold text-right leading-none italic">
+                        <p class="text-[13px] font-bold text-right leading-none italic whitespace-nowrap">
                           * VAT INCLUDED / EXCLUDED SHIPPING COST
                         </p>
                       </div>
