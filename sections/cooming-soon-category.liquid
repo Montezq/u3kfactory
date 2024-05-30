@@ -45,7 +45,7 @@
         <input type="hidden" name="contact[tags]" value="newsletter, cooming-soon">
         <div class="newsletter-form__field-wrapper">
           <div class="flex flex-col items-center">
-            <div class="relative flex-1 w-full>
+            <div class="relative flex-1 w-full mb-[25px]">
               <input
                 id="NewsletterForm--{{ section.id }}"
                 name="contact[email]"
@@ -79,7 +79,7 @@
 
             <button
               type="button"
-              class="submit-button bg-black font-axis text-xl py-[5px] px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
+              class="submit-button btn_white-outline !font-couture !text-[22px] !py-3 !px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
               name="commit"
               id="submitNewsletter"
               aria-label="{{ 'newsletter.keep_updated' | t }}"

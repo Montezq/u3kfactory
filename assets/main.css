@@ -860,6 +860,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.mb-\[25px\] {
+  margin-bottom: 25px;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1365,6 +1368,10 @@ video {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+.\!px-3 {
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+}
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -1625,6 +1632,9 @@ video {
 }
 .text-\[70px\] {
   font-size: 70px;
+}
+.\!text-\[22px\] {
+  font-size: 22px !important;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
