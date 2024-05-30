@@ -2999,12 +2999,14 @@ input:focus-visible{
   height: calc(100vh - 27px);
 }
 @media screen and (max-width: 1360px){
-.cooming-soon__category h2{
+.cooming-soon__category h2,
+  .cooming-soon__category h3{
       font-size: 5vw;
   }
     }
 @media screen and (max-width: 1200px){
-.cooming-soon__category h2{
+.cooming-soon__category h2,
+  .cooming-soon__category h3{
       font-size: 4vw;
   }
     }
