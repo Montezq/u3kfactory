@@ -869,13 +869,39 @@ accordion-item.open,
   padding: 42px 8px 67px;
   @screen md{
     padding-bottom: clamp(92px, 9.2vh, 154px);
-    @apply px-0;
+    padding-top: 100px;
   }
   @screen lg{
+    @apply px-0;
     padding-top: clamp(146px, 23.97vh, 417px);
   }
 }
 .cart-item__content-left{
   @apply lg:min-w-[465px];
   @apply md:min-w-[320px];
+}
+.cart__empty-text{
+  margin-bottom: clamp(50px, 7.62vh, 7.62vh);
+}
+.cart__empty-text-h2{
+  margin-top: clamp(50px, 10vh, 10vh);
+}
+.cart__empty-wrapper{
+  padding-top: clamp(50px, 8vh, 8vh);
+  padding-bottom: 3vh;
+  @screen md{
+    padding-top: clamp(80px, 11vh, 11vh);
+  }
+}
+.cart__empty-text{
+  @apply text-[5vw];
+  @screen md{
+    @apply text-[32px];
+  }
+}
+.cart__empty-text-h2 {
+  @apply text-[4.8vw];
+  @screen md{
+    @apply text-[27px];
+  }
 }

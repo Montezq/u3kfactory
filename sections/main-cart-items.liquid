@@ -11,7 +11,7 @@
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
 <div class="cart__wrapper flex flex-col relative lg:pr-7">
-  <cart-items class="gradient  isolate{% if cart == empty %} is-empty{% endif %}">
+  <cart-items class="gradient isolate{% if cart == empty %} is-empty{% endif %}">
     <div class="page-width">
       <div
         id="bar"
@@ -22,26 +22,31 @@
             {{ 'sections.cart.title' | t }}
           </h1>
           <div class="totals max-md:w-full">
-            <h2 class="totals__total text-[25px] font-bold leading-none uppercase whitespace-nowrap max-md:flex max-md:justify-between max-md:items-center max-md:w-full">
+            <h2
+              class="totals__total text-[25px] font-bold leading-none uppercase whitespace-nowrap max-md:flex max-md:justify-between max-md:items-center max-md:w-full"
+            >
               <span class="max-md:mr-2">Total </span>
-              <span class="totals__total-value"> {{ cart.total_price | money_with_currency }}</span>
+              <span class="totals__total-value header-cart-data"> {{ cart.total_price | money_with_currency }}</span>
             </h2>
           </div>
         </div>
       </div>
 
       <div class="cart__warnings">
-        <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-        <a href="{{ routes.all_products_collection_url }}" class="button">
-          {{ 'general.continue_shopping' | t }}
-        </a>
-
-        {%- if shop.customer_accounts_enabled and customer == null -%}
-          <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
-          <p class="cart__login-paragraph">
-            {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-          </p>
-        {%- endif -%}
+        <div class="flex flex-col items-center cart__empty-wrapper">
+          <h1 class="cart__empty-text font-open uppercase text-center tracking-[.28em] font-semibold">
+            YOUR CART IS EMPTY
+          </h1>
+          <img
+            class="w-[32vw] md:w-[175px]"
+            src="https://cdn.shopify.com/s/files/1/0690/2303/9708/files/Empty_Frame_Icon_461c5870-af56-48de-b902-d75c0c4e32c9.png?v=1717077535"
+            width="300"
+            height="550"
+          >
+          <h2 class="cart__empty-text-h2 uppercase text-center tracking-[.28em] font-open font-semibold">
+            GO FILL IT UP!
+          </h2>
+        </div>
       </div>
 
       <form
@@ -139,28 +144,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="md:hidden px-1 mt-3">
-                    <div class="border-b border-b-[#8c8c8c] pb-[9px]">
-                      <button class="flex items-center text-right font-bold text-[21px] md:text-[20px] whitespace-nowrap max-md:mb-[3px]">
-                        <span
-                          class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v2 text-[14px] max-md:mr-4 md:ml-0.5"
-                        ></span>
-                        save for later
-                      </button>
-                      <cart-remove-button
-                        id="Remove-{{ item.index | plus: 1 }}"
-                        data-index="{{ item.index | plus: 1 }}"
-                      >
-                        <a
-                          href="{{ item.url_to_remove }}"
-                          class="text-right text-[20px] font-bold whitespace-nowrap"
-                          aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
-                        >
-                          <span class="font-coutureBold text-[15px] font-bold max-md:mr-4">x</span> remove
-                        </a>
-                      </cart-remove-button>
-                    </div>
-                  </div>
                 </div>
               {%- endfor -%}
             {%- endif -%}
@@ -215,12 +198,6 @@
 {% schema %}
 {
   "name": "t:sections.main-cart-items.name",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "privacy_menu",
-      "label": "Privacy Menu"
-    }
-  ]
+  "settings": []
 }
 {% endschema %}
