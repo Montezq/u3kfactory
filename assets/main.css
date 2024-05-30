@@ -1236,9 +1236,6 @@ video {
 .border-2 {
   border-width: 2px;
 }
-.border-\[2px\] {
-  border-width: 2px;
-}
 .border-b {
   border-bottom-width: 1px;
 }
@@ -2785,9 +2782,6 @@ input:focus-visible{
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
   }
-.cart__footer-wrapper{
-  height: clamp(92px, 9.2vh, 154px);
-}
 @media not all and (min-width: 1024px) {
 
   .cart__footer-wrapper {
@@ -2795,6 +2789,11 @@ input:focus-visible{
     padding-right: 18px;
   }
 }
+@media (min-width: 768px){
+.cart__footer-wrapper{
+    height: clamp(92px, 9.2vh, 154px);
+}
+  }
 .cart__checkout-button{
   padding: 6px 10px 6px 23px;
 }
