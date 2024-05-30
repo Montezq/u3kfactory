@@ -20,7 +20,8 @@
           </h1>
           <div class="totals max-md:w-full">
             <h2 class="totals__total text-[25px] font-bold leading-none uppercase whitespace-nowrap max-md:flex max-md:justify-between max-md:items-center max-md:w-full">
-              <span>Total </span> <span class="totals__total-value"> {{ cart.total_price | money_with_currency }}</span>
+              <span class="max-md:mr-2">Total </span>
+              <span class="totals__total-value"> {{ cart.total_price | money_with_currency }}</span>
             </h2>
           </div>
         </div>

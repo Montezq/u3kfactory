@@ -3126,6 +3126,10 @@ input:focus-visible{
     margin-top: 3.5rem;
   }
 
+  .max-md\:mr-2 {
+    margin-right: 0.5rem;
+  }
+
   .max-md\:flex {
     display: -webkit-box;
     display: -webkit-flex;
