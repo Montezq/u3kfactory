@@ -3028,6 +3028,9 @@ input:focus-visible{
       font-size: 7vw;
   }
     }
+.cooming-soon__category-email{
+  margin-top: clamp(70px, 10vh, 208px);
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
