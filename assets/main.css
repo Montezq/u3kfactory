@@ -2933,11 +2933,13 @@ input:focus-visible{
               transform: translateX(-50%);
     }
 .contact-us__modal-body input,
-  .contact-us__modal-body textarea{
-    border: 1px solid #000;
+  .contact-us__modal-body textarea {
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
     padding-left: 8px;
     padding-right: 8px;
-  }
+}
 .contact-us__modal-body input,
   .contact-us__modal-body select{
     height: 40px;
