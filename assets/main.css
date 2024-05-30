@@ -1526,6 +1526,9 @@ video {
 .font-open {
   font-family: "Open Sans", sans-serif;
 }
+.\!text-\[20px\] {
+  font-size: 20px !important;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1639,9 +1642,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.\!text-\[20px\] {
-  font-size: 20px !important;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
@@ -2998,6 +2998,11 @@ input:focus-visible{
 .cooming-soon__category{
   height: calc(100vh - 27px);
 }
+@media screen and (max-width: 1024px){
+.cooming-soon__category{
+    height: calc(100vh - 67px);
+}
+  }
 @media screen and (max-width: 640px){
 .cooming-soon__category h2{
       margin-bottom: 7vw;
