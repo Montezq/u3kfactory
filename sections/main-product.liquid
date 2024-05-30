@@ -79,6 +79,7 @@
                 {% render block %}
               {%- when 'title' -%}
                 <div class="product__title max-md:hidden" {{ block.shopify_attributes }}>
+                  <h1 class="text-[32px] font-semibold leading-none mb-3">{{ product.title | escape }}</h1>
                   <h1 class="text-[32px] font-helveticaLight leading-none mb-3">{{ product.title | escape }}</h1>
                   <h2 class="leading-none text-[26px] font-helveticaThinCond italic tracking-wide font-normal">
                     <a
