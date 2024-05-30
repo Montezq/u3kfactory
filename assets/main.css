@@ -983,11 +983,11 @@ video {
 .w-\[171px\] {
   width: 171px;
 }
-.w-\[175px\] {
-  width: 175px;
-}
 .w-\[17px\] {
   width: 17px;
+}
+.w-\[32vw\] {
+  width: 32vw;
 }
 .w-\[34px\] {
   width: 34px;
@@ -1020,12 +1020,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-\[60vw\] {
-  width: 60vw;
-}
-.w-\[32vw\] {
-  width: 32vw;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -2863,7 +2857,7 @@ input:focus-visible{
   margin-top: clamp(50px, 10vh, 10vh);
 }
 .cart__empty-wrapper{
-  padding-top: clamp(50px, 6vh, 6vh);
+  padding-top: clamp(50px, 8vh, 8vh);
   padding-bottom: 3vh;
 }
 @media (min-width: 768px){
