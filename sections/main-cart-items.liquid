@@ -203,15 +203,17 @@
         </div>
       {%- endif -%}
       <div class="cart__blocks ml-auto max-md:w-full">
-        <div class="cart__ctas flex items-center md:border-[2px] md:border-black">
+        <div class="cart__ctas flex items-center md:border-[2px] md:border-black js-contents">
           <noscript>
             <button type="submit" class="cart__update-button button button--secondary" form="cart">
               {{ 'sections.cart.update' | t }}
             </button>
           </noscript>
-          <p class="totals__total-value whitespace-nowrap text-[25px] font-bold leading-none uppercase px-4 max-md:hidden">
-            Total {{ cart.total_price | money_with_currency }}
-          </p>
+          <div class="totals">
+            <p class="totals__total-value whitespace-nowrap text-[25px] font-bold leading-none uppercase px-4 max-md:hidden">
+              Total <span class="totals__total-value">{{ cart.total_price | money_with_currency }}</span>
+            </p>
+          </div>
           <button
             type="submit"
             id="checkout"
