@@ -33,17 +33,14 @@
       </div>
 
       <div class="cart__warnings">
-        <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-        <a href="{{ routes.all_products_collection_url }}" class="button">
-          {{ 'general.continue_shopping' | t }}
-        </a>
-
-        {%- if shop.customer_accounts_enabled and customer == null -%}
-          <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
-          <p class="cart__login-paragraph">
-            {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-          </p>
-        {%- endif -%}
+        <div class="flex flex-col items-center">
+          <h1 class="cart__empty-text font-open text-[32px] uppercase text-center tracking-[.28em]">
+            YOUR CART IS EMPTY
+          </h1>
+          <h2 class="cart__empty-text-h2 uppercase text-center text-[27px] tracking-[.28em] font-open">
+            GO FILL IT UP!
+          </h2>
+        </div>
       </div>
 
       <form
