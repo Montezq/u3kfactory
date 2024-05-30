@@ -3057,9 +3057,17 @@ input:focus-visible{
   content: var(--tw-content);
   min-width: 260px;
 }
+.after\:min-w-\[180px\]::after {
+  content: var(--tw-content);
+  min-width: 180px;
+}
 .after\:max-w-\[465px\]::after {
   content: var(--tw-content);
   max-width: 465px;
+}
+.after\:max-w-\[278px\]::after {
+  content: var(--tw-content);
+  max-width: 278px;
 }
 .after\:-translate-x-1\/2::after {
   content: var(--tw-content);
