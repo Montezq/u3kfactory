@@ -2773,6 +2773,7 @@ input:focus-visible{
 .cart__footer-wrapper,
 .cart__heading{
   left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
+  right: 0;
   padding-right: 3rem;
   z-index: 1;
 }
