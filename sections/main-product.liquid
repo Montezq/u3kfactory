@@ -137,17 +137,21 @@
                 </div>
               {%- when 'copies_left' -%}
                 <div>
-                  {% assign quantity = product.selected_or_first_available_variant.inventory_quantity | string %}
-                  {% if quantity == '0' %}
+                  {% assign quantity = product.selected_or_first_available_variant.inventory_quantity %}
+                  {% assign quantity_str = quantity | append: '' %}
+                  {% if quantity_str == '0' %}
                     <p>0</p>
                     <p>0</p>
                   {% else %}
-                    {% assign length = quantity | size %}
+                    {% assign length = quantity_str | size %}
                     {% if length == 1 %}
                       <p>0</p>
                     {% endif %}
-                    {% for char in quantity %}
-                      <p>{{ char }}</p>
+                    {% for i in (0..length) %}
+                      {% assign char = quantity_str | slice: i, 1 %}
+                      {% if char != '' %}
+                        <p>{{ char }}</p>
+                      {% endif %}
                     {% endfor %}
                   {% endif %}
                 </div>
