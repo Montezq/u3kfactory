@@ -2915,8 +2915,8 @@ input:focus-visible{
   }
 .contact-us__modal-heading h2{
     position: relative;
-    padding-bottom: 56px;
-    margin-bottom: 8px;
+    margin-bottom: 56px;
+    padding-bottom: 8px;
   }
 .contact-us__modal-heading h2:after{
       content: "";
