@@ -2,25 +2,8 @@
   "sections": {
     "cart-items": {
       "type": "main-cart-items",
-      "blocks": {
-        "subtotal_fpcRiV": {
-          "type": "subtotal",
-          "settings": {
-          }
-        },
-        "buttons_rhGAVL": {
-          "type": "buttons",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "subtotal_fpcRiV",
-        "buttons_rhGAVL"
-      ],
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+        "privacy_menu": "footer"
       }
     },
     "cart-footer": {
