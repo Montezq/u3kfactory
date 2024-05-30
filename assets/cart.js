@@ -86,6 +86,11 @@ class CartItems extends HTMLElement {
         selector: '.js-contents',
       },
       {
+        id: 'headerTotal',
+        section: document.getElementById('headerTotal').dataset.id,
+        selector: '.js-contents',
+      },
+      {
         id: 'cart-icon-bubble',
         section: 'cart-icon-bubble',
         selector: '.shopify-section',
