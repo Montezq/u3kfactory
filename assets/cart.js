@@ -107,7 +107,6 @@ class CartItems extends HTMLElement {
       },
       {
         id: 'header-total',
-        section: document.getElementById('header-total').dataset.id,
         selector: '.js-contents',
       },
     ];
