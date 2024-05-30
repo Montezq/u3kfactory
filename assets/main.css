@@ -2947,7 +2947,7 @@ input:focus-visible{
     --tw-text-opacity: 1;
     color: rgb(99 98 98 / var(--tw-text-opacity));
 }
-.contact-us__modal-body input,
+.contact-us__modal-body input:not([type='submit']),
   .contact-us__modal-body select{
     height: 40px;
   }
