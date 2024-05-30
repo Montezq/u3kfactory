@@ -2766,7 +2766,13 @@ input:focus-visible{
     margin-bottom: 0;
   }
 .cart__heading{
-  padding-top: clamp(42px, 6.4vh ,126px);
+  padding-top: clamp(42px, 6.4vh ,126px)}
+@media not all and (min-width: 1024px) {
+
+  .cart__heading {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
 }
 .cart__footer-wrapper,
 .cart__heading {
