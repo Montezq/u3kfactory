@@ -2956,7 +2956,7 @@ input:focus-visible{
     resize: none;
   }
 .contact-us__modal-body .contact-us__item{
-    margin-bottom: 30px;
+    margin-bottom: 28px;
   }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
