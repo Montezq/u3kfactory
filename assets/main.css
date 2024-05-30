@@ -857,6 +857,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1601,6 +1604,9 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.text-\[42px\] {
+  font-size: 42px;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
