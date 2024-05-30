@@ -726,6 +726,9 @@ video {
 .z-\[4\] {
   z-index: 4;
 }
+.z-\[999\] {
+  z-index: 999;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -3731,6 +3734,10 @@ input:focus-visible{
 
   .lg\:top-0 {
     top: 0px;
+  }
+
+  .lg\:z-\[2\] {
+    z-index: 2;
   }
 
   .lg\:mb-24 {

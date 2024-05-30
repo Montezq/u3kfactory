@@ -14,7 +14,7 @@
   endfor
 -%}
 
-<header class="lg:flex max-lg:h-fit header lg:w-fit lg:h-screen fixed top-0 left-0 bottom-0 right-0 z-[2]{% if menu_open %} menu-open{% endif %}">
+<header class="lg:flex max-lg:h-fit header lg:w-fit lg:h-screen fixed top-0 left-0 bottom-0 right-0 z-[999] lg:z-[2]{% if menu_open %} menu-open{% endif %}">
   <div class="header__mobile px-[18px] py-4 flex items-center justify-between lg:hidden{% if template.name != "index" %} bg-gray-10{% endif %}">
     <div class="header__mobile-hamburger w-12">
       {%- render 'icon-hamburger' -%}
