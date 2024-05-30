@@ -2,6 +2,7 @@
   "sections": {
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "settings": {
         "heading": "",
         "grid_template": "small",
@@ -14,7 +15,7 @@
       "settings": {
         "background": "shopify:\/\/shop_images\/u3-art-prints-coming-soon-16.9-1200p.jpg",
         "heading": "",
-        "subgheading": ""
+        "subgheading": "Comming soon"
       }
     }
   },
