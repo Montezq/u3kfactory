@@ -13,7 +13,10 @@
 <div class="cart__wrapper flex flex-col relative lg:pr-7">
   <cart-items class="gradient  isolate{% if cart == empty %} is-empty{% endif %}">
     <div class="page-width">
-      <div id="bar" class="cart__heading fixed top-[27px] bg-gray-10 lg:bg-white duration-300 ease-in-out">
+      <div
+        id="bar"
+        class="cart__heading fixed top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out"
+      >
         <div class="flex justify-between lg:border-b lg:border-b-black lg:pb-[3px] w-full">
           <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
             {{ 'sections.cart.title' | t }}
@@ -123,7 +126,7 @@
                         <p class="text-[22px] lg:text-[25px] font-bold text-right leading-none mb-1.5 whitespace-nowrap">
                           {{ item.price | money_with_currency }}
                         </p>
-                        <p class="text-[13px] font-bold text-right leading-none italic whitespace-nowrap">
+                        <p class="text-[13px] font-bold text-right leading-none italic md:whitespace-nowrap">
                           * VAT INCLUDED / EXCLUDED SHIPPING COST
                         </p>
                       </div>

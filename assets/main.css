@@ -3208,6 +3208,18 @@ input:focus-visible{
   .max-md\:tracking-xwidest {
     letter-spacing: .12em;
   }
+
+  .max-md\:duration-300 {
+    -webkit-transition-duration: 300ms;
+         -o-transition-duration: 300ms;
+            transition-duration: 300ms;
+  }
+
+  .max-md\:ease-in-out {
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+         -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 @media (min-width: 768px) {
 
@@ -3298,6 +3310,10 @@ input:focus-visible{
     --tw-space-y-reverse: 0;
     margin-top: calc(0.875rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(0.875rem * var(--tw-space-y-reverse));
+  }
+
+  .md\:whitespace-nowrap {
+    white-space: nowrap;
   }
 
   .md\:border-2 {
