@@ -86,11 +86,6 @@ class CartItems extends HTMLElement {
         selector: '.js-contents',
       },
       {
-        id: 'headerTotal',
-        section: document.getElementById('headerTotal').dataset.id,
-        selector: '.js-contents',
-      },
-      {
         id: 'cart-icon-bubble',
         section: 'cart-icon-bubble',
         selector: '.shopify-section',
@@ -108,6 +103,11 @@ class CartItems extends HTMLElement {
       {
         id: 'main-cart-footer',
         section: document.getElementById('main-cart-footer').dataset.id,
+        selector: '.js-contents',
+      },
+      {
+        id: 'header-total',
+        section: document.getElementById('header-total').dataset.id,
         selector: '.js-contents',
       },
     ];
