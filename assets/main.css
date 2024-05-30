@@ -3031,6 +3031,11 @@ input:focus-visible{
 .cooming-soon__category-email{
   margin-top: clamp(70px, 22vh, 208px);
 }
+@media screen and (max-width: 767ox){
+.cooming-soon__category-email{
+    margin-top: clamp(70px, 12vh, 208px);
+}
+  }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
