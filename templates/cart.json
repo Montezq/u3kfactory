@@ -1,10 +1,5 @@
 {
   "sections": {
-    "header-total": {
-      "type": "header-total",
-      "settings": {
-      }
-    },
     "cart-items": {
       "type": "main-cart-items",
       "settings": {
@@ -18,7 +13,6 @@
     }
   },
   "order": [
-    "header-total",
     "cart-items",
     "cart-footer"
   ]
