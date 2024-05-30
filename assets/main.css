@@ -3328,9 +3328,18 @@ input:focus-visible{
     border-left-width: 2px;
   }
 
+  .md\:border-b {
+    border-bottom-width: 1px;
+  }
+
   .md\:border-black {
     --tw-border-opacity: 1;
     border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  }
+
+  .md\:border-b-\[\#8c8c8c\] {
+    --tw-border-opacity: 1;
+    border-bottom-color: rgb(140 140 140 / var(--tw-border-opacity));
   }
 
   .md\:pb-\[30px\] {
