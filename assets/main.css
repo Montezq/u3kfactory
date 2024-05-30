@@ -2829,6 +2829,12 @@ input:focus-visible{
   padding-left: 8px;
   padding-right: 8px;
 }
+@media (min-width: 768px){
+.cart__wrapper-items {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  }
 @media (min-width: 1024px){
 .cart__wrapper-items{
     padding-top: clamp(146px, 23.97vh, 417px);
@@ -3122,12 +3128,12 @@ input:focus-visible{
             order: 5;
   }
 
-  .max-md\:mt-14 {
-    margin-top: 3.5rem;
-  }
-
   .max-md\:mr-2 {
     margin-right: 0.5rem;
+  }
+
+  .max-md\:mt-14 {
+    margin-top: 3.5rem;
   }
 
   .max-md\:flex {
