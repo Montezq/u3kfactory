@@ -287,15 +287,21 @@
         {% form 'contact' %}
           <div class="contact-subject">
             <label for="last-name" class="blcok uppercase pl-2.5">Regarding</label>
-            <input type="text" name="contact[regardin]" id="reagarding" value="{{ product.title }}">
+            <input
+              class="block w-full"
+              type="text"
+              name="contact[regardin]"
+              id="reagarding"
+              value="{{ product.title }}"
+            >
           </div>
           <div class="contact-message">
             <label for="message" class="blcok uppercase pl-2.5">Your Message</label>
-            <textarea name="contact[body]" id="message"></textarea>
+            <textarea class="block w-full" name="contact[body]" id="message"></textarea>
           </div>
           <div class="contact-email">
             <label for="email" class="blcok uppercase pl-2.5">Email</label>
-            <input type="email" name="contact[email]" id="email">
+            <input class="block w-full" type="email" name="contact[email]" id="email">
           </div>
 
           <div class="submit">
