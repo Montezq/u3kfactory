@@ -2757,6 +2757,8 @@ input:focus-visible{
   }
 .cart__heading{
   padding-top: clamp(42px, 6.4vh ,126px);
+  left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
+
 }
 .cart__wrapper{
   height: calc(100vh - 27px);
@@ -2775,9 +2777,6 @@ input:focus-visible{
 .cart__footer-privacy-menu li{
     margin-right: clamp(12px, 1.41vw, 1.41vw);
   }
-.cart__heading{
-  left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
-}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
