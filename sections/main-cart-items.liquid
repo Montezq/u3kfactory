@@ -54,88 +54,110 @@
           <div class="js-contents">
             {%- if cart != empty -%}
               {%- for item in cart.items -%}
-                <div class="cart-item cart-item__block flex" id="CartItem-{{ item.index | plus: 1 }}">
-                  <div class="cart-item__media">
-                    {% if item.image %}
-                      <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
-                      <div class="cart-item__image-container w-[204px] md:w-[122px] h-[204px] md:h-[122px]">
-                        <img
-                          src="{{ item.image | image_url: width: 300 }}"
-                          class="w-full h-full object-cover"
-                          alt="{{ item.image.alt | escape }}"
-                          loading="lazy"
-                          width="122"
-                          height="{{ 122 | divided_by: item.image.aspect_ratio | ceil }}"
-                        >
-                      </div>
-                    {% endif %}
-                  </div>
-                  <div class="flex max-md:flex-col w-full ml-[22px] md:pl-2 md:pr-[14px] pt-2 md:pt-1.5 justify-between md:border-b md:border-b-[#8c8c8c]">
-                    <div class="pb-3 cart-item__content-left">
-                      <div class="mb-5 md:mb-2">
-                        <a
-                          href="{{ item.url }}"
-                          class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
-                        >
-                          {{- item.product.title | escape -}}
-                        </a>
-                        <p class="text-[15px] md:text-[17px] italic max-md:leading-none">
-                          by {{ item.product.vendor }}
-                        </p>
-                      </div>
-                      <dl class="space-y-1.5">
-                        {%- unless item.product.has_only_default_variant -%}
-                          {%- for option in item.options_with_values -%}
-                            <div class="product-option">
-                              <dd class="text-[22px] leading-none max-md:font-bold">
-                                {{ option.value }}
-                              </dd>
-                            </div>
-                          {%- endfor -%}
-                        {%- endunless -%}
-                        {%- for property in item.properties -%}
-                          {%- assign property_first_char = property.first | slice: 0 -%}
-                          {%- if property.last != blank and property_first_char != '_' -%}
-                            <div class="product-option">
-                              <dd class="text-[22px] leading-none max-md:font-bold">
-                                {{ property.last }}
-                              </dd>
-                            </div>
-                          {%- endif -%}
-                        {%- endfor -%}
-                      </dl>
-                    </div>
-                    <div class="tmd:text-right flex flex-col md:justify-between cart-item__content-right">
-                      <div class="mb-2 max-md:hidden">
-                        <cart-remove-button
-                          id="Remove-{{ item.index | plus: 1 }}"
-                          data-index="{{ item.index | plus: 1 }}"
-                        >
-                          <a
-                            href="{{ item.url_to_remove }}"
-                            class="text-right text-[20px] font-bold whitespace-nowrap"
-                            aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                <div class="cart-item cart-item__block" id="CartItem-{{ item.index | plus: 1 }}">
+                  <div class="flex">
+                    <div class="cart-item__media">
+                      {% if item.image %}
+                        <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
+                        <div class="cart-item__image-container w-[204px] md:w-[122px] h-[204px] md:h-[122px]">
+                          <img
+                            src="{{ item.image | image_url: width: 300 }}"
+                            class="w-full h-full object-cover"
+                            alt="{{ item.image.alt | escape }}"
+                            loading="lazy"
+                            width="122"
+                            height="{{ 122 | divided_by: item.image.aspect_ratio | ceil }}"
                           >
-                            Remove <span class="font-coutureBold text-[15px] font-bold">x</span>
+                        </div>
+                      {% endif %}
+                    </div>
+                    <div class="flex max-md:flex-col w-full ml-[22px] md:pl-2 md:pr-[14px] pt-2 md:pt-1.5 justify-between md:border-b md:border-b-[#8c8c8c]">
+                      <div class="pb-3 cart-item__content-left">
+                        <div class="mb-5 md:mb-2">
+                          <a
+                            href="{{ item.url }}"
+                            class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
+                          >
+                            {{- item.product.title | escape -}}
                           </a>
-                        </cart-remove-button>
-                        <button class="flex items-center text-right font-bold text-[20px] ml-auto whitespace-nowrap">
-                          Save for later
-                          <span
-                            class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v2 text-[14px] ml-0.5"
-                          ></span>
-                        </button>
+                          <p class="text-[15px] md:text-[17px] italic max-md:leading-none">
+                            by {{ item.product.vendor }}
+                          </p>
+                        </div>
+                        <dl class="space-y-1.5">
+                          {%- unless item.product.has_only_default_variant -%}
+                            {%- for option in item.options_with_values -%}
+                              <div class="product-option">
+                                <dd class="text-[22px] leading-none max-md:font-bold">
+                                  {{ option.value }}
+                                </dd>
+                              </div>
+                            {%- endfor -%}
+                          {%- endunless -%}
+                          {%- for property in item.properties -%}
+                            {%- assign property_first_char = property.first | slice: 0 -%}
+                            {%- if property.last != blank and property_first_char != '_' -%}
+                              <div class="product-option">
+                                <dd class="text-[22px] leading-none max-md:font-bold">
+                                  {{ property.last }}
+                                </dd>
+                              </div>
+                            {%- endif -%}
+                          {%- endfor -%}
+                        </dl>
                       </div>
-                      <div class="md:mb-1">
-                        <p class="text-[22px] lg:text-[25px] font-bold md:text-right leading-none mb-1.5 whitespace-nowrap">
-                          {{ item.price | money_with_currency }}
-                        </p>
-                        <p class="text-[13px] font-bold md:text-right leading-none italic md:whitespace-nowrap">
-                          * VAT INCLUDED / EXCLUDED <br class="md:hidden">
-                          SHIPPING COST
-                        </p>
+                      <div class="md:text-right flex flex-col md:justify-between cart-item__content-right">
+                        <div class="mb-2 max-md:hidden">
+                          <cart-remove-button
+                            id="Remove-{{ item.index | plus: 1 }}"
+                            data-index="{{ item.index | plus: 1 }}"
+                          >
+                            <a
+                              href="{{ item.url_to_remove }}"
+                              class="text-right text-[20px] font-bold whitespace-nowrap"
+                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                            >
+                              Remove <span class="font-coutureBold text-[15px] font-bold">x</span>
+                            </a>
+                          </cart-remove-button>
+                          <button class="flex items-center text-right font-bold text-[20px] ml-auto whitespace-nowrap">
+                            Save for later
+                            <span
+                              class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v2 text-[14px] ml-0.5"
+                            ></span>
+                          </button>
+                        </div>
+                        <div class="md:mb-1">
+                          <p class="text-[22px] lg:text-[25px] font-bold md:text-right leading-none mb-1.5 whitespace-nowrap">
+                            {{ item.price | money_with_currency }}
+                          </p>
+                          <p class="text-[13px] font-bold md:text-right leading-none italic md:whitespace-nowrap">
+                            * VAT INCLUDED / EXCLUDED <br class="md:hidden">
+                            SHIPPING COST
+                          </p>
+                        </div>
                       </div>
                     </div>
+                  </div>
+                  <div class="md:hidden">
+                    <cart-remove-button
+                      id="Remove-{{ item.index | plus: 1 }}"
+                      data-index="{{ item.index | plus: 1 }}"
+                    >
+                      <a
+                        href="{{ item.url_to_remove }}"
+                        class="text-right text-[20px] font-bold whitespace-nowrap"
+                        aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                      >
+                        Remove <span class="font-coutureBold text-[15px] font-bold">x</span>
+                      </a>
+                    </cart-remove-button>
+                    <button class="flex items-center text-right font-bold text-[20px] ml-auto whitespace-nowrap">
+                      Save for later
+                      <span
+                        class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v2 text-[14px] ml-0.5"
+                      ></span>
+                    </button>
                   </div>
                 </div>
               {%- endfor -%}
