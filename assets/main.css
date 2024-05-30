@@ -917,8 +917,8 @@ video {
 .h-8 {
   height: 2rem;
 }
-.h-\[122px\] {
-  height: 122px;
+.h-\[200px\] {
+  height: 200px;
 }
 .h-\[34px\] {
   height: 34px;
@@ -934,9 +934,6 @@ video {
 }
 .h-screen {
   height: 100vh;
-}
-.h-\[200px\] {
-  height: 200px;
 }
 .max-h-\[36vh\] {
   max-height: 36vh;
@@ -986,14 +983,14 @@ video {
 .w-\[100vw\] {
   width: 100vw;
 }
-.w-\[122px\] {
-  width: 122px;
-}
 .w-\[171px\] {
   width: 171px;
 }
 .w-\[17px\] {
   width: 17px;
+}
+.w-\[200px\] {
+  width: 200px;
 }
 .w-\[34px\] {
   width: 34px;
@@ -1026,9 +1023,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-\[200px\] {
-  width: 200px;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -1266,10 +1260,6 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
-.border-b-\[\#8c8c8c\] {
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(140 140 140 / var(--tw-border-opacity));
-}
 .border-b-black {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -1431,9 +1421,6 @@ video {
 }
 .pr-5 {
   padding-right: 1.25rem;
-}
-.pr-\[14px\] {
-  padding-right: 14px;
 }
 .pr-\[22px\] {
   padding-right: 22px;
@@ -2772,7 +2759,7 @@ input:focus-visible{
 
   .cart__heading {
     top: 67px;
-    padding-bottom: 1.25rem;
+    padding-bottom: 1rem;
   }
 }
 @media not all and (min-width: 1024px) {
@@ -2839,7 +2826,7 @@ input:focus-visible{
     margin-right: clamp(12px, 1.41vw, 1.41vw);
   }
 .cart__wrapper-items{
-  padding: 50px 8px 67px;
+  padding: 42px 8px 67px;
 }
 @media (min-width: 768px){
 .cart__wrapper-items{
@@ -3346,12 +3333,12 @@ input:focus-visible{
     border-width: 2px;
   }
 
-  .md\:border-l-2 {
-    border-left-width: 2px;
-  }
-
   .md\:border-b {
     border-bottom-width: 1px;
+  }
+
+  .md\:border-l-2 {
+    border-left-width: 2px;
   }
 
   .md\:border-black {
@@ -3368,12 +3355,12 @@ input:focus-visible{
     padding-bottom: 30px;
   }
 
-  .md\:pt-0 {
-    padding-top: 0px;
-  }
-
   .md\:pr-\[14px\] {
     padding-right: 14px;
+  }
+
+  .md\:pt-0 {
+    padding-top: 0px;
   }
 
   .md\:font-coutureBold {
