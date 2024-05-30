@@ -2784,6 +2784,9 @@ input:focus-visible{
 .cart__footer-privacy-menu li{
     margin-right: clamp(12px, 1.41vw, 1.41vw);
   }
+.cart__wrapper-items{
+  padding-top: clamp(146px, 23.97vh, 417px);
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
