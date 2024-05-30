@@ -2913,23 +2913,23 @@ input:focus-visible{
     margin-bottom: clamp(32px, 4.14vh, 45px);
 }
   }
-.contact-us__modal-heading{
-  position: relative;
-}
-.contact-us__modal-heading:after{
-    content: "";
-    display: block;
-    width: 192px;
-    height: 1px;
-    background-color: #000;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-         -o-transform: translateX(-50%);
-            transform: translateX(-50%);
+.contact-us__modal-heading h2{
+    position: relative;
   }
+.contact-us__modal-heading h2:after{
+      content: "";
+      display: block;
+      width: 192px;
+      height: 1px;
+      background-color: #000;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+           -o-transform: translateX(-50%);
+              transform: translateX(-50%);
+    }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
