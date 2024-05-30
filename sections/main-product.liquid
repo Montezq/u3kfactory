@@ -278,7 +278,7 @@
       role="dialog"
       tabindex="-1"
     >
-      <div class="contact-us__modal-heading text-center">
+      <div class="contact-us__modal-heading text-center mb-[30px]">
         <p class="text-[19px] tracking-widest font-normal uppercase leading-none mb-[30px]">You Are contacting</p>
         <h2 class="font-coutureBold text-[42px]">{{ product.vendor }}</h2>
         <div>
@@ -289,7 +289,7 @@
       <div class="contact-us__modal-body">
         {% form 'contact' %}
           <div class="contact-subject contact-us__item">
-            <label for="last-name" class="blcok uppercase pl-2.5">Regarding</label>
+            <label for="last-name" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Regarding</label>
             <input
               class="block w-full"
               type="text"
@@ -299,11 +299,13 @@
             >
           </div>
           <div class="contact-message contact-us__item">
-            <label for="message" class="blcok uppercase pl-2.5">Your Message</label>
+            <label for="message" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]"
+              >Your Message</label
+            >
             <textarea class="block w-full" name="contact[message]" id="message"></textarea>
           </div>
           <div class="contact-email contact-us__item">
-            <label for="email" class="blcok uppercase pl-2.5">Email</label>
+            <label for="email" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Email</label>
             <input class="block w-full" type="email" name="contact[email]" id="email">
           </div>
 
