@@ -2804,8 +2804,13 @@ input:focus-visible{
 }
   }
 .cart__checkout-button{
-  padding: 6px 10px 6px 23px;
+  padding: 16px 12px;
 }
+@media (min-width: 768px){
+.cart__checkout-button{
+    padding: 6px 10px 6px 23px;
+}
+  }
 .cart__checkout-button span:first-child{
       padding-right: 15px;
     }
@@ -3092,12 +3097,12 @@ input:focus-visible{
     right: 1.25rem;
   }
 
-  .max-md\:top-1\/2 {
-    top: 50%;
-  }
-
   .max-md\:right-6 {
     right: 1.5rem;
+  }
+
+  .max-md\:top-1\/2 {
+    top: 50%;
   }
 
   .max-md\:order-10 {
