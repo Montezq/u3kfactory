@@ -3394,6 +3394,10 @@ input:focus-visible{
     padding-top: 0px;
   }
 
+  .md\:pl-2 {
+    padding-left: 0.5rem;
+  }
+
   .md\:text-right {
     text-align: right;
   }
