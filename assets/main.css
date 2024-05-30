@@ -2808,6 +2808,7 @@ input:focus-visible{
     margin-right: clamp(12px, 1.41vw, 1.41vw);
   }
 .cart__wrapper-items{
+  padding-top: 75px;
   padding-bottom: clamp(92px, 9.2vh, 154px);
 }
 @media (min-width: 1024px){
