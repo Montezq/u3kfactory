@@ -1081,6 +1081,9 @@ video {
 .max-w-none {
   max-width: none;
 }
+.max-w-\[300px\] {
+  max-width: 300px;
+}
 .flex-1 {
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 0%;
@@ -3442,6 +3445,10 @@ input:focus-visible{
   }
 }
 @media (min-width: 640px) {
+
+  .sm\:max-w-\[350px\] {
+    max-width: 350px;
+  }
 
   .sm\:text-\[30px\] {
     font-size: 30px;
