@@ -800,6 +800,9 @@ video {
 .ml-\[25px\] {
   margin-left: 25px;
 }
+.ml-auto {
+  margin-left: auto;
+}
 .mr-3 {
   margin-right: 0.75rem;
 }
@@ -862,6 +865,12 @@ video {
 }
 .inline-block {
   display: inline-block;
+}
+.\!flex {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
 }
 .flex {
   display: -webkit-box;
@@ -1224,6 +1233,9 @@ video {
 .border-2 {
   border-width: 2px;
 }
+.border-\[2px\] {
+  border-width: 2px;
+}
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1312,6 +1324,10 @@ video {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 .px-\[18px\] {
   padding-left: 18px;
   padding-right: 18px;
@@ -1373,6 +1389,9 @@ video {
 }
 .pb-\[38px\] {
   padding-bottom: 38px;
+}
+.pb-\[3px\] {
+  padding-bottom: 3px;
 }
 .pb-\[66px\] {
   padding-bottom: 66px;
@@ -1457,9 +1476,6 @@ video {
 }
 .pt-\[8\%\] {
   padding-top: 8%;
-}
-.pb-\[3px\] {
-  padding-bottom: 3px;
 }
 .text-center {
   text-align: center;
@@ -1620,6 +1636,9 @@ video {
 .leading-none {
   line-height: 1;
 }
+.\!tracking-wide {
+  letter-spacing: .02em !important;
+}
 .tracking-\[0\.3em\] {
   letter-spacing: 0.3em;
 }
@@ -1676,6 +1695,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 .opacity-0 {
   opacity: 0;
@@ -2738,6 +2761,23 @@ input:focus-visible{
 .cart__heading{
   padding-top: clamp(42px, 6.4vh ,126px);
 }
+.cart__wrapper{
+  height: calc(100vh - 27px);
+  padding-bottom: clamp(92px, 9.2vh, 154px);
+  overflow: hidden;
+}
+.cart__footer-wrapper{
+  height: clamp(92px, 9.2vh, 154px);
+}
+.cart__checkout-button{
+  padding: 6px 10px 6px 23px;
+}
+.cart__checkout-button span:first-child{
+      padding-right: 15px;
+    }
+.cart__footer-privacy-menu li{
+    margin-right: clamp(12px, 1.41vw, 1.41vw);
+  }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }

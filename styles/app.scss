@@ -820,3 +820,24 @@ accordion-item.open,
 .cart__heading{
   padding-top: clamp(42px, 6.4vh ,126px);
 }
+.cart__wrapper{
+  height: calc(100vh - 27px);
+  padding-bottom: clamp(92px, 9.2vh, 154px);
+  overflow: hidden;
+}
+.cart__footer-wrapper{
+  height: clamp(92px, 9.2vh, 154px);
+}
+.cart__checkout-button{
+  padding: 6px 10px 6px 23px;
+  span{
+    &:first-child{
+      padding-right: 15px;
+    }
+  }
+}
+.cart__footer-privacy-menu{
+  li{
+    margin-right: clamp(12px, 1.41vw, 1.41vw);
+  }
+}
