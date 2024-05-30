@@ -2944,6 +2944,7 @@ input:focus-visible{
   }
 .contact-us__modal-body textarea{
     height: 106px;
+    resize: none;
   }
 .contact-us__modal-body .contact-us__item{
     margin-bottom: 30px;
