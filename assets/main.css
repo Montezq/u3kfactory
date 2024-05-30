@@ -2765,6 +2765,7 @@ input:focus-visible{
 .cart__heading{
   left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   z-index: 1;
+  padding-right: 3rem;
 }
 .cart__wrapper{
   height: calc(100vh - 27px);
