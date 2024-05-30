@@ -690,9 +690,6 @@ video {
 .top-0 {
   top: 0px;
 }
-.top-1 {
-  top: 0.25rem;
-}
 .top-1\/2 {
   top: 50%;
 }
@@ -2853,16 +2850,6 @@ input:focus-visible{
   .cart-item__content-left {
     min-width: 320px;
   }
-}
-.cart-count-bubble {
-  position: absolute;
-  left: 50%;
-  --tw-translate-x: -50%;
-  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-      -ms-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-       -o-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  top: 0.5rem;
 }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
