@@ -1401,6 +1401,9 @@ video {
 .pl-\[8px\] {
   padding-left: 8px;
 }
+.pr-10 {
+  padding-right: 2.5rem;
+}
 .pr-2 {
   padding-right: 0.5rem;
 }
@@ -1409,9 +1412,6 @@ video {
 }
 .pr-5 {
   padding-right: 1.25rem;
-}
-.pr-7 {
-  padding-right: 1.75rem;
 }
 .pr-\[14px\] {
   padding-right: 14px;
@@ -1457,9 +1457,6 @@ video {
 }
 .pt-\[8\%\] {
   padding-top: 8%;
-}
-.pr-10 {
-  padding-right: 2.5rem;
 }
 .text-center {
   text-align: center;
@@ -2735,6 +2732,9 @@ input:focus-visible{
 .cart-item__block:last-child{
     margin-bottom: 0;
   }
+.cart__heading{
+  padding-top: clamp(42px, 6.4vh ,126px);
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
