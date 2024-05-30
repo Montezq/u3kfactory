@@ -21,12 +21,12 @@
           <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
             {{ 'sections.cart.title' | t }}
           </h1>
-          <div class="totals max-md:w-full" id="main-cart-header">
+          <div class="totals max-md:w-full" id="main-cart-header" data-id="main-cart-header-{{ section.id }}">
             <h2
               class="totals__total text-[25px] font-bold leading-none uppercase whitespace-nowrap max-md:flex max-md:justify-between max-md:items-center max-md:w-full"
             >
               <span class="max-md:mr-2">Total </span>
-              <span class="totals__total-value"> {{ cart.total_price | money_with_currency }}</span>
+              <span class="totals__total-value header-cart-data"> {{ cart.total_price | money_with_currency }}</span>
             </h2>
           </div>
         </div>
