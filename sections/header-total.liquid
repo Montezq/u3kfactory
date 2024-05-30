@@ -1,14 +1,14 @@
 <div
-  id="bar"
+  id="bar header-total"
+  data-id="{{ section.id }}"
   class="cart__heading fixed top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out"
 >
   <div class="flex justify-between lg:border-b lg:border-b-black lg:pb-[3px] w-full">
     <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
       {{ 'sections.cart.title' | t }}
     </h1>
-    <div class="totals max-md:w-full" id="header-total">
+    <div class="totals max-md:w-full">
       <h2
-        data-id="{{ section.id }}"
         class="totals__total text-[25px] js-contents font-bold leading-none uppercase whitespace-nowrap max-md:flex max-md:justify-between max-md:items-center max-md:w-full"
       >
         <span class="max-md:mr-2">Total </span>
