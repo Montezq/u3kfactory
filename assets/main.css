@@ -1417,9 +1417,6 @@ video {
 .pl-\[8px\] {
   padding-left: 8px;
 }
-.pr-10 {
-  padding-right: 2.5rem;
-}
 .pr-2 {
   padding-right: 0.5rem;
 }
@@ -1428,6 +1425,9 @@ video {
 }
 .pr-5 {
   padding-right: 1.25rem;
+}
+.pr-7 {
+  padding-right: 1.75rem;
 }
 .pr-\[14px\] {
   padding-right: 14px;
@@ -1473,9 +1473,6 @@ video {
 }
 .pt-\[8\%\] {
   padding-top: 8%;
-}
-.pr-7 {
-  padding-right: 1.75rem;
 }
 .text-center {
   text-align: center;
@@ -2769,11 +2766,6 @@ input:focus-visible{
   left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   right: 3rem;
   z-index: 1;
-}
-.cart__wrapper{
-  height: calc(100vh - 27px);
-  padding-bottom: clamp(92px, 9.2vh, 154px);
-  overflow: hidden;
 }
 .cart__footer-wrapper{
   height: clamp(92px, 9.2vh, 154px);
