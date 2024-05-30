@@ -137,9 +137,19 @@
                 </div>
               {%- when 'copies_left' -%}
                 <div>
-                  <p>
-                    {{ product.selected_or_first_available_variant.inventory_quantity }}
-                  </p>
+                  {% assign quantity = product.selected_or_first_available_variant.inventory_quantity | string %}
+                  {% if quantity == '0' %}
+                    <p>0</p>
+                    <p>0</p>
+                  {% else %}
+                    {% assign length = quantity | size %}
+                    {% if length == 1 %}
+                      <p>0</p>
+                    {% endif %}
+                    {% for char in quantity %}
+                      <p>{{ char }}</p>
+                    {% endfor %}
+                  {% endif %}
                 </div>
             {%- endcase -%}
           {%- endfor -%}
