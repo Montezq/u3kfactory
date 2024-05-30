@@ -3010,6 +3010,12 @@ input:focus-visible{
       font-size: 4vw;
   }
     }
+@media (min-width: 1024px){
+.cooming-soon__category h2,
+  .cooming-soon__category h3{
+      font-size: 9vw;
+  }
+    }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
