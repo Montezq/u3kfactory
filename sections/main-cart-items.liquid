@@ -142,28 +142,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="md:hidden px-1 mt-3">
-                    <div class="border-b border-b-[#8c8c8c] pb-[9px]">
-                      <button class="flex items-center text-right font-bold text-[21px] md:text-[20px] whitespace-nowrap max-md:mb-[3px]">
-                        <span
-                          class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v2 text-[14px] max-md:mr-4 md:ml-0.5"
-                        ></span>
-                        save for later
-                      </button>
-                      <cart-remove-button
-                        id="Remove-{{ item.index | plus: 1 }}"
-                        data-index="{{ item.index | plus: 1 }}"
-                      >
-                        <a
-                          href="{{ item.url_to_remove }}"
-                          class="text-right text-[20px] font-bold whitespace-nowrap"
-                          aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
-                        >
-                          <span class="font-coutureBold text-[15px] font-bold max-md:mr-4">x</span> remove
-                        </a>
-                      </cart-remove-button>
-                    </div>
-                  </div>
                 </div>
               {%- endfor -%}
             {%- endif -%}
