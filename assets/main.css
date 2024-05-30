@@ -2857,8 +2857,13 @@ input:focus-visible{
   margin-top: clamp(50px, 10vh, 10vh);
 }
 .cart__empty-wrapper{
-  padding-top: clamp(80px, 11vh, 11vh);
+  padding-top: clamp(50px, 6, 6vh);
 }
+@media (min-width: 768px){
+.cart__empty-wrapper{
+    padding-top: clamp(80px, 11vh, 11vh);
+}
+  }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
