@@ -962,11 +962,11 @@ video {
 .w-0 {
   width: 0px;
 }
+.w-10 {
+  width: 2.5rem;
+}
 .w-11 {
   width: 2.75rem;
-}
-.w-12 {
-  width: 3rem;
 }
 .w-28 {
   width: 7rem;
@@ -1042,9 +1042,6 @@ video {
 .w-full {
   width: 100%;
 }
-.w-10 {
-  width: 2.5rem;
-}
 .min-w-\[166px\] {
   min-width: 166px;
 }
@@ -1063,8 +1060,8 @@ video {
 .max-w-\[212px\] {
   max-width: 212px;
 }
-.max-w-\[300px\] {
-  max-width: 300px;
+.max-w-\[280px\] {
+  max-width: 280px;
 }
 .max-w-\[320px\] {
   max-width: 320px;
@@ -1086,9 +1083,6 @@ video {
 }
 .max-w-none {
   max-width: none;
-}
-.max-w-\[280px\] {
-  max-width: 280px;
 }
 .flex-1 {
   -webkit-box-flex: 1;
@@ -1315,6 +1309,10 @@ video {
 .bg-gray-850 {
   --tw-bg-opacity: 1;
   background-color: rgb(41 41 41 / var(--tw-bg-opacity));
+}
+.bg-red {
+  --tw-bg-opacity: 1;
+  background-color: rgb(222 105 97 / var(--tw-bg-opacity));
 }
 .bg-transparent {
   background-color: transparent;
@@ -2286,6 +2284,12 @@ input:focus-visible{
     }
 .home-page__carousel .splide__slide.is-active.is-visible .home-page__carousel-content {
   opacity: 1;
+}
+@media not all and (min-width: 640px) {
+
+  .home-page__carousel .btn_white-outlined {
+    font-size: 22px !important;
+  }
 }
 .home-page__carousel-wrapper-btn{
   top: calc(35vh + 145px);
