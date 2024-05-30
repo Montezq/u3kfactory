@@ -2864,6 +2864,22 @@ input:focus-visible{
     padding-top: clamp(80px, 11vh, 11vh);
 }
   }
+.cart__empty-text {
+  font-size: 5vw;
+}
+@media (min-width: 768px){
+.cart__empty-text {
+    font-size: 32px;
+  }
+  }
+.cart__empty-text-h2 {
+  font-size: 4.8vw;
+}
+@media (min-width: 768px){
+.cart__empty-text-h2 {
+    font-size: 27px;
+  }
+  }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
