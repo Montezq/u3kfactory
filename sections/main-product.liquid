@@ -288,7 +288,7 @@
 
       <div class="contact-us__modal-body">
         {% form 'contact' %}
-          <div class="contact-subject">
+          <div class="contact-subject contact-us__item">
             <label for="last-name" class="blcok uppercase pl-2.5">Regarding</label>
             <input
               class="block w-full"
@@ -298,11 +298,11 @@
               value="{{ product.title }}"
             >
           </div>
-          <div class="contact-message">
+          <div class="contact-message contact-us__item">
             <label for="message" class="blcok uppercase pl-2.5">Your Message</label>
             <textarea class="block w-full" name="contact[message]" id="message"></textarea>
           </div>
-          <div class="contact-email">
+          <div class="contact-email contact-us__item">
             <label for="email" class="blcok uppercase pl-2.5">Email</label>
             <input class="block w-full" type="email" name="contact[email]" id="email">
           </div>
