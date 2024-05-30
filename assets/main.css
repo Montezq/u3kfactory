@@ -2813,10 +2813,10 @@ input:focus-visible{
 .cart__checkout-button{
     padding: 6px 10px 6px 23px;
 }
+.cart__checkout-button span:first-child {
+    padding-right: 1rem;
   }
-.cart__checkout-button span:first-child{
-      padding-right: 15px;
-    }
+  }
 .cart__footer-privacy-menu{
   row-gap: clamp(10px, 1.1vh, 1.1vh);
 }
