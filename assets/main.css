@@ -2765,7 +2765,7 @@ input:focus-visible{
 @media not all and (min-width: 768px) {
 
   .cart__heading {
-    top: 70px;
+    top: 67px;
     padding-bottom: 1.25rem;
   }
 }
