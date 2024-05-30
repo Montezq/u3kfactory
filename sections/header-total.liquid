@@ -1,9 +1,12 @@
 <div
-  id="bar header-total"
-  data-id="{{ section.id }}"
+  id="bar"
   class="cart__heading fixed top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out"
 >
-  <div class="flex justify-between lg:border-b lg:border-b-black lg:pb-[3px] w-full">
+  <div
+    class="flex justify-between lg:border-b lg:border-b-black lg:pb-[3px] w-full"
+    id="header-total"
+    data-id="{{ section.id }}"
+  >
     <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
       {{ 'sections.cart.title' | t }}
     </h1>
