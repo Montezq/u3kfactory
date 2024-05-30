@@ -1376,36 +1376,6 @@ customElements.define('accordion-item', AccordionItem);
 
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.querySelector('body');
-  // function adjustMainPadding() {
-  //   var mainElement = document.querySelector('.main');
-  //   var headerPersonal = document.querySelector('.header__personal');
-  //   var headerMenu = document.querySelector('.header__menu');
-  
-  //   var adjustPadding = () => {
-  //     var screenWidth = window.innerWidth;
-  //     if (screenWidth > 1024) { // 767
-  //       var headerPersonalWidth = headerPersonal?.offsetWidth || 0;
-  //       var headerMenuWidth = headerMenu?.offsetWidth || 0;
-  //       var totalPadding = headerPersonalWidth + headerMenuWidth;
-  //       if(mainElement) mainElement.style.paddingLeft = `${totalPadding}px`;
-  //       body.classList.remove('overflow-hidden')
-  //     } 
-  //   };
-  //   var timeoutId = null;
-  //   var throttledAdjustPadding = () => {
-  //     if (!timeoutId) {
-  //       timeoutId = setTimeout(() => {
-  //         adjustPadding();
-  //         timeoutId = null;
-  //       }, 100); 
-  //     }
-  //   };
-  
-  //   adjustPadding();
-  //   window.addEventListener('resize', throttledAdjustPadding);
-  // }
-  // adjustMainPadding();
-
   const customClassName = '!translate-x-0',
         hamburger = document.querySelector('.header__mobile-hamburger'),
         menu = document.querySelector('.header__menu'),
