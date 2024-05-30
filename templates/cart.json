@@ -3,7 +3,6 @@
     "cart-items": {
       "type": "main-cart-items",
       "settings": {
-        "privacy_menu": "footer"
       }
     },
     "cart-footer": {
