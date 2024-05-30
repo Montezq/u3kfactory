@@ -2810,6 +2810,8 @@ input:focus-visible{
 .cart__wrapper-items{
   padding-top: 75px;
   padding-bottom: clamp(92px, 9.2vh, 154px);
+  padding-left: 8px;
+  padding-right: 8px;
 }
 @media (min-width: 1024px){
 .cart__wrapper-items{
