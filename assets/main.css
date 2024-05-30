@@ -3183,6 +3183,10 @@ input:focus-visible{
     margin-top: 3.5rem;
   }
 
+  .max-md\:mt-2 {
+    margin-top: 0.5rem;
+  }
+
   .max-md\:flex {
     display: -webkit-box;
     display: -webkit-flex;
@@ -3315,6 +3319,10 @@ input:focus-visible{
 
   .md\:ml-auto {
     margin-left: auto;
+  }
+
+  .md\:ml-2 {
+    margin-left: 0.5rem;
   }
 
   .md\:flex {
