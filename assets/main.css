@@ -1458,6 +1458,9 @@ video {
 .pt-\[8\%\] {
   padding-top: 8%;
 }
+.pb-\[3px\] {
+  padding-bottom: 3px;
+}
 .text-center {
   text-align: center;
 }
