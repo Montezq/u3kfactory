@@ -2932,6 +2932,12 @@ input:focus-visible{
            -o-transform: translateX(-50%);
               transform: translateX(-50%);
     }
+.contact-us__modal-heading .contact-us__modal-body input,
+    .contact-us__modal-heading .contact-us__modal-body textarea{
+      border: 1px solid #000;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
