@@ -1590,6 +1590,9 @@ video {
   font-size: 0.75rem;
   line-height: 1rem;
 }
+.text-\[7vw\] {
+  font-size: 7vw;
+}
 .\!font-extrabold {
   font-weight: 800 !important;
 }
@@ -3272,6 +3275,12 @@ input:focus-visible{
     -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
          -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+@media (min-width: 640px) {
+
+  .sm\:text-\[30px\] {
+    font-size: 30px;
   }
 }
 @media (min-width: 768px) {
