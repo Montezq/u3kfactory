@@ -139,25 +139,27 @@
                       </div>
                     </div>
                   </div>
-                  <div class="md:hidden">
-                    <button class="flex items-center text-right font-bold text-[20px] whitespace-nowrap">
-                      <span
-                        class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v2 text-[14px] ml-0.5"
-                      ></span>
-                      Save for later
-                    </button>
-                    <cart-remove-button
-                      id="Remove-{{ item.index | plus: 1 }}"
-                      data-index="{{ item.index | plus: 1 }}"
-                    >
-                      <a
-                        href="{{ item.url_to_remove }}"
-                        class="text-right text-[20px] font-bold whitespace-nowrap"
-                        aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                  <div class="md:hidden px-1">
+                    <div>
+                      <button class="flex items-center text-right font-bold text-[20px] whitespace-nowrap">
+                        <span
+                          class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v2 text-[14px] ml-0.5"
+                        ></span>
+                        Save for later
+                      </button>
+                      <cart-remove-button
+                        id="Remove-{{ item.index | plus: 1 }}"
+                        data-index="{{ item.index | plus: 1 }}"
                       >
-                        <span class="font-coutureBold text-[15px] font-bold">x</span> Remove
-                      </a>
-                    </cart-remove-button>
+                        <a
+                          href="{{ item.url_to_remove }}"
+                          class="text-right text-[20px] font-bold whitespace-nowrap"
+                          aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                        >
+                          <span class="font-coutureBold text-[15px] font-bold">x</span> Remove
+                        </a>
+                      </cart-remove-button>
+                    </div>
                   </div>
                 </div>
               {%- endfor -%}
