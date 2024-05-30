@@ -3394,6 +3394,10 @@ input:focus-visible{
     padding-top: 0px;
   }
 
+  .md\:text-right {
+    text-align: right;
+  }
+
   .md\:font-coutureBold {
     font-family: "Couture Bold", sans-serif;
   }
