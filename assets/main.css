@@ -854,6 +854,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.mr-\[2px\] {
+  margin-right: 2px;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -931,6 +934,9 @@ video {
 }
 .h-screen {
   height: 100vh;
+}
+.h-\[46px\] {
+  height: 46px;
 }
 .max-h-\[36vh\] {
   max-height: 36vh;
@@ -1020,6 +1026,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-\[26px\] {
+  width: 26px;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -1592,6 +1601,9 @@ video {
 }
 .text-\[7vw\] {
   font-size: 7vw;
+}
+.text-\[33px\] {
+  font-size: 33px;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
