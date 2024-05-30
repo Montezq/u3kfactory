@@ -54,7 +54,7 @@
           <div class="js-contents">
             {%- if cart != empty -%}
               {%- for item in cart.items -%}
-                <div class="cart-item cart-item__block flex" id="CartItem-{{ item.index | plus: 1 }}">
+                <div class="cart-item cart-item__block flex max-md:flex-col" id="CartItem-{{ item.index | plus: 1 }}">
                   <div class="cart-item__media">
                     {% if item.image %}
                       <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
@@ -70,7 +70,7 @@
                       </div>
                     {% endif %}
                   </div>
-                  <div class="flex w-full ml-[22px] pl-2 pr-[14px] pt-1.5 justify-between md:border-b md:border-b-[#8c8c8c]">
+                  <div class="flex w-full ml-[22px] pl-2 md:pr-[14px] pt-1.5 justify-between md:border-b md:border-b-[#8c8c8c]">
                     <div class="pb-3 cart-item__content-left">
                       <div class="mb-2">
                         <a
