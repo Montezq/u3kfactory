@@ -136,24 +136,38 @@
                   </div>
                 </div>
               {%- when 'copies_left' -%}
-                <div>
-                  {% assign quantity = product.selected_or_first_available_variant.inventory_quantity %}
-                  {% assign quantity_str = quantity | append: '' %}
-                  {% if quantity_str == '0' %}
-                    <p>0</p>
-                    <p>0</p>
-                  {% else %}
-                    {% assign length = quantity_str | size %}
-                    {% if length == 1 %}
-                      <p>0</p>
-                    {% endif %}
-                    {% for i in (0..length) %}
-                      {% assign char = quantity_str | slice: i, 1 %}
-                      {% if char != '' %}
-                        <p>{{ char }}</p>
+                <div class="flex items-center">
+                  <div class="flex">
+                    {% assign quantity = product.selected_or_first_available_variant.inventory_quantity %}
+                    {% assign quantity_str = quantity | append: '' %}
+                    {% if quantity_str == '0' %}
+                      <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                        0
+                      </div>
+                      <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                        0
+                      </div>
+                    {% else %}
+                      {% assign length = quantity_str | size %}
+                      {% if length == 1 %}
+                        <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                          0
+                        </div>
+                        <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                          {{ quantity }}
+                        </div>
                       {% endif %}
-                    {% endfor %}
-                  {% endif %}
+                      {% for i in (0..length) %}
+                        {% assign char = quantity_str | slice: i, 1 %}
+                        {% if char != '' %}
+                          <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                            {{ char }}
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                  <div class="leading-none ml-2 text-[19px] font-bold uppercase">COPIES LEFT</div>
                 </div>
             {%- endcase -%}
           {%- endfor -%}
