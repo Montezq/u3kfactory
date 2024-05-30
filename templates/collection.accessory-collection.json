@@ -3,13 +3,23 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "show_vendor": false,
+        "heading": "",
+        "grid_template": "small",
         "enable_filtering": true,
         "enable_sorting": true
+      }
+    },
+    "cooming_soon_category_c8Efjg": {
+      "type": "cooming-soon-category",
+      "settings": {
+        "background": "shopify:\/\/shop_images\/u3-art-prints-coming-soon-16.9-1200p.jpg",
+        "heading": "",
+        "subgheading": ""
       }
     }
   },
   "order": [
-    "product-grid"
+    "product-grid",
+    "cooming_soon_category_c8Efjg"
   ]
 }
