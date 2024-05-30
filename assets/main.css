@@ -3307,6 +3307,13 @@ input:focus-visible{
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
+  .md\:justify-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
   .md\:gap-2 {
     gap: 0.5rem;
   }
