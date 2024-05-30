@@ -11,6 +11,7 @@ module.exports = {
     fontFamily: {
       helveticaThinCond: ['"Helvetica Neue LT Std"', "sans-serif"],
       helveticaCond: ['"Helvetica Cond"', "sans-serif"],
+      helvetica: ['"Neue Helvetica"', "sans-serif"],
       coutureBoldIt: ['"Couture BoldItalic"', "sans-serif"],
       coutureBold: ['"Couture Bold"', "sans-serif"],
       open: ['"Open Sans"', "sans-serif"],

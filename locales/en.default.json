@@ -279,7 +279,7 @@
       }
     },
     "cart": {
-      "title": "Your cart",
+      "title": "my shopping cart",
       "caption": "Cart items",
       "remove_title": "Remove {{ title }}",
       "estimated_total": "Estimated total",
