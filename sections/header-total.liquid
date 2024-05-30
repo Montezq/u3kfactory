@@ -1,0 +1,9 @@
+<div class="totals max-md:w-full" id="header-total">
+  <h2
+    data-id="header-total-{{ section.id }}"
+    class="totals__total text-[25px] js-contents font-bold leading-none uppercase whitespace-nowrap max-md:flex max-md:justify-between max-md:items-center max-md:w-full"
+  >
+    <span class="max-md:mr-2">Total </span>
+    <span class="totals__total-value"> {{ cart.total_price | money_with_currency }}</span>
+  </h2>
+</div>
