@@ -54,7 +54,6 @@
       >
         <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
           <div class="js-contents">
-            {{ cart.items }}
             {%- if cart != empty -%}
               {%- for item in cart.items -%}
                 <div class="cart-item cart-item__block" id="CartItem-{{ item.index | plus: 1 }}">
