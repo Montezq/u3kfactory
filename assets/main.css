@@ -1298,13 +1298,10 @@ video {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
-<<<<<<< HEAD
 .border-b-\[\#8c8c8c\] {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(140 140 140 / var(--tw-border-opacity));
 }
-=======
->>>>>>> b71b2ad6353ecdc0fc13b1954d8e95ffae739f56
 .\!bg-red {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(222 105 97 / var(--tw-bg-opacity)) !important;
