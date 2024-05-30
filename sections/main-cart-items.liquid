@@ -180,62 +180,6 @@
       </form>
     </div>
   </cart-items>
-  <div
-    class="gradient cart__footer-wrapper fixed bottom-0 bg-gray-10 lg:bg-white {% if cart == empty %} is-empty{% endif %}"
-    id="main-cart-footer"
-    data-id="{{ section.id }}"
-  >
-    <div class="cart__footer isolate flex items-center justify-between h-full">
-      {%- if section.settings.privacy_menu.links -%}
-        <div class="max-md:hidden">
-          <ul class="cart__footer-privacy-menu flex items-center flex-wrap">
-            {%- for link in section.settings.privacy_menu.links -%}
-              <li>
-                <a
-                  href="{{ link.url }}"
-                  class="underline font-helveticaThinCond font-bold tracking-wider uppercase text-sm whitespace-nowrap"
-                >
-                  {{ link.title | escape }}
-                </a>
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-      {%- endif -%}
-      <div class="cart__blocks ml-auto max-md:w-full">
-        <div class="cart__ctas flex items-center md:border-[2px] md:border-black js-contents">
-          <noscript>
-            <button type="submit" class="cart__update-button button button--secondary" form="cart">
-              {{ 'sections.cart.update' | t }}
-            </button>
-          </noscript>
-          <div class="totals">
-            <p class="whitespace-nowrap text-[25px] font-bold leading-none uppercase px-4 max-md:hidden">
-              Total <span class="totals__total-value">{{ cart.total_price | money_with_currency }}</span>
-            </p>
-          </div>
-          <button
-            type="submit"
-            id="checkout"
-            class="cart__checkout-button btn btn_primary !flex items-center !tracking-wide whitespace-nowrap max-md:w-full max-md:relative max-md:text-center max-md:justify-center"
-            name="checkout"
-            {% if cart == empty %}
-              disabled
-            {% endif %}
-            form="cart"
-          >
-            <span class="md:font-coutureBold text-[30px] max-md:tracking-xwidest md:text-[22px] leading-none">
-              {{ 'sections.cart.checkout' | t }}
-            </span>
-            <span
-              class="icon-FULL-ICON-SET-WEBSITE-FINAL_Hand-Truck-Icon max-md:text-[28px] max-md:absolute max-md:top-1/2 max-md:-translate-y-1/2 max-md:right-6"
-            ></span>
-          </button>
-        </div>
-        <div id="cart-errors"></div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <script>
@@ -266,23 +210,6 @@
 
     window.addEventListener('resize', checkWidthAndScroll);
     checkWidthAndScroll(); // Initial check
-
-    function isIE() {
-      const ua = window.navigator.userAgent;
-      const msie = ua.indexOf('MSIE ');
-      const trident = ua.indexOf('Trident/');
-
-      return msie > 0 || trident > 0;
-    }
-
-    if (!isIE()) return;
-    const cartSubmitInput = document.createElement('input');
-    cartSubmitInput.setAttribute('name', 'checkout');
-    cartSubmitInput.setAttribute('type', 'hidden');
-    document.querySelector('#cart').appendChild(cartSubmitInput);
-    document.querySelector('#checkout').addEventListener('click', function (event) {
-      document.querySelector('#cart').submit();
-    });
   });
 </script>
 {% schema %}
