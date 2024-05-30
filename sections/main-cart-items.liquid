@@ -13,7 +13,7 @@
 <div class="cart__wrapper flex flex-col relative pr-10">
   <cart-items class="gradient  isolate{% if cart == empty %} is-empty{% endif %}">
     <div class="page-width">
-      <div class="cart__heading fixed top-[27px] right-0 w-full flex justify-between border-b border-b-black bg-white pb-[3px]">
+      <div class="cart__heading fixed top-[27px] right-0 flex justify-between border-b border-b-black bg-white pb-[3px]">
         <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none">{{ 'sections.cart.title' | t }}</h1>
         <div class="totals">
           <h2 class="totals__total text-[25px] font-bold leading-none uppercase">
@@ -133,7 +133,7 @@
     </div>
   </cart-items>
   <div
-    class="gradient cart__footer-wrapper fixed w-full bottom-0 right-0 bg-white pr-10 {% if cart == empty %} is-empty{% endif %}"
+    class="gradient cart__footer-wrapper fixed bottom-0 right-0 bg-white pr-10 {% if cart == empty %} is-empty{% endif %}"
     id="main-cart-footer"
     data-id="{{ section.id }}"
   >
