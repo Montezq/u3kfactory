@@ -28,8 +28,7 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "taxes_text": "* VAT INCLUDED \/ EXCLUDED SHIPPING COST"
           }
         }
       },
@@ -41,18 +40,7 @@
         "buy_buttons"
       ],
       "settings": {
-        "enable_sticky_info": true,
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "enable_sticky_info": true
       }
     },
     "related-products": {
@@ -72,10 +60,27 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "plus_info_GRqWAV": {
+      "type": "plus-info",
+      "settings": {
+        "heading": "Print Details",
+        "content": "<p>This fine art giclée print is delivered unframed. The paper has a matt, light textured surface. The high quality Hahnemühle\/ILFord fine art paper and canvas that we use for our prints combined with the Lucia Pro inks guarantees archival conservation of colors, with the print        retaining its intended appeareance for up to a 100 years. We recommend to keep the prints away from direct sunlight and under glass in the case of the paper prints.<\/p>",
+        "image": "shopify:\/\/shop_images\/u3-art-prints-coming-soon-16.9-1200p.jpg"
+      }
+    },
+    "plus_info_9jRrKL": {
+      "type": "plus-info",
+      "settings": {
+        "heading": "Packaging Details",
+        "content": "{{ product.metafields.custom.plus_info_packing_details | metafield_tag }}"
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "plus_info_GRqWAV",
+    "plus_info_9jRrKL"
   ]
 }

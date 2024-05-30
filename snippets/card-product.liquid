@@ -12,8 +12,6 @@
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
-{{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
-
 <div class="card-wrapper product-card-wrapper underline-links-hover">
   <div
     class="card"
@@ -55,7 +53,7 @@
       <div class="flex justify-between">
         <div class="card__information">
           <h3
-            class="card__heading text-xl font-helveticaThinCond font-bold uppercase tracking-widest leading-none line-clamp-1 pr-5"
+            class="card__heading text-xl font-helvetica font-[100] uppercase tracking-widest leading-none line-clamp-1 pr-5"
             title="{{ card_product.title | escape }}"
             {% if card_product.featured_media %}
               id="title-{{ section_id }}-{{ card_product.id }}"
@@ -69,7 +67,7 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
-          <h4 class="leading-none text-[19px] font-helveticaThinCond italic tracking-wide font-semibold">
+          <h4 class="leading-none text-[19px] font-helvetica font-[900] italic tracking-wide">
             <a
               href="{{ card_product.metafields.custom.artist_page.value.url }}"
             >

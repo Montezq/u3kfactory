@@ -4,7 +4,6 @@
   Usage:
   {% render 'header-dropdown-menu' %}
 {% endcomment %}
-
 <nav>
   <accordion-list>
     <ul role="list" class="space-y-5 md:space-y-3.5">
@@ -15,9 +14,36 @@
           {% endif %}
         >
           {%- if link.links != blank -%}
+            {%- liquid
+              assign active_item = false
+              if template.name == 'collection'
+                for product in collection.products
+                  for collection in product.collections
+                    for childlink in link.links
+                      assign collection_title = collection.title | escape | downcase | remove: 'all'
+                      assign childlink_title = childlink.title | escape | downcase
+                      if collection_title contains childlink_title
+                        assign active_item = true
+                      endif
+                    endfor
+                  endfor
+                endfor
+              endif
+              if template.name == 'product'
+                for collection in product.collections
+                  for childlink in link.links
+                    assign collection_title = collection.title | escape | downcase | remove: 'all'
+                    assign childlink_title = childlink.title | escape | downcase
+                    if collection_title contains childlink_title
+                      assign active_item = true
+                    endif
+                  endfor
+                endfor
+              endif
+            -%}
             <accordion-item
-              class="{% if link.child_active %}open{% endif %}"
-              {% if link.child_active %}
+              class="{% if link.child_active or active_item %}open{% endif %}"
+              {% if link.child_active or active_item %}
                 data-open
               {% endif %}
             >
@@ -26,13 +52,13 @@
                 class="header__menu-item accordion-toggle cursor-pointer"
               >
                 <span
-                  class="inline-block font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{%- if link.child_active %} header__active-menu-item{% endif %}"
+                  class="inline-block font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{%- if link.child_active or active_item %} header__active-menu-item{% endif %}"
                 >
                   {{- link.title | escape -}}
                 </span>
               </div>
               <div
-                class="accordion-content overflow-hidden{% if link.child_active %}  open-initially{%  else %} h-0 transition-all duration-300 ease-in-out{% endif %}"
+                class="accordion-content overflow-hidden{% if link.child_active or active_item %}  open-initially{%  else %} h-0 transition-all duration-300 ease-in-out{% endif %}"
               >
                 <ul
                   id="HeaderMenu-MenuList-{{ forloop.index }}"
@@ -41,13 +67,36 @@
                   tabindex="-1"
                 >
                   {%- for childlink in link.links -%}
+                    {%- liquid
+                      assign active_item = false
+                      if template.name == 'collection'
+                        for product in collection.products
+                          for collection in product.collections
+                            assign collection_title = collection.title | escape | downcase | remove: 'all'
+                            assign childlink_title = childlink.title | escape | downcase
+                            if collection_title contains childlink_title
+                              assign active_item = true
+                            endif
+                          endfor
+                        endfor
+                      endif
+                      if template.name == 'product'
+                        for collection in product.collections
+                          assign collection_title = collection.title | escape | downcase | remove: 'all'
+                          assign childlink_title = childlink.title | escape | downcase
+                          if collection_title contains childlink_title
+                            assign active_item = true
+                          endif
+                        endfor
+                      endif
+                    -%}
                     <li>
                       {%- if childlink.links == blank -%}
                         <a
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                           href="{{ childlink.url }}"
-                          class="font-coutureBold text-[20px] md:text-[23px] text-gray-800 md:text-gray-200 uppercase duration-300 ease-in-out tracking-widerx{% if childlink.current %} header__menu-item-active{% endif %}"
-                          style="{% if childlink.current %}color: {{settings.second_color}}{% endif %}"
+                          class="font-coutureBold text-[20px] md:text-[23px] text-gray-800 md:text-gray-200 uppercase duration-300 ease-in-out tracking-widerx{% if childlink.current or active_item %} header__menu-item-active{% endif %}"
+                          style="{% if childlink.current or active_item %}color: {{settings.second_color}}{% endif %}"
                           {% if childlink.current %}
                             aria-current="page"
                           {% endif %}

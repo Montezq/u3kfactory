@@ -168,7 +168,7 @@
       "sold_out": "Sold out",
       "unavailable": "Unavailable",
       "vendor": "Vendor",
-      "value_unavailable": "{{ option_value }} - Unavailable",
+      "value_unavailable": "{{ option_value }}",
       "variant_sold_out_or_unavailable": "Variant sold out or unavailable",
       "video_exit_message": "{{ title }} opens full screen video in same window.",
       "view_full_details": "View full details",
@@ -279,13 +279,13 @@
       }
     },
     "cart": {
-      "title": "Your cart",
+      "title": "my shopping cart",
       "caption": "Cart items",
       "remove_title": "Remove {{ title }}",
       "estimated_total": "Estimated total",
       "new_estimated_total": "New estimated total",
       "note": "Order special instructions",
-      "checkout": "Check out",
+      "checkout": "PROCEED TO ORDER",
       "empty": "Your cart is empty",
       "cart_error": "There was an error while updating your cart. Please try again.",
       "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
@@ -322,9 +322,10 @@
       "view_all": "View all"
     },
     "collection_template": {
-      "empty": "No products found",
+      "empty_title": "Oh No !",
+      "empty_products": "CAN’T  SEE  ANY  PRODUCTS  HERE",
       "title": "Collection",
-      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all<\/a>"
+      "back_home": "BACK HOME"
     },
     "video": {
       "load_video": "Load video: {{ description }}"

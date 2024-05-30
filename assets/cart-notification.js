@@ -13,25 +13,11 @@ class CartNotification extends HTMLElement {
   }
 
   open() {
-    this.notification.classList.add('animate', 'active');
-
-    this.notification.addEventListener(
-      'transitionend',
-      () => {
-        this.notification.focus();
-        trapFocus(this.notification);
-      },
-      { once: true }
-    );
-
-    document.body.addEventListener('click', this.onBodyClick);
+    this.notification.classList.add('!block');
   }
 
   close() {
-    this.notification.classList.remove('active');
-    document.body.removeEventListener('click', this.onBodyClick);
-
-    removeTrapFocus(this.activeElement);
+    this.notification.classList.remove('!block');
   }
 
   renderContents(parsedState) {
@@ -42,7 +28,6 @@ class CartNotification extends HTMLElement {
         section.selector
       );
     });
-
     if (this.header) this.header.reveal();
     this.open();
   }
@@ -55,6 +40,9 @@ class CartNotification extends HTMLElement {
       },
       {
         id: 'cart-notification-button',
+      },
+      {
+        id: 'cart-icon-bubble-2',
       },
       {
         id: 'cart-icon-bubble',

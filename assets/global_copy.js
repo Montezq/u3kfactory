@@ -961,28 +961,32 @@ class VariantSelects extends HTMLElement {
 
   onVariantChange(event) {
     this.updateOptions();
-    this.updateMasterId();
-    this.updateSelectedSwatchValue(event);
-    this.toggleAddButton(true, '', false);
-    this.updatePickupAvailability();
-    this.removeErrorMessage();
-    this.updateVariantStatuses();
+    // this.updateMasterId();
+    // this.updateSelectedSwatchValue(event);
+    // this.toggleAddButton(true, '', false);
+    // this.updatePickupAvailability();
+    // this.removeErrorMessage();
+    // this.updateVariantStatuses();
 
-    if (!this.currentVariant) {
-      this.toggleAddButton(true, '', true);
-      this.setUnavailable();
-    } else {
-      // this.updateMedia();
-      this.updateURL();
-      this.updateVariantInput();
-      this.renderProductInfo();
-      this.updateShareUrl();
-    }
+    // if (!this.currentVariant) {
+    //   this.toggleAddButton(true, '', true);
+    //   this.setUnavailable();
+    // } else {
+    //   this.updateMedia();
+    //   this.updateURL();
+    //   this.updateVariantInput();
+    //   this.renderProductInfo();
+    //   this.updateShareUrl();
+    // }
   }
 
   updateOptions() {
-    this.options = Array.from(this.querySelectorAll('.select-options'), (element) => {
-      if (element.tagName === 'UL') {
+    this.options = Array.from(this.querySelectorAll('.custom-select__options'), (element) => {
+      console.log(element.tagName)
+      if (element.tagName === 'SELECT') {
+        return element.value;
+      }
+      if (element.tagName === 'FIELDSET') {
         return Array.from(element.querySelectorAll('input')).find((radio) => radio.checked)?.value;
       }
     });
@@ -1125,12 +1129,8 @@ class VariantSelects extends HTMLElement {
         if (this.currentVariant.id !== requestedVariantId) return;
 
         const html = new DOMParser().parseFromString(responseText, 'text/html');
-        const destination = document.getElementById(`price-${this.dataset.section}-buy`);
-        const destination2 = document.getElementById(`price-${this.dataset.section}`);
+        const destination = document.getElementById(`price-${this.dataset.section}`);
         const source = html.getElementById(
-          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}-buy`
-        );
-        const source2 = html.getElementById(
           `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
         const skuSource = html.getElementById(
@@ -1158,7 +1158,6 @@ class VariantSelects extends HTMLElement {
         if (qtyRules) qtyRules.classList.remove('hidden');
 
         if (source && destination) destination.innerHTML = source.innerHTML;
-        if (source2 && destination2) destination2.innerHTML = source2.innerHTML;
         if (inventorySource && inventoryDestination) inventoryDestination.innerHTML = inventorySource.innerHTML;
         if (skuSource && skuDestination) {
           skuDestination.innerHTML = skuSource.innerHTML;
@@ -1174,7 +1173,7 @@ class VariantSelects extends HTMLElement {
           pricePerItemDestination.classList.toggle('hidden', pricePerItemSource.classList.contains('hidden'));
         }
 
-        const price = document.getElementById(`price-${this.dataset.section}-buy`);
+        const price = document.getElementById(`price-${this.dataset.section}`);
 
         if (price) price.classList.remove('hidden');
 
@@ -1320,7 +1319,7 @@ class AccordionItem extends HTMLElement {
     button.addEventListener('click', () => {
       content.style.transition = 'height 0.3s ease-out';
       if (!this.isOpen) {
-        document.querySelector('.header__menu-content').classList.remove('lg:pt-[14vh]');
+        document.querySelector('.header__menu-content').classList.remove('lg:pt-[11vh]');
         this.isOpen = true;
         document.body.classList.add('accordion-menu__opened');
         this.classList.add('open')
@@ -1337,7 +1336,7 @@ class AccordionItem extends HTMLElement {
       this.classList.add('open')
       document.body.classList.add('accordion-menu__opened');
       requestAnimationFrame(() => {
-        document.querySelector('.header__menu-content').classList.remove('lg:pt-[14vh]');
+        document.querySelector('.header__menu-content').classList.remove('lg:pt-[11vh]');
         content.style.height = `${content.scrollHeight}px`;
       });
     } else {
@@ -1375,35 +1374,35 @@ customElements.define('accordion-item', AccordionItem);
 
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.querySelector('body');
-  // function adjustMainPadding() {
-  //   var mainElement = document.querySelector('.main');
-  //   var headerPersonal = document.querySelector('.header__personal');
-  //   var headerMenu = document.querySelector('.header__menu');
+  function adjustMainPadding() {
+    var mainElement = document.querySelector('.main');
+    var headerPersonal = document.querySelector('.header__personal');
+    var headerMenu = document.querySelector('.header__menu');
   
-  //   var adjustPadding = () => {
-  //     var screenWidth = window.innerWidth;
-  //     if (screenWidth > 1024) { // 767
-  //       var headerPersonalWidth = headerPersonal?.offsetWidth || 0;
-  //       var headerMenuWidth = headerMenu?.offsetWidth || 0;
-  //       var totalPadding = headerPersonalWidth + headerMenuWidth;
-  //       if(mainElement) mainElement.style.paddingLeft = `${totalPadding}px`;
-  //       body.classList.remove('overflow-hidden')
-  //     } 
-  //   };
-  //   var timeoutId = null;
-  //   var throttledAdjustPadding = () => {
-  //     if (!timeoutId) {
-  //       timeoutId = setTimeout(() => {
-  //         adjustPadding();
-  //         timeoutId = null;
-  //       }, 100); 
-  //     }
-  //   };
+    var adjustPadding = () => {
+      var screenWidth = window.innerWidth;
+      if (screenWidth > 1024) { // 767
+        var headerPersonalWidth = headerPersonal?.offsetWidth || 0;
+        var headerMenuWidth = headerMenu?.offsetWidth || 0;
+        var totalPadding = headerPersonalWidth + headerMenuWidth;
+        if(mainElement) mainElement.style.paddingLeft = `${totalPadding}px`;
+        body.classList.remove('overflow-hidden')
+      } 
+    };
+    var timeoutId = null;
+    var throttledAdjustPadding = () => {
+      if (!timeoutId) {
+        timeoutId = setTimeout(() => {
+          adjustPadding();
+          timeoutId = null;
+        }, 100); 
+      }
+    };
   
-  //   adjustPadding();
-  //   window.addEventListener('resize', throttledAdjustPadding);
-  // }
-  // adjustMainPadding();
+    adjustPadding();
+    window.addEventListener('resize', throttledAdjustPadding);
+  }
+  adjustMainPadding();
 
   const customClassName = '!translate-x-0',
         hamburger = document.querySelector('.header__mobile-hamburger'),

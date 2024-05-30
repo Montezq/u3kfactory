@@ -1,0 +1,64 @@
+<div class="plus-info max-lg:px-4">
+  {%- if section.settings.heading != blank -%}
+    <div class="plus-info__heading mb-[27px]{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      <p class="w-fit bg-black font-open text-xl leading-none p-1.5 text-white">
+        {{ section.settings.heading }}
+      </p>
+    </div>
+  {%- endif -%}
+  {%- if section.settings.content != blank -%}
+    <div class="plus-info__content text-lg font-open text-[#1b1b1b]{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {{ section.settings.content }}
+    </div>
+  {%- endif -%}
+  {%- if section.settings.image != blank -%}
+    <div class="plus-info__image{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {%- liquid
+        assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+      -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          width: section.settings.image.width,
+          height: image_height,
+          widths: '450, 660, 900, 1320, 1800',
+          fetchpriority: 'auto'
+      }}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Product Plus Info",
+  "tag": "section",
+  "class": "section plus-info__section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "+ Info"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Plus Info"
+    }
+  ]
+}
+{% endschema %}

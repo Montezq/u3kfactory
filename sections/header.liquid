@@ -14,9 +14,8 @@
   endfor
 -%}
 
-{% comment %} // TODO: Logo fixat {% endcomment %}
 <header class="lg:flex max-lg:h-fit header lg:w-fit lg:h-screen fixed top-0 left-0 bottom-0 right-0 z-[2]{% if menu_open %} menu-open{% endif %}">
-  <div class="header__mobile px-[18px] py-4 bg-gray-10 flex items-center justify-between lg:hidden">
+  <div class="header__mobile px-[18px] py-4 flex items-center justify-between lg:hidden{% if template.name != "index" %} bg-gray-10{% endif %}">
     <div class="header__mobile-hamburger w-12">
       {%- render 'icon-hamburger' -%}
     </div>
@@ -48,7 +47,7 @@
       <a
         href="{{ routes.cart_url }}"
         class="w-6 flex justify-center relative font-coutureBold text-xl"
-        id="cart-icon-bubble"
+        id="cart-icon-bubble-2"
       >
         {%- render 'icon-cart' -%}
         {%- if cart != empty -%}
@@ -179,7 +178,17 @@
         {%- render 'icon-close-small' -%}
       </div>
     </div>
-    <div class="header__menu-content transition-all duration-500 pl-[45px] lg:pl-[0] pr-5 lg:pr-0 mt-20 lg:pt-[11vh] lg:mt-0 flex flex-col overflow-auto relative z-[1]">
+    {%- liquid
+      assign link_ative = false
+      for link in section.settings.menu.links
+        if link.links != blank
+          if link.child_active
+            assign link_ative = true
+          endif
+        endif
+      endfor
+    -%}
+    <div class="header__menu-content pl-[45px] lg:pl-[0] pr-5 lg:pr-0 mt-20 lg:mt-0 flex flex-col overflow-auto relative z-[1]{% unless link_ative %} lg:pt-[14vh] transition-all duration-500{% endunless %}">
       <div class="header__menu-logo lg:pl-2">
         {%- if request.page_type == 'index' -%}
           <h1>
@@ -215,12 +224,6 @@
     </div>
   </div>
 </header>
-
-{% comment %}
-  {%- if settings.cart_type == "notification" -%}
-    {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
-  {%- endif -%}
-{% endcomment %}
 
 <script type="application/ld+json">
   {
