@@ -136,7 +136,7 @@
                   </div>
                 </div>
               {%- when 'copies_left' -%}
-                <div class="flex items-center copies-left__wrapper">
+                <div class="flex flex-col md:flex-row items-center copies-left__wrapper">
                   <div class="flex">
                     {% assign quantity = product.selected_or_first_available_variant.inventory_quantity %}
                     {% assign quantity_str = quantity | append: '' %}

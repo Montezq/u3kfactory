@@ -3368,6 +3368,14 @@ input:focus-visible{
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
+  .md\:flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
   .md\:justify-between {
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
