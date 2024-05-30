@@ -2833,10 +2833,7 @@ input:focus-visible{
     margin-right: clamp(12px, 1.41vw, 1.41vw);
   }
 .cart__wrapper-items{
-  padding-top: 75px;
-  padding-bottom: 67px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 50px 8px 67px;
 }
 @media (min-width: 768px){
 .cart__wrapper-items{
