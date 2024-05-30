@@ -10,7 +10,7 @@
 
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
-<div class="cart__wrapper">
+<div class="cart__wrapper flex flex-col">
   <cart-items class="gradient  isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
     <div class="page-width pr-10">
       <div class="cart__heading flex justify-between border-b border-b-black bg-white pb-[3px]">

@@ -1374,6 +1374,9 @@ video {
 .pb-\[38px\] {
   padding-bottom: 38px;
 }
+.pb-\[3px\] {
+  padding-bottom: 3px;
+}
 .pb-\[66px\] {
   padding-bottom: 66px;
 }
@@ -1457,9 +1460,6 @@ video {
 }
 .pt-\[8\%\] {
   padding-top: 8%;
-}
-.pb-\[3px\] {
-  padding-bottom: 3px;
 }
 .text-center {
   text-align: center;
@@ -2737,6 +2737,10 @@ input:focus-visible{
   }
 .cart__heading{
   padding-top: clamp(42px, 6.4vh ,126px);
+}
+.cart__wrapper{
+  height: calc(100vh - 27px);
+  overflow: hidden;
 }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
