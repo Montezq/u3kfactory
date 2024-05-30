@@ -785,6 +785,12 @@ video {
 .mb-\[42px\] {
   margin-bottom: 42px;
 }
+.ml-0 {
+  margin-left: 0px;
+}
+.ml-0\.5 {
+  margin-left: 0.125rem;
+}
 .ml-1 {
   margin-left: 0.25rem;
 }
@@ -847,12 +853,6 @@ video {
 }
 .mt-auto {
   margin-top: auto;
-}
-.ml-0 {
-  margin-left: 0px;
-}
-.ml-0\.5 {
-  margin-left: 0.125rem;
 }
 .line-clamp-1 {
   overflow: hidden;
@@ -1532,6 +1532,9 @@ video {
 .text-\[13px\] {
   font-size: 13px;
 }
+.text-\[14px\] {
+  font-size: 14px;
+}
 .text-\[15px\] {
   font-size: 15px;
 }
@@ -1602,9 +1605,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-\[14px\] {
-  font-size: 14px;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
@@ -2785,6 +2785,9 @@ input:focus-visible{
 .cart__checkout-button span:first-child{
       padding-right: 15px;
     }
+.cart__footer-privacy-menu{
+  row-gap: clamp(10px, 1.1vh, 1.1vh);
+}
 .cart__footer-privacy-menu li{
     margin-right: clamp(12px, 1.41vw, 1.41vw);
   }
