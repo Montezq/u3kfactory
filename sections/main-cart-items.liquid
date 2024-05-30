@@ -10,215 +10,217 @@
 
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
-<cart-items class="gradient  isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
-  <div class="page-width pr-10">
-    <div class="cart__heading flex justify-between border-b border-b-black bg-white pb-[3px]">
-      <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none">{{ 'sections.cart.title' | t }}</h1>
-      <div class="totals">
-        <h2 class="totals__total text-[25px] font-bold leading-none uppercase">
-          Total <span class="totals__total-value">{{ cart.total_price | money_with_currency }}</span>
-        </h2>
-      </div>
-    </div>
-
-    <div class="cart__warnings">
-      <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="button">
-        {{ 'general.continue_shopping' | t }}
-      </a>
-
-      {%- if shop.customer_accounts_enabled and customer == null -%}
-        <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
-        <p class="cart__login-paragraph">
-          {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-        </p>
-      {%- endif -%}
-    </div>
-
-    <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden mt-[16vh]" method="post" id="cart">
-      <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
-        <div class="js-contents">
-          {%- if cart != empty -%}
-            {%- for item in cart.items -%}
-              <div class="cart-item cart-item__block flex" id="CartItem-{{ item.index | plus: 1 }}">
-                <div class="cart-item__media">
-                  {% if item.image %}
-                    <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
-                    <div class="cart-item__image-container w-[122px] h-[122px]">
-                      <img
-                        src="{{ item.image | image_url: width: 300 }}"
-                        class="w-full h-full object-cover"
-                        alt="{{ item.image.alt | escape }}"
-                        loading="lazy"
-                        width="122"
-                        height="{{ 122 | divided_by: item.image.aspect_ratio | ceil }}"
-                      >
-                    </div>
-                  {% endif %}
-                </div>
-                <div class="flex w-full ml-[22px] pl-2 pr-[14px] pt-1.5 justify-between border-b border-b-[#8c8c8c]">
-                  <div class="pb-3">
-                    <div class="mb-2">
-                      <a
-                        href="{{ item.url }}"
-                        class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
-                      >
-                        {{- item.product.title | escape -}}
-                      </a>
-                      <p class="text-[17px] italic">by {{ item.product.vendor }}</p>
-                    </div>
-                    <dl class="space-y-1.5">
-                      {%- unless item.product.has_only_default_variant -%}
-                        {%- for option in item.options_with_values -%}
-                          <div class="product-option">
-                            <dd class="text-[18px] lg:text-[22px] leading-none">{{ option.value }}</dd>
-                          </div>
-                        {%- endfor -%}
-                      {%- endunless -%}
-                      {%- for property in item.properties -%}
-                        {%- assign property_first_char = property.first | slice: 0 -%}
-                        {%- if property.last != blank and property_first_char != '_' -%}
-                          <div class="product-option">
-                            <dd class="text-[18px] lg:text-[22px] leading-none">
-                              {{ property.last }}
-                            </dd>
-                          </div>
-                        {%- endif -%}
-                      {%- endfor -%}
-                    </dl>
-                  </div>
-                  <div class="text-right flex flex-col justify-between">
-                    <div class="mb-2">
-                      <cart-remove-button
-                        id="Remove-{{ item.index | plus: 1 }}"
-                        data-index="{{ item.index | plus: 1 }}"
-                      >
-                        <a
-                          href="{{ item.url_to_remove }}"
-                          class="text-right text-[20px]"
-                          aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
-                        >
-                          Remove <span class="font-coutureBold text-[15px] font-bold">x</span>
-                        </a>
-                      </cart-remove-button>
-                    </div>
-                    <div class="mb-1">
-                      <p class="text-[22px] lg:text-[25px] font-bold text-right leading-none mb-1.5">
-                        {{ item.price | money_with_currency }}
-                      </p>
-                      <p class="text-[13px] font-bold text-right leading-none italic">
-                        * VAT INCLUDED / EXCLUDED SHIPPING COST
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            {%- endfor -%}
-          {%- endif -%}
+<div class="cart__wrapper">
+  <cart-items class="gradient  isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
+    <div class="page-width pr-10">
+      <div class="cart__heading flex justify-between border-b border-b-black bg-white pb-[3px]">
+        <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none">{{ 'sections.cart.title' | t }}</h1>
+        <div class="totals">
+          <h2 class="totals__total text-[25px] font-bold leading-none uppercase">
+            Total <span class="totals__total-value">{{ cart.total_price | money_with_currency }}</span>
+          </h2>
         </div>
       </div>
 
-      <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
-      <p
-        class="visually-hidden"
-        id="shopping-cart-line-item-status"
-        aria-live="polite"
-        aria-hidden="true"
-        role="status"
-      >
-        {{ 'accessibility.loading' | t }}
-      </p>
-    </form>
-  </div>
-</cart-items>
-<div
-  class="gradient {% if cart == empty %} is-empty{% endif %}"
-  id="main-cart-footer"
-  data-id="{{ section.id }}"
->
-  <div class="cart__footer isolate section-{{ section.id }}-padding">
-    {%- if settings.show_cart_note -%}
-      <cart-note class="cart__note field">
-        <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
-        <textarea
-          class="text-area field__input"
-          name="note"
-          form="cart"
-          id="Cart-note"
-          placeholder="{{ 'sections.cart.note' | t }}"
-        >{{ cart.note }}</textarea>
-      </cart-note>
-    {%- endif -%}
+      <div class="cart__warnings">
+        <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
+        <a href="{{ routes.all_products_collection_url }}" class="button">
+          {{ 'general.continue_shopping' | t }}
+        </a>
 
-    <div class="cart__blocks">
-      {% for block in section.blocks %}
-        {%- case block.type -%}
-          {%- when '@app' -%}
-            {% render block %}
-          {%- when 'subtotal' -%}
-            <div class="js-contents" {{ block.shopify_attributes }}>
-              <div>
-                {%- if cart.cart_level_discount_applications.size > 0 -%}
-                  <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
-                    {%- for discount in cart.cart_level_discount_applications -%}
-                      <li class="discounts__discount discounts__discount--position">
-                        {%- render 'icon-discount' -%}
-                        {{ discount.title }}
-                        (-{{ discount.total_allocated_amount | money }})
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                {%- endif -%}
-              </div>
+        {%- if shop.customer_accounts_enabled and customer == null -%}
+          <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
+          <p class="cart__login-paragraph">
+            {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
+          </p>
+        {%- endif -%}
+      </div>
 
-              <div class="totals">
-                <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
-                <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
-              </div>
-
-              <small class="tax-note caption-large rte">
-                {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
-                  {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                {%- elsif cart.taxes_included -%}
-                  {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
-                {%- elsif shop.shipping_policy.body != blank -%}
-                  {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
-                {%- else -%}
-                  {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
-                {%- endif -%}
-              </small>
-            </div>
-          {%- else -%}
-            <div class="cart__ctas" {{ block.shopify_attributes }}>
-              <noscript>
-                <button type="submit" class="cart__update-button button button--secondary" form="cart">
-                  {{ 'sections.cart.update' | t }}
-                </button>
-              </noscript>
-
-              <button
-                type="submit"
-                id="checkout"
-                class="cart__checkout-button button"
-                name="checkout"
-                {% if cart == empty %}
-                  disabled
-                {% endif %}
-                form="cart"
-              >
-                {{ 'sections.cart.checkout' | t }}
-              </button>
-            </div>
-
-            {%- if additional_checkout_buttons -%}
-              <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
-                {{ content_for_additional_checkout_buttons }}
-              </div>
+      <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden mt-[16vh]" method="post" id="cart">
+        <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
+          <div class="js-contents">
+            {%- if cart != empty -%}
+              {%- for item in cart.items -%}
+                <div class="cart-item cart-item__block flex" id="CartItem-{{ item.index | plus: 1 }}">
+                  <div class="cart-item__media">
+                    {% if item.image %}
+                      <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
+                      <div class="cart-item__image-container w-[122px] h-[122px]">
+                        <img
+                          src="{{ item.image | image_url: width: 300 }}"
+                          class="w-full h-full object-cover"
+                          alt="{{ item.image.alt | escape }}"
+                          loading="lazy"
+                          width="122"
+                          height="{{ 122 | divided_by: item.image.aspect_ratio | ceil }}"
+                        >
+                      </div>
+                    {% endif %}
+                  </div>
+                  <div class="flex w-full ml-[22px] pl-2 pr-[14px] pt-1.5 justify-between border-b border-b-[#8c8c8c]">
+                    <div class="pb-3">
+                      <div class="mb-2">
+                        <a
+                          href="{{ item.url }}"
+                          class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
+                        >
+                          {{- item.product.title | escape -}}
+                        </a>
+                        <p class="text-[17px] italic">by {{ item.product.vendor }}</p>
+                      </div>
+                      <dl class="space-y-1.5">
+                        {%- unless item.product.has_only_default_variant -%}
+                          {%- for option in item.options_with_values -%}
+                            <div class="product-option">
+                              <dd class="text-[18px] lg:text-[22px] leading-none">{{ option.value }}</dd>
+                            </div>
+                          {%- endfor -%}
+                        {%- endunless -%}
+                        {%- for property in item.properties -%}
+                          {%- assign property_first_char = property.first | slice: 0 -%}
+                          {%- if property.last != blank and property_first_char != '_' -%}
+                            <div class="product-option">
+                              <dd class="text-[18px] lg:text-[22px] leading-none">
+                                {{ property.last }}
+                              </dd>
+                            </div>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </dl>
+                    </div>
+                    <div class="text-right flex flex-col justify-between">
+                      <div class="mb-2">
+                        <cart-remove-button
+                          id="Remove-{{ item.index | plus: 1 }}"
+                          data-index="{{ item.index | plus: 1 }}"
+                        >
+                          <a
+                            href="{{ item.url_to_remove }}"
+                            class="text-right text-[20px]"
+                            aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                          >
+                            Remove <span class="font-coutureBold text-[15px] font-bold">x</span>
+                          </a>
+                        </cart-remove-button>
+                      </div>
+                      <div class="mb-1">
+                        <p class="text-[22px] lg:text-[25px] font-bold text-right leading-none mb-1.5">
+                          {{ item.price | money_with_currency }}
+                        </p>
+                        <p class="text-[13px] font-bold text-right leading-none italic">
+                          * VAT INCLUDED / EXCLUDED SHIPPING COST
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {%- endfor -%}
             {%- endif -%}
-        {%- endcase -%}
-      {% endfor %}
+          </div>
+        </div>
 
-      <div id="cart-errors"></div>
+        <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
+        <p
+          class="visually-hidden"
+          id="shopping-cart-line-item-status"
+          aria-live="polite"
+          aria-hidden="true"
+          role="status"
+        >
+          {{ 'accessibility.loading' | t }}
+        </p>
+      </form>
+    </div>
+  </cart-items>
+  <div
+    class="gradient {% if cart == empty %} is-empty{% endif %}"
+    id="main-cart-footer"
+    data-id="{{ section.id }}"
+  >
+    <div class="cart__footer isolate section-{{ section.id }}-padding">
+      {%- if settings.show_cart_note -%}
+        <cart-note class="cart__note field">
+          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+          <textarea
+            class="text-area field__input"
+            name="note"
+            form="cart"
+            id="Cart-note"
+            placeholder="{{ 'sections.cart.note' | t }}"
+          >{{ cart.note }}</textarea>
+        </cart-note>
+      {%- endif -%}
+
+      <div class="cart__blocks">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'subtotal' -%}
+              <div class="js-contents" {{ block.shopify_attributes }}>
+                <div>
+                  {%- if cart.cart_level_discount_applications.size > 0 -%}
+                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                      {%- for discount in cart.cart_level_discount_applications -%}
+                        <li class="discounts__discount discounts__discount--position">
+                          {%- render 'icon-discount' -%}
+                          {{ discount.title }}
+                          (-{{ discount.total_allocated_amount | money }})
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+
+                <div class="totals">
+                  <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
+                  <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+                </div>
+
+                <small class="tax-note caption-large rte">
+                  {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                  {%- elsif cart.taxes_included -%}
+                    {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+                  {%- elsif shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+                  {%- else -%}
+                    {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+                  {%- endif -%}
+                </small>
+              </div>
+            {%- else -%}
+              <div class="cart__ctas" {{ block.shopify_attributes }}>
+                <noscript>
+                  <button type="submit" class="cart__update-button button button--secondary" form="cart">
+                    {{ 'sections.cart.update' | t }}
+                  </button>
+                </noscript>
+
+                <button
+                  type="submit"
+                  id="checkout"
+                  class="cart__checkout-button button"
+                  name="checkout"
+                  {% if cart == empty %}
+                    disabled
+                  {% endif %}
+                  form="cart"
+                >
+                  {{ 'sections.cart.checkout' | t }}
+                </button>
+              </div>
+
+              {%- if additional_checkout_buttons -%}
+                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+              {%- endif -%}
+          {%- endcase -%}
+        {% endfor %}
+
+        <div id="cart-errors"></div>
+      </div>
     </div>
   </div>
 </div>
