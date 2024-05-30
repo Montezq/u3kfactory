@@ -135,13 +135,47 @@
                     -%}
                   </div>
                 </div>
+              {%- when 'copies_left' -%}
+                <div class="flex flex-col md:flex-row items-center copies-left__wrapper">
+                  <div class="flex">
+                    {% assign quantity = product.selected_or_first_available_variant.inventory_quantity %}
+                    {% assign quantity_str = quantity | append: '' %}
+                    {% if quantity_str == '0' %}
+                      <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                        0
+                      </div>
+                      <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                        0
+                      </div>
+                    {% else %}
+                      {% assign length = quantity_str | size %}
+                      {% if length == 1 %}
+                        <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                          0
+                        </div>
+                        <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                          {{ quantity }}
+                        </div>
+                      {% endif %}
+                      {% for i in (0..length) %}
+                        {% assign char = quantity_str | slice: i, 1 %}
+                        {% if char != '' %}
+                          <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                            {{ char }}
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                  <div class="leading-none md:ml-2 text-[19px] max-md:mt-2 uppercase">COPIES LEFT</div>
+                </div>
             {%- endcase -%}
           {%- endfor -%}
           <div class="md:max-w-[360px] mt-4">
             {%- render 'favorites-button' -%}
           </div>
           <div class="max-w-[360px] mt-4 max-md:order-10">
-            <p class="italic uppercase text-lg text-gray-300 cursor-pointer w-fit font-semibold tracking-widerx">
+            <p class="italic uppercase text-lg text-gray-300 cursor-pointer w-fit font-semibold tracking-widerx contact-us">
               Contact us for larger sizes
               <span
                 class="icon-FULL-ICON-SET-WEBSITE-FINAL_Big-Envelope text-[#121212] !font-semibold inline-block ml-1.5 mt-1"
@@ -230,6 +264,67 @@
       }
     </script>
   </div>
+  <div class="contact-us__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-[320px] md:max-w-[471px]">
+    <button
+      type="button"
+      class="contact-us__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-[34px] h-[34px] rounded-full bg-black leading-none flex justify-center items-center cursor-pointer"
+      aria-label="{{ 'accessibility.close' | t }}"
+    >
+      x
+    </button>
+    <div
+      class="border border-[#5a5a5a] bg-white px-2.5 pt-5 max-h-[740px] ontact-us__modal-wrapper w-full"
+      aria-modal="true"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div class="contact-us__modal-heading text-center mb-[30px]">
+        <p class="text-[19px] tracking-widest font-normal uppercase leading-none mb-[30px]">You Are contacting</p>
+        <h2 class="font-coutureBold text-[42px]">{{ product.vendor }}</h2>
+        <div>
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Small-Envelope text-[60px]"> </span>
+        </div>
+      </div>
+
+      <div class="contact-us__modal-body">
+        {% form 'contact' %}
+          <div class="contact-subject contact-us__item">
+            <label for="last-name" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Regarding</label>
+            <input
+              class="block w-full"
+              type="text"
+              name="contact[regardin]"
+              id="reagarding"
+              value="{{ product.title }}"
+            >
+          </div>
+          <div class="contact-message contact-us__item">
+            <label for="message" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]"
+              >Your Message</label
+            >
+            <textarea class="block w-full" name="contact[message]" id="message"></textarea>
+          </div>
+          <div class="contact-email contact-us__item">
+            <div class="flex justify-between">
+              <label for="email" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Email</label>
+              <span class="text-right text-[13px] font-bold line-clamp-1 max-w-[60%]">
+                *You will be contacted back on this email adress
+              </span>
+            </div>
+            <input class="block w-full" type="email" name="contact[email]" id="email">
+          </div>
+
+          <div class="submit pb-4">
+            <input
+              type="submit"
+              class="btn btn_primary w-full max-w-80 !block mx-auto cursor-pointer"
+              value="SUBMIT MESSAGE"
+            >
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
 </section>
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
@@ -239,6 +334,16 @@
 {%- endif -%}
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    var contactOpen = document.querySelector('.contact-us'),
+      contactModal = document.querySelector('.contact-us__modal'),
+      contactClose = document.querySelector('.contact-us__modal-close');
+    contactOpen.addEventListener('click', () => {
+      contactModal.classList.remove('hidden');
+    });
+    contactClose.addEventListener('click', () => {
+      contactModal.classList.add('hidden');
+    });
+
     var mainCarousel = new Splide('.splide-main', {
       rewind: true,
       pagination: true,
@@ -310,6 +415,11 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
+      "limit": 1
+    },
+    {
+      "type": "copies_left",
+      "name": "tCopies Left",
       "limit": 1
     },
     {

@@ -1,0 +1,185 @@
+<div class="w-full flex flex-col items-center overflow-hidden cooming-soon__category">
+  <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full">
+    {%- if section.settings.cover_type == 'video' -%}
+      {{
+        section.settings.video
+        | video_tag:
+          image_size: '1100x',
+          autoplay: true,
+          loop: true,
+          controls: false,
+          class: 'w-full h-full object-cover',
+          muted: true
+      }}
+    {%- else -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          width: section.settings.image.width,
+          class: 'w-full h-full object-cover',
+          height: '100vh',
+          sizes: '100vw',
+          widths: '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680',
+          fetchpriority: 'high'
+      }}
+    {%- endif -%}
+  </div>
+  <div class="relative z-[1] flex flex-col items-center text-center my-auto">
+    {%- if section.settings.heading != blank or section.settings.subgheading != blank -%}
+      <div class="text-white leading-none">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="text-[70px] font-helveticaThinCond italic tracking-widest pb-[38px] mb-[42px] cooming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[278px] after:min-w-[180px] after:w-[80%] after:h-[1px] after:bg-white">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.subgheading != blank -%}
+          <h3 class="font-helveticaThinCond text-[70px] tracking-widest font-bold uppercase">
+            {{ section.settings.subgheading }}
+          </h3>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    <div class="cooming-soon__category-email max-w-[280px] sm:max-w-[350px] w-full mx-auto">
+      {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter, cooming-soon">
+        <div class="newsletter-form__field-wrapper">
+          <div class="flex flex-col items-center">
+            <div class="relative flex-1 w-full mb-[25px]">
+              <input
+                id="NewsletterForm--{{ section.id }}"
+                name="contact[email]"
+                value="{{ form.email }}"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="off"
+                class="bg-transparent email-input w-full !text-center border-b border-b-white text-white pl-[4px] pb-[2px] tracking-wider placeholder:tracking-wider placeholder:text-white"
+                {% if form.errors %}
+                  autofocus
+                  aria-invalid="true"
+                  aria-describedby="Newsletter-error--{{ section.id }}"
+                {% elsif form.posted_successfully? %}
+                  aria-describedby="Newsletter-success--{{ section.id }}"
+                {% endif %}
+                placeholder="{{ 'newsletter.label' | t }}"
+              >
+              <div
+                class="tooltip absolute top-full -left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-2 pr-[6px] pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+              >
+                <div class="flex items-center">
+                  <div class="w-7 h-7 mr-[7px]">
+                    {%- render 'icon-info' -%}
+                  </div>
+                  <p class="leading-none text-[15px] tracking-wider font-open">
+                    Please write a valid email address to be able to recieve updates.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="submit-button btn_white-outlined !font-couture !text-[20px] md:!text-[22px] !py-[7px] !px-3 uppercase text-white whitespace-nowrap !tracking-widest min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
+              name="commit"
+              id="submitNewsletter"
+              aria-label="{{ 'newsletter.keep_updated' | t }}"
+            >
+              {%- if form.posted_successfully? -%}
+                {{ 'newsletter.noted' | t }}
+              {%- else -%}
+                {{ 'newsletter.keep_updated' | t }}
+              {%- endif -%}
+            </button>
+          </div>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let mainWrapper = document.querySelector('body');
+    mainWrapper.classList.add('main_cooming-soon');
+    function validateAndSubmitForm() {
+      const form = document.getElementById('newsletter-form');
+      const tooltip = document.querySelector('.tooltip');
+      const submitButton = form.querySelector('.submit-button');
+      submitButton.addEventListener('click', function (event) {
+        const emailField = form.querySelector('.email-input');
+        const email = emailField.value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (emailRegex.test(email) && email) {
+          submitForm();
+        } else {
+          tooltip.classList.remove('opacity-0', 'invisible');
+          setTimeout(() => {
+            tooltip.classList.add('opacity-0', 'invisible');
+          }, 3000);
+        }
+      });
+
+      function submitForm() {
+        form.submit();
+      }
+    }
+
+    validateAndSubmitForm();
+    var live_url = window.location.href;
+    var result = live_url.includes('form_type=customer');
+    if (result) {
+      console.log('already exist');
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Cooming Soon Category",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "cover_type",
+      "options": [
+        {
+          "value": "video",
+          "label": "Video"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "video",
+      "label": "Cover Type"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:sections.cooming-soon.settings.heading.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subgheading",
+      "label": "t:sections.cooming-soon.settings.subheading.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cooming Soon Category"
+    }
+  ]
+}
+{% endschema %}

@@ -34,6 +34,13 @@ body{
 .main{
   padding-left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
 }
+.main_cooming-soon{
+  .content-for-layout:after,
+  .desktop-search-wrapper,
+  .header__menu{
+    @apply !bg-transparent;
+  }
+}
 input[type="search"] {
   -webkit-appearance: none; /* Remove default styling in Safari */
   -moz-appearance: none;    /* Remove default styling in Firefox */
@@ -903,5 +910,85 @@ accordion-item.open,
   @apply text-[4.8vw];
   @screen md{
     @apply text-[27px];
+  }
+}
+.copies-left__wrapper{
+  @apply mb-5;
+  @screen md{
+    margin-bottom: clamp(32px, 4.14vh, 45px);
+  }
+}
+.contact-us__modal-heading{
+  h2{
+    position: relative;
+    margin-bottom: 56px;
+    padding-bottom: 8px;
+    &:after{
+      content: "";
+      display: block;
+      width: 192px;
+      height: 1px;
+      background-color: #000;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+.contact-us__modal-body{
+  input:not([type='submit']),
+  textarea{
+    @apply border;
+    @apply border-black;
+    padding-left: 8px;
+    padding-right: 8px;
+    @apply font-open;
+    @apply text-[13px];
+    @apply text-[#636262];
+  }
+  input:not([type='submit']),
+  select{
+    height: 40px;
+  }
+  textarea{
+    height: 106px;
+    resize: none;
+  }
+  .contact-us__item{
+    margin-bottom: 28px;
+  }
+}
+.cooming-soon__category{
+  height: calc(100vh - 27px);
+  @media screen and (max-width: 1024px){
+    height: calc(100vh - 67px);
+  }
+  h2{
+    @media screen and (max-width: 640px){
+      margin-bottom: 7vw;
+      padding-bottom: 7vw;
+    }
+  }
+  h2,
+  h3{
+    @media screen and (max-width: 1360px){
+      font-size: 5vw;
+    }
+    @media screen and (max-width: 1200px){
+      font-size: 4vw;
+    }
+    @media screen and (max-width: 1024px){
+      font-size: 6vw;
+    }
+    @media screen and (max-width: 640px){
+      font-size: 7vw;
+    }
+  }
+}
+.cooming-soon__category-email{
+  margin-top: clamp(70px, 22vh, 208px);
+  @media screen and (max-width: 767px){
+    margin-top: clamp(70px, 12vh, 208px);
   }
 }
