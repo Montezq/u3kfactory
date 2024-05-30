@@ -2938,6 +2938,16 @@ input:focus-visible{
       padding-left: 8px;
       padding-right: 8px;
     }
+.contact-us__modal-heading .contact-us__modal-body input,
+    .contact-us__modal-heading .contact-us__modal-body select{
+      height: 40px;
+    }
+.contact-us__modal-heading .contact-us__modal-body textarea{
+      height: 106px;
+    }
+.contact-us__modal-heading .contact-us__item{
+    margin-bottom: 30px;
+  }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
