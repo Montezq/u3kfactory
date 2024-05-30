@@ -3219,8 +3219,17 @@ input:focus-visible{
     border-width: 2px;
   }
 
+  .md\:border-\[2px\] {
+    border-width: 2px;
+  }
+
   .md\:border-l-2 {
     border-left-width: 2px;
+  }
+
+  .md\:border-black {
+    --tw-border-opacity: 1;
+    border-color: rgb(0 0 0 / var(--tw-border-opacity));
   }
 
   .md\:pb-\[30px\] {

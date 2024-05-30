@@ -15,7 +15,7 @@
     <div class="page-width">
       <div class="cart__heading fixed top-[27px] bg-gray-10 lg:bg-white">
         <div class="flex justify-between lg:border-b lg:border-b-black lg:pb-[3px] w-full">
-          <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none whitespace-nowrap mr-5">
+          <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
             {{ 'sections.cart.title' | t }}
           </h1>
           <div class="totals">
@@ -154,7 +154,7 @@
   >
     <div class="cart__footer isolate flex items-center justify-between h-full">
       {%- if section.settings.privacy_menu.links -%}
-        <div>
+        <div class="max-md:hidden">
           <ul class="cart__footer-privacy-menu flex items-center flex-wrap">
             {%- for link in section.settings.privacy_menu.links -%}
               <li>
@@ -170,13 +170,13 @@
         </div>
       {%- endif -%}
       <div class="cart__blocks ml-auto">
-        <div class="cart__ctas flex items-center border-[2px] border-black">
+        <div class="cart__ctas flex items-center md:border-[2px] md:border-black">
           <noscript>
             <button type="submit" class="cart__update-button button button--secondary" form="cart">
               {{ 'sections.cart.update' | t }}
             </button>
           </noscript>
-          <p class="totals__total-value whitespace-nowrap text-[25px] font-bold leading-none uppercase px-4">
+          <p class="totals__total-value whitespace-nowrap text-[25px] font-bold leading-none uppercase px-4 max-md:hidden">
             Total {{ cart.total_price | money_with_currency }}
           </p>
           <button
