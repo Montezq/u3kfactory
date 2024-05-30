@@ -3163,6 +3163,10 @@ input:focus-visible{
     text-align: center;
   }
 
+  .max-md\:text-\[28px\] {
+    font-size: 28px;
+  }
+
   .max-md\:tracking-xwidest {
     letter-spacing: .12em;
   }
