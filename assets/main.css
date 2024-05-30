@@ -836,9 +836,6 @@ video {
 .mt-4 {
   margin-top: 1rem;
 }
-.mt-\[16vh\] {
-  margin-top: 16vh;
-}
 .mt-\[208px\] {
   margin-top: 208px;
 }
@@ -2778,6 +2775,9 @@ input:focus-visible{
 .cart__footer-privacy-menu li{
     margin-right: clamp(12px, 1.41vw, 1.41vw);
   }
+.cart__heading{
+  left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
