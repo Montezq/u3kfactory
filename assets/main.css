@@ -1473,6 +1473,9 @@ video {
 .font-coutureBold {
   font-family: "Couture Bold", sans-serif;
 }
+.font-helvetica {
+  font-family: "Neue Helvetica", sans-serif;
+}
 .font-helveticaCond {
   font-family: "Helvetica Cond", sans-serif;
 }
@@ -1481,9 +1484,6 @@ video {
 }
 .font-open {
   font-family: "Open Sans", sans-serif;
-}
-.font-helvetica {
-  font-family: "Neue Helvetica", sans-serif;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -1587,6 +1587,12 @@ video {
 .\!font-semibold {
   font-weight: 600 !important;
 }
+.font-\[100\] {
+  font-weight: 100;
+}
+.font-\[900\] {
+  font-weight: 900;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -1598,18 +1604,6 @@ video {
 }
 .font-thin {
   font-weight: 100;
-}
-.font-extrabold {
-  font-weight: 800;
-}
-.font-light {
-  font-weight: 300;
-}
-.font-\[100\] {
-  font-weight: 100;
-}
-.font-\[900\] {
-  font-weight: 900;
 }
 .uppercase {
   text-transform: uppercase;
