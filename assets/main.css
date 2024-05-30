@@ -690,6 +690,9 @@ video {
 .top-0 {
   top: 0px;
 }
+.top-1 {
+  top: 0.25rem;
+}
 .top-1\/2 {
   top: 50%;
 }
@@ -707,9 +710,6 @@ video {
 }
 .top-full {
   top: 100%;
-}
-.top-1 {
-  top: 0.25rem;
 }
 .isolate {
   isolation: isolate;
@@ -983,6 +983,9 @@ video {
 .w-\[171px\] {
   width: 171px;
 }
+.w-\[175px\] {
+  width: 175px;
+}
 .w-\[17px\] {
   width: 17px;
 }
@@ -1017,9 +1020,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-\[175px\] {
-  width: 175px;
 }
 .min-w-\[166px\] {
   min-width: 166px;
@@ -1257,10 +1257,6 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
-.border-b-\[\#8c8c8c\] {
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(140 140 140 / var(--tw-border-opacity));
-}
 .border-b-black {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -1389,9 +1385,6 @@ video {
 }
 .pb-\[66px\] {
   padding-bottom: 66px;
-}
-.pb-\[9px\] {
-  padding-bottom: 9px;
 }
 .pl-0 {
   padding-left: 0px;
@@ -1538,9 +1531,6 @@ video {
 .text-\[20px\] {
   font-size: 20px;
 }
-.text-\[21px\] {
-  font-size: 21px;
-}
 .text-\[22px\] {
   font-size: 22px;
 }
@@ -1639,6 +1629,9 @@ video {
 .\!tracking-wide {
   letter-spacing: .02em !important;
 }
+.tracking-\[\.28em\] {
+  letter-spacing: .28em;
+}
 .tracking-\[0\.3em\] {
   letter-spacing: 0.3em;
 }
@@ -1659,9 +1652,6 @@ video {
 }
 .tracking-xwidest {
   letter-spacing: .12em;
-}
-.tracking-\[\.28em\] {
-  letter-spacing: .28em;
 }
 .text-\[\#121212\] {
   --tw-text-opacity: 1;
@@ -2860,6 +2850,12 @@ input:focus-visible{
     min-width: 320px;
   }
 }
+.cart__empty-text{
+  margin-bottom: clamp(50px, 7.62vh, 7.62vh);
+}
+.cart__empty-text-h2{
+  margin-top: clamp(50px, 10.38vh, 10.38vh);
+}
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
@@ -3139,16 +3135,8 @@ input:focus-visible{
             order: 5;
   }
 
-  .max-md\:mb-\[3px\] {
-    margin-bottom: 3px;
-  }
-
   .max-md\:mr-2 {
     margin-right: 0.5rem;
-  }
-
-  .max-md\:mr-4 {
-    margin-right: 1rem;
   }
 
   .max-md\:mt-14 {
@@ -3277,14 +3265,6 @@ input:focus-visible{
 
   .md\:mb-2 {
     margin-bottom: 0.5rem;
-  }
-
-  .md\:ml-0 {
-    margin-left: 0px;
-  }
-
-  .md\:ml-0\.5 {
-    margin-left: 0.125rem;
   }
 
   .md\:ml-auto {
@@ -3461,10 +3441,6 @@ input:focus-visible{
 
   .md\:text-\[17px\] {
     font-size: 17px;
-  }
-
-  .md\:text-\[20px\] {
-    font-size: 20px;
   }
 
   .md\:text-\[22px\] {
