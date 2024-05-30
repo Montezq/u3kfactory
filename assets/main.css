@@ -2760,8 +2760,11 @@ input:focus-visible{
   }
 .cart__heading{
   padding-top: clamp(42px, 6.4vh ,126px);
+}
+.cart__footer-wrapper,
+.cart__heading{
   left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
-
+  z-index: 1;
 }
 .cart__wrapper{
   height: calc(100vh - 27px);
