@@ -800,6 +800,9 @@ video {
 .ml-\[25px\] {
   margin-left: 25px;
 }
+.ml-auto {
+  margin-left: auto;
+}
 .mr-3 {
   margin-right: 0.75rem;
 }
@@ -847,9 +850,6 @@ video {
 }
 .mt-auto {
   margin-top: auto;
-}
-.ml-auto {
-  margin-left: auto;
 }
 .line-clamp-1 {
   overflow: hidden;
@@ -1324,6 +1324,10 @@ video {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 .px-\[18px\] {
   padding-left: 18px;
   padding-right: 18px;
@@ -1343,10 +1347,6 @@ video {
 .py-\[5px\] {
   padding-top: 5px;
   padding-bottom: 5px;
-}
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 .pb-1 {
   padding-bottom: 0.25rem;
@@ -2775,6 +2775,9 @@ input:focus-visible{
 .cart__checkout-button span:first-child{
       padding-right: 15px;
     }
+.cart__footer-privacy-menu li{
+    margin-right: clamp(12px, 1.41vw, 1.41vw);
+  }
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
