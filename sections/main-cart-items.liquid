@@ -165,45 +165,9 @@
   </cart-items>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const bar = document.getElementById('bar');
-    let lastScrollTop = 0;
-
-    function handleScroll() {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (scrollTop > lastScrollTop) {
-        bar.style.transform = 'translateY(-100%)';
-      } else {
-        bar.style.transform = 'translateY(0)';
-      }
-
-      lastScrollTop = scrollTop;
-    }
-
-    function checkWidthAndScroll() {
-      if (window.innerWidth <= 767) {
-        window.addEventListener('scroll', handleScroll);
-      } else {
-        window.removeEventListener('scroll', handleScroll);
-        bar.style.transform = 'translateY(0)';
-      }
-    }
-
-    window.addEventListener('resize', checkWidthAndScroll);
-    checkWidthAndScroll(); // Initial check
-  });
-</script>
 {% schema %}
 {
   "name": "t:sections.main-cart-items.name",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "privacy_menu",
-      "label": "Privacy Menu"
-    }
-  ]
+  "settings": []
 }
 {% endschema %}
