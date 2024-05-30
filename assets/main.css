@@ -1860,7 +1860,7 @@ body::-webkit-scrollbar-thumb {
 .main{
   padding-left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
 }
-.main_cooming-soon.content-for-layout:after,
+.main_cooming-soon .content-for-layout:after,
   .main_cooming-soon .desktop-search-wrapper,
   .main_cooming-soon .header__menu {
   background-color: transparent !important;
