@@ -20,6 +20,11 @@
             "swatch_shape": "circle"
           }
         },
+        "copies_left_w7eEhG": {
+          "type": "copies_left",
+          "settings": {
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -36,6 +41,7 @@
         "title",
         "description",
         "variant_picker",
+        "copies_left_w7eEhG",
         "price",
         "buy_buttons"
       ],
