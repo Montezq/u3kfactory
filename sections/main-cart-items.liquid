@@ -156,7 +156,7 @@
               <li>
                 <a
                   href="{{ link.url }}"
-                  class="underline font-helveticaThinCond font-bold tracking-wider uppercase text-sm"
+                  class="underline font-helveticaThinCond font-bold tracking-wider uppercase text-sm whitespace-nowrap"
                 >
                   {{ link.title | escape }}
                 </a>
@@ -178,7 +178,7 @@
           <button
             type="submit"
             id="checkout"
-            class="cart__checkout-button btn btn_primary !flex items-center !tracking-wide"
+            class="cart__checkout-button btn btn_primary !flex items-center !tracking-wide whitespace-nowrap"
             name="checkout"
             {% if cart == empty %}
               disabled
