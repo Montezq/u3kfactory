@@ -494,7 +494,8 @@ class HeaderDrawer extends MenuDrawer {
       '--header-bottom-position',
       `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
     );
-    this.header.classList.add('menu-open');
+    let categorySection = document.querySelector('.cooming-soon__category')
+    if(!categorySection) this.header.classList.add('menu-open');
 
     setTimeout(() => {
       this.mainDetailsToggle.classList.add('menu-opening');
