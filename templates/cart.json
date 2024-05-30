@@ -8,10 +8,8 @@
     },
     "cart-footer": {
       "type": "main-cart-footer",
-      "disabled": true,
       "settings": {
-        "padding_top": 40,
-        "padding_bottom": 40
+        "privacy_menu": ""
       }
     }
   },
