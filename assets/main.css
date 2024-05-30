@@ -3185,8 +3185,20 @@ input:focus-visible{
     display: none;
   }
 
+  .max-md\:aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
   .max-md\:w-full {
     width: 100%;
+  }
+
+  .max-md\:w-\[48vw\] {
+    width: 48vw;
+  }
+
+  .max-md\:max-w-\[204px\] {
+    max-width: 204px;
   }
 
   .max-md\:-translate-y-1\/2 {
