@@ -13,26 +13,6 @@
 <div class="cart__wrapper flex flex-col relative lg:pr-7">
   <cart-items class="gradient  isolate{% if cart == empty %} is-empty{% endif %}">
     <div class="page-width">
-      <div
-        id="bar"
-        class="cart__heading fixed top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out"
-      >
-        <div class="flex justify-between lg:border-b lg:border-b-black lg:pb-[3px] w-full">
-          <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
-            {{ 'sections.cart.title' | t }}
-          </h1>
-          <div class="totals max-md:w-full" id="header-total">
-            <h2
-              data-id="{{ section.id }}"
-              class="totals__total text-[25px] js-contents font-bold leading-none uppercase whitespace-nowrap max-md:flex max-md:justify-between max-md:items-center max-md:w-full"
-            >
-              <span class="max-md:mr-2">Total </span>
-              <span class="totals__total-value"> {{ cart.total_price | money_with_currency }}</span>
-            </h2>
-          </div>
-        </div>
-      </div>
-
       <div class="cart__warnings">
         <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
         <a href="{{ routes.all_products_collection_url }}" class="button">
