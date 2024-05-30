@@ -869,6 +869,12 @@ video {
   display: -ms-flexbox;
   display: flex;
 }
+.\!flex {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
 .table {
   display: table;
 }
