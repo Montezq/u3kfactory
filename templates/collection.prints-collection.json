@@ -2,15 +2,26 @@
   "sections": {
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "settings": {
         "heading": "",
         "grid_template": "medium",
         "enable_filtering": true,
         "enable_sorting": true
       }
+    },
+    "cooming_soon_category_8DN6Ce": {
+      "type": "cooming-soon-category",
+      "settings": {
+        "cover_type": "video",
+        "video": "shopify:\/\/files\/videos\/Video Homepage Temporar.mp4",
+        "heading": "CYBERPUNK ILLUSTRATIONS",
+        "subgheading": "COMING SOON"
+      }
     }
   },
   "order": [
-    "product-grid"
+    "product-grid",
+    "cooming_soon_category_8DN6Ce"
   ]
 }
