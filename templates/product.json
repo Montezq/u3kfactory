@@ -73,7 +73,7 @@
       "settings": {
         "heading": "Packaging Details",
         "content": "{{ product.metafields.custom.plus_info_packing_details | metafield_tag }}",
-        "image": "shopify:\/\/shop_images\/INFO-PACKAGING-DETAILS-IMAGE.jpg"
+        "image": "shopify:\/\/shop_images\/PACKAGING.jpg"
       }
     }
   },
