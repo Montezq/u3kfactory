@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const wishlistButtons = document.querySelectorAll('.wishlist-button');
 
+  console.log(wishlistButtons)
   wishlistButtons.forEach(button => {
-    console.log(wishlistButtons)
     button.addEventListener('click', addToWishlist);
   });
 });
