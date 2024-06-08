@@ -4,7 +4,7 @@
 
 <div class="template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %}">
   <div class="template-search__header page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    <h1 class="font-coutureBold text-3xl uppercase">
+    <h1 class="font-coutureBold text-3xl uppercase text-center">
       {{- 'templates.search.title' | t -}}
     </h1>
     {%- if search.performed -%}
