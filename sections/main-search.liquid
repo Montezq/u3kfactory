@@ -16,7 +16,11 @@
 
       {% for term in search_terms %}
         {% assign term = term | capitalize %}
-        {% assign term_list = term_list | append: term | append: ', ' %}
+        {% if forloop.first %}
+          {% assign term_list = term_list | append: term %}
+        {% else %}
+          {% assign term_list = term_list | append: ', ' | append: term %}
+        {% endif %}
       {% endfor %}
 
       {%- unless section.settings.enable_filtering or section.settings.enable_sorting -%}
