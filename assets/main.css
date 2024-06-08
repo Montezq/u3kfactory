@@ -3097,10 +3097,10 @@ input:focus-visible{
   }
 .heading__search{
   padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
-  height: calc(83px, alc(14.05vh - 27px), 196px);
+  height: clamp(83px, calc(14.05vh - 27px), 196px);
 }
 .search__body{
-  padding-top: clamp(83px, alc(14.05vh - 27px), 196px);
+  padding-top: clamp(83px, calc(14.05vh - 27px), 196px);
 }
 
 
