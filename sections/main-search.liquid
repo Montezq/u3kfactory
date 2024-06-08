@@ -92,7 +92,7 @@
       {% if item.object_type == 'product' %}
         {% for collection in item.collections %}
           {% if collection.handle == collection_handle %}
-            {% assign collection_products = collection_products | append: item.id | append: ',' %}
+            {% assign collection_products = collection_products | append: item.handle | append: ',' %}
           {% endif %}
         {% endfor %}
       {% endif %}
@@ -102,8 +102,8 @@
 
     <h2>{{ collection.title }}</h2>
 
-    {% for product_id in collection_products %}
-      {% assign product = search.results | where: 'id', product_id | first %}
+    {% for product_handle in collection_products %}
+      {% assign product = all_products[product_handle] %}
       {% if product %}
         <div class="search-result">
           <a href="{{ product.url }}">
@@ -113,7 +113,7 @@
         </div>
       {% else %}
         <div class="search-result">
-          <p>Product not found for ID: {{ product_id }}</p>
+          <p>Product not found for handle: {{ product_handle }}</p>
         </div>
       {% endif %}
     {% endfor %}
