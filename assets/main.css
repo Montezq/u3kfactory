@@ -3139,10 +3139,10 @@ input:focus-visible{
 #Heart_Icon-notsaved{
   display: none;
 }
-.wishlist-button.matched #Heart_Icon-notsaved{
+.wishlist-button.match #Heart_Icon-notsaved{
       display: block;
     }
-.wishlist-button.matched #Heart_Icon-saved{
+.wishlist-button.match #Heart_Icon-saved{
       display: none;
     }
 
