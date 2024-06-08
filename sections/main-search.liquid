@@ -15,10 +15,12 @@
       {% assign term_list = '' %}
 
       {% for term in search_terms %}
+        {% assign term = term | capitalize %}
         {% assign term_list = term_list | append: term | append: ',' %}
       {% endfor %}
 
       {% assign term_list = term_list | split: ',' | join: ', ' | strip | remove: ', ' %}
+
       {%- unless section.settings.enable_filtering or section.settings.enable_sorting -%}
         {%- if search.results_count > 0 -%}
           <p role="status" class="uppercase text-[17px]">
