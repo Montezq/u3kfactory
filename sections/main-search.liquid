@@ -21,106 +21,64 @@
     {%- endif -%}
   </div>
   {%- if search.performed -%}
-    <div>
-      <div class="product-grid-container" id="ProductGridContainer">
-        {%- if search.results.size == 0 and search.filters != empty -%}
-          <div
-            class="template-search__results collection collection--empty{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
-            id="product-grid"
-            data-id="{{ section.id }}"
-          >
-            <div class="loading-overlay gradient"></div>
-            <div class="title-wrapper center"></div>
-          </div>
-        {%- else -%}
-          <div
-            class="template-search__results collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
-            id="product-grid"
-            data-id="{{ section.id }}"
-          >
-            <div class="loading-overlay gradient"></div>
-            <ul
-              class="grid search__grid grid-cols-3"
-              role="list"
-            >
-              {%- for item in search.results -%}
-                {% assign lazy_load = false %}
-                {%- if forloop.index > 2 -%}
-                  {%- assign lazy_load = true -%}
-                {%- endif -%}
+    {% assign collections_array = '' %}
 
-                <li
-                  class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                  {% if settings.animations_reveal_on_scroll %}
-                    data-cascade
-                  {% endif %}
-                >
-                  {%- case item.object_type -%}
-                    {%- when 'product' -%}
-                      {% render 'card-product', card_product: item, lazy_load: lazy_load %}
-                  {%- endcase -%}
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
-        {%- endif -%}
-      </div>
-    </div>
-  {%- endif -%}
-</div>
-<div class="custom py-10">
-  {% assign collections_array = '' %}
-
-  {% for item in search.results %}
-    {% if item.object_type == 'product' %}
-      {% for collection in item.collections %}
-        {% unless collections_array contains collection.handle
-          or collection.handle == 'home-page-collection'
-          or collection.handle contains 'all'
-        %}
-          {% assign collections_array = collections_array | append: collection.handle | append: ',' %}
-        {% endunless %}
-      {% endfor %}
-    {% endif %}
-  {% endfor %}
-
-  {% assign collections_array = collections_array | split: ',' | uniq %}
-
-  {% for collection_handle in collections_array %}
-    {% assign collection_products = '' %}
     {% for item in search.results %}
       {% if item.object_type == 'product' %}
         {% for collection in item.collections %}
-          {% if collection.handle == collection_handle %}
-            {% assign collection_products = collection_products | append: item.handle | append: ',' %}
-          {% endif %}
+          {% unless collections_array contains collection.handle
+            or collection.handle == 'home-page-collection'
+            or collection.handle contains 'all'
+          %}
+            {% assign collections_array = collections_array | append: collection.handle | append: ',' %}
+          {% endunless %}
         {% endfor %}
       {% endif %}
     {% endfor %}
-    {% assign collection_products = collection_products | split: ',' | uniq %}
-    {% assign collection = collections | where: 'handle', collection_handle | first %}
 
-    <h2>{{ collection.title }}</h2>
+    {% assign collections_array = collections_array | split: ',' | uniq %}
 
-    {% for product_handle in collection_products %}
-      {% assign product = all_products[product_handle] %}
-      {% if product %}
-        {% assign lazy_load = false %}
-        {%- if forloop.index > 2 -%}
-          {%- assign lazy_load = true -%}
-        {%- endif -%}
-
-        <li
-          class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-          {% endif %}
+    {% for collection_handle in collections_array %}
+      {% assign collection_products = '' %}
+      {% for item in search.results %}
+        {% if item.object_type == 'product' %}
+          {% for collection in item.collections %}
+            {% if collection.handle == collection_handle %}
+              {% assign collection_products = collection_products | append: item.handle | append: ',' %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+      {% assign collection_products = collection_products | split: ',' | uniq %}
+      {% assign collection = collections | where: 'handle', collection_handle | first %}
+      <div class="search__group">
+        <h2>{{ collection.title }}</h2>
+        <ul
+          class="grid search__grid grid-cols-3"
+          role="list"
         >
-          {% render 'card-product', card_product: product, lazy_load: lazy_load %}
-        </li>
-      {% endif %}
+          {% for product_handle in collection_products %}
+            {% assign product = all_products[product_handle] %}
+            {% if product %}
+              {% assign lazy_load = false %}
+              {%- if forloop.index > 2 -%}
+                {%- assign lazy_load = true -%}
+              {%- endif -%}
+
+              <li
+                class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                {% endif %}
+              >
+                {% render 'card-product', card_product: product, lazy_load: lazy_load %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
     {% endfor %}
-  {% endfor %}
+  {%- endif -%}
 </div>
 
 {% schema %}
