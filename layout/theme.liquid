@@ -179,17 +179,6 @@
       <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {% comment %}
-      {%- if settings.predictive_search_enabled -%}
-        <link
-          rel="stylesheet"
-          href="{{ 'component-predictive-search.css' | asset_url }}"
-          media="print"
-          onload="this.media='all'"
-        >
-      {%- endif -%}
-    {% endcomment %}
-
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
       if (Shopify.designMode) {
@@ -234,7 +223,7 @@
     </main>
 
     {% comment %} {% sections 'footer-group' %} {% endcomment %}
-
+    <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const bar = document.getElementById('bar');
