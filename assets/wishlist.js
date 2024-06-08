@@ -1,5 +1,5 @@
- // Function to handle adding a product to the wishlist
- function addToWishlist(event) {
+// Function to handle adding a product to the wishlist
+function addToWishlist(event) {
   const button = event.currentTarget;
 
   // Get the data attributes from the button
@@ -29,7 +29,26 @@
   }
 }
 
-// Ensure the DOM is fully loaded before attaching event listeners
+// Function to check if items in wishlist and add 'match' class to corresponding buttons
+function checkWishlistButtons() {
+  // Get current wishlist items from localStorage
+  const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+  // Find all wishlist buttons
+  const wishlistButtons = document.querySelectorAll('.wishlist-button');
+
+  wishlistButtons.forEach(button => {
+    const variantId = button.getAttribute('data-variant-id');
+    
+    const match = wishlist.find(item => item.variantId === variantId);
+
+    if (match) {
+      button.classList.add('match');
+    }
+  });
+}
+
+// Ensure the DOM is fully loaded before attaching event listeners and checking buttons
 document.addEventListener('DOMContentLoaded', () => {
   // Find all wishlist buttons
   const wishlistButtons = document.querySelectorAll('.wishlist-button');
@@ -38,4 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   wishlistButtons.forEach(button => {
     button.addEventListener('click', addToWishlist);
   });
+
+  // Check if any buttons match items in the wishlist
+  checkWishlistButtons();
 });
