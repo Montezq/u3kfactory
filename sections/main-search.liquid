@@ -74,8 +74,8 @@
   {% for item in search.results %}
     {% if item.object_type == 'product' %}
       {% for collection in item.collections %}
-        {{ item.handle }}
-        {% unless collections_array contains collection.handle and item.handle != 'home-page-collection' %}
+        {{ collection.handle }}
+        {% unless collections_array contains collection.handle and collection.handle != 'home-page-collection' %}
           {% assign collections_array = collections_array | append: collection.handle | append: ',' %}
         {% endunless %}
       {% endfor %}
