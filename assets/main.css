@@ -1400,6 +1400,10 @@ video {
   padding-left: 25px;
   padding-right: 25px;
 }
+.px-\[24px\] {
+  padding-left: 24px;
+  padding-right: 24px;
+}
 .pb-1 {
   padding-bottom: 0.25rem;
 }
