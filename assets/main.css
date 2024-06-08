@@ -2471,6 +2471,13 @@ input:focus-visible{
     padding-left: 12px;
     padding-right: 12px;
   }
+}
+@media (min-width: 1024px){
+.collection__wrapper-inside{
+    padding-top: clamp(80px, 14.05vh, 14.05vh);
+}
+  }
+@media not all and (min-width: 768px) {
 
   #product-grid-wrapper.collection-grid__list-big.collection-product-grid {
     padding-left: 0px;
