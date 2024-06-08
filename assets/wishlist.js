@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  console.log("here")
   function addToWishlist(event) {
     const button = event.currentTarget;
     console.log(event)
@@ -14,10 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
     addToWishlist(productId, variantId, productImage, productTitle, productVendor, productPrice);
   }
 
-  // Find all wishlist buttons
   const wishlistButtons = document.querySelectorAll('.wishlist-button');
 
-  // Loop through each button and attach a click event listener
   wishlistButtons.forEach(button => {
     console.log(wishlistButtons)
     button.addEventListener('click', addToWishlist);
