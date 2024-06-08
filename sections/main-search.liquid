@@ -1,10 +1,12 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 <div class="template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %}">
-  <div class="template-search__header page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+  <div class="ds_element fixed top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     <h1 class="font-coutureBold text-3xl uppercase text-center">
       {{- 'templates.search.title' | t -}}
     </h1>
+  </div>
+  <div>
     {%- if search.performed -%}
       {%- unless section.settings.enable_filtering or section.settings.enable_sorting -%}
         {%- if search.results_count > 0 -%}
