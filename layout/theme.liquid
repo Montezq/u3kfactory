@@ -211,7 +211,10 @@
       tabindex="-1"
     >
       <div class="max-lg:hidden fixed w-[80vw] top-0 right-0 desktop-search-wrapper flex justify-end z-[4]{% if template.name != "index" %} bg-white{% endif %}">
-        <div class="flex items-end">
+        <form
+          action="{{ routes.search_url }}"
+          class="flex items-end"
+        >
           <input
             class="border-0 border-b border-b-black w-[171px] bg-transparent"
             id="Search-In-Template"
@@ -221,10 +224,11 @@
             value="{{ search.terms | escape }}"
           >
           <input name="options[prefix]" type="hidden" value="last">
+          <input type="hidden" name="type" value="product,page">
           <button type="submit" class="ml-1" aria-label="{{ 'general.search.search' | t }}">
             <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2"></span>
           </button>
-        </div>
+        </form>
       </div>
       {{ content_for_layout }}
     </main>
