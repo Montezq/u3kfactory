@@ -67,7 +67,7 @@
       {% assign collection = collections | where: 'handle', collection_handle | first %}
       <div class="search__group">
         {% assign collection_title_parts = collection.title | remove: 'ALL' | remove: 'all' | remove: 'All' %}
-        <h2 class="uppercase text-[14px] mb-5">{{ collection_title_parts }}</h2>
+        <h2 class="uppercase text-[14px] mb-3 md:mb-5">{{ collection_title_parts }}</h2>
         <ul
           class="grid search__grid grid-cols-3"
           role="list"

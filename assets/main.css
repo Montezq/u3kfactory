@@ -4030,6 +4030,10 @@ input:focus-visible{
     margin-left: auto;
   }
 
+  .md\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
   .md\:flex {
     display: -webkit-box;
     display: -webkit-flex;
