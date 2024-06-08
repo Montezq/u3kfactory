@@ -866,6 +866,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.mb-\[40px\] {
+  margin-bottom: 40px;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1516,6 +1519,9 @@ video {
 .pt-\[8\%\] {
   padding-top: 8%;
 }
+.pb-\[25px\] {
+  padding-bottom: 25px;
+}
 .\!text-center {
   text-align: center !important;
 }
@@ -1734,6 +1740,9 @@ video {
 }
 .tracking-xwidest {
   letter-spacing: .12em;
+}
+.tracking-\[0\.1\] {
+  letter-spacing: 0.1;
 }
 .text-\[\#121212\] {
   --tw-text-opacity: 1;
