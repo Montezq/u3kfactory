@@ -235,11 +235,36 @@
 
     {% comment %} {% sections 'footer-group' %} {% endcomment %}
 
-    <ul hidden>
-      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
-      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
-    </ul>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const bar = document.getElementById('bar');
+        let lastScrollTop = 0;
 
+        function handleScroll() {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+          if (scrollTop > lastScrollTop) {
+            bar.style.transform = 'translateY(-100%)';
+          } else {
+            bar.style.transform = 'translateY(0)';
+          }
+
+          lastScrollTop = scrollTop;
+        }
+
+        function checkWidthAndScroll() {
+          if (window.innerWidth <= 767) {
+            window.addEventListener('scroll', handleScroll);
+          } else {
+            window.removeEventListener('scroll', handleScroll);
+            bar.style.transform = 'translateY(0)';
+          }
+        }
+
+        window.addEventListener('resize', checkWidthAndScroll);
+        checkWidthAndScroll(); // Initial check
+      });
+    </script>
     <script>
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
