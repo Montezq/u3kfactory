@@ -24,7 +24,7 @@
       localStorage.setItem('wishlist', JSON.stringify(wishlist));
 
       console.log('Item added to wishlist');
-      
+      button.classList.add('match')
       // Show the wishlist modal if the user hasn't opted out
       if (!localStorage.getItem('dontShowWishlistModal')) {
         document.querySelector('.wishlist__modal').classList.remove('hidden');
