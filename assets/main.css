@@ -3082,6 +3082,9 @@ input:focus-visible{
 .search__group{
   margin-bottom: clamp(110px, 16.53vh, 217px);
 }
+.search__group:last-child{
+    margin-bottom: 0;
+  }
 
 
 
