@@ -3069,8 +3069,10 @@ input:focus-visible{
 }
   }
 .search__grid {
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
+  -webkit-column-gap: 0.625rem;
+     -moz-column-gap: 0.625rem;
+          column-gap: 0.625rem;
+  row-gap: 2.25rem;
 }
 @media (min-width: 1024px){
 .search__grid{
