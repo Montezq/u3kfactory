@@ -104,15 +104,22 @@
 
     {% for product_id in collection_products %}
       {% assign product = search.results | where: 'id', product_id | first %}
-      <div class="search-result">
-        <a href="{{ product.url }}">
-          <h3>{{ product.title }}</h3>
-          <p>{{ product.price | money }}</p>
-        </a>
-      </div>
+      {% if product %}
+        <div class="search-result">
+          <a href="{{ product.url }}">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
+          </a>
+        </div>
+      {% else %}
+        <div class="search-result">
+          <p>Product not found for ID: {{ product_id }}</p>
+        </div>
+      {% endif %}
     {% endfor %}
   {% endfor %}
 </div>
+
 {% schema %}
 {
   "name": "t:sections.main-search.name",
