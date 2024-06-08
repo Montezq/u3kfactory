@@ -39,6 +39,7 @@
     {% assign collections_array = '' %}
 
     {% for item in search.results %}
+      {{ item.object_type }}
       {% if item.object_type == 'product' %}
         {% for collection in item.collections %}
           {% unless collections_array contains collection.handle or collection.handle == 'home-page-collection' %}
