@@ -953,9 +953,6 @@ video {
 .max-h-\[740px\] {
   max-height: 740px;
 }
-.min-h-screen {
-  min-height: 100vh;
-}
 .min-h-full {
   min-height: 100%;
 }
@@ -2882,6 +2879,16 @@ input:focus-visible{
     padding-right: 3rem;
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
+  }
+#bar {
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+}
+@media (min-width: 1024px){
+#bar{
+    left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
+}
   }
 @media not all and (min-width: 1024px) {
 
