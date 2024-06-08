@@ -1396,6 +1396,10 @@ video {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+.px-\[25px\] {
+  padding-left: 25px;
+  padding-right: 25px;
+}
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -1699,6 +1703,9 @@ video {
 .font-thin {
   font-weight: 100;
 }
+.font-black {
+  font-weight: 900;
+}
 .uppercase {
   text-transform: uppercase;
 }
@@ -1743,6 +1750,9 @@ video {
 }
 .tracking-\[0\.1\] {
   letter-spacing: 0.1;
+}
+.tracking-\[0\.1em\] {
+  letter-spacing: 0.1em;
 }
 .text-\[\#121212\] {
   --tw-text-opacity: 1;
