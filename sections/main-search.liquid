@@ -74,10 +74,7 @@
   {% for item in search.results %}
     {% if item.object_type == 'product' %}
       {% for collection in item.collections %}
-        {% unless collections_array contains collection.handle
-          or collection.handle == 'home-page-collection'
-          or collection.handle contains 'all'
-        %}
+        {% unless collections_array contains collection.handle %}
           {% assign collections_array = collections_array | append: collection.handle | append: ',' %}
         {% endunless %}
       {% endfor %}
@@ -97,15 +94,13 @@
         {% endfor %}
       {% endif %}
     {% endfor %}
-    {% comment %} {% assign collection_products = collection_products | split: ',' | uniq %} {% endcomment %}
-    {% assign collection = collections.all | where: 'handle', collection_handle | first %}
-    {{ collection_products }}
-    <br>
-    {{ collection }}
+    {% assign collection_products = collection_products | split: ',' | uniq %}
+    {% assign collection = collections | where: 'handle', collection_handle | first %}
+
     <h2>{{ collection.title }}</h2>
 
     {% for product_id in collection_products %}
-      {% assign product = all_products[product_id] %}
+      {% assign product = search.results | where: 'id', product_id | first %}
       <div class="search-result">
         <a href="{{ product.url }}">
           <h3>{{ product.title }}</h3>
