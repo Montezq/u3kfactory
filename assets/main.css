@@ -3081,6 +3081,7 @@ input:focus-visible{
   margin-bottom: clamp(110px, 16.53vh, 217px);
 }
 .search__group:last-child {
+  margin-bottom: 0px;
   padding-bottom: 3rem;
 }
 #bar {
