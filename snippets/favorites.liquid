@@ -4,17 +4,29 @@
   {% render 'favorites' %}
 {% endcomment %}
 
-<button
-  class="w-full wishlist-button"
-  type="button"
-  aria-label="{{ 'general.favorites.save_product' | t  }}"
-  title="{{ 'general.favorites.save_product' | t  }}"
-  data-id="{{ product.id }}"
-  data-variant-id="{{ product.id }}"
-  data-title="{{ product.title }}"
-  data-vendor="{{ product.vendor }}"
-  data-price="{{ product.price }}"
->
-  <span class="visually-hidden">{{ 'general.favorites.save_product' | t }}</span>
-  {%- render 'icon-heart' -%}
-</button>
+{% if customer %}
+  <button
+    class="w-full wishlist-button"
+    type="button"
+    aria-label="{{ 'general.favorites.save_product' | t  }}"
+    title="{{ 'general.favorites.save_product' | t  }}"
+    data-id="{{ product.id }}"
+    data-variant-id="{{ product.id }}"
+    data-title="{{ product.title }}"
+    data-vendor="{{ product.vendor }}"
+    data-price="{{ product.price }}"
+  >
+    <span class="visually-hidden">{{ 'general.favorites.save_product' | t }}</span>
+    {%- render 'icon-heart' -%}
+  </button>
+{% else %}
+  <button
+    class="w-full cta-login-button"
+    type="button"
+    aria-label="{{ 'general.favorites.save_product' | t  }}"
+    title="{{ 'general.favorites.save_product' | t  }}"
+  >
+    <span class="visually-hidden">{{ 'general.favorites.save_product' | t }}</span>
+    {%- render 'icon-heart' -%}
+  </button>
+{% endif %}
