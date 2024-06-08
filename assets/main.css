@@ -2449,6 +2449,8 @@ input:focus-visible{
 @media (min-width: 1024px){
 .collection-hero{
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
+    top: 27px;
+    right: 1.25rem;
 }
   }
 @media not all and (min-width: 1024px) {
@@ -4302,11 +4304,6 @@ input:focus-visible{
 
   .lg\:relative {
     position: relative;
-  }
-
-  .lg\:sticky {
-    position: -webkit-sticky;
-    position: sticky;
   }
 
   .lg\:left-0 {
