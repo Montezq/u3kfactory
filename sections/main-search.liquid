@@ -105,16 +105,19 @@
     {% for product_handle in collection_products %}
       {% assign product = all_products[product_handle] %}
       {% if product %}
-        <div class="search-result">
-          <a href="{{ product.url }}">
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.price | money }}</p>
-          </a>
-        </div>
-      {% else %}
-        <div class="search-result">
-          <p>Product not found for handle: {{ product_handle }}</p>
-        </div>
+        {% assign lazy_load = false %}
+        {%- if forloop.index > 2 -%}
+          {%- assign lazy_load = true -%}
+        {%- endif -%}
+
+        <li
+          class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+          {% endif %}
+        >
+          {% render 'card-product', card_product: product, lazy_load: lazy_load %}
+        </li>
       {% endif %}
     {% endfor %}
   {% endfor %}
