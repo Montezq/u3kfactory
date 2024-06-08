@@ -9,11 +9,11 @@
       {{- 'templates.search.title' | t -}}
     </h1>
   </div>
-  <div class="search__body">
+  <div class="search__body text-center">
     {%- if search.performed -%}
       {%- unless section.settings.enable_filtering or section.settings.enable_sorting -%}
         {%- if search.results_count > 0 -%}
-          <p role="status" class="uppercase">
+          <p role="status" class="uppercase text-[17px]">
             {{ search.results_count }} Search results for <strong>{{ search.terms }}</strong> found in
           </p>
         {%- endif -%}
