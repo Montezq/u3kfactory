@@ -50,7 +50,7 @@
       {% assign collection_products = collection_products | split: ',' | uniq %}
       {% assign collection = collections | where: 'handle', collection_handle | first %}
       <div class="search__group">
-        <h2>{{ collection.title }}</h2>
+        <h2 class="uppercase text-[14px] mb-5">{{ collection.title }}</h2>
         <ul
           class="grid search__grid grid-cols-3"
           role="list"
