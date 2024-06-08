@@ -2880,16 +2880,6 @@ input:focus-visible{
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
   }
-#bar {
-  left: 0px;
-  right: 0px;
-  z-index: 1;
-}
-@media (min-width: 1024px){
-#bar{
-    left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
-}
-  }
 @media not all and (min-width: 1024px) {
 
   .cart__footer-wrapper {
