@@ -953,6 +953,9 @@ video {
 .max-h-\[740px\] {
   max-height: 740px;
 }
+.max-h-\[360px\] {
+  max-height: 360px;
+}
 .min-h-full {
   min-height: 100%;
 }
