@@ -3948,6 +3948,10 @@ input:focus-visible{
     max-width: 70%;
   }
 
+  .md\:max-w-\[352px\] {
+    max-width: 352px;
+  }
+
   .md\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
