@@ -22,7 +22,7 @@ function addToWishlist(event) {
     
     // Update the wishlist in localStorage
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
-
+    button.classList.add('match');
     console.log('Item added to wishlist');
   } else {
     console.log('Item already in wishlist');
