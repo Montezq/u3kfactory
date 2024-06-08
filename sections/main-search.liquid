@@ -68,7 +68,7 @@
     </div>
   {%- endif -%}
 </div>
-<div class="custom">
+<div class="custom py-10">
   {% assign collections_array = '' %}
 
   {% for item in search.results %}
@@ -97,7 +97,7 @@
         {% endfor %}
       {% endif %}
     {% endfor %}
-    {% assign collection_products = collection_products | split: ',' | uniq %}
+    {% comment %} {% assign collection_products = collection_products | split: ',' | uniq %} {% endcomment %}
     {% assign collection = collections.all | where: 'handle', collection_handle | first %}
     {{ collection_products }}
     <br>
