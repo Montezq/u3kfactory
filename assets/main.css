@@ -3085,9 +3085,14 @@ input:focus-visible{
 .search__grid .card__content {
   display: none !important;
 }
-.search__group{
-  margin-bottom: clamp(110px, 16.53vh, 217px);
+.search__group {
+  margin-bottom: 3.5rem;
 }
+@media (min-width: 1024px){
+.search__group{
+    margin-bottom: clamp(110px, 16.53vh, 217px);
+}
+  }
 .search__group:last-child {
   margin-bottom: 0px;
   padding-bottom: 3rem;
