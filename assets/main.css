@@ -3105,6 +3105,7 @@ input:focus-visible{
 }
 .search__body{
   padding-top: clamp(84px, calc(17.18vh - 27px), 221px);
+  padding-bottom: clamp(50px, 5vh, 110px);
 }
 
 
