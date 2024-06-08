@@ -3093,17 +3093,12 @@ input:focus-visible{
 #bar{
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
 }
-  }
-.heading__search{
-  padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
-  height: clamp(83px, calc(14.05vh - 27px), 196px);
-}
-@media (min-width: 1024px) {
-
-  .heading__search {
+.heading__search {
     padding-right: 1.25rem;
+    padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
+    height: clamp(83px, calc(14.05vh - 27px), 196px);
   }
-}
+  }
 .search__body{
   padding-top: clamp(84px, calc(17.18vh - 27px), 221px);
   padding-bottom: clamp(50px, 5vh, 110px);
