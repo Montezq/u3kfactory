@@ -2446,6 +2446,11 @@ input:focus-visible{
 .collection-hero{
   padding-top: clamp(25px, calc(5vh - 25px), calc(5vh - 25px));
 }
+@media (min-width: 1024px){
+.collection-hero{
+    left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
+}
+  }
 @media not all and (min-width: 1024px) {
 
   .collection-product-grid {
@@ -4285,6 +4290,10 @@ input:focus-visible{
 
   .lg\:invisible {
     visibility: hidden;
+  }
+
+  .lg\:fixed {
+    position: fixed;
   }
 
   .lg\:absolute {

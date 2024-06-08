@@ -7,7 +7,7 @@
   {%- paginate collection.products by 24 -%}
     <div class="collection__wrapper flex flex-col">
       {%- if collection.products.size > 0 -%}
-        <div class="collection-hero lg:sticky pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
+        <div class="collection-hero lg:fixed pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
           <div class="pb-5 lg:pb-2.5">
             <h1 class="collection-hero__title text-3xl font-coutureBold text-center">
               <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
