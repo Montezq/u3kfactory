@@ -84,11 +84,10 @@
     {% endif %}
   {% endfor %}
 
-  {{ collections_array }}
-
   {% assign collections_array = collections_array | split: ',' | uniq %}
 
   {% for collection_handle in collections_array %}
+    {{ collection_handle }}
     {% assign collection_products = '' %}
     {% for item in search.results %}
       {% if item.object_type == 'product' %}
