@@ -68,7 +68,48 @@
     </div>
   {%- endif -%}
 </div>
+<div class="custom">
+  {% assign collections_array = '' %}
 
+  {% for item in search.results %}
+    {% if item.object_type == 'product' %}
+      {% for collection in item.collections %}
+        {% unless collections_array contains collection.handle %}
+          {% assign collections_array = collections_array | append: collection.handle | append: ',' %}
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign collections_array = collections_array | split: ',' | uniq %}
+
+  {% for collection_handle in collections_array %}
+    {% assign collection_products = '' %}
+    {% for item in search.results %}
+      {% if item.object_type == 'product' %}
+        {% for collection in item.collections %}
+          {% if collection.handle == collection_handle %}
+            {% assign collection_products = collection_products | append: item.id | append: ',' %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+    {% assign collection_products = collection_products | split: ',' | uniq %}
+    {% assign collection = collections.all | where: 'handle', collection_handle | first %}
+
+    <h2>{{ collection.title }}</h2>
+
+    {% for product_id in collection_products %}
+      {% assign product = all_products[product_id] %}
+      <div class="search-result">
+        <a href="{{ product.url }}">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.price | money }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  {% endfor %}
+</div>
 {% schema %}
 {
   "name": "t:sections.main-search.name",
