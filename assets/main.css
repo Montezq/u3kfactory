@@ -1858,6 +1858,7 @@ html {
   font-family: "Helvetica Neue LT Std", sans-serif;
   font-weight: 400;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 body::-webkit-scrollbar {
     width: 7px;
