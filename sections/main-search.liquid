@@ -51,7 +51,7 @@
       <div class="search__group">
         {% assign collection_title_parts = collection.title | split: 'ALL' | split: 'all' | split: 'All' %}
         {% assign collection_display_title = collection_title_parts | last | strip %}
-        <h2 class="uppercase text-[14px] mb-5">{{ collection_display_title }}</h2>
+        <h2 class="uppercase text-[14px] mb-5">{{ collection_display_title | escape }}</h2>
         <ul
           class="grid search__grid grid-cols-3"
           role="list"
