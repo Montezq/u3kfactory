@@ -3100,7 +3100,7 @@ input:focus-visible{
   height: clamp(83px, calc(14.05vh - 27px), 196px);
 }
 .search__body{
-  padding-top: clamp(83px, calc(14.05vh - 27px), 196px);
+  padding-top: clamp(84px, calc(17.18vh - 27px), 221px);
 }
 
 
