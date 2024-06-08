@@ -1,6 +1,6 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<div class="template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %}">
+<div class="template-search max-lg:px-2{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %}">
   <div
     id="bar"
     class="ds_element dissapearing heading__search max-lg:pt-2 max-lg:pb-4 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out flex justify-center"

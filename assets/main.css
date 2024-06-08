@@ -3731,6 +3731,11 @@ input:focus-visible{
     padding-right: 1rem;
   }
 
+  .max-lg\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
   .max-lg\:\!pl-0 {
     padding-left: 0px !important;
   }
