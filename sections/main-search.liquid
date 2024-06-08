@@ -87,7 +87,6 @@
   {% assign collections_array = collections_array | split: ',' | uniq %}
 
   {% for collection_handle in collections_array %}
-    {{ collection_handle }}
     {% assign collection_products = '' %}
     {% for item in search.results %}
       {% if item.object_type == 'product' %}
@@ -100,7 +99,9 @@
     {% endfor %}
     {% assign collection_products = collection_products | split: ',' | uniq %}
     {% assign collection = collections.all | where: 'handle', collection_handle | first %}
-
+    {{ collection_products }}
+    <br>
+    {{ collection }}
     <h2>{{ collection.title }}</h2>
 
     {% for product_id in collection_products %}
