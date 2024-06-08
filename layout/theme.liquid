@@ -239,30 +239,31 @@
       document.addEventListener('DOMContentLoaded', function () {
         const bar = document.getElementById('bar');
         let lastScrollTop = 0;
+        if (bar) {
+          function handleScroll() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        function handleScroll() {
-          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+              bar.style.transform = 'translateY(-100%)';
+            } else {
+              bar.style.transform = 'translateY(0)';
+            }
 
-          if (scrollTop > lastScrollTop) {
-            bar.style.transform = 'translateY(-100%)';
-          } else {
-            bar.style.transform = 'translateY(0)';
+            lastScrollTop = scrollTop;
           }
 
-          lastScrollTop = scrollTop;
-        }
-
-        function checkWidthAndScroll() {
-          if (window.innerWidth <= 767) {
-            window.addEventListener('scroll', handleScroll);
-          } else {
-            window.removeEventListener('scroll', handleScroll);
-            bar.style.transform = 'translateY(0)';
+          function checkWidthAndScroll() {
+            if (window.innerWidth <= 767) {
+              window.addEventListener('scroll', handleScroll);
+            } else {
+              window.removeEventListener('scroll', handleScroll);
+              bar.style.transform = 'translateY(0)';
+            }
           }
-        }
 
-        window.addEventListener('resize', checkWidthAndScroll);
-        checkWidthAndScroll(); // Initial check
+          window.addEventListener('resize', checkWidthAndScroll);
+          checkWidthAndScroll(); // Initial check
+        }
       });
     </script>
     <script>
