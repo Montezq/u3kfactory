@@ -3139,6 +3139,7 @@ input:focus-visible{
 #Heart_Icon{
   stroke: black;
   stroke-width: 1px;
+  fill: transparent;
 }
 
 
