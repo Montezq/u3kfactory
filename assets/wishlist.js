@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Loop through each button and attach a click event listener
   wishlistButtons.forEach(button => {
+    console.log(wishlistButtons)
     button.addEventListener('click', addToWishlist);
   });
 });
