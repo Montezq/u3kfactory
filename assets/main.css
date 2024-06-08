@@ -4280,6 +4280,10 @@ input:focus-visible{
     top: 0px;
   }
 
+  .lg\:top-\[27px\] {
+    top: 27px;
+  }
+
   .lg\:z-\[2\] {
     z-index: 2;
   }
