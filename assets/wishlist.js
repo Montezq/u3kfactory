@@ -1,7 +1,7 @@
 // Function to handle adding a product to the wishlist
 function addToWishlist(event) {
   const button = event.currentTarget;
-  
+  console.log(event)
   // Get the data attributes from the button
   const productId = button.getAttribute('data-id');
   const variantId = button.getAttribute('data-variant-id');
