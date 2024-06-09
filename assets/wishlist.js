@@ -18,8 +18,15 @@
 
     if (!existingItem) {
       // Add the new item to the wishlist
-      wishlist.push({ productId, variantId, productImage, productTitle, productVendor, productPrice });
-      
+      wishlist.push({
+        productId,
+        variantId,
+        productImage,
+        productTitle,
+        productVendor,
+        productPrice
+      });
+
       // Update the wishlist in localStorage
       localStorage.setItem('wishlist', JSON.stringify(wishlist));
 
@@ -44,7 +51,7 @@
 
     wishlistButtons.forEach(button => {
       const variantId = button.getAttribute('data-variant-id');
-      
+
       const match = wishlist.find(item => item.variantId === variantId);
 
       if (match) {
@@ -65,11 +72,12 @@
     hideWishlistModal();
   }
 
-  // Ensure the DOM is fully loaded before attaching event listeners and checking buttons
-  document.addEventListener('DOMContentLoaded', () => {
-    // Find all wishlist buttons
-    const wishlistButtons = document.querySelectorAll('.wishlist-button');
+// Ensure the DOM is fully loaded before attaching event listeners and checking buttons
+document.addEventListener('DOMContentLoaded', () => {
+  // Find all wishlist buttons
+  const wishlistButtons = document.querySelectorAll('.wishlist-button');
 
+  if (wishlistButtons.length > 0) {
     // Loop through each button and attach a click event listener
     wishlistButtons.forEach(button => {
       button.addEventListener('click', addToWishlist);
@@ -77,10 +85,17 @@
 
     // Check if any buttons match items in the wishlist
     checkWishlistButtons();
+  }
 
-    // Attach event listener to close button of the modal
-    document.querySelector('.wishlist__modal-close').addEventListener('click', hideWishlistModal);
+  // Attach event listener to close button of the modal
+  const wishlistModalCloseButton = document.querySelector('.wishlist__modal-close');
+  if (wishlistModalCloseButton) {
+    wishlistModalCloseButton.addEventListener('click', hideWishlistModal);
+  }
 
-    // Attach event listener to "Don't show this again" link
-    document.querySelector('.dont-show-wishlist-modal').addEventListener('click', dontShowWishlistModal);
-  });
+  // Attach event listener to "Don't show this again" link
+  const dontShowWishlistModalLink = document.querySelector('.dont-show-wishlist-modal');
+  if (dontShowWishlistModalLink) {
+    dontShowWishlistModalLink.addEventListener('click', dontShowWishlistModal);
+  }
+});
