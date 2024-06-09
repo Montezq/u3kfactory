@@ -1586,6 +1586,9 @@ video {
 .font-open {
   font-family: "Open Sans", sans-serif;
 }
+.\!font-coutureBold {
+  font-family: "Couture Bold", sans-serif !important;
+}
 .\!text-2xl {
   font-size: 1.5rem !important;
   line-height: 2rem !important;
@@ -1712,6 +1715,9 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.\!text-\[22px\] {
+  font-size: 22px !important;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
