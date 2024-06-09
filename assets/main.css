@@ -761,6 +761,9 @@ video {
 .mb-10 {
   margin-bottom: 2.5rem;
 }
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -811,6 +814,9 @@ video {
 }
 .mb-\[42px\] {
   margin-bottom: 42px;
+}
+.mb-\[90px\] {
+  margin-bottom: 90px;
 }
 .ml-0 {
   margin-left: 0px;
@@ -883,12 +889,6 @@ video {
 }
 .mt-auto {
   margin-top: auto;
-}
-.mb-14 {
-  margin-bottom: 3.5rem;
-}
-.mb-\[90px\] {
-  margin-bottom: 90px;
 }
 .line-clamp-1 {
   overflow: hidden;
@@ -3326,6 +3326,15 @@ input:focus-visible{
 .wishlist__item{
   margin-bottom: clamp(110px, 16.53vh, 217px);
 }
+@media screen and (max-width: 1330px) {
+.wishlist__item{
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+  }
 .wishlist__item:last-child {
   margin-bottom: 2.5rem;
 }
