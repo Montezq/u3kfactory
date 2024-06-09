@@ -3237,12 +3237,14 @@ input:focus-visible{
     height: clamp(83px, calc(14.05vh - 27px), 196px);
   }
   }
-.search__body {
+.search__body,
+.my-favorites__body {
   padding-top: 76px;
   padding-bottom: 2.5rem;
 }
 @media (min-width: 1024px){
-.search__body{
+.search__body,
+.my-favorites__body{
     padding-top: clamp(84px, calc(17.18vh - 27px), 221px);
     padding-bottom: clamp(50px, 5vh, 110px);
 }
