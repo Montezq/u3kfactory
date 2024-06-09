@@ -782,6 +782,9 @@ video {
 .mb-7 {
   margin-bottom: 1.75rem;
 }
+.mb-8 {
+  margin-bottom: 2rem;
+}
 .mb-\[18px\] {
   margin-bottom: 18px;
 }
@@ -877,9 +880,6 @@ video {
 }
 .mt-auto {
   margin-top: auto;
-}
-.mb-8 {
-  margin-bottom: 2rem;
 }
 .line-clamp-1 {
   overflow: hidden;
@@ -1508,9 +1508,6 @@ video {
 }
 .pl-\[8px\] {
   padding-left: 8px;
-}
-.pr-1 {
-  padding-right: 0.25rem;
 }
 .pr-2 {
   padding-right: 0.5rem;
@@ -3243,7 +3240,14 @@ input:focus-visible{
 .customer-login__form-wrapper{
   padding-top: clamp(38px, calc(28.7vh - 72px), calc(28.7vh - 72px));
 }
-.form-errors li {
+.form-errors {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 0 0 / var(--tw-text-opacity));
+  font-weight: 700;
+}
+.form-errors * {
   font-size: 0.875rem;
   line-height: 1.25rem;
   --tw-text-opacity: 1;
