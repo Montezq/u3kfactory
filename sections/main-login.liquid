@@ -80,7 +80,7 @@
           <label for="CustomerEmail" class="text-[13px] font-axis">
             {{ 'customer.login_page.email' | t }}
           </label>
-          <div class="text-[14px] color-[#ff0000] form-errors">
+          <div class="form-errors">
             {%- if form.errors -%}
               {{ form.errors | default_errors }}
             {%- endif -%}
