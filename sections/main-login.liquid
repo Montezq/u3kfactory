@@ -152,7 +152,29 @@
     </div>
   {%- endif -%}
 </div>
+<script>
+  // Function to toggle password visibility
+  function togglePasswordVisibility(event) {
+    const toggleButton = event.currentTarget;
+    const passwordInput = toggleButton.closest('.password-input').querySelector('.input-field');
 
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+    } else {
+      passwordInput.type = 'password';
+    }
+  }
+
+  // Ensure the DOM is fully loaded before attaching event listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+
+    // Loop through each toggle button and attach a click event listener
+    togglePasswordButtons.forEach((button) => {
+      button.addEventListener('click', togglePasswordVisibility);
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "t:sections.main-login.name",
