@@ -20,92 +20,66 @@
         id="Slider-{{ section.id }}"
         role="list"
       >
-        {%- for block in section.blocks -%}
-          <li
-            class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {{ block.shopify_attributes }}
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-              style="--animation-order: {{ forloop.index }};"
-            {% endif %}
-          >
-            <div class="{% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% endif %}">
-              {%- if card_collection.featured_image -%}
-                <a
-                  class="collection-list__card relative block"
-                  {% if card_collection == blank %}
-                    role="link" aria-disabled="true"
-                  {% else %}
-                    href="{{ card_collection.url }}"
-                  {% endif %}
-                >
-                  <div class="w-full h-full">
-                    {%- if custom_image != blank -%}
-                      <img
-                        srcset="
-                          {%- if custom_image.width >= 165 -%}{{ custom_image | image_url: width: 165 }} 165w,{%- endif -%}
-                          {%- if custom_image.width >= 330 -%}{{ custom_image | image_url: width: 330 }} 330w,{%- endif -%}
-                          {%- if custom_image.width >= 535 -%}{{ custom_image | image_url: width: 535 }} 535w,{%- endif -%}
-                          {%- if custom_image.width >= 750 -%}{{ custom_image | image_url: width: 750 }} 750w,{%- endif -%}
-                          {%- if custom_image.width >= 1000 -%}{{ custom_image | image_url: width: 1000 }} 1000w,{%- endif -%}
-                          {%- if custom_image.width >= 1500 -%}{{ custom_image | image_url: width: 1500 }} 1500w,{%- endif -%}
-                          {%- if custom_image.width >= 3000 -%}{{ custom_image | image_url: width: 3000 }} 3000w,{%- endif -%}
-                          {{ custom_image | image_url }} {{ custom_image.width }}w
-                        "
-                        src="{{ custom_image | image_url: width: 1500 }}"
-                        sizes="
-                          (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
-                          (min-width: 750px) calc(100vw - 1rem),
-                          calc(100vw - 8px)
-                        "
-                        alt="{{ custom_image.alt | escape }}"
-                        height="{{ custom_image.height }}"
-                        width="{{ custom_image.width }}"
-                        loading="lazy"
-                        class="w-full h-full object-cover"
-                      >
-                    {%- elsif card_collection.featured_image != blank -%}
-                      <img
-                        srcset="
-                          {%- if card_collection.featured_image.width >= 165 -%}{{ card_collection.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
-                          {%- if card_collection.featured_image.width >= 330 -%}{{ card_collection.featured_image | image_url: width: 330 }} 330w,{%- endif -%}
-                          {%- if card_collection.featured_image.width >= 535 -%}{{ card_collection.featured_image | image_url: width: 535 }} 535w,{%- endif -%}
-                          {%- if card_collection.featured_image.width >= 750 -%}{{ card_collection.featured_image | image_url: width: 750 }} 750w,{%- endif -%}
-                          {%- if card_collection.featured_image.width >= 1000 -%}{{ card_collection.featured_image | image_url: width: 1000 }} 1000w,{%- endif -%}
-                          {%- if card_collection.featured_image.width >= 1500 -%}{{ card_collection.featured_image | image_url: width: 1500 }} 1500w,{%- endif -%}
-                          {%- if card_collection.featured_image.width >= 3000 -%}{{ card_collection.featured_image | image_url: width: 3000 }} 3000w,{%- endif -%}
-                          {{ card_collection.featured_image | image_url }} {{ card_collection.featured_image.width }}w
-                        "
-                        src="{{ card_collection.featured_image | image_url: width: 1500 }}"
-                        sizes="
-                          (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
-                          (min-width: 750px) {% if columns > 1 %}calc((100vw - 10rem) / 2){% else %}calc(100vw - 10rem){% endif %},
-                          calc(100vw - 3rem)
-                        "
-                        alt="{{ card_collection.featured_image.alt | escape }}"
-                        height="{{ card_collection.featured_image.height }}"
-                        width="{{ card_collection.featured_image.width }}"
-                        loading="lazy"
-                        class="w-full h-full object-cover"
-                      >
+        <li
+          class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {{ block.shopify_attributes }}
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
+          {% endif %}
+        >
+          <div class="{% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% endif %}">
+            {%- if card_collection.featured_image -%}
+              <a
+                class="collection-list__card relative block"
+                {% if card_collection == blank %}
+                  role="link" aria-disabled="true"
+                {% else %}
+                  href="{{ card_collection.url }}"
+                {% endif %}
+              >
+                <div class="w-full h-full">
+                  {%- if custom_image != blank -%}
+                    <img
+                      srcset="
+                        {%- if custom_image.width >= 165 -%}{{ custom_image | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if custom_image.width >= 330 -%}{{ custom_image | image_url: width: 330 }} 330w,{%- endif -%}
+                        {%- if custom_image.width >= 535 -%}{{ custom_image | image_url: width: 535 }} 535w,{%- endif -%}
+                        {%- if custom_image.width >= 750 -%}{{ custom_image | image_url: width: 750 }} 750w,{%- endif -%}
+                        {%- if custom_image.width >= 1000 -%}{{ custom_image | image_url: width: 1000 }} 1000w,{%- endif -%}
+                        {%- if custom_image.width >= 1500 -%}{{ custom_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {%- if custom_image.width >= 3000 -%}{{ custom_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                        {{ custom_image | image_url }} {{ custom_image.width }}w
+                      "
+                      src="{{ custom_image | image_url: width: 1500 }}"
+                      sizes="
+                        (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
+                        (min-width: 750px) calc(100vw - 1rem),
+                        calc(100vw - 8px)
+                      "
+                      alt="{{ custom_image.alt | escape }}"
+                      height="{{ custom_image.height }}"
+                      width="{{ custom_image.width }}"
+                      loading="lazy"
+                      class="w-full h-full object-cover"
+                    >
+                  {%- endif -%}
+                </div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                  <h3 class="font-helveticaThinCond card-collection__title text-4xl md:text-5xl lg:text-6xl 2xl:text-[74px] tracking-widest text-center text-white uppercase font-thin">
+                    {%- if custom_title != blank -%}
+                      {{- custom_title -}}
+                    {%- elsif card_collection.title != blank -%}
+                      {{- card_collection.title | escape -}}
+                    {%- else -%}
+                      {{ 'onboarding.collection_title' | t }}
                     {%- endif -%}
-                  </div>
-                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
-                    <h3 class="font-helveticaThinCond card-collection__title text-4xl md:text-5xl lg:text-6xl 2xl:text-[74px] tracking-widest text-center text-white uppercase font-thin">
-                      {%- if custom_title != blank -%}
-                        {{- custom_title -}}
-                      {%- elsif card_collection.title != blank -%}
-                        {{- card_collection.title | escape -}}
-                      {%- else -%}
-                        {{ 'onboarding.collection_title' | t }}
-                      {%- endif -%}
-                    </h3>
-                  </div>
-                </a>
-              {%- endif -%}
-            </div>
-          </li>
-        {%- endfor -%}
+                  </h3>
+                </div>
+              </a>
+            {%- endif -%}
+          </div>
+        </li>
       </ul>
     </div>
   </div>
@@ -120,6 +94,26 @@
       "id": "title",
       "label": "Title",
       "default": "My Account"
+    },
+    {
+      "type": "image_picker",
+      "id": "sign_image",
+      "label": "Sign Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "orders_image",
+      "label": "My Orders Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "favorites_image",
+      "label": "My Favorites Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "preferences_image",
+      "label": "Preferences Image"
     }
   ]
 }
