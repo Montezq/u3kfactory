@@ -417,7 +417,7 @@
     "log_out": "Log out",
     "guest": "Guest",
     "login_page": {
-      "cancel": "Cancel",
+      "cancel": "Back to Login",
       "create_account": "Sign Up",
       "email": "E-mail",
       "forgot_password": "Forgot password?",
@@ -426,7 +426,7 @@
       "password": "Password",
       "title": "LOG IN",
       "sign_in": "Sign in",
-      "submit": "Submit"
+      "submit": "SEND INSTRUCTIONS"
     },
     "order": {
       "title": "Order {{ name }}",
