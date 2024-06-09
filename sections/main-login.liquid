@@ -5,9 +5,11 @@
     {{ 'customer.recover_password.title' | t }}
   </h1>
   <div class="customer-login__form-wrapper max-w-[522px] mx-auto">
-    <p>
-      {{ 'customer.recover_password.subtext' | t }}
-    </p>
+    <div class="customer-login__form-wrapper-heading text-center">
+      <p class="uppercase text-sm font-bold">
+        {{ 'customer.recover_password.subtext' | t }}
+      </p>
+    </div>
 
     {%- form 'recover_customer_password' -%}
       {% assign recover_success = form.posted_successfully? %}
