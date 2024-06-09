@@ -3752,6 +3752,11 @@ input:focus-visible{
             order: -1;
   }
 
+  .max-lg\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .max-lg\:mt-4 {
     margin-top: 1rem;
   }
