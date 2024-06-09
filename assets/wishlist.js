@@ -21,6 +21,7 @@ function addToWishlist(event) {
     // Add the new item to the wishlist
     wishlist.push({
       productId,
+      productUrl,
       variantId,
       productImage,
       productTitle,
