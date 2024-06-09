@@ -34,7 +34,8 @@
       loginClose = document.querySelectorAll('.login__modal-close');
 
     loginOpen.forEach((button) => {
-      button.addEventListener('click', () => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
         loginModal.classList.remove('hidden');
       });
     });
