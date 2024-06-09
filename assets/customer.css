@@ -269,29 +269,10 @@
 }
 
 /* Login */
-.login a {
-  display: block;
-  margin: 0 auto;
-  width: fit-content;
-}
 
 .login a[href='#recover'] {
   margin-left: 0;
   margin-right: 0;
-}
-
-.login .field + a {
-  margin-top: 1rem;
-}
-
-.login p {
-  margin: 1.5rem 0;
-}
-
-.login h3 {
-  margin-top: 1.5rem;
-  text-align: left;
-  font-size: calc(var(--font-heading-scale) * 1.6rem);
 }
 
 #customer_login_guest button {
