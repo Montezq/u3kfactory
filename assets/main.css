@@ -1961,6 +1961,9 @@ body::-webkit-scrollbar-thumb {
   .main_cooming-soon .header__menu {
   background-color: transparent !important;
 }
+*:focus-visible{
+  outline: none;
+}
 input[type="search"] {
   -webkit-appearance: none; /* Remove default styling in Safari */
   -moz-appearance: none;    /* Remove default styling in Firefox */
