@@ -80,11 +80,11 @@
           <label for="CustomerEmail" class="text-[13px] font-axis">
             {{ 'customer.login_page.email' | t }}
           </label>
-          <p class="text-[14px] color-[#ff0000]">
+          <div class="text-[14px] color-[#ff0000]">
             {%- if form.errors -%}
               {{ form.errors | default_errors }}
             {%- endif -%}
-          </p>
+          </div>
         </div>
         <input
           class="input-field"
@@ -94,6 +94,7 @@
           autocomplete="email"
           autocorrect="off"
           autocapitalize="off"
+          value="{{form.email}}"
           {% if form.errors contains 'form' %}
             aria-invalid="true"
           {% endif %}
