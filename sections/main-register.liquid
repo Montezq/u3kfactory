@@ -29,7 +29,7 @@
         </ul>
       {%- endif -%}
       <div class="grid grid-cols-2 row-gap-[70px] justify-between">
-        <div class="max-w-[522px]">
+        <div class="max-w-[522px] grid gap-6">
           <div class="field flex flex-col">
             <div class="pl-4 mb-1 flex">
               <label for="RegisterForm-FirstName" class="text-[13px] font-axis">
@@ -65,7 +65,7 @@
             >
           </div>
         </div>
-        <div class="max-w-[522px]">
+        <div class="max-w-[522px] grid gap-6">
           <div class="field flex flex-col">
             <div class="pl-4 mb-1 flex justify-between">
               <label for="RegisterForm-email" class="text-[13px] font-axis">
@@ -129,11 +129,13 @@
               ></span>
             </div>
           </div>
+          <div class="flex justify-end">
+            <button class="btn btn_primary !font-coutureBold !text-[22px] !tracking-xwidest !leading-none !px-6">
+              {{ 'customer.register.submit' | t }}
+            </button>
+          </div>
         </div>
       </div>
-      <button class="btn btn_primary !font-coutureBold !text-[22px] !tracking-xwidest !leading-none !px-6">
-        {{ 'customer.register.submit' | t }}
-      </button>
     {%- endform -%}
   </div>
 </div>
