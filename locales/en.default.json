@@ -475,7 +475,7 @@
       "last_name": "Last name",
       "email": "Email",
       "password": "Password",
-      "submit": "Create"
+      "submit": "Sgin Up"
     },
     "reset_password": {
       "title": "Reset account password",
