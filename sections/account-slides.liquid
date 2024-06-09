@@ -24,7 +24,7 @@
           <div>
             <a
               class="collection-list__card relative block bg-[#5f5f5f]"
-              href="#"
+              href="{%if customer%}{{ routes.account_logout_url }}{%else%}{{ routes.account_login_url}}{% endif %}"
             >
               <div class="w-full h-full">
                 {%- if section.settings.sign_image != blank -%}
