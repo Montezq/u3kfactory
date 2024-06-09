@@ -4,6 +4,7 @@ function addToWishlist(event) {
 
   // Get the data attributes from the button
   const productId = button.getAttribute('data-id');
+  const productUrl = button.getAttribute('data-url');
   const variantId = button.getAttribute('data-variant-id');
   const productImage = button.getAttribute('data-image');
   const productTitle = button.getAttribute('data-title');
