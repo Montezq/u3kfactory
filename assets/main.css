@@ -684,6 +684,9 @@ video {
 .right-0 {
   right: 0px;
 }
+.right-4 {
+  right: 1rem;
+}
 .right-5 {
   right: 1.25rem;
 }
@@ -710,9 +713,6 @@ video {
 }
 .top-full {
   top: 100%;
-}
-.right-4 {
-  right: 1rem;
 }
 .isolate {
   isolation: isolate;
@@ -2001,8 +2001,8 @@ input[type="search"]::-moz-search-clear {
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
-  padding-left: 0.875rem;
-  padding-right: 0.875rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   padding-top: 9px;
   padding-bottom: 9px;
   font-family: "Open Sans", sans-serif;
