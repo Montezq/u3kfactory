@@ -9,7 +9,49 @@
     <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">My Favorites</h1>
   </div>
   <div class="my-favorites__body">
-    <ul class="wishlist__list wishlist__container"></ul>
+    <ul class="wishlist__list wishlist__container">
+      <li class="wishlist__item flex">
+        <div class="wishlist__item-img aspect-square">
+          <img
+            class="w-full h-full object-cover"
+            src="https://cdn.shopify.com/s/files/1/0690/2303/9708/files/ANATOMY-STUDY-3-PAPER-UNFRAMED-IMAGE.jpg?v=1717860091"
+            width="656"
+            height="640"
+          >
+        </div>
+        <div class="wishlist__item-data flex-1">
+          <div class="wishlist__item-data-title">
+            <h2 class="text-[32px] font-semibold leading-none mb-3">Product Title</h2>
+          </div>
+          <div class="wishlist__item-data-vendor mb-14">
+            <h3 class="leading-none text-[26px] font-helveticaThinCond italic tracking-wide font-normal">by Vendor</h3>
+          </div>
+          <div class="wishlist__item-data-variant mb-[90px]">
+            <h4 class="text-[24px] tracking-xwidest mb-4 font-bold leading-none">Unframed</h4>
+            <h4 class="text-[24px] tracking-xwidest uppercase font-bold leading-none">NO SIZE SELECTED</h4>
+          </div>
+          <div class="wishlist__item-data-buttons">
+            <div class="md:max-w-[360px] mt-4">
+              <a
+                href="card_product_url"
+                class="btn btn_primary btn_small flex text-center uppercase relative w-full remove-from-wishlist mb-4"
+              >
+                <span class="text-white">choose size/medium</span>
+                <span
+                  class="icon-FULL-ICON-SET-WEBSITE-FINAL_Choose-Medium-Arrow absolute top-1/2 -translate-y-1/2 right-[18px] text-white"
+                ></span>
+              </a>
+              <button class="btn btn_primary btn_small flex text-center uppercase relative w-full remove-from-wishlist">
+                <span class="text-white">remove from list</span>
+                <span
+                  class="icon-FULL-ICON-SET-WEBSITE-FINAL_Trash-Bin-v2 absolute top-1/2 -translate-y-1/2 right-[18px] text-white"
+                ></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 {%- if settings.cart_type == 'notification' -%}
@@ -45,7 +87,7 @@
           height="640"
         >
       </div>
-      <div class="wishlist__item-data flex-1 pt-4">
+      <div class="wishlist__item-data flex-1">
         <div class="wishlist__item-data-title">
           <h2 class="text-[32px] font-semibold leading-none mb-3">${item.productTitle}</h2>
         </div>

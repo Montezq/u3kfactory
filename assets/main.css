@@ -3343,7 +3343,15 @@ input:focus-visible{
 }
 .wishlist__item-data{
   margin-left: clamp(32px, 2.35vw, 2.35vw);
+  padding-top: 1rem;
 }
+@media screen and (max-width: 1330px) {
+.wishlist__item-data{
+    margin-left: 0;
+    padding-top: 0px;
+    margin-top: clamp(50px, 3.04vh, 3.04vh);
+}
+  }
 
 
 
