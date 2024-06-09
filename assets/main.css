@@ -1794,6 +1794,9 @@ video {
 .tracking-xwidest {
   letter-spacing: .12em;
 }
+.\!tracking-xwidest {
+  letter-spacing: .12em !important;
+}
 .text-\[\#121212\] {
   --tw-text-opacity: 1;
   color: rgb(18 18 18 / var(--tw-text-opacity));
