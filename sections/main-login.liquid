@@ -4,7 +4,7 @@
   <h1 id="recover" tabindex="-1" class="font-coutureBold text-[30px] uppercase text-center">
     {{ 'customer.recover_password.title' | t }}
   </h1>
-  <div class="customer-login__form-wrapper max-w-[526px] mx-auto">
+  <div class="customer-login__form-wrapper max-w-[522px] mx-auto">
     <p>
       {{ 'customer.recover_password.subtext' | t }}
     </p>
@@ -56,7 +56,7 @@
   <h1 id="login" tabindex="-1" class="font-coutureBold text-[30px] uppercase text-center">
     {{ 'customer.login_page.title' | t }}
   </h1>
-  <div class="customer-login__form-wrapper max-w-[526px] mx-auto">
+  <div class="customer-login__form-wrapper max-w-[522px] mx-auto">
     <div class="customer-login__form-wrapper-heading flex justify-center items-center mb-10">
       <p class="text-sm uppercase font-bold pr-1">DON'T HAVE AN ACCOUNT?</p>
       <span class="uppercase text-sm font-bold px-2.5"> I </span>
@@ -89,8 +89,8 @@
         {{ form.errors | default_errors }}
       {%- endif -%}
 
-      <div class="field flex flex-col">
-        <div class="pl-4 mb-2">
+      <div class="field flex flex-col mb-3.5">
+        <div class="pl-4">
           <label for="CustomerEmail" class="text-[13px] font-axis">
             {{ 'customer.login_page.email' | t }}
           </label>
@@ -112,7 +112,7 @@
 
       {%- if form.password_needed -%}
         <div class="field flex flex-col">
-          <div class="pl-4 mb-2">
+          <div class="pl-4">
             <label for="CustomerPassword" class="text-[13px] font-axis">
               {{ 'customer.login_page.password' | t }}
             </label>

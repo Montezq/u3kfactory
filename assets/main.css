@@ -764,6 +764,9 @@ video {
 .mb-3 {
   margin-bottom: 0.75rem;
 }
+.mb-3\.5 {
+  margin-bottom: 0.875rem;
+}
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -1084,8 +1087,8 @@ video {
 .max-w-\[471px\] {
   max-width: 471px;
 }
-.max-w-\[526px\] {
-  max-width: 526px;
+.max-w-\[522px\] {
+  max-width: 522px;
 }
 .max-w-\[60\%\] {
   max-width: 60%;
@@ -1981,8 +1984,8 @@ input[type="search"]::-moz-search-clear {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
   padding-left: 0.875rem;
   padding-right: 0.875rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 9px;
+  padding-bottom: 9px;
   font-family: "Open Sans", sans-serif;
   font-size: 17px;
 }
