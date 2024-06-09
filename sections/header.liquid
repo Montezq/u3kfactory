@@ -127,7 +127,12 @@
         </div>
         <div class="header__personal-data-user-name text-[15px] text-center font-open uppercase font-semibold">
           {%- if customer -%}
-            {{ customer.first_name | slice: 0, 1 }}. {{ customer.last_name | slice: 0, 1 }}.
+            {%- if customer.first_name -%}
+              {{ customer.first_name | slice: 0, 1 }}.
+            {%- endif -%}
+            {%- if customer.last_name -%}
+              {{ customer.last_name | slice: 0, 1 }}.
+            {%- endif -%}
           {%- else -%}
             {{ 'customer.guest' | t }}
           {%- endif -%}
