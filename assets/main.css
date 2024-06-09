@@ -3230,7 +3230,8 @@ input:focus-visible{
 #bar{
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
 }
-.heading__search {
+.heading__search,
+.my-favorites__heading {
     padding-right: 1.25rem;
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(83px, calc(14.05vh - 27px), 196px);
@@ -3294,9 +3295,6 @@ input:focus-visible{
     padding-right: calc(5.36vw - 27px);
 }
   }
-.my-favorites__heading{
-  
-}
 
 
 
