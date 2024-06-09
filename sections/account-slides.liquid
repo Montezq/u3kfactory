@@ -68,8 +68,8 @@
         <li>
           <div>
             <a
-              class="collection-list__card relative block bg-[#5f5f5f]"
-              href="#"
+              class="collection-list__card relative block bg-[#5f5f5f] {% unless customer%} login-modal{% endunless %}"
+              href="{%if customer%}{{ routes.account_url }}{%else%}#{% endif %}"
             >
               <div class="w-full h-full">
                 {%- if section.settings.orders_image != blank -%}
@@ -109,8 +109,8 @@
         <li>
           <div>
             <a
-              class="collection-list__card relative block bg-[#5f5f5f]"
-              href="#"
+              class="collection-list__card relative block bg-[#5f5f5f]{% unless customer%} login-modal{% endunless %}"
+              href="{%if customer%}{{ routes.account_url }}{%else%}#{% endif %}"
             >
               <div class="w-full h-full">
                 {%- if section.settings.favorites_image != blank -%}
@@ -150,8 +150,8 @@
         <li>
           <div>
             <a
-              class="collection-list__card relative block bg-[#5f5f5f]"
-              href="#"
+              class="collection-list__card relative block bg-[#5f5f5f] {% unless customer%} login-modal{% endunless %}"
+              href="{%if customer%}{{ routes.account_url }}{%else%}#{% endif %}"
             >
               <div class="w-full h-full">
                 {%- if section.settings.preferences_image != blank -%}
