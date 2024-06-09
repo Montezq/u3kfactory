@@ -13,7 +13,7 @@
 
     {%- form 'recover_customer_password' -%}
       {% assign recover_success = form.posted_successfully? %}
-      <div class="field flex flex-col mb-3.5">
+      <div class="field flex flex-col mb-8">
         <div class="pl-4 mb-1 flex justify-between">
           <label for="RecoverEmail" class="text-[13px] font-axis">
             {{ 'customer.login_page.email' | t }}
@@ -40,7 +40,7 @@
           {% endif %}
         >
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center mb-10">
         <button class="btn btn_primary !font-coutureBold !text-[22px] !tracking-xwidest !leading-none !px-6">
           {{ 'customer.login_page.submit' | t }}
         </button>
