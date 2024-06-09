@@ -28,8 +28,8 @@
           {%- endfor -%}
         </ul>
       {%- endif -%}
-      <div class="grid grid-cols-2">
-        <div>
+      <div class="grid grid-cols-2 row-gap-[70px] justify-between">
+        <div class="max-w-[522px]">
           <div class="field flex flex-col">
             <div class="pl-4 mb-1">
               <label for="RegisterForm-FirstName" class="text-[13px] font-axis">
@@ -65,7 +65,7 @@
             >
           </div>
         </div>
-        <div>
+        <div class="max-w-[522px]">
           <div class="field flex flex-col">
             <div class="pl-4 mb-1 flex justify-between">
               <label for="RegisterForm-email" class="text-[13px] font-axis">
@@ -112,28 +112,54 @@
                 </div>
               {%- endif -%}
             </div>
-            <input
-              class="input-field"
-              type="password"
-              name="customer[password]"
-              id="RegisterForm-password"
-              aria-required="true"
-              {% if form.errors contains 'password' %}
-                aria-invalid="true"
-                aria-describedby="RegisterForm-password-error"
-              {% endif %}
-            >
+            <div class="relative password-input">
+              <input
+                class="input-field"
+                type="password"
+                name="customer[password]"
+                id="RegisterForm-password"
+                aria-required="true"
+                {% if form.errors contains 'password' %}
+                  aria-invalid="true"
+                  aria-describedby="RegisterForm-password-error"
+                {% endif %}
+              >
+              <span
+                class="absolute cursor-pointer text-[28px] toggle-password top-1/2 -translate-y-1/2 right-4 icon-FULL-ICON-SET-WEBSITE-FINAL_Eye-Icon"
+              ></span>
+            </div>
           </div>
         </div>
       </div>
-
-      <button>
+      <button class="btn btn_primary !font-coutureBold !text-[22px] !tracking-xwidest !leading-none !px-6">
         {{ 'customer.register.submit' | t }}
       </button>
     {%- endform -%}
   </div>
 </div>
+<script>
+  // Function to toggle password visibility
+  function togglePasswordVisibility(event) {
+    const toggleButton = event.currentTarget;
+    const passwordInput = toggleButton.closest('.password-input').querySelector('.input-field');
 
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+    } else {
+      passwordInput.type = 'password';
+    }
+  }
+
+  // Ensure the DOM is fully loaded before attaching event listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+
+    // Loop through each toggle button and attach a click event listener
+    togglePasswordButtons.forEach((button) => {
+      button.addEventListener('click', togglePasswordVisibility);
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "t:sections.main-register.name",
