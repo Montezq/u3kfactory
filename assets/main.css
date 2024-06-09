@@ -3346,7 +3346,7 @@ input:focus-visible{
     width: clamp(461px, 37vw, 37vw);
 }
   }
-@media not all and (min-width: 768px) {
+@media not all and (min-width: 1024px) {
 .wishlist__item-img{
     width: 100%;
 }
