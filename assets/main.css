@@ -3237,11 +3237,13 @@ input:focus-visible{
 .wishlist-button.match #Heart_Icon-saved{
       display: none;
     }
-.customer-login{
+.customer-login,
+.customer-register{
   padding-top: 32px;
 }
 @media (min-width: 768px){
-.customer-login{
+.customer-login,
+.customer-register{
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
 }
   }
