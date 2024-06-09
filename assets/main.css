@@ -3289,14 +3289,6 @@ input:focus-visible{
   color: rgb(255 0 0 / var(--tw-text-opacity));
   font-weight: 700;
 }
-.customer-register {
-  -webkit-transition-duration: 300ms;
-       -o-transition-duration: 300ms;
-          transition-duration: 300ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-       -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
 @media (min-width: 1280px){
 .customer-register{
     padding-right: calc(5.36vw - 27px);
