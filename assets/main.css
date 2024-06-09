@@ -1222,6 +1222,9 @@ video {
 .gap-\[1\.1rem\] {
   gap: 1.1rem;
 }
+.gap-\[70px\] {
+  gap: 70px;
+}
 .gap-x-\[20px\] {
   -webkit-column-gap: 20px;
      -moz-column-gap: 20px;
@@ -3247,11 +3250,13 @@ input:focus-visible{
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
 }
   }
-.customer-login__form-wrapper{
+.customer-login__form-wrapper,
+.customer-register__form-wrapper{
   padding-top: 40px;
 }
 @media (min-width: 768px){
-.customer-login__form-wrapper{
+.customer-login__form-wrapper,
+.customer-register__form-wrapper{
     padding-top: clamp(38px, calc(28.7vh - 72px), calc(28.7vh - 72px));
 }
   }
