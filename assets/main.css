@@ -3238,11 +3238,21 @@ input:focus-visible{
       display: none;
     }
 .customer-login{
-  padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
+  padding-top: 32px;
 }
+@media (min-width: 768px){
+.customer-login{
+    padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
+}
+  }
 .customer-login__form-wrapper{
-  padding-top: clamp(38px, calc(28.7vh - 72px), calc(28.7vh - 72px));
+  padding-top: 40px;
 }
+@media (min-width: 768px){
+.customer-login__form-wrapper{
+    padding-top: clamp(38px, calc(28.7vh - 72px), calc(28.7vh - 72px));
+}
+  }
 .form-errors {
   font-size: 0.875rem;
   line-height: 1.25rem;
