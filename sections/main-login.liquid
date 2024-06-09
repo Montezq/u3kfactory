@@ -4,7 +4,7 @@
   <h1 id="recover" tabindex="-1" class="font-coutureBold text-[30px] uppercase text-center">
     {{ 'customer.recover_password.title' | t }}
   </h1>
-  <div>
+  <div class="customer-login__form-wrapper">
     <p>
       {{ 'customer.recover_password.subtext' | t }}
     </p>
@@ -56,7 +56,13 @@
   <h1 id="login" tabindex="-1" class="font-coutureBold text-[30px] uppercase text-center">
     {{ 'customer.login_page.title' | t }}
   </h1>
-  <div>
+  <div class="customer-login__form-wrapper">
+    <div class="customer-login__form-wrapper flex justify-center items-center">
+      <p class="text-[13px] uppercase font-bold underline">DON'T HAVE AN ACCOUNT? I</p>
+      <a href="{{ routes.account_register_url }}" class="text-[13px] uppercase font-bold underline">
+        {{ 'customer.login_page.create_account' | t }}
+      </a>
+    </div>
     {%- if recover_success == true -%}
       <h3 class="form__message" tabindex="-1" autofocus>
         <svg aria-hidden="true" focusable="false" viewBox="0 0 13 13">
@@ -126,10 +132,6 @@
       <button>
         {{ 'customer.login_page.sign_in' | t }}
       </button>
-
-      <a href="{{ routes.account_register_url }}">
-        {{ 'customer.login_page.create_account' | t }}
-      </a>
     {%- endform -%}
   </div>
 
