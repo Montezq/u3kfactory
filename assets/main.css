@@ -3191,6 +3191,9 @@ input:focus-visible{
 .customer-login{
   padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
 }
+.customer-login__form-wrapper{
+  padding-top: clamp(38px, calc(28.7vh - 72px), calc(28.7vh - 72px));
+}
 
 
 
