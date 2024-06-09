@@ -1988,6 +1988,7 @@ input[type="search"]::-moz-search-clear {
   padding-bottom: 9px;
   font-family: "Open Sans", sans-serif;
   font-size: 17px;
+  width: 100%;
 }
 
 .icon-FULL-ICON-SET-WEBSITE-FINAL_Account:before {
