@@ -44,10 +44,14 @@
           {{ 'customer.login_page.submit' | t }}
         </button>
       </div>
-
-      <a href="#login">
-        {{ 'customer.login_page.cancel' | t }}
-      </a>
+      <div class="flex justify-center">
+        <a href="#login" class="flex justify-center">
+          <span classs="icon-FULL-ICON-SET-WEBSITE-FINAL_Smartphone-Back-to-All-Products-Arrow"></span>
+          <span class="text-sm uppercase font-bold ml-1">
+            {{ 'customer.login_page.cancel' | t }}
+          </span>
+        </a>
+      </div>
     {%- endform -%}
   </div>
 
@@ -56,7 +60,7 @@
   </h1>
   <div class="customer-login__form-wrapper max-w-[522px] mx-auto">
     <div class="customer-login__form-wrapper-heading flex justify-center items-center mb-10">
-      <p class="text-sm uppercase font-bold pr-1">DON'T HAVE AN ACCOUNT?</p>
+      <p class="text-sm uppercase font-bold">DON'T HAVE AN ACCOUNT?</p>
       <span class="uppercase text-sm font-bold px-2.5"> I </span>
       <a href="{{ routes.account_register_url }}" class="text-sm uppercase font-bold underline">
         {{ 'customer.login_page.create_account' | t }}
