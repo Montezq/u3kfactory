@@ -55,7 +55,11 @@
               </div>
               <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
                 <h3 class="font-helveticaThinCond card-collection__title text-4xl md:text-5xl lg:text-6xl 2xl:text-[74px] tracking-widest text-center text-white uppercase font-thin">
-                  My Orders
+                  {%- if customer -%}
+                    Sign Out
+                  {%- else -%}
+                    Sign In
+                  {%- endif -%}
                 </h3>
               </div>
             </a>
