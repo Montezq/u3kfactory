@@ -41,7 +41,8 @@
     });
 
     loginClose.forEach((button) => {
-      button.addEventListener('click', () => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
         loginModal.classList.add('hidden');
       });
     });
