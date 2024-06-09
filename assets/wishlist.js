@@ -1,4 +1,4 @@
-// Function to handle adding or removing a product from the wishlist
+// Function to handle adding or removing a product to/from the wishlist
 function addToWishlist(event) {
   const button = event.currentTarget;
 
@@ -51,6 +51,15 @@ function removeFromWishlist(productId, variantId) {
   wishlist = wishlist.filter(item => !(item.productId === productId && item.variantId === variantId));
   localStorage.setItem('wishlist', JSON.stringify(wishlist));
   console.log('Item removed from wishlist');
+
+  // Show the removed wishlist modal
+  const removedModal = document.querySelector('.removed-wishlist__modal');
+  if (removedModal) {
+    removedModal.classList.remove('hidden');
+    setTimeout(() => {
+      removedModal.classList.add('hidden');
+    }, 1000); // Wait for 1 second before hiding the modal
+  }
 }
 
 // Function to check if items in wishlist and add 'match' class to corresponding buttons
