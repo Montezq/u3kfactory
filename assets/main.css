@@ -3341,6 +3341,16 @@ input:focus-visible{
 .wishlist__item-img{
   width: clamp(361px, 34vw, 34vw);
 }
+@media screen and (max-width: 1330px) {
+.wishlist__item-img{
+    width: clamp(461px, 37vw, 37vw);
+}
+  }
+@media not all and (min-width: 768px) {
+.wishlist__item-img{
+    width: 100%;
+}
+  }
 .wishlist__item-data{
   margin-left: clamp(32px, 2.35vw, 2.35vw);
   padding-top: 1rem;
