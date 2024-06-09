@@ -869,6 +869,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1543,6 +1546,9 @@ video {
 }
 .pr-1 {
   padding-right: 0.25rem;
+}
+.pl-4 {
+  padding-left: 1rem;
 }
 .\!text-center {
   text-align: center !important;

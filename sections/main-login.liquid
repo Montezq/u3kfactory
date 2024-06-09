@@ -57,7 +57,7 @@
     {{ 'customer.login_page.title' | t }}
   </h1>
   <div class="customer-login__form-wrapper max-w-[526px] mx-auto">
-    <div class="customer-login__form-wrapper-heading flex justify-center items-center">
+    <div class="customer-login__form-wrapper-heading flex justify-center items-center mb-10">
       <p class="text-sm uppercase font-bold pr-1">DON'T HAVE AN ACCOUNT?</p>
       <span class="uppercase text-sm font-bold px-2.5"> I </span>
       <a href="{{ routes.account_register_url }}" class="text-sm uppercase font-bold underline">
@@ -89,7 +89,12 @@
         {{ form.errors | default_errors }}
       {%- endif -%}
 
-      <div class="field">
+      <div class="field flex flex-col">
+        <div class="pl-4 mb-2">
+          <label for="CustomerEmail" class="text-[13px] font-axis">
+            {{ 'customer.login_page.email' | t }}
+          </label>
+        </div>
         <input
           type="email"
           name="customer[email]"
@@ -102,9 +107,6 @@
           {% endif %}
           placeholder="{{ 'customer.login_page.email' | t }}"
         >
-        <label for="CustomerEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
       </div>
 
       {%- if form.password_needed -%}
