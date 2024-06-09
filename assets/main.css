@@ -1673,6 +1673,9 @@ video {
 .text-\[22px\] {
   font-size: 22px;
 }
+.text-\[24px\] {
+  font-size: 24px;
+}
 .text-\[25px\] {
   font-size: 25px;
 }
@@ -1743,9 +1746,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-\[24px\] {
-  font-size: 24px;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
@@ -2931,7 +2931,8 @@ input:focus-visible{
 .modal__close-button,
 .cart-notification-wrapper-block,
 .login__modal-wrapper,
-.wishlist__modal-wrapper{
+.wishlist__modal-wrapper,
+.removed-wishlist__modal-wrapper{
   -webkit-box-shadow: 6px 0 11px rgba(0, 0, 0, .35);
           box-shadow: 6px 0 11px rgba(0, 0, 0, .35);
 }
