@@ -417,16 +417,16 @@
     "log_out": "Log out",
     "guest": "Guest",
     "login_page": {
-      "cancel": "Cancel",
-      "create_account": "Create account",
-      "email": "Email",
-      "forgot_password": "Forgot your password?",
+      "cancel": "Back to Login",
+      "create_account": "Sign Up",
+      "email": "E-mail",
+      "forgot_password": "Forgot password?",
       "guest_continue": "Continue",
       "guest_title": "Continue as a guest",
       "password": "Password",
-      "title": "Login",
+      "title": "LOG IN",
       "sign_in": "Sign in",
-      "submit": "Submit"
+      "submit": "SEND INSTRUCTIONS"
     },
     "order": {
       "title": "Order {{ name }}",
@@ -465,8 +465,8 @@
       "none": "You haven't placed any orders yet."
     },
     "recover_password": {
-      "title": "Reset your password",
-      "subtext": "We will send you an email to reset your password",
+      "title": "Password reset",
+      "subtext": "YOU WILL RECIEVE AN EMAIL WITH INSTRUCTIONS ON THIS ADDRESS",
       "success": "We've sent you an email with a link to update your password."
     },
     "register": {
@@ -475,7 +475,7 @@
       "last_name": "Last name",
       "email": "Email",
       "password": "Password",
-      "submit": "Create"
+      "submit": "Sgin Up"
     },
     "reset_password": {
       "title": "Reset account password",

@@ -179,17 +179,6 @@
       <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {% comment %}
-      {%- if settings.predictive_search_enabled -%}
-        <link
-          rel="stylesheet"
-          href="{{ 'component-predictive-search.css' | asset_url }}"
-          media="print"
-          onload="this.media='all'"
-        >
-      {%- endif -%}
-    {% endcomment %}
-
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
       if (Shopify.designMode) {
@@ -206,36 +195,66 @@
     {% sections 'header-group' %}
     <main
       id="MainContent"
-      class="content-for-layout focus-none main relative min-h-screen pt-[67px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0"
+      class="content-for-layout focus-none main relative min-h-full pt-[67px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0 overflow-hidden"
       role="main"
       tabindex="-1"
     >
       <div class="max-lg:hidden fixed w-[80vw] top-0 right-0 desktop-search-wrapper flex justify-end z-[4]{% if template.name != "index" %} bg-white{% endif %}">
-        <div class="flex items-end">
+        <form
+          action="{{ routes.search_url }}"
+          class="flex items-end"
+        >
           <input
             class="border-0 border-b border-b-black w-[171px] bg-transparent"
             id="Search-In-Template"
             type="search"
             name="q"
             autocomplete="off"
-            value="{{ search.terms | escape }}"
           >
           <input name="options[prefix]" type="hidden" value="last">
+          <input type="hidden" name="type" value="product">
+          <input type="hidden" name="options[unavailable_products]" value="hide">
           <button type="submit" class="ml-1" aria-label="{{ 'general.search.search' | t }}">
             <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2"></span>
           </button>
-        </div>
+        </form>
       </div>
       {{ content_for_layout }}
     </main>
 
     {% comment %} {% sections 'footer-group' %} {% endcomment %}
+    <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const bar = document.getElementById('bar');
+        let lastScrollTop = 0;
+        if (bar) {
+          function handleScroll() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    <ul hidden>
-      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
-      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
-    </ul>
+            if (scrollTop > lastScrollTop) {
+              bar.style.transform = 'translateY(-100%)';
+            } else {
+              bar.style.transform = 'translateY(0)';
+            }
 
+            lastScrollTop = scrollTop;
+          }
+
+          function checkWidthAndScroll() {
+            if (window.innerWidth <= 767) {
+              window.addEventListener('scroll', handleScroll);
+            } else {
+              window.removeEventListener('scroll', handleScroll);
+              bar.style.transform = 'translateY(0)';
+            }
+          }
+
+          window.addEventListener('resize', checkWidthAndScroll);
+          checkWidthAndScroll(); // Initial check
+        }
+      });
+    </script>
     <script>
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
