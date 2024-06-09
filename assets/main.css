@@ -3274,7 +3274,13 @@ input:focus-visible{
 }
   }
 .my-favorites__body {
-  padding-top: 60px;
+  padding-top: 56px;
+}
+@media (min-width: 768px) {
+
+  .my-favorites__body {
+    padding-top: 60px;
+  }
 }
 @media (min-width: 1024px){
 .my-favorites__body{
