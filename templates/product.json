@@ -30,11 +30,6 @@
           "settings": {
             "taxes_text": "* VAT INCLUDED \/ EXCLUDED SHIPPING COST"
           }
-        },
-        "swishlist_simple_wishlist_wishlist_product_button_G6ETwb": {
-          "type": "shopify:\/\/apps\/swishlist-simple-wishlist\/blocks\/wishlist_product_button\/bfcb80f2-f00d-42ae-909a-9f00c726327b",
-          "settings": {
-          }
         }
       },
       "block_order": [
@@ -42,8 +37,7 @@
         "description",
         "variant_picker",
         "price",
-        "buy_buttons",
-        "swishlist_simple_wishlist_wishlist_product_button_G6ETwb"
+        "buy_buttons"
       ],
       "settings": {
       }
