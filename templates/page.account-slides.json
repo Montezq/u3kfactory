@@ -10,7 +10,6 @@
     },
     "account-slides": {
       "type": "account-slides",
-      "disabled": true,
       "settings": {
       }
     }
