@@ -3375,6 +3375,11 @@ input:focus-visible{
     margin-top: clamp(50px, 3.04vh, 3.04vh);
 }
   }
+@media screen and (max-width: 768px) {
+.wishlist__item-data{
+    margin-top: 8px;
+}
+  }
 
 
 
