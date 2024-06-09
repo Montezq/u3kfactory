@@ -15,8 +15,8 @@
     data-title="{{ product.title }}"
     data-vendor="{{ product.vendor }}"
     data-price="{{ product.price }}"
-    data-image="{{ product.featured_image | image_url: 'large' }}"
-    data-url="/cdn/shop/{{ product.url }}"
+    data-image="/cdn/shop/{{ product.featured_image | image_url: 'large' }}"
+    data-url="{{ product.url }}"
     data-toggle="true"
     data-no-variant="true"
   >
