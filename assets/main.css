@@ -3323,6 +3323,9 @@ input:focus-visible{
 .wishlist__item-img{
   width: clamp(361px, 30vw, 30vw);
 }
+.wishlist__item-data{
+  margin-left: clamp(32px, 2.35vw, 2.35vw);
+}
 
 
 
