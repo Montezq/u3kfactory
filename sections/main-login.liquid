@@ -1,15 +1,9 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-<div class="customer login section-{{ section.id }}-padding">
-  <div id="bar" class="ds_element dissapearing customer-login__heading">
-    <h1 id="recover" tabindex="-1">
-      {{ 'customer.recover_password.title' | t }}
-    </h1>
-    <h1 id="login" tabindex="-1">
-      {{ 'customer.login_page.title' | t }}
-    </h1>
-  </div>
-
+<div class="customer login customer-login section-{{ section.id }}-padding">
+  <h1 id="recover" tabindex="-1" class="font-coutureBold text-[30px] uppercase">
+    {{ 'customer.recover_password.title' | t }}
+  </h1>
   <div>
     <p>
       {{ 'customer.recover_password.subtext' | t }}
@@ -59,6 +53,9 @@
     {%- endform -%}
   </div>
 
+  <h1 id="login" tabindex="-1" class="font-coutureBold text-[30px] uppercase">
+    {{ 'customer.login_page.title' | t }}
+  </h1>
   <div>
     {%- if recover_success == true -%}
       <h3 class="form__message" tabindex="-1" autofocus>
