@@ -1233,6 +1233,14 @@ video {
 .gap-y-4 {
   row-gap: 1rem;
 }
+.gap-x-\[70px\] {
+  -webkit-column-gap: 70px;
+     -moz-column-gap: 70px;
+          column-gap: 70px;
+}
+.gap-y-6 {
+  row-gap: 1.5rem;
+}
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
