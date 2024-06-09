@@ -9,7 +9,9 @@
       }
     },
     "account-slides": {
-      "type": "account-slides"
+      "type": "account-slides",
+      "settings": {
+      }
     }
   },
   "order": [
