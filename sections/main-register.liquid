@@ -1,13 +1,16 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-<div class="customer register customer-register">
+<div class="customer register customer-register max-lg:px-4">
   <h1 class="font-coutureBold text-[30px] uppercase text-center">
     {{ 'customer.register.title' | t }}
   </h1>
   <div class="customer-register__form-wrapper">
+    <div class="customer-login__form-wrapper-heading text-center mb-10">
+      <p class="uppercase text-sm font-bold">NAME FOR DELIVERY I YOUR FUTURE LOG IN DETAILS</p>
+    </div>
     {%- form 'create_customer', novalidate: 'novalidate' -%}
-      <div class="grid grid-cols-2 gap-x-[70px] items-start">
-        <div class="max-w-[522px] grid gap-y-6">
+      <div class="grid md:grid-cols-2 gap-y-6 gap-x-[70px] items-start">
+        <div class="max-w-[522px] grid gap-y-6 w-full max-lg:mx-auto">
           <div class="field flex flex-col">
             <div class="pl-4 mb-1 flex">
               <label for="RegisterForm-FirstName" class="text-[13px] font-axis">
@@ -46,7 +49,7 @@
             </div>
           </div>
         </div>
-        <div class="max-w-[522px] grid gap-y-6 ml-auto w-full">
+        <div class="max-w-[522px] grid gap-y-6 ml-auto w-full max-lg:mx-auto">
           <div class="field flex flex-col">
             <div class="pl-4 mb-1 flex justify-between">
               <label for="RegisterForm-email" class="text-[13px] font-axis">

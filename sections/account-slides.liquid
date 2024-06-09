@@ -1,6 +1,229 @@
+<div class="max-md:px-1.5">
+  <div>
+    {%- unless section.settings.title == blank -%}
+      <div
+        id="bar"
+        class="account-slides__heading ds_element fixed top-[67px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out md:hidden"
+      >
+        <h2
+          id="SectionHeading-{{ section.id }}"
+          class="text-center font-coutureBold text-xl uppercase py-2"
+        >
+          {{ section.settings.title }}
+        </h2>
+      </div>
+    {%- endunless -%}
+
+    <div class="account-slides__body">
+      <ul
+        class="grid gap-y-4 md:gap-y-[27px] pb-[27px]"
+        id="Slider-{{ section.id }}"
+        role="list"
+      >
+        <li>
+          <div>
+            <a
+              class="collection-list__card relative block bg-[#5f5f5f]"
+              href="{%if customer%}{{ routes.account_logout_url }}{%else%}{{ routes.account_login_url}}{% endif %}"
+            >
+              <div class="w-full h-full">
+                {%- if section.settings.sign_image != blank -%}
+                  <img
+                    srcset="
+                      {%- if section.settings.sign_image.width >= 165 -%}{{ section.settings.sign_image | image_url: width: 165 }} 165w,{%- endif -%}
+                      {%- if section.settings.sign_image.width >= 330 -%}{{ section.settings.sign_image | image_url: width: 330 }} 330w,{%- endif -%}
+                      {%- if section.settings.sign_image.width >= 535 -%}{{ section.settings.sign_image | image_url: width: 535 }} 535w,{%- endif -%}
+                      {%- if section.settings.sign_image.width >= 750 -%}{{ section.settings.sign_image | image_url: width: 750 }} 750w,{%- endif -%}
+                      {%- if section.settings.sign_image.width >= 1000 -%}{{ section.settings.sign_image | image_url: width: 1000 }} 1000w,{%- endif -%}
+                      {%- if section.settings.sign_image.width >= 1500 -%}{{ section.settings.sign_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                      {%- if section.settings.sign_image.width >= 3000 -%}{{ section.settings.sign_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                      {{ section.settings.sign_image | image_url }} {{ section.settings.sign_image.width }}w
+                    "
+                    src="{{ section.settings.sign_image | image_url: width: 1500 }}"
+                    sizes="
+                      (min-width: {{ settings.page_width }}px) 80vw,
+                      (min-width: 750px) calc(100vw - 1rem),
+                      calc(100vw - 8px)
+                    "
+                    alt="{{ section.settings.sign_image.alt | escape }}"
+                    height="{{ section.settings.sign_image.height }}"
+                    width="{{ section.settings.sign_image.width }}"
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                  >
+                {%- endif -%}
+              </div>
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                <h3 class="font-helveticaThinCond card-collection__title text-4xl md:text-5xl lg:text-6xl 2xl:text-[74px] tracking-widest text-center text-white uppercase font-thin">
+                  {%- if customer -%}
+                    Sign Out
+                  {%- else -%}
+                    Sign In
+                  {%- endif -%}
+                </h3>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a
+              class="collection-list__card relative block bg-[#5f5f5f] {% unless customer%} cta-login-button{% endunless %}"
+              href="{%if customer%}{{ routes.account_url }}{%else%}#{% endif %}"
+            >
+              <div class="w-full h-full">
+                {%- if section.settings.orders_image != blank -%}
+                  <img
+                    srcset="
+                      {%- if section.settings.orders_image.width >= 165 -%}{{ section.settings.orders_image | image_url: width: 165 }} 165w,{%- endif -%}
+                      {%- if section.settings.orders_image.width >= 330 -%}{{ section.settings.orders_image | image_url: width: 330 }} 330w,{%- endif -%}
+                      {%- if section.settings.orders_image.width >= 535 -%}{{ section.settings.orders_image | image_url: width: 535 }} 535w,{%- endif -%}
+                      {%- if section.settings.orders_image.width >= 750 -%}{{ section.settings.orders_image | image_url: width: 750 }} 750w,{%- endif -%}
+                      {%- if section.settings.orders_image.width >= 1000 -%}{{ section.settings.orders_image | image_url: width: 1000 }} 1000w,{%- endif -%}
+                      {%- if section.settings.orders_image.width >= 1500 -%}{{ section.settings.orders_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                      {%- if section.settings.orders_image.width >= 3000 -%}{{ section.settings.orders_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                      {{ section.settings.orders_image | image_url }} {{ section.settings.orders_image.width }}w
+                    "
+                    src="{{ section.settings.orders_image | image_url: width: 1500 }}"
+                    sizes="
+                      (min-width: {{ settings.page_width }}px) 80vw,
+                      (min-width: 750px) calc(100vw - 1rem),
+                      calc(100vw - 8px)
+                    "
+                    alt="{{ section.settings.orders_image.alt | escape }}"
+                    height="{{ section.settings.orders_image.height }}"
+                    width="{{ section.settings.orders_image.width }}"
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                  >
+                {%- endif -%}
+              </div>
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                <h3 class="font-helveticaThinCond card-collection__title text-4xl md:text-5xl lg:text-6xl 2xl:text-[74px] tracking-widest text-center text-white uppercase font-thin">
+                  My Orders
+                </h3>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a
+              class="collection-list__card relative block bg-[#5f5f5f]{% unless customer%} cta-login-button{% endunless %}"
+              href="{%if customer%}{{ routes.account_url }}{%else%}#{% endif %}"
+            >
+              <div class="w-full h-full">
+                {%- if section.settings.favorites_image != blank -%}
+                  <img
+                    srcset="
+                      {%- if section.settings.favorites_image.width >= 165 -%}{{ section.settings.favorites_image | image_url: width: 165 }} 165w,{%- endif -%}
+                      {%- if section.settings.favorites_image.width >= 330 -%}{{ section.settings.favorites_image | image_url: width: 330 }} 330w,{%- endif -%}
+                      {%- if section.settings.favorites_image.width >= 535 -%}{{ section.settings.favorites_image | image_url: width: 535 }} 535w,{%- endif -%}
+                      {%- if section.settings.favorites_image.width >= 750 -%}{{ section.settings.favorites_image | image_url: width: 750 }} 750w,{%- endif -%}
+                      {%- if section.settings.favorites_image.width >= 1000 -%}{{ section.settings.favorites_image | image_url: width: 1000 }} 1000w,{%- endif -%}
+                      {%- if section.settings.favorites_image.width >= 1500 -%}{{ section.settings.favorites_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                      {%- if section.settings.favorites_image.width >= 3000 -%}{{ section.settings.favorites_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                      {{ section.settings.favorites_image | image_url }} {{ section.settings.favorites_image.width }}w
+                    "
+                    src="{{ section.settings.favorites_image | image_url: width: 1500 }}"
+                    sizes="
+                      (min-width: {{ settings.page_width }}px) 80vw,
+                      (min-width: 750px) calc(100vw - 1rem),
+                      calc(100vw - 8px)
+                    "
+                    alt="{{ section.settings.favorites_image.alt | escape }}"
+                    height="{{ section.settings.favorites_image.height }}"
+                    width="{{ section.settings.favorites_image.width }}"
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                  >
+                {%- endif -%}
+              </div>
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                <h3 class="font-helveticaThinCond card-collection__title text-4xl md:text-5xl lg:text-6xl 2xl:text-[74px] tracking-widest text-center text-white uppercase font-thin">
+                  My FAvorites
+                </h3>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a
+              class="collection-list__card relative block bg-[#5f5f5f] {% unless customer%} cta-login-button{% endunless %}"
+              href="{%if customer%}{{ routes.account_url }}{%else%}#{% endif %}"
+            >
+              <div class="w-full h-full">
+                {%- if section.settings.preferences_image != blank -%}
+                  <img
+                    srcset="
+                      {%- if section.settings.preferences_image.width >= 165 -%}{{ section.settings.preferences_image | image_url: width: 165 }} 165w,{%- endif -%}
+                      {%- if section.settings.preferences_image.width >= 330 -%}{{ section.settings.preferences_image | image_url: width: 330 }} 330w,{%- endif -%}
+                      {%- if section.settings.preferences_image.width >= 535 -%}{{ section.settings.preferences_image | image_url: width: 535 }} 535w,{%- endif -%}
+                      {%- if section.settings.preferences_image.width >= 750 -%}{{ section.settings.preferences_image | image_url: width: 750 }} 750w,{%- endif -%}
+                      {%- if section.settings.preferences_image.width >= 1000 -%}{{ section.settings.preferences_image | image_url: width: 1000 }} 1000w,{%- endif -%}
+                      {%- if section.settings.preferences_image.width >= 1500 -%}{{ section.settings.preferences_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                      {%- if section.settings.preferences_image.width >= 3000 -%}{{ section.settings.preferences_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                      {{ section.settings.preferences_image | image_url }} {{ section.settings.preferences_image.width }}w
+                    "
+                    src="{{ section.settings.preferences_image | image_url: width: 1500 }}"
+                    sizes="
+                      (min-width: {{ settings.page_width }}px) 80vw,
+                      (min-width: 750px) calc(100vw - 1rem),
+                      calc(100vw - 8px)
+                    "
+                    alt="{{ section.settings.preferences_image.alt | escape }}"
+                    height="{{ section.settings.preferences_image.height }}"
+                    width="{{ section.settings.preferences_image.width }}"
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                  >
+                {%- endif -%}
+              </div>
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                <h3 class="font-helveticaThinCond card-collection__title text-4xl md:text-5xl lg:text-6xl 2xl:text-[74px] tracking-widest text-center text-white uppercase font-thin">
+                  PREFERENCES
+                </h3>
+              </div>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{%- render 'login-modal' -%}
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Account Slides",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "My Account"
+    },
+    {
+      "type": "image_picker",
+      "id": "sign_image",
+      "label": "Sign Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "orders_image",
+      "label": "My Orders Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "favorites_image",
+      "label": "My Favorites Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "preferences_image",
+      "label": "Preferences Image"
+    }
+  ]
+}
 {% endschema %}

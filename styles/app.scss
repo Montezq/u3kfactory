@@ -1102,7 +1102,9 @@ accordion-item.open,
   }
 }
 .customer-register{
-  padding-right: calc(5.36vw - 27px);
+  @screen xl{
+    padding-right: calc(5.36vw - 27px);
+  }
 }
 
 
