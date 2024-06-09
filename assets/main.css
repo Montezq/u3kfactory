@@ -1108,6 +1108,11 @@ video {
 .max-w-\[352px\] {
   max-width: 352px;
 }
+.max-w-fit {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
 .flex-1 {
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 0%;
