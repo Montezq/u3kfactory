@@ -60,7 +60,7 @@ function removeFromWishlist(productId, variantId) {
     removedModal.classList.remove('hidden');
     setTimeout(() => {
       removedModal.classList.add('hidden');
-    }, 2000); // Wait for 1 second before hiding the modal
+    }, 1000); // Wait for 1 second before hiding the modal
   }
 }
 
