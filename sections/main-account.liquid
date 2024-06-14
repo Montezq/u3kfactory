@@ -15,18 +15,20 @@
       </div>
       <div class="grid grid-cols-2 gap-8">
         <div class="space-y-[37px]">
-          <label class="my-account__adress block cursor-pointer w-[240px]">
-            <input type="radio" name="adress_item" class="hidden" checked>
-            <div class="flex items-center my-account__adress-radio">
-              <div
-                class="w-3.5 h-3.5 rounded-full border-[2px] border-black duration-300 ease-in-out mr-3 my-account__adress-radio-fake"
-                style="background-color: {{ settings.default_color }}"
-              ></div>
-              <div class="bg-white border border-black rounded-[4px] p-2 flex-1 w-full max-w-[210px]">
-                {{ customer.default_address | format_address }}
+          {%- for address in customer.addresses -%}
+            <label class="my-account__adress block cursor-pointer w-[240px]">
+              <input type="radio" name="adress_item" class="hidden" checked>
+              <div class="flex items-center my-account__adress-radio">
+                <div
+                  class="w-3.5 h-3.5 rounded-full border-[2px] border-black duration-300 ease-in-out mr-3 my-account__adress-radio-fake"
+                  style="background-color: {{ settings.default_color }}"
+                ></div>
+                <div class="bg-white border border-black rounded-[4px] p-2 flex-1 w-full max-w-[210px]">
+                  {{ address | format_address }}
+                </div>
               </div>
-            </div>
-          </label>
+            </label>
+          {%- endfor -%}
         </div>
         <div></div>
       </div>
