@@ -25,7 +25,7 @@
       <div class="my-account__body-item-heading">
         <h2 class="font-axis text-base font-extrabold">
           <span class="text-default-address">Default name / adress</span>
-          <span class="text-insert-address">Insert new address </span>
+          <span class="text-insert-address hidden">Insert new address </span>
         </h2>
       </div>
       <div data-new-address class="hidden new-address">
@@ -233,14 +233,20 @@
       cancelAddNewAaddress = document.querySelector('.cancel-new-address'),
       newAaddress = document.querySelector('.new-address'),
       currentAddress = document.querySelector('.current-address');
+    textDefault = document.querySelector('.text-default-address');
+    textNew = document.querySelector('.text-insert-address');
 
     addNew.addEventListener('click', () => {
       newAaddress.classList.remove('hidden');
+      textNew.classList.remove('hidden');
       currentAddress.classList.add('!hidden');
+      textDefault.classList.add('!hidden');
     });
     cancelAddNewAaddress.addEventListener('click', () => {
       newAaddress.classList.add('hidden');
+      textNew.classList.add('hidden');
       currentAddress.classList.remove('!hidden');
+      textDefault.classList.remove('!hidden');
     });
 
     const addressLabels = document.querySelectorAll('.my-account__adress');
