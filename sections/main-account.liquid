@@ -22,13 +22,14 @@
                 class="w-3.5 h-3.5 rounded-full border-[2px]"
                 style="background-color: {{ settings.default_color }}"
               ></div>
+              <div class="bg-white border border-black rounded-[4px] p-2 flex-1 w-[210px]">
+                {{ customer.default_address | format_address }}
+              </div>
             </div>
           </label>
         </div>
         <div></div>
       </div>
-      {{ customer.default_address | format_address }}
-
       <a href="{{ routes.account_addresses_url }}">
         {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
       </a>
