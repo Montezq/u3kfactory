@@ -3016,6 +3016,7 @@ input:focus-visible{
 }
   }
 .cart__footer-wrapper,
+.my-account__footer,
 .cart__heading {
   left: 0px;
   right: 0px;
@@ -3023,6 +3024,7 @@ input:focus-visible{
 }
 @media (min-width: 1024px){
 .cart__footer-wrapper,
+.my-account__footer,
 .cart__heading {
     padding-right: 3rem;
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
@@ -3030,14 +3032,16 @@ input:focus-visible{
   }
 @media not all and (min-width: 1024px) {
 
-  .cart__footer-wrapper {
+  .cart__footer-wrapper,
+.my-account__footer {
     padding-left: 18px;
     padding-right: 18px;
   }
 }
 @media not all and (min-width: 768px) {
 
-  .cart__footer-wrapper {
+  .cart__footer-wrapper,
+.my-account__footer {
     padding-left: 8px;
     padding-right: 8px;
     padding-bottom: 7px;
@@ -3045,7 +3049,8 @@ input:focus-visible{
   }
 }
 @media (min-width: 768px){
-.cart__footer-wrapper{
+.cart__footer-wrapper,
+.my-account__footer{
     height: clamp(92px, 9.2vh, 154px);
 }
   }
