@@ -4774,3 +4774,20 @@ input:focus-visible{
 .\[\&\>a\]\:pb-0>a {
   padding-bottom: 0px;
 }
+
+
+
+
+
+.\[\&\>p\]\:text-sm>p {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+
+
+
+
+.\[\&\>p\]\:font-bold>p {
+  font-weight: 700;
+}
