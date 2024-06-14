@@ -101,19 +101,22 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const removeButtons = document.querySelectorAll('.remove-address');
+    const deleteForms = document.querySelectorAll('.address-delete-form');
 
-    removeButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        const addressId = this.getAttribute('data-address-id');
-        console.log(addressId);
-        if (confirm('Are you sure you want to remove this address?')) {
-          fetch(`/account/addresses/8960840532188`, {
-            _method: 'delete',
+    deleteForms.forEach((form) => {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const addressId = this.getAttribute('action').split('/').pop();
+        const confirmDeletion = confirm('Are you sure you want to remove this address?');
+
+        if (confirmDeletion) {
+          fetch(`/account/addresses/${addressId}`, {
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               'X-Requested-With': 'XMLHttpRequest',
             },
+            body: JSON.stringify({ _method: 'delete' }),
           })
             .then((response) => {
               if (response.ok) {
