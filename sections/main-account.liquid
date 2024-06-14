@@ -65,7 +65,7 @@
               Remove Address
             </button>
           {% endcomment %}
-          <form class="address-delete-form" method="post" action="/account/addresses/8960840532188">
+          <form class="address-delete-form" method="post" action="address_id">
             <input type="hidden" name="_method" value="delete">
             <button type="submit">{{ 'customer.addresses.delete' | t }}</button>
           </form>
@@ -99,41 +99,7 @@
     </div>
   </div>
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const deleteForms = document.querySelectorAll('.address-delete-form');
-
-    deleteForms.forEach((form) => {
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const addressId = this.getAttribute('action').split('/').pop();
-        const confirmDeletion = confirm('Are you sure you want to remove this address?');
-
-        if (confirmDeletion) {
-          fetch(`/account/addresses/${addressId}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-Requested-With': 'XMLHttpRequest',
-            },
-            body: JSON.stringify({ _method: 'delete' }),
-          })
-            .then((response) => {
-              if (response.ok) {
-                document.getElementById(`address-${addressId}`).remove();
-              } else {
-                alert('Failed to remove address. Please try again.');
-              }
-            })
-            .catch((error) => {
-              console.error('Error:', error);
-              alert('An error occurred. Please try again.');
-            });
-        }
-      });
-    });
-  });
-</script>
+<script></script>
 {% schema %}
 {
   "name": "t:sections.main-account.name",
