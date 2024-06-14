@@ -3458,6 +3458,7 @@ input:focus-visible{
 @media (min-width: 1024px){
 .my-account__body{
     padding-top: clamp(80px, calc(19.47vh - 27px), 273px);
+    padding-bottom: clamp(92px,9.2vh,154px);
 }
   }
 .my-account__body-item-heading{
