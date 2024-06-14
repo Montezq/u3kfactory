@@ -237,20 +237,7 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const deleteButtons = document.querySelectorAll('.delete-address-button');
-
-    deleteButtons.forEach((button) => {
-      button.addEventListener('click', function (event) {
-        const targetUrl = event.currentTarget.dataset.target;
-        const confirmMessage = event.currentTarget.getAttribute('data-confirm-message');
-
-        if (confirm(confirmMessage)) {
-          Shopify.postLink(targetUrl, {
-            parameters: { _method: 'delete' },
-          });
-        }
-      });
-    });
+    const addNew = document.querySelector('.add-new-address');
   });
 </script>
 {% schema %}
