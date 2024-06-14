@@ -154,7 +154,7 @@
         </div>
       </div>
       {%- for address in customer.addresses -%}
-        <div id="EditAddress_{{ address.id }}" class="hidden">
+        <div id="EditAddress_{{ address.id }}" class="hidden edit-address">
           {%- form 'customer_address', address -%}
             <div class="grid grid-cols-2 gap-[32px] justify-between">
               <div class="new-address__grid-col max-w-[468px]">
@@ -272,7 +272,7 @@
                       Add this address
                     </button>
                     <button
-                      class="btn btn_outlined !text-[17px] w-full font-coutureBold font-bold cancel-new-address"
+                      class="btn btn_outlined !text-[17px] w-full font-coutureBold font-bold cancel-edit-address"
                       type="reset"
                     >
                       Cancel
