@@ -231,6 +231,23 @@
       newAaddress.classList.remove('hidden');
       currentAddress.classList.add('!hidden');
     });
+
+    const addressRadios = document.querySelectorAll('.address-radio');
+    const deleteButton = document.getElementById('delete-address-button');
+    const editButton = document.getElementById('edit-address-button');
+
+    addressRadios.forEach((radio) => {
+      radio.addEventListener('change', function () {
+        const addressId = this.getAttribute('data-id');
+        deleteButton.setAttribute('data-target', `/account/addresses/${addressId}`);
+        editButton.setAttribute('data-target', `address-${addressId}`);
+      });
+    });
+
+    const checkedRadio = document.querySelector('.address-radio:checked');
+    if (checkedRadio) {
+      checkedRadio.dispatchEvent(new Event('change'));
+    }
   });
 </script>
 {% schema %}
