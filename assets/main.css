@@ -1040,9 +1040,6 @@ video {
 .w-\[17px\] {
   width: 17px;
 }
-.w-\[210px\] {
-  width: 210px;
-}
 .w-\[26px\] {
   width: 26px;
 }
@@ -1099,6 +1096,9 @@ video {
 .max-w-\[136px\] {
   max-width: 136px;
 }
+.max-w-\[210px\] {
+  max-width: 210px;
+}
 .max-w-\[212px\] {
   max-width: 212px;
 }
@@ -1133,9 +1133,6 @@ video {
 }
 .max-w-none {
   max-width: none;
-}
-.max-w-\[210px\] {
-  max-width: 210px;
 }
 .flex-1 {
   -webkit-box-flex: 1;
