@@ -31,7 +31,10 @@
             {% if forloop.index == 1 %}
               {% assign address_id = address.id %}
             {% endif %}
-            <label class="my-account__adress block cursor-pointer w-[240px] relative">
+            <label
+              class="my-account__adress block cursor-pointer w-[240px] relative"
+              id="address-{{ address.id }}"
+            >
               <input
                 type="radio"
                 name="adress_item"
@@ -56,7 +59,7 @@
           <button class="btn btn_primary !text-[17px] w-full uppercase">Edit Address</button>
           <button
             class="btn btn_outlined !text-[17px] w-full uppercase"
-            data-adderss-id="{{ address_id }}"
+            data-address-id="{{ address_id }}"
           >
             Remove Address
           </button>
@@ -90,7 +93,39 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const removeButtons = document.querySelectorAll('.remove-address');
 
+    removeButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        const addressId = this.getAttribute('data-address-id');
+
+        if (confirm('Are you sure you want to remove this address?')) {
+          fetch(`/account/addresses/${addressId}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+              'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            },
+          })
+            .then((response) => {
+              if (response.ok) {
+                document.getElementById(`address-${addressId}`).remove();
+              } else {
+                alert('Failed to remove address. Please try again.');
+              }
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+              alert('An error occurred. Please try again.');
+            });
+        }
+      });
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "t:sections.main-account.name",
