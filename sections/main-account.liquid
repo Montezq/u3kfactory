@@ -154,7 +154,7 @@
         </div>
       </div>
       {%- for address in customer.addresses -%}
-        <div id="EditAddress_{{ address.id }}" class="hidden edit-address">
+        <div id="EditAddress_address-{{ address.id }}" class="hidden edit-address">
           {%- form 'customer_address', address -%}
             <div class="grid grid-cols-2 gap-[32px] justify-between">
               <div class="new-address__grid-col max-w-[468px]">
@@ -408,6 +408,29 @@
     if (checkedRadio) {
       checkedRadio.closest('.my-account__adress').click();
     }
+
+    // Edit address button click handler
+    editButton.addEventListener('click', function () {
+      const dataTarget = this.getAttribute('data-target');
+      const editDiv = document.getElementById(`EditAddress_${dataTarget}`);
+      if (editDiv) {
+        editDiv.classList.remove('hidden');
+      } else {
+        console.error(`Div with id EditAddress_${dataTarget} not found.`);
+      }
+    });
+
+    // Cancel edit address button click handler
+    document.addEventListener('click', function (event) {
+      if (event.target.classList.contains('cancel-edit-address')) {
+        const closestEditDiv = event.target.closest('.edit-address');
+        if (closestEditDiv) {
+          closestEditDiv.classList.add('hidden');
+        } else {
+          console.error('Closest .edit-address div not found.');
+        }
+      }
+    });
   });
 </script>
 {% schema %}
