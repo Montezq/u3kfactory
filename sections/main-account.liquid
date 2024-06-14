@@ -22,6 +22,9 @@
 
   <div class="my-account__body">
     <div class="my-account__body-item pb-9 mb-[61px] border-b border-b-black">
+      <div class="my-account__body-item-heading">
+        <h2 class="font-axis text-base font-extrabold">Default name / adress</h2>
+      </div>
       <div data-new-address class="hidden">
         <button
           type="button"
@@ -163,10 +166,7 @@
           {%- endform -%}
         </div>
       </div>
-      <div class="my-account__body-item-heading">
-        <h2 class="font-axis text-base font-extrabold">Default name / adress</h2>
-      </div>
-      <div class="grid grid-cols-2 gap-8 justify-between">
+      <div data-current-address class="grid grid-cols-2 gap-8 justify-between">
         <div class="space-y-[37px]">
           {%- for address in customer.addresses -%}
             {% if forloop.index == 1 %}
