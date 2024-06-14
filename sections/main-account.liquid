@@ -28,136 +28,131 @@
           <span class="text-insert-address hidden">Insert new address </span>
         </h2>
       </div>
-      {%- for address in customer.addresses -%}
-        <div
-          class="hidden new-address"
-          data-id="Address-{{ address.id }}"
-        >
-          <div id="AddAddress">
-            {%- form 'customer_address', customer.new_address -%}
-              <div class="grid grid-cols-2 gap-[32px] justify-between">
-                <div class="new-address__grid-col max-w-[468px]">
-                  <div class="field flex flex-col">
-                    <div class="pl-4 mb-1 flex">
-                      <label for="AddressFirstNameNew" class="text-[13px] font-axis">
-                        {{ 'customer.addresses.first_name' | t }}
-                      </label>
-                    </div>
-                    <input
-                      class="input-field"
-                      type="text"
-                      name="address[first_name]"
-                      id="AddressFirstNameNew"
-                      autocomplete="given-name"
-                    >
+      <div class="hidden new-address">
+        <div id="AddAddress">
+          {%- form 'customer_address', customer.new_address -%}
+            <div class="grid grid-cols-2 gap-[32px] justify-between">
+              <div class="new-address__grid-col max-w-[468px]">
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressFirstNameNew" class="text-[13px] font-axis">
+                      {{ 'customer.addresses.first_name' | t }}
+                    </label>
                   </div>
-                  <div class="field flex flex-col">
-                    <div class="pl-4 mb-1 flex">
-                      <label for="AddressLastNameNew" class="text-[13px] font-axis">
-                        {{ 'customer.addresses.last_name' | t }}
-                      </label>
-                    </div>
-                    <input
-                      class="input-field"
-                      type="text"
-                      name="address[last_name]"
-                      id="AddressLastNameNew"
-                      autocomplete="family-name"
-                    >
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[first_name]"
+                    id="AddressFirstNameNew"
+                    autocomplete="given-name"
+                  >
+                </div>
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressLastNameNew" class="text-[13px] font-axis">
+                      {{ 'customer.addresses.last_name' | t }}
+                    </label>
                   </div>
-                  <div class="field flex flex-col">
-                    <div class="pl-4 mb-1 flex">
-                      <label for="AddressEmailNew" class="text-[13px] font-axis">
-                        {{ 'customer.register.email' | t }}
-                      </label>
-                    </div>
-                    <input
-                      class="input-field"
-                      type="email"
-                      name="address[email]"
-                      id="AddressEmailNew"
-                      autocomplete="email"
-                    >
-                    <div>
-                      <p class="text-sm font-bold text-right">
-                        *You will recieve updates on the status of your orders on this
-                      </p>
-                    </div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[last_name]"
+                    id="AddressLastNameNew"
+                    autocomplete="family-name"
+                  >
+                </div>
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressEmailNew" class="text-[13px] font-axis">
+                      {{ 'customer.register.email' | t }}
+                    </label>
                   </div>
-                  <div class="field flex flex-col">
-                    <div class="pl-4 mb-1 flex">
-                      <label for="AddressAddress1New" class="text-[13px] font-axis"> Address </label>
-                    </div>
-                    <input
-                      class="input-field"
-                      type="text"
-                      name="address[address1]"
-                      id="AddressAddress1New"
-                      autocomplete="address-line1"
-                    >
-                    <div>
-                      <p class="text-sm font-bold text-right">*Include street number and apartment number</p>
-                    </div>
+                  <input
+                    class="input-field"
+                    type="email"
+                    name="address[email]"
+                    id="AddressEmailNew"
+                    autocomplete="email"
+                  >
+                  <div>
+                    <p class="text-sm font-bold text-right">
+                      *You will recieve updates on the status of your orders on this
+                    </p>
                   </div>
                 </div>
-                <div class="new-address__grid-col max-w-[468px] w-full ml-auto">
-                  <div class="field flex flex-col">
-                    <div class="pl-4 mb-1 flex">
-                      <label for="AddressCityNew" class="text-[13px] font-axis"> City </label>
-                    </div>
-                    <input
-                      class="input-field"
-                      type="text"
-                      name="address[city]"
-                      id="AddressCityNew"
-                      autocomplete="address-level2"
-                    >
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressAddress1New" class="text-[13px] font-axis"> Address </label>
                   </div>
-                  <div class="field flex flex-col">
-                    <div class="pl-4 mb-1 flex">
-                      <label for="AddressCountryNew" class="text-[13px] font-axis"> Country </label>
-                    </div>
-                    <input
-                      class="input-field"
-                      type="text"
-                      name="address[country]"
-                      id="AddressCountryNew"
-                      autocomplete="country"
-                      data-default="{{ form.country }}"
-                    >
-                  </div>
-                  <div class="field flex flex-col">
-                    <div class="pl-4 mb-1 flex">
-                      <label for="AddressZipNew" class="text-[13px] font-axis"> zip code </label>
-                    </div>
-                    <input
-                      class="input-field"
-                      type="text"
-                      name="address[zip]"
-                      id="AddressZipNew"
-                      autocomplete="postal-code"
-                      data-default="{{ form.country }}"
-                    >
-                  </div>
-                  <div class="field flex flex-col justify-end mt-10">
-                    <div class="w-[226px] grid gap-5 ml-auto">
-                      <button class="btn btn_primary !text-[17px] w-full font-coutureBold font-bold">
-                        Add this address
-                      </button>
-                      <button
-                        class="btn btn_outlined !text-[17px] w-full font-coutureBold font-bold cancel-new-address"
-                        type="reset"
-                      >
-                        Cancel
-                      </button>
-                    </div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[address1]"
+                    id="AddressAddress1New"
+                    autocomplete="address-line1"
+                  >
+                  <div>
+                    <p class="text-sm font-bold text-right">*Include street number and apartment number</p>
                   </div>
                 </div>
               </div>
-            {%- endform -%}
-          </div>
+              <div class="new-address__grid-col max-w-[468px] w-full ml-auto">
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressCityNew" class="text-[13px] font-axis"> City </label>
+                  </div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[city]"
+                    id="AddressCityNew"
+                    autocomplete="address-level2"
+                  >
+                </div>
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressCountryNew" class="text-[13px] font-axis"> Country </label>
+                  </div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[country]"
+                    id="AddressCountryNew"
+                    autocomplete="country"
+                    data-default="{{ form.country }}"
+                  >
+                </div>
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressZipNew" class="text-[13px] font-axis"> zip code </label>
+                  </div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[zip]"
+                    id="AddressZipNew"
+                    autocomplete="postal-code"
+                    data-default="{{ form.country }}"
+                  >
+                </div>
+                <div class="field flex flex-col justify-end mt-10">
+                  <div class="w-[226px] grid gap-5 ml-auto">
+                    <button class="btn btn_primary !text-[17px] w-full font-coutureBold font-bold">
+                      Add this address
+                    </button>
+                    <button
+                      class="btn btn_outlined !text-[17px] w-full font-coutureBold font-bold cancel-new-address"
+                      type="reset"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endform -%}
         </div>
-      {%- endfor -%}
+      </div>
       <div data-current-address class="grid grid-cols-2 gap-8 justify-between current-address">
         <div class="space-y-[37px]">
           {%- for address in customer.addresses -%}
