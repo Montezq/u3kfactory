@@ -3,6 +3,7 @@
     "main": {
       "type": "main-account",
       "settings": {
+        "privacy_menu": "footer"
       }
     }
   },
