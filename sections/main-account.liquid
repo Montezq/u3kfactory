@@ -232,9 +232,10 @@
     const addNew = document.querySelector('.add-new-address'),
       cancelAddNewAaddress = document.querySelector('.cancel-new-address'),
       newAaddress = document.querySelector('.new-address'),
-      currentAddress = document.querySelector('.current-address');
-    textDefault = document.querySelector('.text-default-address');
-    textNew = document.querySelector('.text-insert-address');
+      currentAddress = document.querySelector('.current-address'),
+      textDefault = document.querySelector('.text-default-address'),
+      textNew = document.querySelector('.text-insert-address'),
+      deleteButton = document.querySelector('.delete-address-button');
 
     addNew.addEventListener('click', () => {
       newAaddress.classList.remove('hidden');
@@ -249,14 +250,19 @@
       textDefault.classList.remove('!hidden');
     });
 
-    const addressLabels = document.querySelectorAll('.my-account__adress');
-    const deleteButton = document.querySelector('.delete-address-button');
-    const editButton = document.querySelector('.edit-address-button');
+    deleteButton.addEventListener('click', function (event) {
+      const targetUrl = event.currentTarget.dataset.target;
+      const confirmMessage = event.currentTarget.getAttribute('data-confirm-message');
 
-    if (!deleteButton || !editButton) {
-      console.error('Delete or Edit button not found in the DOM.');
-      return;
-    }
+      if (confirm(confirmMessage)) {
+        Shopify.postLink(targetUrl, {
+          parameters: { _method: 'delete' },
+        });
+      }
+    });
+
+    const addressLabels = document.querySelectorAll('.my-account__adress');
+    const editButton = document.querySelector('.edit-address-button');
 
     addressLabels.forEach((label) => {
       label.addEventListener('click', function () {
