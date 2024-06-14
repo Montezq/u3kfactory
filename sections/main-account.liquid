@@ -28,7 +28,7 @@
       <div data-new-address class="hidden new-address">
         <div id="AddAddress">
           <h2 id="AddressNewHeading">{{ 'customer.addresses.add_new' | t }}</h2>
-          {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddressNewHeading' -%}
+          {%- form 'customer_address', customer.new_address -%}
             <div class="grid grid-cols-2 gap-[32px]">
               <div>
                 <div class="field flex flex-col">
