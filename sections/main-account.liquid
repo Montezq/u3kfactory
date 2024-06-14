@@ -65,7 +65,7 @@
               Remove Address
             </button>
           {% endcomment %}
-          <form class="address-delete-form" method="post" action="address_id">
+          <form class="address-delete-form" method="post" action="/account/addresses/{{ address_id }}">
             <input type="hidden" name="_method" value="delete">
             <button type="submit">{{ 'customer.addresses.delete' | t }}</button>
           </form>
