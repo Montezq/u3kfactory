@@ -19,11 +19,39 @@
       </a>
     </div>
   </div>
+  <div
+    class="my-account__footer fixed bottom-0 bg-gray-10 lg:bg-white"
+  >
+    <div class="cart__footer isolate flex items-center justify-between h-full">
+      {%- if section.settings.privacy_menu.links -%}
+        <div class="max-md:hidden">
+          <ul class="cart__footer-privacy-menu flex items-center flex-wrap">
+            {%- for link in section.settings.privacy_menu.links -%}
+              <li>
+                <a
+                  href="{{ link.url }}"
+                  class="underline font-helveticaThinCond font-bold tracking-wider uppercase text-sm whitespace-nowrap"
+                >
+                  {{ link.title | escape }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
 </div>
 
 {% schema %}
 {
   "name": "t:sections.main-account.name",
-  "settings": []
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "privacy_menu",
+      "label": "Privacy Menu"
+    }
+  ]
 }
 {% endschema %}
