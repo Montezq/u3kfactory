@@ -28,8 +28,8 @@
       <div data-new-address class="hidden new-address">
         <div id="AddAddress">
           {%- form 'customer_address', customer.new_address -%}
-            <div class="grid grid-cols-2 gap-[32px]">
-              <div class="new-address__grid-col">
+            <div class="grid grid-cols-2 gap-[32px] justify-between">
+              <div class="new-address__grid-col max-w-[468px]">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
                     <label for="AddressFirstNameNew" class="text-[13px] font-axis">
@@ -93,7 +93,7 @@
                   </div>
                 </div>
               </div>
-              <div class="new-address__grid-col">
+              <div class="new-address__grid-col max-w-[468px]">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
                     <label for="AddressCityNew" class="text-[13px] font-axis"> City </label>
