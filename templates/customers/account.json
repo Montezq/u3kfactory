@@ -1,9 +1,8 @@
 {
   "sections": {
     "main": {
-      "type": "main-account",
+      "type": "main-addresses",
       "settings": {
-        "privacy_menu": "footer"
       }
     }
   },
