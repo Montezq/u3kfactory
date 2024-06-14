@@ -161,6 +161,7 @@
                 type="radio"
                 name="adress_item"
                 class="absolute w-0 left-0 top-0"
+                data-id="{{ address.id }}"
                 {% if forloop.index == 1 %}
                   checked
                 {% endif %}
@@ -180,7 +181,12 @@
           <button class="btn btn_primary !text-[17px] w-full uppercase add-new-address font-coutureBold font-bold">
             Add Mew
           </button>
-          <button class="btn btn_primary !text-[17px] w-full uppercase font-coutureBold font-bold">Edit Address</button>
+          <button
+            class="btn btn_primary !text-[17px] w-full uppercase font-coutureBold font-bold edit-address-button"
+            data-target="address-{{ address_id }}"
+          >
+            Edit Address
+          </button>
           <button
             class="btn btn_outlined !text-[17px] w-full uppercase delete-address-button font-coutureBold font-bold"
             data-target="/account/addresses/{{ address_id }}"
