@@ -3447,7 +3447,7 @@ input:focus-visible{
   padding-bottom: clamp(37px, 6.34vh, 69px);
 }
 :is(.my-account__adress input:checked)+.my-account__adress-radio .my-account__adress-radio-fake {
-  opacity: 1;
+  opacity: 0;
 }
 
 
