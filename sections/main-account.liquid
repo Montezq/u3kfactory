@@ -26,26 +26,27 @@
         <h2 class="font-axis text-base font-extrabold">Default name / adress</h2>
       </div>
       <div data-new-address class="hidden new-address">
-        <button
-          type="button"
-          aria-expanded="false"
-          aria-controls="AddAddress"
-        >
-          {{ 'customer.addresses.add_new' | t }}
-        </button>
         <div id="AddAddress">
           <h2 id="AddressNewHeading">{{ 'customer.addresses.add_new' | t }}</h2>
           {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddressNewHeading' -%}
-            <div class="field">
-              <input
-                type="text"
-                id="AddressFirstNameNew"
-                name="address[first_name]"
-                value="{{ form.first_name }}"
-                autocomplete="given-name"
-                placeholder="{{ 'customer.addresses.first_name' | t }}"
-              >
-              <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}</label>
+            <div class="grid grid-cols-2 gap-[32px]">
+              <div>
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressFirstNameNew" class="text-[13px] font-axis">
+                      {{ 'customer.addresses.first_name' | t }}
+                    </label>
+                  </div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[first_name]"
+                    id="AddressFirstNameNew"
+                    autocomplete="given-name"
+                  >
+                </div>
+              </div>
+              <div></div>
             </div>
             <div class="field">
               <input
