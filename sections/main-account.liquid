@@ -17,7 +17,14 @@
         <div class="space-y-[37px]">
           {%- for address in customer.addresses -%}
             <label class="my-account__adress block cursor-pointer w-[240px]">
-              <input type="radio" name="adress_item" class="hidden" checked>
+              <input
+                type="radio"
+                name="adress_item"
+                class="hidden"
+                {% if forloop.index == 1 %}
+                  checked
+                {% endif %}
+              >
               <div class="flex items-center my-account__adress-radio">
                 <div
                   class="w-3.5 h-3.5 rounded-full border-[2px] border-black duration-300 ease-in-out mr-3 my-account__adress-radio-fake"
