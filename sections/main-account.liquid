@@ -235,6 +235,10 @@
       newAaddress.classList.remove('hidden');
       currentAddress.classList.add('!hidden');
     });
+    cancelAddNewAaddress.addEventListener('click', () => {
+      newAaddress.classList.add('hidden');
+      currentAddress.classList.remove('!hidden');
+    });
 
     const addressLabels = document.querySelectorAll('.my-account__adress');
     const deleteButton = document.getElementById('delete-address-button');
