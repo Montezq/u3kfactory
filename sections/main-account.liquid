@@ -25,7 +25,7 @@
       <div class="my-account__body-item-heading">
         <h2 class="font-axis text-base font-extrabold">Default name / adress</h2>
       </div>
-      <div class="grid grid-cols-2 gap-8">
+      <div class="grid grid-cols-2 gap-8 justify-between">
         <div class="space-y-[37px]">
           {%- for address in customer.addresses -%}
             <label class="my-account__adress block cursor-pointer w-[240px] relative">
@@ -48,7 +48,7 @@
             </label>
           {%- endfor -%}
         </div>
-        <div class="flex flex-col space-y-[21px] w-[226px] items-end">
+        <div class="flex flex-col space-y-[21px] w-[226px] ml-auto">
           <button class="btn btn_primary !text-[17px] w-full uppercase">Add Mew</button>
           <button class="btn btn_primary !text-[17px] w-full uppercase">Edit Address</button>
           <button class="btn btn_outlined !text-[17px] w-full uppercase">Remove Address</button>
