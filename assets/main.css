@@ -3446,8 +3446,9 @@ input:focus-visible{
 .my-account__body-item-heading{
   padding-bottom: clamp(37px, 6.34vh, 69px);
 }
-:is(.my-account__adress input:checked)+.my-account__adress-radio .my-account__adress-radio-fake {
-  opacity: 0;
+:is(.my-account__adress input:not([checked]))+.my-account__adress-radio .my-account__adress-radio-fake {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
 }
 
 
