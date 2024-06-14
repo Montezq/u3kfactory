@@ -28,6 +28,9 @@
       <div class="grid grid-cols-2 gap-8 justify-between">
         <div class="space-y-[37px]">
           {%- for address in customer.addresses -%}
+            {% if forloop.index == 1 %}
+              {% assign address_id = address.id %}
+            {% endif %}
             <label class="my-account__adress block cursor-pointer w-[240px] relative">
               <input
                 type="radio"
@@ -51,7 +54,12 @@
         <div class="flex flex-col space-y-[21px] w-[226px] ml-auto">
           <button class="btn btn_primary !text-[17px] w-full uppercase">Add Mew</button>
           <button class="btn btn_primary !text-[17px] w-full uppercase">Edit Address</button>
-          <button class="btn btn_outlined !text-[17px] w-full uppercase">Remove Address</button>
+          <button
+            class="btn btn_outlined !text-[17px] w-full uppercase"
+            data-adderss-id="{{ address_id }}"
+          >
+            Remove Address
+          </button>
         </div>
       </div>
       <a href="{{ routes.account_addresses_url }}">
