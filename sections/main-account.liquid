@@ -100,7 +100,7 @@
     removeButtons.forEach((button) => {
       button.addEventListener('click', function () {
         const addressId = this.getAttribute('data-address-id');
-        console.log(${addressId})
+        console.log(addressId);
         if (confirm('Are you sure you want to remove this address?')) {
           fetch(`/account/addresses/${addressId}`, {
             method: 'DELETE',
