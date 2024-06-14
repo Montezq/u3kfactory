@@ -101,35 +101,17 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const deleteForms = document.querySelectorAll('.address-delete-form');
+    const deleteButtons = document.querySelectorAll('.delete-address-button');
 
-    deleteForms.forEach((form) => {
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const addressId = this.getAttribute('action').split('/').pop();
-        const confirmDeletion = confirm('Are you sure you want to remove this address?');
+    deleteButtons.forEach((button) => {
+      button.addEventListener('click', function (event) {
+        const targetUrl = event.currentTarget.dataset.target;
+        const confirmMessage = event.currentTarget.getAttribute('data-confirm-message');
 
-        if (confirmDeletion) {
-          fetch(`/account/addresses/${addressId}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-Requested-With': 'XMLHttpRequest',
-              'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            },
-            body: JSON.stringify({ _method: 'delete' }),
-          })
-            .then((response) => {
-              if (response.ok) {
-                document.getElementById(`address-${addressId}`).remove();
-              } else {
-                alert('Failed to remove address. Please try again.');
-              }
-            })
-            .catch((error) => {
-              console.error('Error:', error);
-              alert('An error occurred. Please try again.');
-            });
+        if (confirm(confirmMessage)) {
+          Shopify.postLink(targetUrl, {
+            parameters: { _method: 'delete' },
+          });
         }
       });
     });
