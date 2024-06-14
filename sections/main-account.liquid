@@ -57,18 +57,12 @@
         <div class="flex flex-col space-y-[21px] w-[226px] ml-auto">
           <button class="btn btn_primary !text-[17px] w-full uppercase">Add Mew</button>
           <button class="btn btn_primary !text-[17px] w-full uppercase">Edit Address</button>
-          {% comment %}
-            <button
-              class="btn btn_outlined !text-[17px] w-full uppercase remove-address"
-              data-address-id="{{ address_id }}"
-            >
-              Remove Address
-            </button>
-          {% endcomment %}
-          <form class="address-delete-form" method="post" action="{{ address_id }}">
-            <input type="hidden" name="_method" value="delete">
-            <button type="submit">{{ 'customer.addresses.delete' | t }}</button>
-          </form>
+          <button
+            class="btn btn_outlined !text-[17px] w-full uppercase delete-address-button"
+            data-address-id="{{ address_id }}"
+          >
+            Remove Address
+          </button>
         </div>
       </div>
       <a href="{{ routes.account_addresses_url }}">
