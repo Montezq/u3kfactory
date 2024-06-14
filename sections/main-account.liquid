@@ -16,11 +16,11 @@
       <div class="grid grid-cols-2 gap-8">
         <div class="space-y-[37px]">
           {%- for address in customer.addresses -%}
-            <label class="my-account__adress block cursor-pointer w-[240px]">
+            <label class="my-account__adress block cursor-pointer w-[240px] relative">
               <input
                 type="radio"
                 name="adress_item"
-                class="hidden"
+                class="absolute w-0 left-0 top-0"
                 {% if forloop.index == 1 %}
                   checked
                 {% endif %}
