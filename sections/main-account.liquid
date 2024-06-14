@@ -45,19 +45,36 @@
                     autocomplete="given-name"
                   >
                 </div>
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressLastNameNew" class="text-[13px] font-axis">
+                      {{ 'customer.addresses.last_name' | t }}
+                    </label>
+                  </div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[last_name]"
+                    id="AddressLastNameNew"
+                    autocomplete="family-name"
+                  >
+                </div>
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressEmailNew" class="text-[13px] font-axis">
+                      {{ 'customer.register.email' | t }}
+                    </label>
+                  </div>
+                  <input
+                    class="input-field"
+                    type="email"
+                    name="address[email]"
+                    id="AddressEmailNew"
+                    autocomplete="email"
+                  >
+                </div>
               </div>
               <div></div>
-            </div>
-            <div class="field">
-              <input
-                type="text"
-                id="AddressLastNameNew"
-                name="address[last_name]"
-                value="{{ form.last_name }}"
-                autocomplete="family-name"
-                placeholder="{{ 'customer.addresses.last_name' | t }}"
-              >
-              <label for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}</label>
             </div>
             <div class="field">
               <input
