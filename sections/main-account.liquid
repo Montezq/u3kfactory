@@ -415,8 +415,7 @@
       const editDiv = document.getElementById(`EditAddress_${dataTarget}`);
       if (editDiv) {
         editDiv.classList.remove('hidden');
-      } else {
-        console.error(`Div with id EditAddress_${dataTarget} not found.`);
+        currentAddress.classList.add('!hidden');
       }
     });
 
@@ -426,8 +425,7 @@
         const closestEditDiv = event.target.closest('.edit-address');
         if (closestEditDiv) {
           closestEditDiv.classList.add('hidden');
-        } else {
-          console.error('Closest .edit-address div not found.');
+          currentAddress.classList.remove('!hidden');
         }
       }
     });
