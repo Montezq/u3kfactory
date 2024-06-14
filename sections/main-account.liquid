@@ -232,21 +232,22 @@
       currentAddress.classList.add('!hidden');
     });
 
-    const addressRadios = document.querySelectorAll('.address-radio');
+    const addressLabels = document.querySelectorAll('.my-account__adress');
     const deleteButton = document.getElementById('delete-address-button');
     const editButton = document.getElementById('edit-address-button');
 
-    addressRadios.forEach((radio) => {
-      radio.addEventListener('change', function () {
-        const addressId = this.getAttribute('data-id');
+    addressLabels.forEach((label) => {
+      label.addEventListener('click', function () {
+        const addressId = this.querySelector('input').getAttribute('data-id');
         deleteButton.setAttribute('data-target', `/account/addresses/${addressId}`);
         editButton.setAttribute('data-target', `address-${addressId}`);
       });
     });
 
+    // Trigger click event on the initially checked radio's parent label to set initial values
     const checkedRadio = document.querySelector('.address-radio:checked');
     if (checkedRadio) {
-      checkedRadio.dispatchEvent(new Event('change'));
+      checkedRadio.closest('.my-account__adress').dispatchEvent(new Event('click'));
     }
   });
 </script>
