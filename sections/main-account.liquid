@@ -237,7 +237,14 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const addNew = document.querySelector('.add-new-address');
+    const addNew = document.querySelector('.add-new-address'),
+      newAaddress = document.querySelector('.new-address'),
+      currentAddress = document.querySelector('.current-address');
+
+    addNew.addEventListener('click', () => {
+      newAaddress.classList.remove('hidden');
+      currentAddress.classList.add('!hidden');
+    });
   });
 </script>
 {% schema %}
