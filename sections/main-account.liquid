@@ -9,8 +9,10 @@
   </div>
 
   <div class="my-account__body">
-    <div>
-      <h2>{{ 'customer.account.details' | t }}</h2>
+    <div class="my-account__body-item pb-9 mb-[61px] border-b border-b-black">
+      <div class="my-account__body-item-heading">
+        <h2 class="font-axis text-base font-extrabold">Default name / adress</h2>
+      </div>
 
       {{ customer.default_address | format_address }}
 
