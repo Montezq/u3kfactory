@@ -3016,7 +3016,6 @@ input:focus-visible{
 }
   }
 .cart__footer-wrapper,
-.my-account__footer,
 .cart__heading {
   left: 0px;
   right: 0px;
@@ -3024,12 +3023,14 @@ input:focus-visible{
 }
 @media (min-width: 1024px){
 .cart__footer-wrapper,
-.my-account__footer,
 .cart__heading {
     padding-right: 3rem;
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
   }
+.my-account__footer{
+  left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
+}
 @media not all and (min-width: 1024px) {
 
   .cart__footer-wrapper,
@@ -3789,6 +3790,14 @@ input:focus-visible{
 
 
 @media not all and (min-width: 1024px) {
+
+  .max-lg\:left-0 {
+    left: 0px;
+  }
+
+  .max-lg\:right-0 {
+    right: 0px;
+  }
 
   .max-lg\:-order-1 {
     -webkit-box-ordinal-group: 0;
@@ -4649,6 +4658,10 @@ input:focus-visible{
 
   .lg\:pt-\[27px\] {
     padding-top: 27px;
+  }
+
+  .lg\:pr-\[27px\] {
+    padding-right: 27px;
   }
 
   .lg\:text-6xl {
