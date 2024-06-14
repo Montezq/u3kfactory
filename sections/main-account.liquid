@@ -244,6 +244,11 @@
     const deleteButton = document.getElementById('delete-address-button');
     const editButton = document.getElementById('edit-address-button');
 
+    if (!deleteButton || !editButton) {
+      console.error('Delete or Edit button not found in the DOM.');
+      return;
+    }
+
     addressLabels.forEach((label) => {
       label.addEventListener('click', function () {
         const addressId = this.querySelector('input').getAttribute('data-id');
@@ -255,7 +260,7 @@
     // Trigger click event on the initially checked radio's parent label to set initial values
     const checkedRadio = document.querySelector('.address-radio:checked');
     if (checkedRadio) {
-      checkedRadio.closest('.my-account__adress').dispatchEvent(new Event('click'));
+      checkedRadio.closest('.my-account__adress').click();
     }
   });
 </script>
