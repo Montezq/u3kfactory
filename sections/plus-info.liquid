@@ -16,6 +16,7 @@
       {%- liquid
         assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
       -%}
+      {% comment %} //TODO: Add fixed width {% endcomment %}
       {{
         section.settings.image
         | image_url: width: 3840

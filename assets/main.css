@@ -690,6 +690,9 @@ video {
 .right-5 {
   right: 1.25rem;
 }
+.right-\[18px\] {
+  right: 18px;
+}
 .top-0 {
   top: 0px;
 }
@@ -758,6 +761,9 @@ video {
 .mb-10 {
   margin-bottom: 2.5rem;
 }
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -808,6 +814,9 @@ video {
 }
 .mb-\[42px\] {
   margin-bottom: 42px;
+}
+.mb-\[90px\] {
+  margin-bottom: 90px;
 }
 .ml-0 {
   margin-left: 0px;
@@ -1101,6 +1110,11 @@ video {
 }
 .max-w-\[600px\] {
   max-width: 600px;
+}
+.max-w-fit {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 .max-w-none {
   max-width: none;
@@ -1441,6 +1455,14 @@ video {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.py-3\.5 {
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+}
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -1672,6 +1694,9 @@ video {
 }
 .text-\[22px\] {
   font-size: 22px;
+}
+.text-\[24px\] {
+  font-size: 24px;
 }
 .text-\[25px\] {
   font-size: 25px;
@@ -2928,7 +2953,8 @@ input:focus-visible{
 .modal__close-button,
 .cart-notification-wrapper-block,
 .login__modal-wrapper,
-.wishlist__modal-wrapper{
+.wishlist__modal-wrapper,
+.removed-wishlist__modal-wrapper{
   -webkit-box-shadow: 6px 0 11px rgba(0, 0, 0, .35);
           box-shadow: 6px 0 11px rgba(0, 0, 0, .35);
 }
@@ -3230,7 +3256,8 @@ input:focus-visible{
 #bar{
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
 }
-.heading__search {
+.heading__search,
+.my-favorites__heading {
     padding-right: 1.25rem;
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(83px, calc(14.05vh - 27px), 196px);
@@ -3246,6 +3273,21 @@ input:focus-visible{
     padding-bottom: clamp(50px, 5vh, 110px);
 }
   }
+.my-favorites__body {
+  padding-top: 56px;
+}
+@media (min-width: 768px) {
+
+  .my-favorites__body {
+    padding-top: 60px;
+  }
+}
+@media (min-width: 1024px){
+.my-favorites__body{
+    padding-top: clamp(84px, calc(17.18vh - 27px), 221px);
+}
+  }
+
 #Heart_Icon-notsaved{
   display: none;
 }
@@ -3294,8 +3336,50 @@ input:focus-visible{
     padding-right: calc(5.36vw - 27px);
 }
   }
-
-
+.wishlist__item{
+  margin-bottom: clamp(110px, 16.53vh, 217px);
+}
+@media screen and (max-width: 1330px) {
+.wishlist__item{
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+  }
+.wishlist__item:last-child {
+  margin-bottom: 2.5rem;
+}
+.wishlist__item-img{
+  width: clamp(361px, 34vw, 34vw);
+}
+@media screen and (max-width: 1330px) {
+.wishlist__item-img{
+    width: clamp(461px, 37vw, 37vw);
+}
+  }
+@media not all and (min-width: 1024px) {
+.wishlist__item-img{
+    width: 100%;
+}
+  }
+.wishlist__item-data{
+  margin-left: clamp(32px, 2.35vw, 2.35vw);
+  padding-top: 1rem;
+}
+@media screen and (max-width: 1330px) {
+.wishlist__item-data{
+    margin-left: 0;
+    padding-top: 0px;
+    margin-top: clamp(50px, 3.04vh, 3.04vh);
+}
+  }
+@media screen and (max-width: 768px) {
+.wishlist__item-data{
+    margin-top: 8px;
+}
+  }
 
 
 
@@ -3317,13 +3401,9 @@ input:focus-visible{
 
 
 
-
-
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
-
-
 
 
 
@@ -3341,13 +3421,9 @@ input:focus-visible{
 
 
 
-
-
 .placeholder\:tracking-wider:-ms-input-placeholder {
   letter-spacing: .04em;
 }
-
-
 
 
 
@@ -3365,13 +3441,9 @@ input:focus-visible{
 
 
 
-
-
 .placeholder\:tracking-wider::placeholder {
   letter-spacing: .04em;
 }
-
-
 
 
 
@@ -3390,14 +3462,10 @@ input:focus-visible{
 
 
 
-
-
 .placeholder\:text-white::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-
-
 
 
 
@@ -3416,14 +3484,10 @@ input:focus-visible{
 
 
 
-
-
 .placeholder\:text-white::-ms-input-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-
-
 
 
 
@@ -3442,14 +3506,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
 }
-
-
 
 
 
@@ -3468,14 +3528,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:left-1\/2::after {
   content: var(--tw-content);
   left: 50%;
 }
-
-
 
 
 
@@ -3494,14 +3550,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:top-0::after {
   content: var(--tw-content);
   top: 0px;
 }
-
-
 
 
 
@@ -3520,14 +3572,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:top-full::after {
   content: var(--tw-content);
   top: 100%;
 }
-
-
 
 
 
@@ -3546,14 +3594,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:h-\[1px\]::after {
   content: var(--tw-content);
   height: 1px;
 }
-
-
 
 
 
@@ -3572,14 +3616,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:w-\[1px\]::after {
   content: var(--tw-content);
   width: 1px;
 }
-
-
 
 
 
@@ -3598,14 +3638,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:min-w-\[180px\]::after {
   content: var(--tw-content);
   min-width: 180px;
 }
-
-
 
 
 
@@ -3624,8 +3660,6 @@ input:focus-visible{
 
 
 
-
-
 .after\:max-w-\[278px\]::after {
   content: var(--tw-content);
   max-width: 278px;
@@ -3637,14 +3671,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:max-w-\[465px\]::after {
   content: var(--tw-content);
   max-width: 465px;
 }
-
-
 
 
 
@@ -3667,15 +3697,11 @@ input:focus-visible{
 
 
 
-
-
 .after\:bg-black::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
-
-
 
 
 
@@ -3695,15 +3721,11 @@ input:focus-visible{
 
 
 
-
-
 .after\:bg-white::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-
-
 
 
 
@@ -3722,8 +3744,6 @@ input:focus-visible{
 
 
 
-
-
 @media not all and (min-width: 1280px) {
 
   .max-xl\:flex-col {
@@ -3734,8 +3754,6 @@ input:focus-visible{
             flex-direction: column;
   }
 }
-
-
 
 
 
@@ -3824,6 +3842,11 @@ input:focus-visible{
     padding-right: 1rem;
   }
 
+  .max-lg\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
   .max-lg\:\!pl-0 {
     padding-left: 0px !important;
   }
@@ -3856,10 +3879,6 @@ input:focus-visible{
     padding-top: 18px;
   }
 
-  .max-lg\:pb-7 {
-    padding-bottom: 1.75rem;
-  }
-
   .max-lg\:text-\[1px\] {
     font-size: 1px;
   }
@@ -3876,8 +3895,6 @@ input:focus-visible{
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-
-
 
 
 
@@ -4015,11 +4032,6 @@ input:focus-visible{
     padding-right: 0.375rem;
   }
 
-  .max-md\:px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
   .max-md\:text-center {
     text-align: center;
   }
@@ -4059,20 +4071,20 @@ input:focus-visible{
 
 
 
-
-
 @media (min-width: 640px) {
 
   .sm\:max-w-\[350px\] {
     max-width: 350px;
   }
 
+  .sm\:text-\[24px\] {
+    font-size: 24px;
+  }
+
   .sm\:text-\[30px\] {
     font-size: 30px;
   }
 }
-
-
 
 
 
@@ -4347,13 +4359,15 @@ input:focus-visible{
     font-size: 42px;
   }
 
+  .md\:text-\[32px\] {
+    font-size: 32px;
+  }
+
   .md\:text-gray-200 {
     --tw-text-opacity: 1;
     color: rgb(95 95 95 / var(--tw-text-opacity));
   }
 }
-
-
 
 
 
@@ -4712,8 +4726,6 @@ input:focus-visible{
 
 
 
-
-
 @media (min-width: 1280px) {
 
   .xl\:w-\[61\%\] {
@@ -4743,8 +4755,6 @@ input:focus-visible{
 
 
 
-
-
 @media (min-width: 1536px) {
 
   .\32xl\:text-\[74px\] {
@@ -4758,13 +4768,9 @@ input:focus-visible{
 
 
 
-
-
 .\[\&\>a\]\:border-b-0>a {
   border-bottom-width: 0px;
 }
-
-
 
 
 

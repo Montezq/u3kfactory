@@ -1,0 +1,158 @@
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<div class="my-favorites">
+  <div
+    id="bar"
+    class="ds_element dissapearing my-favorites__heading max-lg:py-3 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out flex justify-center"
+  >
+    <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">My Favorites</h1>
+  </div>
+  <div class="my-favorites__body">
+    <ul class="wishlist__list wishlist__container">
+      <li class="wishlist__item flex">
+        <div class="wishlist__item-img aspect-square">
+          <img
+            class="w-full h-full object-cover"
+            src="https://cdn.shopify.com/s/files/1/0690/2303/9708/files/ANATOMY-STUDY-3-PAPER-UNFRAMED-IMAGE.jpg?v=1717860091"
+            width="656"
+            height="640"
+          >
+        </div>
+        <div class="wishlist__item-data flex-1">
+          <div class="wishlist__item-data-title">
+            <h2 class="text-[24px] md:text-[32px] font-semibold leading-none mb-3">Product Title</h2>
+          </div>
+          <div class="wishlist__item-data-vendor mb-14">
+            <h3 class="leading-none text-[26px] font-helveticaThinCond italic tracking-wide font-normal">by Vendor</h3>
+          </div>
+          <div class="wishlist__item-data-variant mb-[90px]">
+            <h4 class="text-[24px] tracking-xwidest mb-4 font-bold leading-none">Unframed</h4>
+            <h4 class="text-[24px] tracking-xwidest uppercase font-bold leading-none">NO SIZE SELECTED</h4>
+          </div>
+          <div class="wishlist__item-data-buttons">
+            <div class="md:max-w-[360px] mt-4">
+              <a
+                href="card_product_url"
+                class="btn btn_primary btn_small flex text-center uppercase relative w-full remove-from-wishlist mb-4"
+              >
+                <span class="text-white">choose size/medium</span>
+                <span
+                  class="icon-FULL-ICON-SET-WEBSITE-FINAL_Choose-Medium-Arrow absolute top-1/2 -translate-y-1/2 right-[18px] text-white"
+                ></span>
+              </a>
+              <button class="btn btn_primary btn_small flex text-center uppercase relative w-full remove-from-wishlist">
+                <span class="text-white">remove from list</span>
+                <span
+                  class="icon-FULL-ICON-SET-WEBSITE-FINAL_Trash-Bin-v2 absolute top-1/2 -translate-y-1/2 right-[18px] text-white"
+                ></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+{%- if settings.cart_type == 'notification' -%}
+  {%- render 'cart-notification',
+    color_scheme: section.settings.color_scheme,
+    desktop_menu_type: section.settings.menu_type_desktop
+  -%}
+{%- endif -%}
+
+<script>
+  // Function to render the wishlist from local storage
+  function renderWishlist() {
+    // Get current wishlist items from localStorage
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+    // Find the wishlist container
+    const wishlistContainer = document.querySelector('.wishlist__container');
+
+    // Clear the container before rendering
+    wishlistContainer.innerHTML = '';
+
+    // Loop through the wishlist items and generate the HTML
+    wishlist.forEach((item) => {
+      const wishlistItem = document.createElement('li');
+      wishlistItem.classList.add('wishlist__item', 'flex');
+
+      wishlistItem.innerHTML = `
+      <div class="wishlist__item-img aspect-square">
+        <img
+          class="w-full h-full object-cover"
+          src="${item.productImage}"
+          width="656"
+          height="640"
+        >
+      </div>
+      <div class="wishlist__item-data flex-1 max-lg:px-4">
+        <div class="wishlist__item-data-title">
+          <h2 class="text-[24px] md:text-[32px] font-semibold leading-none mb-3">${item.productTitle}</h2>
+        </div>
+        <div class="wishlist__item-data-vendor mb-14">
+          <h3 class="leading-none text-[26px] font-helveticaThinCond italic tracking-wide font-normal">by ${
+            item.productVendor
+          }</h3>
+        </div>
+        <div class="wishlist__item-data-variant mb-[90px]">
+          <h4 class="text-[24px] tracking-xwidest mb-4 font-bold leading-none">${
+            item.noVariant ? 'Unframed' : 'Variant'
+          }</h4>
+          <h4 class="text-[24px] tracking-xwidest uppercase font-bold leading-none">${
+            item.noVariant ? 'NO SIZE SELECTED' : 'Size Selected'
+          }</h4>
+        </div>
+        <div class="wishlist__item-data-buttons">
+          <div class="md:max-w-[360px] mt-4">
+            <a
+              href="${item.productUrl}"
+              class="btn btn_primary btn_small flex text-center uppercase relative w-full mb-4"
+            >
+              <span class="text-white">choose size/medium</span>
+              <span
+                class="icon-FULL-ICON-SET-WEBSITE-FINAL_Choose-Medium-Arrow absolute top-1/2 -translate-y-1/2 right-[18px] text-white"
+              ></span>
+            </a>
+            <button class="btn btn_primary btn_small flex text-center uppercase relative w-full remove-from-wishlist" data-id="${
+              item.productId
+            }" data-variant-id="${item.variantId}">
+              <span class="text-white">remove from list</span>
+              <span
+                class="icon-FULL-ICON-SET-WEBSITE-FINAL_Trash-Bin-v2 absolute top-1/2 -translate-y-1/2 right-[18px] text-white"
+              ></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+      wishlistContainer.appendChild(wishlistItem);
+    });
+
+    // Attach event listeners to the remove buttons
+    document.querySelectorAll('.remove-from-wishlist').forEach((button) => {
+      button.addEventListener('click', (event) => {
+        const productId = event.currentTarget.getAttribute('data-id');
+        const variantId = event.currentTarget.getAttribute('data-variant-id');
+        removeFromWishlist(productId, variantId);
+        renderWishlist();
+      });
+    });
+  }
+
+  // Call the renderWishlist function when the DOM is fully loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    renderWishlist();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "My Favorites",
+  "tag": "section",
+  "class": "section",
+  "settings": []
+}
+{% endschema %}
