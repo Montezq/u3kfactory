@@ -13,7 +13,20 @@
       <div class="my-account__body-item-heading">
         <h2 class="font-axis text-base font-extrabold">Default name / adress</h2>
       </div>
-
+      <div class="grid grid-cols-2 gap-8">
+        <div class="space-y-[37px]">
+          <label class="my-account__adress block cursor-pointer">
+            <input type="radio" name="adress_item">
+            <div class="flex items-center">
+              <div
+                class="w-3.5 h-3.5 rounded-full border-[2px]"
+                style="background-color: {{ settings.default_color }}"
+              ></div>
+            </div>
+          </label>
+        </div>
+        <div></div>
+      </div>
       {{ customer.default_address | format_address }}
 
       <a href="{{ routes.account_addresses_url }}">
