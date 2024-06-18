@@ -304,6 +304,11 @@
           <div>
             {%- form 'recover_customer_password' -%}
               {% assign recover_success = form.posted_successfully? %}
+              {% if recover_success and customer %}
+                <script>
+                  window.location = '/account/addresses';
+                </script>
+              {% endif %}
               <div class="field flex flex-col mb-8">
                 <div class="pl-4 mb-1 flex justify-between">
                   <label for="RecoverEmail" class="text-[13px] font-axis">
