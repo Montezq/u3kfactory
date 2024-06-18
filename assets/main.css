@@ -1123,6 +1123,9 @@ video {
 .max-w-\[328px\] {
   max-width: 328px;
 }
+.max-w-\[340px\] {
+  max-width: 340px;
+}
 .max-w-\[360px\] {
   max-width: 360px;
 }
@@ -1151,9 +1154,6 @@ video {
 }
 .max-w-none {
   max-width: none;
-}
-.max-w-\[340px\] {
-  max-width: 340px;
 }
 .flex-1 {
   -webkit-box-flex: 1;
@@ -1545,14 +1545,6 @@ video {
 .py-\[5px\] {
   padding-top: 5px;
   padding-bottom: 5px;
-}
-.px-3\.5 {
-  padding-left: 0.875rem;
-  padding-right: 0.875rem;
-}
-.py-\[18px\] {
-  padding-top: 18px;
-  padding-bottom: 18px;
 }
 .pb-1 {
   padding-bottom: 0.25rem;
@@ -3356,18 +3348,21 @@ input:focus-visible{
 #bar{
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
 }
-.heading__search,
-.my-favorites__heading {
+.heading__search, 
+.my-favorites__heading,
+.contact__heading {
     padding-right: 1.25rem;
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(83px, calc(14.05vh - 27px), 196px);
   }
   }
+.contact__body,
 .search__body {
   padding-top: 76px;
   padding-bottom: 2.5rem;
 }
 @media (min-width: 1024px){
+.contact__body,
 .search__body{
     padding-top: clamp(84px, calc(17.18vh - 27px), 221px);
     padding-bottom: clamp(50px, 5vh, 110px);
