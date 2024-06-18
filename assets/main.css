@@ -3574,7 +3574,7 @@ input:focus-visible{
   }
 @media (min-width: 1024px){
 .contact__body-right{
-    padding-right: clamp(0, 16.25vw, 16.25vw);
+    padding-right: clamp(0px, 16.25vw, 16.25vw);
 }
   }
 
