@@ -1093,6 +1093,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-\[325px\] {
+  width: 325px;
+}
 .min-w-\[166px\] {
   min-width: 166px;
 }
@@ -1336,6 +1339,11 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(37px * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(37px * var(--tw-space-y-reverse));
+}
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 .overflow-auto {
   overflow: auto;
@@ -4983,6 +4991,28 @@ input:focus-visible{
 
   .xl\:min-w-\[360px\] {
     min-width: 360px;
+  }
+
+  .xl\:flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .xl\:items-end {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+
+  .xl\:justify-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 
   .xl\:text-\[25px\] {

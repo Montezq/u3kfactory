@@ -21,67 +21,86 @@
               <p class="leading-none text-xs font-bold">{{ order.created_at | date: '%Y/%m/%d' }}</p>
             </div>
           </div>
-          <ul class="order__body">
-            {% for item in order.line_items %}
-              <li class="order__body-item">
-                <div class="cart-item cart-item__block" id="CartItem-{{ item.index | plus: 1 }}">
-                  <div class="flex">
-                    <div class="cart-item__media">
-                      {% if item.image %}
-                        <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
-                        <div class="cart-item__image-container max-md:aspect-square max-md:max-w-[204px] max-md:w-[48vw] md:w-[122px] md:h-[122px]">
-                          <img
-                            src="{{ item.image | image_url: width: 300 }}"
-                            class="w-full h-full object-cover"
-                            alt="{{ item.image.alt | escape }}"
-                            loading="lazy"
-                            width="122"
-                            height="{{ 122 | divided_by: item.image.aspect_ratio | ceil }}"
-                          >
-                        </div>
-                      {% endif %}
-                    </div>
-                    <div class="flex max-md:flex-col w-full ml-[22px] md:pl-2 md:pr-[14px] pt-2 md:pt-1.5 {% if forloop.last %}md:border-b md:border-b-[#8c8c8c]{% endif %}">
-                      <div class="pb-3 cart-item__content-left">
-                        <div class="mb-5 md:mb-2">
-                          <a
-                            href="{{ item.url }}"
-                            class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
-                          >
-                            {{- item.product.title | escape -}}
-                          </a>
-                          <p class="text-[15px] md:text-[17px] italic max-md:leading-none">
-                            by {{ item.product.vendor }}
-                          </p>
-                        </div>
-                        <dl class="space-y-1.5">
-                          {%- unless item.product.has_only_default_variant -%}
-                            {%- for option in item.options_with_values -%}
-                              <div class="product-option leading-none">
-                                <dd class="text-[21px] leading-none max-md:font-bold">
-                                  {{ option.value }}
-                                </dd>
-                              </div>
+          <div class="flex flex-col xl:flex-row xl:justify-between xl:items-end">
+            <ul class="order__body flex-1">
+              {% for item in order.line_items %}
+                <li class="order__body-item">
+                  <div class="cart-item cart-item__block" id="CartItem-{{ item.index | plus: 1 }}">
+                    <div class="flex">
+                      <div class="cart-item__media">
+                        {% if item.image %}
+                          <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
+                          <div class="cart-item__image-container max-md:aspect-square max-md:max-w-[204px] max-md:w-[48vw] md:w-[122px] md:h-[122px]">
+                            <img
+                              src="{{ item.image | image_url: width: 300 }}"
+                              class="w-full h-full object-cover"
+                              alt="{{ item.image.alt | escape }}"
+                              loading="lazy"
+                              width="122"
+                              height="{{ 122 | divided_by: item.image.aspect_ratio | ceil }}"
+                            >
+                          </div>
+                        {% endif %}
+                      </div>
+                      <div class="flex max-md:flex-col w-full ml-[22px] md:pl-2 md:pr-[14px] pt-2 md:pt-1.5 {% if forloop.last %}md:border-b md:border-b-[#8c8c8c]{% endif %}">
+                        <div class="pb-3 cart-item__content-left">
+                          <div class="mb-5 md:mb-2">
+                            <a
+                              href="{{ item.url }}"
+                              class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
+                            >
+                              {{- item.product.title | escape -}}
+                            </a>
+                            <p class="text-[15px] md:text-[17px] italic max-md:leading-none">
+                              by {{ item.product.vendor }}
+                            </p>
+                          </div>
+                          <dl class="space-y-1.5">
+                            {%- unless item.product.has_only_default_variant -%}
+                              {%- for option in item.options_with_values -%}
+                                <div class="product-option leading-none">
+                                  <dd class="text-[21px] leading-none max-md:font-bold">
+                                    {{ option.value }}
+                                  </dd>
+                                </div>
+                              {%- endfor -%}
+                            {%- endunless -%}
+                            {%- for property in item.properties -%}
+                              {%- assign property_first_char = property.first | slice: 0 -%}
+                              {%- if property.last != blank and property_first_char != '_' -%}
+                                <div class="product-option leading-none">
+                                  <dd class="text-[21px] leading-none max-md:font-bold">
+                                    {{ property.last }}
+                                  </dd>
+                                </div>
+                              {%- endif -%}
                             {%- endfor -%}
-                          {%- endunless -%}
-                          {%- for property in item.properties -%}
-                            {%- assign property_first_char = property.first | slice: 0 -%}
-                            {%- if property.last != blank and property_first_char != '_' -%}
-                              <div class="product-option leading-none">
-                                <dd class="text-[21px] leading-none max-md:font-bold">
-                                  {{ property.last }}
-                                </dd>
-                              </div>
-                            {%- endif -%}
-                          {%- endfor -%}
-                        </dl>
+                          </dl>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            {%- endfor -%}
-          </ul>
+                </li>
+              {%- endfor -%}
+            </ul>
+            <div class="w-[325px] space-y-6">
+              <button class="btn btn_primary !text-[17px] w-full uppercase font-coutureBold font-bold">
+                Contact Us
+              </button>
+              <button
+                class="btn btn_primary !text-[17px] w-full uppercase font-coutureBold font-bold "
+              >
+                Track order
+              </button>
+              <div>
+                <button
+                  class="btn btn_outlined !text-[17px] w-full uppercase font-coutureBold font-bold"
+                >
+                  Cancel order
+                </button>
+              </div>
+            </div>
+          </div>
         </li>
       {%- endfor -%}
     </ul>
