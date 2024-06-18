@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin language editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "general": {
     "password_page": {
@@ -482,7 +491,7 @@
       "subtext": "Enter a new password",
       "password": "Password",
       "password_confirm": "Confirm password",
-      "submit": "Reset password"
+      "submit": "Confirm Password"
     }
   },
   "gift_cards": {
