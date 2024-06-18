@@ -1830,6 +1830,10 @@ video {
   font-size: 0.75rem;
   line-height: 1rem;
 }
+.\!text-xl {
+  font-size: 1.25rem !important;
+  line-height: 1.75rem !important;
+}
 .\!font-extrabold {
   font-weight: 800 !important;
 }
@@ -4316,6 +4320,11 @@ input:focus-visible{
 
   .md\:text-\[42px\] {
     font-size: 42px;
+  }
+
+  .md\:\!text-2xl {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
   }
 
   .md\:text-gray-200 {
