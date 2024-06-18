@@ -28,6 +28,7 @@
   <div class="my-account-order__body max-md:pb-6">
     <ul>
       {%- for order in customer.orders -%}
+        {{ order.tags }}
         {%- if order.cancelled == false and order.fulfillment_status != 'fulfilled' -%}
           <li class="order">
             <div class="order__header p-1.5 border flex justify-between">
