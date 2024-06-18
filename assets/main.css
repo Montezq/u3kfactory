@@ -1920,6 +1920,9 @@ video {
 .leading-snug {
   line-height: 1.375;
 }
+.leading-tight {
+  line-height: 1.25;
+}
 .\!tracking-wide {
   letter-spacing: .02em !important;
 }
