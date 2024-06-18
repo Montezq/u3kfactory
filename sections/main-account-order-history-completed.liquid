@@ -130,6 +130,35 @@
 <div class="no-tracking-order__modal hidden border py-[18px] px-3.5 border-black fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
   <p class="uppercase text-2xl tracking-xwidest font-bold">NO TRACKING DETAILS AT THIS TIME</p>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Select all anchors with the class 'track-order'
+    const trackOrderLinks = document.querySelectorAll('a.track-order');
+
+    // Function to handle the click event
+    trackOrderLinks.forEach((link) => {
+      link.addEventListener('click', function (event) {
+        // Check if the href attribute is '#'
+        if (this.getAttribute('href') === '#') {
+          event.preventDefault(); // Prevent the default anchor action
+
+          // Target element to show/hide (replace '#target-element-id' with your element's ID or selector)
+          const targetElement = document.querySelector('#target-element-id');
+
+          if (targetElement) {
+            // Remove the 'hidden' class
+            targetElement.classList.remove('hidden');
+
+            // Wait for 2 seconds (2000 milliseconds) and add the 'hidden' class back
+            setTimeout(() => {
+              targetElement.classList.add('hidden');
+            }, 2000);
+          }
+        }
+      });
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "t:sections.main-order.name",
