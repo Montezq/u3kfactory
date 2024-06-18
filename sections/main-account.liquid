@@ -12,7 +12,7 @@
     }
   }
 </style>
-<div class="customer account ">
+<div class="customer account max-lg:px-4">
   <div
     id="bar"
     class="ds_element dissapearing main-account__heading max-lg:py-3 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out flex justify-center"
@@ -20,8 +20,8 @@
     <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">Prefererences</h1>
   </div>
 
-  <div class="my-account__body">
-    <div class="my-account__body-item pb-9 mb-[61px] border-b border-b-black">
+  <div class="my-account__body max-md:pb-6">
+    <div class="my-account__body-item pb-14 md:pb-9 mb-8 md:mb-[61px] border-b border-b-black max-lg:mt-8">
       <div class="my-account__body-item-heading">
         <h2 class="font-axis text-base font-extrabold">
           <span class="text-default-address">Default name / adress</span>
@@ -31,7 +31,7 @@
       <div class="hidden new-address">
         <div id="AddAddress">
           {%- form 'customer_address', customer.new_address -%}
-            <div class="grid grid-cols-2 gap-[32px] justify-between">
+            <div class="grid md:grid-cols-2 gap-[32px] md:justify-between">
               <div class="new-address__grid-col max-w-[468px]">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
@@ -60,25 +60,6 @@
                     id="AddressLastNameNew"
                     autocomplete="family-name"
                   >
-                </div>
-                <div class="field flex flex-col">
-                  <div class="pl-4 mb-1 flex">
-                    <label for="AddressEmailNew" class="text-[13px] font-axis">
-                      {{ 'customer.register.email' | t }}
-                    </label>
-                  </div>
-                  <input
-                    class="input-field"
-                    type="email"
-                    name="address[email]"
-                    id="AddressEmailNew"
-                    autocomplete="email"
-                  >
-                  <div>
-                    <p class="text-sm font-bold text-right">
-                      *You will recieve updates on the status of your orders on this
-                    </p>
-                  </div>
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
@@ -136,7 +117,7 @@
                   >
                 </div>
                 <div class="field flex flex-col justify-end mt-10">
-                  <div class="w-[226px] grid gap-5 ml-auto">
+                  <div class="w-full md:w-[226px] grid gap-5 ml-auto">
                     <button class="btn btn_primary !text-[17px] w-full font-coutureBold font-bold">
                       Add this address
                     </button>
@@ -156,7 +137,7 @@
       {%- for address in customer.addresses -%}
         <div id="EditAddress_address-{{ address.id }}" class="hidden edit-address">
           {%- form 'customer_address', address -%}
-            <div class="grid grid-cols-2 gap-[32px] justify-between">
+            <div class="grid md:grid-cols-2 gap-[32px] md:justify-between">
               <div class="new-address__grid-col max-w-[468px]">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
@@ -187,26 +168,6 @@
                     autocomplete="family-name"
                     value="{{ form.last_name }}"
                   >
-                </div>
-                <div class="field flex flex-col">
-                  <div class="pl-4 mb-1 flex">
-                    <label for="AddressEmailNew" class="text-[13px] font-axis">
-                      {{ 'customer.register.email' | t }}
-                    </label>
-                  </div>
-                  <input
-                    class="input-field"
-                    type="email"
-                    name="address[email]"
-                    id="AddressEmailNew"
-                    autocomplete="email"
-                    value="{{ form.email }}"
-                  >
-                  <div>
-                    <p class="text-sm font-bold text-right">
-                      *You will recieve updates on the status of your orders on this
-                    </p>
-                  </div>
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
@@ -266,8 +227,8 @@
                     value="{{ form.zip }}"
                   >
                 </div>
-                <div class="field flex flex-col justify-end mt-10">
-                  <div class="w-[226px] grid gap-5 ml-auto">
+                <div class="field flex flex-col justify-end mt-14 md:mt-10">
+                  <div class="w-full md:w-[226px] grid gap-5 ml-auto">
                     <button class="btn btn_primary !text-[17px] w-full font-coutureBold font-bold">
                       Edit this address
                     </button>
@@ -284,7 +245,7 @@
           {%- endform -%}
         </div>
       {%- endfor -%}
-      <div data-current-address class="grid grid-cols-2 gap-8 justify-between current-address">
+      <div data-current-address class="grid md:grid-cols-2 gap-x-8 max-md:gap-y-28 md:justify-between current-address">
         <div class="space-y-[37px]">
           {%- for address in customer.addresses -%}
             {% if forloop.index == 1 %}
@@ -314,7 +275,7 @@
             </label>
           {%- endfor -%}
         </div>
-        <div class="flex flex-col space-y-[21px] w-[226px] ml-auto">
+        <div class="flex flex-col space-y-[21px] w-full md:w-[226px] md:ml-auto">
           <button class="btn btn_primary !text-[17px] w-full uppercase add-new-address font-coutureBold font-bold">
             Add Mew
           </button>
@@ -324,21 +285,94 @@
           >
             Edit Address
           </button>
-          <button
-            class="btn btn_outlined !text-[17px] w-full uppercase delete-address-button font-coutureBold font-bold"
-            data-target="/account/addresses/{{ address_id }}"
-            data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"
-          >
-            Remove Address
-          </button>
+          <div>
+            <button
+              class="btn btn_outlined !text-[17px] w-full uppercase delete-address-button font-coutureBold font-bold"
+              data-target="/account/addresses/{{ address_id }}"
+              data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"
+            >
+              Remove Address
+            </button>
+            <div class="md:hidden text-right text-sm font-bold">*Buttons affect selected address</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="my-account__body-item">
+      <div class="my-account__body-item-heading">
+        <h2 class="font-axis text-base font-extrabold">
+          Change Password<span class="del-acc__text">/Delete Account</span>
+        </h2>
+      </div>
+      <div class="reset-password__wrapper hidden">
+        {%- form 'recover_customer_password' -%}
+          <div class="grid md:grid-cols-2 gap-8 md:justify-between">
+            <div class="max-w-[525px]">
+              <div class="field flex flex-col mb-8">
+                <div class="pl-4 mb-1 flex md:justify-between">
+                  <label for="RecoverEmail" class="text-[13px] font-axis">
+                    {{ 'customer.login_page.email' | t }}
+                  </label>
+                  <div class="form-errors">
+                    {%- if form.errors -%}
+                      {{ form.errors.messages.form }}
+                    {%- endif -%}
+                  </div>
+                </div>
+                <input
+                  class="input-field"
+                  type="email"
+                  value=""
+                  name="email"
+                  id="RecoverEmail"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  {% if form.errors %}
+                    aria-invalid="true"
+                    aria-describedby="RecoverEmail-email-error"
+                    autofocus
+                  {% endif %}
+                >
+              </div>
+            </div>
+            <div class="space-y-[21px] w-full md:w-[226px] md:ml-auto">
+              <button class="btn btn_primary !text-[17px] w-full uppercase font-coutureBold font-bold">
+                {{ 'customer.login_page.submit' | t }}
+              </button>
+              <button
+                type="button"
+                class="btn btn_outlined !text-[17px] w-full uppercase font-coutureBold font-bold toggle-change-password"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        {%- endform -%}
+      </div>
+      <div class="account-manipulations__wrapper">
+        <div class="grid md:grid-cols-2 gap-8 md:justify-between">
+          <div></div>
+          <div>
+            <div class="flex flex-col space-y-[21px] w-full md:w-[226px] md:ml-auto">
+              <button class="btn btn_primary !text-[17px] w-full uppercase font-coutureBold font-bold change-password">
+                Change Password
+              </button>
+              <button
+                class="btn btn_outlined !text-[17px] w-full uppercase font-coutureBold font-bold delete-account-cta"
+              >
+                Delete account
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    class="my-account__footer fixed bottom-0 bg-gray-10 lg:bg-white max-lg:left-0 right-0 lg:pr-[27px]"
+    class="my-account__footer fixed bottom-0 bg-gray-10 lg:bg-white max-lg:left-0 right-0 lg:pr-[27px] max-md:!hidden"
   >
-    <div class="cart__footer isolate flex items-center justify-between h-full">
+    <div class="cart__footer isolate flex items-center md:justify-between h-full">
       {%- if section.settings.privacy_menu.links -%}
         <div class="max-md:hidden">
           <ul class="cart__footer-privacy-menu flex items-center flex-wrap">
@@ -355,6 +389,57 @@
           </ul>
         </div>
       {%- endif -%}
+    </div>
+  </div>
+  <div class="remove-account__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] md:w-full max-w-[320px]">
+    <button
+      type="button"
+      class="remove-account__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-[34px] h-[34px] rounded-full bg-black leading-none flex justify-center items-center cursor-pointer"
+      aria-label="{{ 'accessibility.close' | t }}"
+    >
+      x
+    </button>
+    <div
+      class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[360px] remove-account__modal-wrapper w-full"
+      aria-modal="true"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div class="remove-account__modal-heading text-center mb-5">
+        <h2 class="font-bold text-[25px] uppercase">ACCOUNT REMOVAL</h2>
+      </div>
+      <div class="remove-account__modal-body mb-6">
+        <p class="text-[22px] text-center font-bold leading-snug">
+          All the data related to this account will be lost. This includes order history. <br>
+          Are you sure?
+        </p>
+      </div>
+      <div class="remove-account__modal-footer text-center relative">
+        {% form 'contact' %}
+          <input
+            class="w-0 h-0 absolute top-0 left-0"
+            type="text"
+            name="contact[regardin]"
+            id="reagarding"
+            value="Delete account request from {{ customer.first_name }} {{ customer.last_name }}"
+          >
+          <input
+            class="w-0 h-0 absolute top-0 left-0"
+            type="email"
+            name="contact[email]"
+            id="email"
+            value="{{ customer.email }}"
+          >
+          <input
+            class="w-0 h-0 absolute top-0 left-0"
+            type="text"
+            name="contact[user_id]"
+            id="text"
+            value="User Profile https://admin.shopify.com/store/u3faktory/customers/{{ customer.id }}"
+          >
+          <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">Yes, delete account</button>
+        {% endform %}
+      </div>
     </div>
   </div>
 </div>
@@ -428,6 +513,38 @@
           currentAddress.classList.remove('!hidden');
         }
       }
+    });
+
+    const changePasswordBtn = document.querySelector('.change-password'),
+      toggleChangePasswordBtn = document.querySelector('.toggle-change-password'),
+      manipulationMain = document.querySelector('.account-manipulations__wrapper'),
+      resetWrapper = document.querySelector('.reset-password__wrapper');
+
+    changePasswordBtn.addEventListener('click', () => {
+      manipulationMain.classList.add('hidden');
+      resetWrapper.classList.remove('hidden');
+    });
+    toggleChangePasswordBtn.addEventListener('click', () => {
+      manipulationMain.classList.remove('hidden');
+      resetWrapper.classList.add('hidden');
+    });
+
+    var removeAccountOpen = document.querySelectorAll('.delete-account-cta'),
+      removeAccountModal = document.querySelector('.remove-account__modal'),
+      removeAccountClose = document.querySelectorAll('.remove-account__modal-close');
+
+    removeAccountOpen.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        removeAccountModal.classList.remove('hidden');
+      });
+    });
+
+    removeAccountClose.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        removeAccountModal.classList.add('hidden');
+      });
     });
   });
 </script>

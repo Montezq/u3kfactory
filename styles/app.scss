@@ -763,6 +763,9 @@ accordion-item.open,
 .custom-select.open .select-icon span{
   @apply rotate-180;
 }
+.custom-select_w-full .select-icon span{
+  @apply !rotate-90;
+}
 .custom-select.open .select-options{
   @apply block
 }
@@ -771,6 +774,9 @@ accordion-item.open,
   @screen md{
     width: calc(100% - 44px);
   }
+}
+.select-options_w-full{
+  @apply !w-full;
 }
 .custom-option label{
   &:hover{
@@ -817,7 +823,8 @@ accordion-item.open,
 .cart-notification-wrapper-block,
 .login__modal-wrapper,
 .wishlist__modal-wrapper,
-.removed-wishlist__modal-wrapper{
+.removed-wishlist__modal-wrapper,
+.no-tracking-order__modal{
   box-shadow: 6px 0 11px rgba(0, 0, 0, .35);
 }
 .cart-notification__header p{
@@ -1054,12 +1061,18 @@ accordion-item.open,
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
 }
-.heading__search,
-.my-favorites__heading{
+.heading__search, 
+.my-favorites__heading,
+.contact__heading{
   @apply lg:pr-5;
   @screen lg{
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(83px, calc(14.05vh - 27px), 196px);
+  }
+}
+.contact__body{
+  @screen lg{
+    padding-top: clamp(83px, calc(14.05vh - 27px), 196px);
   }
 }
 .search__body{
@@ -1157,6 +1170,20 @@ accordion-item.open,
     height: clamp(45px, calc(10.84vh - 27px), 130px);
   }
 }
+.main-account-order__heading{
+  @apply lg:pr-5;
+  @screen lg{
+    padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
+    height: clamp(110px, 14.05vh, 219px);
+  }
+}
+.my-account-order__body{
+  @apply pt-[106px];
+  @screen lg{
+    padding-top: clamp(110px, 14.05vh, 219px);
+    padding-bottom: 27px;
+  }
+}
 .my-account__body{
   @apply pt-[56px];
   @apply md:pt-[60px];
@@ -1176,6 +1203,35 @@ accordion-item.open,
     }
   }
 }
+.order{
+  margin-bottom: clamp(110px, 16.53vh, 217px);
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+.order__header{
+  margin-bottom: clamp(32px, 4.5vh, 49px);
+}
+.order__body-item{
+  margin-bottom: clamp(32px, 3.49vh, 3.49vh);
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+.contact__body-right{
+  padding-right: clamp(0px, 16.25vw, 16.25vw);
+  @media screen and (max-width: 1560px){
+    padding-right: clamp(0px, 12.25vw, 12.25vw)
+  }
+  @screen lg{
+    padding-right: 0px;
+  }
+}
+
+
+
+
+
 
 
 

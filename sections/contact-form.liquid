@@ -1,137 +1,258 @@
-{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
-
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
 <div class=" gradient">
-  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        {{ section.settings.heading }}
-      </h2>
-    {%- else -%}
-      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
-    {%- endif -%}
-    {%- liquid
-      assign contact_form_class = 'isolate'
-      if settings.animations_reveal_on_scroll
-        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
-      endif
-    -%}
-    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
-      {%- if form.posted_successfully? -%}
-        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
-          {% render 'icon-success' %}
-          {{ 'templates.contact.form.post_success' | t }}
-        </h2>
-      {%- elsif form.errors -%}
-        <div class="form__message">
-          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
-            {% render 'icon-error' %}
-            {{ 'templates.contact.form.error_heading' | t }}
-          </h2>
-        </div>
-        <ul class="form-status-list caption-large" role="list">
-          <li>
-            <a href="#ContactForm-email" class="link">
-              {{ form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email }}
-            </a>
-          </li>
-        </ul>
+  {% comment %}
+    <div class="form-errors">
+      {%- if form.errors contains 'email' -%}
+        {{ form.errors | default_errors }}
       {%- endif -%}
-      <div class="contact__fields">
-        <div class="field">
-          <input
-            class="field__input"
-            autocomplete="name"
-            type="text"
-            id="ContactForm-name"
-            name="contact[{{ 'templates.contact.form.name' | t }}]"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="{{ 'templates.contact.form.name' | t }}"
-          >
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
-        </div>
-        <div class="field field--with-error">
-          <input
-            autocomplete="email"
-            type="email"
-            id="ContactForm-email"
-            class="field__input"
-            name="contact[email]"
-            spellcheck="false"
-            autocapitalize="off"
-            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-            aria-required="true"
-            {% if form.errors contains 'email' %}
-              aria-invalid="true"
-              aria-describedby="ContactForm-email-error"
-            {% endif %}
-            placeholder="{{ 'templates.contact.form.email' | t }}"
-          >
-          <label class="field__label" for="ContactForm-email">
-            {{- 'templates.contact.form.email' | t }}
-            <span aria-hidden="true">*</span></label
-          >
-          {%- if form.errors contains 'email' -%}
-            <small class="contact__field-error" id="ContactForm-email-error">
-              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-              <span class="form__message">
-                {%- render 'icon-error' -%}
-                {{- form.errors.translated_fields.email | capitalize }}
-                {{ form.errors.messages.email -}}
-              </span>
-            </small>
+    </div>
+  {% endcomment %}
+  <div class="contact page-width">
+    <div
+      id="bar"
+      class="ds_element dissapearing contact__heading max-lg:py-3 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out"
+    >
+      <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">Contact Us</h1>
+    </div>
+    <div class="contact__body grid md:grid-cols-2 gap-[50px] md:items-center">
+      <div class="max-w-[526px]">
+        {%- liquid
+          assign contact_form_class = 'isolate'
+          if settings.animations_reveal_on_scroll
+            assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+          endif
+        -%}
+        {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+          {%- if form.posted_successfully? -%}
+            <h2 class="text-sm font-bold mb-2" tabindex="-1" autofocus>
+              {{ 'templates.contact.form.post_success' | t }}
+            </h2>
+          {%- elsif form.errors -%}
+            <div class="form-errors mb-2">
+              <ul role="list">
+                <li>
+                  <a href="#ContactForm-email" class="link">
+                    {{ form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email }}
+                  </a>
+                </li>
+              </ul>
+            </div>
           {%- endif -%}
+          <div class="field flex flex-col mb-5">
+            <div class="pl-4 mb-1">
+              <label for="ContactForm-email" class="text-[13px] font-axis"> Regarding </label>
+            </div>
+            <div class="custom-select custom-select_w-full relative">
+              <div class="select-trigger cursor-pointer border border-black flex h-12">
+                <div class="flex items-center pl-2.5 flex-1">
+                  <span class="selected-text line-clamp-1 text-sm text-gray-750 font-open uppercase">
+                    Order problems
+                  </span>
+                </div>
+                <div class="w-11 select-icon border-black flex items-center justify-center">
+                  <span
+                    class="icon-FULL-ICON-SET-WEBSITE-FINAL_Next-Button-Arrow font-semibold text-xs duration-100 ease-in-out"
+                  ></span>
+                </div>
+              </div>
+              <ul class="select-options select-options_w-full hidden absolute z-[2] top-full left-0 border border-t-0 border-black bg-white">
+                <li class="custom-option selected">
+                  <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                    <input
+                      checked
+                      type="radio"
+                      name="contact[regarding]"
+                      value="Order Problems"
+                      class="invisible w-0 h-0"
+                    >
+                    <span
+                      class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                    >
+                      Order Problems
+                    </span>
+                  </label>
+                </li>
+                <li class="custom-option">
+                  <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                    <input
+                      type="radio"
+                      name="contact[regarding]"
+                      value="Payment Issues"
+                      class="invisible w-0 h-0"
+                    >
+                    <span
+                      class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                    >
+                      Payment Issues
+                    </span>
+                  </label>
+                </li>
+                <li class="custom-option">
+                  <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                    <input
+                      type="radio"
+                      name="contact[regarding]"
+                      value="Inquire About Bigger Sizes"
+                      class="invisible w-0 h-0"
+                    >
+                    <span
+                      class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                    >
+                      Inquire about bigger sizes
+                    </span>
+                  </label>
+                </li>
+                <li class="custom-option">
+                  <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                    <input
+                      type="radio"
+                      name="contact[regarding]"
+                      value="Refund Request"
+                      class="invisible w-0 h-0"
+                    >
+                    <span
+                      class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                    >
+                      Refund Request
+                    </span>
+                  </label>
+                </li>
+                <li class="custom-option">
+                  <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                    <input
+                      type="radio"
+                      name="contact[regarding]"
+                      value="Other"
+                      class="invisible w-0 h-0"
+                    >
+                    <span
+                      class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                    >
+                      Other
+                    </span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="field flex flex-col mb-5">
+            <div class="pl-4 mb-1">
+              <label for="ContactForm-body" class="text-[13px] font-axis"> Your message </label>
+            </div>
+            <textarea
+              id="ContactForm-body"
+              class="input-field textarea-field resize-none h-28"
+              name="contact[{{ 'templates.contact.form.comment' | t }}]"
+            >
+              {{- form.body -}}
+            </textarea>
+          </div>
+          <div class="field flex flex-col mb-5">
+            <div class="pl-4 mb-1 flex justify-between">
+              <label for="ContactForm-email" class="text-[13px] font-axis">
+                {{ 'customer.login_page.email' | t }}
+              </label>
+              <div>
+                <p class="text-right text-[14px] font-bold">*You will be contacted back on this email adress</p>
+              </div>
+            </div>
+            <input
+              class="input-field"
+              type="email"
+              name="contact[email]"
+              id="ContactForm-email"
+              autocomplete="email"
+              autocorrect="off"
+              autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              {% if form.errors contains 'form' %}
+                aria-invalid="true"
+              {% endif %}
+            >
+          </div>
+          <div class="contact__button flex justify-center mb-8">
+            <button
+              type="submit"
+              class="btn btn_primary btn_small w-[320px] max-w-full"
+            >
+              Submit message
+            </button>
+          </div>
+          <div class="space-y-5">
+            <p class="text-[17px] font-bold">
+              *We generally respond in the course of 4 hours. Please specify the problem you have as clear as possible
+              in the message space so we can get to work right away and resolve whichever issues you have.
+            </p>
+            <p class="text-[17px] font-bold">
+              You can also contact us by sending a email to
+              <br>
+              customersupport@u3faktory.com
+            </p>
+          </div>
+        {%- endform -%}
+      </div>
+      <div class="contact__body-right scroll-trigger animate--slide-in">
+        <div class="ml-auto w-fit">
+          <div class="mb-5">
+            <h2 class="uppercase font-coutureBold leading-none text-[22px] md:text-[28px]">Direct chat</h2>
+          </div>
+          <div class="mb-7">
+            <img
+              class="w-[60px]"
+              src="https://cdn.shopify.com/s/files/1/0690/2303/9708/files/Send_Arrow_button.png?v=1718734585"
+              alt="Icon"
+              width="60"
+              height="53"
+            >
+          </div>
+          <div class="mb-8">
+            <p class="uppercase font-bold text-sm">AVAILABLE SOON</p>
+          </div>
+          <div>
+            <p class="font-bold text-[17px] leading-tight">
+              COMPANY DETAILS
+              <br>
+              U3 Art Faktory Srl
+              <br>
+              Str. Vadu Voda Nr. 1C
+              <br>
+              Sat. Horpaz, judetul Iasi
+              <br>
+              Romania
+            </p>
+          </div>
         </div>
       </div>
-      <div class="field">
-        <input
-          type="tel"
-          id="ContactForm-phone"
-          class="field__input"
-          autocomplete="tel"
-          name="contact[{{ 'templates.contact.form.phone' | t }}]"
-          pattern="[0-9\-]*"
-          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          placeholder="{{ 'templates.contact.form.phone' | t }}"
-        >
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
-      </div>
-      <div class="field">
-        <textarea
-          rows="10"
-          id="ContactForm-body"
-          class="text-area field__input"
-          name="contact[{{ 'templates.contact.form.comment' | t }}]"
-          placeholder="{{ 'templates.contact.form.comment' | t }}"
-        >
-          {{- form.body -}}
-        </textarea>
-        <label class="form__label field__label" for="ContactForm-body">
-          {{- 'templates.contact.form.comment' | t -}}
-        </label>
-      </div>
-      <div class="contact__button">
-        <button type="submit" class="button">
-          {{ 'templates.contact.form.send' | t }}
-        </button>
-      </div>
-    {%- endform -%}
+    </div>
   </div>
 </div>
+<script>
+  document.addEventListener('click', function (e) {
+    const target = e.target;
+    const customSelect = target.closest('.custom-select');
+    const allCustomSelects = document.querySelectorAll('.custom-select');
+    if (customSelect && target.closest('.select-trigger')) {
+      allCustomSelects.forEach((select) => {
+        if (select !== customSelect) {
+          select.classList.remove('open');
+        }
+      });
+      customSelect.classList.toggle('open');
+    } else if (customSelect && target.tagName === 'INPUT' && target.type === 'radio') {
+      customSelect.querySelectorAll('li').forEach((li) => {
+        li.classList.remove('selected');
+      });
+      target.closest('li').classList.add('selected');
+      const selectedText = target.nextElementSibling.textContent;
+      customSelect.querySelector('.selected-text').textContent = selectedText;
+      customSelect.classList.remove('open');
+    } else {
+      allCustomSelects.forEach((select) => {
+        select.classList.remove('open');
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
@@ -141,58 +262,7 @@
   "disabled_on": {
     "groups": ["header", "footer"]
   },
-  "settings": [
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "Contact form",
-      "label": "Heading"
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "options": [
-        {
-          "value": "h2",
-          "label": "t:sections.all.heading_size.options__1.label"
-        },
-        {
-          "value": "h1",
-          "label": "t:sections.all.heading_size.options__2.label"
-        },
-        {
-          "value": "h0",
-          "label": "t:sections.all.heading_size.options__3.label"
-        }
-      ],
-      "default": "h1",
-      "label": "t:sections.all.heading_size.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ],
+  "settings": [],
   "presets": [
     {
       "name": "t:sections.contact-form.presets.name"

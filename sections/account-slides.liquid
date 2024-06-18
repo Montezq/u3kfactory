@@ -69,7 +69,7 @@
           <div>
             <a
               class="collection-list__card relative block bg-[#5f5f5f] {% unless customer%} cta-login-button{% endunless %}"
-              href="{%if customer%}{{ routes.account_url }}{%else%}#{% endif %}"
+              href="{%if customer%}/account?view=order-history-active{%else%}#{% endif %}"
             >
               <div class="w-full h-full">
                 {%- if section.settings.orders_image != blank -%}

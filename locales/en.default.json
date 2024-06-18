@@ -482,7 +482,7 @@
       "subtext": "Enter a new password",
       "password": "Password",
       "password_confirm": "Confirm password",
-      "submit": "Reset password"
+      "submit": "Confirm Password"
     }
   },
   "gift_cards": {
