@@ -30,6 +30,7 @@
       {%- for order in customer.orders -%}
         {% for tag in order.tags %}
           {{ tag }}
+          <br>
         {% endfor %}
         {%- if order.cancelled == false and order.fulfillment_status != 'fulfilled' -%}
           <li class="order">
