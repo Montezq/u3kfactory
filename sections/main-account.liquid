@@ -245,7 +245,7 @@
           {%- endform -%}
         </div>
       {%- endfor -%}
-      <div data-current-address class="grid md:grid-cols-2 gap-8 md:justify-between current-address">
+      <div data-current-address class="grid md:grid-cols-2 gap-x-8 max-md:gap-y-28 md:justify-between current-address">
         <div class="space-y-[37px]">
           {%- for address in customer.addresses -%}
             {% if forloop.index == 1 %}

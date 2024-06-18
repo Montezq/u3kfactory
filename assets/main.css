@@ -1300,6 +1300,11 @@ video {
 .gap-y-6 {
   row-gap: 1.5rem;
 }
+.gap-x-8 {
+  -webkit-column-gap: 2rem;
+     -moz-column-gap: 2rem;
+          column-gap: 2rem;
+}
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -3998,6 +4003,10 @@ input:focus-visible{
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
+  }
+
+  .max-md\:gap-y-28 {
+    row-gap: 7rem;
   }
 
   .max-md\:px-1 {
