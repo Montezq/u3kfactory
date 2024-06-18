@@ -397,6 +397,33 @@
       {%- endif -%}
     </div>
   </div>
+  <div class="login__modal fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-[320px] md:max-w-[352px]">
+    <button
+      type="button"
+      class="login__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-[34px] h-[34px] rounded-full bg-black leading-none flex justify-center items-center cursor-pointer"
+      aria-label="{{ 'accessibility.close' | t }}"
+    >
+      x
+    </button>
+    <div
+      class="border border-[#5a5a5a] bg-white px-[32px] pt-8 max-h-[360px] login__modal-wrapper w-full"
+      aria-modal="true"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div class="login__modal-heading text-center mb-[40px]">
+        <h2 class="font-coutureBold text-[25px] uppercase">ACCOUNT REMOVAL</h2>
+      </div>
+      <div class="login__modal-body mb-[40px]">
+        <p class="text-[22px] text-center font-bold leading-snug">
+          All the data related to this account will be lost. This include
+        </p>
+      </div>
+      <div class="login__modal-footer pb-[25px] text-center">
+        <a href="#" class="underline text-[13px] font-black login__modal-close"> Yes, delete account </a>
+      </div>
+    </div>
+  </div>
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
