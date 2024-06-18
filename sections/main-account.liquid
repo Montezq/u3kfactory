@@ -309,6 +309,11 @@
                   window.location = '/account/addresses';
                 </script>
               {% endif %}
+              {%- if recover_success == true -%}
+                <h3 class="text-sm font-bold mb-2" tabindex="-1" autofocus>
+                  {{ 'customer.recover_password.success' | t }}
+                </h3>
+              {%- endif -%}
               <div class="field flex flex-col mb-8">
                 <div class="pl-4 mb-1 flex justify-between">
                   <label for="RecoverEmail" class="text-[13px] font-axis">
@@ -341,21 +346,8 @@
                   {{ 'customer.login_page.submit' | t }}
                 </button>
               </div>
-              <div class="flex justify-center">
-                <a href="#login" class="flex justify-center items-center font-bold">
-                  <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Smartphone-Back-to-All-Products-Arrow"></span>
-                  <span class="text-sm uppercase font-bold ml-2 underline">
-                    {{ 'customer.login_page.cancel' | t }}
-                  </span>
-                </a>
-              </div>
             {%- endform -%}
           </div>
-          {%- if recover_success == true -%}
-            <h3 class="text-sm font-bold mb-2" tabindex="-1" autofocus>
-              {{ 'customer.recover_password.success' | t }}
-            </h3>
-          {%- endif -%}
         </div>
         <div class="flex flex-col space-y-[21px] w-[226px] ml-auto">
           <button class="btn btn_primary !text-[17px] w-full uppercase add-new-address font-coutureBold font-bold change-password">
