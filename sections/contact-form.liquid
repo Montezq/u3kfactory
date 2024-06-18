@@ -109,6 +109,33 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('click', function (e) {
+    const target = e.target;
+    const customSelect = target.closest('.custom-select');
+    const allCustomSelects = document.querySelectorAll('.custom-select');
+    if (customSelect && target.closest('.select-trigger')) {
+      allCustomSelects.forEach((select) => {
+        if (select !== customSelect) {
+          select.classList.remove('open');
+        }
+      });
+      customSelect.classList.toggle('open');
+    } else if (customSelect && target.tagName === 'INPUT' && target.type === 'radio') {
+      customSelect.querySelectorAll('li').forEach((li) => {
+        li.classList.remove('selected');
+      });
+      target.closest('li').classList.add('selected');
+      const selectedText = target.nextElementSibling.textContent;
+      customSelect.querySelector('.selected-text').textContent = selectedText;
+      customSelect.classList.remove('open');
+    } else {
+      allCustomSelects.forEach((select) => {
+        select.classList.remove('open');
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
