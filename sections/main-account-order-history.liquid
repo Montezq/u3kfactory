@@ -39,7 +39,7 @@
                     &nbsp;Processing
                   {%- elsif order.tags contains 'ready-for-shipment' -%}
                     &nbsp;ready for shipment
-                  {%- elsif order.fulfillment_status_label == 'fulfilled' -%}
+                  {%- elsif order.fulfillment_status == 'fulfilled' -%}
                     &nbsp;in transit
                   {%- endif -%}
                 </p>
