@@ -3943,6 +3943,10 @@ input:focus-visible{
     display: none;
   }
 
+  .max-md\:\!hidden {
+    display: none !important;
+  }
+
   .max-md\:aspect-square {
     aspect-ratio: 1 / 1;
   }
