@@ -5015,6 +5015,15 @@ input:focus-visible{
             justify-content: space-between;
   }
 
+  .xl\:border-b {
+    border-bottom-width: 1px;
+  }
+
+  .xl\:border-b-\[\#8c8c8c\] {
+    --tw-border-opacity: 1;
+    border-bottom-color: rgb(140 140 140 / var(--tw-border-opacity));
+  }
+
   .xl\:text-\[25px\] {
     font-size: 25px;
   }
