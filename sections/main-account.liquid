@@ -467,6 +467,20 @@
         }
       }
     });
+
+    const changePasswordBtn = document.querySelector('.change-password'),
+      toggleChangePasswordBtn = document.querySelector('.toggle-change-password'),
+      manipulationMain = document.querySelector('.account-manipulations__wrapper'),
+      resetWrapper = document.querySelector('.reset-password__wrapper');
+
+    changePasswordBtn.addEventListener('click', () => {
+      manipulationMain.classList.add('hidden');
+      resetWrapper.classList.remove('hidden');
+    });
+    toggleChangePasswordBtn.addEventListener('click', () => {
+      manipulationMain.classList.remove('hidden');
+      resetWrapper.classList.add('hidden');
+    });
   });
 </script>
 {% schema %}
