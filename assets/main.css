@@ -4559,6 +4559,21 @@ input:focus-visible{
     border-bottom-color: rgb(140 140 140 / var(--tw-border-opacity));
   }
 
+  .md\:px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .md\:px-3\.5 {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+  }
+
+  .md\:py-\[18px\] {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
   .md\:pb-9 {
     padding-bottom: 2.25rem;
   }
