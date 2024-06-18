@@ -17,6 +17,7 @@
             </div>
             <div class="text-right">
               <p class="leading-none uppercase font-bold">Total {{ order.total_net_amount | money }}</p>
+              <p class="leading-none text-xs">{{ order.created_at | date }}</p>
             </div>
           </div>
         </li>
