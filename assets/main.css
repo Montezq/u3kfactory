@@ -4409,6 +4409,10 @@ input:focus-visible{
     width: 100%;
   }
 
+  .md\:w-\[325px\] {
+    width: 325px;
+  }
+
   .md\:max-w-96 {
     max-width: 24rem;
   }
