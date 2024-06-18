@@ -24,7 +24,7 @@
     {%- assign orders_count = 0 -%}
     <ul>
       {%- for order in customer.orders -%}
-        {%- if order.fulfillment_status_label == 'complete' -%}
+        {%- if order.fulfillment_status == 'complete' -%}
           {%- assign orders_count = orders_count | times: 1 -%}
           <li class="order">
             <div class="order__header p-1.5 border flex justify-between">
