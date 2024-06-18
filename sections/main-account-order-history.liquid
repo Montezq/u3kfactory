@@ -85,11 +85,12 @@
             </ul>
             <div class="md:w-[325px] w-full space-y-5 pb-5 max-xl:pt-6 xl:border-b xl:border-b-[#8c8c8c]">
               <a href="/pages/contact" class="btn btn_primary w-full uppercase !text-2xl">Contact Us</a>
-              <button
+              <a
+                href="{{ order.metafields.custom.order_tracking }}"
                 class="btn btn_primary w-full uppercase !text-2xl"
               >
                 Track order
-              </button>
+              </a>
               <div>
                 <button
                   class="btn btn_outlined w-full uppercase !text-2xl"
