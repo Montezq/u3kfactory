@@ -429,6 +429,27 @@
             id="reagarding"
             value="Delete account request from {{ customer.first_name }} {{ customer.last_name }}"
           >
+          <input
+            class="w-0 h-0 absolute top-0 left-0"
+            type="email"
+            name="contact[email]"
+            id="email"
+            value="{{ customer.email }}"
+          >
+          <input
+            class="w-0 h-0 absolute top-0 left-0"
+            type="email"
+            name="contact[email]"
+            id="email"
+            value="{{ customer.email }}"
+          >
+          <input
+            class="w-0 h-0 absolute top-0 left-0"
+            type="text"
+            name="contact[user_id]"
+            id="text"
+            value="User Profile https://admin.shopify.com/store/u3faktory/customers/{{ customer.id }}"
+          >
           <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">Yes, delete account</button>
         {% endform %}
       </div>
