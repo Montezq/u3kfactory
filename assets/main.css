@@ -986,6 +986,9 @@ video {
 .h-screen {
   height: 100vh;
 }
+.h-28 {
+  height: 7rem;
+}
 .max-h-\[360px\] {
   max-height: 360px;
 }
@@ -1211,6 +1214,9 @@ video {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.resize-none {
+  resize: none;
 }
 .resize {
   resize: both;
