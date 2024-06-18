@@ -1093,9 +1093,6 @@ video {
 .w-full {
   width: 100%;
 }
-.w-\[325px\] {
-  width: 325px;
-}
 .min-w-\[166px\] {
   min-width: 166px;
 }
@@ -1339,11 +1336,6 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(37px * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(37px * var(--tw-space-y-reverse));
-}
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 .overflow-auto {
   overflow: auto;
@@ -3474,6 +3466,11 @@ input:focus-visible{
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(45px, calc(10.84vh - 27px), 130px);
   }
+.main-account-order__heading {
+    padding-right: 1.25rem;
+    padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
+    height: clamp(83px, calc(14.05vh - 27px), 194px);
+  }
 }
 .my-account__body {
   padding-top: 56px;
@@ -4405,12 +4402,12 @@ input:focus-visible{
     width: 226px;
   }
 
-  .md\:w-full {
-    width: 100%;
-  }
-
   .md\:w-\[325px\] {
     width: 325px;
+  }
+
+  .md\:w-full {
+    width: 100%;
   }
 
   .md\:max-w-96 {
