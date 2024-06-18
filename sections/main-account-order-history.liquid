@@ -28,7 +28,9 @@
               <p class="leading-none uppercase text-xs font-bold">Status : {{ order.fulfillment_status_label }}</p>
             </div>
             <div class="text-right">
-              <p class="leading-none uppercase font-bold mb-1">Total {{ order.total_net_amount | money }}</p>
+              <p class="leading-none uppercase font-bold mb-1">
+                Total {{ order.total_net_amount | money_with_currency }}
+              </p>
               <p class="leading-none text-xs font-bold">{{ order.created_at | date: '%Y/%m/%d' }}</p>
             </div>
           </div>
