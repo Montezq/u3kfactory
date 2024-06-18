@@ -899,6 +899,9 @@ video {
 .mt-7 {
   margin-top: 1.75rem;
 }
+.mt-14 {
+  margin-top: 3.5rem;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -4111,6 +4114,10 @@ input:focus-visible{
 
   .md\:ml-auto {
     margin-left: auto;
+  }
+
+  .md\:mt-10 {
+    margin-top: 2.5rem;
   }
 
   .md\:flex {
