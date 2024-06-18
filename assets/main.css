@@ -1869,6 +1869,9 @@ video {
   font-size: 0.75rem;
   line-height: 1rem;
 }
+.text-\[10px\] {
+  font-size: 10px;
+}
 .\!font-extrabold {
   font-weight: 800 !important;
 }
