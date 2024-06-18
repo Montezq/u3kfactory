@@ -1669,6 +1669,9 @@ video {
 .pt-\[8\%\] {
   padding-top: 8%;
 }
+.pb-16 {
+  padding-bottom: 4rem;
+}
 .\!text-center {
   text-align: center !important;
 }
@@ -4120,6 +4123,10 @@ input:focus-visible{
     margin-top: 2.5rem;
   }
 
+  .md\:mb-\[61px\] {
+    margin-bottom: 61px;
+  }
+
   .md\:flex {
     display: -webkit-box;
     display: -webkit-flex;
@@ -4296,6 +4303,10 @@ input:focus-visible{
 
   .md\:pt-1\.5 {
     padding-top: 0.375rem;
+  }
+
+  .md\:pb-9 {
+    padding-bottom: 2.25rem;
   }
 
   .md\:text-right {
