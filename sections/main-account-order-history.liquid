@@ -200,7 +200,27 @@
   </div>
 </div>
 <script>
+  const cancelOrderButtons = document.querySelectorAll('.cancel-order');
+
+  cancelOrderButtons.forEach((button) => {
+    button.addEventListener('click', function () {
+      // Find the next sibling modal element
+      const modal = this.nextElementSibling;
+
+      if (modal && modal.classList.contains('remove-order__modal')) {
+        // Remove the 'hidden' class to show the modal
+        modal.classList.remove('hidden');
+      }
+    });
+  });
   document.addEventListener('DOMContentLoaded', function () {
+    if (event.target.classList.contains('remove-account__modal-close')) {
+      const modal = event.target.closest('.remove-order__modal');
+      if (modal) {
+        modal.classList.add('hidden');
+      }
+    }
+
     // Select all anchors with the class 'track-order'
     const trackOrderLinks = document.querySelectorAll('a.track-order');
 
