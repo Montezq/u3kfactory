@@ -22,7 +22,6 @@
     {%- assign orders_count = 0 -%}
     <ul>
       {%- for order in customer.orders -%}
-        {{ order.fulfillment_status }}
         {%- if order.cancelled == false or order.fulfillment_status != 'complete' -%}
           {%- assign orders_count = orders_count | times: 1 -%}
           <li class="order">
