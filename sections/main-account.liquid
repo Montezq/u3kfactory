@@ -302,87 +302,55 @@
       <div class="grid grid-cols-2 gap-8 justify-between">
         <div>
           <div>
-            {%- form 'reset_customer_password' -%}
-              {%- if form.errors -%}
-                <h2 class="form__message" tabindex="-1" autofocus>
-                  <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
-                  <svg aria-hidden="true" focusable="false">
-                    <use href="#icon-error" />
-                  </svg>
-                  {{ 'templates.contact.form.error_heading' | t }}
-                </h2>
-                <ul>
-                  {%- for field in form.errors -%}
-                    <li>
-                      {%- if field == 'form' -%}
-                        {{ form.errors.messages[field] }}
-                      {%- else -%}
-                        <a href="#{{ field }}">
-                          {{ form.errors.translated_fields[field] | capitalize }}
-                          {{ form.errors.messages[field] }}
-                        </a>
-                      {%- endif -%}
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              {%- endif -%}
-              <div class="field">
+            {%- form 'recover_customer_password' -%}
+              {% assign recover_success = form.posted_successfully? %}
+              <div class="field flex flex-col mb-8">
+                <div class="pl-4 mb-1 flex justify-between">
+                  <label for="RecoverEmail" class="text-[13px] font-axis">
+                    {{ 'customer.login_page.email' | t }}
+                  </label>
+                  <div class="form-errors">
+                    {%- if form.errors -%}
+                      {{ form.errors.messages.form }}
+                    {%- endif -%}
+                  </div>
+                </div>
                 <input
-                  type="password"
-                  name="customer[password]"
-                  id="password"
-                  autocomplete="new-password"
-                  {% if form.errors contains 'password' %}
+                  class="input-field"
+                  type="email"
+                  value=""
+                  name="email"
+                  id="RecoverEmail"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  {% if form.errors %}
                     aria-invalid="true"
-                    aria-describedby="password-error"
+                    aria-describedby="RecoverEmail-email-error"
+                    autofocus
                   {% endif %}
-                  placeholder="{{ 'customer.reset_password.password' | t }}"
                 >
-                <label for="password">
-                  {{ 'customer.reset_password.password' | t }}
-                </label>
-                {%- if form.errors contains 'password' -%}
-                  <small id="password-error" class="form__message">
-                    <svg aria-hidden="true" focusable="false">
-                      <use href="#icon-error" />
-                    </svg>
-                    {{ form.errors.translated_fields.password | capitalize }}
-                    {{ form.errors.messages.password }}
-                  </small>
-                {%- endif -%}
               </div>
-
-              <div class="field">
-                <input
-                  type="password"
-                  name="customer[password_confirmation]"
-                  id="password_confirmation"
-                  autocomplete="new-password"
-                  {% if form.errors contains 'password_confirmation' %}
-                    aria-invalid="true"
-                    aria-describedby="password_confirmation-error"
-                  {% endif %}
-                  placeholder="{{ 'customer.reset_password.password_confirm' | t }}"
-                >
-                <label for="password_confirmation">
-                  {{ 'customer.reset_password.password_confirm' | t }}
-                </label>
-                {%- if form.errors contains 'password_confirmation' -%}
-                  <small id="password_confirmation-error" class="form__message">
-                    <svg aria-hidden="true" focusable="false">
-                      <use href="#icon-error" />
-                    </svg>
-                    {{ form.errors.translated_fields.password_confirmation | capitalize }}
-                    {{ form.errors.messages.password_confirmation }}
-                  </small>
-                {%- endif -%}
+              <div class="flex justify-center mb-10">
+                <button class="btn btn_primary !font-coutureBold !text-[22px] !tracking-xwidest !leading-none !px-6">
+                  {{ 'customer.login_page.submit' | t }}
+                </button>
               </div>
-
-              <button>
-                {{ 'customer.reset_password.submit' | t }}
-              </button>
+              <div class="flex justify-center">
+                <a href="#login" class="flex justify-center items-center font-bold">
+                  <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Smartphone-Back-to-All-Products-Arrow"></span>
+                  <span class="text-sm uppercase font-bold ml-2 underline">
+                    {{ 'customer.login_page.cancel' | t }}
+                  </span>
+                </a>
+              </div>
             {%- endform -%}
           </div>
+          {%- if recover_success == true -%}
+            <h3 class="text-sm font-bold mb-2" tabindex="-1" autofocus>
+              {{ 'customer.recover_password.success' | t }}
+            </h3>
+          {%- endif -%}
         </div>
         <div class="flex flex-col space-y-[21px] w-[226px] ml-auto">
           <button class="btn btn_primary !text-[17px] w-full uppercase add-new-address font-coutureBold font-bold change-password">
