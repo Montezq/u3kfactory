@@ -14,7 +14,7 @@
           <div class="order__header p-1.5 border flex justify-between">
             <div>
               <p class="leading-none uppercase font-bold">Order No. {{ order.order_number }}</p>
-              <p class="leading-none uppercase font-bold">Status {{ order.fulfillment_status_label }}</p>
+              <p class="leading-none uppercase font-bold">Status : {{ order.fulfillment_status_label }}</p>
             </div>
             <div class="text-right">
               <p class="leading-none uppercase font-bold mb-1">Total {{ order.total_net_amount | money }}</p>
