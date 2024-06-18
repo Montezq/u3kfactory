@@ -302,7 +302,7 @@
       <div class="reset-password__wrapper">
         {%- form 'recover_customer_password' -%}
           <div class="grid grid-cols-2 gap-8 justify-between">
-            <div>
+            <div class="max-w-[525px]">
               {% assign recover_success = form.posted_successfully? %}
               {% if recover_success and customer %}
                 <script>
