@@ -1535,13 +1535,13 @@ video {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.py-\[5px\] {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
 .py-\[30vh\] {
   padding-top: 30vh;
   padding-bottom: 30vh;
+}
+.py-\[5px\] {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .pb-1 {
   padding-bottom: 0.25rem;
@@ -3036,7 +3036,8 @@ input:focus-visible{
 .cart-notification-wrapper-block,
 .login__modal-wrapper,
 .wishlist__modal-wrapper,
-.removed-wishlist__modal-wrapper{
+.removed-wishlist__modal-wrapper,
+.no-tracking-order__modal{
   -webkit-box-shadow: 6px 0 11px rgba(0, 0, 0, .35);
           box-shadow: 6px 0 11px rgba(0, 0, 0, .35);
 }
@@ -4634,16 +4635,16 @@ input:focus-visible{
     font-size: 29px;
   }
 
+  .md\:text-\[30px\] {
+    font-size: 30px;
+  }
+
   .md\:text-\[32px\] {
     font-size: 32px;
   }
 
   .md\:text-\[42px\] {
     font-size: 42px;
-  }
-
-  .md\:text-\[30px\] {
-    font-size: 30px;
   }
 
   .md\:text-gray-200 {
