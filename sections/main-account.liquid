@@ -420,8 +420,17 @@
           Are you sure?
         </p>
       </div>
-      <div class="remove-account__modal-footer text-center">
-        <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">Yes, delete account</button>
+      <div class="remove-account__modal-footer text-center relative">
+        {% form 'contact' %}
+          <input
+            class="w-0 h-0 absolute top-0 left-0"
+            type="text"
+            name="contact[regardin]"
+            id="reagarding"
+            value="Delete account request from {{ customer.first_name }} {{ customer.last_name }}"
+          >
+          <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">Yes, delete account</button>
+        {% endform %}
       </div>
     </div>
   </div>
