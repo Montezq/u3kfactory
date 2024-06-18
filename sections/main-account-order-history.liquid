@@ -59,7 +59,7 @@
                             {%- unless item.product.has_only_default_variant -%}
                               {%- for option in item.options_with_values -%}
                                 <div class="product-option leading-none">
-                                  <dd class="text-[21px] leading-none max-md:font-bold">
+                                  <dd class="text-[21px] leading-none font-bold">
                                     {{ option.value }}
                                   </dd>
                                 </div>
@@ -69,7 +69,7 @@
                               {%- assign property_first_char = property.first | slice: 0 -%}
                               {%- if property.last != blank and property_first_char != '_' -%}
                                 <div class="product-option leading-none">
-                                  <dd class="text-[21px] leading-none max-md:font-bold">
+                                  <dd class="text-[21px] leading-none font-bold">
                                     {{ property.last }}
                                   </dd>
                                 </div>
