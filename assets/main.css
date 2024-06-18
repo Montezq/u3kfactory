@@ -3356,7 +3356,7 @@ input:focus-visible{
     height: clamp(83px, calc(14.05vh - 27px), 196px);
   }
 .contact__body{
-    padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
+    padding-top: clamp(83px, calc(14.05vh - 27px), 196px);
 }
   }
 .search__body {
