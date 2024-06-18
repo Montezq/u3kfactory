@@ -365,7 +365,7 @@
                 Change Password
               </button>
               <button
-                class="btn btn_outlined !text-[17px] w-full uppercase font-coutureBold font-bold"
+                class="btn btn_outlined !text-[17px] w-full uppercase font-coutureBold font-bold delete-account-cta"
               >
                 Delete account
               </button>
@@ -397,7 +397,7 @@
       {%- endif -%}
     </div>
   </div>
-  <div class="remove-account__modal fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] md:w-full max-w-[320px]">
+  <div class="remove-account__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] md:w-full max-w-[320px]">
     <button
       type="button"
       class="remove-account__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-[34px] h-[34px] rounded-full bg-black leading-none flex justify-center items-center cursor-pointer"
@@ -421,9 +421,7 @@
         </p>
       </div>
       <div class="remove-account__modal-footer text-center">
-        <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">
-          Yes, delete account
-        </button>
+        <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">Yes, delete account</button>
       </div>
     </div>
   </div>
@@ -512,6 +510,24 @@
     toggleChangePasswordBtn.addEventListener('click', () => {
       manipulationMain.classList.remove('hidden');
       resetWrapper.classList.add('hidden');
+    });
+
+    var removeAccountOpen = document.querySelectorAll('.delete-account-cta'),
+      removeAccountModal = document.querySelector('.remove-account__modal'),
+      removeAccountClose = document.querySelectorAll('.remove-account__modal-close');
+
+    removeAccountOpen.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        removeAccountModal.classList.remove('hidden');
+      });
+    });
+
+    removeAccountClose.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        removeAccountModal.classList.add('hidden');
+      });
     });
   });
 </script>
