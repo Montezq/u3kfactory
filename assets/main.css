@@ -1284,6 +1284,9 @@ video {
 .gap-\[32px\] {
   gap: 32px;
 }
+.gap-\[50px\] {
+  gap: 50px;
+}
 .gap-x-8 {
   -webkit-column-gap: 2rem;
      -moz-column-gap: 2rem;
