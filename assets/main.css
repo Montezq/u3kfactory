@@ -3577,15 +3577,18 @@ input:focus-visible{
   }
 .contact__body-right{
   padding-right: clamp(0px, 16.25vw, 16.25vw);
+
 }
 @media screen and (max-width: 1560px){
 .contact__body-right{
     padding-right: clamp(0px, 11.25vw, 11.25vw);
+
 }
   }
-@media (min-width: 1024px){
+@media screen and (max-width: 1023px){
 .contact__body-right{
-    padding-right: 0px;
+    padding-right: clamp(0px, 11.25vw, 11.25vw);
+
 }
   }
 
