@@ -37,17 +37,58 @@
             </ul>
           </div>
         {%- endif -%}
-        <div class="field">
-          <input
-            class="field__input"
-            autocomplete="name"
-            type="text"
-            id="ContactForm-name"
-            name="contact[{{ 'templates.contact.form.name' | t }}]"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="{{ 'templates.contact.form.name' | t }}"
-          >
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+        <div class="field flex flex-col mb-5">
+          <div class="pl-4 mb-1 flex justify-between">
+            <label for="ContactForm-email" class="text-[13px] font-axis">
+              {{ 'customer.login_page.email' | t }}
+            </label>
+            <div>
+              <p class="text-right text-[14px] font-bold">*You will be contacted back on this email adress</p>
+            </div>
+          </div>
+          {%- for option in product.options_with_values -%}
+            <div class="custom-select relative">
+              {%- for value in option.values -%}
+                {% if option.selected_value == value %}
+                  <div class="select-trigger cursor-pointer border md:border-2 border-black flex h-12">
+                    <div class="flex items-center pl-2.5 flex-1">
+                      <span class="selected-text font-helveticaLight line-clamp-1 text-xl md:text-2xl text-black font-normal tracking-widerx">
+                        {{- value -}}
+                      </span>
+                    </div>
+                    <div class="w-11 select-icon md:border-l-2 border-black flex items-center justify-center">
+                      <span
+                        class="icon-FULL-ICON-SET-WEBSITE-FINAL_Dropdown-arrow font-semibold text-xl md:text-2xl duration-100 ease-in-out"
+                      ></span>
+                    </div>
+                  </div>
+                {% endif %}
+              {%- endfor -%}
+              <ul class="select-options hidden absolute z-[2] top-full -mt-[1px] md:-mt-[2px] left-0 border md:border-2 border-t-0 border-black bg-white">
+                {%- for value in option.values -%}
+                  <li class="custom-option{% if option.selected_value == value %} selected{% endif %}">
+                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        {% if option.selected_value == value %}
+                          checked
+                        {% endif %}
+                        type="radio"
+                        name="{{ option.name }}"
+                        value="{{- value -}}"
+                        class="invisible w-0 h-0"
+                      >
+                      <span
+                        data-id="{{ value | escape }}"
+                        class="line-clamp-1 text-xl md:text-2xl text-black tracking-widerx"
+                      >
+                        {{- value -}}
+                      </span>
+                    </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endfor -%}
         </div>
         <div class="field flex flex-col mb-5">
           <div class="pl-4 mb-1 flex justify-between">
