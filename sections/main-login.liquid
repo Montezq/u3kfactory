@@ -72,7 +72,7 @@
         {{ 'customer.recover_password.success' | t }}
       </h3>
     {%- endif -%}
-    {%- form 'customer_login', novalidate: 'novalidate' -%}
+    {%- form 'customer_login', novalidate: 'novalidate', return_to: routes.account_addresses_url -%}
       <div class="field flex flex-col mb-3.5">
         <div class="pl-4 mb-1 flex justify-between">
           <label for="CustomerEmail" class="text-[13px] font-axis">
