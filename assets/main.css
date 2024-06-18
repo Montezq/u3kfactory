@@ -3575,9 +3575,14 @@ input:focus-visible{
 .order__body-item:last-child{
     margin-bottom: 0;
   }
-@media (min-width: 1024px){
+@media screen and (max-width: 1600px){
 .contact__body-right{
     padding-right: clamp(0px, 16.25vw, 16.25vw);
+}
+  }
+@media screen and (max-width: 1400px){
+.contact__body-right{
+    padding-right: clamp(0px, 12.25vw, 12.25vw);
 }
   }
 
