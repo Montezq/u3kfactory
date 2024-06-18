@@ -135,6 +135,18 @@
           </div>
         </div>
         <div class="field flex flex-col mb-5">
+          <div class="pl-4 mb-1">
+            <label for="ContactForm-body" class="text-[13px] font-axis"> Your message </label>
+          </div>
+          <textarea
+            id="ContactForm-body"
+            class="input-field textarea-field resize-none h-28"
+            name="contact[{{ 'templates.contact.form.comment' | t }}]"
+          >
+            {{- form.body -}}
+          </textarea>
+        </div>
+        <div class="field flex flex-col mb-5">
           <div class="pl-4 mb-1 flex justify-between">
             <label for="ContactForm-email" class="text-[13px] font-axis">
               {{ 'customer.login_page.email' | t }}
@@ -156,20 +168,6 @@
               aria-invalid="true"
             {% endif %}
           >
-        </div>
-        <div class="field flex flex-col mb-5">
-          <div class="pl-4 mb-1">
-            <label for="ContactForm-body" class="text-[13px] font-axis">
-              {{ 'customer.login_page.email' | t }}
-            </label>
-          </div>
-          <textarea
-            id="ContactForm-body"
-            class="input-field textarea-field resize-none h-28"
-            name="contact[{{ 'templates.contact.form.comment' | t }}]"
-          >
-            {{- form.body -}}
-          </textarea>
         </div>
         <div class="contact__button flex justify-center mb-8">
           <button
