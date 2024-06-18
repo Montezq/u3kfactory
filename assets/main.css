@@ -3493,13 +3493,7 @@ input:focus-visible{
 }
   }
 .my-account__body {
-  padding-top: 56px;
-}
-@media (min-width: 768px) {
-
-  .my-account__body {
-    padding-top: 60px;
-  }
+  padding-top: 106px;
 }
 @media (min-width: 1024px){
 .my-account__body{
@@ -4580,10 +4574,6 @@ input:focus-visible{
     padding-top: 0.375rem;
   }
 
-  .md\:pt-2 {
-    padding-top: 0.5rem;
-  }
-
   .md\:text-right {
     text-align: right;
   }
@@ -4907,16 +4897,16 @@ input:focus-visible{
     padding-right: 27px;
   }
 
+  .lg\:pt-2 {
+    padding-top: 0.5rem;
+  }
+
   .lg\:pt-\[14vh\] {
     padding-top: 14vh;
   }
 
   .lg\:pt-\[27px\] {
     padding-top: 27px;
-  }
-
-  .lg\:pt-2 {
-    padding-top: 0.5rem;
   }
 
   .lg\:text-6xl {
