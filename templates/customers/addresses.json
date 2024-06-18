@@ -1,7 +1,10 @@
 {
   "sections": {
     "main": {
-      "type": "main-account"
+      "type": "main-account",
+      "settings": {
+        "privacy_menu": "footer"
+      }
     }
   },
   "order": [
