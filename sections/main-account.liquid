@@ -306,11 +306,6 @@
           <div class="grid grid-cols-2 gap-8 justify-between">
             <div class="max-w-[525px]">
               {% assign recover_success = form.posted_successfully? %}
-              {% if recover_success and customer %}
-                <script>
-                  window.location = '/account/addresses';
-                </script>
-              {% endif %}
               {%- if recover_success == true -%}
                 <h3 class="text-sm font-bold mb-2" tabindex="-1" autofocus>
                   {{ 'customer.recover_password.success' | t }}
