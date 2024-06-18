@@ -142,14 +142,10 @@
         if (this.getAttribute('href') === '#') {
           event.preventDefault(); // Prevent the default anchor action
 
-          // Target element to show/hide (replace '#target-element-id' with your element's ID or selector)
-          const targetElement = document.querySelector('#target-element-id');
+          const targetElement = document.querySelector('.no-tracking-order__modal');
 
           if (targetElement) {
-            // Remove the 'hidden' class
             targetElement.classList.remove('hidden');
-
-            // Wait for 2 seconds (2000 milliseconds) and add the 'hidden' class back
             setTimeout(() => {
               targetElement.classList.add('hidden');
             }, 2000);
