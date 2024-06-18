@@ -83,3 +83,6 @@ class CustomerAddresses {
     }
   };
 }
+const changePasswordBtn = document.querySelector('.change-password'),
+      toggleChangePasswordBtn = document.querySelector('.toggle-change-password'),      manipulationMain = document.querySelector('.account-manipulations__wrapper'),
+      resetWrapper = document.querySelector('.reset-password__wrapper')
