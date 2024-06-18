@@ -144,7 +144,7 @@
                         <p class="text-[22px] text-center font-bold leading-snug">Are you sure?</p>
                       </div>
                       <div class="remove-account__modal-footer text-center relative">
-                        {% form 'contact' %}
+                        {% form 'contact', return_to: '/account?view=order-history-active' %}
                           <input
                             class="w-0 h-0 absolute top-0 left-0"
                             type="text"
