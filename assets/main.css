@@ -3491,6 +3491,12 @@ input:focus-visible{
 .new-address__grid-col .field:last-child{
       margin-bottom: 0;
     }
+.order{
+  margin-bottom: clamp(110px, 16.53vh, 217px);
+}
+.order:last-child{
+    margin-bottom: 0;
+  }
 .order__header{
   margin-bottom: clamp(32px, 4.5vh, 49px);
 }
