@@ -36,11 +36,11 @@
                 <p class="leading-none uppercase text-xs font-bold">
                   Status :
                   {%- if order.tags contains 'processing' -%}
-                    Processing
+                    &nbsp;Processing
                   {%- elsif order.tags contains 'ready-for-shipment' -%}
-                    ready for shipment
+                    &nbsp;ready for shipment
                   {%- elsif order.fulfillment_status_label == 'fulfilled' -%}
-                    in transit
+                    &nbsp;in transit
                   {%- endif -%}
                 </p>
               </div>
