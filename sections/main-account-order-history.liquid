@@ -213,7 +213,7 @@
       }
     });
   });
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('click', function (event) {
     if (
       event.target.classList.contains('remove-account__modal-close') ||
       event.target.classList.contains('modal__close-button')
@@ -223,7 +223,8 @@
         modal.classList.add('hidden');
       }
     }
-    // Select all anchors with the class 'track-order'
+  });
+  document.addEventListener('DOMContentLoaded', function () {
     const trackOrderLinks = document.querySelectorAll('a.track-order');
 
     // Function to handle the click event
