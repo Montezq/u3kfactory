@@ -3478,13 +3478,7 @@ input:focus-visible{
   }
 }
 .my-account-order__body {
-  padding-top: 56px;
-}
-@media (min-width: 768px) {
-
-  .my-account-order__body {
-    padding-top: 60px;
-  }
+  padding-top: 106px;
 }
 @media (min-width: 1024px){
 .my-account-order__body{
@@ -3493,7 +3487,13 @@ input:focus-visible{
 }
   }
 .my-account__body {
-  padding-top: 106px;
+  padding-top: 56px;
+}
+@media (min-width: 768px) {
+
+  .my-account__body {
+    padding-top: 60px;
+  }
 }
 @media (min-width: 1024px){
 .my-account__body{
