@@ -285,13 +285,16 @@
           >
             Edit Address
           </button>
-          <button
-            class="btn btn_outlined !text-[17px] w-full uppercase delete-address-button font-coutureBold font-bold"
-            data-target="/account/addresses/{{ address_id }}"
-            data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"
-          >
-            Remove Address
-          </button>
+          <div>
+            <button
+              class="btn btn_outlined !text-[17px] w-full uppercase delete-address-button font-coutureBold font-bold"
+              data-target="/account/addresses/{{ address_id }}"
+              data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"
+            >
+              Remove Address
+            </button>
+            <div class="md:hidden text-right text-sm font-bold">*Buttons affect selected address</div>
+          </div>
         </div>
       </div>
     </div>
