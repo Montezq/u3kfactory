@@ -60,7 +60,7 @@
                   <input
                     checked
                     type="radio"
-                    name="Order Problems"
+                    name="contact[regarding]"
                     value="Order Problems"
                     class="invisible w-0 h-0"
                   >
@@ -74,19 +74,60 @@
               <li class="custom-option">
                 <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
                   <input
-                    {% if option.selected_value == value %}
-                      checked
-                    {% endif %}
                     type="radio"
-                    name="{{ option.name }}"
-                    value="{{- value -}}"
+                    name="contact[regarding]"
+                    value="Payment Issues"
                     class="invisible w-0 h-0"
                   >
                   <span
-                    data-id="{{ value | escape }}"
                     class="line-clamp-1 text-xl md:text-2xl text-black tracking-widerx"
                   >
-                    {{- value -}}
+                    Payment Issues
+                  </span>
+                </label>
+              </li>
+              <li class="custom-option">
+                <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                  <input
+                    type="radio"
+                    name="contact[regarding]"
+                    value="Inquire About Bigger Sizes"
+                    class="invisible w-0 h-0"
+                  >
+                  <span
+                    class="line-clamp-1 text-xl md:text-2xl text-black tracking-widerx"
+                  >
+                    Inquire about bigger sizes
+                  </span>
+                </label>
+              </li>
+              <li class="custom-option">
+                <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                  <input
+                    type="radio"
+                    name="contact[regarding]"
+                    value="Refund Request"
+                    class="invisible w-0 h-0"
+                  >
+                  <span
+                    class="line-clamp-1 text-xl md:text-2xl text-black tracking-widerx"
+                  >
+                    Refund Request
+                  </span>
+                </label>
+              </li>
+              <li class="custom-option">
+                <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                  <input
+                    type="radio"
+                    name="contact[regarding]"
+                    value="Other"
+                    class="invisible w-0 h-0"
+                  >
+                  <span
+                    class="line-clamp-1 text-xl md:text-2xl text-black tracking-widerx"
+                  >
+                    Other
                   </span>
                 </label>
               </li>
