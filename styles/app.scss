@@ -875,7 +875,11 @@ accordion-item.open,
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
 }
-.cart__footer-wrapper{
+.my-account__footer{
+  left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
+}
+.cart__footer-wrapper,
+.my-account__footer{
   @apply max-lg:px-[18px];
   @apply max-md:px-[8px];
   @apply max-md:pb-[7px];
@@ -1146,10 +1150,32 @@ accordion-item.open,
     margin-top: 8px
   }
 }
-
-
-
-
+.main-account__heading{
+  @apply lg:pr-5;
+  @screen lg{
+    padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
+    height: clamp(45px, calc(10.84vh - 27px), 130px);
+  }
+}
+.my-account__body{
+  @apply pt-[56px];
+  @apply md:pt-[60px];
+  @screen lg{
+    padding-top: clamp(80px, calc(19.47vh - 27px), 273px);
+    padding-bottom: clamp(92px,9.2vh,154px);
+  }
+}
+.my-account__body-item-heading{
+  padding-bottom: clamp(37px, 6.34vh, 69px);
+}
+.new-address__grid-col{
+  .field{
+    margin-bottom: clamp(25px, 2.30vh, 32px);
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
 
 
 

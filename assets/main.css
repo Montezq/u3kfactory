@@ -815,6 +815,9 @@ video {
 .mb-\[42px\] {
   margin-bottom: 42px;
 }
+.mb-\[61px\] {
+  margin-bottom: 61px;
+}
 .mb-\[90px\] {
   margin-bottom: 90px;
 }
@@ -862,6 +865,9 @@ video {
 }
 .mt-1 {
   margin-top: 0.25rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
 }
 .mt-2 {
   margin-top: 0.5rem;
@@ -947,6 +953,12 @@ video {
 .h-12 {
   height: 3rem;
 }
+.h-3 {
+  height: 0.75rem;
+}
+.h-3\.5 {
+  height: 0.875rem;
+}
 .h-7 {
   height: 1.75rem;
 }
@@ -1001,6 +1013,9 @@ video {
 .w-3 {
   width: 0.75rem;
 }
+.w-3\.5 {
+  width: 0.875rem;
+}
 .w-4 {
   width: 1rem;
 }
@@ -1027,6 +1042,12 @@ video {
 }
 .w-\[17px\] {
   width: 17px;
+}
+.w-\[226px\] {
+  width: 226px;
+}
+.w-\[240px\] {
+  width: 240px;
 }
 .w-\[26px\] {
   width: 26px;
@@ -1084,6 +1105,9 @@ video {
 .max-w-\[136px\] {
   max-width: 136px;
 }
+.max-w-\[210px\] {
+  max-width: 210px;
+}
 .max-w-\[212px\] {
   max-width: 212px;
 }
@@ -1118,6 +1142,9 @@ video {
 }
 .max-w-none {
   max-width: none;
+}
+.max-w-\[468px\] {
+  max-width: 468px;
 }
 .flex-1 {
   -webkit-box-flex: 1;
@@ -1239,8 +1266,14 @@ video {
 .gap-6 {
   gap: 1.5rem;
 }
+.gap-8 {
+  gap: 2rem;
+}
 .gap-\[1\.1rem\] {
   gap: 1.1rem;
+}
+.gap-\[32px\] {
+  gap: 32px;
 }
 .gap-x-\[20px\] {
   -webkit-column-gap: 20px;
@@ -1278,10 +1311,20 @@ video {
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }
+.space-y-\[21px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(21px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(21px * var(--tw-space-y-reverse));
+}
 .space-y-\[26px\] > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(26px * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(26px * var(--tw-space-y-reverse));
+}
+.space-y-\[37px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(37px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(37px * var(--tw-space-y-reverse));
 }
 .overflow-auto {
   overflow: auto;
@@ -1303,6 +1346,9 @@ video {
 .whitespace-nowrap {
   white-space: nowrap;
 }
+.rounded-\[4px\] {
+  border-radius: 4px;
+}
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1313,6 +1359,9 @@ video {
   border-width: 0px;
 }
 .border-2 {
+  border-width: 2px;
+}
+.border-\[2px\] {
   border-width: 2px;
 }
 .border-b {
@@ -1390,6 +1439,9 @@ video {
 }
 .p-1\.5 {
   padding: 0.375rem;
+}
+.p-2 {
+  padding: 0.5rem;
 }
 .\!px-3 {
   padding-left: 0.75rem !important;
@@ -1639,6 +1691,9 @@ video {
 .\!text-2xl {
   font-size: 1.5rem !important;
   line-height: 2rem !important;
+}
+.\!text-\[17px\] {
+  font-size: 17px !important;
 }
 .\!text-\[20px\] {
   font-size: 20px !important;
@@ -3028,16 +3083,21 @@ input:focus-visible{
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
   }
+.my-account__footer{
+  left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
+}
 @media not all and (min-width: 1024px) {
 
-  .cart__footer-wrapper {
+  .cart__footer-wrapper,
+.my-account__footer {
     padding-left: 18px;
     padding-right: 18px;
   }
 }
 @media not all and (min-width: 768px) {
 
-  .cart__footer-wrapper {
+  .cart__footer-wrapper,
+.my-account__footer {
     padding-left: 8px;
     padding-right: 8px;
     padding-bottom: 7px;
@@ -3045,7 +3105,8 @@ input:focus-visible{
   }
 }
 @media (min-width: 768px){
-.cart__footer-wrapper{
+.cart__footer-wrapper,
+.my-account__footer{
     height: clamp(92px, 9.2vh, 154px);
 }
   }
@@ -3380,10 +3441,38 @@ input:focus-visible{
     margin-top: 8px;
 }
   }
+@media (min-width: 1024px) {
 
+  .main-account__heading {
+    padding-right: 1.25rem;
+    padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
+    height: clamp(45px, calc(10.84vh - 27px), 130px);
+  }
+}
+.my-account__body {
+  padding-top: 56px;
+}
+@media (min-width: 768px) {
 
-
-
+  .my-account__body {
+    padding-top: 60px;
+  }
+}
+@media (min-width: 1024px){
+.my-account__body{
+    padding-top: clamp(80px, calc(19.47vh - 27px), 273px);
+    padding-bottom: clamp(92px,9.2vh,154px);
+}
+  }
+.my-account__body-item-heading{
+  padding-bottom: clamp(37px, 6.34vh, 69px);
+}
+.new-address__grid-col .field{
+    margin-bottom: clamp(25px, 2.30vh, 32px);
+  }
+.new-address__grid-col .field:last-child{
+      margin-bottom: 0;
+    }
 
 
 
@@ -3397,17 +3486,9 @@ input:focus-visible{
 
 
 
-
-
-
-
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
-
-
-
-
 
 
 
@@ -3417,17 +3498,9 @@ input:focus-visible{
 
 
 
-
-
-
-
 .placeholder\:tracking-wider:-ms-input-placeholder {
   letter-spacing: .04em;
 }
-
-
-
-
 
 
 
@@ -3437,17 +3510,9 @@ input:focus-visible{
 
 
 
-
-
-
-
 .placeholder\:tracking-wider::placeholder {
   letter-spacing: .04em;
 }
-
-
-
-
 
 
 
@@ -3458,18 +3523,10 @@ input:focus-visible{
 
 
 
-
-
-
-
 .placeholder\:text-white::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-
-
-
-
 
 
 
@@ -3480,18 +3537,10 @@ input:focus-visible{
 
 
 
-
-
-
-
 .placeholder\:text-white::-ms-input-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-
-
-
-
 
 
 
@@ -3502,18 +3551,10 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
 }
-
-
-
-
 
 
 
@@ -3524,18 +3565,10 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:left-1\/2::after {
   content: var(--tw-content);
   left: 50%;
 }
-
-
-
-
 
 
 
@@ -3546,18 +3579,10 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:top-0::after {
   content: var(--tw-content);
   top: 0px;
 }
-
-
-
-
 
 
 
@@ -3568,18 +3593,10 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:top-full::after {
   content: var(--tw-content);
   top: 100%;
 }
-
-
-
-
 
 
 
@@ -3590,18 +3607,10 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:h-\[1px\]::after {
   content: var(--tw-content);
   height: 1px;
 }
-
-
-
-
 
 
 
@@ -3612,18 +3621,10 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:w-\[1px\]::after {
   content: var(--tw-content);
   width: 1px;
 }
-
-
-
-
 
 
 
@@ -3634,18 +3635,10 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:min-w-\[180px\]::after {
   content: var(--tw-content);
   min-width: 180px;
 }
-
-
-
-
 
 
 
@@ -3656,10 +3649,6 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:max-w-\[278px\]::after {
   content: var(--tw-content);
   max-width: 278px;
@@ -3667,18 +3656,10 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:max-w-\[465px\]::after {
   content: var(--tw-content);
   max-width: 465px;
 }
-
-
-
-
 
 
 
@@ -3693,19 +3674,11 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:bg-black::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
-
-
-
-
 
 
 
@@ -3717,10 +3690,6 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:bg-white::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
@@ -3729,18 +3698,10 @@ input:focus-visible{
 
 
 
-
-
-
-
 .after\:content-\[\'\'\]::after {
   --tw-content: '';
   content: var(--tw-content);
 }
-
-
-
-
 
 
 
@@ -3757,11 +3718,11 @@ input:focus-visible{
 
 
 
-
-
-
-
 @media not all and (min-width: 1024px) {
+
+  .max-lg\:left-0 {
+    left: 0px;
+  }
 
   .max-lg\:-order-1 {
     -webkit-box-ordinal-group: 0;
@@ -3895,10 +3856,6 @@ input:focus-visible{
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-
-
-
-
 
 
 
@@ -4067,10 +4024,6 @@ input:focus-visible{
 
 
 
-
-
-
-
 @media (min-width: 640px) {
 
   .sm\:max-w-\[350px\] {
@@ -4085,10 +4038,6 @@ input:focus-visible{
     font-size: 30px;
   }
 }
-
-
-
-
 
 
 
@@ -4355,12 +4304,12 @@ input:focus-visible{
     font-size: 29px;
   }
 
-  .md\:text-\[42px\] {
-    font-size: 42px;
-  }
-
   .md\:text-\[32px\] {
     font-size: 32px;
+  }
+
+  .md\:text-\[42px\] {
+    font-size: 42px;
   }
 
   .md\:text-gray-200 {
@@ -4368,10 +4317,6 @@ input:focus-visible{
     color: rgb(95 95 95 / var(--tw-text-opacity));
   }
 }
-
-
-
-
 
 
 
@@ -4616,6 +4561,10 @@ input:focus-visible{
     padding-right: 20px;
   }
 
+  .lg\:pr-\[27px\] {
+    padding-right: 27px;
+  }
+
   .lg\:pt-\[14vh\] {
     padding-top: 14vh;
   }
@@ -4722,10 +4671,6 @@ input:focus-visible{
 
 
 
-
-
-
-
 @media (min-width: 1280px) {
 
   .xl\:w-\[61\%\] {
@@ -4751,10 +4696,6 @@ input:focus-visible{
 
 
 
-
-
-
-
 @media (min-width: 1536px) {
 
   .\32xl\:text-\[74px\] {
@@ -4764,20 +4705,25 @@ input:focus-visible{
 
 
 
-
-
-
-
 .\[\&\>a\]\:border-b-0>a {
   border-bottom-width: 0px;
 }
 
 
 
-
-
-
-
 .\[\&\>a\]\:pb-0>a {
   padding-bottom: 0px;
+}
+
+
+
+.\[\&\>p\]\:text-sm>p {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+
+
+.\[\&\>p\]\:font-bold>p {
+  font-weight: 700;
 }
