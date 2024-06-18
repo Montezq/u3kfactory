@@ -1,6 +1,14 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-<div class="customer order "></div>
+<div class="customer order max-lg:px-4">
+  <div
+    id="bar"
+    class="ds_element dissapearing main-account__heading max-lg:py-3 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out flex justify-center"
+  >
+    <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">Prefererences</h1>
+  </div>
+  <div class="my-account__body max-md:pb-6"></div>
+</div>
 
 {% schema %}
 {
