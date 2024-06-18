@@ -296,6 +296,17 @@
     }
   });
   document.addEventListener('DOMContentLoaded', function () {
+    if (window.location.hash === '#contact_form') {
+      const modalCanceledOrder = document.querySelector('.order-canceled__modal');
+
+      if (modal) {
+        modalCanceledOrder.classList.remove('hidden');
+        setTimeout(() => {
+          modalCanceledOrder.classList.add('hidden');
+        }, 2000);
+      }
+    }
+
     const trackOrderLinks = document.querySelectorAll('a.track-order');
 
     // Function to handle the click event
