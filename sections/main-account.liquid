@@ -31,7 +31,7 @@
       <div class="hidden new-address">
         <div id="AddAddress">
           {%- form 'customer_address', customer.new_address -%}
-            <div class="grid md:grid-cols-2 gap-[32px] justify-between">
+            <div class="grid md:grid-cols-2 gap-[32px] md:justify-between">
               <div class="new-address__grid-col max-w-[468px]">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
@@ -137,7 +137,7 @@
       {%- for address in customer.addresses -%}
         <div id="EditAddress_address-{{ address.id }}" class="hidden edit-address">
           {%- form 'customer_address', address -%}
-            <div class="grid md:grid-cols-2 gap-[32px] justify-between">
+            <div class="grid md:grid-cols-2 gap-[32px] md:justify-between">
               <div class="new-address__grid-col max-w-[468px]">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
@@ -245,7 +245,7 @@
           {%- endform -%}
         </div>
       {%- endfor -%}
-      <div data-current-address class="grid md:grid-cols-2 gap-8 justify-between current-address">
+      <div data-current-address class="grid md:grid-cols-2 gap-8 md:justify-between current-address">
         <div class="space-y-[37px]">
           {%- for address in customer.addresses -%}
             {% if forloop.index == 1 %}
@@ -303,10 +303,10 @@
       </div>
       <div class="reset-password__wrapper hidden">
         {%- form 'recover_customer_password' -%}
-          <div class="grid md:grid-cols-2 gap-8 justify-between">
+          <div class="grid md:grid-cols-2 gap-8 md:justify-between">
             <div class="max-w-[525px]">
               <div class="field flex flex-col mb-8">
-                <div class="pl-4 mb-1 flex justify-between">
+                <div class="pl-4 mb-1 flex md:justify-between">
                   <label for="RecoverEmail" class="text-[13px] font-axis">
                     {{ 'customer.login_page.email' | t }}
                   </label>
@@ -348,7 +348,7 @@
         {%- endform -%}
       </div>
       <div class="account-manipulations__wrapper">
-        <div class="grid md:grid-cols-2 gap-8 justify-between">
+        <div class="grid md:grid-cols-2 gap-8 md:justify-between">
           <div></div>
           <div>
             <div class="flex flex-col space-y-[21px] md:w-[226px] ml-auto">
@@ -369,7 +369,7 @@
   <div
     class="my-account__footer fixed bottom-0 bg-gray-10 lg:bg-white max-lg:left-0 right-0 lg:pr-[27px]"
   >
-    <div class="cart__footer isolate flex items-center justify-between h-full">
+    <div class="cart__footer isolate flex items-center md:justify-between h-full">
       {%- if section.settings.privacy_menu.links -%}
         <div class="max-md:hidden">
           <ul class="cart__footer-privacy-menu flex items-center flex-wrap">
