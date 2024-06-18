@@ -237,14 +237,14 @@
   unavailableCancelOrderButtons.forEach((button) => {
     button.addEventListener('click', function () {
       if (modal) {
-        modal.classList.remove('fixed');
+        modal.classList.remove('hidden');
       }
     });
   });
   document.addEventListener('click', function (event) {
     if (event.target.classList.contains('remove-unavailable-order__modal-close')) {
       if (modal) {
-        modal.classList.add('fixed');
+        modal.classList.add('hidden');
       }
     }
   });
@@ -254,7 +254,7 @@
     if (event.target.classList.contains('remove-unavailable-order__modal-close')) {
       const modal = event.target.closest('.remove-unavailable-order__modal');
       if (modal) {
-        modal.classList.add('fixed');
+        modal.classList.add('hidden');
       }
     }
   });
