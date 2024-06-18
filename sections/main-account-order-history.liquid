@@ -234,7 +234,7 @@
   const unavailableCancelOrderButtons = document.querySelectorAll('.unavailable-cancel-order');
   const modal = document.querySelector('.remove-unavailable-order__modal');
 
-  cancelOrderButtons.forEach((button) => {
+  unavailableCancelOrderButtons.forEach((button) => {
     button.addEventListener('click', function () {
       if (modal) {
         modal.classList.remove('fixed');
