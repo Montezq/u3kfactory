@@ -232,17 +232,21 @@
 <script>
   const cancelOrderButtons = document.querySelectorAll('.cancel-order');
   const unavailableCancelOrderButtons = document.querySelectorAll('.unavailable-cancel-order');
+  const modal = document.querySelector('.remove-unavailable-order__modal');
 
-  unavailableCancelOrderButtons.forEach((button) => {
+  cancelOrderButtons.forEach((button) => {
     button.addEventListener('click', function () {
-      // Find the next sibling modal element
-      const modal = this.nextElementSibling;
-
-      if (modal && modal.classList.contains('remove-unavailable-order__modal')) {
-        // Remove the 'fixed' class to show the modal
+      if (modal) {
         modal.classList.remove('fixed');
       }
     });
+  });
+  document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('remove-unavailable-order__modal-close')) {
+      if (modal) {
+        modal.classList.add('fixed');
+      }
+    }
   });
 
   // Function to close the modal when the close button is clicked
