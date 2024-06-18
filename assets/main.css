@@ -3953,6 +3953,10 @@ input:focus-visible{
         -ms-flex-direction: column;
             flex-direction: column;
   }
+
+  .max-xl\:pt-6 {
+    padding-top: 1.5rem;
+  }
 }
 
 
