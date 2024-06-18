@@ -1123,6 +1123,9 @@ video {
 .max-w-\[360px\] {
   max-width: 360px;
 }
+.max-w-\[468px\] {
+  max-width: 468px;
+}
 .max-w-\[471px\] {
   max-width: 471px;
 }
@@ -1142,9 +1145,6 @@ video {
 }
 .max-w-none {
   max-width: none;
-}
-.max-w-\[468px\] {
-  max-width: 468px;
 }
 .flex-1 {
   -webkit-box-flex: 1;
