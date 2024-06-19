@@ -190,7 +190,6 @@
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
-
     {% sections 'header-group' %}
     <main
       id="MainContent"
@@ -198,7 +197,7 @@
       role="main"
       tabindex="-1"
     >
-      <div class="max-lg:hidden fixed w-[80vw] top-0 right-0 desktop-search-wrapper flex justify-end z-[4]{% if template.name != "index" %} bg-white{% endif %}">
+      <div class="max-lg:hidden fixed w-[80vw] top-0 right-0 desktop-search-wrapper flex justify-end z-[4]{% if template.name != "index" and template != '404' %} bg-white{% endif %}">
         <form
           action="{{ routes.search_url }}"
           class="flex items-end"

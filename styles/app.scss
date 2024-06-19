@@ -1026,6 +1026,12 @@ accordion-item.open,
     }
   }
 }
+.main-404{
+  height: calc(100vh - 27px);
+  @media screen and (max-width: 1024px){
+    height: calc(100vh - 67px);
+  }
+}
 .cooming-soon__category-email{
   margin-top: clamp(70px, 22vh, 208px);
   @media screen and (max-width: 767px){
@@ -1063,16 +1069,23 @@ accordion-item.open,
 }
 .heading__search, 
 .my-favorites__heading,
-.contact__heading{
+.contact__heading,
+.custom-page__heading{
   @apply lg:pr-5;
   @screen lg{
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(83px, calc(14.05vh - 27px), 196px);
   }
 }
+.custom-page__body,
 .contact__body{
   @screen lg{
     padding-top: clamp(83px, calc(14.05vh - 27px), 196px);
+  }
+}
+.contact__body-wrapper{
+  @screen lg{
+    padding: 10vh 0;
   }
 }
 .search__body{
@@ -1220,12 +1233,47 @@ accordion-item.open,
 }
 .contact__body-right{
   padding-right: clamp(0px, 16.25vw, 16.25vw);
+
   @media screen and (max-width: 1560px){
-    padding-right: clamp(0px, 12.25vw, 12.25vw)
+    padding-right: clamp(0px, 11.25vw, 11.25vw);
   }
-  @screen lg{
-    padding-right: 0px;
+  @media screen and (max-width: 1023px){
+    padding-right: clamp(0px, 11.25vw, 11.25vw);
   }
+}
+.main-404__h3{
+  @media screen and (max-width: 637px){
+    font-size: 3.8vw;
+  }
+}
+.custom-page__images{
+  margin-bottom: 36px;
+  @screen md{
+    margin-bottom: clamp(32px, 6.34vh, 6.34vh)
+  }
+  &.grid{
+    @screen md{
+      gap: clamp(27px, 4vw, 4vw);
+    }
+  }
+}
+.custom-page__content{
+  &>*{
+    margin-bottom: clamp(32px, 3.95vh, 3.95vh);
+    font-size: 20px;
+    @apply tracking-wider;
+    @apply leading-snug;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  & *{
+    font-family: 'Times New Roman', sans-serif !important;
+  }
+}
+.artist-page__contacts{
+  margin-top: clamp(32px, 8.36vh, 8.36vh);
+  margin-bottom: clamp(32px, 5.33vh, 5.33vh);
 }
 
 
