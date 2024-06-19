@@ -272,9 +272,11 @@
       boydEl = document.querySelector('body');
     contactOpen.addEventListener('click', () => {
       contactModal.classList.remove('hidden');
+      boydEl.classList.ad('hidden');
     });
     contactClose.addEventListener('click', () => {
       contactModal.classList.add('hidden');
+      boydEl.classList.remove('hidden');
     });
     document.addEventListener('click', function (e) {
       const target = e.target;
