@@ -3634,6 +3634,13 @@ input:focus-visible{
     font-size: 3.8vw;
 }
   }
+@media (min-width: 768px){
+.custom-page__images.grid{
+    gap: clamp(27px, 4vw, 4vw);
+}
+  }
+
+
 
 
 
@@ -3655,9 +3662,13 @@ input:focus-visible{
 
 
 
+
+
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
+
+
 
 
 
@@ -3675,9 +3686,13 @@ input:focus-visible{
 
 
 
+
+
 .placeholder\:tracking-wider:-ms-input-placeholder {
   letter-spacing: .04em;
 }
+
+
 
 
 
@@ -3695,9 +3710,13 @@ input:focus-visible{
 
 
 
+
+
 .placeholder\:tracking-wider::placeholder {
   letter-spacing: .04em;
 }
+
+
 
 
 
@@ -3716,10 +3735,14 @@ input:focus-visible{
 
 
 
+
+
 .placeholder\:text-white::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
+
 
 
 
@@ -3738,10 +3761,14 @@ input:focus-visible{
 
 
 
+
+
 .placeholder\:text-white::-ms-input-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
+
 
 
 
@@ -3760,10 +3787,14 @@ input:focus-visible{
 
 
 
+
+
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
 }
+
+
 
 
 
@@ -3782,10 +3813,14 @@ input:focus-visible{
 
 
 
+
+
 .after\:left-0::after {
   content: var(--tw-content);
   left: 0px;
 }
+
+
 
 
 
@@ -3804,10 +3839,14 @@ input:focus-visible{
 
 
 
+
+
 .after\:left-full::after {
   content: var(--tw-content);
   left: 100%;
 }
+
+
 
 
 
@@ -3826,10 +3865,14 @@ input:focus-visible{
 
 
 
+
+
 .after\:top-1\/2::after {
   content: var(--tw-content);
   top: 50%;
 }
+
+
 
 
 
@@ -3848,10 +3891,14 @@ input:focus-visible{
 
 
 
+
+
 .after\:block::after {
   content: var(--tw-content);
   display: block;
 }
+
+
 
 
 
@@ -3870,10 +3917,14 @@ input:focus-visible{
 
 
 
+
+
 .after\:h-\[57px\]::after {
   content: var(--tw-content);
   height: 57px;
 }
+
+
 
 
 
@@ -3892,10 +3943,14 @@ input:focus-visible{
 
 
 
+
+
 .after\:w-\[80\%\]::after {
   content: var(--tw-content);
   width: 80%;
 }
+
+
 
 
 
@@ -3914,10 +3969,14 @@ input:focus-visible{
 
 
 
+
+
 .after\:min-w-\[180px\]::after {
   content: var(--tw-content);
   min-width: 180px;
 }
+
+
 
 
 
@@ -3936,6 +3995,8 @@ input:focus-visible{
 
 
 
+
+
 .after\:max-w-\[278px\]::after {
   content: var(--tw-content);
   max-width: 278px;
@@ -3947,10 +4008,14 @@ input:focus-visible{
 
 
 
+
+
 .after\:max-w-\[465px\]::after {
   content: var(--tw-content);
   max-width: 465px;
 }
+
+
 
 
 
@@ -3973,6 +4038,8 @@ input:focus-visible{
 
 
 
+
+
 .after\:-translate-y-1\/2::after {
   content: var(--tw-content);
   --tw-translate-y: -50%;
@@ -3981,6 +4048,8 @@ input:focus-visible{
        -o-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+
+
 
 
 
@@ -4000,11 +4069,15 @@ input:focus-visible{
 
 
 
+
+
 .after\:bg-gray-100::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(167 167 167 / var(--tw-bg-opacity));
 }
+
+
 
 
 
@@ -4024,10 +4097,14 @@ input:focus-visible{
 
 
 
+
+
 .after\:content-\[\'\'\]::after {
   --tw-content: '';
   content: var(--tw-content);
 }
+
+
 
 
 
@@ -4049,6 +4126,8 @@ input:focus-visible{
     padding-top: 1.5rem;
   }
 }
+
+
 
 
 
@@ -4214,6 +4293,8 @@ input:focus-visible{
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
+
 
 
 
@@ -4420,6 +4501,8 @@ input:focus-visible{
 
 
 
+
+
 @media (min-width: 640px) {
 
   .sm\:mb-32 {
@@ -4438,6 +4521,8 @@ input:focus-visible{
     font-size: 30px;
   }
 }
+
+
 
 
 
@@ -4789,6 +4874,8 @@ input:focus-visible{
     color: rgb(95 95 95 / var(--tw-text-opacity));
   }
 }
+
+
 
 
 
@@ -5155,6 +5242,8 @@ input:focus-visible{
 
 
 
+
+
 @media (min-width: 1280px) {
 
   .xl\:w-\[61\%\] {
@@ -5215,12 +5304,16 @@ input:focus-visible{
 
 
 
+
+
 @media (min-width: 1536px) {
 
   .\32xl\:text-\[74px\] {
     font-size: 74px;
   }
 }
+
+
 
 
 
@@ -5238,9 +5331,13 @@ input:focus-visible{
 
 
 
+
+
 .\[\&\>a\]\:pb-0>a {
   padding-bottom: 0px;
 }
+
+
 
 
 
@@ -5252,6 +5349,8 @@ input:focus-visible{
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+
+
 
 
 
