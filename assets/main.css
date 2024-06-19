@@ -4647,6 +4647,10 @@ input:focus-visible{
     width: 100%;
   }
 
+  .md\:min-w-\[132px\] {
+    min-width: 132px;
+  }
+
   .md\:max-w-96 {
     max-width: 24rem;
   }
@@ -4891,6 +4895,10 @@ input:focus-visible{
   .md\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .md\:text-\[15px\] {
+    font-size: 15px;
   }
 
   .md\:text-gray-200 {

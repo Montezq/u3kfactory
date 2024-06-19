@@ -62,37 +62,43 @@
       <a
         href="{{ section.settings.facebook_url }}"
         target="_blank"
-        class="artist-page__social-item flex flex-col items-center min-w-[132px]"
+        class="artist-page__social-item flex flex-col items-center md:min-w-[132px]"
       >
         <div class="mb-3.5">
-          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Facebook text-[32px]"> </span>
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Facebook  text-2xltmd:ext-[32px]"> </span>
         </div>
         <div>
-          <span class="text-[15px] font-bold tracking-[.1em]">{{ section.settings.facebook_nickname }}</span>
+          <span class="whitespace-nowrap text-sm md:text-[15px] font-bold tracking-[.1em]">
+            {{- section.settings.facebook_nickname -}}
+          </span>
         </div>
       </a>
       <a
         href="{{ section.settings.instagram_url }}"
         target="_blank"
-        class="artist-page__social-item flex flex-col items-center min-w-[132px]"
+        class="artist-page__social-item flex flex-col items-center md:min-w-[132px]"
       >
         <div class="mb-3.5">
-          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Instagram text-[32px]"> </span>
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Instagram text-2xl md:text-[32px]"> </span>
         </div>
         <div>
-          <span class="text-[15px] font-bold tracking-[.1em]">{{ section.settings.instagram_nickname }}</span>
+          <span class="whitespace-nowrap text-sm md:text-[15px] font-bold tracking-[.1em]">
+            {{- section.settings.instagram_nickname -}}
+          </span>
         </div>
       </a>
       <a
         href="{{ section.settings.pinterest_url }}"
         target="_blank"
-        class="artist-page__social-item flex flex-col items-center min-w-[132px]"
+        class="artist-page__social-item flex flex-col items-center md:min-w-[132px]"
       >
         <div class="mb-3.5">
-          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Pinterest text-[32px]"> </span>
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Pinterest text-2xl md:text-[32px]"> </span>
         </div>
         <div>
-          <span class="text-[15px] font-bold tracking-[.1em]">{{ section.settings.pinterest_nickname }}</span>
+          <span class="whitespace-nowrap text-sm md:text-[15px] font-bold tracking-[.1em]">
+            {{- section.settings.pinterest_nickname -}}
+          </span>
         </div>
       </a>
     </div>
