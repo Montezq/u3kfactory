@@ -1169,6 +1169,9 @@ video {
 .max-w-\[600px\] {
   max-width: 600px;
 }
+.max-w-\[650px\] {
+  max-width: 650px;
+}
 .max-w-fit {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
@@ -1179,9 +1182,6 @@ video {
 }
 .max-w-none {
   max-width: none;
-}
-.max-w-\[650px\] {
-  max-width: 650px;
 }
 .flex-1 {
   -webkit-box-flex: 1;
@@ -3638,9 +3638,12 @@ input:focus-visible{
 }
   }
 @media (min-width: 768px){
-.custom-page__images.grid{
-    gap: clamp(27px, 4vw, 4vw);
+.custom-page__images{
+    margin-bottom: clamp(32px, 6.34vh, 6.34vh);
 }
+.custom-page__images.grid{
+      gap: clamp(27px, 4vw, 4vw);
+  }
   }
 
 
