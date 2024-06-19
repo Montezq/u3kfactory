@@ -1376,25 +1376,20 @@ video {
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }
+.space-y-\[20px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(20px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(20px * var(--tw-space-y-reverse));
+}
 .space-y-\[21px\] > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(21px * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(21px * var(--tw-space-y-reverse));
 }
-.space-y-\[26px\] > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(26px * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(26px * var(--tw-space-y-reverse));
-}
 .space-y-\[37px\] > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(37px * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(37px * var(--tw-space-y-reverse));
-}
-.space-y-\[20px\] > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(20px * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(20px * var(--tw-space-y-reverse));
 }
 .overflow-auto {
   overflow: auto;
@@ -3700,7 +3695,38 @@ input:focus-visible{
     margin-bottom: 0;
   }
 
+.default-page__body .custom-page__content>*{
+      margin-bottom: 24px;
+      font-size: 17px;
+      letter-spacing: .04em;
+      line-height: 1.375;
+      color: #1b1b1b;
+    }
 
+.default-page__body .custom-page__content>*:last-child{
+        margin-bottom: 0;
+      }
+
+.default-page__body .custom-page__content * {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.default-page__body .custom-page__content h2 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  line-height: 1;
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
 
 
 
@@ -3718,13 +3744,9 @@ input:focus-visible{
 
 
 
-
-
 .placeholder\:tracking-wider::-webkit-input-placeholder {
   letter-spacing: .04em;
 }
-
-
 
 
 
@@ -3738,13 +3760,9 @@ input:focus-visible{
 
 
 
-
-
 .placeholder\:tracking-wider:-ms-input-placeholder {
   letter-spacing: .04em;
 }
-
-
 
 
 
@@ -3758,13 +3776,9 @@ input:focus-visible{
 
 
 
-
-
 .placeholder\:tracking-wider::placeholder {
   letter-spacing: .04em;
 }
-
-
 
 
 
@@ -3779,14 +3793,10 @@ input:focus-visible{
 
 
 
-
-
 .placeholder\:text-white::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-
-
 
 
 
@@ -3801,14 +3811,10 @@ input:focus-visible{
 
 
 
-
-
 .placeholder\:text-white::-ms-input-placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-
-
 
 
 
@@ -3823,14 +3829,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
 }
-
-
 
 
 
@@ -3845,14 +3847,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:left-0::after {
   content: var(--tw-content);
   left: 0px;
 }
-
-
 
 
 
@@ -3867,14 +3865,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:left-full::after {
   content: var(--tw-content);
   left: 100%;
 }
-
-
 
 
 
@@ -3889,14 +3883,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:top-1\/2::after {
   content: var(--tw-content);
   top: 50%;
 }
-
-
 
 
 
@@ -3911,14 +3901,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:block::after {
   content: var(--tw-content);
   display: block;
 }
-
-
 
 
 
@@ -3933,14 +3919,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:h-\[57px\]::after {
   content: var(--tw-content);
   height: 57px;
 }
-
-
 
 
 
@@ -3955,14 +3937,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:w-\[80\%\]::after {
   content: var(--tw-content);
   width: 80%;
 }
-
-
 
 
 
@@ -3977,14 +3955,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:min-w-\[180px\]::after {
   content: var(--tw-content);
   min-width: 180px;
 }
-
-
 
 
 
@@ -3999,8 +3973,6 @@ input:focus-visible{
 
 
 
-
-
 .after\:max-w-\[278px\]::after {
   content: var(--tw-content);
   max-width: 278px;
@@ -4010,14 +3982,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:max-w-\[465px\]::after {
   content: var(--tw-content);
   max-width: 465px;
 }
-
-
 
 
 
@@ -4036,8 +4004,6 @@ input:focus-visible{
 
 
 
-
-
 .after\:-translate-y-1\/2::after {
   content: var(--tw-content);
   --tw-translate-y: -50%;
@@ -4046,8 +4012,6 @@ input:focus-visible{
        -o-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-
-
 
 
 
@@ -4063,15 +4027,11 @@ input:focus-visible{
 
 
 
-
-
 .after\:bg-gray-100::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(167 167 167 / var(--tw-bg-opacity));
 }
-
-
 
 
 
@@ -4087,14 +4047,10 @@ input:focus-visible{
 
 
 
-
-
 .after\:content-\[\'\'\]::after {
   --tw-content: '';
   content: var(--tw-content);
 }
-
-
 
 
 
@@ -4114,8 +4070,6 @@ input:focus-visible{
     padding-top: 1.5rem;
   }
 }
-
-
 
 
 
@@ -4283,8 +4237,6 @@ input:focus-visible{
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-
-
 
 
 
@@ -4512,8 +4464,6 @@ input:focus-visible{
 
 
 
-
-
 @media (min-width: 640px) {
 
   .sm\:mb-32 {
@@ -4532,8 +4482,6 @@ input:focus-visible{
     font-size: 30px;
   }
 }
-
-
 
 
 
@@ -4896,8 +4844,6 @@ input:focus-visible{
 
 
 
-
-
 @media (min-width: 1024px) {
 
   .lg\:invisible {
@@ -5103,10 +5049,6 @@ input:focus-visible{
     padding-bottom: 0.625rem;
   }
 
-  .lg\:pb-3 {
-    padding-bottom: 0.75rem;
-  }
-
   .lg\:pb-4 {
     padding-bottom: 1rem;
   }
@@ -5255,8 +5197,6 @@ input:focus-visible{
 
 
 
-
-
 @media (min-width: 1280px) {
 
   .xl\:w-\[61\%\] {
@@ -5315,16 +5255,12 @@ input:focus-visible{
 
 
 
-
-
 @media (min-width: 1536px) {
 
   .\32xl\:text-\[74px\] {
     font-size: 74px;
   }
 }
-
-
 
 
 
@@ -5338,13 +5274,9 @@ input:focus-visible{
 
 
 
-
-
 .\[\&\>a\]\:pb-0>a {
   padding-bottom: 0px;
 }
-
-
 
 
 
@@ -5354,8 +5286,6 @@ input:focus-visible{
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-
-
 
 
 
