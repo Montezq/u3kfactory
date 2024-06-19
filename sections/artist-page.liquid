@@ -9,10 +9,44 @@
     {%- if section.settings.first_image != blank or section.settings.second_image != blank -%}
       <div class="custom-page__images">
         {%- if section.settings.first_image != blank -%}
-          <div class="custom-page__images-first"></div>
+          {%- liquid
+            assign image_height = section.settings.first_image.width | divided_by: section.settings.first_image.aspect_ratio
+            assign full_width = '50vw'
+            assign widths = '768, 1090, 1240, 1440, 1560'
+            assign image_class = 'w-full h-full object-cover'
+          -%}
+          <div class="custom-page__images-first aspect-square">
+            {{
+              section.settings.first_image
+              | image_url: width: 1560
+              | image_tag:
+                width: section.settings.first_image.width,
+                height: image_height,
+                class: image_class,
+                sizes: full_width,
+                widths: widths
+            }}
+          </div>
         {%- endif -%}
         {%- if section.settings.second_image != blank -%}
-          <div class="custom-page__images-second"></div>
+          {%- liquid
+            assign image_height = section.settings.second_image.width | divided_by: section.settings.second_image.aspect_ratio
+            assign full_width = '50vw'
+            assign widths = '768, 1090, 1240, 1440, 1560'
+            assign image_class = 'w-full h-full object-cover'
+          -%}
+          <div class="custom-page__images-second aspect-square">
+            {{
+              section.settings.second_image
+              | image_url: width: 1560
+              | image_tag:
+                width: section.settings.second_image.width,
+                height: image_height,
+                class: image_class,
+                sizes: full_width,
+                widths: widths
+            }}
+          </div>
         {%- endif -%}
       </div>
     {%- endif -%}
