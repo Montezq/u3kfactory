@@ -909,6 +909,9 @@ video {
 .mt-5 {
   margin-top: 1.25rem;
 }
+.mb-32 {
+  margin-bottom: 8rem;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
