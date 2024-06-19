@@ -3647,6 +3647,9 @@ input:focus-visible{
   }
 .custom-page__content>*{
     margin-bottom: clamp(32px, 3.95vh, 3.95vh);
+    font-size: 20px;
+    letter-spacing: .04em;
+    line-height: 1.375;
   }
 .custom-page__content>*:last-child{
       margin-bottom: 0;
