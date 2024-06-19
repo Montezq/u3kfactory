@@ -12,17 +12,19 @@
           muted: true
       }}
     {%- else -%}
-      {{
-        section.settings.image
-        | image_url: width: 3840
-        | image_tag:
-          width: section.settings.image.width,
-          class: 'w-full h-full object-cover',
-          height: '100vh',
-          sizes: '100vw',
-          widths: '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680',
-          fetchpriority: 'high'
-      }}
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 3840
+          | image_tag:
+            width: section.settings.image.width,
+            class: 'w-full h-full object-cover',
+            height: '100vh',
+            sizes: '100vw',
+            widths: '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680',
+            fetchpriority: 'high'
+        }}
+      {%- endif -%}
     {%- endif -%}
   </div>
   <div class="relative z-[1] flex flex-col items-center text-center my-auto py-9">
