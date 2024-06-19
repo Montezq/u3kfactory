@@ -5091,6 +5091,10 @@ input:focus-visible{
     padding-right: 1.25rem;
   }
 
+  .lg\:pb-\[130px\] {
+    padding-bottom: 130px;
+  }
+
   .lg\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
