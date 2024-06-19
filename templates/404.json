@@ -12,8 +12,7 @@
     "main": {
       "type": "main-404",
       "settings": {
-        "cover_type": "image",
-        "image": "shopify:\/\/shop_images\/u3-art-prints-coming-soon-16.9-1200p.jpg"
+        "cover_type": "image"
       }
     }
   },
