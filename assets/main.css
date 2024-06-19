@@ -1636,9 +1636,6 @@ video {
 .pb-6 {
   padding-bottom: 1.5rem;
 }
-.pb-7 {
-  padding-bottom: 1.75rem;
-}
 .pb-9 {
   padding-bottom: 2.25rem;
 }
@@ -3457,6 +3454,9 @@ input:focus-visible{
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(83px, calc(14.05vh - 27px), 196px);
   }
+.custom-page__footer{
+    left: clamp(434px,calc(84px + 22vw),calc(84px + 22vw));
+}
 .custom-page__body,
 .contact__body{
     padding-top: clamp(83px, calc(14.05vh - 27px), 196px);
