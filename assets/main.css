@@ -4215,6 +4215,10 @@ input:focus-visible{
     padding-top: 8rem;
   }
 
+  .max-lg\:pt-24 {
+    padding-top: 6rem;
+  }
+
   .max-lg\:text-\[1px\] {
     font-size: 1px;
   }
