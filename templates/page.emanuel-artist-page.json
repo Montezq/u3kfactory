@@ -20,7 +20,8 @@
     "artist_page_E83R4a": {
       "type": "artist-page",
       "settings": {
-        "first_image": "shopify:\/\/shop_images\/ANATOMY-STUDY-3-INTERIOR-IMAGE-2.jpg"
+        "first_image": "shopify:\/\/shop_images\/ANATOMY-STUDY-3-INTERIOR-IMAGE-2.jpg",
+        "second_image": "shopify:\/\/shop_images\/ANTIQUE-INTERIOR-IMAGE_3fc73b58-f37a-45f9-b501-d532f9dcac37.jpg"
       }
     }
   },
