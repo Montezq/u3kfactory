@@ -7,7 +7,7 @@
   </div>
   <div class="artist-page__body custom-page__body">
     {%- if section.settings.first_image != blank or section.settings.second_image != blank -%}
-      <div class="custom-page__images {% if section.settings.second_image != blank %}grid md:grid-cols-2{% endif %}">
+      <div class="custom-page__images{% if section.settings.second_image != blank %} grid md:grid-cols-2{% endif %}">
         {%- if section.settings.first_image != blank -%}
           {%- liquid
             assign image_height = section.settings.first_image.width | divided_by: section.settings.first_image.aspect_ratio
@@ -15,7 +15,7 @@
             assign widths = '768, 1090, 1240, 1440, 1560'
             assign image_class = 'w-full h-full object-cover'
           -%}
-          <div class="custom-page__images-first aspect-square">
+          <div class="custom-page__images-first aspect-square{% unless section.settings.second_image %} max-w-[650px]{% endunless %}">
             {{
               section.settings.first_image
               | image_url: width: 1560
