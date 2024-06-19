@@ -4151,6 +4151,10 @@ input:focus-visible{
     padding-top: 18px;
   }
 
+  .max-lg\:pt-\[66px\] {
+    padding-top: 66px;
+  }
+
   .max-lg\:text-\[1px\] {
     font-size: 1px;
   }
