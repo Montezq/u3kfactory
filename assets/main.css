@@ -743,6 +743,10 @@ video {
   margin-top: auto;
   margin-bottom: auto;
 }
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 .-mt-\[1px\] {
   margin-top: -1px;
 }
@@ -4427,6 +4431,10 @@ input:focus-visible{
 
   .md\:mt-10 {
     margin-top: 2.5rem;
+  }
+
+  .md\:mb-8 {
+    margin-bottom: 2rem;
   }
 
   .md\:flex {
