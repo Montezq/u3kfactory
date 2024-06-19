@@ -235,6 +235,14 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const searchForms = document.querySelectorAll('.search-form');
+        const searchTrigger = document.querySelector('.search-trigger');
+        const searchFormMobile = document.querySelector('.search-form-mobile');
+
+        // Add event listener for the search-trigger click
+        searchTrigger.addEventListener('click', function () {
+          searchTrigger.classList.add('hidden');
+          searchFormMobile.classList.remove('hidden');
+        });
 
         searchForms.forEach(function (form) {
           form.addEventListener('submit', function (event) {
