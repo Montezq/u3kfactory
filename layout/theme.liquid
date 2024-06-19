@@ -200,7 +200,7 @@
       <div class="max-lg:hidden fixed w-[80vw] top-0 right-0 desktop-search-wrapper flex justify-end z-[4]{% if template.name != "index" and template != '404' %} bg-white{% endif %}">
         <form
           action="{{ routes.search_url }}"
-          class="flex items-end relative w-[190px]"
+          class="flex items-end relative w-[190px] search-form"
         >
           <input
             class="border-0 border-b border-b-black w-[171px] bg-transparent flex-1"
@@ -234,6 +234,20 @@
     <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
+        const searchForms = document.querySelectorAll('.search-form');
+
+        searchForms.forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            const searchInput = form.querySelector('input[type="text"]');
+            const tooltip = form.querySelector('.tooltip_search');
+
+            if (searchInput.value.trim() === '') {
+              event.preventDefault();
+              tooltip.classList.remove('hidden');
+            }
+          });
+        });
+
         const bar = document.getElementById('bar');
         let lastScrollTop = 0;
         if (bar) {
