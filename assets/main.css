@@ -4114,6 +4114,11 @@ input:focus-visible{
     padding-bottom: 0.75rem;
   }
 
+  .max-lg\:px-2\.5 {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+
   .max-lg\:\!pl-0 {
     padding-left: 0px !important;
   }
