@@ -58,6 +58,41 @@
         <button class="btn btn_primary btn_small w-[360px] max-w-full contact-us">Contact the artist</button>
       </div>
     </div>
+    <div class="artist-page__socials flex justify-center py-9 gap-2.5 flex-wrap">
+      <a
+        href="{{ section.settings.facebook_url }}"
+        class="artist-page__social-item flex flex-col items-center min-w-[132px]"
+      >
+        <div class="mb-3.5">
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Facebook text-[32px]"> </span>
+        </div>
+        <div>
+          <span class="text-[15px] font-bold tracking-[.1em]">{{ section.settings.facebook_nickname }}</span>
+        </div>
+      </a>
+      <a
+        href="{{ section.settings.instagram_url }}"
+        class="artist-page__social-item flex flex-col items-center min-w-[132px]"
+      >
+        <div class="mb-3.5">
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Facebook text-[32px]"> </span>
+        </div>
+        <div>
+          <span class="text-[15px] font-bold tracking-[.1em]">{{ section.settings.instagram_nickname }}</span>
+        </div>
+      </a>
+      <a
+        href="{{ section.settings.pinterest_url }}"
+        class="artist-page__social-item flex flex-col items-center min-w-[132px]"
+      >
+        <div class="mb-3.5">
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Facebook text-[32px]"> </span>
+        </div>
+        <div>
+          <span class="text-[15px] font-bold tracking-[.1em]">{{ section.settings.pinterest_nickname }}</span>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 <div class="contact-us__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-[320px] md:max-w-[471px]">
@@ -87,7 +122,13 @@
 
     <div class="contact-us__modal-body">
       {% form 'contact' %}
-        <input class="block w-full" type="text" name="contact[artist]" id="artist" value="Contacting {{ artist }}">
+        <input
+          class="absolute top-0 left-0 w-0 h-0"
+          type="text"
+          name="contact[artist]"
+          id="artist"
+          value="Contacting {{ artist }}"
+        >
         <div class="contact-subject contact-us__item">
           <div class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Regarding</div>
           <div class="custom-select custom-select_w-full relative">
@@ -185,7 +226,7 @@
         </div>
         <div class="contact-message contact-us__item">
           <label for="message" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Your Message</label>
-          <textarea class="block w-full" name="contact[message]" id="message"></textarea>
+          <textarea class="block w-full py-2" name="contact[message]" id="message"></textarea>
         </div>
         <div class="contact-email contact-us__item">
           <div class="flex justify-between">

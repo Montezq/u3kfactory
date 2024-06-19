@@ -1121,6 +1121,9 @@ video {
 .min-w-\[224px\] {
   min-width: 224px;
 }
+.min-w-\[132px\] {
+  min-width: 132px;
+}
 .max-w-60 {
   max-width: 15rem;
 }
@@ -1320,6 +1323,12 @@ video {
 }
 .gap-\[50px\] {
   gap: 50px;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-2\.5 {
+  gap: 0.625rem;
 }
 .gap-x-8 {
   -webkit-column-gap: 2rem;
@@ -1995,6 +2004,9 @@ video {
 }
 .tracking-xwidest {
   letter-spacing: .12em;
+}
+.tracking-\[\.1em\] {
+  letter-spacing: .1em;
 }
 .text-\[\#121212\] {
   --tw-text-opacity: 1;
