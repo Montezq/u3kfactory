@@ -7,7 +7,7 @@
   </div>
   <div class="artist-page__body custom-page__body max-lg:pt-20">
     {%- if section.settings.first_image != blank or section.settings.second_image != blank -%}
-      <div class="custom-page__images{% if section.settings.second_image != blank %} grid md:grid-cols-2{% endif %}">
+      <div class="custom-page__images{% if section.settings.second_image != blank %} grid md:grid-cols-2{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {%- if section.settings.first_image != blank -%}
           {%- liquid
             assign image_height = section.settings.first_image.width | divided_by: section.settings.first_image.aspect_ratio
@@ -50,7 +50,7 @@
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="custom-page__content{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       {{ page.content }}
     </div>
   </div>
