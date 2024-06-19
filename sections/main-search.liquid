@@ -32,7 +32,7 @@
       {%- endunless -%}
       {%- if search.results_count == 0 and search.filters == empty -%}
         <p role="status" class="uppercase text-[17px] py-[30vh]">
-          {{ 'templates.search.no_results' | t: terms: term_list }}
+          {{ 'templates.search.no_results_html' | t: terms: term_list }}
         </p>
       {%- endif -%}
     {%- endif -%}
