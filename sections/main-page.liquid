@@ -6,13 +6,6 @@
     <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">{{ page.title | escape }}</h1>
   </div>
   <div class="default-page__body custom-page__body max-lg:pt-[56px] pb-7">
-    <div class="last-updated">
-      {% if page.updated_at == page.created_at %}
-        Last updated: {{ page.created_at | date: '%b %d, %y' }}
-      {% else %}
-        Last updated: {{ page.updated_at | date: '%b %d, %y' }}
-      {% endif %}
-    </div>
     <div class="custom-page__content max-md:px-2{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       {{ page.content }}
     </div>
