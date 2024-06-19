@@ -4287,6 +4287,10 @@ input:focus-visible{
     padding-top: 66px;
   }
 
+  .max-lg\:pt-\[56px\] {
+    padding-top: 56px;
+  }
+
   .max-lg\:text-\[1px\] {
     font-size: 1px;
   }
@@ -4457,6 +4461,11 @@ input:focus-visible{
   .max-md\:px-3 {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+  }
+
+  .max-md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .max-md\:\!pr-0 {

@@ -1,11 +1,11 @@
-<div class="artis-page custom-page max-lg:px-4">
+<div class="artis-page custom-page max-md:px-0 max-lg:px-4">
   <div
     id="bar"
     class="ds_element dissapearing custom-page__heading artist-page__heading max-lg:py-3 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out"
   >
     <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">{{ page.title | escape }}</h1>
   </div>
-  <div class="artist-page__body custom-page__body max-lg:pt-20 pb-7">
+  <div class="artist-page__body custom-page__body max-lg:pt-[56px] pb-7">
     {%- if section.settings.first_image != blank or section.settings.second_image != blank -%}
       <div class="custom-page__images{% if section.settings.second_image != blank %} grid md:grid-cols-2{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {%- if section.settings.first_image != blank -%}
