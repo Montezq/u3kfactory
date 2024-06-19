@@ -1,11 +1,12 @@
-<div class="artis-page">
+<div class="artis-page custom-page">
   <div
     id="bar"
     class="ds_element dissapearing artist-page__heading max-lg:py-3 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-md:duration-300 max-md:ease-in-out"
   >
     <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">{{ page.title | escape }}</h1>
   </div>
-  <div class="artist-page__body">
+  <div class="artist-page__body custom-page__body">
+    <div></div>
     <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       {{ page.content }}
     </div>
