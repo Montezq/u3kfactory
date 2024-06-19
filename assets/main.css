@@ -783,9 +783,6 @@ video {
 .mb-3\.5 {
   margin-bottom: 0.875rem;
 }
-.mb-32 {
-  margin-bottom: 8rem;
-}
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -3427,11 +3424,13 @@ input:focus-visible{
 }
 .heading__search, 
 .my-favorites__heading,
-.contact__heading {
+.contact__heading,
+.artist-page__heading {
     padding-right: 1.25rem;
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(83px, calc(14.05vh - 27px), 196px);
   }
+.artist-page__body,
 .contact__body{
     padding-top: clamp(83px, calc(14.05vh - 27px), 196px);
 }
