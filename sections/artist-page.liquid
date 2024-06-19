@@ -53,9 +53,59 @@
     <div class="custom-page__content{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       {{ page.content }}
     </div>
-    <div class="artist-page__contacts"></div>
+    <div class="artist-page__contacts">
+      <div class="artist-page__contacts-contact"></div>
+    </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('click', function (e) {
+      const contactOpen = document.querySelector('.contact-us'),
+        contactModal = document.querySelector('.contact-us__modal'),
+        contactClose = document.querySelector('.contact-us__modal-close');
+      contactOpen.addEventListener('click', () => {
+        contactModal.classList.remove('hidden');
+      });
+      contactClose.addEventListener('click', () => {
+        contactModal.classList.add('hidden');
+      });
+      const target = e.target;
+      const customSelect = target.closest('.custom-select');
+      const allCustomSelects = document.querySelectorAll('.custom-select');
+
+      // Clicking on the trigger toggles the current dropdown and closes others
+      if (customSelect && target.closest('.select-trigger')) {
+        // Close all dropdowns first
+        allCustomSelects.forEach((select) => {
+          if (select !== customSelect) {
+            select.classList.remove('open');
+          }
+        });
+        // Toggle the clicked custom select
+        customSelect.classList.toggle('open');
+      } else if (customSelect && target.tagName === 'INPUT' && target.type === 'radio') {
+        // Remove selected class from all options
+        customSelect.querySelectorAll('li').forEach((li) => {
+          li.classList.remove('selected');
+        });
+
+        // Add selected class to parent li of the checked radio
+        target.closest('li').classList.add('selected');
+
+        // Update the trigger text and close the dropdown
+        const selectedText = target.nextElementSibling.textContent;
+        customSelect.querySelector('.selected-text').textContent = selectedText;
+        customSelect.classList.remove('open');
+      } else {
+        // Clicking outside any custom select should close all
+        allCustomSelects.forEach((select) => {
+          select.classList.remove('open');
+        });
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
