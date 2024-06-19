@@ -3425,12 +3425,12 @@ input:focus-visible{
 .heading__search, 
 .my-favorites__heading,
 .contact__heading,
-.artist-page__heading {
+.custom-page__heading {
     padding-right: 1.25rem;
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(83px, calc(14.05vh - 27px), 196px);
   }
-.artist-page__body,
+.custom-page__body,
 .contact__body{
     padding-top: clamp(83px, calc(14.05vh - 27px), 196px);
 }
