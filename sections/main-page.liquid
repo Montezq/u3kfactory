@@ -5,12 +5,12 @@
   >
     <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">{{ page.title | escape }}</h1>
   </div>
-  <div class="default-page__body custom-page__body max-lg:pt-[56px] pb-10 lg:pb-[92px]">
+  <div class="default-page__body custom-page__body max-lg:pt-[80px] pb-10 lg:pb-[92px]">
     <div class="custom-page__content max-md:px-2{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       {{ page.content }}
     </div>
     {%- if section.settings.privacy_menu.links -%}
-      <div class="custom-page__footer lg:fixed lg:pr-5 lg:h-[90px] lg:right-0 lg:bottom-0 lg:bg-white lg:flex lg:items-center">
+      <div class="custom-page__footer max-md:px-2 max-lg:mt-10 lg:fixed lg:pr-5 lg:h-[90px] lg:right-0 lg:bottom-0 lg:bg-white lg:flex lg:items-center">
         <ul class="flex items-center flex-wrap">
           {%- for link in section.settings.privacy_menu.links -%}
             {%- unless link.active -%}

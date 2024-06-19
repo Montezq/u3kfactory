@@ -4083,6 +4083,10 @@ input:focus-visible{
     margin-top: 2rem;
   }
 
+  .max-lg\:mt-10 {
+    margin-top: 2.5rem;
+  }
+
   .max-lg\:flex {
     display: -webkit-box;
     display: -webkit-flex;
@@ -4201,6 +4205,10 @@ input:focus-visible{
 
   .max-lg\:pt-\[66px\] {
     padding-top: 66px;
+  }
+
+  .max-lg\:pt-\[80px\] {
+    padding-top: 80px;
   }
 
   .max-lg\:text-\[1px\] {
