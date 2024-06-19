@@ -5,7 +5,42 @@
   <h1 class="title">
     {{ 'templates.404.title' | t }}
   </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
+  <a href="{{ routes.all_products_collection_url }}" class="btn btn_outlined">
     {{ 'templates.404.back' | t }}
   </a>
 </div>
+{% schema %}
+{
+  "name": "404",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "cover_type",
+      "options": [
+        {
+          "value": "video",
+          "label": "Video"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "video",
+      "label": "Cover Type"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}
