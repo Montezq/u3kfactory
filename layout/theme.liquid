@@ -238,7 +238,7 @@
 
         searchForms.forEach(function (form) {
           form.addEventListener('submit', function (event) {
-            const searchInput = form.querySelector('input[type="text"]');
+            const searchInput = form.querySelector('input[type="search"]');
             const tooltip = form.querySelector('.tooltip_search');
 
             if (searchInput.value.trim() === '') {
