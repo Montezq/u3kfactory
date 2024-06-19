@@ -7,7 +7,7 @@
   </div>
   <div class="artist-page__body custom-page__body">
     {%- if section.settings.first_image != blank or section.settings.second_image != blank -%}
-      <div class="custom-page__images">
+      <div class="custom-page__images {% if section.settings.second_image != blank %}grid md:grid-cols-2{% endif %}">
         {%- if section.settings.first_image != blank -%}
           {%- liquid
             assign image_height = section.settings.first_image.width | divided_by: section.settings.first_image.aspect_ratio
