@@ -3696,7 +3696,7 @@ input:focus-visible{
   }
 
 .default-page__body .custom-page__content>*{
-      margin-bottom: 24px;
+      margin-bottom: 27px;
       font-size: 17px;
       letter-spacing: .04em;
       line-height: 1.375;
@@ -3726,6 +3726,7 @@ input:focus-visible{
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+      margin-top: clamp(50px, 6.16vh, 6.16vh);
 }
 
 
