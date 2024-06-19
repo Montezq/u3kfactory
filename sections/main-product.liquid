@@ -284,10 +284,7 @@
       >
         <div class="contact-us__modal-heading text-center mb-[30px]">
           <p class="text-[19px] tracking-widest font-normal uppercase leading-none mb-[30px]">You Are contacting</p>
-          {% assign full_string = page.title %}
-          {% assign words_array = full_string | split: ' ' %}
-          {% assign artist = words_array[0] %}
-          <h2 class="font-coutureBold text-[42px]">{{ artist }}</h2>
+          <h2 class="font-coutureBold text-[42px]">{{ product.vendor }}</h2>
           <div>
             <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Small-Envelope text-[60px]"> </span>
           </div>
