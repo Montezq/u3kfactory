@@ -13,213 +13,215 @@
     >
       <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">Contact Us</h1>
     </div>
-    <div class="contact__body grid md:grid-cols-2 gap-[50px] md:items-center">
-      <div class="max-w-[526px]">
-        {%- liquid
-          assign contact_form_class = 'isolate'
-          if settings.animations_reveal_on_scroll
-            assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
-          endif
-        -%}
-        {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
-          {%- if form.posted_successfully? -%}
-            <h2 class="text-sm font-bold mb-2" tabindex="-1" autofocus>
-              {{ 'templates.contact.form.post_success' | t }}
-            </h2>
-          {%- elsif form.errors -%}
-            <div class="form-errors mb-2">
-              <ul role="list">
-                <li>
-                  <a href="#ContactForm-email" class="link">
-                    {{ form.errors.translated_fields.email | capitalize }}
-                    {{ form.errors.messages.email }}
-                  </a>
-                </li>
-              </ul>
-            </div>
-          {%- endif -%}
-          <div class="field flex flex-col mb-5">
-            <div class="pl-4 mb-1">
-              <label for="ContactForm-email" class="text-[13px] font-axis"> Regarding </label>
-            </div>
-            <div class="custom-select custom-select_w-full relative">
-              <div class="select-trigger cursor-pointer border border-black flex h-12">
-                <div class="flex items-center pl-2.5 flex-1">
-                  <span class="selected-text line-clamp-1 text-sm text-gray-750 font-open uppercase">
-                    Order problems
-                  </span>
-                </div>
-                <div class="w-11 select-icon border-black flex items-center justify-center">
-                  <span
-                    class="icon-FULL-ICON-SET-WEBSITE-FINAL_Next-Button-Arrow font-semibold text-xs duration-100 ease-in-out"
-                  ></span>
-                </div>
+    <div class="contact__body grid">
+      <div class="contact__body-wrapper grid md:grid-cols-2 gap-[50px] md:items-center">
+        <div class="max-w-[526px]">
+          {%- liquid
+            assign contact_form_class = 'isolate'
+            if settings.animations_reveal_on_scroll
+              assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+            endif
+          -%}
+          {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+            {%- if form.posted_successfully? -%}
+              <h2 class="text-sm font-bold mb-2" tabindex="-1" autofocus>
+                {{ 'templates.contact.form.post_success' | t }}
+              </h2>
+            {%- elsif form.errors -%}
+              <div class="form-errors mb-2">
+                <ul role="list">
+                  <li>
+                    <a href="#ContactForm-email" class="link">
+                      {{ form.errors.translated_fields.email | capitalize }}
+                      {{ form.errors.messages.email }}
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <ul class="select-options select-options_w-full hidden absolute z-[2] top-full left-0 border border-t-0 border-black bg-white">
-                <li class="custom-option selected">
-                  <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                    <input
-                      checked
-                      type="radio"
-                      name="contact[regarding]"
-                      value="Order Problems"
-                      class="invisible w-0 h-0"
-                    >
-                    <span
-                      class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                    >
-                      Order Problems
+            {%- endif -%}
+            <div class="field flex flex-col mb-5">
+              <div class="pl-4 mb-1">
+                <label for="ContactForm-email" class="text-[13px] font-axis"> Regarding </label>
+              </div>
+              <div class="custom-select custom-select_w-full relative">
+                <div class="select-trigger cursor-pointer border border-black flex h-12">
+                  <div class="flex items-center pl-2.5 flex-1">
+                    <span class="selected-text line-clamp-1 text-sm text-gray-750 font-open uppercase">
+                      Order problems
                     </span>
-                  </label>
-                </li>
-                <li class="custom-option">
-                  <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                    <input
-                      type="radio"
-                      name="contact[regarding]"
-                      value="Payment Issues"
-                      class="invisible w-0 h-0"
-                    >
+                  </div>
+                  <div class="w-11 select-icon border-black flex items-center justify-center">
                     <span
-                      class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                    >
-                      Payment Issues
-                    </span>
-                  </label>
-                </li>
-                <li class="custom-option">
-                  <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                    <input
-                      type="radio"
-                      name="contact[regarding]"
-                      value="Inquire About Bigger Sizes"
-                      class="invisible w-0 h-0"
-                    >
-                    <span
-                      class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                    >
-                      Inquire about bigger sizes
-                    </span>
-                  </label>
-                </li>
-                <li class="custom-option">
-                  <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                    <input
-                      type="radio"
-                      name="contact[regarding]"
-                      value="Refund Request"
-                      class="invisible w-0 h-0"
-                    >
-                    <span
-                      class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                    >
-                      Refund Request
-                    </span>
-                  </label>
-                </li>
-                <li class="custom-option">
-                  <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                    <input
-                      type="radio"
-                      name="contact[regarding]"
-                      value="Other"
-                      class="invisible w-0 h-0"
-                    >
-                    <span
-                      class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                    >
-                      Other
-                    </span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="field flex flex-col mb-5">
-            <div class="pl-4 mb-1">
-              <label for="ContactForm-body" class="text-[13px] font-axis"> Your message </label>
-            </div>
-            <textarea
-              id="ContactForm-body"
-              class="input-field textarea-field resize-none h-28"
-              name="contact[{{ 'templates.contact.form.comment' | t }}]"
-            >
-              {{- form.body -}}
-            </textarea>
-          </div>
-          <div class="field flex flex-col mb-5">
-            <div class="pl-4 mb-1 flex justify-between">
-              <label for="ContactForm-email" class="text-[13px] font-axis">
-                {{ 'customer.login_page.email' | t }}
-              </label>
-              <div>
-                <p class="text-right text-[14px] font-bold">*You will be contacted back on this email adress</p>
+                      class="icon-FULL-ICON-SET-WEBSITE-FINAL_Next-Button-Arrow font-semibold text-xs duration-100 ease-in-out"
+                    ></span>
+                  </div>
+                </div>
+                <ul class="select-options select-options_w-full hidden absolute z-[2] top-full left-0 border border-t-0 border-black bg-white">
+                  <li class="custom-option selected">
+                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        checked
+                        type="radio"
+                        name="contact[regarding]"
+                        value="Order Problems"
+                        class="invisible w-0 h-0"
+                      >
+                      <span
+                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                      >
+                        Order Problems
+                      </span>
+                    </label>
+                  </li>
+                  <li class="custom-option">
+                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        type="radio"
+                        name="contact[regarding]"
+                        value="Payment Issues"
+                        class="invisible w-0 h-0"
+                      >
+                      <span
+                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                      >
+                        Payment Issues
+                      </span>
+                    </label>
+                  </li>
+                  <li class="custom-option">
+                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        type="radio"
+                        name="contact[regarding]"
+                        value="Inquire About Bigger Sizes"
+                        class="invisible w-0 h-0"
+                      >
+                      <span
+                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                      >
+                        Inquire about bigger sizes
+                      </span>
+                    </label>
+                  </li>
+                  <li class="custom-option">
+                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        type="radio"
+                        name="contact[regarding]"
+                        value="Refund Request"
+                        class="invisible w-0 h-0"
+                      >
+                      <span
+                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                      >
+                        Refund Request
+                      </span>
+                    </label>
+                  </li>
+                  <li class="custom-option">
+                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        type="radio"
+                        name="contact[regarding]"
+                        value="Other"
+                        class="invisible w-0 h-0"
+                      >
+                      <span
+                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                      >
+                        Other
+                      </span>
+                    </label>
+                  </li>
+                </ul>
               </div>
             </div>
-            <input
-              class="input-field"
-              type="email"
-              name="contact[email]"
-              id="ContactForm-email"
-              autocomplete="email"
-              autocorrect="off"
-              autocapitalize="off"
-              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-              {% if form.errors contains 'form' %}
-                aria-invalid="true"
-              {% endif %}
-            >
-          </div>
-          <div class="contact__button flex justify-center mb-8">
-            <button
-              type="submit"
-              class="btn btn_primary btn_small w-[320px] max-w-full"
-            >
-              Submit message
-            </button>
-          </div>
-          <div class="space-y-5">
-            <p class="text-[17px] font-bold">
-              *We generally respond in the course of 4 hours. Please specify the problem you have as clear as possible
-              in the message space so we can get to work right away and resolve whichever issues you have.
-            </p>
-            <p class="text-[17px] font-bold">
-              You can also contact us by sending a email to
-              <br>
-              customersupport@u3faktory.com
-            </p>
-          </div>
-        {%- endform -%}
-      </div>
-      <div class="contact__body-right scroll-trigger animate--slide-in">
-        <div class="ml-auto w-fit">
-          <div class="mb-5">
-            <h2 class="uppercase font-coutureBold leading-none text-[22px] md:text-[28px]">Direct chat</h2>
-          </div>
-          <div class="mb-7">
-            <img
-              class="w-[60px]"
-              src="https://cdn.shopify.com/s/files/1/0690/2303/9708/files/Send_Arrow_button.png?v=1718734585"
-              alt="Icon"
-              width="60"
-              height="53"
-            >
-          </div>
-          <div class="mb-8">
-            <p class="uppercase font-bold text-sm">AVAILABLE SOON</p>
-          </div>
-          <div>
-            <p class="font-bold text-[17px] leading-tight">
-              COMPANY DETAILS
-              <br>
-              U3 Art Faktory Srl
-              <br>
-              Str. Vadu Voda Nr. 1C
-              <br>
-              Sat. Horpaz, judetul Iasi
-              <br>
-              Romania
-            </p>
+            <div class="field flex flex-col mb-5">
+              <div class="pl-4 mb-1">
+                <label for="ContactForm-body" class="text-[13px] font-axis"> Your message </label>
+              </div>
+              <textarea
+                id="ContactForm-body"
+                class="input-field textarea-field resize-none h-28"
+                name="contact[{{ 'templates.contact.form.comment' | t }}]"
+              >
+                {{- form.body -}}
+              </textarea>
+            </div>
+            <div class="field flex flex-col mb-5">
+              <div class="pl-4 mb-1 flex justify-between">
+                <label for="ContactForm-email" class="text-[13px] font-axis">
+                  {{ 'customer.login_page.email' | t }}
+                </label>
+                <div>
+                  <p class="text-right text-[14px] font-bold">*You will be contacted back on this email adress</p>
+                </div>
+              </div>
+              <input
+                class="input-field"
+                type="email"
+                name="contact[email]"
+                id="ContactForm-email"
+                autocomplete="email"
+                autocorrect="off"
+                autocapitalize="off"
+                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                {% if form.errors contains 'form' %}
+                  aria-invalid="true"
+                {% endif %}
+              >
+            </div>
+            <div class="contact__button flex justify-center mb-8">
+              <button
+                type="submit"
+                class="btn btn_primary btn_small w-[320px] max-w-full"
+              >
+                Submit message
+              </button>
+            </div>
+            <div class="space-y-5">
+              <p class="text-[17px] font-bold">
+                *We generally respond in the course of 4 hours. Please specify the problem you have as clear as possible
+                in the message space so we can get to work right away and resolve whichever issues you have.
+              </p>
+              <p class="text-[17px] font-bold">
+                You can also contact us by sending a email to
+                <br>
+                customersupport@u3faktory.com
+              </p>
+            </div>
+          {%- endform -%}
+        </div>
+        <div class="contact__body-right scroll-trigger animate--slide-in">
+          <div class="ml-auto w-fit">
+            <div class="mb-5">
+              <h2 class="uppercase font-coutureBold leading-none text-[22px] md:text-[28px]">Direct chat</h2>
+            </div>
+            <div class="mb-7">
+              <img
+                class="w-[60px]"
+                src="https://cdn.shopify.com/s/files/1/0690/2303/9708/files/Send_Arrow_button.png?v=1718734585"
+                alt="Icon"
+                width="60"
+                height="53"
+              >
+            </div>
+            <div class="mb-8">
+              <p class="uppercase font-bold text-sm">AVAILABLE SOON</p>
+            </div>
+            <div>
+              <p class="font-bold text-[17px] leading-tight">
+                COMPANY DETAILS
+                <br>
+                U3 Art Faktory Srl
+                <br>
+                Str. Vadu Voda Nr. 1C
+                <br>
+                Sat. Horpaz, judetul Iasi
+                <br>
+                Romania
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -3396,6 +3396,9 @@ input:focus-visible{
 .contact__body{
     padding-top: clamp(83px, calc(14.05vh - 27px), 196px);
 }
+.contact__body-wrapper{
+    padding: 10vh 0;
+}
   }
 .search__body {
   padding-top: 76px;
