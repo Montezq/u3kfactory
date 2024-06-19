@@ -3645,6 +3645,12 @@ input:focus-visible{
       gap: clamp(27px, 4vw, 4vw);
   }
   }
+.custom-page__content>*{
+    margin-bottom: clamp(32px, 3.95vh, 3.95vh);
+  }
+.custom-page__content>*:last-child{
+      margin-bottom: 0;
+    }
 
 
 
@@ -4271,6 +4277,10 @@ input:focus-visible{
     padding-top: 0.5rem;
   }
 
+  .max-lg\:pt-20 {
+    padding-top: 5rem;
+  }
+
   .max-lg\:pt-9 {
     padding-top: 2.25rem;
   }
@@ -4281,10 +4291,6 @@ input:focus-visible{
 
   .max-lg\:pt-\[66px\] {
     padding-top: 66px;
-  }
-
-  .max-lg\:pt-20 {
-    padding-top: 5rem;
   }
 
   .max-lg\:text-\[1px\] {
