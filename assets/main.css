@@ -739,13 +739,13 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
-.my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
-}
 .my-12 {
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .-mt-\[1px\] {
   margin-top: -1px;
@@ -3584,18 +3584,15 @@ input:focus-visible{
   }
 .contact__body-right{
   padding-right: clamp(0px, 16.25vw, 16.25vw);
-
 }
 @media screen and (max-width: 1560px){
 .contact__body-right{
     padding-right: clamp(0px, 11.25vw, 11.25vw);
-
 }
   }
 @media screen and (max-width: 1023px){
 .contact__body-right{
     padding-right: clamp(0px, 11.25vw, 11.25vw);
-
 }
   }
 
@@ -4108,6 +4105,11 @@ input:focus-visible{
     padding-right: 0.5rem;
   }
 
+  .max-lg\:px-2\.5 {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+
   .max-lg\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -4116,11 +4118,6 @@ input:focus-visible{
   .max-lg\:py-3 {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-  }
-
-  .max-lg\:px-2\.5 {
-    padding-left: 0.625rem;
-    padding-right: 0.625rem;
   }
 
   .max-lg\:\!pl-0 {
@@ -4330,6 +4327,10 @@ input:focus-visible{
     padding-bottom: 1.5rem;
   }
 
+  .max-md\:\!pr-0 {
+    padding-right: 0px !important;
+  }
+
   .max-md\:text-center {
     text-align: center;
   }
@@ -4414,6 +4415,10 @@ input:focus-visible{
     margin-bottom: 1.25rem;
   }
 
+  .md\:mb-8 {
+    margin-bottom: 2rem;
+  }
+
   .md\:mb-\[61px\] {
     margin-bottom: 61px;
   }
@@ -4436,10 +4441,6 @@ input:focus-visible{
 
   .md\:mt-10 {
     margin-top: 2.5rem;
-  }
-
-  .md\:mb-8 {
-    margin-bottom: 2rem;
   }
 
   .md\:flex {
