@@ -18,6 +18,7 @@ class CartNotification extends HTMLElement {
 
   close() {
     this.notification.classList.remove('!block');
+    document.querySelector('body').classList.remove('overflow-hidden')
   }
 
   renderContents(parsedState) {
