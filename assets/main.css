@@ -4443,6 +4443,12 @@ input:focus-visible{
             justify-content: space-between;
   }
 
+  .max-md\:justify-around {
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+  }
+
   .max-md\:gap-6 {
     gap: 1.5rem;
   }
