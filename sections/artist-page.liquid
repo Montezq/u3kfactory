@@ -5,7 +5,7 @@
   >
     <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">{{ page.title | escape }}</h1>
   </div>
-  <div class="artist-page__body custom-page__body max-lg:pt-20">
+  <div class="artist-page__body custom-page__body max-lg:pt-20 pb-7">
     {%- if section.settings.first_image != blank or section.settings.second_image != blank -%}
       <div class="custom-page__images{% if section.settings.second_image != blank %} grid md:grid-cols-2{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {%- if section.settings.first_image != blank -%}
@@ -54,7 +54,71 @@
       {{ page.content }}
     </div>
     <div class="artist-page__contacts">
-      <div class="artist-page__contacts-contact"></div>
+      <div class="artist-page__contacts-contact">
+        <button class="btn btn_primary btn_small w-[360px] max-w-full contact-us">Contact the artist</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="contact-us__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-[320px] md:max-w-[471px]">
+  <button
+    type="button"
+    class="contact-us__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-[34px] h-[34px] rounded-full bg-black leading-none flex justify-center items-center cursor-pointer"
+    aria-label="{{ 'accessibility.close' | t }}"
+  >
+    x
+  </button>
+  <div
+    class="border border-[#5a5a5a] bg-white px-2.5 pt-5 max-h-[740px] ontact-us__modal-wrapper w-full"
+    aria-modal="true"
+    role="dialog"
+    tabindex="-1"
+  >
+    <div class="contact-us__modal-heading text-center mb-[30px]">
+      <p class="text-[19px] tracking-widest font-normal uppercase leading-none mb-[30px]">You Are contacting</p>
+      {% assign full_string = page.title %}
+      {% assign words_array = full_string | split: ' ' %}
+      {% assign artist = words_array[0] %}
+      <h2 class="font-coutureBold text-[42px]">{{ artist }}</h2>
+      <div>
+        <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Small-Envelope text-[60px]"> </span>
+      </div>
+    </div>
+
+    <div class="contact-us__modal-body">
+      {% form 'contact' %}
+        <div class="contact-subject contact-us__item">
+          <label for="last-name" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Regarding</label>
+          <input
+            class="block w-full"
+            type="text"
+            name="contact[regardin]"
+            id="reagarding"
+            value="{{ product.title }}"
+          >
+        </div>
+        <div class="contact-message contact-us__item">
+          <label for="message" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Your Message</label>
+          <textarea class="block w-full" name="contact[message]" id="message"></textarea>
+        </div>
+        <div class="contact-email contact-us__item">
+          <div class="flex justify-between">
+            <label for="email" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Email</label>
+            <span class="text-right text-[13px] font-bold line-clamp-1 max-w-[60%]">
+              *You will be contacted back on this email adress
+            </span>
+          </div>
+          <input class="block w-full" type="email" name="contact[email]" id="email">
+        </div>
+
+        <div class="submit pb-4">
+          <input
+            type="submit"
+            class="btn btn_primary w-full max-w-80 !block mx-auto cursor-pointer"
+            value="SUBMIT MESSAGE"
+          >
+        </div>
+      {% endform %}
     </div>
   </div>
 </div>
@@ -122,6 +186,36 @@
       "type": "image_picker",
       "id": "second_image",
       "label": "Second Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "facebook_nickname",
+      "label": "Facebook Nickname"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "instagram_nickname",
+      "label": "Instagram Nickname"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "pinterest_nickname",
+      "label": "Pinterest Nickname"
+    },
+    {
+      "type": "url",
+      "id": "pinterest_url",
+      "label": "Pinterest URL"
     }
   ],
   "presets": [
