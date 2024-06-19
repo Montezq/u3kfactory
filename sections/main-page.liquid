@@ -9,6 +9,9 @@
     <div class="last-updated">
       {% assign updated_date = page.updated_at | date: '%B %d, %Y' %}
       {% assign created_date = page.created_at | date: '%B %d, %Y' %}
+      {{ page.created_at }} - created
+      <br>
+      {{ page.updated_at }} - updated
       {% if page.updated_at == page.created_at %}
         Last updated: {{ created_date }}
       {% else %}
