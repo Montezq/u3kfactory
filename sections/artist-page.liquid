@@ -88,14 +88,99 @@
     <div class="contact-us__modal-body">
       {% form 'contact' %}
         <div class="contact-subject contact-us__item">
-          <label for="last-name" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Regarding</label>
-          <input
-            class="block w-full"
-            type="text"
-            name="contact[regardin]"
-            id="reagarding"
-            value="{{ product.title }}"
-          >
+          <div class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Regarding</div>
+          <div class="custom-select custom-select_w-full relative">
+            <div class="select-trigger cursor-pointer border border-black flex h-12">
+              <div class="flex items-center pl-2.5 flex-1">
+                <span class="selected-text line-clamp-1 text-sm text-gray-750 font-open uppercase">
+                  Order problems
+                </span>
+              </div>
+              <div class="w-11 select-icon border-black flex items-center justify-center">
+                <span
+                  class="icon-FULL-ICON-SET-WEBSITE-FINAL_Next-Button-Arrow font-semibold text-xs duration-100 ease-in-out"
+                ></span>
+              </div>
+            </div>
+            <ul class="select-options select-options_w-full hidden absolute z-[2] top-full left-0 border border-t-0 border-black bg-white">
+              <li class="custom-option selected">
+                <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                  <input
+                    checked
+                    type="radio"
+                    name="contact[regarding]"
+                    value="Order Problems"
+                    class="invisible w-0 h-0"
+                  >
+                  <span
+                    class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                  >
+                    Order Problems
+                  </span>
+                </label>
+              </li>
+              <li class="custom-option">
+                <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                  <input
+                    type="radio"
+                    name="contact[regarding]"
+                    value="Payment Issues"
+                    class="invisible w-0 h-0"
+                  >
+                  <span
+                    class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                  >
+                    Payment Issues
+                  </span>
+                </label>
+              </li>
+              <li class="custom-option">
+                <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                  <input
+                    type="radio"
+                    name="contact[regarding]"
+                    value="Inquire About Bigger Sizes"
+                    class="invisible w-0 h-0"
+                  >
+                  <span
+                    class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                  >
+                    Inquire about bigger sizes
+                  </span>
+                </label>
+              </li>
+              <li class="custom-option">
+                <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                  <input
+                    type="radio"
+                    name="contact[regarding]"
+                    value="Refund Request"
+                    class="invisible w-0 h-0"
+                  >
+                  <span
+                    class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                  >
+                    Refund Request
+                  </span>
+                </label>
+              </li>
+              <li class="custom-option">
+                <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                  <input
+                    type="radio"
+                    name="contact[regarding]"
+                    value="Other"
+                    class="invisible w-0 h-0"
+                  >
+                  <span
+                    class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                  >
+                    Other
+                  </span>
+                </label>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="contact-message contact-us__item">
           <label for="message" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Your Message</label>
