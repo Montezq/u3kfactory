@@ -54,7 +54,7 @@
       {{ page.content }}
     </div>
     <div class="artist-page__contacts">
-      <div class="artist-page__contacts-contact">
+      <div class="artist-page__contacts-contact flex justify-center">
         <button class="btn btn_primary btn_small w-[360px] max-w-full contact-us">Contact the artist</button>
       </div>
     </div>
@@ -216,16 +216,16 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    const contactOpen = document.querySelector('.contact-us'),
+      contactModal = document.querySelector('.contact-us__modal'),
+      contactClose = document.querySelector('.contact-us__modal-close');
+    contactOpen.addEventListener('click', () => {
+      contactModal.classList.remove('hidden');
+    });
+    contactClose.addEventListener('click', () => {
+      contactModal.classList.add('hidden');
+    });
     document.addEventListener('click', function (e) {
-      const contactOpen = document.querySelector('.contact-us'),
-        contactModal = document.querySelector('.contact-us__modal'),
-        contactClose = document.querySelector('.contact-us__modal-close');
-      contactOpen.addEventListener('click', () => {
-        contactModal.classList.remove('hidden');
-      });
-      contactClose.addEventListener('click', () => {
-        contactModal.classList.add('hidden');
-      });
       const target = e.target;
       const customSelect = target.closest('.custom-select');
       const allCustomSelects = document.querySelectorAll('.custom-select');
