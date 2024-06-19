@@ -268,7 +268,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     const contactOpen = document.querySelector('.contact-us'),
       contactModal = document.querySelector('.contact-us__modal'),
-      contactClose = document.querySelector('.contact-us__modal-close');
+      contactClose = document.querySelector('.contact-us__modal-close'),
+      boydEl = document.querySelector('body');
     contactOpen.addEventListener('click', () => {
       contactModal.classList.remove('hidden');
     });
