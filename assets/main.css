@@ -4331,6 +4331,10 @@ input:focus-visible{
     padding-right: 0px !important;
   }
 
+  .max-md\:pb-7 {
+    padding-bottom: 1.75rem;
+  }
+
   .max-md\:text-center {
     text-align: center;
   }
