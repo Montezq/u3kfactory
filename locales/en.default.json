@@ -267,8 +267,9 @@
       }
     },
     "404": {
-      "title": "Page not found",
-      "subtext": "404"
+      "title": "THE PAGE YOU ARE LOOKING FOR IS NOT HERE ANYMORE",
+      "subtext": "404",
+      "back": "Go back home"
     }
   },
   "sections": {
