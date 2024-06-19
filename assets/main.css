@@ -738,6 +738,9 @@ video {
 .z-20 {
   z-index: 20;
 }
+.z-\[99999\] {
+  z-index: 99999;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
