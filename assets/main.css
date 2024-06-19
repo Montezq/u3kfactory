@@ -3651,6 +3651,9 @@ input:focus-visible{
 .custom-page__content>*:last-child{
       margin-bottom: 0;
     }
+.custom-page__content *{
+    font-family: 'Times New Roman', sans-serif !important;
+  }
 
 
 
