@@ -1112,6 +1112,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-\[360px\] {
+  width: 360px;
+}
 .min-w-\[166px\] {
   min-width: 166px;
 }
@@ -1719,6 +1722,9 @@ video {
 }
 .pt-\[8\%\] {
   padding-top: 8%;
+}
+.pb-7 {
+  padding-bottom: 1.75rem;
 }
 .\!text-center {
   text-align: center !important;
