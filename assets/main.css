@@ -906,6 +906,9 @@ video {
 .mt-7 {
   margin-top: 1.75rem;
 }
+.mt-\[1px\] {
+  margin-top: 1px;
+}
 .mt-\[208px\] {
   margin-top: 208px;
 }
@@ -917,9 +920,6 @@ video {
 }
 .mt-auto {
   margin-top: auto;
-}
-.mt-\[1px\] {
-  margin-top: 1px;
 }
 .line-clamp-1 {
   overflow: hidden;
@@ -3141,7 +3141,6 @@ input:focus-visible{
 }
 .cart-notification-wrapper{
   width: calc(100% - 18px);
-  top: calc(50% + 25px);
 }
 .modal__close-button,
 .cart-notification-wrapper-block,

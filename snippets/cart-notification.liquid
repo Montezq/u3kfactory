@@ -10,7 +10,7 @@
 {% endcomment %}
 
 <cart-notification class="cart-notification" id="cart-notification">
-  <div class="cart-notification-wrapper fixed left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 max-w-[471px]">
+  <div class="cart-notification-wrapper fixed left-[50%] lg:left-[63%] -translate-x-1/2 z-10 max-w-[471px]">
     <button
       type="button"
       class="cart-notification__close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-[34px] h-[34px] rounded-full bg-black leading-none flex justify-center items-center cursor-pointer"
@@ -19,7 +19,7 @@
       x
     </button>
     <div
-      class="focus-inset border border-[#5a5a5a] bg-white px-2.5 pt-5 max-h-[740px] cart-notification-wrapper-block"
+      class="focus-inset border border-[#5a5a5a] bg-white px-2.5 pt-5 cart-notification-wrapper-block"
       aria-modal="true"
       aria-label="{{ 'general.cart.item_added' | t }}"
       role="dialog"
@@ -116,13 +116,6 @@
       </div>
     </div>
   </div>
-  <a
-    href="{{ routes.cart_url }}"
-    id="cart-notification-button"
-    class="!hidden"
-  >
-    {{- 'general.cart.view_empty_cart' | t -}}
-  </a>
 </cart-notification>
 {% style %}
   .cart-notification {
