@@ -735,6 +735,9 @@ video {
 .z-\[999\] {
   z-index: 999;
 }
+.z-20 {
+  z-index: 20;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -4480,6 +4483,11 @@ input:focus-visible{
   .max-md\:px-2 {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+
+  .max-md\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .max-md\:\!pr-0 {
