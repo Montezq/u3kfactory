@@ -87,6 +87,7 @@
 
     <div class="contact-us__modal-body">
       {% form 'contact' %}
+        <input class="block w-full" type="text" name="contact[artist]" id="artist" value="Contacting {{ artist }}">
         <div class="contact-subject contact-us__item">
           <div class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Regarding</div>
           <div class="custom-select custom-select_w-full relative">
@@ -193,7 +194,13 @@
               *You will be contacted back on this email adress
             </span>
           </div>
-          <input class="block w-full" type="email" name="contact[email]" id="email">
+          <input
+            class="block w-full"
+            type="email"
+            name="contact[email]"
+            id="email"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          >
         </div>
 
         <div class="submit pb-4">
