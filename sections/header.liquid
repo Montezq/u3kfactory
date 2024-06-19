@@ -23,6 +23,7 @@
       <div class="flex itmes-end">
         <form action="{{ routes.search_url }}" class="hidden">
           <input
+            class="search-form relative"
             type="text"
             placeholder="Search"
             name="q"
@@ -32,6 +33,16 @@
           <input type="hidden" name="options[unavailable_products]" value="hide">
           <input type="hidden" name="options[prefix]" value="last">
           <input type="submit" value="Search">
+          <div
+            class="tooltip tooltip_search absolute top-full -left-[20px] rounded-[6px] mt-2.5 whitespace-nowrap bg-white border border-black p-1 hidden"
+          >
+            <div class="flex items-center">
+              <div class="w-7 h-7 mr-[7px]">
+                {%- render 'icon-info' -%}
+              </div>
+              <p class="leading-none text-[15px] tracking-wider font-open">Please fill out this field.</p>
+            </div>
+          </div>
         </form>
         <div class="w-5">
           {% render 'icon-search' %}
