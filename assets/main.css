@@ -3688,6 +3688,13 @@ input:focus-visible{
   margin-top: clamp(32px, 8.36vh, 8.36vh);
   margin-bottom: clamp(32px, 5.33vh, 5.33vh);
 }
+
+@media (min-width: 1024px){
+
+.default-page__body{
+    padding-top: clamp(83px, calc(19.47vh - 27px), 273px);
+}
+  }
 .custom-page__body-section{
   margin-bottom: clamp(110px, 16.53vh, 217px);
 }
