@@ -1190,8 +1190,10 @@ class VariantSelects extends HTMLElement {
         // Check if the current variant is in the wishlist stored in local storage
         let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
         const existingItem = wishlist.find(item => item.variantId === this.currentVariant.id);
+        console.log(this.currentVariant.id)
+        console.log(requestedVariantId)
         console.log(existingItem)
-        // Update the match class on the wishlist button based on whether the item is in the wishlist
+        
         if (wishlistButton) {
           if (existingItem) {
             wishlistButton.classList.add('match');
