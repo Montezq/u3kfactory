@@ -1179,8 +1179,6 @@ class VariantSelects extends HTMLElement {
   
         // Update the add to wishlist button with the new variant data
         const wishlistButton = document.querySelector('.wishlist-button');
-        console.log(requestedVariantId)
-        console.log(wishlistButton)
         if (wishlistButton) {
           wishlistButton.setAttribute('data-variant-id', this.currentVariant.id);
           wishlistButton.setAttribute('data-variant-option-size', this.currentVariant.option1);
