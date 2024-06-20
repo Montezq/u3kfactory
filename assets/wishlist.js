@@ -103,7 +103,7 @@ function checkWishlistButtons() {
     const productId = button.getAttribute('data-id');
     const dataToggle = button.getAttribute('data-toggle') === 'true';
     const variantId = button.getAttribute('data-variant-id');
-
+    console.log(dataToggle)
     if(dataToggle){
       const match = wishlist.find(item => item.productId === productId);
       if (match) {
