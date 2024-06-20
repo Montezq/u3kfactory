@@ -11,9 +11,10 @@ function addToWishlist(event) {
   const productVendor = button.getAttribute('data-vendor');
   const productPrice = button.getAttribute('data-price');
   const noVariant = button.getAttribute('data-no-variant') === 'true';
-  if (!noVariant){
-    const optionSize = button.getAttribute('data-variant-option-size');
-    const optionMaterial = button.getAttribute('data-variant-option-material');
+  let optionSize, optionMaterial;
+  if (!noVariant) {
+    optionSize = button.getAttribute('data-variant-option-size');
+    optionMaterial = button.getAttribute('data-variant-option-material');
   }
 
   // Get current wishlist items from localStorage or initialize as an empty array
@@ -24,7 +25,7 @@ function addToWishlist(event) {
 
   if (!existingItem) {
     // Add the new item to the wishlist
-    wishlist.push({
+    const newItem = {
       productId,
       productUrl,
       variantId,
@@ -33,12 +34,12 @@ function addToWishlist(event) {
       productVendor,
       productPrice,
       noVariant
-    });
-    if(!noVariant){
-      wishlist.push({
-        optionSize,
-        optionMaterial
-      });
+    };
+    if (!noVariant) {
+      newItem.optionSize = optionSize;
+      newItem.optionMaterial = optionMaterial;
+    }
+      wishlist.push(newItem);
     }
 
     // Update the wishlist in localStorage
