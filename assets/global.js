@@ -1187,8 +1187,24 @@ class VariantSelects extends HTMLElement {
           wishlistButton.setAttribute('data-variant-option-material', this.currentVariant.option2);
           wishlistButton.setAttribute('data-price', this.currentVariant.price);
         }
+  
+        // Check if the current variant is in the wishlist stored in local storage
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        const existingItem = wishlist.find(item => item.variantId === requestedVariantId);
+  
+        // Update the Heart_Icon-notsaved and Heart_Icon-saved elements based on whether the item is in the wishlist
+        const heartIconNotSaved = document.getElementById('Heart_Icon-notsaved');
+        const heartIconSaved = document.getElementById('Heart_Icon-saved');
+        if (existingItem) {
+          if (heartIconNotSaved) heartIconNotSaved.classList.add('hidden');
+          if (heartIconSaved) heartIconSaved.classList.remove('hidden');
+        } else {
+          if (heartIconNotSaved) heartIconNotSaved.classList.remove('hidden');
+          if (heartIconSaved) heartIconSaved.classList.add('hidden');
+        }
       });
   }
+  
   
   
 
