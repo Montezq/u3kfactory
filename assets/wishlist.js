@@ -27,7 +27,7 @@ function addToWishlist(event) {
 
   if (dataToggle) {
     if (!existingItem) {
-      // Add the new item to the wishlist
+      // Add the new item to the start of the wishlist
       const newItem = {
         productId,
         productUrl,
@@ -42,7 +42,7 @@ function addToWishlist(event) {
         newItem.optionSize = optionSize;
         newItem.optionMaterial = optionMaterial;
       }
-      wishlist.push(newItem);
+      wishlist.unshift(newItem);
 
       // Update the wishlist in localStorage
       localStorage.setItem('wishlist', JSON.stringify(wishlist));
@@ -60,7 +60,7 @@ function addToWishlist(event) {
     }
   } else {
     if (!existingItem) {
-      // Add the new item to the wishlist
+      // Add the new item to the start of the wishlist
       const newItem = {
         productId,
         productUrl,
@@ -75,7 +75,7 @@ function addToWishlist(event) {
         newItem.optionSize = optionSize;
         newItem.optionMaterial = optionMaterial;
       }
-      wishlist.push(newItem);
+      wishlist.unshift(newItem);
 
       // Update the wishlist in localStorage
       localStorage.setItem('wishlist', JSON.stringify(wishlist));
