@@ -100,7 +100,17 @@ function checkWishlistButtons() {
   const wishlistButtons = document.querySelectorAll('.wishlist-button');
 
   wishlistButtons.forEach(button => {
+    const productId = button.getAttribute('data-id');
+    const dataToggle = button.getAttribute('data-toggle') === 'true';
     const variantId = button.getAttribute('data-variant-id');
+
+    if(dataToggle){
+      const match = wishlist.find(item => item.productId === productId);
+      if (match) {
+        button.classList.add('match');
+      }
+      return
+    }
 
     const match = wishlist.find(item => item.variantId === variantId);
 
