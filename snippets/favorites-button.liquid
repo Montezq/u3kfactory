@@ -1,5 +1,5 @@
 <button
-  class="btn btn_primary btn_small flex text-center uppercase relative w-full"
+  class="btn btn_primary btn_small flex text-center uppercase relative w-full wishlist-button"
   data-id="{{ product.id }}"
   data-variant-id="{{ product.id }}"
   data-title="{{ product.title }}"
@@ -8,7 +8,7 @@
   data-image="{{ product | image_url: width: 1200 }}"
   data-url="{{ product.url }}"
   data-toggle="true"
-  data-no-variant="true"
+  data-no-variant="false"
 >
   <span class="text-red">save for later</span>
   <span
