@@ -1177,32 +1177,17 @@ class VariantSelects extends HTMLElement {
           },
         });
   
-        // Update wishlist if the variant exists
-        this.updateWishlistWithVariantData(
-          this.currentVariant.id,
-          this.currentVariant.option1,
-          this.currentVariant.option2,
-          this.currentVariant.price
-        );
+        // Update the add to wishlist button with the new variant data
+        const wishlistButton = document.querySelector(`.wishlist-button[data-id="${this.dataset.productId}"]`);
+        if (wishlistButton) {
+          wishlistButton.setAttribute('data-variant-id', this.currentVariant.id);
+          wishlistButton.setAttribute('data-variant-option-size', this.currentVariant.option1);
+          wishlistButton.setAttribute('data-variant-option-material', this.currentVariant.option2);
+          wishlistButton.setAttribute('data-price', this.currentVariant.price);
+        }
       });
   }
   
-  updateWishlistWithVariantData(variantId, optionSize, optionMaterial, price) {
-    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-    wishlist = wishlist.map(item => {
-      if (item.variantId === variantId) {
-        return {
-          ...item,
-          variantId,
-          optionSize,
-          optionMaterial,
-          productPrice: price
-        };
-      }
-      return item;
-    });
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
-  }
   
 
   toggleAddButton(disable = true, text, modifyClass = true) {
