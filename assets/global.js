@@ -1192,7 +1192,7 @@ class VariantSelects extends HTMLElement {
         const existingItem = wishlist.find(item => {
           console.log(item.variantId, 'item')
           console.log(this.currentVariant.id, 'curent')
-          return item.variantId === this.currentVariant.id
+          return item.variantId == this.currentVariant.id
         });
         console.log(this.currentVariant.id)
         console.log(requestedVariantId)
