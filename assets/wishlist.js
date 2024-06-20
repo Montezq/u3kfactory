@@ -33,6 +33,13 @@ function addToWishlist(event) {
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
 
     button.classList.remove('match');
+    const removedModal = document.querySelector('.removed-wishlist__modal');
+    if (removedModal) {
+      removedModal.classList.remove('hidden');
+      setTimeout(() => {
+        removedModal.classList.add('hidden');
+      }, 1000); // Wait for 1 second before hiding the modal
+    }
     return
   }
   if (!existingItem) {
