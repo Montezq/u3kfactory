@@ -34,6 +34,12 @@ function addToWishlist(event) {
       productPrice,
       noVariant
     });
+    if(!noVariant){
+      wishlist.push({
+        optionSize,
+        optionMaterial
+      });
+    }
 
     // Update the wishlist in localStorage
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
