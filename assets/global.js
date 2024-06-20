@@ -1205,12 +1205,12 @@ class VariantSelects extends HTMLElement {
   
         if (existingItem) {
           console.log('exist')
-          if (heartIconNotSaved) heartIconNotSaved.classList.add('hidden');
-          if (heartIconSaved) heartIconSaved.classList.remove('hidden');
+          heartIconNotSaved.classList.add('hidden');
+          heartIconSaved.classList.remove('hidden');
         } else {
           console.log('else')
-          if (heartIconNotSaved) heartIconNotSaved.classList.remove('hidden');
-          if (heartIconSaved) heartIconSaved.classList.add('hidden');
+          heartIconNotSaved.classList.remove('hidden');
+          heartIconSaved.classList.add('hidden');
         }
       });
   }
