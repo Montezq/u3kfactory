@@ -1188,7 +1188,11 @@ class VariantSelects extends HTMLElement {
   
         // Check if the current variant is in the wishlist stored in local storage
         let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        const existingItem = wishlist.find(item => item.variantId === this.currentVariant.id);
+        const existingItem = wishlist.find(item => {
+          console.log(item.variantId)
+          console.log(this.currentVariant.id)
+          return item.variantId === this.currentVariant.id
+        });
     
         // Update the Heart_Icon-notsaved and Heart_Icon-saved elements based on whether the item is in the wishlist
         const heartIconNotSaved = document.getElementById('Heart_Icon-notsaved');
