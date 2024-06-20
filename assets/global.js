@@ -1184,33 +1184,20 @@ class VariantSelects extends HTMLElement {
           wishlistButton.setAttribute('data-variant-option-size', this.currentVariant.option1);
           wishlistButton.setAttribute('data-variant-option-material', this.currentVariant.option2);
           wishlistButton.setAttribute('data-price', this.currentVariant.price);
+          wishlistButton.classList.remove('match'); // Reset the match class
         }
-  
+
         // Check if the current variant is in the wishlist stored in local storage
         let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        const existingItem = wishlist.find(item => {
-          console.log(item.variantId)
-          console.log(this.currentVariant.id)
-          return item.variantId === this.currentVariant.id
-        });
-    
-        // Update the Heart_Icon-notsaved and Heart_Icon-saved elements based on whether the item is in the wishlist
-        const heartIconNotSaved = document.getElementById('Heart_Icon-notsaved');
-        const heartIconSaved = document.getElementById('Heart_Icon-saved');
-        console.log(existingItem);
-  
-        // Debugging logs
-        console.log('Requested Variant ID:', requestedVariantId);
-        console.log('Wishlist:', wishlist);
-  
-        if (existingItem) {
-          console.log('exist')
-          heartIconNotSaved.classList.add('hidden');
-          heartIconSaved.classList.remove('hidden');
-        } else {
-          console.log('else')
-          heartIconNotSaved.classList.remove('hidden');
-          heartIconSaved.classList.add('hidden');
+        const existingItem = wishlist.find(item => item.variantId === this.currentVariant.id);
+
+        // Update the match class on the wishlist button based on whether the item is in the wishlist
+        if (wishlistButton) {
+          if (existingItem) {
+            wishlistButton.classList.add('match');
+          } else {
+            wishlistButton.classList.remove('match');
+          }
         }
       });
   }
