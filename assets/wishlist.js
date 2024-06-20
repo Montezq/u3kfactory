@@ -25,68 +25,42 @@ function addToWishlist(event) {
   // Check if the item is already in the wishlist
   const existingItem = wishlist.find(item => item.productId === productId && item.variantId === variantId);
 
-  if (dataToggle) {
-    if (!existingItem) {
-      // Add the new item to the start of the wishlist
-      const newItem = {
-        productId,
-        productUrl,
-        variantId,
-        productImage,
-        productTitle,
-        productVendor,
-        productPrice,
-        noVariant
-      };
-      if (!noVariant) {
-        newItem.optionSize = optionSize;
-        newItem.optionMaterial = optionMaterial;
-      }
-      wishlist.unshift(newItem);
-
-      // Update the wishlist in localStorage
-      localStorage.setItem('wishlist', JSON.stringify(wishlist));
-
-      console.log('Item added to wishlist');
-      button.classList.add('match');
-      // Show the wishlist modal if the user hasn't opted out
-      if (!localStorage.getItem('dontShowWishlistModal')) {
-        document.querySelector('.wishlist__modal').classList.remove('hidden');
-      }
-    } else {
-      // Remove the item from the wishlist
-      removeFromWishlist(productId, variantId);
-      button.classList.remove('match');
+  if (!existingItem) {
+    // Check if there is an item with the same productId and noVariant set to true
+    if (!noVariant) {
+      wishlist = wishlist.filter(item => !(item.productId === productId && item.noVariant));
     }
-  } else {
-    if (!existingItem) {
-      // Add the new item to the start of the wishlist
-      const newItem = {
-        productId,
-        productUrl,
-        variantId,
-        productImage,
-        productTitle,
-        productVendor,
-        productPrice,
-        noVariant
-      };
-      if (!noVariant) {
-        newItem.optionSize = optionSize;
-        newItem.optionMaterial = optionMaterial;
-      }
-      wishlist.unshift(newItem);
 
-      // Update the wishlist in localStorage
-      localStorage.setItem('wishlist', JSON.stringify(wishlist));
-
-      console.log('Item added to wishlist');
-      button.classList.add('match');
-      // Show the wishlist modal if the user hasn't opted out
-      if (!localStorage.getItem('dontShowWishlistModal')) {
-        document.querySelector('.wishlist__modal').classList.remove('hidden');
-      }
+    // Add the new item to the start of the wishlist
+    const newItem = {
+      productId,
+      productUrl,
+      variantId,
+      productImage,
+      productTitle,
+      productVendor,
+      productPrice,
+      noVariant
+    };
+    if (!noVariant) {
+      newItem.optionSize = optionSize;
+      newItem.optionMaterial = optionMaterial;
     }
+    wishlist.unshift(newItem);
+
+    // Update the wishlist in localStorage
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+    console.log('Item added to wishlist');
+    button.classList.add('match');
+    // Show the wishlist modal if the user hasn't opted out
+    if (!localStorage.getItem('dontShowWishlistModal')) {
+      document.querySelector('.wishlist__modal').classList.remove('hidden');
+    }
+  } else if (dataToggle) {
+    // Remove the item from the wishlist
+    removeFromWishlist(productId, variantId);
+    button.classList.remove('match');
   }
 }
 
