@@ -39,8 +39,7 @@ function addToWishlist(event) {
       newItem.optionSize = optionSize;
       newItem.optionMaterial = optionMaterial;
     }
-      wishlist.push(newItem);
-    }
+    wishlist.push(newItem);
 
     // Update the wishlist in localStorage
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
