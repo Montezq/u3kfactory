@@ -1178,7 +1178,8 @@ class VariantSelects extends HTMLElement {
         });
   
         // Update the add to wishlist button with the new variant data
-        const wishlistButton = document.querySelector(`.wishlist-button[data-id="${this.dataset.productId}"]`);
+        const wishlistButton = document.querySelector(`.wishlist-button[data-id"]`);
+        console.log(this.dataset.productId)
         console.log(wishlistButton)
         if (wishlistButton) {
           wishlistButton.setAttribute('data-variant-id', this.currentVariant.id);
