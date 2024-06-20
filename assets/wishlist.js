@@ -23,7 +23,7 @@ function addToWishlist(event) {
   let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
   // Check if the item is already in the wishlist
-  const existingItem = wishlist.find(item => item.productId == productId );
+  const existingItem = wishlist.find(item => item.productId === productId && item.variantId === variantId);
 
   if (!existingItem) {
     // Check if there is an item with the same productId and noVariant set to true
