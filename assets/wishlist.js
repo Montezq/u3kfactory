@@ -59,7 +59,7 @@ function addToWishlist(event) {
     }
   } else if (dataToggle) {
     // Remove the item from the wishlist
-    removeFromWishlist(productId);
+    removeFromWishlist(productId, variantId);
     button.classList.remove('match');
   }
 }
