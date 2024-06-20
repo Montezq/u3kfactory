@@ -12,7 +12,8 @@ function addToWishlist(event) {
   const productPrice = button.getAttribute('data-price');
   const noVariant = button.getAttribute('data-no-variant') === 'true';
   if (!noVariant){
-    console.log('no-variant')
+    const optionSize = button.getAttribute('data-variant-option-size');
+    const optionMaterial = button.getAttribute('data-variant-option-material');
   }
 
   // Get current wishlist items from localStorage or initialize as an empty array
