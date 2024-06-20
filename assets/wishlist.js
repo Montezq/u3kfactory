@@ -11,6 +11,8 @@ function addToWishlist(event) {
   const productVendor = button.getAttribute('data-vendor');
   const productPrice = button.getAttribute('data-price');
   const noVariant = button.getAttribute('data-no-variant') === 'true';
+  const dataToggle = button.getAttribute('data-toggle') === 'true';
+
   let optionSize, optionMaterial;
   if (!noVariant) {
     optionSize = button.getAttribute('data-variant-option-size');
@@ -23,37 +25,68 @@ function addToWishlist(event) {
   // Check if the item is already in the wishlist
   const existingItem = wishlist.find(item => item.productId === productId && item.variantId === variantId);
 
-  if (!existingItem) {
-    // Add the new item to the wishlist
-    const newItem = {
-      productId,
-      productUrl,
-      variantId,
-      productImage,
-      productTitle,
-      productVendor,
-      productPrice,
-      noVariant
-    };
-    if (!noVariant) {
-      newItem.optionSize = optionSize;
-      newItem.optionMaterial = optionMaterial;
-    }
-    wishlist.push(newItem);
+  if (dataToggle) {
+    if (!existingItem) {
+      // Add the new item to the wishlist
+      const newItem = {
+        productId,
+        productUrl,
+        variantId,
+        productImage,
+        productTitle,
+        productVendor,
+        productPrice,
+        noVariant
+      };
+      if (!noVariant) {
+        newItem.optionSize = optionSize;
+        newItem.optionMaterial = optionMaterial;
+      }
+      wishlist.push(newItem);
 
-    // Update the wishlist in localStorage
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      // Update the wishlist in localStorage
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
 
-    console.log('Item added to wishlist');
-    button.classList.add('match');
-    // Show the wishlist modal if the user hasn't opted out
-    if (!localStorage.getItem('dontShowWishlistModal')) {
-      document.querySelector('.wishlist__modal').classList.remove('hidden');
+      console.log('Item added to wishlist');
+      button.classList.add('match');
+      // Show the wishlist modal if the user hasn't opted out
+      if (!localStorage.getItem('dontShowWishlistModal')) {
+        document.querySelector('.wishlist__modal').classList.remove('hidden');
+      }
+    } else {
+      // Remove the item from the wishlist
+      removeFromWishlist(productId, variantId);
+      button.classList.remove('match');
     }
   } else {
-    // Remove the item from the wishlist
-    removeFromWishlist(productId, variantId);
-    button.classList.remove('match');
+    if (!existingItem) {
+      // Add the new item to the wishlist
+      const newItem = {
+        productId,
+        productUrl,
+        variantId,
+        productImage,
+        productTitle,
+        productVendor,
+        productPrice,
+        noVariant
+      };
+      if (!noVariant) {
+        newItem.optionSize = optionSize;
+        newItem.optionMaterial = optionMaterial;
+      }
+      wishlist.push(newItem);
+
+      // Update the wishlist in localStorage
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+      console.log('Item added to wishlist');
+      button.classList.add('match');
+      // Show the wishlist modal if the user hasn't opted out
+      if (!localStorage.getItem('dontShowWishlistModal')) {
+        document.querySelector('.wishlist__modal').classList.remove('hidden');
+      }
+    }
   }
 }
 
@@ -108,7 +141,7 @@ function dontShowWishlistModal(event) {
 // Ensure the DOM is fully loaded before attaching event listeners and checking buttons
 document.addEventListener('DOMContentLoaded', () => {
   // Find all wishlist buttons
-  const wishlistButtons = document.querySelectorAll('.wishlist-button[data-toggle="true"]');
+  const wishlistButtons = document.querySelectorAll('.wishlist-button');
 
   if (wishlistButtons.length > 0) {
     // Loop through each button and attach a click event listener
