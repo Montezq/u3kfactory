@@ -11,6 +11,9 @@ function addToWishlist(event) {
   const productVendor = button.getAttribute('data-vendor');
   const productPrice = button.getAttribute('data-price');
   const noVariant = button.getAttribute('data-no-variant') === 'true';
+  if (noVariant){
+    console.log('no-variant')
+  }
 
   // Get current wishlist items from localStorage or initialize as an empty array
   let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
