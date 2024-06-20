@@ -23,8 +23,18 @@ function addToWishlist(event) {
   let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
   // Check if the item is already in the wishlist
+  const existingItemGeneral = wishlist.find(item => item.productId === productId);
   const existingItem = wishlist.find(item => item.productId === productId && item.variantId === variantId);
+  if (existingItemGeneral && dataToggle) {
+    // Remove all items with the same productId from the wishlist
+    wishlist = wishlist.filter(item => item.productId !== productId);
 
+    // Update the wishlist in localStorage
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+    console.log('Items removed from wishlist');
+    button.classList.remove('match');
+  }
   if (!existingItem) {
     // Check if there is an item with the same productId and noVariant set to true
     if (!noVariant) {
