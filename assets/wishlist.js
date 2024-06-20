@@ -32,7 +32,6 @@ function addToWishlist(event) {
     // Update the wishlist in localStorage
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
 
-    console.log('Items removed from wishlist');
     button.classList.remove('match');
     return
   }
