@@ -1189,10 +1189,18 @@ class VariantSelects extends HTMLElement {
         // Check if the current variant is in the wishlist stored in local storage
         let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
         const existingItem = wishlist.find(item => item.variantId === requestedVariantId);
-  
+    
         // Update the Heart_Icon-notsaved and Heart_Icon-saved elements based on whether the item is in the wishlist
         const heartIconNotSaved = document.getElementById('Heart_Icon-notsaved');
         const heartIconSaved = document.getElementById('Heart_Icon-saved');
+        console.log(heartIconNotSaved);
+        console.log(heartIconSaved);
+        console.log(existingItem);
+  
+        // Debugging logs
+        console.log('Requested Variant ID:', requestedVariantId);
+        console.log('Wishlist:', wishlist);
+  
         if (existingItem) {
           if (heartIconNotSaved) heartIconNotSaved.classList.add('hidden');
           if (heartIconSaved) heartIconSaved.classList.remove('hidden');
@@ -1202,6 +1210,7 @@ class VariantSelects extends HTMLElement {
         }
       });
   }
+  
   
   
   
