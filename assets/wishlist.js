@@ -34,6 +34,7 @@ function addToWishlist(event) {
 
     console.log('Items removed from wishlist');
     button.classList.remove('match');
+    return
   }
   if (!existingItem) {
     // Check if there is an item with the same productId and noVariant set to true
