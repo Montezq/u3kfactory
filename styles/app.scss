@@ -32,6 +32,18 @@ body{
     }
   }
 }
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent; 
+}
+*::-webkit-scrollbar-thumb {
+  background: #191919; 
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
 .main{
   padding-left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
 }
@@ -442,6 +454,11 @@ input{
     margin-top: -7px;
   }
 }
+.tooltip.tooltip_search{
+  &:after{
+    left: 26px;
+  }
+}
 .header__personal-menu{
   @screen lg{
     top: clamp(50px, 9.3vh, 9.3vh);
@@ -817,7 +834,6 @@ accordion-item.open,
 }
 .cart-notification-wrapper{
   width: calc(100% - 18px);
-  top: calc(50% + 25px);
 }
 .modal__close-button,
 .cart-notification-wrapper-block,
@@ -1077,6 +1093,11 @@ accordion-item.open,
     height: clamp(83px, calc(14.05vh - 27px), 196px);
   }
 }
+.custom-page__footer{
+  @screen lg{
+    left: clamp(434px,calc(84px + 22vw),calc(84px + 22vw));
+  }
+}
 .custom-page__body,
 .contact__body{
   @screen lg{
@@ -1275,6 +1296,12 @@ accordion-item.open,
   margin-top: clamp(32px, 8.36vh, 8.36vh);
   margin-bottom: clamp(32px, 5.33vh, 5.33vh);
 }
+
+.default-page__body{
+  @screen lg{
+    padding-top: clamp(83px, calc(19.47vh - 27px), 273px);
+  }
+}
 .custom-page__body-section{
   margin-bottom: clamp(110px, 16.53vh, 217px);
   &:last-child{
@@ -1282,8 +1309,41 @@ accordion-item.open,
   }
 }
 
-
-
+.default-page__body{
+  .custom-page__content{
+    &>*{
+      margin-bottom: 27px;
+      font-size: 17px;
+      @apply tracking-wider;
+      @apply leading-snug;
+      color: #1b1b1b;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    & *{
+      @apply !font-open;
+    }
+    h2{
+      @apply py-1;
+      @apply px-0.5;
+      @apply w-fit;
+      @apply text-xl;
+      @apply leading-none;
+      @apply bg-black;
+      @apply text-white;
+      margin-top: clamp(50px, 6.16vh, 6.16vh);
+    }
+  }
+}
+.last-updated{
+  margin-bottom: 27px;
+  font-size: 17px;
+  @apply tracking-wider;
+  @apply leading-snug;
+  color: #1b1b1b;
+  @apply !font-open;
+}
 
 
 

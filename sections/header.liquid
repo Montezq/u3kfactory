@@ -21,20 +21,33 @@
     </div>
     <div class="flex items-end gap-x-[20px]">
       <div class="flex itmes-end">
-        <form action="{{ routes.search_url }}" class="hidden">
+        <form action="{{ routes.search_url }}" class="hidden relative search-form search-form-mobile">
           <input
-            type="text"
-            placeholder="Search"
+            class="border-0 border-b border-b-black w-[171px] bg-transparent flex-1"
+            id="Search-In-Template"
+            type="search"
             name="q"
-            value="{{ search.terms | escape }}"
+            autocomplete="off"
           >
-          <input type="hidden" name="type" value="product,page">
+          <input name="options[prefix]" type="hidden" value="last">
+          <input type="hidden" name="type" value="product">
           <input type="hidden" name="options[unavailable_products]" value="hide">
-          <input type="hidden" name="options[prefix]" value="last">
-          <input type="submit" value="Search">
+          <button type="submit" class="ml-1 mt-[1px]" aria-label="{{ 'general.search.search' | t }}">
+            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2 text-[22px]"></span>
+          </button>
+          <div
+            class="tooltip tooltip_search absolute top-full -left-[20px] rounded-[6px] mt-2.5 whitespace-nowrap bg-white border border-black p-1 hidden"
+          >
+            <div class="flex items-center">
+              <div class="w-7 h-7 mr-[7px]">
+                {%- render 'icon-info' -%}
+              </div>
+              <p class="leading-none text-[15px] tracking-wider font-open">Please fill out this field.</p>
+            </div>
+          </div>
         </form>
-        <div class="w-5">
-          {% render 'icon-search' %}
+        <div class="search-trigger">
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2 text-[22px]"></span>
         </div>
       </div>
       <a
@@ -82,7 +95,7 @@
           style="background-color:{{ settings.default_color }}"
         >
           <nav>
-            <ul class="space-y-[26px] lg:space-y-2.5">
+            <ul class="space-y-[20px] lg:space-y-2.5">
               {%- for link in section.settings.personal_menu.links -%}
                 <li
                   {% if forloop.last %}
@@ -94,7 +107,7 @@
                 >
                   <a
                     id="PersonalMenu-{{ link.handle }}"
-                    class="inline-block lg:whitespace-nowrap leading-none pb-6 lg:pb-3 min-w-[166px] lg:min-w-[72px] text-5xl lg:text-xl tracking-wide border-b-2 lg:border-b border-b-black"
+                    class="inline-block font-open lg:whitespace-nowrap leading-none pb-6 lg:pb-2 min-w-[166px] lg:min-w-[72px] text-5xl lg:text-xl tracking-wide border-b-2 lg:border-b border-b-black"
                     href="{{ link.url  }}"
                     {% if link.current %}
                       aria-current="page"
