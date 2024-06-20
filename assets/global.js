@@ -1210,10 +1210,6 @@ class VariantSelects extends HTMLElement {
         }
       });
   }
-  
-  
-  
-  
 
   toggleAddButton(disable = true, text, modifyClass = true) {
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
