@@ -1,10 +1,19 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "home_page_jFgCyG": {
       "type": "home-page",
       "settings": {
         "cover_type": "video",
-        "video": "shopify:\/\/files\/videos\/Homepage Video v2.mov",
+        "video": "shopify:\/\/files\/videos\/HomePage Video.mov",
         "image": "shopify:\/\/shop_images\/u3-art-prints-coming-soon-16.9-1200p.jpg",
         "heading": "<em>20% OFF<\/em>",
         "sub_heading": "SITE LAUNCH DISCOUNTS",
