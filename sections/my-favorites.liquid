@@ -104,13 +104,13 @@
         </div>
         <div class="wishlist__item-data flex-1 max-md:px-1 max-lg:px-4 max-md:flex max-md:flex-wrap">
           <div class="wishlist__item-data-title md:mb-14 max-md:w-1/2">
-            <h2 class="text-[24px] md:text-[32px] font-semibold leading-none mb-3">${item.productTitle}</h2>
-            <h3 class="leading-none text-[26px] font-helveticaThinCond italic tracking-wide font-normal">by ${
+            <h2 class="text-[20px] md:text-[32px] font-semibold leading-none mb-3">${item.productTitle}</h2>
+            <h3 class="leading-none text-base md:text-[26px] font-helveticaThinCond italic tracking-wide font-normal">by ${
               item.productVendor
             }</h3>
           </div>
           <div class="wishlist__item-data-variant mb-[90px] max-md:w-1/2 max-md:text-right">
-            <h4 class="text-[24px] tracking-xwidest mb-4 font-bold leading-none">${
+            <h4 class="text-[22px] md:text-[24px] tracking-xwidest mb-4 font-bold leading-none">${
               item.noVariant || item.optionMaterial == 'paper print' || item.optionMaterial == 'oil print'
                 ? 'Unframed'
                 : item.optionMaterial === 'canvas print'
@@ -118,7 +118,7 @@
                 : ''
             }</h4>
 
-            <h4 class="text-[24px] tracking-xwidest font-bold leading-none">${
+            <h4 class="text-[22px] md:text-[24px] tracking-xwidest font-bold leading-none">${
               item.noVariant ? 'NO SIZE SELECTED' : `${optionSizeCapitalized} ${optionMaterialCapitalized}`
             }</h4>
           </div>
