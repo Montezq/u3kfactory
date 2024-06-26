@@ -14,7 +14,7 @@
       {%- for option in product.options_with_values -%}
         {%- for value in option.values -%}
           {% if option.selected_value == value %}
-            data-variant-option-{{ option.name }}="{{- value -}}"
+            data-variant-option-{{ option.name }}="{{- value | downcase -}}"
           {% endif %}
         {%- endfor -%}
       {%- endfor -%}
