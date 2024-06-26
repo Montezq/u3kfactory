@@ -113,7 +113,13 @@
           </div>
           <div class="wishlist__item-data-variant mb-[90px]">
             <h4 class="text-[24px] tracking-xwidest mb-4 font-bold leading-none">${
-              item.noVariant ? 'Unframed' : 'Variant'
+              item.noVariant
+                ? 'Unframed'
+                : item.optionMaterial == 'Canvas Print'
+                ? 'Unmounted'
+                : item.optionMaterial == 'Paper Print' || 'Oil Print'
+                ? 'Unframed'
+                : ''
             }</h4>
             <h4 class="text-[24px] tracking-xwidest font-bold leading-none">${
               item.noVariant ? 'NO SIZE SELECTED' : `${optionSizeCapitalized} ${optionMaterialCapitalized}`
