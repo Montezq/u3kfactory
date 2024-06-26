@@ -1224,6 +1224,7 @@ accordion-item.open,
   @screen lg{
     padding-top: clamp(80px, calc(19.47vh - 27px), 273px);
     padding-bottom: clamp(92px,9.2vh,154px);
+    padding-right: 7px;
   }
 }
 .my-account__body-item-heading{

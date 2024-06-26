@@ -1115,49 +1115,35 @@ class VariantSelects extends HTMLElement {
   renderProductInfo() {
     const requestedVariantId = this.currentVariant.id;
     const sectionId = this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section;
-
+  
     fetch(
-      `${this.dataset.url}?variant=${requestedVariantId}&section_id=${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section
-      }`
+      `${this.dataset.url}?variant=${requestedVariantId}&section_id=${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
     )
       .then((response) => response.text())
       .then((responseText) => {
-        // prevent unnecessary ui changes from abandoned selections
+        // Prevent unnecessary UI changes from abandoned selections
         if (this.currentVariant.id !== requestedVariantId) return;
-
+  
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const destination = document.getElementById(`price-${this.dataset.section}-buy`);
         const destination2 = document.getElementById(`price-${this.dataset.section}`);
-        const source = html.getElementById(
-          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}-buy`
-        );
-        const source2 = html.getElementById(
-          `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
-        );
-        const skuSource = html.getElementById(
-          `Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
-        );
+        const source = html.getElementById(`price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}-buy`);
+        const source2 = html.getElementById(`price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+        const skuSource = html.getElementById(`Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
         const skuDestination = document.getElementById(`Sku-${this.dataset.section}`);
-        const inventorySource = html.getElementById(
-          `Inventory-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
-        );
+        const inventorySource = html.getElementById(`Inventory-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
         const inventoryDestination = document.getElementById(`Inventory-${this.dataset.section}`);
-
-        const volumePricingSource = html.getElementById(
-          `Volume-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
-        );
-
+        const volumePricingSource = html.getElementById(`Volume-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
         const pricePerItemSource = html.getElementById(`Price-Per-Item-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
-
         const volumePricingDestination = document.getElementById(`Volume-${this.dataset.section}`);
         const qtyRules = document.getElementById(`Quantity-Rules-${this.dataset.section}`);
         const volumeNote = document.getElementById(`Volume-Note-${this.dataset.section}`);
-
+  
         if (volumeNote) volumeNote.classList.remove('hidden');
         if (volumePricingDestination) volumePricingDestination.classList.remove('hidden');
         if (qtyRules) qtyRules.classList.remove('hidden');
-
+  
         if (source && destination) destination.innerHTML = source.innerHTML;
         if (source2 && destination2) destination2.innerHTML = source2.innerHTML;
         if (inventorySource && inventoryDestination) inventoryDestination.innerHTML = inventorySource.innerHTML;
@@ -1165,29 +1151,24 @@ class VariantSelects extends HTMLElement {
           skuDestination.innerHTML = skuSource.innerHTML;
           skuDestination.classList.toggle('hidden', skuSource.classList.contains('hidden'));
         }
-
         if (volumePricingSource && volumePricingDestination) {
           volumePricingDestination.innerHTML = volumePricingSource.innerHTML;
         }
-
         if (pricePerItemSource && pricePerItemDestination) {
           pricePerItemDestination.innerHTML = pricePerItemSource.innerHTML;
           pricePerItemDestination.classList.toggle('hidden', pricePerItemSource.classList.contains('hidden'));
         }
-
+  
         const price = document.getElementById(`price-${this.dataset.section}-buy`);
-
         if (price) price.classList.remove('hidden');
-
-        if (inventoryDestination)
-          inventoryDestination.classList.toggle('hidden', inventorySource.innerText === '');
-
+        if (inventoryDestination) inventoryDestination.classList.toggle('hidden', inventorySource.innerText === '');
+  
         const addButtonUpdated = html.getElementById(`ProductSubmitButton-${sectionId}`);
         this.toggleAddButton(
           addButtonUpdated ? addButtonUpdated.hasAttribute('disabled') : true,
           window.variantStrings.soldOut
         );
-
+  
         publish(PUB_SUB_EVENTS.variantChange, {
           data: {
             sectionId,
@@ -1195,6 +1176,28 @@ class VariantSelects extends HTMLElement {
             variant: this.currentVariant,
           },
         });
+  
+        // Update the add to wishlist button with the new variant data
+        const wishlistButton = document.querySelector('.wishlist-button');
+        if (wishlistButton) {
+          wishlistButton.setAttribute('data-variant-id', this.currentVariant.id);
+          wishlistButton.setAttribute('data-variant-option-size', this.currentVariant.option1);
+          wishlistButton.setAttribute('data-variant-option-material', this.currentVariant.option2);
+          wishlistButton.setAttribute('data-price', this.currentVariant.price);
+          wishlistButton.classList.remove('match'); // Reset the match class
+        }
+
+        // Check if the current variant is in the wishlist stored in local storage
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        const existingItem = wishlist.find(item =>  item.variantId == this.currentVariant.id);
+
+        if (wishlistButton) {
+          if (existingItem) {
+            wishlistButton.classList.add('match');
+          } else {
+            wishlistButton.classList.remove('match');
+          }
+        }
       });
   }
 

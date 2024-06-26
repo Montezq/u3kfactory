@@ -173,7 +173,7 @@
             {%- endcase -%}
           {%- endfor -%}
           <div class="md:max-w-[360px] mt-4">
-            {%- render 'favorites-button' -%}
+            {%- render 'favorites-button', product: product -%}
           </div>
           <div class="max-w-[360px] mt-4 max-md:order-10">
             <p class="italic uppercase text-lg text-gray-300 cursor-pointer w-fit font-semibold tracking-widerx contact-us">
@@ -429,6 +429,11 @@
     </div>
   </div>
 </div>
+{% if customer %}
+  {%- render 'wishlist-modal' -%}
+{% else %}
+  {%- render 'login-modal' -%}
+{% endif %}
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
     color_scheme: section.settings.color_scheme,
