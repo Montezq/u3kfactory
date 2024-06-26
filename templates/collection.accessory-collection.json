@@ -1,27 +1,25 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "product-grid": {
       "type": "main-collection-product-grid",
-      "disabled": true,
       "settings": {
         "heading": "",
         "grid_template": "small",
         "enable_filtering": true,
         "enable_sorting": true
       }
-    },
-    "cooming_soon_category_c8Efjg": {
-      "type": "cooming-soon-category",
-      "settings": {
-        "cover_type": "video",
-        "video": "shopify:\/\/files\/videos\/Tote Bags Coming Soon.mov",
-        "heading": "DESIGNER TOTE BAGS",
-        "subgheading": "Coming soon"
-      }
     }
   },
   "order": [
-    "product-grid",
-    "cooming_soon_category_c8Efjg"
+    "product-grid"
   ]
 }
