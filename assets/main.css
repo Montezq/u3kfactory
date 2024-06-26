@@ -4564,6 +4564,10 @@ input:focus-visible{
     margin-top: 2.5rem;
   }
 
+  .md\:mb-\[90px\] {
+    margin-bottom: 90px;
+  }
+
   .md\:flex {
     display: -webkit-box;
     display: -webkit-flex;
