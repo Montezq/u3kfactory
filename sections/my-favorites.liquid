@@ -90,8 +90,8 @@
       wishlistItem.classList.add('wishlist__item', 'flex');
 
       // Capitalize optionSize and optionMaterial
-      const optionSizeCapitalized = capitalizeWords(item.optionSize);
-      const optionMaterialCapitalized = capitalizeWords(item.optionMaterial);
+      const optionSizeCapitalized = item.optionSize ? capitalizeWords(item.optionSize) : '';
+      const optionMaterialCapitalized = item.optionMaterial ? capitalizeWords(item.optionMaterial) : '';
 
       wishlistItem.innerHTML = `
         <div class="wishlist__item-img aspect-square">
