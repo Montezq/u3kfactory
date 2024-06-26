@@ -147,7 +147,12 @@
                           <div class="price__regular">
                             <span class="visually-hidden visually-hidden--inline">Regular price</span>
                             <span class="price-item price-item--regular font-helvetica font-[900]">
-                              ${item.productPrice} 339.00 €
+                              ${(() => {
+                                const priceString = item.productPrice;
+                                const priceNumber = Number(priceString.replace(/[^0-9]/g, ''));
+                                const formattedPrice = (priceNumber / 100).toFixed(2);
+                                return formattedPrice + ' €';
+                              })()}
                             </span>
                           </div>
                         </div>
