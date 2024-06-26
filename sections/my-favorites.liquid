@@ -147,7 +147,7 @@
                           <div class="price__regular">
                             <span class="visually-hidden visually-hidden--inline">Regular price</span>
                             <span class="price-item price-item--regular font-helvetica font-[900]">
-                              339.00 €
+                              ${item.productPrice} 339.00 €
                             </span>
                           </div>
                         </div>
@@ -169,7 +169,7 @@
                           <form method="post" action="/cart/add" id="product-form-template--17986287468764__main" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form">
                             <input type="hidden" name="form_type" value="product">
                             <input type="hidden" name="utf8" value="✓">
-                            <input type="hidden" name="id" value="45066208772316" class="product-variant-id">
+                            <input type="hidden" name="id" value="${item.variantId}" class="product-variant-id">
                             <div class="product-form__buttons">
                               <button id="ProductSubmitButton-template--17986287468764__main" type="submit" name="add" class="product-form__submit flex items-center btn btn_primary btn_small w-full relative md:flex">
                                 <span>Add to cart</span>
