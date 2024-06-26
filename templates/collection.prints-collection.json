@@ -11,7 +11,6 @@
   "sections": {
     "product-grid": {
       "type": "main-collection-product-grid",
-      "disabled": true,
       "settings": {
         "heading": "",
         "grid_template": "medium",
@@ -21,6 +20,7 @@
     },
     "cooming_soon_category_7TaQLh": {
       "type": "cooming-soon-category",
+      "disabled": true,
       "settings": {
         "cover_type": "video",
         "video": "shopify:\/\/files\/videos\/Tote Bags Coming Soon.mov",
