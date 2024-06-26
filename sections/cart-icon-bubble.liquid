@@ -1,17 +1,17 @@
 <a
   href="{{ routes.cart_url }}"
-  class="header__personal-data-cart w-[38px] flex justify-center relative font-coutureBold text-[27px]"
+  class="header__personal-data-cart w-[38px] flex justify-center relative font-coutureBold text-[26px]"
   id="cart-icon-bubble"
 >
   {%- render 'icon-cart' -%}
   {%- if cart != empty -%}
-    <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-2">
+    <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-2.5">
       {%- if cart.item_count < 100 -%}
         <span aria-hidden="true">{{ cart.item_count }}</span>
       {%- endif -%}
       <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
     </div>
   {%- else -%}
-    <span class="absolute left-1/2 -translate-x-1/2 top-2"> 0 </span>
+    <span class="absolute left-1/2 -translate-x-1/2 top-2.5"> 0 </span>
   {%- endif -%}
 </a>
