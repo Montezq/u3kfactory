@@ -121,6 +121,20 @@
             <h4 class="text-[22px] md:text-[24px] tracking-xwidest font-bold leading-none">${
               item.noVariant ? 'NO SIZE SELECTED' : `${optionSizeCapitalized} ${optionMaterialCapitalized}`
             }</h4>
+            ${
+              item.noVariant
+                ? ''
+                : `
+              <h4 class="text-[22px] md:text-[24px] tracking-xwidest md:hidden leading-none">
+                ${(() => {
+                  const priceString = item.productPrice;
+                  const priceNumber = Number(priceString.replace(/[^0-9]/g, ''));
+                  const formattedPrice = (priceNumber / 100).toFixed(2);
+                  return formattedPrice + ' €';
+                })()}
+              </h4>
+              `
+            }
           </div>
           <div class="wishlist__item-data-buttons max-md:w-full">
             <div class="md:max-w-[360px] mt-4">
