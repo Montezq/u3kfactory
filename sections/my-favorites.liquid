@@ -111,12 +111,16 @@
           </div>
           <div class="wishlist__item-data-variant mb-4 md:mb-[90px] max-md:w-[60%] max-md:text-right">
             <h4 class="text-[22px] md:text-[24px] tracking-xwidest mb-4 font-bold leading-none">${
-              item.noVariant || item.optionMaterial == 'paper print' || item.optionMaterial == 'oil print'
+              item.noVariant ||
+              item.optionMaterial == 'paper print' ||
+              item.optionMaterial == 'oil print' ||
+              item.optionMaterial == 'PAPER PRINT' ||
+              item.optionMaterial == 'OIL PRINT'
                 ? 'Unframed'
-                : item.optionMaterial == 'canvas print'
+                : item.optionMaterial == 'canvas print' || item.optionMaterial == 'CANVAS PRINT'
                 ? 'Unmounted'
                 : ''
-            } ${item.optionMaterial}</h4>
+            }</h4>
 
             <h4 class="text-[22px] md:text-[24px] tracking-xwidest font-bold leading-none">${
               item.noVariant ? 'NO SIZE SELECTED' : `${optionSizeCapitalized} ${optionMaterialCapitalized}`
