@@ -62,6 +62,11 @@
 {%- endif -%}
 
 <script>
+  // Function to capitalize the first letter of each word
+  function capitalizeWords(str) {
+    return str.replace(/\b\w/g, (char) => char.toUpperCase());
+  }
+
   // Function to render the wishlist from local storage
   function renderWishlist() {
     // Get current wishlist items from localStorage
@@ -78,55 +83,59 @@
       const wishlistItem = document.createElement('li');
       wishlistItem.classList.add('wishlist__item', 'flex');
 
+      // Capitalize optionSize and optionMaterial
+      const optionSizeCapitalized = capitalizeWords(item.optionSize);
+      const optionMaterialCapitalized = capitalizeWords(item.optionMaterial);
+
       wishlistItem.innerHTML = `
-      <div class="wishlist__item-img aspect-square">
-        <img
-          class="w-full h-full object-cover"
-          src="${item.productImage}"
-          width="656"
-          height="640"
-        >
-      </div>
-      <div class="wishlist__item-data flex-1 max-lg:px-4">
-        <div class="wishlist__item-data-title">
-          <h2 class="text-[24px] md:text-[32px] font-semibold leading-none mb-3">${item.productTitle}</h2>
+        <div class="wishlist__item-img aspect-square">
+          <img
+            class="w-full h-full object-cover"
+            src="${item.productImage}"
+            width="656"
+            height="640"
+          >
         </div>
-        <div class="wishlist__item-data-vendor mb-14">
-          <h3 class="leading-none text-[26px] font-helveticaThinCond italic tracking-wide font-normal">by ${
-            item.productVendor
-          }</h3>
-        </div>
-        <div class="wishlist__item-data-variant mb-[90px]">
-          <h4 class="text-[24px] tracking-xwidest mb-4 font-bold leading-none">${
-            item.noVariant ? 'Unframed' : 'Variant'
-          }</h4>
-          <h4 class="text-[24px] tracking-xwidest font-bold leading-none">${
-            item.noVariant ? 'NO SIZE SELECTED' : item.optionSize + ' ' + item.optionMaterial
-          }</h4>
-        </div>
-        <div class="wishlist__item-data-buttons">
-          <div class="md:max-w-[360px] mt-4">
-            <a
-              href="${item.productUrl}"
-              class="btn btn_primary btn_small flex text-center uppercase relative w-full mb-4"
-            >
-              <span class="text-white">choose size/medium</span>
-              <span
-                class="icon-FULL-ICON-SET-WEBSITE-FINAL_Choose-Medium-Arrow absolute top-1/2 -translate-y-1/2 right-[18px] text-white"
-              ></span>
-            </a>
-            <button class="btn btn_primary btn_small flex text-center uppercase relative w-full remove-from-wishlist" data-id="${
-              item.productId
-            }" data-variant-id="${item.variantId}">
-              <span class="text-white">remove from list</span>
-              <span
-                class="icon-FULL-ICON-SET-WEBSITE-FINAL_Trash-Bin-v2 absolute top-1/2 -translate-y-1/2 right-[18px] text-white"
-              ></span>
-            </button>
+        <div class="wishlist__item-data flex-1 max-lg:px-4">
+          <div class="wishlist__item-data-title">
+            <h2 class="text-[24px] md:text-[32px] font-semibold leading-none mb-3">${item.productTitle}</h2>
+          </div>
+          <div class="wishlist__item-data-vendor mb-14">
+            <h3 class="leading-none text-[26px] font-helveticaThinCond italic tracking-wide font-normal">by ${
+              item.productVendor
+            }</h3>
+          </div>
+          <div class="wishlist__item-data-variant mb-[90px]">
+            <h4 class="text-[24px] tracking-xwidest mb-4 font-bold leading-none">${
+              item.noVariant ? 'Unframed' : 'Variant'
+            }</h4>
+            <h4 class="text-[24px] tracking-xwidest font-bold leading-none">${
+              item.noVariant ? 'NO SIZE SELECTED' : `${optionSizeCapitalized} ${optionMaterialCapitalized}`
+            }</h4>
+          </div>
+          <div class="wishlist__item-data-buttons">
+            <div class="md:max-w-[360px] mt-4">
+              <a
+                href="${item.productUrl}"
+                class="btn btn_primary btn_small flex text-center uppercase relative w-full mb-4"
+              >
+                <span class="text-white">choose size/medium</span>
+                <span
+                  class="icon-FULL-ICON-SET-WEBSITE-FINAL_Choose-Medium-Arrow absolute top-1/2 -translate-y-1/2 right-[18px] text-white"
+                ></span>
+              </a>
+              <button class="btn btn_primary btn_small flex text-center uppercase relative w-full remove-from-wishlist" data-id="${
+                item.productId
+              }" data-variant-id="${item.variantId}">
+                <span class="text-white">remove from list</span>
+                <span
+                  class="icon-FULL-ICON-SET-WEBSITE-FINAL_Trash-Bin-v2 absolute top-1/2 -translate-y-1/2 right-[18px] text-white"
+                ></span>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    `;
+      `;
 
       wishlistContainer.appendChild(wishlistItem);
     });
