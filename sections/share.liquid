@@ -1,0 +1,51 @@
+<div class="share__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-[320px] md:max-w-[352px]">
+  <button
+    type="button"
+    class="share__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-[34px] h-[34px] rounded-full bg-black leading-none flex justify-center items-center cursor-pointer"
+    aria-label="{{ 'accessibility.close' | t }}"
+  >
+    x
+  </button>
+  <div
+    class="border border-[#5a5a5a] bg-white px-[24px] pt-8 max-h-[360px] share__modal-wrapper w-full"
+    aria-modal="true"
+    role="dialog"
+    tabindex="-1"
+  >
+    <div class="share__modal-body mb-[40px]">
+      <ul class="share__list grid grid-cols-4">
+        <li class="share__item"></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Share Popup",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "share_item",
+      "name": "Share Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Logo"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Socials Name"
+        },
+        {
+          "type": "url",
+          "id": "share_url",
+          "label": "Socials Share Url"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
