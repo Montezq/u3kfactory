@@ -4345,6 +4345,10 @@ input:focus-visible{
     width: 100%;
   }
 
+  .max-md\:w-1\/2 {
+    width: 50%;
+  }
+
   .max-md\:max-w-\[204px\] {
     max-width: 204px;
   }
@@ -4363,6 +4367,12 @@ input:focus-visible{
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+
+  .max-md\:flex-wrap {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
   }
 
   .max-md\:items-center {
@@ -4444,6 +4454,10 @@ input:focus-visible{
 
   .max-md\:text-center {
     text-align: center;
+  }
+
+  .max-md\:text-right {
+    text-align: right;
   }
 
   .max-md\:text-\[28px\] {
