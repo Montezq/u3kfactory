@@ -4349,6 +4349,14 @@ input:focus-visible{
     width: 50%;
   }
 
+  .max-md\:w-\[40\%\] {
+    width: 40%;
+  }
+
+  .max-md\:w-\[60\%\] {
+    width: 60%;
+  }
+
   .max-md\:max-w-\[204px\] {
     max-width: 204px;
   }
@@ -4566,6 +4574,14 @@ input:focus-visible{
 
   .md\:mb-\[90px\] {
     margin-bottom: 90px;
+  }
+
+  .md\:mb-3 {
+    margin-bottom: 0.75rem;
+  }
+
+  .md\:mb-4 {
+    margin-bottom: 1rem;
   }
 
   .md\:flex {
