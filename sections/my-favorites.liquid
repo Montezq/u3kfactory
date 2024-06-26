@@ -62,9 +62,15 @@
 {%- endif -%}
 
 <script>
-  // Function to capitalize the first letter of each word
+  // Function to capitalize the first letter of each word, but leave "cm" in lowercase
   function capitalizeWords(str) {
-    return str.replace(/\b\w/g, (char) => char.toUpperCase());
+    return str
+      .split(' ')
+      .map((word) => {
+        if (word.toLowerCase() === 'cm') return 'cm';
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      })
+      .join(' ');
   }
 
   // Function to render the wishlist from local storage
