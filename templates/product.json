@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -72,7 +81,7 @@
       "type": "plus-info",
       "settings": {
         "heading": "Packaging Details",
-        "content": "{{ product.metafields.custom.plus_info_packing_details | metafield_tag }}",
+        "content": "<p>The larger prints are carefully wrapped in acid free silk paper and packed in sturdy cardboard tubes sealed with plastic taps <br\/>to assure maximum protection from bending and moisture during the shipment. <br\/>The A4, A3 prints are shipped in plastic envelopes with a recycled sturdy cardboard sheet as support to avoid bending.<\/p>",
         "image": "shopify:\/\/shop_images\/PACKAGING.jpg"
       }
     }
