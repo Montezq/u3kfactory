@@ -11,15 +11,26 @@
   "sections": {
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "settings": {
         "heading": "",
         "grid_template": "small",
         "enable_filtering": true,
         "enable_sorting": true
       }
+    },
+    "cooming_soon_category_Jb6BNc": {
+      "type": "cooming-soon-category",
+      "settings": {
+        "cover_type": "video",
+        "video": "shopify:\/\/files\/videos\/Tote Bags Coming Soon.mov",
+        "heading": "DESIGNED ACCESSORIES",
+        "subgheading": "COMING SOON"
+      }
     }
   },
   "order": [
-    "product-grid"
+    "product-grid",
+    "cooming_soon_category_Jb6BNc"
   ]
 }
