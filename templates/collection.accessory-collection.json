@@ -22,8 +22,8 @@
     "cooming_soon_category_Jb6BNc": {
       "type": "cooming-soon-category",
       "settings": {
-        "cover_type": "video",
-        "video": "shopify:\/\/files\/videos\/Tote Bags Coming Soon.mov",
+        "cover_type": "image",
+        "image": "shopify:\/\/shop_images\/SMARPTHONE-HOMEPAGE-SLIDE-3.jpg",
         "heading": "DESIGNED ACCESSORIES",
         "subgheading": "COMING SOON"
       }
