@@ -68,28 +68,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "plus_info_GRqWAV": {
-      "type": "plus-info",
-      "settings": {
-        "heading": "Print Details",
-        "content": "<p>This fine art giclée print is delivered unframed. The paper has a matt, light textured <\/p>",
-        "image": "shopify:\/\/shop_images\/PRINTING.jpg"
-      }
-    },
-    "plus_info_9jRrKL": {
-      "type": "plus-info",
-      "settings": {
-        "heading": "Packaging Details",
-        "content": "<p>The larger prints are carefully wrapped in acid free silk paper and packed in sturdy cardboard tubes sealed with plastic taps <br\/>to assure maximum protection from bending and moisture during the shipment. <br\/>The A4, A3 prints are shipped in plastic envelopes with a recycled sturdy cardboard sheet as support to avoid bending.<\/p>",
-        "image": "shopify:\/\/shop_images\/PACKAGING.jpg"
-      }
     }
   },
   "order": [
     "main",
-    "related-products",
-    "plus_info_GRqWAV",
-    "plus_info_9jRrKL"
+    "related-products"
   ]
 }
