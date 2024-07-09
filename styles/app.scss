@@ -473,7 +473,7 @@ input{
 .header__menu-content{
   @media screen and (min-height: 1100px){
     margin: 0;
-    padding-top: clamp(0px, 12vh, 12vh);
+    padding-top: clamp(0px, 6vh, 6vh);
   }
 }
 .header__menu-footer{
@@ -1345,7 +1345,11 @@ accordion-item.open,
   color: #1b1b1b;
   @apply !font-open;
 }
-
+.header__personal-data{
+  @screen lg{
+    @apply pt-[1.49vh]
+  }
+}
 
 
 
