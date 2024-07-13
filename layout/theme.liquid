@@ -191,6 +191,7 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
     {% sections 'header-group' %}
+    {% section 'share' %}
     <main
       id="MainContent"
       class="content-for-layout focus-none main relative min-h-full pt-[67px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0 overflow-hidden"
@@ -199,12 +200,13 @@
     >
       <div class="max-lg:hidden fixed w-[80vw] top-0 right-0 desktop-search-wrapper flex justify-end z-[4]{% if template.name != "index" and template != '404' %} bg-white{% endif %}">
         <form
+          id="search-form"
           action="{{ routes.search_url }}"
           class="flex items-end relative w-[190px] search-form"
         >
           <input
             class="border-0 border-b border-b-black w-[171px] bg-transparent flex-1"
-            id="Search-In-Template"
+            id="search-input"
             type="search"
             name="q"
             autocomplete="off"
@@ -233,52 +235,114 @@
     {% comment %} {% sections 'footer-group' %} {% endcomment %}
     <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const searchForms = document.querySelectorAll('.search-form');
-        const searchTrigger = document.querySelector('.search-trigger');
-        const searchFormMobile = document.querySelector('.search-form-mobile');
+      const searchForms = document.querySelectorAll('.search-form');
+      const searchTrigger = document.querySelector('.search-trigger');
+      const searchFormMobile = document.querySelector('.search-form-mobile');
 
-        // Add event listener for the search-trigger click
-        searchTrigger.addEventListener('click', function () {
-          searchTrigger.classList.add('hidden');
-          searchFormMobile.classList.remove('hidden');
-        });
+      // Add event listener for the search-trigger click
+      searchTrigger.addEventListener('click', function () {
+        searchTrigger.classList.add('hidden');
+        searchFormMobile.classList.remove('hidden');
+      });
 
-        searchForms.forEach(function (form) {
-          form.addEventListener('submit', function (event) {
-            const searchInput = form.querySelector('input[type="search"]');
-            const tooltip = form.querySelector('.tooltip_search');
-            if (searchInput.value.trim() === '') {
-              event.preventDefault();
-              tooltip.classList.remove('hidden');
+      searchForms.forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
 
-              setTimeout(function () {
-                tooltip.classList.add('hidden');
-              }, 2000);
-            }
+          const searchInput = form.querySelector('input[type="search"]');
+          const tooltip = form.querySelector('.tooltip_search');
+
+          if (searchInput.value.trim() === '') {
+            tooltip.classList.remove('hidden');
+
+            setTimeout(function () {
+              tooltip.classList.add('hidden');
+            }, 2000);
+            return;
+          }
+
+          const query = searchInput.value.trim();
+          const words = query.split(' ');
+
+          // Store the search terms in local storage
+          localStorage.setItem('searchTerms', JSON.stringify(words));
+
+          const promises = words.map((word) => {
+            return fetch(`/search?q=${word}&type=product`)
+              .then((response) => response.text())
+              .then((data) => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+                return Array.from(doc.querySelectorAll('.grid__item')).map((item) => {
+                  const collections = item.getAttribute('data-collections').split(',');
+                  return { html: item.outerHTML, collections };
+                });
+              });
+          });
+
+          Promise.all(promises).then((results) => {
+            const flattenedResults = [].concat(...results);
+
+            // Filter collections containing 'all'
+            const collectionsMap = new Map();
+            flattenedResults.forEach((product) => {
+              product.collections.forEach((collection) => {
+                if (collection.includes('all') && collection !== 'home-page-collection') {
+                  if (!collectionsMap.has(collection)) {
+                    collectionsMap.set(collection, []);
+                  }
+                  collectionsMap.get(collection).push(product.html);
+                }
+              });
+            });
+
+            // Convert collectionsMap to an array of objects for easier processing in the search page
+            const groupedResults = Array.from(collectionsMap.entries()).map(([collection, products]) => ({
+              collection,
+              products,
+            }));
+
+            // Store the grouped results in local storage
+            localStorage.setItem('groupedSearchResults', JSON.stringify(groupedResults));
+
+            // Redirect to the search results page
+            window.location.href = '/search';
           });
         });
+      });
+    </script>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
         const bar = document.getElementById('bar');
+        const scrollContainer = document.querySelector('.cs-scroll');
         let lastScrollTop = 0;
+
         if (bar) {
           function handleScroll() {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let containerScrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
 
-            if (scrollTop > lastScrollTop) {
+            if (scrollTop > lastScrollTop || containerScrollTop > lastScrollTop) {
               bar.style.transform = 'translateY(-100%)';
             } else {
               bar.style.transform = 'translateY(0)';
             }
 
-            lastScrollTop = scrollTop;
+            lastScrollTop = Math.max(scrollTop, containerScrollTop);
           }
 
           function checkWidthAndScroll() {
-            if (window.innerWidth <= 767) {
+            if (window.innerWidth <= 1023) {
               window.addEventListener('scroll', handleScroll);
+              if (scrollContainer) {
+                scrollContainer.addEventListener('scroll', handleScroll);
+              }
             } else {
               window.removeEventListener('scroll', handleScroll);
+              if (scrollContainer) {
+                scrollContainer.removeEventListener('scroll', handleScroll);
+              }
               bar.style.transform = 'translateY(0)';
             }
           }

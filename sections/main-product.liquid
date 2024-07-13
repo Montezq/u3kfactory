@@ -169,19 +169,24 @@
                   </div>
                   <div class="leading-none md:ml-2 text-[19px] max-md:mt-2 uppercase">COPIES LEFT</div>
                 </div>
+              {%- when 'favorites' -%}
+                <div class="md:max-w-[360px] mt-4">
+                  {%- render 'favorites-button', product: product -%}
+                </div>
+              {%- when 'contact' -%}
+                <div class="max-w-[360px] mt-4 max-md:order-10">
+                  <a
+                    href="/pages/contact"
+                    class="italic uppercase text-lg text-gray-300 cursor-pointer w-fit font-semibold tracking-widerx contact-us"
+                  >
+                    Contact us for larger sizes
+                    <span
+                      class="icon-FULL-ICON-SET-WEBSITE-FINAL_Big-Envelope text-[#121212] !font-semibold inline-block ml-1.5 mt-1"
+                    ></span>
+                  </a>
+                </div>
             {%- endcase -%}
           {%- endfor -%}
-          <div class="md:max-w-[360px] mt-4">
-            {%- render 'favorites-button', product: product -%}
-          </div>
-          <div class="max-w-[360px] mt-4 max-md:order-10">
-            <p class="italic uppercase text-lg text-gray-300 cursor-pointer w-fit font-semibold tracking-widerx contact-us">
-              Contact us for larger sizes
-              <span
-                class="icon-FULL-ICON-SET-WEBSITE-FINAL_Big-Envelope text-[#121212] !font-semibold inline-block ml-1.5 mt-1"
-              ></span>
-            </p>
-          </div>
         </product-info>
       </div>
     </div>
@@ -265,169 +270,6 @@
     </script>
   </div>
 </section>
-<div class="contact-us__modal hidden fixed top-0 left-0 w-full h-full z-[99999]">
-  <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
-    <div class="relative my-auto left-[50%] lg:left-[63%] -translate-x-1/2 w-[96%] md:w-full max-w-[320px] md:max-w-[471px]">
-      <button
-        type="button"
-        class="contact-us__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-[34px] h-[34px] rounded-full bg-black leading-none flex justify-center items-center cursor-pointer"
-        aria-label="{{ 'accessibility.close' | t }}"
-      >
-        x
-      </button>
-      <div
-        class="border border-[#5a5a5a] bg-white px-2.5 pt-5 ontact-us__modal-wrapper w-full"
-        aria-modal="true"
-        role="dialog"
-        tabindex="-1"
-      >
-        <div class="contact-us__modal-heading text-center mb-[30px]">
-          <p class="text-[19px] tracking-widest font-normal uppercase leading-none mb-[30px]">You Are contacting</p>
-          <h2 class="font-coutureBold text-[42px]">{{ product.vendor }}</h2>
-          <div>
-            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Small-Envelope text-[60px]"> </span>
-          </div>
-        </div>
-
-        <div class="contact-us__modal-body">
-          {% form 'contact' %}
-            <input
-              class="absolute top-0 left-0 w-0 h-0 p-0 invisible"
-              type="text"
-              name="contact[artist]"
-              id="artist"
-              value="Contacting {{ product.vendor }}"
-            >
-            <div class="contact-subject contact-us__item">
-              <div class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Regarding</div>
-              <div class="custom-select custom-select_w-full relative">
-                <div class="select-trigger cursor-pointer border border-black flex h-12">
-                  <div class="flex items-center pl-2.5 flex-1">
-                    <span class="selected-text line-clamp-1 text-sm text-gray-750 font-open uppercase">
-                      Order problems
-                    </span>
-                  </div>
-                  <div class="w-11 select-icon border-black flex items-center justify-center">
-                    <span
-                      class="icon-FULL-ICON-SET-WEBSITE-FINAL_Next-Button-Arrow font-semibold text-xs duration-100 ease-in-out"
-                    ></span>
-                  </div>
-                </div>
-                <ul class="select-options select-options_w-full hidden absolute z-[2] top-full left-0 border border-t-0 border-black bg-white">
-                  <li class="custom-option selected">
-                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                      <input
-                        checked
-                        type="radio"
-                        name="contact[regarding]"
-                        value="Order Problems"
-                        class="invisible w-0 h-0"
-                      >
-                      <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                      >
-                        Order Problems
-                      </span>
-                    </label>
-                  </li>
-                  <li class="custom-option">
-                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                      <input
-                        type="radio"
-                        name="contact[regarding]"
-                        value="Payment Issues"
-                        class="invisible w-0 h-0"
-                      >
-                      <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                      >
-                        Payment Issues
-                      </span>
-                    </label>
-                  </li>
-                  <li class="custom-option">
-                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                      <input
-                        type="radio"
-                        name="contact[regarding]"
-                        value="Inquire About Bigger Sizes"
-                        class="invisible w-0 h-0"
-                      >
-                      <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                      >
-                        Inquire about bigger sizes
-                      </span>
-                    </label>
-                  </li>
-                  <li class="custom-option">
-                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                      <input
-                        type="radio"
-                        name="contact[regarding]"
-                        value="Refund Request"
-                        class="invisible w-0 h-0"
-                      >
-                      <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                      >
-                        Refund Request
-                      </span>
-                    </label>
-                  </li>
-                  <li class="custom-option">
-                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                      <input
-                        type="radio"
-                        name="contact[regarding]"
-                        value="Other"
-                        class="invisible w-0 h-0"
-                      >
-                      <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                      >
-                        Other
-                      </span>
-                    </label>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="contact-message contact-us__item">
-              <label for="message" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]"
-                >Your Message</label
-              >
-              <textarea class="block w-full py-2" name="contact[message]" id="message"></textarea>
-            </div>
-            <div class="contact-email contact-us__item">
-              <div class="flex justify-between">
-                <label for="email" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Email</label>
-                <span class="text-right text-[13px] font-bold line-clamp-1 max-w-[60%]">
-                  *You will be contacted back on this email adress
-                </span>
-              </div>
-              <input
-                class="block w-full"
-                type="email"
-                name="contact[email]"
-                id="email"
-                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-              >
-            </div>
-
-            <div class="submit pb-4">
-              <input
-                type="submit"
-                class="btn btn_primary w-full max-w-80 !block mx-auto cursor-pointer"
-                value="SUBMIT MESSAGE"
-              >
-            </div>
-          {% endform %}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 {% if customer %}
   {%- render 'wishlist-modal' -%}
 {% else %}
@@ -441,19 +283,6 @@
 {%- endif -%}
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const contactOpen = document.querySelector('.contact-us'),
-      contactModal = document.querySelector('.contact-us__modal'),
-      contactClose = document.querySelector('.contact-us__modal-close'),
-      boydEl = document.querySelector('body');
-    contactOpen.addEventListener('click', () => {
-      contactModal.classList.remove('hidden');
-      boydEl.classList.add('overflow-hidden');
-    });
-    contactClose.addEventListener('click', () => {
-      contactModal.classList.add('hidden');
-      boydEl.classList.remove('overflow-hidden');
-    });
-
     var mainCarousel = new Splide('.splide-main', {
       rewind: true,
       pagination: true,
@@ -529,7 +358,17 @@
     },
     {
       "type": "copies_left",
-      "name": "tCopies Left",
+      "name": "Copies Left",
+      "limit": 1
+    },
+    {
+      "type": "contact",
+      "name": "Contact Text",
+      "limit": 1
+    },
+    {
+      "type": "favorites",
+      "name": "Favorites Button",
       "limit": 1
     },
     {

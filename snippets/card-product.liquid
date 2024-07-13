@@ -14,7 +14,7 @@
 
 <div class="card-wrapper product-card-wrapper underline-links-hover">
   <div
-    class="card"
+    class="card test"
   >
     <div
       class="card__inner"
@@ -51,7 +51,7 @@
     </div>
     <div class="card__content px-2.5">
       <div class="flex justify-between">
-        <div class="card__information">
+        <div class="card__information flex-1">
           <h3
             class="card__heading text-xl font-helveticaLight uppercase tracking-widest leading-none line-clamp-1 pr-5"
             title="{{ card_product.title | escape }}"
@@ -76,12 +76,12 @@
             </a>
           </h4>
         </div>
-        <div class="flex gap-6">
+        <div class="flex gap-5 sm:gap-6 w-fit">
           <div class="w-[17px]">
             {%- render 'favorites', product: card_product -%}
           </div>
           <div class="w-3">
-            {%- render 'share-button' -%}
+            {%- render 'share-button', product: card_product -%}
           </div>
         </div>
       </div>

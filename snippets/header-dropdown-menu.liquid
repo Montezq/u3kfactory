@@ -113,15 +113,13 @@
             <a
               id="HeaderMenu-{{ link.handle }}"
               href="{{ link.url }}"
-              class="header__menu-item font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{% if link.current %} open{% endif %}"
+              class="header__menu-item font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative {% if link.current %} open{% endif %}"
               {% if link.current %}
                 aria-current="page"
               {% endif %}
             >
               <span
-                {%- if link.current %}
-                  class="header__active-menu-item"
-                {% endif %}
+                class="inline-block single-menu-span font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black"
               >
                 {{- link.title | escape -}}
               </span>
