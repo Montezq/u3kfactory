@@ -71,13 +71,19 @@
       </variant-selects>
     {%- elsif product.variants.size == 1 -%}
       {%- for option in product.options_with_values -%}
-        {%- for value in option.values -%}
-          {% if option.selected_value == value %}
-            <h3 class="uppercase text-2xl leading-none mb-6">
-              {{- value -}}
-            </h3>
-          {% endif %}
-        {%- endfor -%}
+        <div
+          {% unless forloop.last %}
+            class="mb-6"
+          {% endunless %}
+        >
+          {%- for value in option.values -%}
+            {% if option.selected_value == value %}
+              <h3 class="uppercase text-2xl leading-none font-helveticaLight">
+                {{- value -}}
+              </h3>
+            {% endif %}
+          {%- endfor -%}
+        </div>
       {%- endfor -%}
       <script type="application/json">
         {{ product.variants | json }}

@@ -1359,6 +1359,11 @@ accordion-item.open,
     @apply pt-[1.49vh]
   }
 }
+.margin-variant-picker{
+  margin-bottom: clamp(32px, 4.87vh, 53px);
+}
+
+
 
 
 

@@ -96,7 +96,7 @@
                   </div>
                 {%- endif -%}
               {%- when 'variant_picker' -%}
-                <div class="mb-5 md:mb-14 lg:mb-24">
+                <div class="{%- if product.variants.size > 1 -%}mb-5 md:mb-14 lg:mb-24{% else %}margin-variant-picker{% endif %}">
                   {% render 'product-variant-picker',
                     product: product,
                     block: block,
