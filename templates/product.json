@@ -77,11 +77,21 @@
         "content": "",
         "image": "shopify:\/\/shop_images\/INFO-PRINTING-DETAILS-IMAGE.jpg"
       }
+    },
+    "plus_info_Hz8NNJ": {
+      "type": "plus-info",
+      "settings": {
+        "heading": "Packaging Details",
+        "content_metafield": "",
+        "content": "<p><strong>Worldwide shipping available.<\/strong><br\/><br\/>The larger prints are carefully wrapped in acid free silk paper and packed in sturdy cardboard tubes sealed with plastic taps <br\/>to assure maximum protection from bending and moisture during the shipment. <br\/>The A4, A3 prints are shipped in plastic envelopes with a recycled sturdy cardboard sheet as support to avoid bending.<br\/><\/p>",
+        "image": "shopify:\/\/shop_images\/INFO-PACKAGING-DETAILS-IMAGE.jpg"
+      }
     }
   },
   "order": [
     "main",
     "related-products",
-    "plus_info_iwc9EU"
+    "plus_info_iwc9EU",
+    "plus_info_Hz8NNJ"
   ]
 }
