@@ -6,11 +6,11 @@
 {% endcomment %}
 <nav>
   <accordion-list>
-    <ul role="list" class="space-y-5 md:space-y-5">
+    <ul role="list" class="space-y-[18px] md:space-y-5">
       {%- for link in section.settings.menu.links -%}
         <li
           {% if forloop.first %}
-            class="pt-12 md:pt-0"
+            class="pt-10 md:pt-0"
           {% endif %}
         >
           {%- if link.links != blank -%}
@@ -52,7 +52,7 @@
                 class="header__menu-item accordion-toggle cursor-pointer"
               >
                 <span
-                  class="inline-block font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{%- if link.child_active or active_item %} header__active-menu-item{% endif %}"
+                  class="inline-block font-coutureBold tracking-widerx text-[30px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{%- if link.child_active or active_item %} header__active-menu-item{% endif %}"
                 >
                   {{- link.title | escape -}}
                 </span>
@@ -113,13 +113,13 @@
             <a
               id="HeaderMenu-{{ link.handle }}"
               href="{{ link.url }}"
-              class="header__menu-item font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative {% if link.current %} open{% endif %}"
+              class="header__menu-item font-coutureBold tracking-widerx text-[30px] md:text-[29px] uppercase leading-none relative {% if link.current %} open{% endif %}"
               {% if link.current %}
                 aria-current="page"
               {% endif %}
             >
               <span
-                class="inline-block single-menu-span font-coutureBold tracking-widerx text-[34px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black"
+                class="inline-block single-menu-span font-coutureBold tracking-widerx text-[30px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black"
               >
                 {{- link.title | escape -}}
               </span>

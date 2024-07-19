@@ -15,13 +15,13 @@
 -%}
 
 <header class="lg:flex max-lg:h-fit header lg:w-fit lg:h-screen fixed top-0 left-0 bottom-0 right-0 z-[999] lg:z-[2]{% if menu_open %} menu-open{% endif %}">
-  <div class="header__mobile !bg-red px-[18px] py-4 flex items-center justify-between lg:hidden{% if template.name != "index" %} bg-gray-10{% endif %}">
+  <div class="header__mobile !bg-red px-4 py-3 flex items-center justify-between lg:hidden{% if template.name != "index" %} bg-gray-10{% endif %}">
     <div class="header__mobile-hamburger w-10">
       {%- render 'icon-hamburger' -%}
     </div>
-    <div class="flex items-end gap-x-[20px]">
+    <div class="flex items-end gap-x-[18px]">
       <div class="flex itmes-end">
-        <form action="{{ routes.search_url }}" class="hidden relative search-form search-form-mobile">
+        <form action="{{ routes.search_url }}" class="hidden relative search-form search-form-mobile items-end">
           <input
             class="border-0 border-b border-b-black w-[171px] bg-transparent flex-1"
             id="Search-In-Template"
@@ -33,7 +33,7 @@
           <input type="hidden" name="type" value="product">
           <input type="hidden" name="options[unavailable_products]" value="hide">
           <button type="submit" class="ml-1 mt-[1px]" aria-label="{{ 'general.search.search' | t }}">
-            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2 text-[22px]"></span>
+            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2 text-[23px] block"></span>
           </button>
           <div
             class="tooltip tooltip_search absolute top-full -left-[20px] rounded-[6px] mt-2.5 whitespace-nowrap bg-white border border-black p-1 hidden"
@@ -47,33 +47,35 @@
           </div>
         </form>
         <div class="search-trigger">
-          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2 text-[22px]"></span>
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2 text-[23px] block"></span>
         </div>
       </div>
       <a
         href="/pages/account-slides"
       >
-        <div class="w-7">
+        <div class="w-6">
           {%- render 'icon-account' -%}
         </div>
       </a>
-      <a
-        href="{{ routes.cart_url }}"
-        class="w-6 flex justify-center relative font-coutureBold text-xl"
-        id="cart-icon-bubble-2"
-      >
-        {%- render 'icon-cart' -%}
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-1">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
-        {%- else -%}
-          <span class="absolute left-1/2 -translate-x-1/2 top-1"> 0 </span>
-        {%- endif -%}
-      </a>
+      <div class="w-5">
+        <a
+          href="{{ routes.cart_url }}"
+          class="w-full flex justify-center relative font-coutureBold text-base"
+          id="cart-icon-bubble-2"
+        >
+          {%- render 'icon-cart' -%}
+          {%- if cart != empty -%}
+            <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-1">
+              {%- if cart.item_count < 100 -%}
+                <span aria-hidden="true">{{ cart.item_count }}</span>
+              {%- endif -%}
+              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+            </div>
+          {%- else -%}
+            <span class="absolute left-1/2 -translate-x-1/2 top-1"> 0 </span>
+          {%- endif -%}
+        </a>
+      </div>
     </div>
   </div>
   <div
@@ -81,12 +83,12 @@
     style="background-color: {{ settings.default_color }}"
   >
     {%- if section.settings.personal_menu != blank -%}
-      <div class="header__personal-menu relative max-lg:flex max-lg:flex-col max-lg:pt-[18px] max-lg:pr-2 max-lg:pb-8 max-lg:pl-11 lg:absolute max-lg:h-full w-full lg:w-auto left-1/2 -translate-x-1/2 group">
+      <div class="header__personal-menu relative max-lg:flex max-lg:flex-col max-lg:pt-4 max-lg:pr-2 max-lg:pb-8 max-lg:pl-9 lg:absolute max-lg:h-full w-full lg:w-auto left-1/2 -translate-x-1/2 group">
         <div class="header__personal-menu-icon lg:cursor-pointer max-lg:pb-4 max-lg:flex max-lg:justify-end">
           <div class="header__personal-menu-icon-closed w-[46px] hidden lg:block">
             {%- render 'icon-hamburger' -%}
           </div>
-          <div class="header__personal-menu-icon-mobile w-4 rotate-180 lg:hidden">
+          <div class="header__personal-menu-icon-mobile w-3.5 rotate-180 lg:hidden">
             {%- render 'icon-caret' -%}
           </div>
         </div>
@@ -107,7 +109,7 @@
                 >
                   <a
                     id="PersonalMenu-{{ link.handle }}"
-                    class="inline-block font-open lg:whitespace-nowrap leading-none pb-6 lg:pb-2 min-w-[166px] lg:min-w-[72px] text-5xl lg:text-xl tracking-wide border-b-2 lg:border-b border-b-black"
+                    class="inline-block font-open lg:whitespace-nowrap leading-none pb-5 lg:pb-2 min-w-[140px] lg:min-w-[72px] text-[38px] lg:text-xl tracking-wide border-b lg:border-b border-b-black"
                     href="{{ link.url  }}"
                     {% if link.current %}
                       aria-current="page"
@@ -122,8 +124,8 @@
         </div>
         <div class="header__personal-menu-footer mt-auto lg:hidden">
           <div class="tracking-wide max-w-60 pt-4">
-            <small class="text-xl font-open">
-              U3&copy; All rights reserved
+            <small class="text-lg font-open">
+              U3&copy; All rights reserved <br>
               {{ 'now' | date: '%Y' }}
             </small>
           </div>
@@ -188,11 +190,11 @@
           widths: widths
       }}
     {%- endif -%}
-    <div class="flex items-center justify-between lg:hidden pl-3 pr-5 relative z-[1]">
-      <div class="header__menu-personal-icon w-4">
+    <div class="flex items-center justify-between lg:hidden px-3 relative z-[1]">
+      <div class="header__menu-personal-icon w-3">
         {%- render 'icon-caret' -%}
       </div>
-      <div class="header__menu-close w-5">
+      <div class="header__menu-close w-4">
         {%- render 'icon-close-small' -%}
       </div>
     </div>
@@ -206,14 +208,14 @@
         endif
       endfor
     -%}
-    <div class="header__menu-content pl-[45px] lg:pl-[0] pr-5 lg:pr-0 mt-20 lg:mt-0 flex flex-col overflow-auto relative z-[1]{% unless link_ative %} lg:pt-[16vh] transition-all duration-500{% endunless %}">
+    <div class="header__menu-content pl-10 lg:pl-[0] pr-5 lg:pr-0 mt-[72px] lg:mt-0 flex flex-col overflow-auto relative z-[1]{% unless link_ative %} lg:pt-[16vh] transition-all duration-500{% endunless %}">
       <div class="header__menu-logo lg:pl-2">
         {%- if request.page_type == 'index' -%}
           <h1>
         {%- endif -%}
         <a href="{{ routes.root_url }}" class="block">
           {%- if settings.logo != blank -%}
-            <div class="w-28 lg:w-36">
+            <div class="w-24 lg:w-36">
               {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
               {{
                 settings.logo
@@ -231,7 +233,7 @@
         {% render 'header-dropdown-menu' %}
       </div>
     </div>
-    <div class="header__menu-footer pt-3 pl-[50px] lg:pl-2 relative z-[1] mt-auto">
+    <div class="header__menu-footer pt-3 pl-10 lg:pl-2 relative z-[1] mt-auto">
       {% render 'social-icons' %}
       <div class="mt-3 tracking-wide max-w-[212px] hidden lg:block">
         <small class="text-lg font-open">

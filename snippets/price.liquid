@@ -33,7 +33,7 @@
 
 <div
   class="
-    price text-xl font-helveticaLight tracking-widest leading-none font-semibold
+    price text-sm md:text-xl font-helveticaLight tracking-widest leading-none font-semibold
     {%- if price_class %} {{ price_class }}{% endif -%}
     {%- if available == false %} price--sold-out{% endif -%}
     {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}

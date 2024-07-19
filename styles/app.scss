@@ -325,7 +325,8 @@ input{
   @apply text-black;
 }
 .btn_white-outlined{
-  @apply border-[3px];
+  @apply border-[2px];
+  @apply md:border-[3px];
   @apply border-white;
   @apply text-white;
   @apply text-[26px];
@@ -373,10 +374,10 @@ input{
   }
 }
 .home-page__carousel{
+  height: 100dvh;
   @apply duration-300;
   @apply ease-in-out;
   @apply lg:!hidden;
-  height: 100dvh;
   &.scrolled{
     transform: translateY(-100%);
   }
@@ -387,8 +388,8 @@ input{
     @apply mt-2;
     @apply mb-2;
     button{
-      @apply w-3.5;
-      @apply h-3.5;
+      @apply w-2.5;
+      @apply h-2.5;
       @apply rounded-full;
       @apply border;
       @apply border-black;
@@ -412,7 +413,7 @@ input{
   }
 }
 .home-page__carousel-wrapper-btn{
-  top: calc(35vh + 145px);
+  top: calc(35vh + 125px);
 }
 .home-page__banner-content-heading{
   h2{
@@ -548,7 +549,10 @@ accordion-item.open,
   @apply bg-white;
 }
 .collection-list__card{
-  height: calc(100vh / 3 - 52px);
+  height: calc(100vh / 3 - 48px);
+  @screen md{
+    height: calc(100vh / 3 - 50px);
+  }
   @screen lg{
     height: calc(100vh / 3 - 36px);
   }

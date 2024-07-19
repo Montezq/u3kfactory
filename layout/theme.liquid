@@ -194,7 +194,7 @@
     {% section 'share' %}
     <main
       id="MainContent"
-      class="content-for-layout focus-none main relative min-h-full pt-[67px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0 overflow-hidden"
+      class="content-for-layout focus-none main relative min-h-full pt-[53px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0 overflow-hidden"
       role="main"
       tabindex="-1"
     >
@@ -243,6 +243,7 @@
       searchTrigger.addEventListener('click', function () {
         searchTrigger.classList.add('hidden');
         searchFormMobile.classList.remove('hidden');
+        searchFormMobile.classList.add('flex');
       });
 
       searchForms.forEach(function (form) {

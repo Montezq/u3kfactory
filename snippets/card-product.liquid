@@ -53,7 +53,7 @@
       <div class="flex justify-between">
         <div class="card__information flex-1">
           <h3
-            class="card__heading text-xl font-helveticaLight uppercase tracking-widest leading-none line-clamp-1 pr-5"
+            class="card__heading text-lg md:text-xl font-helveticaLight uppercase tracking-widest leading-none line-clamp-1 pr-5"
             title="{{ card_product.title | escape }}"
             {% if card_product.featured_media %}
               id="title-{{ section_id }}-{{ card_product.id }}"
@@ -67,7 +67,7 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
-          <h4 class="leading-none text-[19px] font-helveticaLight italic tracking-wide">
+          <h4 class="leading-none max-md:hidden text-[19px] font-helveticaLight italic tracking-wide">
             <a
               href="{{ card_product.metafields.custom.artist_page.value.url }}"
             >
@@ -76,16 +76,16 @@
             </a>
           </h4>
         </div>
-        <div class="flex gap-5 sm:gap-6 w-fit">
-          <div class="w-[17px]">
+        <div class="flex gap-4 sm:gap-6 w-fit">
+          <div class="w-[15px] md:w-[17px]">
             {%- render 'favorites', product: card_product -%}
           </div>
-          <div class="w-3">
+          <div class="w-[10px] md:w-3">
             {%- render 'share-button', product: card_product -%}
           </div>
         </div>
       </div>
-      <div class="flex justify-end">
+      <div class="flex md:justify-end">
         {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
       </div>
     </div>
