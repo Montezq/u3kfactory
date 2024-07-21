@@ -10,11 +10,11 @@
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
 {%- unless product.has_only_default_variant -%}
-  <div class="select-container">
+  <div class="select-container {% if product.variants.size == 1 and template == 'product.originals-product-page' %} max-md:flex max-md:items-center max-md:justify-center{% endif %}">
     {%- if product.variants.size > 1 -%}
       <variant-selects
         id="variant-selects-{{ section.id }}"
-        class="no-js-hidden product__options grid grid-cols-2 md:grid-cols-1 gap-5 md:gap-7 md:max-w-[218px]"
+        class="no-js-hidden product__options grid grid-cols-2 md:grid-cols-1 gap-4 md:gap-7 md:max-w-[218px]"
         data-section="{{ section.id }}"
         data-url="{{ product.url }}"
         {% if update_url == false %}
@@ -26,7 +26,7 @@
           <div class="custom-select relative">
             {%- for value in option.values -%}
               {% if option.selected_value == value %}
-                <div class="select-trigger cursor-pointer border md:border-2 border-black flex h-12">
+                <div class="select-trigger cursor-pointer border md:border-2 border-black flex h-10 md:h-12">
                   <div class="flex items-center pl-2.5 flex-1">
                     <span class="selected-text font-helveticaLight line-clamp-1 text-xl md:text-2xl text-black font-normal tracking-widerx">
                       {{- value -}}
@@ -69,16 +69,19 @@
           {{ product.variants | json }}
         </script>
       </variant-selects>
-    {%- elsif product.variants.size == 1 -%}
+    {%- elsif product.variants.size == 1 and template == 'product.originals-product-page' -%}
       {%- for option in product.options_with_values -%}
+        {% if forloop.index == 2 %}
+          <div class="md:hidden text-lg px-2">/</div>
+        {% endif %}
         <div
           {% unless forloop.last %}
-            class="mb-6"
+            class="md:mb-6"
           {% endunless %}
         >
           {%- for value in option.values -%}
             {% if option.selected_value == value %}
-              <h3 class="uppercase text-2xl leading-none font-helveticaLight">
+              <h3 class="uppercase text-lg md:text-2xl leading-none font-helveticaLight">
                 {{- value -}}
               </h3>
             {% endif %}

@@ -7,9 +7,9 @@
   {%- paginate collection.products by 24 -%}
     <div class="collection__wrapper flex flex-col">
       {%- if collection.products.size > 0 -%}
-        <div class="collection-hero lg:fixed pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
+        <div class="collection-hero lg:fixed pb-5 md:pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
           <div class="pb-5 lg:pb-2.5">
-            <h1 class="collection-hero__title text-3xl font-coutureBold text-center">
+            <h1 class="collection-hero__title text-xl md:text-3xl font-coutureBold text-center">
               <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
               {%- if section.settings.heading != blank -%}
                 {{ section.settings.heading }}
@@ -57,7 +57,7 @@
                 endif
               -%}
               <div class="flex">
-                <div class="flex flex-col pr-[22px] mr-3 pt-1 relative after:content-[''] after:block after:w-[1px] after:h-[57px] after:absolute after:top-0 after:left-full after:bg-gray-100">
+                <div class="flex flex-col pr-7 mr-3 pt-1 relative after:content-[''] after:block after:w-[1px] after:h-[57px] after:absolute after:top-0 after:left-full after:bg-gray-100">
                   <button class="uppercase font-semibold text-[13px] tracking-wider close-filter text-gray-850 mb-2">
                     Close
                   </button>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="flex flex-wrap gap-5">
                   {%- for filter in collection.filters -%}
-                    <div class="w-40 md:w-48">
+                    <div class="w-[120px] md:w-48">
                       <h3 class="uppercase font-bold mb-0.5 text-[13px] tracking-xwidest text-gray-850">
                         {{ filter.label | escape }}
                       </h3>
@@ -198,15 +198,15 @@
         {%- if collection.products.size == 0 -%}
           <div class="pt-8 flex flex-col items-center" id="product-grid" data-id="{{ section.id }}">
             <div class="title-wrapper center">
-              <h2 class="text-center text-4xl xl:text-[50px] uppercase tracking-widerx font-open">
+              <h2 class="text-center text-3xl md:text-4xl xl:text-[50px] uppercase tracking-widerx font-open">
                 {{ 'sections.collection_template.empty_title' | t -}}
               </h2>
             </div>
-            <div class="w-[352px] max-w-[60%] md:max-w-[70%] collection__empty-eye">
+            <div class="w-[320px] max-w-[60%] md:max-w-[70%] collection__empty-eye">
               {%- render 'icon-empty' -%}
             </div>
             <div>
-              <h3 class="text-center uppercase text-[17px] xl:text-[25px] tracking-[0.3em] xl:tracking-[0.5em] font-open">
+              <h3 class="text-center uppercase text-sm md:text-[17px] xl:text-[25px] tracking-[0.3em] xl:tracking-[0.5em] font-open">
                 {{ 'sections.collection_template.empty_products' | t }}
               </h3>
             </div>

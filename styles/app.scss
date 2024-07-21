@@ -594,7 +594,7 @@ accordion-item.open,
     .collection-grid__list{
       @apply grid-cols-1;
       @apply xl:grid-cols-2;
-      row-gap: 70px;
+      row-gap: 50px;
       @screen md{
         column-gap: clamp(27px, 4vw, 4vw);
         row-gap: clamp(50px, 9vh, 160px);
@@ -605,8 +605,8 @@ accordion-item.open,
     .collection-grid__list{
       @apply grid-cols-2;
       @apply xl:grid-cols-3;
-      column-gap: 8px;
-      row-gap: 70px;
+      column-gap: 4px;
+      row-gap: 50px;
       @screen md{
         column-gap: clamp(27px, 2.14vw, 2.14vw);
         row-gap: clamp(50px, 9vh, 160px);
@@ -617,8 +617,8 @@ accordion-item.open,
     .collection-grid__list{
       @apply grid-cols-3;
       @apply xl:grid-cols-4;
-      column-gap: 8px;
-      row-gap: 70px;
+      column-gap: 4px;
+      row-gap: 50px;
       @screen md{
         column-gap: clamp(27px, 1.41vw, 1.41vw);
         row-gap: clamp(50px, 9vh, 160px);
@@ -715,18 +715,31 @@ accordion-item.open,
   padding-top: clamp(100px, 12vh, 12vh);
 }
 .collection__empty-eye{
-  margin-top: clamp(50px, 7.16vh, 7.16vh);
-  margin-bottom: clamp(50px, 8.17vh, 8.17vh);
+  margin: 40px 0;
+  @screen md{
+    margin-top: clamp(50px, 7.16vh, 7.16vh);
+    margin-bottom: clamp(50px, 8.17vh, 8.17vh);
+  }
 }
 .collection__empty-btn{
-  margin-top: clamp(50px, 6.79vh, 6.79vh);
+  margin-top: 40px;
+  @screen md{
+    margin-top: clamp(50px, 6.79vh, 6.79vh);
+  }
 }
 
 .product-section{
   margin-bottom: clamp(2px, calc(14vh - 48px), calc(146px - 48px));
 }
+.price{
+  &.price-mobile{
+    @apply text-lg;
+    @apply leading-none;
+  }
+}
 .product{
-  padding-top: 1vh;
+  @apply pt-10;
+  @apply md:pt-[1vh];
   .price__container{
     @apply md:text-[24px];
     @apply font-bold;
@@ -781,13 +794,19 @@ accordion-item.open,
 }
 .product__description *{
   @apply font-roman;
-  @apply text-xl;
+  @apply md:text-xl;
   @apply tracking-wide;
   @apply leading-tight;
 }
 .product__description strong,
 .product__description b{
   @apply font-bold;
+}
+.contact-btn{
+  @apply mb-2;
+  @screen md{
+    margin-bottom: clamp(32px, 3.95vh, 43px);
+  }
 }
 
 .custom-select.open .select-icon span{
@@ -1364,7 +1383,11 @@ accordion-item.open,
   }
 }
 .margin-variant-picker{
-  margin-bottom: clamp(32px, 4.87vh, 53px);
+  @apply mb-3;
+  @apply mt-5;
+  @screen md{
+    margin-bottom: clamp(32px, 4.87vh, 53px);
+  }
 }
 
 

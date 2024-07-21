@@ -19,10 +19,10 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
-    <div class="md:hidden px-[18px]">
+    <div id="bar" class="md:hidden px-3 bg-gray-10 fixed top-[54px] duration-300 ease-in-out py-2">
       <div class="flex justify-between">
         <div class="flex-1 line-clamp-1">
-          <h2 class="text-2xl leading-none font-semibold">
+          <h2 class="text-lg leading-none font-semibold">
             {{ product.title | escape }}
           </h2>
         </div>
@@ -32,7 +32,7 @@
             currency: 'symbol',
             use_variant: true,
             show_badges: true,
-            price_class: 'price--large'
+            price_class: 'price-mobile'
           -%}
         </div>
       </div>
@@ -40,7 +40,7 @@
         <div class="flex-1 line-clamp-1">
           <a
             href="{{ product.metafields.custom.artist_page.value.url }}"
-            class="text-base italic"
+            class="text-sm italic block leading-none"
           >
             <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
             by {{ product.vendor }}
@@ -51,7 +51,7 @@
             {%- case block.type -%}
               {%- when 'buy_buttons' -%}
                 {%- if block.settings.taxes_text != blank -%}
-                  <p class="text-xs text-gray-850 italic font-semibold">
+                  <p class="text-[8px] text-gray-850 italic font-semibold">
                     {{ block.settings.taxes_text }}
                   </p>
                 {%- endif -%}
@@ -64,7 +64,7 @@
       <div class="grid__item product__media-wrapper xl:w-[61%]">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
-      <div class="product__info-wrapper xl:min-w-[360px] max-lg:px-4 grid__item flex-1{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="product__info-wrapper xl:min-w-[360px] max-md:px-2 max-lg:px-4 grid__item flex-1{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <product-info
           id="ProductInfo-{{ section.id }}"
           data-section="{{ section.id }}"
@@ -102,6 +102,18 @@
                     block: block,
                     product_form_id: product_form_id
                   %}
+                </div>
+              {%- when 'contact_originals' -%}
+                <div class="contact-btn">
+                  <p class="text-[10px] md:text-sm leading-none mb-3.5">
+                    <i>NEED MORE INFORMATION ABOUT THIS PIECE?</i>
+                  </p>
+                  <a
+                    href="/pages/contact"
+                    class="btn btn_primary w-full"
+                  >
+                    Contact the artist
+                  </a>
                 </div>
               {%- when 'buy_buttons' -%}
                 {%- if block.settings.taxes_text != blank -%}
@@ -141,40 +153,40 @@
                     {% assign quantity = product.selected_or_first_available_variant.inventory_quantity %}
                     {% assign quantity_str = quantity | append: '' %}
                     {% if quantity_str == '0' %}
-                      <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                      <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
                         0
                       </div>
-                      <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                      <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
                         0
                       </div>
                     {% else %}
                       {% assign length = quantity_str | size %}
                       {% if length == 1 %}
-                        <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                        <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
                           0
                         </div>
-                        <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                        <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
                           {{ quantity }}
                         </div>
                       {% endif %}
                       {% for i in (0..length) %}
                         {% assign char = quantity_str | slice: i, 1 %}
                         {% if char != '' %}
-                          <div class="w-[26px] leading-none h-[46px] bg-black mr-[2px] flex items-center justify-center text-[33px] text-white">
+                          <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
                             {{ char }}
                           </div>
                         {% endif %}
                       {% endfor %}
                     {% endif %}
                   </div>
-                  <div class="leading-none md:ml-2 text-[19px] max-md:mt-2 uppercase">COPIES LEFT</div>
+                  <div class="leading-none md:ml-2 text-sm md:text-[19px] max-md:mt-2 uppercase">COPIES LEFT</div>
                 </div>
               {%- when 'favorites' -%}
-                <div class="md:max-w-[360px] mt-4">
+                <div class="md:max-w-[360px] mt-2 md:mt-4">
                   {%- render 'favorites-button', product: product -%}
                 </div>
               {%- when 'contact' -%}
-                <div class="max-w-[360px] mt-4 max-md:order-10">
+                <div class="max-w-[360px] mt-4">
                   <a
                     href="/pages/contact"
                     class="italic uppercase text-lg text-gray-300 cursor-pointer w-fit font-semibold tracking-widerx contact-us"
@@ -359,6 +371,11 @@
     {
       "type": "copies_left",
       "name": "Copies Left",
+      "limit": 1
+    },
+    {
+      "type": "contact_originals",
+      "name": "Contact Button",
       "limit": 1
     },
     {
