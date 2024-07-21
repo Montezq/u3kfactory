@@ -9,11 +9,12 @@
 
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
-<div class="cart__wrapper flex flex-col relative lg:pr-7">
-  <cart-items class="gradient isolate{% if cart == empty %} is-empty{% endif %}">
+<div class="cart__wrapper flex flex-col relative lg:pr-7" id="main-cart-items" data-id="{{ section.id }}">
+  <cart-items class="gradient isolate js-contents{% if cart == empty %} is-empty{% endif %}">
     <div class="page-width">
       <div
         id="bar"
+        data-id="{{ section.id }}"
         class="cart__heading ds_element fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out max-lg:py-2"
       >
         <div class="flex justify-between lg:border-b lg:border-b-black lg:pb-[3px] w-full">
@@ -54,8 +55,8 @@
         method="post"
         id="cart"
       >
-        <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
-          <div class="js-contents">
+        <div class="cart__items">
+          <div>
             {%- if cart != empty -%}
               {%- for item in cart.items -%}
                 <div class="cart-item cart-item__block" id="CartItem-{{ item.index | plus: 1 }}">
