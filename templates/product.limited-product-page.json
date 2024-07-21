@@ -49,6 +49,11 @@
           "type": "favorites",
           "settings": {
           }
+        },
+        "contact_ztHQPm": {
+          "type": "contact",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -58,7 +63,8 @@
         "copies_left_w7eEhG",
         "price",
         "buy_buttons",
-        "favorites_Ex8fRy"
+        "favorites_Ex8fRy",
+        "contact_ztHQPm"
       ],
       "settings": {
       }

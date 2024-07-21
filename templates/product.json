@@ -44,6 +44,11 @@
           "type": "favorites",
           "settings": {
           }
+        },
+        "contact_dneKxt": {
+          "type": "contact",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -52,7 +57,8 @@
         "variant_picker",
         "price",
         "buy_buttons",
-        "favorites_iXPAc4"
+        "favorites_iXPAc4",
+        "contact_dneKxt"
       ],
       "settings": {
       }
