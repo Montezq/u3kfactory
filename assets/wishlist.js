@@ -68,7 +68,6 @@ function addToWishlist(event) {
     // Update the wishlist in localStorage
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
 
-    console.log('Item added to wishlist');
     button.classList.add('match');
     // Show the wishlist modal if the user hasn't opted out
     if (!localStorage.getItem('dontShowWishlistModal')) {
@@ -86,7 +85,6 @@ function removeFromWishlist(productId, variantId) {
   let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
   wishlist = wishlist.filter(item => !(item.productId === productId && item.variantId === variantId));
   localStorage.setItem('wishlist', JSON.stringify(wishlist));
-  console.log('Item removed from wishlist');
 
   // Show the removed wishlist modal
   const removedModal = document.querySelector('.removed-wishlist__modal');
@@ -110,7 +108,6 @@ function checkWishlistButtons() {
     const productId = button.getAttribute('data-id');
     const dataToggle = button.getAttribute('data-toggle') === 'true';
     const variantId = button.getAttribute('data-variant-id');
-    console.log(dataToggle)
     if(dataToggle){
       const match = wishlist.find(item => item.productId === productId);
       if (match) {
