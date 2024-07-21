@@ -229,6 +229,17 @@
                 </div>
                 <div class="field flex flex-col justify-end mt-14 md:mt-10">
                   <div class="w-full md:w-[226px] grid gap-5 ml-auto">
+                    <div class="fake-checkbox__wrapper">
+                      <div class="w-fit">
+                        {{ form.set_as_default_checkbox }}
+                        <label for="address_default_address_{{ form.id }}" class="flex items-center justify-end">
+                          <div class="fake-checkbox w-[11px] h-[11px] border mr-2.5"></div>
+                          <div class="text-[13px] font-bold">
+                            {{ 'customer.addresses.set_default' | t }}
+                          </div>
+                        </label>
+                      </div>
+                    </div>
                     <button class="btn btn_primary !text-[17px] w-full font-coutureBold font-bold">
                       Edit this address
                     </button>
@@ -394,7 +405,7 @@
   <div class="remove-account__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] md:w-full max-w-[320px]">
     <button
       type="button"
-      class="remove-account__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-[34px] h-[34px] rounded-full bg-black leading-none flex justify-center items-center cursor-pointer"
+      class="remove-account__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
       aria-label="{{ 'accessibility.close' | t }}"
     >
       x

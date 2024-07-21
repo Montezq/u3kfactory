@@ -72,7 +72,7 @@
         {{ 'customer.recover_password.success' | t }}
       </h3>
     {%- endif -%}
-    {%- form 'customer_login', novalidate: 'novalidate', return_to: routes.account_addresses_url -%}
+    {%- form 'customer_login', novalidate: 'novalidate', return_to: '/pages/account-slides' -%}
       <div class="field flex flex-col mb-3.5">
         <div class="pl-4 mb-1 flex justify-between">
           <label for="CustomerEmail" class="text-[13px] font-axis">
@@ -155,7 +155,7 @@
   function togglePasswordVisibility(event) {
     const toggleButton = event.currentTarget;
     const passwordInput = toggleButton.closest('.password-input').querySelector('.input-field');
-
+    toggleButton.classList.toggle('visible');
     if (passwordInput.type === 'password') {
       passwordInput.type = 'text';
     } else {

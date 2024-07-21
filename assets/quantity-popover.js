@@ -35,6 +35,32 @@ if (!customElements.get('quantity-popover')) {
           this.variantInfo.addEventListener('mouseenter', this.togglePopover.bind(this));
           this.variantInfo.addEventListener('mouseleave', this.closePopover.bind(this));
         }
+
+        // Adjust input widths on initialization
+        this.adjustInputWidths();
+
+        // Adjust input widths when inputs change
+        this.addInputEventListeners();
+      }
+
+      adjustInputWidths() {
+        const inputs = this.querySelectorAll('.quantity__input');
+        inputs.forEach(input => {
+          const length = input.value.length || input.placeholder.length;
+          const width = 30 + (length - 1) * 10;
+          input.style.width = `${width}px`; // Base width is 30px, each additional character adds 10px
+        });
+      }
+
+      addInputEventListeners() {
+        const inputs = this.querySelectorAll('.quantity__input');
+        inputs.forEach(input => {
+          input.addEventListener('input', () => {
+            const length = input.value.length || input.placeholder.length;
+            const width = 30 + (length - 1) * 10;
+            input.style.width = `${width}px`; // Base width is 30px, each additional character adds 10px
+          });
+        });
       }
 
       togglePopover(event) {

@@ -2,7 +2,6 @@
 {{ 'component-totals.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
-{{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 
 {%- unless settings.cart_type == 'drawer' -%}
   <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
@@ -15,15 +14,15 @@
     <div class="page-width">
       <div
         id="bar"
-        class="cart__heading ds_element fixed top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+        class="cart__heading ds_element fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out max-lg:py-2"
       >
         <div class="flex justify-between lg:border-b lg:border-b-black lg:pb-[3px] w-full">
-          <h1 class=" font-coutureBold text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
+          <h1 class=" font-coutureBold text-xl md:text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
             {{ 'sections.cart.title' | t }}
           </h1>
           <div class="totals max-md:w-full">
             <h2
-              class="totals__total text-[25px] font-bold leading-none uppercase whitespace-nowrap max-md:flex max-md:justify-between max-md:items-center max-md:w-full"
+              class="totals__total text-xl md:text-[25px] font-bold leading-none uppercase whitespace-nowrap max-md:flex max-md:justify-between max-md:items-center max-md:w-full"
             >
               <span class="max-md:mr-2">Total </span>
               <span class="totals__total-value header-cart-data"> {{ cart.total_price | money_with_currency }}</span>
@@ -81,19 +80,17 @@
                         <div class="mb-5 md:mb-2">
                           <a
                             href="{{ item.url }}"
-                            class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
+                            class="uppercase text-lg md:text-[22px] lg:text-[25px] font-bold leading-none inline-block"
                           >
                             {{- item.product.title | escape -}}
                           </a>
-                          <p class="text-[15px] md:text-[17px] italic max-md:leading-none">
-                            by {{ item.product.vendor }}
-                          </p>
+                          <p class="text-sm md:text-[17px] italic max-md:leading-none">by {{ item.product.vendor }}</p>
                         </div>
                         <dl class="space-y-1.5">
                           {%- unless item.product.has_only_default_variant -%}
                             {%- for option in item.options_with_values -%}
                               <div class="product-option">
-                                <dd class="text-[22px] leading-none max-md:font-bold">
+                                <dd class="text-lg md:text-[22px] leading-none max-md:font-bold">
                                   {{ option.value }}
                                 </dd>
                               </div>
@@ -103,7 +100,7 @@
                             {%- assign property_first_char = property.first | slice: 0 -%}
                             {%- if property.last != blank and property_first_char != '_' -%}
                               <div class="product-option">
-                                <dd class="text-[22px] leading-none max-md:font-bold">
+                                <dd class="text-lg md:text-[22px] leading-none max-md:font-bold">
                                   {{ property.last }}
                                 </dd>
                               </div>
@@ -116,27 +113,76 @@
                           <cart-remove-button
                             id="Remove-{{ item.index | plus: 1 }}"
                             data-index="{{ item.index | plus: 1 }}"
+                            class="mb-1 inline-block"
                           >
                             <a
                               href="{{ item.url_to_remove }}"
                               class="text-right text-[20px] font-bold whitespace-nowrap"
                               aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                             >
-                              Remove <span class="font-coutureBold text-[15px] font-bold">x</span>
+                              Remove <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Trash-Bin-v3"></span>
                             </a>
                           </cart-remove-button>
-                          <button class="flex items-center text-right font-bold text-[20px] ml-auto whitespace-nowrap">
-                            Save for later
-                            <span
-                              class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v2 text-[14px] ml-0.5"
-                            ></span>
-                          </button>
+                          <quantity-popover>
+                            <div class="cart-item__quantity-wrapper quantity-popover-wrapper w-fit ml-auto">
+                              <quantity-input class="quantity cart-quantity flex items-center border border-black text-xl leading-none">
+                                <button
+                                  class="quantity__button w-7 h-7 border-r border-r-black"
+                                  name="minus"
+                                  type="button"
+                                >
+                                  <span class="visually-hidden">
+                                    {{-
+                                      'products.product.quantity.decrease'
+                                      | t: product: item.product.title
+                                      | escape
+                                    -}}
+                                  </span>
+                                  -
+                                </button>
+                                <input
+                                  class="quantity__input px-2.5 text-center w-[30px] min-w-[30px]"
+                                  data-quantity-variant-id="{{ item.variant.id }}"
+                                  type="number"
+                                  name="updates[]"
+                                  readonly
+                                  value="{{ item.quantity }}"
+                                  {% # theme-check-disable %}
+                                  data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                                  min="0"
+                                  data-min="{{ item.variant.quantity_rule.min }}"
+                                  {% if item.variant.quantity_rule.max != null %}
+                                    max="{{ item.variant.quantity_rule.max }}"
+                                  {% endif %}
+                                  step="{{ item.variant.quantity_rule.increment }}"
+                                  {% # theme-check-enable %}
+                                  aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                                  id="Quantity-{{ item.index | plus: 1 }}"
+                                  data-index="{{ item.index | plus: 1 }}"
+                                >
+                                <button
+                                  class="quantity__button w-7 h-7 border-l border-l-black"
+                                  name="plus"
+                                  type="button"
+                                >
+                                  <span class="visually-hidden">
+                                    {{-
+                                      'products.product.quantity.increase'
+                                      | t: product: item.product.title
+                                      | escape
+                                    -}}
+                                  </span>
+                                  +
+                                </button>
+                              </quantity-input>
+                            </div>
+                          </quantity-popover>
                         </div>
                         <div class="md:mb-1">
-                          <p class="text-[22px] lg:text-[25px] font-bold md:text-right leading-none mb-1.5 whitespace-nowrap">
+                          <p class="text-lg md:text-[22px] lg:text-[25px] font-bold md:text-right leading-none mb-1.5 whitespace-nowrap">
                             {{ item.price | money_with_currency }}
                           </p>
-                          <p class="text-[13px] font-bold md:text-right leading-none italic md:whitespace-nowrap">
+                          <p class="text-[11px] md:text-[13px] font-bold md:text-right leading-none italic md:whitespace-nowrap">
                             * VAT INCLUDED / EXCLUDED <br class="md:hidden">
                             SHIPPING COST
                           </p>
@@ -145,13 +191,53 @@
                     </div>
                   </div>
                   <div class="md:hidden px-1 mt-3">
-                    <div class="border-b border-b-[#8c8c8c] pb-[9px]">
-                      <button class="flex items-center text-right font-bold text-[21px] md:text-[20px] whitespace-nowrap max-md:mb-[3px]">
-                        <span
-                          class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v2 text-[14px] max-md:mr-4 md:ml-0.5"
-                        ></span>
-                        save for later
-                      </button>
+                    <div class="border-b border-b-[#8c8c8c] pb-5 flex justify-between">
+                      <quantity-popover>
+                        <div class="cart-item__quantity-wrapper quantity-popover-wrapper w-fit ml-auto">
+                          <quantity-input class="quantity cart-quantity flex items-center border border-black text-xl leading-none">
+                            <button
+                              class="quantity__button w-7 h-7 border-r border-r-black"
+                              name="minus"
+                              type="button"
+                            >
+                              <span class="visually-hidden">
+                                {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
+                              </span>
+                              -
+                            </button>
+                            <input
+                              class="quantity__input px-2.5 text-center w-[30px] min-w-[30px]"
+                              data-quantity-variant-id="{{ item.variant.id }}"
+                              type="number"
+                              name="updates[]"
+                              readonly
+                              value="{{ item.quantity }}"
+                              {% # theme-check-disable %}
+                              data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                              min="0"
+                              data-min="{{ item.variant.quantity_rule.min }}"
+                              {% if item.variant.quantity_rule.max != null %}
+                                max="{{ item.variant.quantity_rule.max }}"
+                              {% endif %}
+                              step="{{ item.variant.quantity_rule.increment }}"
+                              {% # theme-check-enable %}
+                              aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                              id="Quantity-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
+                            >
+                            <button
+                              class="quantity__button w-7 h-7 border-l border-l-black"
+                              name="plus"
+                              type="button"
+                            >
+                              <span class="visually-hidden">
+                                {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
+                              </span>
+                              +
+                            </button>
+                          </quantity-input>
+                        </div>
+                      </quantity-popover>
                       <cart-remove-button
                         id="Remove-{{ item.index | plus: 1 }}"
                         data-index="{{ item.index | plus: 1 }}"
@@ -161,7 +247,7 @@
                           class="text-right text-[20px] font-bold whitespace-nowrap"
                           aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                         >
-                          <span class="font-coutureBold text-[15px] font-bold max-md:mr-4">x</span> remove
+                          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Trash-Bin-v3"></span>
                         </a>
                       </cart-remove-button>
                     </div>

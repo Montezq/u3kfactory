@@ -415,7 +415,7 @@
       "province": "Province",
       "zip": "Postal\/ZIP code",
       "phone": "Phone",
-      "set_default": "Set as default address",
+      "set_default": "Set as default",
       "add": "Add address",
       "update": "Update address",
       "cancel": "Cancel",
