@@ -29,8 +29,8 @@
             "swatch_shape": "circle"
           }
         },
-        "copies_left_w7eEhG": {
-          "type": "copies_left",
+        "contact_originals_VQWQcz": {
+          "type": "contact_originals",
           "settings": {
           }
         },
@@ -44,15 +44,21 @@
           "settings": {
             "taxes_text": "* VAT INCLUDED \/ EXCLUDED SHIPPING COST"
           }
+        },
+        "favorites_aWJUfw": {
+          "type": "favorites",
+          "settings": {
+          }
         }
       },
       "block_order": [
         "title",
         "description",
         "variant_picker",
-        "copies_left_w7eEhG",
+        "contact_originals_VQWQcz",
         "price",
-        "buy_buttons"
+        "buy_buttons",
+        "favorites_aWJUfw"
       ],
       "settings": {
       }
@@ -79,6 +85,7 @@
       "type": "plus-info",
       "settings": {
         "heading": "Print Details",
+        "content_metafield": "",
         "content": "<p>This fine art giclée print is delivered unframed. The paper has a matt, light textured surface. The high quality Hahnemühle\/ILFord fine art paper and canvas that we use for our prints combined with the Lucia Pro inks guarantees archival conservation of colors, with the print        retaining its intended appeareance for up to a 100 years. We recommend to keep the prints away from direct sunlight and under glass in the case of the paper prints.<\/p>",
         "image": "shopify:\/\/shop_images\/INFO-PRINTING-DETAILS-IMAGE.jpg"
       }
@@ -87,6 +94,7 @@
       "type": "plus-info",
       "settings": {
         "heading": "Shipping Details",
+        "content_metafield": "",
         "content": "<p>Blah asjahsak<\/p>"
       }
     }
