@@ -11,7 +11,7 @@
 {% endcomment %}
 {%- unless product.has_only_default_variant -%}
   <div class="select-container {% if product.variants.size == 1 and template == 'product.originals-product-page' %} max-md:flex max-md:items-center max-md:justify-center{% endif %}">
-    {%- if product.variants.size > 1 -%}
+    {%- if product.variants.size >= 1 and template != 'product.originals-product-page' -%}
       <variant-selects
         id="variant-selects-{{ section.id }}"
         class="no-js-hidden product__options grid grid-cols-2 md:grid-cols-1 gap-4 md:gap-7 md:max-w-[218px]"
