@@ -3271,7 +3271,8 @@ input:focus-visible{
     --tw-text-opacity: 1 !important;
     color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
   }
-.custom-option.selected label {
+.custom-option.selected label,
+  .custom-option.selected span {
   --tw-text-opacity: 1 !important;
   color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
     background-color: var(--default-color) !important;
@@ -4374,6 +4375,10 @@ input:focus-visible{
     padding-top: 66px;
   }
 
+  .max-lg\:pt-\[52px\] {
+    padding-top: 52px;
+  }
+
   .max-lg\:text-\[1px\] {
     font-size: 1px;
   }
@@ -4583,6 +4588,10 @@ input:focus-visible{
 
   .max-md\:pb-7 {
     padding-bottom: 1.75rem;
+  }
+
+  .max-md\:pt-\[52px\] {
+    padding-top: 52px;
   }
 
   .max-md\:text-center {
@@ -5453,6 +5462,11 @@ input:focus-visible{
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .lg\:opacity-0 {

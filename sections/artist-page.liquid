@@ -1,11 +1,11 @@
 <div class="artis-page custom-page max-md:px-0 max-lg:px-4">
   <div
     id="bar"
-    class="ds_element dissapearing custom-page__heading artist-page__heading max-lg:py-3 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    class="ds_element dissapearing custom-page__heading artist-page__heading max-lg:py-3 fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
   >
-    <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">{{ page.title | escape }}</h1>
+    <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">{{ page.title | escape }}</h1>
   </div>
-  <div class="artist-page__body custom-page__body max-lg:pt-[56px] pb-10">
+  <div class="artist-page__body custom-page__body max-md:pt-[52px] max-lg:pt-[56px] pb-10">
     {%- if section.settings.first_image != blank or section.settings.second_image != blank -%}
       <div class="custom-page__images{% if section.settings.second_image != blank %} max-md:gap-6 grid md:grid-cols-2{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {%- if section.settings.first_image != blank -%}
@@ -176,26 +176,13 @@
                         value="Order Problems"
                         class="invisible w-0 h-0"
                       >
-                      <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                      >
-                        Order Problems
-                      </span>
+                      <span class="line-clamp-1 text-sm text-gray-750 font-open uppercase">Order Problems</span>
                     </label>
                   </li>
                   <li class="custom-option">
                     <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                      <input
-                        type="radio"
-                        name="contact[regarding]"
-                        value="Payment Issues"
-                        class="invisible w-0 h-0"
-                      >
-                      <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                      >
-                        Payment Issues
-                      </span>
+                      <input type="radio" name="contact[regarding]" value="Payment Issues" class="invisible w-0 h-0">
+                      <span class="line-clamp-1 text-sm text-gray-750 font-open uppercase">Payment Issues</span>
                     </label>
                   </li>
                   <li class="custom-option">
@@ -206,74 +193,74 @@
                         value="Inquire About Bigger Sizes"
                         class="invisible w-0 h-0"
                       >
-                      <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                      <span class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                        >Inquire about bigger sizes</span
                       >
-                        Inquire about bigger sizes
-                      </span>
                     </label>
                   </li>
                   <li class="custom-option">
                     <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                      <input
-                        type="radio"
-                        name="contact[regarding]"
-                        value="Refund Request"
-                        class="invisible w-0 h-0"
-                      >
-                      <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                      >
-                        Refund Request
-                      </span>
+                      <input type="radio" name="contact[regarding]" value="Refund Request" class="invisible w-0 h-0">
+                      <span class="line-clamp-1 text-sm text-gray-750 font-open uppercase">Refund Request</span>
                     </label>
                   </li>
                   <li class="custom-option">
                     <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
-                      <input
-                        type="radio"
-                        name="contact[regarding]"
-                        value="Other"
-                        class="invisible w-0 h-0"
-                      >
-                      <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
-                      >
-                        Other
-                      </span>
+                      <input type="radio" name="contact[regarding]" value="Other" class="invisible w-0 h-0">
+                      <span class="line-clamp-1 text-sm text-gray-750 font-open uppercase">Other</span>
                     </label>
                   </li>
                 </ul>
               </div>
             </div>
             <div class="contact-message contact-us__item">
-              <label for="message" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]"
-                >Your Message</label
-              >
+              <div class="flex items-end pl-2.5 justify-between">
+                <label for="message" class="blcok uppercase font-axis font-extrabold text-[13px]">Your Message</label>
+                <div class="form-errors hidden" id="message-error">
+                  <span> *Field required </span>
+                </div>
+              </div>
               <textarea class="block w-full py-2" name="contact[message]" id="message"></textarea>
             </div>
             <div class="contact-email contact-us__item">
               <div class="flex justify-between">
                 <label for="email" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[13px]">Email</label>
                 <span class="text-right text-[13px] font-bold line-clamp-1 max-w-[60%]">
-                  *You will be contacted back on this email adress
+                  *You will be contacted back on this email address
                 </span>
               </div>
-              <input
-                class="block w-full"
-                type="email"
-                name="contact[email]"
-                id="email"
-                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-              >
+              <div class="relative">
+                <input
+                  class="block w-full"
+                  type="email"
+                  name="contact[email]"
+                  id="email"
+                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                >
+                <div
+                  class="tooltip absolute top-full left-0 mt-2.5 whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+                  id="email-tooltip"
+                >
+                  <div class="flex items-center">
+                    <div class="w-5 sm:w-7 h-5 sm:h-7 mr-[7px]">
+                      {%- render 'icon-info' -%}
+                    </div>
+                    <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
+                      Please write a valid email address to be able to receive updates.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="submit pb-4">
-              <input
-                type="submit"
+              <button
+                type="button"
                 class="btn btn_primary w-full max-w-80 !block mx-auto cursor-pointer"
-                value="SUBMIT MESSAGE"
+                id="submit-button"
               >
+                SUBMIT MESSAGE
+              </button>
             </div>
           {% endform %}
         </div>
@@ -330,6 +317,44 @@
         });
       }
     });
+    const form = document.querySelector('form');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    const emailTooltip = document.getElementById('email-tooltip');
+    const messageError = document.getElementById('message-error');
+    const submitButton = document.getElementById('submit-button');
+
+    submitButton.addEventListener('click', function (event) {
+      let valid = true;
+
+      // Validate email
+      const emailValue = emailInput.value.trim();
+      if (emailValue === '' || !validateEmail(emailValue)) {
+        emailTooltip.classList.remove('opacity-0', 'invisible');
+        valid = false;
+      } else {
+        emailTooltip.classList.add('opacity-0', 'invisible');
+      }
+
+      // Validate message
+      const messageValue = messageInput.value.trim();
+      if (messageValue === '') {
+        messageError.classList.remove('hidden');
+        valid = false;
+      } else {
+        messageError.classList.add('hidden');
+      }
+
+      if (valid) {
+        form.submit(); // Submit the form if validation passes
+      }
+    });
+
+    // Function to validate email format
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
+    }
   });
 </script>
 
