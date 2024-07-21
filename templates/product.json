@@ -39,6 +39,11 @@
           "settings": {
             "taxes_text": "* VAT INCLUDED \/ EXCLUDED SHIPPING COST"
           }
+        },
+        "favorites_iXPAc4": {
+          "type": "favorites",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -46,7 +51,8 @@
         "description",
         "variant_picker",
         "price",
-        "buy_buttons"
+        "buy_buttons",
+        "favorites_iXPAc4"
       ],
       "settings": {
       }
