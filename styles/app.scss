@@ -47,7 +47,7 @@ body{
 .main{
   padding-left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
 }
-.main_cooming-soon{
+.main_coming-soon{
   .content-for-layout:after,
   .desktop-search-wrapper,
   .header__menu{
@@ -105,6 +105,23 @@ input[type="search"]::-moz-search-clear {
   @apply text-[17px];
   @apply w-full;
 }
+.coming-soon__heading{
+  @apply mb-[6vw];
+  @apply pb-[5.4vw];
+  @apply md:mb-[4vw];
+  @apply md:pb-[3.4vw];
+  @apply text-[4.8vw];
+  @apply md:text-[4.4vw];
+  @apply lg:text-[40px];
+  @apply lg:pb-[38px];
+  @apply lg:mb-[42px];
+}
+.coming-soon__subheading{
+  @apply text-[4.8vw];
+  @apply md:text-[4.4vw];
+  @apply lg:text-[40px];
+}
+
 
 .icon-FULL-ICON-SET-WEBSITE-FINAL_Account:before {
   content: "\e900";
@@ -1082,7 +1099,7 @@ accordion-item.open,
     margin-bottom: 28px;
   }
 }
-.cooming-soon__category{
+.coming-soon__category{
   height: calc(100vh - 27px);
   @media screen and (max-width: 1024px){
     height: calc(100vh - 67px);
@@ -1115,7 +1132,7 @@ accordion-item.open,
     height: calc(100vh - 67px);
   }
 }
-.cooming-soon__category-email{
+.coming-soon__category-email{
   margin-top: clamp(70px, 22vh, 208px);
   @media screen and (max-width: 767px){
     margin-top: clamp(70px, 12vh, 208px);

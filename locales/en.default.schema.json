@@ -351,8 +351,8 @@
         "info": "Standard-styled cards have no borders when an image shape is active."
       }
     },
-    "cooming-soon": {
-      "name": "Cooming Soon Website",
+    "coming-soon": {
+      "name": "Coming Soon Website",
       "settings": {
         "banner": {
           "label": "Background Banner"
@@ -365,7 +365,7 @@
         }
       },
       "presets": {
-        "name": "Cooming Soon Website"
+        "name": "Coming Soon Website"
       }
     },
     "announcement-bar": {

@@ -1,35 +1,65 @@
-<div class="w-full flex flex-col items-center overflow-hidden cooming-soon__category">
+<div class="w-full flex flex-col items-center overflow-hidden coming-soon__category">
   <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full">
-    {%- if section.settings.cover_type == 'video' -%}
-      {{
-        section.settings.video
-        | video_tag:
-          image_size: '1100x',
-          autoplay: true,
-          loop: true,
-          controls: false,
-          class: 'w-full h-full object-cover',
-          muted: true
-      }}
-    {%- else -%}
-      {{
-        section.settings.image
-        | image_url: width: 3840
-        | image_tag:
-          width: section.settings.image.width,
-          class: 'w-full h-full object-cover',
-          height: '100vh',
-          sizes: '100vw',
-          widths: '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680',
-          fetchpriority: 'high'
-      }}
-    {%- endif -%}
+    <div
+      class="w-full h-full{% if section.settings.mobile_image != blank or section.settings.mobile_video != blank %} max-md:hidden{% endif %}"
+    >
+      {%- if section.settings.cover_type == 'video' -%}
+        {{
+          section.settings.video
+          | video_tag:
+            image_size: '1100x',
+            autoplay: true,
+            loop: true,
+            controls: false,
+            class: 'w-full h-full object-cover',
+            muted: true
+        }}
+      {%- else -%}
+        {{
+          section.settings.image
+          | image_url: width: 3840
+          | image_tag:
+            width: section.settings.image.width,
+            class: 'w-full h-full object-cover',
+            height: '100vh',
+            sizes: '100vw',
+            widths: '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680',
+            fetchpriority: 'high'
+        }}
+      {%- endif -%}
+    </div>
+    <div class="w-full h-full{% if section.settings.mobile_image != blank or section.settings.mobile_video != blank %} md:hidden{% else %} hidden{% endif %}">
+      {%- if section.settings.mobile_cover_type == 'video' -%}
+        {{
+          section.settings.mobile_video
+          | video_tag:
+            image_size: '1100x',
+            autoplay: true,
+            loop: true,
+            controls: false,
+            class: 'w-full h-full object-cover',
+            muted: true
+        }}
+      {%- else -%}
+        {{
+          section.settings.mobile_image
+          | image_url: width: 1440
+          | image_tag:
+            width: section.settings.mobile_image.width,
+            class: 'w-full h-full object-cover',
+            height: '100vh',
+            sizes: '100vw',
+            widths: '450, 660, 900, 1440',
+            fetchpriority: 'high'
+        }}
+      {%- endif -%}
+    </div>
   </div>
   <div class="relative z-[1] flex flex-col items-center text-center my-auto">
     {%- if section.settings.heading != blank or section.settings.subgheading != blank -%}
       <div class="text-white leading-none">
         {%- if section.settings.heading != blank -%}
-          <h2 class="text-[70px] font-helveticaThinCond italic tracking-widest pb-[38px] mb-[42px] cooming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[278px] after:min-w-[180px] after:w-[80%] after:h-[1px] after:bg-white">
+          <h2 class="text-[70px] font-helveticaThinCond italic tracking-widest pb-[38px] mb-[42px] coming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[278px] after:min-w-[180px] after:w-[80%] after:h-[1px] after:bg-white">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
@@ -40,9 +70,9 @@
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="cooming-soon__category-email max-w-[280px] sm:max-w-[350px] w-full mx-auto">
+    <div class="coming-soon__category-email max-w-[280px] sm:max-w-[350px] w-full mx-auto">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
-        <input type="hidden" name="contact[tags]" value="newsletter, cooming-soon">
+        <input type="hidden" name="contact[tags]" value="newsletter, coming-soon">
         <div class="newsletter-form__field-wrapper">
           <div class="flex flex-col items-center">
             <div class="relative flex-1 w-full mb-[25px]">
@@ -64,13 +94,13 @@
                 placeholder="{{ 'newsletter.label' | t }}"
               >
               <div
-                class="tooltip-form absolute top-full -left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-2 pr-[6px] pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+                class="tooltip-form absolute top-full -left-[45px] sm:-left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
               >
                 <div class="flex items-center">
-                  <div class="w-7 h-7 mr-[7px]">
+                  <div class="w-5 sm:w-7 h-5 sm:h-7 mr-[7px]">
                     {%- render 'icon-info' -%}
                   </div>
-                  <p class="leading-none text-[15px] tracking-wider font-open">
+                  <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
                     Please write a valid email address to be able to recieve updates.
                   </p>
                 </div>
@@ -99,7 +129,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     let mainWrapper = document.querySelector('body');
-    mainWrapper.classList.add('main_cooming-soon');
+    mainWrapper.classList.add('main_coming-soon');
     function validateAndSubmitForm() {
       const form = document.getElementById('newsletter-form');
       const tooltip = document.querySelector('.tooltip-form');
@@ -137,7 +167,7 @@
 
 {% schema %}
 {
-  "name": "Cooming Soon Category",
+  "name": "Coming Soon Category",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -170,17 +200,47 @@
     {
       "type": "inline_richtext",
       "id": "heading",
-      "label": "t:sections.cooming-soon.settings.heading.label"
+      "label": "t:sections.coming-soon.settings.heading.label"
     },
     {
       "type": "inline_richtext",
       "id": "subgheading",
-      "label": "t:sections.cooming-soon.settings.subheading.label"
+      "label": "t:sections.coming-soon.settings.subheading.label"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "select",
+      "id": "mobile_cover_type",
+      "options": [
+        {
+          "value": "video",
+          "label": "Video"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "video",
+      "label": "Cover Type For Mobile"
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Mobile Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
     }
   ],
   "presets": [
     {
-      "name": "Cooming Soon Category"
+      "name": "coming Soon Category"
     }
   ]
 }
