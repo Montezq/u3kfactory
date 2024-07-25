@@ -200,12 +200,12 @@
     </div>
     {%- liquid
       assign link_ative = false
+      assign active_item = false
       for link in section.settings.menu.links
         if link.links != blank
           if link.child_active
             assign link_ative = true
           endif
-          assign active_item = false
           if template.name == 'collection'
             for product in collection.products
               for collection in product.collections

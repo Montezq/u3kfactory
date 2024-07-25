@@ -923,6 +923,7 @@ accordion-item.open,
   width: calc(100% - 18px);
 }
 .modal__close-button,
+.modal-wrapper,
 .cart-notification-wrapper-block,
 .login__modal-wrapper,
 .wishlist__modal-wrapper,
@@ -1062,8 +1063,12 @@ accordion-item.open,
 .contact-us__modal-heading{
   h2{
     position: relative;
-    margin-bottom: 56px;
-    padding-bottom: 8px;
+    margin-bottom: 32px;
+    padding-bottom: 6px;
+    @screen md{
+      margin-bottom: 56px;
+      padding-bottom: 8px;
+    }
     &:after{
       content: "";
       display: block;
@@ -1093,8 +1098,11 @@ accordion-item.open,
     height: 40px;
   }
   textarea{
-    height: 106px;
+    height: 80px;
     resize: none;
+    @screen md{
+      height: 106px;
+    }
   }
   .contact-us__item{
     margin-bottom: 28px;
@@ -1238,11 +1246,13 @@ accordion-item.open,
   }
 }
 .form-errors{
-  @apply text-sm;
+  @apply text-[10px];
+  @apply md:text-sm;
   @apply text-[#ff0000];
   @apply font-bold;
   * {
-    @apply text-sm;
+    @apply text-[10px];
+    @apply md:text-sm;
     @apply text-[#ff0000];
     @apply font-bold;
   }
