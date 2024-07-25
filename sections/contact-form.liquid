@@ -1,21 +1,17 @@
 <div class=" gradient">
-  {% comment %}
-    <div class="form-errors">
-      {%- if form.errors contains 'email' -%}
-        {{ form.errors | default_errors }}
-      {%- endif -%}
-    </div>
-  {% endcomment %}
   <div class="contact page-width max-lg:px-2.5">
     <div
       id="bar"
-      class="ds_element dissapearing contact__heading max-lg:py-3 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+      class="ds_element dissapearing contact__heading max-lg:py-2 fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
     >
-      <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">Contact Us</h1>
+      <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">Contact Us</h1>
     </div>
     <div class="contact__body grid max-lg:pt-[66px]">
       <div class="contact__body-wrapper grid md:grid-cols-2 gap-[50px] md:items-center">
         <div class="max-w-[526px]">
+          <div class="mb-5 max-lg:pt-2 md:mb-8">
+            <h2 class="font-coutureBold text-center text-xl md:text-3xl uppercase">CONTACT US BY EMAIL</h2>
+          </div>
           {%- liquid
             assign contact_form_class = 'isolate'
             if settings.animations_reveal_on_scroll
@@ -27,26 +23,15 @@
               <h2 class="text-sm font-bold mb-2" tabindex="-1" autofocus>
                 {{ 'templates.contact.form.post_success' | t }}
               </h2>
-            {%- elsif form.errors -%}
-              <div class="form-errors mb-2">
-                <ul role="list">
-                  <li>
-                    <a href="#ContactForm-email" class="link">
-                      {{ form.errors.translated_fields.email | capitalize }}
-                      {{ form.errors.messages.email }}
-                    </a>
-                  </li>
-                </ul>
-              </div>
             {%- endif -%}
             <div class="field flex flex-col mb-5">
               <div class="pl-4 mb-1">
-                <p class="text-[13px] font-axis">Regarding</p>
+                <p class="text-[11px] md:text-[13px] font-axis">Regarding</p>
               </div>
               <div class="custom-select custom-select_w-full relative">
-                <div class="select-trigger cursor-pointer border border-black flex h-12">
+                <div class="select-trigger cursor-pointer border border-black flex h-10 md:h-12">
                   <div class="flex items-center pl-2.5 flex-1">
-                    <span class="selected-text line-clamp-1 text-sm text-gray-750 font-open uppercase">
+                    <span class="selected-text line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase">
                       Order problems
                     </span>
                   </div>
@@ -67,7 +52,7 @@
                         class="invisible w-0 h-0"
                       >
                       <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                        class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
                       >
                         Order Problems
                       </span>
@@ -82,7 +67,7 @@
                         class="invisible w-0 h-0"
                       >
                       <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                        class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
                       >
                         Payment Issues
                       </span>
@@ -97,7 +82,7 @@
                         class="invisible w-0 h-0"
                       >
                       <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                        class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
                       >
                         Inquire about bigger sizes
                       </span>
@@ -112,7 +97,7 @@
                         class="invisible w-0 h-0"
                       >
                       <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                        class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
                       >
                         Refund Request
                       </span>
@@ -127,7 +112,7 @@
                         class="invisible w-0 h-0"
                       >
                       <span
-                        class="line-clamp-1 text-sm text-gray-750 font-open uppercase"
+                        class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
                       >
                         Other
                       </span>
@@ -137,12 +122,15 @@
               </div>
             </div>
             <div class="field flex flex-col mb-5">
-              <div class="pl-4 mb-1">
-                <label for="ContactForm-body" class="text-[13px] font-axis"> Your message </label>
+              <div class="pl-4 mb-1 flex items-end justify-between">
+                <label for="ContactForm-body" class="text-[11px] md:text-[13px] font-axis"> Your message </label>
+                <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
+                  <span> *Field required </span>
+                </div>
               </div>
               <textarea
                 id="ContactForm-body"
-                class="input-field textarea-field resize-none h-28"
+                class="input-field textarea-field resize-none h-20 md:h-28"
                 name="contact[{{ 'templates.contact.form.comment' | t }}]"
               >
                 {{- form.body -}}
@@ -150,30 +138,48 @@
             </div>
             <div class="field flex flex-col mb-5">
               <div class="pl-4 mb-1 flex justify-between">
-                <label for="ContactForm-email" class="text-[13px] font-axis">
+                <label for="ContactForm-email" class="text-[11px] md:text-[13px] font-axis">
                   {{ 'customer.login_page.email' | t }}
                 </label>
                 <div>
-                  <p class="text-right text-[14px] font-bold">*You will be contacted back on this email adress</p>
+                  <p class="text-right text-[10px] md:text-[14px] font-bold">
+                    *You will be contacted back on this email adress
+                  </p>
                 </div>
               </div>
-              <input
-                class="input-field"
-                type="email"
-                name="contact[email]"
-                id="ContactForm-email"
-                autocomplete="email"
-                autocorrect="off"
-                autocapitalize="off"
-                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                {% if form.errors contains 'form' %}
-                  aria-invalid="true"
-                {% endif %}
-              >
+              <div class="relative">
+                <input
+                  class="input-field"
+                  type="email"
+                  name="contact[email]"
+                  id="ContactForm-email"
+                  autocomplete="email"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                  {% if form.errors contains 'form' %}
+                    aria-invalid="true"
+                  {% endif %}
+                >
+                <div
+                  class="tooltip absolute top-full -left-4 sm:left-0 mt-2.5 whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+                  id="email-tooltip"
+                >
+                  <div class="flex items-center">
+                    <div class="w-5 sm:w-7 h-5 sm:h-7 mr-[7px]">
+                      {%- render 'icon-info' -%}
+                    </div>
+                    <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
+                      Please write a valid email address to be able to receive updates.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="contact__button flex justify-center my-12 md:mb-8">
               <button
-                type="submit"
+                id="submit-button"
+                type="button"
                 class="btn btn_primary btn_small w-[320px] max-w-full"
               >
                 Submit message
@@ -212,19 +218,21 @@
             <div class="mb-8">
               <p class="uppercase font-bold text-xs md:text-sm">AVAILABLE SOON</p>
             </div>
-            <div>
-              <p class="font-bold text-sm text-[17px] leading-tight">
-                COMPANY DETAILS
-                <br>
-                U3 Art Faktory Srl
-                <br>
-                Str. Vadu Voda Nr. 1C
-                <br>
-                Sat. Horpaz, judetul Iasi
-                <br>
-                Romania
-              </p>
-            </div>
+            {% comment %}
+              <div>
+                <p class="font-bold text-sm text-[17px] leading-tight">
+                  COMPANY DETAILS
+                  <br>
+                  U3 Art Faktory Srl
+                  <br>
+                  Str. Vadu Voda Nr. 1C
+                  <br>
+                  Sat. Horpaz, judetul Iasi
+                  <br>
+                  Romania
+                </p>
+              </div>
+            {% endcomment %}
           </div>
         </div>
       </div>
@@ -255,6 +263,50 @@
       allCustomSelects.forEach((select) => {
         select.classList.remove('open');
       });
+    }
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const emailInput = document.getElementById('ContactForm-email');
+    const messageInput = document.getElementById('ContactForm-body');
+    const emailTooltip = document.getElementById('email-tooltip');
+    const messageError = document.getElementById('message-error');
+    const submitButton = document.getElementById('submit-button');
+
+    submitButton.addEventListener('click', function (event) {
+      console.log(event);
+      let valid = true;
+
+      // Validate email
+      const emailValue = emailInput.value.trim();
+      if (emailValue === '' || !validateEmail(emailValue)) {
+        emailTooltip.classList.remove('opacity-0', 'invisible');
+        valid = false;
+      } else {
+        emailTooltip.classList.add('opacity-0', 'invisible');
+      }
+
+      // Validate message
+      const messageValue = messageInput.value.trim();
+      if (messageValue === '') {
+        messageError.classList.remove('hidden');
+        setTimeout(() => {
+          emailTooltip.classList.add('opacity-0', 'invisible');
+        }, 1000);
+        valid = false;
+      } else {
+        messageError.classList.add('hidden');
+      }
+
+      if (valid) {
+        form.submit(); // Submit the form if validation passes
+      }
+    });
+
+    // Function to validate email format
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
     }
   });
 </script>

@@ -514,6 +514,14 @@ input{
     margin-top: -7px;
   }
 }
+.tooltip_right{
+  &:after{
+    @apply left-auto;
+    @apply right-[130px];
+    @apply 2xl:right-auto;
+    @apply 2xl:left-[130px];
+  }
+}
 .tooltip.tooltip_search{
   &:after{
     left: 26px;

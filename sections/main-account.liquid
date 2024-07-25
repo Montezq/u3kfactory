@@ -24,7 +24,7 @@
     <div class="my-account__body-item pb-14 md:pb-9 mb-8 md:mb-[61px] border-b border-b-black max-lg:mt-8">
       <div class="my-account__body-item-heading">
         <h2 class="font-axis text-base font-extrabold">
-          <span class="text-default-address">Default name / adress</span>
+          <span class="text-default-address">Default name / address</span>
           <span class="text-insert-address hidden">Insert new address </span>
         </h2>
       </div>
@@ -118,6 +118,17 @@
                 </div>
                 <div class="field flex flex-col justify-end mt-10">
                   <div class="w-full md:w-[226px] grid gap-5 ml-auto">
+                    <div class="fake-checkbox__wrapper flex">
+                      <div class="w-fit ml-auto">
+                        {{ form.set_as_default_checkbox }}
+                        <label for="address_default_address_{{ form.id }}" class="flex items-center justify-end">
+                          <div class="fake-checkbox w-[11px] h-[11px] border mr-2.5"></div>
+                          <div class="text-[13px] font-bold">
+                            {{ 'customer.addresses.set_default' | t }}
+                          </div>
+                        </label>
+                      </div>
+                    </div>
                     <button class="btn btn_primary !text-[17px] w-full font-coutureBold font-bold">
                       Add this address
                     </button>

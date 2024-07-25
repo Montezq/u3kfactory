@@ -108,12 +108,12 @@
                   <p class="text-[10px] md:text-sm leading-none mb-3.5">
                     <i>NEED MORE INFORMATION ABOUT THIS PIECE?</i>
                   </p>
-                  <a
+                  <button
                     href="/pages/contact"
-                    class="btn btn_primary w-full"
+                    class="btn btn_primary w-full md:max-w-[360px] contact-us"
                   >
                     Contact the artist
-                  </a>
+                  </button>
                 </div>
               {%- when 'buy_buttons' -%}
                 {%- if block.settings.taxes_text != blank -%}
@@ -281,6 +281,209 @@
       }
     </script>
   </div>
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'contact_originals' -%}
+        <div class="contact-us__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[99999]">
+          <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
+            <div class="relative my-auto left-[50%] lg:left-[63%] -translate-x-1/2 w-[94%] md:w-full max-w-[400px] md:max-w-[471px]">
+              <button
+                type="button"
+                class="contact-us__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                x
+              </button>
+              <div
+                class="border border-[#5a5a5a] bg-white px-2.5 pt-5 contact-us__modal-wrapper modal-wrapper w-full"
+                aria-modal="true"
+                role="dialog"
+                tabindex="-1"
+              >
+                <div class="contact-us__modal-heading text-center mb-[30px]">
+                  <p class="text-base md:text-[19px] tracking-widest font-normal uppercase leading-none mb-6 md:mb-[30px]">
+                    You Are contacting
+                  </p>
+                  <h2 class="font-coutureBold text-4xl md:text-[42px]">{{ product.vendor }}</h2>
+                  <div>
+                    <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Small-Envelope text-[44px] md:text-[60px]"> </span>
+                  </div>
+                </div>
+
+                <div class="contact-us__modal-body">
+                  {% form 'contact' %}
+                    <input
+                      class="absolute top-0 left-0 w-0 h-0 p-0 invisible"
+                      type="text"
+                      name="contact[artist]"
+                      id="artist"
+                      value="Contacting {{ artist }}"
+                    >
+                    <div class="contact-subject contact-us__item">
+                      <div class="blcok uppercase pl-2.5 font-axis font-extrabold text-[11px] md:text-[13px]">
+                        Regarding
+                      </div>
+                      <div class="custom-select custom-select_w-full relative">
+                        <div class="select-trigger cursor-pointer border border-black flex h-10 md:h-12">
+                          <div class="flex items-center pl-2.5 flex-1">
+                            <span class="selected-text line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase">
+                              Collaboration
+                            </span>
+                          </div>
+                          <div class="w-11 select-icon border-black flex items-center justify-center">
+                            <span
+                              class="icon-FULL-ICON-SET-WEBSITE-FINAL_Next-Button-Arrow font-semibold text-xs duration-100 ease-in-out"
+                            ></span>
+                          </div>
+                        </div>
+                        <ul class="select-options select-options_w-full hidden absolute z-[2] top-full left-0 border border-t-0 border-black bg-white">
+                          <li class="custom-option selected">
+                            <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                              <input
+                                checked
+                                type="radio"
+                                name="contact[regarding]"
+                                value="Collaboration"
+                                class="invisible w-0 h-0"
+                              >
+                              <span class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                                >Collaboration</span
+                              >
+                            </label>
+                          </li>
+                          <li class="custom-option">
+                            <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                              <input
+                                type="radio"
+                                name="contact[regarding]"
+                                value="Commission"
+                                class="invisible w-0 h-0"
+                              >
+                              <span class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                                >Commission</span
+                              >
+                            </label>
+                          </li>
+                          <li class="custom-option">
+                            <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                              <input
+                                type="radio"
+                                name="contact[regarding]"
+                                value="Interview"
+                                class="invisible w-0 h-0"
+                              >
+                              <span class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                                >Interview</span
+                              >
+                            </label>
+                          </li>
+                          <li class="custom-option">
+                            <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                              <input
+                                type="radio"
+                                name="contact[regarding]"
+                                value="Other"
+                                class="invisible w-0 h-0"
+                              >
+                              <span class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                                >Other</span
+                              >
+                            </label>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="contact-message contact-us__item">
+                      <div class="flex items-end pl-2.5 justify-between">
+                        <label
+                          for="message"
+                          class="blcok uppercase font-axis font-extrabold text-[11px] md:text-[13px]"
+                          >Your Message</label
+                        >
+                        <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
+                          <span> *Field required </span>
+                        </div>
+                      </div>
+                      <textarea class="block w-full py-2" name="contact[message]" id="message"></textarea>
+                    </div>
+                    <div class="contact-email contact-us__item">
+                      <div class="flex justify-between">
+                        <label
+                          for="email"
+                          class="blcok uppercase pl-2.5 font-axis font-extrabold text-[11px] md:text-[13px]"
+                          >Email</label
+                        >
+                        <span class="text-right text-[10px] md:text-[13px] font-bold line-clamp-1 max-w-[60%]">
+                          *You will be contacted back on this email address
+                        </span>
+                      </div>
+                      <div class="relative">
+                        <input
+                          class="block w-full"
+                          type="email"
+                          name="contact[email]"
+                          id="email"
+                          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                        >
+                        <div
+                          class="tooltip absolute top-full -left-4 sm:left-0 mt-2.5 whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+                          id="email-tooltip"
+                        >
+                          <div class="flex items-center">
+                            <div class="w-5 sm:w-7 h-5 sm:h-7 mr-[7px]">
+                              {%- render 'icon-info' -%}
+                            </div>
+                            <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
+                              Please write a valid email address to be able to receive updates.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="submit pb-4">
+                      <button
+                        type="button"
+                        class="btn btn_primary w-full max-w-80 !block mx-auto cursor-pointer"
+                        id="submit-button"
+                      >
+                        SUBMIT MESSAGE
+                      </button>
+                    </div>
+                  {% endform %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          const contactOpen = document.querySelector('.contact-us'),
+            contactModal = document.querySelector('.contact-us__modal'),
+            contactClose = document.querySelector('.contact-us__modal-close'),
+            contactWrapper = document.querySelector('.contact-us__modal-wrapper'),
+            bodyEl = document.querySelector('body');
+
+          contactOpen.addEventListener('click', () => {
+            contactModal.classList.remove('hidden');
+            bodyEl.classList.add('overflow-hidden');
+          });
+
+          contactClose.addEventListener('click', () => {
+            contactModal.classList.add('hidden');
+            bodyEl.classList.remove('overflow-hidden');
+          });
+
+          document.addEventListener('click', (event) => {
+            if (contactModal.classList.contains('hidden')) return;
+
+            if (!contactWrapper.contains(event.target) && !contactOpen.contains(event.target)) {
+              contactModal.classList.add('hidden');
+              bodyEl.classList.remove('overflow-hidden');
+            }
+          });
+        </script>
+    {% endcase %}
+  {% endfor %}
 </section>
 {% if customer %}
   {%- render 'wishlist-modal' -%}

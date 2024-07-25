@@ -4,7 +4,7 @@
   <h1 class="font-coutureBold text-[30px] uppercase text-center">
     {{ 'customer.register.title' | t }}
   </h1>
-  <div class="customer-register__form-wrapper">
+  <div class="customer-register__form-wrapper pb-8">
     <div class="customer-login__form-wrapper-heading text-center mb-10">
       <p class="uppercase text-sm font-bold">NAME FOR DELIVERY I YOUR FUTURE LOG IN DETAILS</p>
     </div>
@@ -12,10 +12,13 @@
       <div class="grid md:grid-cols-2 gap-y-6 gap-x-[70px] items-start">
         <div class="max-w-[522px] grid gap-y-6 w-full max-lg:mx-auto">
           <div class="field flex flex-col">
-            <div class="pl-4 mb-1 flex">
+            <div class="pl-4 mb-1 flex justify-between">
               <label for="RegisterForm-FirstName" class="text-[13px] font-axis">
                 {{ 'customer.register.first_name' | t }}
               </label>
+              <div class="form-errors hidden text-[10px] md:text-[13px]" id="first-name-error">
+                <span> *First Name is required </span>
+              </div>
             </div>
             <input
               class="input-field"
@@ -29,10 +32,13 @@
             >
           </div>
           <div class="field flex flex-col">
-            <div class="pl-4 mb-1 flex">
+            <div class="pl-4 mb-1 flex justify-between">
               <label for="RegisterForm-LastName" class="text-[13px] font-axis">
                 {{ 'customer.register.last_name' | t }}
               </label>
+              <div class="form-errors hidden text-[10px] md:text-[13px]" id="last-name-error">
+                <span> *Last Name is required </span>
+              </div>
             </div>
             <input
               class="input-field"
@@ -50,7 +56,7 @@
           </div>
         </div>
         <div class="max-w-[522px] grid gap-y-6 ml-auto w-full max-lg:mx-auto">
-          <div class="field flex flex-col">
+          <div class="field flex flex-col relative z-[2]">
             <div class="pl-4 mb-1 flex justify-between">
               <label for="RegisterForm-email" class="text-[13px] font-axis">
                 {{ 'customer.register.email' | t }}
@@ -64,29 +70,46 @@
                 </div>
               {%- endif -%}
             </div>
-            <input
-              class="input-field"
-              type="email"
-              name="customer[email]"
-              id="RegisterForm-email"
-              {% if form.email %}
-                value="{{ form.email }}"
-              {% endif %}
-              spellcheck="false"
-              autocapitalize="off"
-              autocomplete="email"
-              aria-required="true"
-              {% if form.errors contains 'email' %}
-                aria-invalid="true"
-                aria-describedby="RegisterForm-email-error"
-              {% endif %}
-            >
+            <div class="relative">
+              <input
+                class="input-field"
+                type="email"
+                name="customer[email]"
+                id="RegisterForm-email"
+                {% if form.email %}
+                  value="{{ form.email }}"
+                {% endif %}
+                spellcheck="false"
+                autocapitalize="off"
+                autocomplete="email"
+                aria-required="true"
+                {% if form.errors contains 'email' %}
+                  aria-invalid="true" aria-describedby="RegisterForm-email-error"
+                {% endif %}
+              >
+              <div
+                class="tooltip tooltip_right absolute top-full right-0 2xl:right-auto 2xl:left-0 mt-2.5 whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+                id="email-tooltip"
+              >
+                <div class="flex items-center">
+                  <div class="w-5 sm:w-7 h-5 sm:h-7 mr-[7px]">
+                    {%- render 'icon-info' -%}
+                  </div>
+                  <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
+                    Please write a valid email address to be able to receive updates.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="field flex flex-col">
             <div class="pl-4 mb-1 flex justify-between">
               <label for="RegisterForm-password" class="text-[13px] font-axis">
                 {{ 'customer.register.password' | t }}
               </label>
+              <div class="form-errors hidden text-[10px] md:text-[13px]" id="password-error">
+                <span> *Password is required </span>
+              </div>
               {%- if form.errors contains 'password' -%}
                 <div class="form-errors">
                   <span id="RegisterForm-password-error" class="form__message">
@@ -104,8 +127,7 @@
                 id="RegisterForm-password"
                 aria-required="true"
                 {% if form.errors contains 'password' %}
-                  aria-invalid="true"
-                  aria-describedby="RegisterForm-password-error"
+                  aria-invalid="true" aria-describedby="RegisterForm-password-error"
                 {% endif %}
               >
               <span
@@ -117,7 +139,11 @@
             </div>
           </div>
           <div class="flex justify-end">
-            <button class="btn btn_primary !font-coutureBold !text-[22px] !tracking-xwidest !leading-none !px-6">
+            <button
+              type="button"
+              class="btn btn_primary !font-coutureBold !text-[22px] !tracking-xwidest !leading-none !px-6"
+              id="register-button"
+            >
               {{ 'customer.register.submit' | t }}
             </button>
           </div>
@@ -147,6 +173,68 @@
     togglePasswordButtons.forEach((button) => {
       button.addEventListener('click', togglePasswordVisibility);
     });
+
+    const registerButton = document.getElementById('register-button');
+    const firstNameField = document.getElementById('RegisterForm-FirstName');
+    const lastNameField = document.getElementById('RegisterForm-LastName');
+    const emailField = document.getElementById('RegisterForm-email');
+    const passwordField = document.getElementById('RegisterForm-password');
+    const emailTooltip = document.getElementById('email-tooltip');
+
+    const firstNameError = document.getElementById('first-name-error');
+    const lastNameError = document.getElementById('last-name-error');
+    const passwordError = document.getElementById('password-error');
+
+    registerButton.addEventListener('click', function (event) {
+      let isValid = true;
+
+      // Hide all custom error messages
+      firstNameError.classList.add('hidden');
+      lastNameError.classList.add('hidden');
+      passwordError.classList.add('hidden');
+
+      const emailValue = emailField.value.trim();
+      if (emailValue === '' || !validateEmail(emailValue)) {
+        emailTooltip.classList.remove('opacity-0', 'invisible');
+        setTimeout(() => {
+          emailTooltip.classList.add('opacity-0', 'invisible');
+        }, 1000);
+        valid = false;
+      } else {
+        emailTooltip.classList.add('opacity-0', 'invisible');
+      }
+
+      // Validate First Name
+      if (firstNameField.value.trim() === '') {
+        firstNameError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      // Validate Last Name
+      if (lastNameField.value.trim() === '') {
+        lastNameError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      // Validate Password
+      if (passwordField.value.trim() === '') {
+        passwordError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      // If the form is not valid, prevent submission
+      if (!isValid) {
+        event.preventDefault();
+        return false;
+      }
+
+      // If the form is valid, submit the form (Shopify's default handling)
+      // You can remove this comment if you're handling form submission manually.
+    });
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
+    }
   });
 </script>
 {% schema %}
