@@ -1,12 +1,18 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-<div class="customer login customer-login max-lg:px-4">
-  <h1 id="recover" tabindex="-1" class="font-coutureBold text-[30px] uppercase text-center">
-    {{ 'customer.recover_password.title' | t }}
-  </h1>
+<div class="customer login customer-login max-lg:px-2">
+  <div id="recover">
+    <h1
+      id="bar"
+      tabindex="-1"
+      class="font-coutureBold text-xl ds_element md:text-[30px] uppercase text-center max-lg:w-full max-lg:left-0 max-lg:py-2 fixed top-[54px]  bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    >
+      {{ 'customer.recover_password.title' | t }}
+    </h1>
+  </div>
   <div class="customer-login__form-wrapper max-w-[522px] mx-auto">
     <div class="customer-login__form-wrapper-heading text-center mb-10">
-      <p class="uppercase text-sm font-bold">
+      <p class="uppercase text-xs md:text-sm font-bold">
         {{ 'customer.recover_password.subtext' | t }}
       </p>
     </div>
@@ -15,7 +21,7 @@
       {% assign recover_success = form.posted_successfully? %}
       <div class="field flex flex-col mb-8">
         <div class="pl-4 mb-1 flex justify-between">
-          <label for="RecoverEmail" class="text-[13px] font-axis">
+          <label for="RecoverEmail" class="text-[11px] md:text-[13px] font-axis">
             {{ 'customer.login_page.email' | t }}
           </label>
           <div class="form-errors">
@@ -41,28 +47,33 @@
         >
       </div>
       <div class="flex justify-center mb-10">
-        <button class="btn btn_primary !font-coutureBold !text-[22px] !tracking-xwidest !leading-none !px-6">
+        <button class="btn btn_primary !font-coutureBold !text-lg md:!text-[22px] !tracking-xwidest !leading-none !px-6">
           {{ 'customer.login_page.submit' | t }}
         </button>
       </div>
       <div class="flex justify-center">
         <a href="#login" class="flex justify-center items-center font-bold">
           <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Smartphone-Back-to-All-Products-Arrow"></span>
-          <span class="text-sm uppercase font-bold ml-2 underline">
+          <span class="text-xs md:text-sm uppercase font-bold ml-2 underline">
             {{ 'customer.login_page.cancel' | t }}
           </span>
         </a>
       </div>
     {%- endform -%}
   </div>
-
-  <h1 id="login" tabindex="-1" class="font-coutureBold text-[30px] uppercase text-center">
-    {{ 'customer.login_page.title' | t }}
-  </h1>
-  <div class="customer-login__form-wrapper max-w-[522px] mx-auto">
+  <div id="login">
+    <h1
+      id="bar"
+      tabindex="-1"
+      class="font-coutureBold text-xl ds_element md:text-[30px] uppercase text-center max-lg:w-full max-lg:left-0 max-lg:py-2 fixed top-[54px]  bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    >
+      {{ 'customer.login_page.title' | t }}
+    </h1>
+  </div>
+  <div class="customer-login__form-wrapper max-w-[522px] mx-auto ">
     <div class="customer-login__form-wrapper-heading flex justify-center items-center mb-10">
       <p class="text-sm uppercase font-bold">DON'T HAVE AN ACCOUNT?</p>
-      <span class="uppercase text-sm font-bold px-2.5"> I </span>
+      <span class="uppercase text-xs md:text-sm font-bold px-2.5"> I </span>
       <a href="{{ routes.account_register_url }}" class="text-sm uppercase font-bold underline">
         {{ 'customer.login_page.create_account' | t }}
       </a>
@@ -75,7 +86,7 @@
     {%- form 'customer_login', novalidate: 'novalidate', return_to: '/pages/account-slides' -%}
       <div class="field flex flex-col mb-3.5">
         <div class="pl-4 mb-1 flex justify-between">
-          <label for="CustomerEmail" class="text-[13px] font-axis">
+          <label for="CustomerEmail" class="text-[11px] md:text-[13px] font-axis">
             {{ 'customer.login_page.email' | t }}
           </label>
           <div class="form-errors">
@@ -102,7 +113,7 @@
       {%- if form.password_needed -%}
         <div class="field flex flex-col">
           <div class="pl-4 mb-1">
-            <label for="CustomerPassword" class="text-[13px] font-axis">
+            <label for="CustomerPassword" class="text-[11px] md:text-[13px] font-axis">
               {{ 'customer.login_page.password' | t }}
             </label>
           </div>
@@ -119,18 +130,18 @@
               {% endif %}
             >
             <span
-              class="absolute cursor-pointer text-[28px] toggle-password top-1/2 -translate-y-1/2 right-4 icon-FULL-ICON-SET-WEBSITE-FINAL_Eye-Icon"
+              class="absolute cursor-pointer text-[24px] md:text-[28px] toggle-password top-1/2 -translate-y-1/2 right-4 icon-FULL-ICON-SET-WEBSITE-FINAL_Eye-Icon"
             ></span>
           </div>
           <div class="text-right pr-2">
-            <a href="#recover" class="text-sm uppercase font-bold underline">
+            <a href="#recover" class="text-xs md:text-sm uppercase font-bold underline">
               {{ 'customer.login_page.forgot_password' | t }}
             </a>
           </div>
         </div>
       {%- endif -%}
       <div class="flex justify-center mt-2">
-        <button class="btn btn_primary !font-coutureBold !text-[22px] !tracking-xwidest !leading-none !px-6">
+        <button class="btn btn_primary !font-coutureBold !text-lg md:!text-[22px] !tracking-xwidest !leading-none !px-6">
           {{ 'customer.login_page.sign_in' | t }}
         </button>
       </div>

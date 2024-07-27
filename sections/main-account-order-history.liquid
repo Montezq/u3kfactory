@@ -7,13 +7,13 @@
     endif
   endfor
 -%}
-<div class="customer order-wrapper max-lg:px-4">
+<div class="customer order-wrapper max-lg:px-2">
   <div
     id="bar"
-    class="ds_element dissapearing main-account-order__heading max-lg:py-3 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    class="ds_element dissapearing main-account-order__heading max-lg:py-2 fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
   >
-    <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">My Orders</h1>
-    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-2">
+    <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">My Orders</h1>
+    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-2 max-lg:hidden">
       <li>
         <a href="/account?view=order-history-active" class="text-[13px] font-bold underline uppercase"> Active </a>
       </li>
@@ -26,14 +26,27 @@
     </ul>
   </div>
   <div class="my-account-order__body max-md:pb-6">
+    <ul class="flex space-x-4 justify-center pt-4 pb-3 lg:hidden">
+      <li>
+        <a href="/account?view=order-history-active" class="text-[11px] font-bold underline uppercase"> Active </a>
+      </li>
+      <li>
+        <a href="/account?view=order-history-completed" class="text-[11px] font-bold uppercase"> Completed </a>
+      </li>
+      <li>
+        <a href="/account?view=order-history-canceled" class="text-[11px] font-bold uppercase"> Canceled </a>
+      </li>
+    </ul>
     <ul>
       {%- for order in customer.orders -%}
         {%- if order.cancelled == false and order.metafields.custom.delivery_completed != true -%}
           <li class="order" data-order-id="{{ order.id }}">
-            <div class="order__header p-1.5 border flex justify-between">
+            <div class="order__header p-1 md:p-1.5 border flex justify-between">
               <div>
-                <p class="leading-none uppercase mb-1 font-bold">Order No. {{ order.order_number }}</p>
-                <p class="leading-none uppercase text-xs font-bold">
+                <p class="leading-none uppercase md:mb-1 font-bold max-md:text-sm">
+                  Order No. {{ order.order_number }}
+                </p>
+                <p class="leading-none uppercase text-[10px] md:text-xs font-bold">
                   Status :
                   {%- if order.tags contains 'processing' -%}
                     &nbsp;Processing
@@ -45,10 +58,10 @@
                 </p>
               </div>
               <div class="text-right">
-                <p class="leading-none uppercase font-bold mb-1">
+                <p class="leading-none uppercase font-bold md:mb-1 max-md:text-sm">
                   Total {{ order.total_net_amount | money_with_currency }}
                 </p>
-                <p class="leading-none text-xs font-bold">{{ order.created_at | date: '%Y/%m/%d' }}</p>
+                <p class="leading-none text-[10px] md:text-xs font-bold">{{ order.created_at | date: '%Y/%m/%d' }}</p>
               </div>
             </div>
             <div class="flex flex-col xl:flex-row xl:justify-between xl:items-end">
@@ -80,19 +93,19 @@
                             <div class="mb-5 md:mb-2">
                               <a
                                 href="{{ item.url }}"
-                                class="uppercase text-[22px] lg:text-[25px] font-bold leading-none inline-block"
+                                class="uppercase text-xl md:text-[22px] lg:text-[25px] font-bold leading-none inline-block"
                               >
                                 {{- item.product.title | escape -}}
                               </a>
-                              <p class="text-[15px] md:text-[17px] italic max-md:leading-none">
+                              <p class="text-[13px] md:text-[17px] italic max-md:leading-none">
                                 by {{ item.product.vendor }}
                               </p>
                             </div>
-                            <dl class="space-y-1.5">
+                            <dl class="space-y-2 md:space-y-1.5">
                               {%- unless item.product.has_only_default_variant -%}
                                 {%- for option in item.options_with_values -%}
                                   <div class="product-option leading-none">
-                                    <dd class="text-[21px] leading-none font-bold">
+                                    <dd class="text-lg md:text-[21px] leading-none font-bold">
                                       {{ option.value }}
                                     </dd>
                                   </div>
@@ -102,7 +115,7 @@
                                 {%- assign property_first_char = property.first | slice: 0 -%}
                                 {%- if property.last != blank and property_first_char != '_' -%}
                                   <div class="product-option leading-none">
-                                    <dd class="text-[21px] leading-none font-bold">
+                                    <dd class="text-lg md:text-[21px] leading-none font-bold">
                                       {{ property.last }}
                                     </dd>
                                   </div>
@@ -117,7 +130,7 @@
                 {%- endfor -%}
               </ul>
               <div class="md:w-[325px] w-full space-y-5 pb-5 max-xl:pt-6 xl:border-b xl:border-b-[#8c8c8c]">
-                <a href="/pages/contact" class="btn btn_primary w-full uppercase !text-2xl">Contact Us</a>
+                <a href="/pages/contact" class="btn btn_primary w-full uppercase !text-xl md:!text-2xl">Contact Us</a>
                 <a
                   {% if order.metafields.custom.order_tracking != blank %}
                     target="_blank"
@@ -125,71 +138,75 @@
                   {% else %}
                     href="#"
                   {% endif %}
-                  class="btn btn_primary w-full uppercase !text-2xl track-order"
+                  class="btn btn_primary w-full uppercase !text-xl md:!text-2xl track-order"
                 >
                   Track order
                 </a>
                 <div>
                   <button
-                    class="btn btn_outlined w-full uppercase !text-2xl {% if order.tags contains 'processing' %}cancel-order{% else %}unavailable-cancel-order{% endif %}"
+                    class="btn btn_outlined w-full uppercase !text-xl md:!text-2xl {% if order.tags contains 'processing' %}cancel-order{% else %}unavailable-cancel-order{% endif %}"
                   >
                     Cancel order
                   </button>
                   {%- if order.tags contains 'processing' -%}
-                    <div class="remove-account__modal remove-order__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] md:w-full max-w-[320px]">
-                      <button
-                        type="button"
-                        class="remove-account__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
-                        aria-label="{{ 'accessibility.close' | t }}"
-                      >
-                        x
-                      </button>
-                      <div
-                        class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[360px] remove-account__modal-wrapper w-full"
-                        aria-modal="true"
-                        role="dialog"
-                        tabindex="-1"
-                      >
-                        <div class="remove-account__modal-heading text-center mb-4">
-                          <h2 class="font-bold text-[25px] uppercase">Order Cancellation</h2>
-                        </div>
-                        <div class="remove-account__modal-body mb-10 md:mb-14">
-                          <p class="text-[22px] text-center font-bold leading-snug">Are you sure?</p>
-                        </div>
-                        <div class="remove-account__modal-footer text-center relative">
-                          {% form 'contact', return_to: '/account?view=order-history-active' %}
-                            <input
-                              class="w-0 h-0 absolute top-0 left-0"
-                              type="text"
-                              name="contact[regardin]"
-                              id="reagarding"
-                              value="Delete order request from {{ customer.first_name }} {{ customer.last_name }}"
-                            >
-                            <input
-                              class="w-0 h-0 absolute top-0 left-0"
-                              type="text"
-                              name="contact[order_id]"
-                              id="order_id"
-                              value="{{ order.id }}"
-                            >
-                            <input
-                              class="w-0 h-0 absolute top-0 left-0"
-                              type="email"
-                              name="contact[email]"
-                              id="email"
-                              value="{{ customer.email }}"
-                            >
-                            <input
-                              class="w-0 h-0 absolute top-0 left-0"
-                              type="text"
-                              name="contact[order_url]"
-                              id="text"
-                              value="Order URL https://admin.shopify.com/store/u3faktory/orders/{{ order.id }}"
-                            >
-                            <button type="submit" class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">
-                              Yes , Cancel It
-                            </button>
-                          {% endform %}
+                    <div class="cancel-order__modal remove-order__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[9999999]">
+                      <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
+                        <div class="my-auto relative left-[50%] lg:left-[63%] -translate-x-1/2 z-10 max-w-[260px] md:max-w-[352px] w-full">
+                          <button
+                            type="button"
+                            class="cancel-order__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+                            aria-label="{{ 'accessibility.close' | t }}"
+                          >
+                            x
+                          </button>
+                          <div
+                            class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[360px] cancel-order__modal-wrapper w-full"
+                            aria-modal="true"
+                            role="dialog"
+                            tabindex="-1"
+                          >
+                            <div class="cancel-order__modal-heading text-center mb-4">
+                              <h2 class="font-bold text-xl md:text-[25px] uppercase">Order Cancellation</h2>
+                            </div>
+                            <div class="cancel-order__modal-body mb-10 md:mb-14">
+                              <p class="text-base md:text-[22px] text-center leading-snug">Are you sure?</p>
+                            </div>
+                            <div class="cancel-order__modal-footer text-center relative">
+                              {% form 'contact', return_to: '/account?view=order-history-active' %}
+                                <input
+                                  class="w-0 h-0 absolute top-0 left-0"
+                                  type="text"
+                                  name="contact[regardin]"
+                                  id="reagarding"
+                                  value="Delete order request from {{ customer.first_name }} {{ customer.last_name }}"
+                                >
+                                <input
+                                  class="w-0 h-0 absolute top-0 left-0"
+                                  type="text"
+                                  name="contact[order_id]"
+                                  id="order_id"
+                                  value="{{ order.id }}"
+                                >
+                                <input
+                                  class="w-0 h-0 absolute top-0 left-0"
+                                  type="email"
+                                  name="contact[email]"
+                                  id="email"
+                                  value="{{ customer.email }}"
+                                >
+                                <input
+                                  class="w-0 h-0 absolute top-0 left-0"
+                                  type="text"
+                                  name="contact[order_url]"
+                                  id="text"
+                                  value="Order URL https://admin.shopify.com/store/u3faktory/orders/{{ order.id }}"
+                                >
+                                <button type="submit" class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">
+                                  Yes , Cancel It
+                                </button>
+                              {% endform %}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -203,7 +220,7 @@
     </ul>
     {%- if orders_count < 0 -%}
       <div>
-        <h2 class="text-2xl md:text-[30px] uppercase text-center tracking-xwidest py-[30vh]">NO ORDERS</h2>
+        <h2 class="text-xl md:text-[30px] uppercase text-center tracking-xwidest py-[30vh]">NO ORDERS</h2>
       </div>
     {% endif %}
   </div>
@@ -217,31 +234,35 @@
       order canceled successfully
     </p>
   </div>
-  <div class="unavailable-order__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] md:w-full max-w-[340px]">
-    <button
-      type="button"
-      class="remove-unavailable-order__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
-      aria-label="{{ 'accessibility.close' | t }}"
-    >
-      x
-    </button>
-    <div
-      class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[360px] remove-account__modal-wrapper w-full"
-      aria-modal="true"
-      role="dialog"
-      tabindex="-1"
-    >
-      <div class="remove-account__modal-heading text-center mb-4">
-        <h2 class="font-bold text-[25px] uppercase">Order Cancellation</h2>
-      </div>
-      <div class="remove-account__modal-body mb-6">
-        <p class="text-[22px] text-center font-bold leading-snug">
-          Your order has already been processed hence it can no longer be canceled. For a refund refer to our Refund
-          Policy.
-        </p>
-      </div>
-      <div class="remove-account__modal-footer text-center relative">
-        <a href="/pages/contact" class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">CONTACT US</a>
+  <div class="unavailable-order__modal remove-order__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[9999999]">
+    <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
+      <div class="my-auto relative left-[50%] lg:left-[63%] -translate-x-1/2 z-10 max-w-[260px] md:max-w-[352px] w-full">
+        <button
+          type="button"
+          class="remove-unavailable-order__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          x
+        </button>
+        <div
+          class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[360px] unavailable-order__modal-wrapper w-full"
+          aria-modal="true"
+          role="dialog"
+          tabindex="-1"
+        >
+          <div class="cancel-order__modal-heading text-center mb-4">
+            <h2 class="font-bold text-lg md:text-[25px] uppercase">Order Cancellation</h2>
+          </div>
+          <div class="cancel-order__modal-body mb-6">
+            <p class="text-base md:text-[22px] text-center leading-snug">
+              Your order has already been processed hence it can no longer be canceled. For a refund refer to our Refund
+              Policy.
+            </p>
+          </div>
+          <div class="cancel-order__modal-footer text-center relative">
+            <a href="/pages/contact" class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">CONTACT US</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -250,18 +271,27 @@
   const cancelOrderButtons = document.querySelectorAll('.cancel-order');
   const unavailableCancelOrderButtons = document.querySelectorAll('.unavailable-cancel-order');
   const modal = document.querySelector('.unavailable-order__modal');
-
+  const modalBody = document.querySelector('.unavailable-order__modal-wrapper');
+  const bodyEl = document.querySelector('body');
   unavailableCancelOrderButtons.forEach((button) => {
     button.addEventListener('click', function () {
       if (modal) {
         modal.classList.remove('hidden');
+        bodyEl.classList.add('overflow-hidden');
       }
     });
+  });
+  modal.addEventListener('click', (event) => {
+    if (!modalBody.contains(event.target)) {
+      modal.classList.add('hidden');
+      bodyEl.classList.remove('overflow-hidden');
+    }
   });
   document.addEventListener('click', function (event) {
     if (event.target.classList.contains('remove-unavailable-order__modal-close')) {
       if (modal) {
         modal.classList.add('hidden');
+        bodyEl.classList.remove('overflow-hidden');
       }
     }
   });
@@ -272,6 +302,7 @@
       const modal = event.target.closest('.remove-unavailable-order__modal');
       if (modal) {
         modal.classList.add('hidden');
+        bodyEl.classList.remove('overflow-hidden');
       }
     }
   });
@@ -284,19 +315,31 @@
       if (modal && modal.classList.contains('remove-order__modal')) {
         // Remove the 'hidden' class to show the modal
         modal.classList.remove('hidden');
+        bodyEl.classList.add('overflow-hidden');
       }
     });
   });
   document.addEventListener('click', function (event) {
     if (
-      event.target.classList.contains('remove-account__modal-close') ||
+      event.target.classList.contains('cancel-order__modal-close') ||
       event.target.classList.contains('modal__close-button')
     ) {
       const modal = event.target.closest('.remove-order__modal');
       if (modal) {
         modal.classList.add('hidden');
+        bodyEl.classList.remove('overflow-hidden');
       }
     }
+  });
+  const cancelOrderModal = document.querySelectorAll('.cancel-order__modal');
+  cancelOrderModal.forEach((modal) => {
+    modal.addEventListener('click', (event) => {
+      let modalBody = modal.querySelector('.cancel-order__modal-wrapper');
+      if (!modalBody.contains(event.target)) {
+        modal.classList.add('hidden');
+        bodyEl.classList.remove('overflow-hidden');
+      }
+    });
   });
   document.addEventListener('DOMContentLoaded', function () {
     if (window.location.hash === '#contact_form') {

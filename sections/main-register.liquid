@@ -1,19 +1,22 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
 <div class="customer register customer-register max-lg:px-4">
-  <h1 class="font-coutureBold text-[30px] uppercase text-center">
+  <h1
+    id="bar"
+    class="font-coutureBold text-xl ds_element md:text-[30px] uppercase text-center max-lg:w-full max-lg:left-0 max-lg:py-2 fixed top-[54px]  bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+  >
     {{ 'customer.register.title' | t }}
   </h1>
   <div class="customer-register__form-wrapper pb-8">
     <div class="customer-login__form-wrapper-heading text-center mb-10">
-      <p class="uppercase text-sm font-bold">NAME FOR DELIVERY I YOUR FUTURE LOG IN DETAILS</p>
+      <p class="uppercase text-xs md:text-sm font-bold">NAME FOR DELIVERY I YOUR FUTURE LOG IN DETAILS</p>
     </div>
     {%- form 'create_customer', novalidate: 'novalidate' -%}
       <div class="grid md:grid-cols-2 gap-y-6 gap-x-[70px] items-start">
         <div class="max-w-[522px] grid gap-y-6 w-full max-lg:mx-auto">
           <div class="field flex flex-col">
             <div class="pl-4 mb-1 flex justify-between">
-              <label for="RegisterForm-FirstName" class="text-[13px] font-axis">
+              <label for="RegisterForm-FirstName" class="text-[11px] md:text-[13px] font-axis">
                 {{ 'customer.register.first_name' | t }}
               </label>
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="first-name-error">
@@ -33,7 +36,7 @@
           </div>
           <div class="field flex flex-col">
             <div class="pl-4 mb-1 flex justify-between">
-              <label for="RegisterForm-LastName" class="text-[13px] font-axis">
+              <label for="RegisterForm-LastName" class="text-[11px] md:text-[13px] font-axis">
                 {{ 'customer.register.last_name' | t }}
               </label>
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="last-name-error">
@@ -58,7 +61,7 @@
         <div class="max-w-[522px] grid gap-y-6 ml-auto w-full max-lg:mx-auto">
           <div class="field flex flex-col relative z-[2]">
             <div class="pl-4 mb-1 flex justify-between">
-              <label for="RegisterForm-email" class="text-[13px] font-axis">
+              <label for="RegisterForm-email" class="text-[11px] md:text-[13px] font-axis">
                 {{ 'customer.register.email' | t }}
               </label>
               {%- if form.errors contains 'email' -%}
@@ -104,7 +107,7 @@
           </div>
           <div class="field flex flex-col">
             <div class="pl-4 mb-1 flex justify-between">
-              <label for="RegisterForm-password" class="text-[13px] font-axis">
+              <label for="RegisterForm-password" class="text-[11px] md:text-[13px] font-axis">
                 {{ 'customer.register.password' | t }}
               </label>
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="password-error">
@@ -131,7 +134,7 @@
                 {% endif %}
               >
               <span
-                class="absolute cursor-pointer text-[28px] toggle-password top-1/2 -translate-y-1/2 right-4 icon-FULL-ICON-SET-WEBSITE-FINAL_Eye-Icon"
+                class="absolute cursor-pointer text-[24px] md:text-[28px] toggle-password top-1/2 -translate-y-1/2 right-4 icon-FULL-ICON-SET-WEBSITE-FINAL_Eye-Icon"
               ></span>
             </div>
             <div>
@@ -141,7 +144,7 @@
           <div class="flex justify-end">
             <button
               type="button"
-              class="btn btn_primary !font-coutureBold !text-[22px] !tracking-xwidest !leading-none !px-6"
+              class="btn btn_primary !font-coutureBold !text-lg md:!text-[22px] !tracking-xwidest !leading-none !px-6"
               id="register-button"
             >
               {{ 'customer.register.submit' | t }}

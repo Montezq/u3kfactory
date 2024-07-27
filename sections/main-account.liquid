@@ -12,18 +12,18 @@
     }
   }
 </style>
-<div class="customer account max-lg:px-4">
+<div class="customer account max-lg:px-2">
   <div
     id="bar"
-    class="ds_element dissapearing main-account__heading max-lg:py-3 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out flex justify-center"
+    class="ds_element dissapearing main-account__heading max-lg:py-2 fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out flex justify-center"
   >
-    <h1 class="font-coutureBold text-2xl md:text-3xl uppercase text-center">Prefererences</h1>
+    <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">Prefererences</h1>
   </div>
 
   <div class="my-account__body max-md:pb-6">
-    <div class="my-account__body-item pb-14 md:pb-9 mb-8 md:mb-[61px] border-b border-b-black max-lg:mt-8">
+    <div class="my-account__body-item pb-8 md:pb-9 mb-4 md:mb-[61px] border-b border-b-black max-lg:mt-8">
       <div class="my-account__body-item-heading">
-        <h2 class="font-axis text-base font-extrabold">
+        <h2 class="font-axis text-sm md:text-base font-extrabold">
           <span class="text-default-address">Default name / address</span>
           <span class="text-insert-address hidden">Insert new address </span>
         </h2>
@@ -35,7 +35,7 @@
               <div class="new-address__grid-col max-w-[468px]">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressFirstNameNew" class="text-[13px] font-axis">
+                    <label for="AddressFirstNameNew" class="text-[11px] md:text-[13px] font-axis">
                       {{ 'customer.addresses.first_name' | t }}
                     </label>
                   </div>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressLastNameNew" class="text-[13px] font-axis">
+                    <label for="AddressLastNameNew" class="text-[11px] md:text-[13px] font-axis">
                       {{ 'customer.addresses.last_name' | t }}
                     </label>
                   </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressAddress1New" class="text-[13px] font-axis"> Address </label>
+                    <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis"> Address </label>
                   </div>
                   <input
                     class="input-field"
@@ -80,7 +80,7 @@
               <div class="new-address__grid-col max-w-[468px] w-full ml-auto">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressCityNew" class="text-[13px] font-axis"> City </label>
+                    <label for="AddressCityNew" class="text-[11px] md:text-[13px] font-axis"> City </label>
                   </div>
                   <input
                     class="input-field"
@@ -92,7 +92,7 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressCountryNew" class="text-[13px] font-axis"> Country </label>
+                    <label for="AddressCountryNew" class="text-[11px] md:text-[13px] font-axis"> Country </label>
                   </div>
                   <input
                     class="input-field"
@@ -105,7 +105,7 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressZipNew" class="text-[13px] font-axis"> zip code </label>
+                    <label for="AddressZipNew" class="text-[11px] md:text-[13px] font-axis"> zip code </label>
                   </div>
                   <input
                     class="input-field"
@@ -123,7 +123,7 @@
                         {{ form.set_as_default_checkbox }}
                         <label for="address_default_address_{{ form.id }}" class="flex items-center justify-end">
                           <div class="fake-checkbox w-[11px] h-[11px] border mr-2.5"></div>
-                          <div class="text-[13px] font-bold">
+                          <div class="text-[11px] md:text-[13px] font-bold">
                             {{ 'customer.addresses.set_default' | t }}
                           </div>
                         </label>
@@ -148,11 +148,11 @@
       {%- for address in customer.addresses -%}
         <div id="EditAddress_address-{{ address.id }}" class="hidden edit-address">
           {%- form 'customer_address', address -%}
-            <div class="grid md:grid-cols-2 gap-[32px] md:justify-between">
+            <div class="grid md:grid-cols-2 gap-6 md:gap-[32px] md:justify-between">
               <div class="new-address__grid-col max-w-[468px]">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressFirstNameNew" class="text-[13px] font-axis">
+                    <label for="AddressFirstNameNew" class="text-[11px] md:text-[13px] font-axis">
                       {{ 'customer.addresses.first_name' | t }}
                     </label>
                   </div>
@@ -167,7 +167,7 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressLastNameNew" class="text-[13px] font-axis">
+                    <label for="AddressLastNameNew" class="text-[11px] md:text-[13px] font-axis">
                       {{ 'customer.addresses.last_name' | t }}
                     </label>
                   </div>
@@ -182,7 +182,7 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressAddress1New" class="text-[13px] font-axis"> Address </label>
+                    <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis"> Address </label>
                   </div>
                   <input
                     class="input-field"
@@ -193,14 +193,14 @@
                     value="{{ form.address1 }}"
                   >
                   <div>
-                    <p class="text-sm font-bold text-right">*Include street number and apartment number</p>
+                    <p class="text-xs md:text-sm font-bold text-right">*Include street number and apartment number</p>
                   </div>
                 </div>
               </div>
               <div class="new-address__grid-col max-w-[468px] w-full ml-auto">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressCityNew" class="text-[13px] font-axis"> City </label>
+                    <label for="AddressCityNew" class="text-[11px] md:text-[13px] font-axis"> City </label>
                   </div>
                   <input
                     class="input-field"
@@ -213,7 +213,7 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressCountryNew" class="text-[13px] font-axis"> Country </label>
+                    <label for="AddressCountryNew" class="text-[11px] md:text-[13px] font-axis"> Country </label>
                   </div>
                   <input
                     class="input-field"
@@ -227,7 +227,7 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressZipNew" class="text-[13px] font-axis"> zip code </label>
+                    <label for="AddressZipNew" class="text-[11px] md:text-[13px] font-axis"> zip code </label>
                   </div>
                   <input
                     class="input-field"
@@ -238,14 +238,14 @@
                     value="{{ form.zip }}"
                   >
                 </div>
-                <div class="field flex flex-col justify-end mt-14 md:mt-10">
+                <div class="field flex flex-col justify-end mt-10">
                   <div class="w-full md:w-[226px] grid gap-5 ml-auto">
                     <div class="fake-checkbox__wrapper flex">
                       <div class="w-fit ml-auto">
                         {{ form.set_as_default_checkbox }}
                         <label for="address_default_address_{{ form.id }}" class="flex items-center justify-end">
                           <div class="fake-checkbox w-[11px] h-[11px] border mr-2.5"></div>
-                          <div class="text-[13px] font-bold">
+                          <div class="text-[11px] md:text-[13px] font-bold">
                             {{ 'customer.addresses.set_default' | t }}
                           </div>
                         </label>
@@ -267,8 +267,8 @@
           {%- endform -%}
         </div>
       {%- endfor -%}
-      <div data-current-address class="grid md:grid-cols-2 gap-x-8 max-md:gap-y-28 md:justify-between current-address">
-        <div class="space-y-[37px]">
+      <div data-current-address class="grid md:grid-cols-2 gap-x-8 max-md:gap-y-20 md:justify-between current-address">
+        <div class="space-y-6 md:space-y-[37px]">
           {%- for address in customer.addresses -%}
             {% if forloop.index == 1 %}
               {% assign address_id = address.id %}
@@ -288,16 +288,16 @@
               >
               <div class="flex items-center my-account__adress-radio">
                 <div
-                  class="bg-white w-3.5 h-3.5 rounded-full border-[2px] border-black duration-300 ease-in-out mr-3 my-account__adress-radio-fake"
+                  class="bg-white w-2.5 md:w-3.5 h-2.5 md:h-3.5 rounded-full border md:border-[2px] border-black duration-300 ease-in-out mr-3 my-account__adress-radio-fake"
                 ></div>
-                <div class="bg-white border border-black rounded-[4px] p-2 flex-1 w-full max-w-[210px] [&>p]:text-sm [&>p]:font-bold">
+                <div class="bg-white border border-black rounded-[4px] p-2 flex-1 w-full max-w-[180px] md:max-w-[210px] [&>p]:text-xs md:[&>p]:text-sm [&>p]:font-bold">
                   {{ address | format_address }}
                 </div>
               </div>
             </label>
           {%- endfor -%}
         </div>
-        <div class="flex flex-col space-y-[21px] w-full md:w-[226px] md:ml-auto">
+        <div class="flex flex-col space-y-4 md:space-y-[21px] w-full md:w-[226px] md:ml-auto">
           <button class="btn btn_primary !text-[17px] w-full uppercase add-new-address font-coutureBold font-bold">
             Add Mew
           </button>
@@ -315,14 +315,14 @@
             >
               Remove Address
             </button>
-            <div class="md:hidden text-right text-sm font-bold">*Buttons affect selected address</div>
+            <div class="md:hidden text-right text-xs md:text-sm font-bold">*Buttons affect selected address</div>
           </div>
         </div>
       </div>
     </div>
     <div class="my-account__body-item">
       <div class="my-account__body-item-heading">
-        <h2 class="font-axis text-base font-extrabold">
+        <h2 class="font-axis text-sm md:text-base font-extrabold">
           Change Password<span class="del-acc__text">/Delete Account</span>
         </h2>
       </div>
@@ -332,7 +332,7 @@
             <div class="max-w-[525px]">
               <div class="field flex flex-col mb-8">
                 <div class="pl-4 mb-1 flex md:justify-between">
-                  <label for="RecoverEmail" class="text-[13px] font-axis">
+                  <label for="RecoverEmail" class="text-[11px] md:text-[13px] font-axis">
                     {{ 'customer.login_page.email' | t }}
                   </label>
                   <div class="form-errors">

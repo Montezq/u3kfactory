@@ -48,6 +48,7 @@ body{
   padding-left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
 }
 .main_coming-soon{
+  .menu-open,
   .content-for-layout:after,
   .desktop-search-wrapper,
   .header__menu{
@@ -100,9 +101,12 @@ input[type="search"]::-moz-search-clear {
   @apply border;
   @apply border-black;
   @apply px-4;
-  @apply py-[9px];
+  @apply py-1.5;
+  @apply md:py-[9px];
   @apply font-open;
-  @apply text-[17px];
+  @apply text-[15px];
+  @apply md:text-[17px];
+  @apply md:text-[17px];
   @apply w-full;
 }
 .coming-soon__heading{
@@ -1241,7 +1245,7 @@ accordion-item.open,
 }
 .customer-login,
 .customer-register{
-  padding-top: 32px;
+  padding-top: 45px;
   @screen md{
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
   }
@@ -1250,7 +1254,7 @@ accordion-item.open,
 .customer-register__form-wrapper{
   padding-top: 40px;
   @screen md{
-    padding-top: clamp(38px, calc(28.7vh - 72px), calc(28.7vh - 72px));
+    padding-top: clamp(48px, calc(28.7vh - 62px), calc(28.7vh - 62px));
   }
 }
 .form-errors{
@@ -1315,14 +1319,14 @@ accordion-item.open,
   }
 }
 .my-account-order__body{
-  @apply pt-[106px];
+  @apply pt-[56px];
   @screen lg{
     padding-top: clamp(110px, 14.05vh, 219px);
     padding-bottom: 27px;
   }
 }
 .my-account__body{
-  @apply pt-[56px];
+  @apply pt-[45px];
   @apply md:pt-[60px];
   @screen lg{
     padding-top: clamp(80px, calc(19.47vh - 27px), 273px);
@@ -1331,11 +1335,17 @@ accordion-item.open,
   }
 }
 .my-account__body-item-heading{
-  padding-bottom: clamp(37px, 6.34vh, 69px);
+  padding-bottom: 26px;
+  @screen md{
+    padding-bottom: clamp(37px, 6.34vh, 69px);
+  }
 }
 .new-address__grid-col{
   .field{
-    margin-bottom: clamp(25px, 2.30vh, 32px);
+    margin-bottom: 20px;
+    @screen md{
+      margin-bottom: clamp(25px, 2.30vh, 32px);
+    }
     &:last-child{
       margin-bottom: 0;
     }
@@ -1348,7 +1358,10 @@ accordion-item.open,
   }
 }
 .order__header{
-  margin-bottom: clamp(32px, 4.5vh, 49px);
+  margin-bottom: 24px;
+  @screen md{
+    margin-bottom: clamp(32px, 4.5vh, 49px);
+  }
 }
 .order__body-item{
   margin-bottom: clamp(32px, 3.49vh, 3.49vh);
@@ -1386,6 +1399,8 @@ accordion-item.open,
   &>*{
     margin-bottom: clamp(32px, 3.95vh, 3.95vh);
     font-size: 20px;
+    @apply text-base;
+    @apply md:text-xl;
     @apply tracking-wider;
     @apply leading-snug;
     &:last-child{
@@ -1407,7 +1422,10 @@ accordion-item.open,
   }
 }
 .custom-page__body-section{
-  margin-bottom: clamp(110px, 16.53vh, 217px);
+  margin-bottom: 80px;
+  @screen md{
+    margin-bottom: clamp(110px, 16.53vh, 217px);
+  }
   &:last-child{
     margin-bottom: 0;
   }
@@ -1417,7 +1435,8 @@ accordion-item.open,
   .custom-page__content{
     &>*{
       margin-bottom: 27px;
-      font-size: 17px;
+      @apply text-sm;
+      @apply md:text-[17px];
       @apply tracking-wider;
       @apply leading-snug;
       color: #1b1b1b;
@@ -1432,7 +1451,8 @@ accordion-item.open,
       @apply py-1;
       @apply px-0.5;
       @apply w-fit;
-      @apply text-xl;
+      @apply text-lg;
+      @apply md:text-xl;
       @apply leading-none;
       @apply bg-black;
       @apply text-white;
