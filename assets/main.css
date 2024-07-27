@@ -731,6 +731,9 @@ video {
 .top-full {
   top: 100%;
 }
+.top-\[52px\] {
+  top: 52px;
+}
 .isolate {
   isolation: isolate;
 }
@@ -1977,6 +1980,12 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.text-\[48px\] {
+  font-size: 48px;
+}
+.text-\[52px\] {
+  font-size: 52px;
 }
 .\!font-extrabold {
   font-weight: 800 !important;
@@ -4519,6 +4528,10 @@ input:focus-visible{
 
   .max-lg\:pt-\[66px\] {
     padding-top: 66px;
+  }
+
+  .max-lg\:pt-11 {
+    padding-top: 2.75rem;
   }
 
   .max-lg\:text-\[1px\] {
