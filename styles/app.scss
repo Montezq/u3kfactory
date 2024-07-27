@@ -125,7 +125,14 @@ input[type="search"]::-moz-search-clear {
   @apply md:text-[4.4vw];
   @apply lg:text-[40px];
 }
-
+.maintenance__heading{
+  @apply text-[5vw];
+  @apply sm:text-[28px];
+  @apply lg:text-[2.4vw];
+  @media screen and (min-width: 1380px) {
+    font-size: 33px;
+  }
+}
 
 .icon-FULL-ICON-SET-WEBSITE-FINAL_Account:before {
   content: "\e900";
