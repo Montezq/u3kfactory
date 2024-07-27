@@ -1,52 +1,86 @@
-<div class="w-full h-screen flex flex-col items-center relative overflow-hidden">
-  {%- if section.settings.background != blank -%}
-    {%- liquid
-      assign image_height = section.settings.background.width | divided_by: section.settings.background.aspect_ratio
-      assign full_width = '100vw'
-      assign widths = '2000, 3000, 3840'
-      assign image_class = 'absolute top-0 left-0 w-[100vw] h-full object-cover max-w-none'
-    -%}
-    {{
-      section.settings.background
-      | image_url: width: 3840
-      | image_tag:
-        width: section.settings.image.width,
-        height: image_height,
-        class: image_class,
-        sizes: full_width,
-        widths: widths
-    }}
-  {%- endif -%}
+<div class="w-full min-h-screen flex flex-col items-center relative overflow-hidden py-8">
+  <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full">
+    <div
+      class="w-full h-full{% if section.settings.mobile_image != blank or section.settings.mobile_video != blank %} max-md:hidden{% endif %}"
+    >
+      {%- if section.settings.cover_type == 'video' -%}
+        {{
+          section.settings.video
+          | video_tag:
+            image_size: '1100x',
+            autoplay: true,
+            loop: true,
+            controls: false,
+            class: 'w-full h-full object-cover',
+            muted: true
+        }}
+      {%- else -%}
+        {{
+          section.settings.image
+          | image_url: width: 3840
+          | image_tag:
+            width: section.settings.image.width,
+            class: 'w-full h-full object-cover',
+            height: '100vh',
+            sizes: '100vw',
+            widths: '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680',
+            fetchpriority: 'high'
+        }}
+      {%- endif -%}
+    </div>
+    <div class="w-full h-full{% if section.settings.mobile_image != blank or section.settings.mobile_video != blank %} md:hidden{% else %} hidden{% endif %}">
+      {%- if section.settings.mobile_cover_type == 'video' -%}
+        {{
+          section.settings.mobile_video
+          | video_tag:
+            image_size: '1100x',
+            autoplay: true,
+            loop: true,
+            controls: false,
+            class: 'w-full h-full object-cover',
+            muted: true
+        }}
+      {%- else -%}
+        {{
+          section.settings.mobile_image
+          | image_url: width: 1440
+          | image_tag:
+            width: section.settings.mobile_image.width,
+            class: 'w-full h-full object-cover',
+            height: '100vh',
+            sizes: '100vw',
+            widths: '450, 660, 900, 1440',
+            fetchpriority: 'high'
+        }}
+      {%- endif -%}
+    </div>
+  </div>
   <div class="relative z-[1] flex flex-col items-center text-center my-auto">
-    <div class="cooming-soong__logo pb-[66px]">
-      <h1 class="font-coutureBold text-[136px] text-white text-logo leading-none flex items-center">
-        <span>U</span>
-        <span>3</span>
+    <div class="coming-soong__logo pb-[66px]">
+      <h1 class="font-coutureBold text-[120px] md:text-[154px] h-[84px] md:h-[109px] text-white text-logo leading-none flex items-center">
+        <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_LOGO-4 leading-none block"></span>
       </h1>
     </div>
     {%- if section.settings.heading != blank or section.settings.subgheading != blank -%}
       <div class="text-white leading-none">
         {%- if section.settings.heading != blank -%}
-          <h2 class="text-[40px] font-helveticaThinCond tracking-widest pb-[38px] mb-[42px] cooming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[465px] after:min-w-[260px] after:w-[80%] after:h-[1px] after:bg-white">
+          <h2 class="coming-soon__heading font-helveticaThinCond tracking-widest coming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[465px] after:min-w-[260px] after:w-[80%] after:h-[1px] after:bg-white">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
         {%- if section.settings.subgheading != blank -%}
-          <h3 class="font-helveticaThinCond text-[40px] tracking-xlwidest font-bold">
-            {{ section.settings.subgheading }}
-          </h3>
-          <h3 class="font-helveticaCond text-[40px] tracking-xlwidest">
+          <h3 class="font-helveticaCond tracking-xlwidest coming-soon__subheading">
             {{ section.settings.subgheading }}
           </h3>
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="mt-[208px] max-w-[600px] w-full mx-auto">
+    <div class="mt-[20vh] max-w-[600px] w-full mx-auto">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
-        <input type="hidden" name="contact[tags]" value="newsletter, cooming-soon">
+        <input type="hidden" name="contact[tags]" value="newsletter, coming-soon">
         <div class="newsletter-form__field-wrapper">
-          <div class="flex items-end">
-            <div class="relative flex-1 mr-5">
+          <div class="flex max-md:flex-col items-center md:items-end">
+            <div class="relative flex-1 max-md:w-[240px] max-md:mb-[25px] md:mr-5">
               <input
                 id="NewsletterForm--{{ section.id }}"
                 name="contact[email]"
@@ -54,7 +88,7 @@
                 autocorrect="off"
                 autocapitalize="off"
                 autocomplete="off"
-                class="bg-transparent email-input w-full border-b border-b-white text-white pl-[4px] pb-[2px] tracking-wider placeholder:tracking-wider placeholder:text-white"
+                class="bg-transparent email-input max-md:text-center w-full border-b border-b-white text-white pl-[4px] pb-[2px] tracking-wider placeholder:tracking-wider placeholder:text-white"
                 {% if form.errors %}
                   autofocus
                   aria-invalid="true"
@@ -65,13 +99,13 @@
                 placeholder="{{ 'newsletter.label' | t }}"
               >
               <div
-                class="tooltip absolute top-full -left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-2 pr-[6px] pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+                class="tooltip absolute top-full -left-[65px] sm:-left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
               >
                 <div class="flex items-center">
-                  <div class="w-7 h-7 mr-[7px]">
+                  <div class="w-5 sm:w-7 h-5 sm:h-7 mr-[7px]">
                     {%- render 'icon-info' -%}
                   </div>
-                  <p class="leading-none text-[15px] tracking-wider font-open">
+                  <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
                     Please write a valid email address to be able to recieve updates.
                   </p>
                 </div>
@@ -94,6 +128,34 @@
           </div>
         </div>
       {% endform %}
+    </div>
+    <div class="coming-soon__socials mt-[10vh]">
+      <ul class="flex gap-[50px]">
+        {%- if settings.social_facebook_link != blank -%}
+          <li class="text-[32px] text-white">
+            <a href="{{ settings.social_facebook_link }}" class="block">
+              <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Facebook block leading-none"></span>
+              <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_instagram_link != blank -%}
+          <li class="text-[32px] text-white">
+            <a href="{{ settings.social_instagram_link }}" class="block">
+              <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Instagram block leading-none"></span>
+              <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_pinterest_link != blank -%}
+          <li class="text-[32px] text-white">
+            <a href="{{ settings.social_pinterest_link }}" class="block">
+              <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Pinterest block leading-none"></span>
+              <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
     </div>
   </div>
 </div>
@@ -134,29 +196,80 @@
 
 {% schema %}
 {
-  "name": "t:sections.cooming-soon.name",
+  "name": "t:sections.coming-soon.name",
   "tag": "section",
   "class": "section",
   "settings": [
     {
+      "type": "select",
+      "id": "cover_type",
+      "options": [
+        {
+          "value": "video",
+          "label": "Video"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "video",
+      "label": "Cover Type"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
       "type": "image_picker",
-      "id": "background",
-      "label": "t:sections.cooming-soon.settings.banner.label"
+      "id": "image",
+      "label": "Image"
     },
     {
       "type": "inline_richtext",
       "id": "heading",
-      "label": "t:sections.cooming-soon.settings.heading.label"
+      "label": "t:sections.coming-soon.settings.heading.label"
     },
     {
       "type": "inline_richtext",
       "id": "subgheading",
-      "label": "t:sections.cooming-soon.settings.subheading.label"
+      "label": "t:sections.coming-soon.settings.subheading.label"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "select",
+      "id": "mobile_cover_type",
+      "options": [
+        {
+          "value": "video",
+          "label": "Video"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "video",
+      "label": "Cover Type For Mobile"
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Mobile Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
     }
   ],
   "presets": [
     {
-      "name": "t:sections.cooming-soon.presets.name"
+      "name": "t:sections.coming-soon.presets.name"
     }
   ]
 }

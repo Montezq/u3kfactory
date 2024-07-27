@@ -13,20 +13,25 @@ class CartNotification extends HTMLElement {
   }
 
   open() {
-    this.notification.classList.add('!block');
+    this.notification.style.display = 'block';
+    document.querySelector('body').classList.add('overflow-hidden');
   }
 
   close() {
-    this.notification.classList.remove('!block');
+    this.notification.style.display = 'none';
+    document.querySelector('body').classList.remove('overflow-hidden');
   }
 
   renderContents(parsedState) {
     this.cartItemKey = parsedState.key;
     this.getSectionsToRender().forEach((section) => {
-      document.getElementById(section.id).innerHTML = this.getSectionInnerHTML(
-        parsedState.sections[section.id],
-        section.selector
-      );
+      const sectionElement = document.getElementById(section.id);
+      if (sectionElement) {
+        sectionElement.innerHTML = this.getSectionInnerHTML(
+          parsedState.sections[section.id],
+          section.selector
+        );
+      }
     });
     if (this.header) this.header.reveal();
     this.open();
@@ -35,8 +40,7 @@ class CartNotification extends HTMLElement {
   getSectionsToRender() {
     return [
       {
-        id: 'cart-notification-product',
-        selector: `[id="cart-notification-product-${this.cartItemKey}"]`,
+        id: 'cart-notification-added-product'
       },
       {
         id: 'cart-notification-button',

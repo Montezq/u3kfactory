@@ -1,18 +1,22 @@
 <div class="plus-info max-lg:px-4">
   {%- if section.settings.heading != blank -%}
     <div class="plus-info__heading mb-[27px]{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      <p class="w-fit bg-black font-open text-xl leading-none p-1.5 text-white">
+      <p class="w-fit bg-black font-open text-[17px] md:text-[19px] leading-none p-1 text-white">
         {{ section.settings.heading }}
       </p>
     </div>
   {%- endif -%}
-  {%- if section.settings.content != blank -%}
-    <div class="plus-info__content text-lg font-open text-[#1b1b1b]{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ section.settings.content }}
+  {%- if section.settings.content != blank or section.settings.content_metafield != blank -%}
+    <div class="plus-info__content text-[15px] md:text-lg font-open text-[#1b1b1b]{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {%- if section.settings.content_metafield != blank -%}
+        {{ section.settings.content_metafield }}
+      {%- else -%}
+        {{ section.settings.content }}
+      {%- endif -%}
     </div>
   {%- endif -%}
   {%- if section.settings.image != blank -%}
-    <div class="plus-info__image{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    <div class="plus-info__image max-w-[834px]{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {%- liquid
         assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
       -%}
@@ -43,6 +47,11 @@
       "id": "heading",
       "label": "Heading",
       "default": "+ Info"
+    },
+    {
+      "type": "richtext",
+      "id": "content_metafield",
+      "label": "Content from metafield"
     },
     {
       "type": "richtext",

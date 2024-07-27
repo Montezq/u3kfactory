@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -149,24 +148,26 @@
           font-weight: bold;
           font-style: normal;
           font-display: swap;
-      }
+        }
 
         @font-face {
-          font-family: 'Neue Helvetica';
-          src:  url("{{ 'NeueHelveticaforZara-Lt.woff2' | asset_url }}");
-          src:  url("{{ 'NeueHelveticaforZara-Lt.eot?#iefix' | asset_url }}") format('embedded-opentype'),
-            url("{{ 'icomoon.ttf?2nrby7' | asset_url }}") format('truetype'),
-            url("{{ 'icomoon.woff?2nrby7' | asset_url }}") format('woff'),
-            url("{{ 'icomoon.svg?2nrby7#icomoon' | asset_url }}") format('svg');
-          font-weight: normal;
+          font-family: 'Neue Helvetica Light';
+          src: url("{{ 'HelveticaNeueLTStd-LtCn.woff2' | asset_url }}") format('woff2');
+          src: url("{{ 'HelveticaNeueLTStd-LtCn.eot?#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.woff' | asset_url }}") format('woff'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'HelveticaNeueLTStd-LtCn.svg#HelveticaNeueLTStd-LtCn' | asset_url }}") format('svg');
+          font-weight: bold;
           font-style: normal;
-          font-display: block;
+          font-display: swap;
         }
-        {% if template.name == "index" %}
-          body{
-            overflow: hidden;
-          }
-        {% endif %}
+
+      {% if template.name == "index" %}
+        body{
+          overflow: hidden;
+        }
+      {% endif %}
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
@@ -176,17 +177,6 @@
       {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
       <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-
-    {% comment %}
-      {%- if settings.predictive_search_enabled -%}
-        <link
-          rel="stylesheet"
-          href="{{ 'component-predictive-search.css' | asset_url }}"
-          media="print"
-          onload="this.media='all'"
-        >
-      {%- endif -%}
-    {% endcomment %}
 
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -200,40 +190,169 @@
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
-
     {% sections 'header-group' %}
+    {% section 'share' %}
     <main
       id="MainContent"
-      class="content-for-layout focus-none main relative min-h-screen pt-[67px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0"
+      class="content-for-layout focus-none main relative min-h-full pt-[53px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0 overflow-hidden"
       role="main"
       tabindex="-1"
     >
-      <div class="max-lg:hidden fixed w-[80vw] top-0 right-0 desktop-search-wrapper flex justify-end z-[4]{% if template.name != "index" %} bg-white{% endif %}">
-        <div class="flex items-end">
+      <div class="max-lg:hidden fixed w-[80vw] top-0 right-0 desktop-search-wrapper flex justify-end z-[4]{% if template.name != "index" and template != '404' %} bg-white{% endif %}">
+        <form
+          id="search-form"
+          action="{{ routes.search_url }}"
+          class="flex items-end relative w-[190px] search-form"
+        >
           <input
-            class="border-0 border-b border-b-black w-[171px] bg-transparent"
-            id="Search-In-Template"
+            class="border-0 border-b border-b-black w-[171px] bg-transparent flex-1"
+            id="search-input"
             type="search"
             name="q"
             autocomplete="off"
-            value="{{ search.terms | escape }}"
           >
           <input name="options[prefix]" type="hidden" value="last">
+          <input type="hidden" name="type" value="product">
+          <input type="hidden" name="options[unavailable_products]" value="hide">
           <button type="submit" class="ml-1" aria-label="{{ 'general.search.search' | t }}">
             <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2"></span>
           </button>
-        </div>
+          <div
+            class="tooltip tooltip_search absolute top-full -left-[20px] rounded-[6px] mt-2.5 whitespace-nowrap bg-white border border-black p-1 hidden"
+          >
+            <div class="flex items-center">
+              <div class="w-7 h-7 mr-[7px]">
+                {%- render 'icon-info' -%}
+              </div>
+              <p class="leading-none text-[15px] tracking-wider font-open">Please fill out this field.</p>
+            </div>
+          </div>
+        </form>
       </div>
       {{ content_for_layout }}
     </main>
 
     {% comment %} {% sections 'footer-group' %} {% endcomment %}
+    <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
+    <script>
+      const searchForms = document.querySelectorAll('.search-form');
+      const searchTrigger = document.querySelector('.search-trigger');
+      const searchFormMobile = document.querySelector('.search-form-mobile');
 
-    <ul hidden>
-      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
-      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
-    </ul>
+      // Add event listener for the search-trigger click
+      searchTrigger.addEventListener('click', function () {
+        searchTrigger.classList.add('hidden');
+        searchFormMobile.classList.remove('hidden');
+        searchFormMobile.classList.add('flex');
+      });
 
+      searchForms.forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          const searchInput = form.querySelector('input[type="search"]');
+          const tooltip = form.querySelector('.tooltip_search');
+
+          if (searchInput.value.trim() === '') {
+            tooltip.classList.remove('hidden');
+
+            setTimeout(function () {
+              tooltip.classList.add('hidden');
+            }, 2000);
+            return;
+          }
+
+          const query = searchInput.value.trim();
+          const words = query.split(' ');
+
+          // Store the search terms in local storage
+          localStorage.setItem('searchTerms', JSON.stringify(words));
+
+          const promises = words.map((word) => {
+            return fetch(`/search?q=${word}&type=product`)
+              .then((response) => response.text())
+              .then((data) => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+                return Array.from(doc.querySelectorAll('.grid__item')).map((item) => {
+                  const collections = item.getAttribute('data-collections').split(',');
+                  return { html: item.outerHTML, collections };
+                });
+              });
+          });
+
+          Promise.all(promises).then((results) => {
+            const flattenedResults = [].concat(...results);
+
+            // Filter collections containing 'all'
+            const collectionsMap = new Map();
+            flattenedResults.forEach((product) => {
+              product.collections.forEach((collection) => {
+                if (collection.includes('all') && collection !== 'home-page-collection') {
+                  if (!collectionsMap.has(collection)) {
+                    collectionsMap.set(collection, []);
+                  }
+                  collectionsMap.get(collection).push(product.html);
+                }
+              });
+            });
+
+            // Convert collectionsMap to an array of objects for easier processing in the search page
+            const groupedResults = Array.from(collectionsMap.entries()).map(([collection, products]) => ({
+              collection,
+              products,
+            }));
+
+            // Store the grouped results in local storage
+            localStorage.setItem('groupedSearchResults', JSON.stringify(groupedResults));
+
+            // Redirect to the search results page
+            window.location.href = '/search';
+          });
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const bar = document.getElementById('bar');
+        const scrollContainer = document.querySelector('.cs-scroll');
+        let lastScrollTop = 0;
+
+        if (bar) {
+          function handleScroll() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let containerScrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
+
+            if (scrollTop > lastScrollTop || containerScrollTop > lastScrollTop) {
+              bar.style.transform = 'translateY(-100%)';
+            } else {
+              bar.style.transform = 'translateY(0)';
+            }
+
+            lastScrollTop = Math.max(scrollTop, containerScrollTop);
+          }
+
+          function checkWidthAndScroll() {
+            if (window.innerWidth <= 1023) {
+              window.addEventListener('scroll', handleScroll);
+              if (scrollContainer) {
+                scrollContainer.addEventListener('scroll', handleScroll);
+              }
+            } else {
+              window.removeEventListener('scroll', handleScroll);
+              if (scrollContainer) {
+                scrollContainer.removeEventListener('scroll', handleScroll);
+              }
+              bar.style.transform = 'translateY(0)';
+            }
+          }
+
+          window.addEventListener('resize', checkWidthAndScroll);
+          checkWidthAndScroll(); // Initial check
+        }
+      });
+    </script>
     <script>
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
@@ -275,7 +394,7 @@
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
     </script>
-
+    {%- render 'wishlist-modal-removed' -%}
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}

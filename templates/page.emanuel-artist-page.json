@@ -1,14 +1,29 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "artist_page_E83R4a": {
+      "type": "artist-page",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "first_image": "shopify:\/\/shop_images\/ANATOMY-STUDY-3-INTERIOR-IMAGE-2.jpg",
+        "second_image": "shopify:\/\/shop_images\/ANTIQUE-INTERIOR-IMAGE_3fc73b58-f37a-45f9-b501-d532f9dcac37.jpg",
+        "facebook_nickname": "M i H U",
+        "facebook_url": "https:\/\/www.facebook.com\/",
+        "instagram_nickname": "M_I_H_U.M_I_H_U",
+        "instagram_url": "https:\/\/www.facebook.com\/",
+        "pinterest_nickname": "VALENTINA_U3",
+        "pinterest_url": "https:\/\/www.facebook.com\/"
       }
     }
   },
   "order": [
-    "main"
+    "artist_page_E83R4a"
   ]
 }

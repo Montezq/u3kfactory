@@ -52,13 +52,6 @@
             "collection": "all-contemporary-prints",
             "collection_title": "All"
           }
-        },
-        "featured_collection_e97pRD": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "collection_title": ""
-          }
         }
       },
       "block_order": [
@@ -67,8 +60,7 @@
         "featured_collection_YWwraQ",
         "featured_collection_XmMPaN",
         "featured_collection_CxPKcF",
-        "featured_collection_WCgw44",
-        "featured_collection_e97pRD"
+        "featured_collection_WCgw44"
       ],
       "settings": {
         "title": "CONTEMPORARY"

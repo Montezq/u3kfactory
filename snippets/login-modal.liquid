@@ -1,0 +1,69 @@
+<div class="login__modal hidden top-0 left-0 fixed w-full h-[100dvh] z-[99999]">
+  <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
+    <div class="my-auto relative left-[50%] lg:left-[63%] -translate-x-1/2 z-10 max-w-[300px] md:max-w-[352px]">
+      <button
+        type="button"
+        class="login__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        x
+      </button>
+      <div
+        class="border border-[#5a5a5a] bg-white px-7 md:px-[32px] pt-8 login__modal-wrapper w-full"
+        aria-modal="true"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div class="login__modal-heading text-center mb-6 md:mb-[40px]">
+          <h2 class="font-coutureBold text-lg md:text-[22px] uppercase">CREATE AN ACCOUNT</h2>
+        </div>
+        <div class="login__modal-body mb-6 md:mb-[40px]">
+          <p class="text-[11px] md:text-[13px] uppercase tracking-[0.1em] font-black leading-snug">
+            SIGN UP NOW SO YOU CAN ACCESS ALL THE FUNCTIONS RESERVED FOR MEMEBERS ONLY. YOU CAN STILL PURCHASE AS A
+            GUEST BUT YOU WILL HAVE TO INTRODUCE YOUR INFO EVERY TIME SINCE IT WON’T BE SAVED TO AN ACCOUNT.
+          </p>
+        </div>
+        <div class="login__modal-footer pb-4 md:pb-[25px] text-center">
+          <a
+            href="{{ routes.account_register_url }}"
+            class="btn btn_primary !text-xl md:!text-2xl w-full mb-1.5 !py-1.5"
+          >
+            SIGN UP NOW
+          </a>
+          <a href="#" class="underline text-[11px] md:text-[13px] font-black login__modal-close"> CONTINUE AS GUEST </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var loginOpen = document.querySelectorAll('.cta-login-button'),
+      loginModal = document.querySelector('.login__modal'),
+      loginModalBody = document.querySelector('.login__modal-wrapper'),
+      bodyEl = document.querySelector('body'),
+      loginClose = document.querySelectorAll('.login__modal-close');
+
+    loginOpen.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        bodyEl.classList.add('overflow-hidden');
+        loginModal.classList.remove('hidden');
+      });
+    });
+
+    loginClose.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        bodyEl.classList.remove('overflow-hidden');
+        loginModal.classList.add('hidden');
+      });
+    });
+    loginModal.addEventListener('click', (event) => {
+      if (!loginModalBody.contains(event.target)) {
+        loginModal.classList.add('hidden');
+        bodyEl.classList.remove('overflow-hidden');
+      }
+    });
+  });
+</script>

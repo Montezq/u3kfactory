@@ -1,0 +1,56 @@
+{%- if cart != empty -%}
+  {%- for item in cart.items -%}
+    {%- for i in (1..item.quantity) -%}
+      <div
+        class="cart-item pr-2.5 test"
+      >
+        <div class="flex items-center mb-2.5 lg:mb-4 pb-2.5 lg:pb-4 border-b border-[#8c8c8c]">
+          {%- if item.image -%}
+            <div class="cart-notification-product__image global-media-settings w-[90px] lg:w-[107px] h-[90px] lg:h-[107px]">
+              <img
+                src="{{ item.image | image_url: width: 140 }}"
+                alt="{{ item.image.alt | escape }}"
+                class="w-full h-full object-cover"
+                width="107"
+                height="{{ 107 | divided_by: item.image.aspect_ratio | ceil }}"
+                loading="lazy"
+              >
+            </div>
+          {%- endif -%}
+          <div class="flex-1 ml-5 md:ml-[25px]">
+            <h3 class="cart-notification-product__name text-xl lg:text-[25px] font-bold leading-none">
+              {{ item.product.title | escape }}
+            </h3>
+            <p class="text-gray-850 italic max-lg:text-[1px] mb-3">by {{ item.product.vendor }}</p>
+            <div class="flex justify-between items-end">
+              <dl>
+                {%- unless item.product.has_only_default_variant -%}
+                  {%- for option in item.options_with_values -%}
+                    <div class="product-option">
+                      <dd class="text-base lg:text-[22px] leading-none">{{ option.value }}</dd>
+                    </div>
+                  {%- endfor -%}
+                {%- endunless -%}
+                {%- for property in item.properties -%}
+                  {%- assign property_first_char = property.first | slice: 0 -%}
+                  {%- if property.last != blank and property_first_char != '_' -%}
+                    <div class="product-option">
+                      <dd class="text-base lg:text-[22px] leading-none">
+                        {{ property.last }}
+                      </dd>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </dl>
+              <div>
+                <p class="text-xl lg:text-[25px] font-bold text-right leading-none">
+                  {{ item.price | money_with_currency }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endif -%}

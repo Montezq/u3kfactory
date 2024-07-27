@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -20,6 +29,11 @@
             "swatch_shape": "circle"
           }
         },
+        "copies_left_w7eEhG": {
+          "type": "copies_left",
+          "settings": {
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -30,14 +44,27 @@
           "settings": {
             "taxes_text": "* VAT INCLUDED \/ EXCLUDED SHIPPING COST"
           }
+        },
+        "favorites_Ex8fRy": {
+          "type": "favorites",
+          "settings": {
+          }
+        },
+        "contact_ztHQPm": {
+          "type": "contact",
+          "settings": {
+          }
         }
       },
       "block_order": [
         "title",
         "description",
         "variant_picker",
+        "copies_left_w7eEhG",
         "price",
-        "buy_buttons"
+        "buy_buttons",
+        "favorites_Ex8fRy",
+        "contact_ztHQPm"
       ],
       "settings": {
       }
@@ -64,15 +91,17 @@
       "type": "plus-info",
       "settings": {
         "heading": "Print Details",
+        "content_metafield": "{{ product.metafields.custom.print_details | metafield_tag }}",
         "content": "<p>This fine art giclée print is delivered unframed. The paper has a matt, light textured surface. The high quality Hahnemühle\/ILFord fine art paper and canvas that we use for our prints combined with the Lucia Pro inks guarantees archival conservation of colors, with the print        retaining its intended appeareance for up to a 100 years. We recommend to keep the prints away from direct sunlight and under glass in the case of the paper prints.<\/p>",
-        "image": "shopify:\/\/shop_images\/u3-art-prints-coming-soon-16.9-1200p.jpg"
+        "image": "shopify:\/\/shop_images\/INFO-PRINTING-DETAILS-IMAGE.jpg"
       }
     },
     "plus_info_9jRrKL": {
       "type": "plus-info",
       "settings": {
-        "heading": "Packaging Details",
-        "content": "{{ product.metafields.custom.plus_info_packing_details | metafield_tag }}"
+        "heading": "Shipping Details",
+        "content_metafield": "",
+        "content": "<p>Blah asjahsak<\/p>"
       }
     }
   },

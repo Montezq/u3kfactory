@@ -1,32 +1,37 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
-<div class="customer login section-{{ section.id }}-padding">
-  <h1 id="recover" tabindex="-1">
-    {{ 'customer.recover_password.title' | t }}
-  </h1>
-  <div>
-    <p>
-      {{ 'customer.recover_password.subtext' | t }}
-    </p>
+<div class="customer login customer-login max-lg:px-2">
+  <div id="recover">
+    <h1
+      id="bar"
+      tabindex="-1"
+      class="font-coutureBold text-xl ds_element md:text-[30px] uppercase text-center max-lg:w-full max-lg:left-0 max-lg:py-2 fixed top-[52px]  bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    >
+      {{ 'customer.recover_password.title' | t }}
+    </h1>
+  </div>
+  <div class="customer-login__form-wrapper max-w-[522px] mx-auto">
+    <div class="customer-login__form-wrapper-heading text-center mb-10">
+      <p class="uppercase text-xs md:text-sm font-bold">
+        {{ 'customer.recover_password.subtext' | t }}
+      </p>
+    </div>
 
     {%- form 'recover_customer_password' -%}
       {% assign recover_success = form.posted_successfully? %}
-      <div class="field">
+      <div class="field flex flex-col mb-8">
+        <div class="pl-4 mb-1 flex justify-between">
+          <label for="RecoverEmail" class="text-[11px] md:text-[13px] font-axis">
+            {{ 'customer.login_page.email' | t }}
+          </label>
+          <div class="form-errors">
+            {%- if form.errors -%}
+              {{ form.errors.messages.form }}
+            {%- endif -%}
+          </div>
+        </div>
         <input
+          class="input-field"
           type="email"
           value=""
           name="email"
@@ -39,111 +44,107 @@
             aria-describedby="RecoverEmail-email-error"
             autofocus
           {% endif %}
-          placeholder="{{ 'customer.login_page.email' | t }}"
         >
-        <label for="RecoverEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
       </div>
-      {%- if form.errors -%}
-        <small id="RecoverEmail-email-error" class="form__message">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 13 13">
-            <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
-            <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
-            <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
-            <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
-          </svg>
-          {{ form.errors.messages.form }}
-        </small>
-      {%- endif -%}
-
-      <button>
-        {{ 'customer.login_page.submit' | t }}
-      </button>
-
-      <a href="#login">
-        {{ 'customer.login_page.cancel' | t }}
-      </a>
+      <div class="flex justify-center mb-10">
+        <button class="btn btn_primary !font-coutureBold !text-lg md:!text-[22px] !tracking-xwidest !leading-none !px-6">
+          {{ 'customer.login_page.submit' | t }}
+        </button>
+      </div>
+      <div class="flex justify-center">
+        <a href="#login" class="flex justify-center items-center font-bold">
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Smartphone-Back-to-All-Products-Arrow"></span>
+          <span class="text-xs md:text-sm uppercase font-bold ml-2 underline">
+            {{ 'customer.login_page.cancel' | t }}
+          </span>
+        </a>
+      </div>
     {%- endform -%}
   </div>
-
-  <h1 id="login" tabindex="-1">
-    {{ 'customer.login_page.title' | t }}
-  </h1>
-  <div>
+  <div id="login">
+    <h1
+      id="bar"
+      tabindex="-1"
+      class="font-coutureBold text-xl ds_element md:text-[30px] uppercase text-center max-lg:w-full max-lg:left-0 max-lg:py-2 fixed top-[52px]  bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    >
+      {{ 'customer.login_page.title' | t }}
+    </h1>
+  </div>
+  <div class="customer-login__form-wrapper max-w-[522px] mx-auto ">
+    <div class="customer-login__form-wrapper-heading flex justify-center items-center mb-10">
+      <p class="text-sm uppercase font-bold">DON'T HAVE AN ACCOUNT?</p>
+      <span class="uppercase text-xs md:text-sm font-bold px-2.5"> I </span>
+      <a href="{{ routes.account_register_url }}" class="text-sm uppercase font-bold underline">
+        {{ 'customer.login_page.create_account' | t }}
+      </a>
+    </div>
     {%- if recover_success == true -%}
-      <h3 class="form__message" tabindex="-1" autofocus>
-        <svg aria-hidden="true" focusable="false" viewBox="0 0 13 13">
-          <path d="M6.5 12.35C9.73087 12.35 12.35 9.73086 12.35 6.5C12.35 3.26913 9.73087 0.65 6.5 0.65C3.26913 0.65 0.65 3.26913 0.65 6.5C0.65 9.73086 3.26913 12.35 6.5 12.35Z" fill="#428445" stroke="white" stroke-width="0.7"/>
-          <path d="M5.53271 8.66357L9.25213 4.68197" stroke="white"/>
-          <path d="M4.10645 6.7688L6.13766 8.62553" stroke="white">
-        </svg>
+      <h3 class="text-sm font-bold mb-2" tabindex="-1" autofocus>
         {{ 'customer.recover_password.success' | t }}
       </h3>
     {%- endif -%}
-    {%- form 'customer_login', novalidate: 'novalidate' -%}
-      {%- if form.errors -%}
-        <h2 class="form__message" tabindex="-1" autofocus>
-          <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 13 13">
-            <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
-            <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
-            <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
-            <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
-          </svg>
-          {{ 'templates.contact.form.error_heading' | t }}
-        </h2>
-        {{ form.errors | default_errors }}
-      {%- endif -%}
-
-      <div class="field">
+    {%- form 'customer_login', novalidate: 'novalidate', return_to: '/pages/account-slides' -%}
+      <div class="field flex flex-col mb-3.5">
+        <div class="pl-4 mb-1 flex justify-between">
+          <label for="CustomerEmail" class="text-[11px] md:text-[13px] font-axis">
+            {{ 'customer.login_page.email' | t }}
+          </label>
+          <div class="form-errors">
+            {%- if form.errors -%}
+              {{ form.errors | default_errors }}
+            {%- endif -%}
+          </div>
+        </div>
         <input
+          class="input-field"
           type="email"
           name="customer[email]"
           id="CustomerEmail"
           autocomplete="email"
           autocorrect="off"
           autocapitalize="off"
+          value="{{form.email}}"
           {% if form.errors contains 'form' %}
             aria-invalid="true"
           {% endif %}
-          placeholder="{{ 'customer.login_page.email' | t }}"
         >
-        <label for="CustomerEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
       </div>
 
       {%- if form.password_needed -%}
-        <div class="field">
-          <input
-            type="password"
-            value=""
-            name="customer[password]"
-            id="CustomerPassword"
-            autocomplete="current-password"
-            {% if form.errors contains 'form' %}
-              aria-invalid="true"
-            {% endif %}
-            placeholder="{{ 'customer.login_page.password' | t }}"
-          >
-          <label for="CustomerPassword">
-            {{ 'customer.login_page.password' | t }}
-          </label>
+        <div class="field flex flex-col">
+          <div class="pl-4 mb-1">
+            <label for="CustomerPassword" class="text-[11px] md:text-[13px] font-axis">
+              {{ 'customer.login_page.password' | t }}
+            </label>
+          </div>
+          <div class="mb-0.5 relative password-input">
+            <input
+              class="input-field"
+              type="password"
+              value=""
+              name="customer[password]"
+              id="CustomerPassword"
+              autocomplete="current-password"
+              {% if form.errors contains 'form' %}
+                aria-invalid="true"
+              {% endif %}
+            >
+            <span
+              class="absolute cursor-pointer text-[24px] md:text-[28px] toggle-password top-1/2 -translate-y-1/2 right-4 icon-FULL-ICON-SET-WEBSITE-FINAL_Eye-Icon"
+            ></span>
+          </div>
+          <div class="text-right pr-2">
+            <a href="#recover" class="text-xs md:text-sm uppercase font-bold underline">
+              {{ 'customer.login_page.forgot_password' | t }}
+            </a>
+          </div>
         </div>
-
-        <a href="#recover">
-          {{ 'customer.login_page.forgot_password' | t }}
-        </a>
       {%- endif -%}
-
-      <button>
-        {{ 'customer.login_page.sign_in' | t }}
-      </button>
-
-      <a href="{{ routes.account_register_url }}">
-        {{ 'customer.login_page.create_account' | t }}
-      </a>
+      <div class="flex justify-center mt-2">
+        <button class="btn btn_primary !font-coutureBold !text-lg md:!text-[22px] !tracking-xwidest !leading-none !px-6">
+          {{ 'customer.login_page.sign_in' | t }}
+        </button>
+      </div>
     {%- endform -%}
   </div>
 
@@ -160,35 +161,32 @@
     </div>
   {%- endif -%}
 </div>
+<script>
+  // Function to toggle password visibility
+  function togglePasswordVisibility(event) {
+    const toggleButton = event.currentTarget;
+    const passwordInput = toggleButton.closest('.password-input').querySelector('.input-field');
+    toggleButton.classList.toggle('visible');
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+    } else {
+      passwordInput.type = 'password';
+    }
+  }
 
+  // Ensure the DOM is fully loaded before attaching event listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+
+    // Loop through each toggle button and attach a click event listener
+    togglePasswordButtons.forEach((button) => {
+      button.addEventListener('click', togglePasswordVisibility);
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "t:sections.main-login.name",
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ]
+  "settings": []
 }
 {% endschema %}

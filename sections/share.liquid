@@ -1,0 +1,124 @@
+<div class="share__modal hidden fixed w-full h-[100dvh] z-[99999]">
+  <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
+    <div class="my-auto relative left-[50%] lg:left-[63%] -translate-x-1/2 z-10 max-w-[320px] sm:max-w-[471px]">
+      <button
+        type="button"
+        class="share__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        x
+      </button>
+      <div
+        class="border border-[#5a5a5a] bg-white px-[18px] pt-8 share__modal-wrapper"
+        aria-modal="true"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div class="share__modal-body mb-[40px]">
+          <ul class="share__list grid grid-cols-4 gap-x-8 gap-y-20 pt-11 pb-16">
+            {%- for block in section.blocks -%}
+              <li class="share__item">
+                {%- if block.settings.share_url -%}
+                  <a
+                    href="{{ block.settings.share_url }}"
+                    target="_blank"
+                    class="flex flex-col items-center text-center justify-center"
+                  >
+                    {%- if block.settings.icon -%}
+                      <div class="w-6 sm:w-8 h-6 sm:h-8 mb-3.5">
+                        {{ block.settings.icon | image_url: width: 64 | image_tag: height: '32', widths: '32, 64' }}
+                      </div>
+                    {%- endif -%}
+                    {%- if block.settings.title -%}
+                      <div class="text-xs sm:text-[14px] uppercase leading-none tracking-[.1em] font-semibold">
+                        {{ block.settings.title }}
+                      </div>
+                    {%- endif -%}
+                  </a>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const shareButtons = document.querySelectorAll('.share-button'),
+      shareModal = document.querySelector('.share__modal'),
+      shareModalBody = document.querySelector('.share__modal-wrapper'),
+      shareItems = document.querySelectorAll('.share__item a'),
+      shareClose = document.querySelector('.share__modal-close'),
+      bodyEl = document.querySelector('body');
+
+    function resetShareItemsHref() {
+      shareItems.forEach((item) => {
+        const originalHref = item.getAttribute('data-original-href');
+        if (originalHref) {
+          item.setAttribute('href', originalHref);
+        }
+      });
+    }
+
+    shareButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const dataUrl = button.getAttribute('data-url');
+
+        shareItems.forEach((item) => {
+          const originalHref = item.getAttribute('data-original-href') || item.getAttribute('href');
+          item.setAttribute('data-original-href', originalHref);
+          item.setAttribute('href', `${originalHref}${encodeURIComponent(dataUrl)}`);
+        });
+
+        shareModal.classList.remove('hidden');
+        bodyEl.classList.add('overflow-hidden');
+      });
+    });
+
+    function closeModal() {
+      resetShareItemsHref();
+      shareModal.classList.add('hidden');
+      bodyEl.classList.remove('overflow-hidden');
+    }
+
+    shareClose.addEventListener('click', closeModal);
+
+    shareModal.addEventListener('click', (event) => {
+      if (!shareModalBody.contains(event.target)) {
+        closeModal();
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Share Popup",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "share_item",
+      "name": "Share Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Logo"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Socials Name"
+        },
+        {
+          "type": "url",
+          "id": "share_url",
+          "label": "Socials Share Url"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

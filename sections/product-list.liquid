@@ -1,15 +1,18 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 <div
-  class="max-md:px-1.5 lg:!hidden collection-grid__list-medium h-full overflow-x-hidden overflow-y-auto pb-12 bg-gray-10"
+  class="max-md:px-1 lg:!hidden cs-scroll collection-grid__list-medium h-full overflow-x-hidden overflow-y-auto pb-12 bg-gray-10"
   id="product-grid-wrapper"
 >
-  <div class="pt-[68px]">
-    <div class="home-page__carousel-btn-top text-center py-2">
+  <div class="pt-[53px]">
+    <div
+      id="bar"
+      class="ds_element dissapearing home-page__carousel-btn-top py-2 text-center fixed max-lg:duration-300 max-lg:ease-in-out"
+    >
       <span
         class="icon-FULL-ICON-SET-WEBSITE-FINAL_Dropdown-arrow !font-extrabold text-xl rotate-180 inline-block"
       ></span>
     </div>
-    <div class="collection">
+    <div class="collection pt-[42px]">
       <ul
         id="product-grid"
         data-id="{{ section.id }}"
@@ -38,7 +41,11 @@
     </div>
   </div>
 </div>
-
+{% if customer %}
+  {%- render 'wishlist-modal' -%}
+{% else %}
+  {%- render 'login-modal' -%}
+{% endif %}
 {% schema %}
 {
   "name": "Product List",

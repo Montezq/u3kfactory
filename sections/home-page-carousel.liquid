@@ -17,14 +17,16 @@
             <div class="relative z-[1] h-full home-page__carousel-content text-center text-black pt-[35vh] duration-300 ease-in-out opacity-0">
               {%- if block.settings.carouse_label -%}
                 <div class="home-page__carousel-content-label mb-[18px]">
-                  <h2 class="font-semibold leading-none text-[40px] tracking-widerx">
+                  <h2 class="font-semibold leading-none text-[9.3vw] sm:text-[40px] tracking-widerx">
                     {{ block.settings.carouse_label }}
                   </h2>
                 </div>
               {%- endif -%}
               {%- if block.settings.carouse_heading -%}
                 <div class="home-page__carousel-content-label leading-none">
-                  <h2 class="text-[37px] tracking-widerx font-normal">{{ block.settings.carouse_heading }}</h2>
+                  <h2 class="text-[8vw] sm:text-[37px] tracking-widerx font-normal">
+                    {{ block.settings.carouse_heading }}
+                  </h2>
                 </div>
               {%- endif -%}
             </div>
@@ -34,7 +36,7 @@
     </div>
     <div class="home-page__carousel-wrapper-btn absolute z-[2] flex flex-col items-center w-full">
       {% assign first_block = section.blocks | first %}
-      <div class="mb-7">
+      <div class="mb-5">
         <a href="{{ first_block.settings.btn_url }}" class="btn main-btn btn_white-outlined">
           {{ section.settings.button_title }}
         </a>
@@ -57,16 +59,47 @@
     const productsWrapper = document.querySelector('.section-product-list_homepage');
     const carouselWrapperBtn = document.querySelector('.home-page__carousel-btn');
     const carouselWrapperBtnBack = document.querySelector('.home-page__carousel-btn-top');
+    let body = document.querySelector('body');
+    const scrollThreshold = 100;
+    let startY, endY;
 
-    carouselWrapperBtn.addEventListener('click', () => {
-      document.querySelector('body').classList.add('scrolled');
+    const addScrolledClass = () => {
+      body.classList.add('scrolled');
       carouselWrapper.classList.add('scrolled');
       productsWrapper.classList.add('scrolled');
-    });
-    carouselWrapperBtnBack.addEventListener('click', () => {
-      document.querySelector('body').classList.remove('scrolled');
+    };
+
+    // Function to remove the 'scrolled' class
+    const removeScrolledClass = () => {
+      body.classList.remove('scrolled');
       carouselWrapper.classList.remove('scrolled');
       productsWrapper.classList.remove('scrolled');
+    };
+
+    carouselWrapperBtn.addEventListener('click', () => {
+      addScrolledClass();
+    });
+
+    carouselWrapperBtnBack.addEventListener('click', () => {
+      removeScrolledClass();
+    });
+
+    // Touch events for mobile devices
+    carouselWrapper.addEventListener('touchstart', (e) => {
+      startY = e.touches[0].clientY;
+    });
+
+    carouselWrapper.addEventListener('touchmove', (e) => {
+      endY = e.touches[0].clientY;
+    });
+
+    carouselWrapper.addEventListener('touchend', () => {
+      if (startY && endY && startY - endY > scrollThreshold) {
+        addScrolledClass();
+      } else {
+        removeScrolledClass();
+      }
+      startY = endY = null;
     });
 
     const homePageCarousel = new Splide('.splide', {
@@ -96,7 +129,7 @@
 {
   "name": "Home Page Carousel",
   "tag": "section",
-  "class": "section home-page__carousel absolute top-0 left-0 w-full h-screen",
+  "class": "section home-page__carousel absolute top-0 left-0 w-full",
   "settings": [
     {
       "type": "inline_richtext",

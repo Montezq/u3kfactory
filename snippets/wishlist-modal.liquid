@@ -1,0 +1,29 @@
+<div class="wishlist__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-[320px] md:max-w-[352px]">
+  <button
+    type="button"
+    class="wishlist__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+    aria-label="{{ 'accessibility.close' | t }}"
+  >
+    x
+  </button>
+  <div
+    class="border border-[#5a5a5a] bg-white px-[24px] pt-8 max-h-[360px] wishlist__modal-wrapper w-full"
+    aria-modal="true"
+    role="dialog"
+    tabindex="-1"
+  >
+    <div class="wishlist__modal-heading text-center mb-[40px]">
+      <h2 class="font-coutureBold text-[22px] uppercase">SAVED TO MY FAVORITES</h2>
+    </div>
+    <div class="wishlist__modal-body mb-[40px]">
+      <p class="text-[13px] uppercase tracking-[0.1em] font-black leading-snug">
+        YOU CAN FIND ALL YOUR SAVED PRODUCTS IN MY FAVORITES SECTION BY NAVIGATING TO YOUR PROFILE. SAVE ALL THE ART
+        THAT INTERESTS YOU FOR LATER SO YOU CAN FIND IT EASILY EVERYTIME.
+      </p>
+    </div>
+    <div class="wishlist__modal-footer pb-[25px] text-center">
+      <a href="/pages/my-favorites" class="btn btn_outlined !text-2xl w-full mb-1.5 !py-1.5"> GO TO MY FAVORITES </a>
+      <a href="#" class="underline dont-show-wishlist-modal text-[13px] font-black"> I GOT IT, DON’T SHOW AGAIN </a>
+    </div>
+  </div>
+</div>

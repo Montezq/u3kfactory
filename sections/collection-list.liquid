@@ -1,7 +1,10 @@
 <div class="max-md:px-1.5">
   <div>
     {%- unless section.settings.title == blank -%}
-      <div class="mb-3 sticky top-[67px] bg-gray-10 z-[2] md:hidden pb-1.5">
+      <div
+        id="bar"
+        class="ds_element dissapearing home-page__carousel-btn-top py-2 text-center fixed max-lg:duration-300 max-lg:ease-in-out bg-gray-10 lg:hidden"
+      >
         <h2
           id="SectionHeading-{{ section.id }}"
           class="text-center font-coutureBold text-xl{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -11,7 +14,7 @@
       </div>
     {%- endunless -%}
 
-    <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="max-lg:pt-[44px]{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <ul
         class="grid gap-y-4 md:gap-y-[27px] pb-[27px]"
         id="Slider-{{ section.id }}"

@@ -1,4 +1,43 @@
-<button class="btn btn_primary btn_small flex text-center uppercase relative w-full">
-  <span class="text-red">save for later</span>
-  <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v1 text-red absolute top-1/2 -translate-y-1/2 right-5"></span>
-</button>
+{% if customer %}
+  <button
+    class="btn btn_primary btn_small flex text-center uppercase relative w-full wishlist-button "
+    data-id="{{ product.id }}"
+    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+    data-title="{{ product.title }}"
+    data-vendor="{{ product.vendor }}"
+    data-price="{{ product.price }}"
+    data-image="{{ product | image_url: width: 1200 }}"
+    data-url="{{ product.url }}"
+    data-toggle="false"
+    data-no-variant="false"
+    {%- unless product.has_only_default_variant -%}
+      {%- for option in product.options_with_values -%}
+        {%- for value in option.values -%}
+          {% if option.selected_value == value %}
+            {% assign value_option = value | downcase %}
+            data-variant-option-{{ option.name }}="{{- value_option -}}"
+          {% endif %}
+        {%- endfor -%}
+      {%- endfor -%}
+    {%- endunless -%}
+  >
+    <span class="text-red max-md:!text-[22px]">save for later</span>
+    <span
+      id="Heart_Icon-saved"
+      class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v1 text-red absolute top-1/2 -translate-y-1/2 right-[18px] md:right-3"
+    ></span>
+    <span
+      id="Heart_Icon-notsaved"
+      class="icon-FULL-ICON-SET-WEBSITE-FINAL_Save-for-Later-Heart-v1 text-red absolute top-1/2 -translate-y-1/2 right-[18px] md:right-3"
+    ></span>
+  </button>
+{% else %}
+  <button
+    class="btn btn_primary btn_small flex text-center uppercase relative w-full cta-login-button "
+  >
+    <span class="text-red max-md:!text-[22px]">save for later</span>
+    <span
+      class="icon-FULL-ICON-SET-WEBSITE-FINAL_All-Products-Heart-not-Saved-v1 text-red absolute top-1/2 -translate-y-1/2 right-[18px] md:right-3"
+    ></span>
+  </button>
+{% endif %}

@@ -1,15 +1,15 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 <div
-  class="section-{{ section.id }} pb-12 collection-product-grid{% if collection.products.size == 0 %} collection__empty{% endif %}"
+  class="section-{{ section.id }} pb-[130px] collection-product-grid{% if collection.products.size == 0 %} collection__empty{% endif %}"
   id="product-grid-wrapper"
 >
   {%- paginate collection.products by 24 -%}
     <div class="collection__wrapper flex flex-col">
       {%- if collection.products.size > 0 -%}
-        <div class="collection-hero lg:sticky pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
+        <div class="collection-hero lg:fixed pb-5 md:pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
           <div class="pb-5 lg:pb-2.5">
-            <h1 class="collection-hero__title text-3xl font-coutureBold text-center">
+            <h1 class="collection-hero__title text-xl md:text-3xl font-coutureBold text-center">
               <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
               {%- if section.settings.heading != blank -%}
                 {{ section.settings.heading }}
@@ -24,7 +24,7 @@
                 + Filters (<span class="filter_counter">0</span>)
               </button>
             </div>
-            <div class="w-full lg:w-[162px] mt-0.5 max-lg:-order-1">
+            <div class="w-full lg:w-[162px] max-lg:-order-1">
               {%- liquid
                 assign value = 3
                 if section.settings.grid_template == 'small'
@@ -57,7 +57,7 @@
                 endif
               -%}
               <div class="flex">
-                <div class="flex flex-col pr-[22px] mr-3 pt-1.5 relative after:content-[''] after:block after:w-[1px] after:h-[57px] after:absolute after:top-0 after:left-full after:bg-gray-100">
+                <div class="flex flex-col pr-7 mr-3 pt-1 relative after:content-[''] after:block after:w-[1px] after:h-[57px] after:absolute after:top-0 after:left-full after:bg-gray-100">
                   <button class="uppercase font-semibold text-[13px] tracking-wider close-filter text-gray-850 mb-2">
                     Close
                   </button>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="flex flex-wrap gap-5">
                   {%- for filter in collection.filters -%}
-                    <div class="w-40 md:w-48">
+                    <div class="w-[120px] md:w-48">
                       <h3 class="uppercase font-bold mb-0.5 text-[13px] tracking-xwidest text-gray-850">
                         {{ filter.label | escape }}
                       </h3>
@@ -172,7 +172,7 @@
                       endif
                     -%}
                     <input
-                      class="w-full block range range-input mt-4"
+                      class="w-full block range range-input mt-2.5"
                       type="range"
                       id="grid_template"
                       name="Grid Template"
@@ -189,25 +189,25 @@
         </div>
       {%- endif -%}
       <div
-        class="flex-1 w-full{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        class="flex-1 w-full collection__wrapper-inside{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         id="ProductGridContainer"
         {% if settings.animations_reveal_on_scroll %}
           data-cascade
         {% endif %}
       >
         {%- if collection.products.size == 0 -%}
-          <div class="pt-8 flex flex-col items-center" id="product-grid" data-id="{{ section.id }}">
+          <div class="pt-[6vh] flex flex-col items-center" id="product-grid" data-id="{{ section.id }}">
             <div class="title-wrapper center">
-              <h2 class="text-center text-4xl xl:text-[50px] uppercase tracking-widerx font-open">
+              <h2 class="text-center text-3xl md:text-4xl xl:text-[50px] uppercase tracking-widerx font-open">
                 {{ 'sections.collection_template.empty_title' | t -}}
               </h2>
             </div>
-            <div class="w-[352px] max-w-[60%] md:max-w-[70%] collection__empty-eye">
+            <div class="w-[320px] max-w-[60%] md:max-w-[70%] collection__empty-eye">
               {%- render 'icon-empty' -%}
             </div>
             <div>
-              <h3 class="text-center uppercase text-[17px] xl:text-[25px] tracking-[0.3em] xl:tracking-[0.5em] font-open">
-                {{ 'sections.collection_template.empty_products' | t }}
+              <h3 class="text-center uppercase text-sm md:text-[17px] xl:text-[25px] tracking-[0.3em] xl:tracking-[0.5em] font-open">
+                CAN’T&nbsp; SEE&nbsp; ANY&nbsp; PRODUCTS&nbsp; HERE
               </h3>
             </div>
             <div class="flex justify-center collection__empty-btn">
@@ -254,6 +254,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     var rangeInputs = document.querySelectorAll('.range-input');
     var productList = document.getElementById('product-grid-wrapper');
+    var storageKey = 'gridViewPreference';
+    var expirationTime = 60 * 60 * 1000; // 1 hour in milliseconds
 
     function updateGridClass(value) {
       productList.classList.remove(
@@ -280,12 +282,38 @@
       });
       updateGridClass(value);
     }
+
+    function savePreference(value) {
+      var timestamp = new Date().getTime();
+      var data = { value: value, expiry: timestamp + expirationTime };
+      localStorage.setItem(storageKey, JSON.stringify(data));
+    }
+
+    function loadPreference() {
+      var data = localStorage.getItem(storageKey);
+      if (data) {
+        var parsedData = JSON.parse(data);
+        var currentTime = new Date().getTime();
+        if (currentTime < parsedData.expiry) {
+          return parsedData.value;
+        } else {
+          localStorage.removeItem(storageKey);
+        }
+      }
+      return null;
+    }
+
     rangeInputs.forEach(function (input) {
       input.addEventListener('input', function () {
         syncRangeInputs(this.value);
+        savePreference(this.value);
       });
     });
-    if (rangeInputs.length > 0) {
+
+    var savedValue = loadPreference();
+    if (savedValue) {
+      syncRangeInputs(savedValue);
+    } else if (rangeInputs.length > 0) {
       updateGridClass(rangeInputs[0].value);
     }
   });
@@ -325,6 +353,11 @@
       } else if (filterClear) {
         document.querySelectorAll('.filter-label input[type="checkbox"]').forEach((input) => {
           input.checked = false;
+          console.log(input);
+        });
+        document.querySelectorAll('.filter-label input[type="radio"]').forEach((input) => {
+          input.checked = false;
+          console.log(input);
         });
         const urlToFetch = filterClear.getAttribute('data-href');
         fetchAndUpdateContent(urlToFetch);
@@ -365,6 +398,11 @@
     updateFilterCounter();
   });
 </script>
+{% if customer %}
+  {%- render 'wishlist-modal' -%}
+{% else %}
+  {%- render 'login-modal' -%}
+{% endif %}
 
 {% schema %}
 {

@@ -35,7 +35,10 @@ if (!customElements.get('quantity-popover')) {
           this.variantInfo.addEventListener('mouseenter', this.togglePopover.bind(this));
           this.variantInfo.addEventListener('mouseleave', this.closePopover.bind(this));
         }
+
       }
+
+
 
       togglePopover(event) {
         event.preventDefault();

@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-order"
+      "type": "main-account-order-history-canceled"
     }
   },
   "order": [

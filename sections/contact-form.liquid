@@ -1,137 +1,315 @@
-{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
-
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
 <div class=" gradient">
-  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        {{ section.settings.heading }}
-      </h2>
-    {%- else -%}
-      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
-    {%- endif -%}
-    {%- liquid
-      assign contact_form_class = 'isolate'
-      if settings.animations_reveal_on_scroll
-        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
-      endif
-    -%}
-    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
-      {%- if form.posted_successfully? -%}
-        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
-          {% render 'icon-success' %}
-          {{ 'templates.contact.form.post_success' | t }}
-        </h2>
-      {%- elsif form.errors -%}
-        <div class="form__message">
-          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
-            {% render 'icon-error' %}
-            {{ 'templates.contact.form.error_heading' | t }}
-          </h2>
+  <div class="contact page-width max-lg:px-2.5">
+    <div
+      id="bar"
+      class="ds_element dissapearing contact__heading max-lg:py-2 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    >
+      <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">Contact Us</h1>
+    </div>
+    <div class="contact__body grid max-lg:pt-[66px]">
+      <div class="contact__body-wrapper grid md:grid-cols-2 gap-[50px] md:items-center">
+        <div class="max-w-[526px]">
+          <div class="mb-5 max-lg:pt-2 md:mb-8">
+            <h2 class="font-coutureBold text-center text-xl md:text-3xl uppercase">CONTACT US BY EMAIL</h2>
+          </div>
+          {%- liquid
+            assign contact_form_class = 'isolate'
+            if settings.animations_reveal_on_scroll
+              assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+            endif
+          -%}
+          {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+            {%- if form.posted_successfully? -%}
+              <h2 class="text-sm font-bold mb-2" tabindex="-1" autofocus>
+                {{ 'templates.contact.form.post_success' | t }}
+              </h2>
+            {%- endif -%}
+            <div class="field flex flex-col mb-5">
+              <div class="pl-4 mb-1">
+                <p class="text-[11px] md:text-[13px] font-axis">Regarding</p>
+              </div>
+              <div class="custom-select custom-select_w-full relative">
+                <div class="select-trigger cursor-pointer border border-black flex h-10 md:h-12">
+                  <div class="flex items-center pl-2.5 flex-1">
+                    <span class="selected-text line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase">
+                      Order problems
+                    </span>
+                  </div>
+                  <div class="w-11 select-icon border-black flex items-center justify-center">
+                    <span
+                      class="icon-FULL-ICON-SET-WEBSITE-FINAL_Next-Button-Arrow font-semibold text-xs duration-100 ease-in-out"
+                    ></span>
+                  </div>
+                </div>
+                <ul class="select-options select-options_w-full hidden absolute z-[2] top-full left-0 border border-t-0 border-black bg-white">
+                  <li class="custom-option selected">
+                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        checked
+                        type="radio"
+                        name="contact[regarding]"
+                        value="Order Problems"
+                        class="invisible w-0 h-0"
+                      >
+                      <span
+                        class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                      >
+                        Order Problems
+                      </span>
+                    </label>
+                  </li>
+                  <li class="custom-option">
+                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        type="radio"
+                        name="contact[regarding]"
+                        value="Payment Issues"
+                        class="invisible w-0 h-0"
+                      >
+                      <span
+                        class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                      >
+                        Payment Issues
+                      </span>
+                    </label>
+                  </li>
+                  <li class="custom-option">
+                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        type="radio"
+                        name="contact[regarding]"
+                        value="Inquire About Bigger Sizes"
+                        class="invisible w-0 h-0"
+                      >
+                      <span
+                        class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                      >
+                        Inquire about bigger sizes
+                      </span>
+                    </label>
+                  </li>
+                  <li class="custom-option">
+                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        type="radio"
+                        name="contact[regarding]"
+                        value="Refund Request"
+                        class="invisible w-0 h-0"
+                      >
+                      <span
+                        class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                      >
+                        Refund Request
+                      </span>
+                    </label>
+                  </li>
+                  <li class="custom-option">
+                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        type="radio"
+                        name="contact[regarding]"
+                        value="Other"
+                        class="invisible w-0 h-0"
+                      >
+                      <span
+                        class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                      >
+                        Other
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="field flex flex-col mb-5">
+              <div class="pl-4 mb-1 flex items-end justify-between">
+                <label for="ContactForm-body" class="text-[11px] md:text-[13px] font-axis"> Your message </label>
+                <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
+                  <span> *Field required </span>
+                </div>
+              </div>
+              <textarea
+                id="ContactForm-body"
+                class="input-field textarea-field resize-none h-20 md:h-28"
+                name="contact[{{ 'templates.contact.form.comment' | t }}]"
+              >
+                {{- form.body -}}
+              </textarea>
+            </div>
+            <div class="field flex flex-col mb-5">
+              <div class="pl-4 mb-1 flex justify-between">
+                <label for="ContactForm-email" class="text-[11px] md:text-[13px] font-axis">
+                  {{ 'customer.login_page.email' | t }}
+                </label>
+                <div>
+                  <p class="text-right text-[10px] md:text-[14px] font-bold">
+                    *You will be contacted back on this email adress
+                  </p>
+                </div>
+              </div>
+              <div class="relative">
+                <input
+                  class="input-field"
+                  type="email"
+                  name="contact[email]"
+                  id="ContactForm-email"
+                  autocomplete="email"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                  {% if form.errors contains 'form' %}
+                    aria-invalid="true"
+                  {% endif %}
+                >
+                <div
+                  class="tooltip absolute top-full -left-4 sm:left-0 mt-2.5 whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+                  id="email-tooltip"
+                >
+                  <div class="flex items-center">
+                    <div class="w-5 sm:w-7 h-5 sm:h-7 mr-[7px]">
+                      {%- render 'icon-info' -%}
+                    </div>
+                    <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
+                      Please write a valid email address to be able to receive updates.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contact__button flex justify-center my-12 md:mb-8">
+              <button
+                id="submit-button"
+                type="button"
+                class="btn btn_primary btn_small w-[320px] max-w-full"
+              >
+                Submit message
+              </button>
+            </div>
+            <div class="space-y-5">
+              <p class="text-sm md:text-[17px] font-bold">
+                *We generally respond in the course of 4 hours. Please specify the problem you have as clear as possible
+                in the message space so we can get to work right away and resolve whichever issues you have.
+              </p>
+              <p class="text-sm md:text-[17px] font-bold">
+                You can also contact us by sending a email to
+                <br class="max-md:hidden">
+                customersupport@u3faktory.com
+              </p>
+            </div>
+          {%- endform -%}
         </div>
-        <ul class="form-status-list caption-large" role="list">
-          <li>
-            <a href="#ContactForm-email" class="link">
-              {{ form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email }}
-            </a>
-          </li>
-        </ul>
-      {%- endif -%}
-      <div class="contact__fields">
-        <div class="field">
-          <input
-            class="field__input"
-            autocomplete="name"
-            type="text"
-            id="ContactForm-name"
-            name="contact[{{ 'templates.contact.form.name' | t }}]"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="{{ 'templates.contact.form.name' | t }}"
-          >
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
-        </div>
-        <div class="field field--with-error">
-          <input
-            autocomplete="email"
-            type="email"
-            id="ContactForm-email"
-            class="field__input"
-            name="contact[email]"
-            spellcheck="false"
-            autocapitalize="off"
-            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-            aria-required="true"
-            {% if form.errors contains 'email' %}
-              aria-invalid="true"
-              aria-describedby="ContactForm-email-error"
-            {% endif %}
-            placeholder="{{ 'templates.contact.form.email' | t }}"
-          >
-          <label class="field__label" for="ContactForm-email">
-            {{- 'templates.contact.form.email' | t }}
-            <span aria-hidden="true">*</span></label
-          >
-          {%- if form.errors contains 'email' -%}
-            <small class="contact__field-error" id="ContactForm-email-error">
-              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-              <span class="form__message">
-                {%- render 'icon-error' -%}
-                {{- form.errors.translated_fields.email | capitalize }}
-                {{ form.errors.messages.email -}}
-              </span>
-            </small>
-          {%- endif -%}
+        <div class="contact__body-right max-md:pb-7 max-md:!pr-0 scroll-trigger animate--slide-in">
+          <div class="relative mb-20 mt-5 md:hidden flex justify-center items-center after:content-[''] after:block after:absolute after:top-1/2 after:left-0 after:-translate-y-1/2 after:w-full after:h-[1px] after:bg-black">
+            <p class="relative z-[2] uppercase text-[17px] font-coutureBold px-3 bg-gray-10">OR</p>
+          </div>
+          <div class="max-md:mx-auto md:ml-auto w-fit">
+            <div class="mb-5">
+              <h2 class="uppercase font-coutureBold leading-none text-[22px] md:text-[28px]">Direct chat</h2>
+            </div>
+            <div class="mb-7">
+              <img
+                class="w-[60px]"
+                src="https://cdn.shopify.com/s/files/1/0690/2303/9708/files/Send_Arrow_button.png?v=1718734585"
+                alt="Icon"
+                width="60"
+                height="53"
+              >
+            </div>
+            <div class="mb-8">
+              <p class="uppercase font-bold text-xs md:text-sm">AVAILABLE SOON</p>
+            </div>
+            {% comment %}
+              <div>
+                <p class="font-bold text-sm text-[17px] leading-tight">
+                  COMPANY DETAILS
+                  <br>
+                  U3 Art Faktory Srl
+                  <br>
+                  Str. Vadu Voda Nr. 1C
+                  <br>
+                  Sat. Horpaz, judetul Iasi
+                  <br>
+                  Romania
+                </p>
+              </div>
+            {% endcomment %}
+          </div>
         </div>
       </div>
-      <div class="field">
-        <input
-          type="tel"
-          id="ContactForm-phone"
-          class="field__input"
-          autocomplete="tel"
-          name="contact[{{ 'templates.contact.form.phone' | t }}]"
-          pattern="[0-9\-]*"
-          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          placeholder="{{ 'templates.contact.form.phone' | t }}"
-        >
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
-      </div>
-      <div class="field">
-        <textarea
-          rows="10"
-          id="ContactForm-body"
-          class="text-area field__input"
-          name="contact[{{ 'templates.contact.form.comment' | t }}]"
-          placeholder="{{ 'templates.contact.form.comment' | t }}"
-        >
-          {{- form.body -}}
-        </textarea>
-        <label class="form__label field__label" for="ContactForm-body">
-          {{- 'templates.contact.form.comment' | t -}}
-        </label>
-      </div>
-      <div class="contact__button">
-        <button type="submit" class="button">
-          {{ 'templates.contact.form.send' | t }}
-        </button>
-      </div>
-    {%- endform -%}
+    </div>
   </div>
 </div>
+<script>
+  document.addEventListener('click', function (e) {
+    const target = e.target;
+    const customSelect = target.closest('.custom-select');
+    const allCustomSelects = document.querySelectorAll('.custom-select');
+    if (customSelect && target.closest('.select-trigger')) {
+      allCustomSelects.forEach((select) => {
+        if (select !== customSelect) {
+          select.classList.remove('open');
+        }
+      });
+      customSelect.classList.toggle('open');
+    } else if (customSelect && target.tagName === 'INPUT' && target.type === 'radio') {
+      customSelect.querySelectorAll('li').forEach((li) => {
+        li.classList.remove('selected');
+      });
+      target.closest('li').classList.add('selected');
+      const selectedText = target.nextElementSibling.textContent;
+      customSelect.querySelector('.selected-text').textContent = selectedText;
+      customSelect.classList.remove('open');
+    } else {
+      allCustomSelects.forEach((select) => {
+        select.classList.remove('open');
+      });
+    }
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const emailInput = document.getElementById('ContactForm-email');
+    const messageInput = document.getElementById('ContactForm-body');
+    const emailTooltip = document.getElementById('email-tooltip');
+    const messageError = document.getElementById('message-error');
+    const submitButton = document.getElementById('submit-button');
+
+    submitButton.addEventListener('click', function (event) {
+      console.log(event);
+      let valid = true;
+
+      // Validate email
+      const emailValue = emailInput.value.trim();
+      if (emailValue === '' || !validateEmail(emailValue)) {
+        emailTooltip.classList.remove('opacity-0', 'invisible');
+        valid = false;
+      } else {
+        emailTooltip.classList.add('opacity-0', 'invisible');
+      }
+
+      // Validate message
+      const messageValue = messageInput.value.trim();
+      if (messageValue === '') {
+        messageError.classList.remove('hidden');
+        setTimeout(() => {
+          emailTooltip.classList.add('opacity-0', 'invisible');
+        }, 1000);
+        valid = false;
+      } else {
+        messageError.classList.add('hidden');
+      }
+
+      if (valid) {
+        form.submit(); // Submit the form if validation passes
+      }
+    });
+
+    // Function to validate email format
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
+    }
+  });
+</script>
 
 {% schema %}
 {
@@ -141,58 +319,7 @@
   "disabled_on": {
     "groups": ["header", "footer"]
   },
-  "settings": [
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "default": "Contact form",
-      "label": "Heading"
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "options": [
-        {
-          "value": "h2",
-          "label": "t:sections.all.heading_size.options__1.label"
-        },
-        {
-          "value": "h1",
-          "label": "t:sections.all.heading_size.options__2.label"
-        },
-        {
-          "value": "h0",
-          "label": "t:sections.all.heading_size.options__3.label"
-        }
-      ],
-      "default": "h1",
-      "label": "t:sections.all.heading_size.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ],
+  "settings": [],
   "presets": [
     {
       "name": "t:sections.contact-form.presets.name"

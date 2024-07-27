@@ -12,6 +12,7 @@ module.exports = {
       helveticaThinCond: ['"Helvetica Neue LT Std"', "sans-serif"],
       helveticaCond: ['"Helvetica Cond"', "sans-serif"],
       helvetica: ['"Neue Helvetica"', "sans-serif"],
+      helveticaLight: ['"Neue Helvetica Light"', "sans-serif"],
       coutureBoldIt: ['"Couture BoldItalic"', "sans-serif"],
       coutureBold: ['"Couture Bold"', "sans-serif"],
       open: ['"Open Sans"', "sans-serif"],
@@ -32,6 +33,7 @@ module.exports = {
         300: '#444444',
         600: '#5b5b5b',
         700: '#1b1919',
+        750: '#636262',
         800: '#212121',
         850: '#292929',
         900: '#191919'

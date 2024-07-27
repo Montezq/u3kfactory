@@ -16,7 +16,7 @@
         "video": "shopify:\/\/files\/videos\/HomePage Video.mov",
         "image": "shopify:\/\/shop_images\/u3-art-prints-coming-soon-16.9-1200p.jpg",
         "heading": "<em>20% OFF<\/em>",
-        "sub_heading": "SITE LAUNCH DISCOUNTS",
+        "sub_heading": "USE THE CODE \"LAUNCH\"",
         "btn_url": "shopify:\/\/collections\/all-xx-century-prints",
         "button_title": "<em>SHOP NOW<\/em>"
       }
@@ -47,7 +47,7 @@
           "settings": {
             "carousel_image": "shopify:\/\/shop_images\/SMARPTHONE-HOMEPAGE-SLIDE-3.jpg",
             "carouse_label": "NEW",
-            "carouse_heading": "URBAN PGOTOGRAPHY",
+            "carouse_heading": "URBAN PHOTOGRAPHY",
             "btn_url": "shopify:\/\/collections\/urban-prints"
           }
         },

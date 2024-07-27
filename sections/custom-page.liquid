@@ -1,0 +1,112 @@
+<div class="custom-page max-md:px-0 max-lg:px-4">
+  <div
+    id="bar"
+    class="ds_element dissapearing custom-page__heading artist-page__heading max-lg:py-2 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+  >
+    <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">{{ page.title | escape }}</h1>
+  </div>
+  <div class="custom-page__body max-lg:pt-[56px] pb-10">
+    {%- for block in section.blocks -%}
+      <div class="custom-page__body-section">
+        {%- if block.settings.section_title != blank -%}
+          <div class="custom-page__title mb-4 md:mb-5">
+            <h2 class="text-[17px] max-lg:px-2">
+              {{ block.settings.section_title }}
+            </h2>
+          </div>
+        {%- endif -%}
+        {%- if block.settings.first_image != blank or block.settings.second_image != blank -%}
+          <div class="custom-page__images{% if block.settings.second_image != blank %} max-md:gap-6 grid md:grid-cols-2{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {%- if block.settings.first_image != blank -%}
+              {%- liquid
+                assign image_height = block.settings.first_image.width | divided_by: block.settings.first_image.aspect_ratio
+                assign full_width = '50vw'
+                assign widths = '768, 1090, 1240, 1440, 1560'
+                assign image_class = 'w-full h-full object-cover'
+              -%}
+              <div class="custom-page__images-first aspect-square{% unless block.settings.second_image %} max-w-[650px]{% endunless %}">
+                {{
+                  block.settings.first_image
+                  | image_url: width: 1560
+                  | image_tag:
+                    width: block.settings.first_image.width,
+                    height: image_height,
+                    class: image_class,
+                    sizes: full_width,
+                    widths: widths
+                }}
+              </div>
+            {%- endif -%}
+            {%- if block.settings.second_image != blank -%}
+              {%- liquid
+                assign image_height = block.settings.second_image.width | divided_by: block.settings.second_image.aspect_ratio
+                assign full_width = '50vw'
+                assign widths = '768, 1090, 1240, 1440, 1560'
+                assign image_class = 'w-full h-full object-cover'
+              -%}
+              <div class="custom-page__images-second aspect-square">
+                {{
+                  block.settings.second_image
+                  | image_url: width: 1560
+                  | image_tag:
+                    width: block.settings.second_image.width,
+                    height: image_height,
+                    class: image_class,
+                    sizes: full_width,
+                    widths: widths
+                }}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+        {%- if block.settings.section_content != blank -%}
+          <div class="custom-page__content max-md:px-2{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {{ block.settings.section_content }}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "section",
+      "name": "Page Section",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "section_title",
+          "label": "Section Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "first_image",
+          "label": "First Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "second_image",
+          "label": "Second Image"
+        },
+        {
+          "type": "richtext",
+          "id": "section_content",
+          "label": "Section Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page"
+    }
+  ]
+}
+{% endschema %}

@@ -39,6 +39,16 @@
           "settings": {
             "taxes_text": "* VAT INCLUDED \/ EXCLUDED SHIPPING COST"
           }
+        },
+        "favorites_iXPAc4": {
+          "type": "favorites",
+          "settings": {
+          }
+        },
+        "contact_dneKxt": {
+          "type": "contact",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -46,7 +56,9 @@
         "description",
         "variant_picker",
         "price",
-        "buy_buttons"
+        "buy_buttons",
+        "favorites_iXPAc4",
+        "contact_dneKxt"
       ],
       "settings": {
       }
@@ -69,27 +81,27 @@
         "padding_bottom": 28
       }
     },
-    "plus_info_GRqWAV": {
+    "plus_info_iwc9EU": {
       "type": "plus-info",
       "settings": {
         "heading": "Print Details",
-        "content": "<p>This fine art giclée print is delivered unframed. The paper has a matt, light textured surface. The high quality Hahnemühle\/ILFord fine art paper and canvas that we use for our prints combined with the Lucia Pro inks guarantees archival conservation of colors, with the print        retaining its intended appeareance for up to a 100 years. We recommend to keep the prints away from direct sunlight and under glass in the case of the paper prints.<\/p>",
-        "image": "shopify:\/\/shop_images\/INFO-PRINTING-DETAILS-IMAGE.jpg"
+        "content_metafield": "{{ product.metafields.custom.print_details | metafield_tag }}",
+        "content": "<p>This fine art giclée print is delivered unframed.  The paper has a matt, light textured surface. The high quality <br\/>Hahnemühle\/ILFord fine art paper and canvas that we use for our prints combined with the Lucia Pro inks guarantees archival conservation of colours, with the print retaining its intended appeareance for up to a 100 years. We recommend to keep the prints away from direct sunlight and under glass in the case of the paper prints.<\/p>"
       }
     },
-    "plus_info_9jRrKL": {
+    "plus_info_Hz8NNJ": {
       "type": "plus-info",
       "settings": {
         "heading": "Packaging Details",
-        "content": "{{ product.metafields.custom.plus_info_packing_details | metafield_tag }}",
-        "image": "shopify:\/\/shop_images\/INFO-PACKAGING-DETAILS-IMAGE.jpg"
+        "content_metafield": "",
+        "content": "<p><strong>Worldwide shipping available.<\/strong><br\/><br\/>The larger prints are carefully wrapped in acid free silk paper and packed in sturdy cardboard tubes sealed with plastic taps <br\/>to assure maximum protection from bending and moisture during the shipment. <br\/>The A4, A3 prints are shipped in plastic envelopes with a recycled sturdy cardboard sheet as support to avoid bending.<br\/><\/p>"
       }
     }
   },
   "order": [
     "main",
     "related-products",
-    "plus_info_GRqWAV",
-    "plus_info_9jRrKL"
+    "plus_info_iwc9EU",
+    "plus_info_Hz8NNJ"
   ]
 }

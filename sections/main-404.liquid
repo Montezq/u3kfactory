@@ -1,23 +1,83 @@
-<style type="text/css">
-  .template-404 .title + * {
-    margin-top: 1rem;
-  }
-
-  @media screen and (min-width: 750px) {
-    .template-404 .title + * {
-      margin-top: 2rem;
-    }
-  }
-</style>
-
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
-  </p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
-  </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
-    {{ 'general.continue_shopping' | t }}
-  </a>
+<div class="w-full flex flex-col items-center overflow-hidden main-404 max-md:px-3">
+  <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full bg-[#b8b8b8]">
+    {%- if section.settings.cover_type == 'video' -%}
+      {{
+        section.settings.video
+        | video_tag:
+          image_size: '1100x',
+          autoplay: true,
+          loop: true,
+          controls: false,
+          class: 'w-full h-full object-cover',
+          muted: true
+      }}
+    {%- else -%}
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 3840
+          | image_tag:
+            width: section.settings.image.width,
+            class: 'w-full h-full object-cover',
+            height: '100vh',
+            sizes: '100vw',
+            widths: '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680',
+            fetchpriority: 'high'
+        }}
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+  <div class="relative z-[1] flex flex-col items-center text-center my-auto py-9">
+    <div class="leading-none mb-20 sm:mb-32">
+      <h2 class=" text text-8xl md:text-[113px] tracking-widest mb-7">
+        {{ 'templates.404.subtext' | t }}
+      </h2>
+      <h3 class=" font-bold text-2xl uppercase main-404__h3">
+        {{ 'templates.404.title' | t }}
+      </h3>
+    </div>
+    <div class="mx-auto">
+      <a
+        href="{{ routes.all_products_collection_url }}"
+        class="btn btn_outlined btn_small !font-axis font-extrabold !tracking-normal italic"
+      >
+        {{ 'templates.404.back' | t }}
+      </a>
+    </div>
+  </div>
 </div>
+{% schema %}
+{
+  "name": "404",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "cover_type",
+      "options": [
+        {
+          "value": "video",
+          "label": "Video"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "video",
+      "label": "Cover Type"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

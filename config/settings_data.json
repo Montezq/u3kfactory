@@ -29,6 +29,13 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "sections": {
+      "share": {
+        "type": "share",
+        "settings": {
+        }
+      }
+    },
     "content_for_index": [
 
     ]

@@ -1,9 +1,9 @@
 <a
   href="{{ routes.cart_url }}"
-  class="w-6 flex justify-center relative font-coutureBold text-xl"
+  class="w-full flex justify-center relative font-coutureBold text-base"
   id="cart-icon-bubble-2"
 >
-  {%- render 'icon-cart' -%}
+  <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Shopping-Bag-v3 text-[28px]"></span>
   {%- if cart != empty -%}
     <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-1">
       {%- if cart.item_count < 100 -%}

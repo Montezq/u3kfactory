@@ -8,14 +8,16 @@
       <div class="max-md:hidden">
         <ul class="cart__footer-privacy-menu flex items-center flex-wrap">
           {%- for link in section.settings.privacy_menu.links -%}
-            <li>
-              <a
-                href="{{ link.url }}"
-                class="underline font-helveticaThinCond font-bold tracking-wider uppercase text-sm whitespace-nowrap"
-              >
-                {{ link.title | escape }}
-              </a>
-            </li>
+            {%- unless link.url == '/pages/info' -%}
+              <li>
+                <a
+                  href="{{ link.url }}"
+                  class="underline font-helveticaThinCond font-bold tracking-wider uppercase text-sm whitespace-nowrap"
+                >
+                  {{ link.title | escape }}
+                </a>
+              </li>
+            {%- endunless -%}
           {%- endfor -%}
         </ul>
       </div>
