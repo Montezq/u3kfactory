@@ -1,4 +1,5 @@
 // Function to handle adding or removing a product to/from the wishlist
+let bodyEl = document.querySelector('body');
 function addToWishlist(event) {
   const button = event.currentTarget;
 
@@ -72,6 +73,7 @@ function addToWishlist(event) {
     // Show the wishlist modal if the user hasn't opted out
     if (!localStorage.getItem('dontShowWishlistModal')) {
       document.querySelector('.wishlist__modal').classList.remove('hidden');
+      bodyEl.classList.add('overflow-hidden');
     }
   } else if (dataToggle) {
     // Remove the item from the wishlist
@@ -127,6 +129,7 @@ function checkWishlistButtons() {
 // Function to hide the wishlist modal
 function hideWishlistModal() {
   document.querySelector('.wishlist__modal').classList.add('hidden');
+  bodyEl.classList.remove('overflow-hidden');
 }
 
 // Function to handle the "Don't show this again" action
@@ -156,6 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (wishlistModalCloseButton) {
     wishlistModalCloseButton.addEventListener('click', hideWishlistModal);
   }
+
+  const wishlistModalWrapper = document.querySelector('.wishlist__modal-wrapper');
+  const wishlistModal = document.querySelector('.wishlist__modal');
+  wishlistModal.addEventListener('click', (event) => {
+    if (!wishlistModalWrapper.contains(event.target)) {
+      hideWishlistModal()
+    }
+  });
 
   // Attach event listener to "Don't show this again" link
   const dontShowWishlistModalLink = document.querySelector('.dont-show-wishlist-modal');
