@@ -43,7 +43,7 @@
             -%}
 
             <accordion-item
-              class="{% if link.child_active or active_item %}open{% endif %}"
+              class="block w-fit {% if link.child_active or active_item %} open{% endif %}"
               {% if link.child_active or active_item %}
                 data-open
               {% endif %}
