@@ -27,8 +27,9 @@
         "image": "shopify:\/\/shop_images\/SMARPTHONE-HOMEPAGE-SLIDE-3.jpg",
         "heading": "DESIGNED ACCESSORIES",
         "subgheading": "COMING SOON",
-        "mobile_cover_type": "video",
-        "mobile_video": "shopify:\/\/files\/videos\/REEL.mp4"
+        "mobile_cover_type": "image",
+        "mobile_video": "shopify:\/\/files\/videos\/REEL.mp4",
+        "mobile_image": "shopify:\/\/shop_images\/ad-campaign33.jpg"
       }
     }
   },
