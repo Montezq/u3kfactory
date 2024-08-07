@@ -74,6 +74,18 @@
     "product_list_fjgKQ3": {
       "type": "product-list",
       "blocks": {
+        "product_item_np3CGF": {
+          "type": "product_item",
+          "settings": {
+            "product": "car-crash-red"
+          }
+        },
+        "product_item_tcAmfB": {
+          "type": "product_item",
+          "settings": {
+            "product": "car-crash-orange"
+          }
+        },
         "product_item_FWW7GJ": {
           "type": "product_item",
           "settings": {
@@ -98,18 +110,6 @@
             "product": "bottle-series-nr-127"
           }
         },
-        "product_item_tcAmfB": {
-          "type": "product_item",
-          "settings": {
-            "product": "car-crash-orange"
-          }
-        },
-        "product_item_np3CGF": {
-          "type": "product_item",
-          "settings": {
-            "product": "car-crash-red"
-          }
-        },
         "product_item_czMGen": {
           "type": "product_item",
           "settings": {
@@ -124,12 +124,12 @@
         }
       },
       "block_order": [
+        "product_item_np3CGF",
+        "product_item_tcAmfB",
         "product_item_FWW7GJ",
         "product_item_LG6b9e",
         "product_item_Yy9KM9",
         "product_item_fyqUm3",
-        "product_item_tcAmfB",
-        "product_item_np3CGF",
         "product_item_czMGen",
         "product_item_WkVcHr"
       ],
