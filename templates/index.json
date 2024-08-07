@@ -74,50 +74,43 @@
     "product_list_fjgKQ3": {
       "type": "product-list",
       "blocks": {
-        "product_item_8f9xFB": {
-          "type": "product_item",
-          "settings": {
-            "product": "anatomy-study-1"
-          }
-        },
-        "product_item_iiGkWf": {
-          "type": "product_item",
-          "settings": {
-            "product": "anatomy-study-3"
-          }
-        },
-        "product_item_ULgqkj": {
-          "type": "product_item",
-          "settings": {
-            "product": "car-crash-blue"
-          }
-        },
-        "product_item_UBxmpt": {
-          "type": "product_item",
-          "settings": {
-            "product": "geometric-ii"
-          }
-        },
-        "product_item_GpLEMb": {
-          "type": "product_item",
-          "settings": {
-            "product": "geometrics-ii"
-          }
-        },
         "product_item_qP3HPT": {
           "type": "product_item",
           "settings": {
             "product": "car-crash-red"
           }
+        },
+        "product_item_FWW7GJ": {
+          "type": "product_item",
+          "settings": {
+            "product": "color-block-nr-10"
+          }
+        },
+        "product_item_LG6b9e": {
+          "type": "product_item",
+          "settings": {
+            "product": "color-block-nr-7"
+          }
+        },
+        "product_item_Yy9KM9": {
+          "type": "product_item",
+          "settings": {
+            "product": "portrait-in-green"
+          }
+        },
+        "product_item_fyqUm3": {
+          "type": "product_item",
+          "settings": {
+            "product": "bottle-series-nr-127"
+          }
         }
       },
       "block_order": [
-        "product_item_8f9xFB",
-        "product_item_iiGkWf",
-        "product_item_ULgqkj",
-        "product_item_UBxmpt",
-        "product_item_GpLEMb",
-        "product_item_qP3HPT"
+        "product_item_qP3HPT",
+        "product_item_FWW7GJ",
+        "product_item_LG6b9e",
+        "product_item_Yy9KM9",
+        "product_item_fyqUm3"
       ],
       "settings": {
       }
