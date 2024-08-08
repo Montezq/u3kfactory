@@ -162,7 +162,7 @@
                                   data-index="{{ item.index | plus: 1 }}"
                                 >
                                 <button
-                                  class="quantity__button w-7 h-7 border-l border-l-black"
+                                  class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]"
                                   name="plus"
                                   type="button"
                                 >
@@ -173,7 +173,7 @@
                                       | escape
                                     -}}
                                   </span>
-                                  <span class="inline-block mb-[3px]"> + </span>
+                                  +
                                 </button>
                               </quantity-input>
                             </div>
@@ -193,54 +193,52 @@
                   </div>
                   <div class="md:hidden px-1 mt-3">
                     <div class="border-b border-b-[#8c8c8c] pb-5 flex justify-between">
-                      {% comment %}
-                        <quantity-popover>
-                          <div class="cart-item__quantity-wrapper quantity-popover-wrapper w-fit ml-auto">
-                            <quantity-input class="quantity cart-quantity flex items-center border border-black text-xl leading-none">
-                              <button
-                                class="quantity__button w-7 h-7 border-r border-r-black"
-                                name="minus"
-                                type="button"
-                              >
-                                <span class="visually-hidden">
-                                  {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
-                                </span>
-                                -
-                              </button>
-                              <input
-                                class="quantity__input text-center w-[30px] min-w-[30px]"
-                                data-quantity-variant-id="{{ item.variant.id }}"
-                                type="number"
-                                name="updates[]"
-                                readonly
-                                value="{{ item.quantity }}"
-                                {% # theme-check-disable %}
-                                data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
-                                min="0"
-                                data-min="{{ item.variant.quantity_rule.min }}"
-                                {% if item.variant.quantity_rule.max != null %}
-                                  max="{{ item.variant.quantity_rule.max }}"
-                                {% endif %}
-                                step="{{ item.variant.quantity_rule.increment }}"
-                                {% # theme-check-enable %}
-                                aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                                id="Quantity-{{ item.index | plus: 1 }}"
-                                data-index="{{ item.index | plus: 1 }}"
-                              >
-                              <button
-                                class="quantity__button w-7 h-7 border-l border-l-black"
-                                name="plus"
-                                type="button"
-                              >
-                                <span class="visually-hidden">
-                                  {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
-                                </span>
-                                <span class="inline-block mb-[3px]"> + </span>
-                              </button>
-                            </quantity-input>
-                          </div>
-                        </quantity-popover>
-                      {% endcomment %}
+                      <quantity-popover>
+                        <div class="cart-item__quantity-wrapper quantity-popover-wrapper w-fit ml-auto">
+                          <quantity-input class="quantity cart-quantity flex items-center border border-black text-xl leading-none">
+                            <button
+                              class="quantity__button w-7 h-7 border-r border-r-black"
+                              name="minus"
+                              type="button"
+                            >
+                              <span class="visually-hidden" name="minus">
+                                {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
+                              </span>
+                              -
+                            </button>
+                            <input
+                              class="quantity__input text-center w-[30px] min-w-[30px]"
+                              data-quantity-variant-id="{{ item.variant.id }}"
+                              type="number"
+                              name="updates[]"
+                              readonly
+                              value="{{ item.quantity }}"
+                              {% # theme-check-disable %}
+                              data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                              min="0"
+                              data-min="{{ item.variant.quantity_rule.min }}"
+                              {% if item.variant.quantity_rule.max != null %}
+                                max="{{ item.variant.quantity_rule.max }}"
+                              {% endif %}
+                              step="{{ item.variant.quantity_rule.increment }}"
+                              {% # theme-check-enable %}
+                              aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                              id="Quantity-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
+                            >
+                            <button
+                              class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]"
+                              name="plus"
+                              type="button"
+                            >
+                              <span class="visually-hidden" name="plus">
+                                {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
+                              </span>
+                              +
+                            </button>
+                          </quantity-input>
+                        </div>
+                      </quantity-popover>
                       <cart-remove-button
                         id="Remove-{{ item.index | plus: 1 }}"
                         data-index="{{ item.index | plus: 1 }}"

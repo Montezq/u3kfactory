@@ -45,7 +45,7 @@
   </div>
 </div>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  function initializeShareModal() {
     const shareButtons = document.querySelectorAll('.share-button'),
       shareModal = document.querySelector('.share__modal'),
       shareModalBody = document.querySelector('.share__modal-wrapper'),
@@ -107,6 +107,9 @@
         closeModal();
       }
     });
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    initializeShareModal();
   });
 </script>
 

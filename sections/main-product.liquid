@@ -333,7 +333,7 @@
                       type="text"
                       name="contact[artist]"
                       id="artist"
-                      value="Contacting {{ artist }}"
+                      value="Contacting {{ product.vendor }}"
                     >
                     <div class="contact-subject contact-us__item">
                       <div class="blcok uppercase pl-2.5 font-axis font-extrabold text-[11px] md:text-[13px]">
@@ -450,7 +450,7 @@
                               {%- render 'icon-info' -%}
                             </div>
                             <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
-                              Please write a valid email address to be able to receive updates.
+                              Please write a valid email address to be able to receive replies.
                             </p>
                           </div>
                         </div>
@@ -495,6 +495,44 @@
             if (!contactWrapper.contains(event.target) && !contactOpen.contains(event.target)) {
               contactModal.classList.add('hidden');
               bodyEl.classList.remove('overflow-hidden');
+            }
+            const form = document.querySelector('form');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const emailTooltip = document.getElementById('email-tooltip');
+            const messageError = document.getElementById('message-error');
+            const submitButton = document.getElementById('submit-button');
+
+            submitButton.addEventListener('click', function (event) {
+              let valid = true;
+
+              // Validate email
+              const emailValue = emailInput.value.trim();
+              if (emailValue === '' || !validateEmail(emailValue)) {
+                emailTooltip.classList.remove('opacity-0', 'invisible');
+                valid = false;
+              } else {
+                emailTooltip.classList.add('opacity-0', 'invisible');
+              }
+
+              // Validate message
+              const messageValue = messageInput.value.trim();
+              if (messageValue === '') {
+                messageError.classList.remove('hidden');
+                valid = false;
+              } else {
+                messageError.classList.add('hidden');
+              }
+
+              if (valid) {
+                form.submit(); // Submit the form if validation passes
+              }
+            });
+
+            // Function to validate email format
+            function validateEmail(email) {
+              const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              return re.test(String(email).toLowerCase());
             }
           });
         </script>

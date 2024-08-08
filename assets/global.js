@@ -183,7 +183,6 @@ class QuantityInput extends HTMLElement {
   onButtonClick(event) {
     event.preventDefault();
     const previousValue = this.input.value;
-
     event.target.name === 'plus' ? this.input.stepUp() : this.input.stepDown();
     if (previousValue !== this.input.value) this.input.dispatchEvent(this.changeEvent);
   }
@@ -1108,8 +1107,6 @@ class VariantSelects extends HTMLElement {
     const section = this.closest('section');
     if (!section) return;
 
-    const productForm = section.querySelector('product-form');
-    if (productForm) productForm.handleErrorMessage();
   }
 
   renderProductInfo() {

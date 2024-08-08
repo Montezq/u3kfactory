@@ -147,7 +147,7 @@
                   <button
                     class="btn btn_outlined w-full uppercase !text-xl md:!text-2xl {% if order.tags contains 'processing' %}cancel-order{% else %}unavailable-cancel-order{% endif %}"
                   >
-                    Cancel order
+                    Request cancellation
                   </button>
                   {%- if order.tags contains 'processing' -%}
                     <div class="cancel-order__modal remove-order__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[9999999]">

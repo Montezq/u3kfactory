@@ -155,7 +155,7 @@
         <div class="header__personal-data-user-icon w-[34px] mb-1.5">
           <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Account text-[34px] block"></span>
         </div>
-        <div class="header__personal-data-user-name text-[15px] text-center font-open uppercase font-semibold">
+        <div class="header__personal-data-user-name text-[15px] text-center font-open uppercase tracking-[.1em] font-semibold">
           {%- if customer -%}
             {%- if customer.first_name -%}
               {{ customer.first_name | slice: 0, 1 }}.
@@ -173,16 +173,16 @@
         class="header__personal-data-cart w-[38px] flex justify-center relative font-coutureBold text-[26px]"
         id="cart-icon-bubble"
       >
-        <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Shopping-Bag-v3 text-[52px] block"></span>
+        <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Shopping-Bag-v3 text-[56px] block"></span>
         {%- if cart != empty -%}
-          <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-[9px]">
+          <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-2.5">
             {%- if cart.item_count < 100 -%}
               <span aria-hidden="true">{{ cart.item_count }}</span>
             {%- endif -%}
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
         {%- else -%}
-          <span class="absolute left-1/2 -translate-x-1/2 top-[9px]"> 0 </span>
+          <span class="absolute left-1/2 -translate-x-1/2 top-2.5"> 0 </span>
         {%- endif -%}
       </a>
     </div>

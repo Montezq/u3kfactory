@@ -17,7 +17,7 @@
       </p>
     </div>
 
-    {%- form 'recover_customer_password' -%}
+    {%- form 'recover_customer_password', return_to: '/account/login#recover' -%}
       {% assign recover_success = form.posted_successfully? %}
       <div class="field flex flex-col mb-8">
         <div class="pl-4 mb-1 flex justify-between">
