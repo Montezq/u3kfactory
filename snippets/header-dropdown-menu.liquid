@@ -71,7 +71,7 @@
                     {%- liquid
                       assign active_item = false
                       if template.name == 'collection'
-                        unless collection.handle contains 'all'
+                        unless collection.handle contains 'all-original' or collection.handle contains 'all-limited'
                           for product in collection.products
                             for collection in product.collections
                               assign collection_title = collection.handle | escape | downcase | remove: 'all-' | remove: '-prints'

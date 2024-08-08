@@ -19,9 +19,6 @@ if (!customElements.get('product-form')) {
       onSubmitHandler(evt) {
         evt.preventDefault();
         if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
-
-        this.handleErrorMessage();
-        document.querySelector('body').classList.add('overflow-hidden');
         this.submitButton.setAttribute('aria-disabled', true);
         this.submitButton.classList.add('loading');
 
@@ -50,7 +47,8 @@ if (!customElements.get('product-form')) {
                 errors: response.errors || response.description,
                 message: response.message,
               });
-              this.handleErrorMessage(response.description);
+
+              if(response.status === 422) this.handleErrorMessage();
 
               const soldOutMessage = this.submitButton.querySelector('.sold-out-message');
               if (!soldOutMessage) return;
@@ -65,6 +63,7 @@ if (!customElements.get('product-form')) {
             }
 
             if (!this.error)
+              document.querySelector('body').classList.add('overflow-hidden');
               publish(PUB_SUB_EVENTS.cartUpdate, {
                 source: 'product-form',
                 productVariantId: formData.get('id'),
@@ -97,19 +96,14 @@ if (!customElements.get('product-form')) {
           });
       }
 
-      handleErrorMessage(errorMessage = false) {
-        if (this.hideErrors) return;
+      handleErrorMessage() {
 
-        this.errorMessageWrapper =
-          this.errorMessageWrapper || this.querySelector('.product-form__error-message-wrapper');
-        if (!this.errorMessageWrapper) return;
-        this.errorMessage = this.errorMessage || this.errorMessageWrapper.querySelector('.product-form__error-message');
-
-        this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
-
-        if (errorMessage) {
-          this.errorMessage.textContent = errorMessage;
-        }
+        const errorMessageWrapper = document.querySelector('.product-not-available__modal');
+        if (!errorMessageWrapper) return;
+        errorMessageWrapper.classList.remove('hidden');
+        setTimeout(() => {
+          errorMessageWrapper.classList.add('hidden');
+        }, 1200); // Wait for 1 second before hiding the modal
       }
     }
   );

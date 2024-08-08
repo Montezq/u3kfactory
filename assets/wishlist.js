@@ -1,6 +1,8 @@
 // Function to handle adding or removing a product to/from the wishlist
-let bodyEl = document.querySelector('body');
+
+
 function addToWishlist(event) {
+  let bodyEl = document.querySelector('body');
   const button = event.currentTarget;
 
   // Get the data attributes from the button
@@ -128,6 +130,7 @@ function checkWishlistButtons() {
 
 // Function to hide the wishlist modal
 function hideWishlistModal() {
+  let bodyEl = document.querySelector('body');
   document.querySelector('.wishlist__modal').classList.add('hidden');
   bodyEl.classList.remove('overflow-hidden');
 }

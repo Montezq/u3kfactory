@@ -60,14 +60,6 @@ class CartItems extends HTMLElement {
     const index = event.target.dataset.index;
     let message = '';
 
-    if (inputValue < event.target.dataset.min) {
-      message = window.quickOrderListStrings.min_error.replace('[min]', event.target.dataset.min);
-    } else if (inputValue > parseInt(event.target.max)) {
-      message = window.quickOrderListStrings.max_error.replace('[max]', event.target.max);
-    } else if (inputValue % parseInt(event.target.step) !== 0) {
-      message = window.quickOrderListStrings.step_error.replace('[step]', event.target.step);
-    }
-
     if (message) {
       this.setValidity(event, index, message);
     } else {
@@ -169,6 +161,12 @@ class CartItems extends HTMLElement {
         const items = document.querySelectorAll('.cart-item');
 
         if (parsedState.errors) {
+          const errorMessageWrapper = document.querySelector('.product-not-available__modal');
+          if (!errorMessageWrapper) return;
+          errorMessageWrapper.classList.remove('hidden');
+          setTimeout(() => {
+            errorMessageWrapper.classList.add('hidden');
+          }, 1200); // Wait for 1 second before hiding the modal
           quantityElement.value = quantityElement.getAttribute('value');
           this.updateLiveRegions(line, parsedState.errors);
           return;
