@@ -40,7 +40,7 @@
         {%- endif -%}
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
           <li
-            class="splide__slide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            class="splide__slide !w-[102%] !-ml-[1%]{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
           >
             {% render 'product-thumbnail',

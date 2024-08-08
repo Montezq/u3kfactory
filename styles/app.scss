@@ -480,6 +480,11 @@ input{
     @apply max-sm:!text-[22px];
   }
 }
+.product__media-wrapper{
+  .splide__slide.is-active{
+    @apply z-10
+  }
+}
 .home-page__carousel-wrapper-btn{
   top: calc(35vh + 125px);
 }
@@ -947,7 +952,8 @@ accordion-item.open,
 .login__modal-wrapper,
 .wishlist__modal-wrapper,
 .removed-wishlist__modal-wrapper,
-.no-tracking-order__modal{
+.no-tracking-order__modal,
+.share__modal-wrapper{
   box-shadow: 0px 6px 11px rgba(0, 0, 0, .35);
 }
 .cart-notification__header p{

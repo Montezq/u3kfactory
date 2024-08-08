@@ -17,7 +17,7 @@
         data-id="{{ section.id }}"
         class="cart__heading ds_element fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out max-lg:py-2"
       >
-        <div class="flex justify-between lg:w-fit lg:border-b lg:border-b-black lg:pb-[3px] w-full">
+        <div class="flex justify-between lg:min-w-full lg:w-fit lg:border-b lg:border-b-black lg:pb-[3px] w-full">
           <h1 class="md:min-w-[520px] font-coutureBold text-xl md:text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
             {{ 'sections.cart.title' | t }}
           </h1>
@@ -173,7 +173,7 @@
                                       | escape
                                     -}}
                                   </span>
-                                  +
+                                  <span class="inline-block mb-[3px]"> + </span>
                                 </button>
                               </quantity-input>
                             </div>
@@ -234,7 +234,7 @@
                               <span class="visually-hidden">
                                 {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
                               </span>
-                              +
+                              <span class="inline-block mb-[3px]"> + </span>
                             </button>
                           </quantity-input>
                         </div>

@@ -82,6 +82,21 @@
     class="header__personal max-lg:!bg-white max-lg:h-full fixed lg:relative top-0 left-0 w-[82vw] lg:w-[84px] lg:flex lg:items-center lg:justify-center px-1 z-[1] max-lg:-translate-x-full max-lg:duration-300 max-lg:ease-in-out"
     style="background-color: {{ settings.default_color }}"
   >
+    {%- if section.settings.header_image != blank -%}
+      {%- assign image_height = section.settings.header_image.width
+        | divided_by: section.settings.header_image.aspect_ratio
+      -%}
+      {{
+        section.settings.header_image
+        | image_url: width: 168
+        | image_tag:
+          width: section.settings.image.width,
+          height: image_height,
+          class: 'w-full h-full object-cover absolute top-0 left-0',
+          widths: '84, 168, 332',
+          fetchpriority: 'high'
+      }}
+    {%- endif -%}
     {%- if section.settings.personal_menu != blank -%}
       <div class="header__personal-menu relative max-lg:flex max-lg:flex-col max-lg:pt-4 max-lg:pr-2 max-lg:pb-8 max-lg:pl-9 lg:absolute max-lg:h-full w-full lg:w-auto left-1/2 -translate-x-1/2 group">
         <div class="header__personal-menu-icon lg:cursor-pointer max-lg:pb-4 max-lg:flex max-lg:justify-end">
@@ -132,7 +147,7 @@
         </div>
       </div>
     {%- endif -%}
-    <div class="header__personal-data hidden lg:flex flex-col justify-center item items-center">
+    <div class="header__personal-data hidden lg:flex flex-col justify-center item items-center relative z-[2]">
       <a
         href="/pages/account-slides"
         class="header__personal-data-user flex flex-col justify-center item items-center mb-6"
@@ -349,6 +364,12 @@
       "type": "image_picker",
       "id": "mobile_image",
       "label": "t:sections.header.settings.mobile_image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "header_image",
+      "label": "Image for personal bar",
+      "info": "If empty the default color will be picked"
     }
   ]
 }

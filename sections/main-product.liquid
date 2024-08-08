@@ -134,7 +134,7 @@
                       currency: 'symbol',
                       use_variant: true,
                       show_badges: true,
-                      price_class: 'price--large'
+                      price_class: 'price--large !font-bold'
                     -%}
                   </div>
                   <div class="flex-1">
@@ -166,17 +166,33 @@
                           0
                         </div>
                         <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
+                          0
+                        </div>
+                        <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
                           {{ quantity }}
                         </div>
+                      {%- elsif length == 2 -%}
+                        <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
+                          0
+                        </div>
+                        {% for i in (0..length) %}
+                          {% assign char = quantity_str | slice: i, 1 %}
+                          {% if char != '' %}
+                            <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
+                              {{ char }}
+                            </div>
+                          {% endif %}
+                        {% endfor %}
+                      {% else %}
+                        {% for i in (0..length) %}
+                          {% assign char = quantity_str | slice: i, 1 %}
+                          {% if char != '' %}
+                            <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
+                              {{ char }}
+                            </div>
+                          {% endif %}
+                        {% endfor %}
                       {% endif %}
-                      {% for i in (0..length) %}
-                        {% assign char = quantity_str | slice: i, 1 %}
-                        {% if char != '' %}
-                          <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
-                            {{ char }}
-                          </div>
-                        {% endif %}
-                      {% endfor %}
                     {% endif %}
                   </div>
                   <div class="leading-none md:ml-2 text-sm md:text-[19px] max-md:mt-2 uppercase">COPIES LEFT</div>

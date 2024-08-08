@@ -71,15 +71,17 @@
                     {%- liquid
                       assign active_item = false
                       if template.name == 'collection'
-                        for product in collection.products
-                          for collection in product.collections
-                            assign collection_title = collection.handle | escape | downcase | remove: 'all-' | remove: '-prints'
-                            assign childlink_title = childlink.url | escape | downcase | remove: '/collections/' | remove: '/pages/'
-                            if collection_title == childlink_title
-                              assign active_item = true
-                            endif
+                        unless collection.handle contains 'all'
+                          for product in collection.products
+                            for collection in product.collections
+                              assign collection_title = collection.handle | escape | downcase | remove: 'all-' | remove: '-prints'
+                              assign childlink_title = childlink.url | escape | downcase | remove: '/collections/' | remove: '/pages/'
+                              if collection_title == childlink_title
+                                assign active_item = true
+                              endif
+                            endfor
                           endfor
-                        endfor
+                        endunless
                       endif
                       if template.name == 'product'
                         for collection in product.collections
@@ -96,6 +98,7 @@
                         <a
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                           href="{{ childlink.url }}"
+                          data-url="{{ childlink.url }}"
                           class="font-coutureBold text-[20px] md:text-[23px] text-gray-800 md:text-gray-200 uppercase duration-300 ease-in-out tracking-widerx{% if childlink.current or active_item %} header__menu-item-active{% endif %}"
                           style="{% if childlink.current or active_item %}color: {{settings.second_color}}{% endif %}"
                           {% if childlink.current %}

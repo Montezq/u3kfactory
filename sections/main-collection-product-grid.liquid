@@ -368,6 +368,7 @@
       fetch(urlToFetch)
         .then((response) => response.text())
         .then((htmlString) => {
+          console.log(urlToFetch);
           const parser = new DOMParser();
           const htmlDocument = parser.parseFromString(htmlString, 'text/html');
           // Update the main content area with the new HTML
@@ -377,6 +378,12 @@
           updateFilterCounter();
           // Update the data-href attributes for the filter items
           updateFilterLinks(htmlDocument);
+
+          // Update the URL in the browser without reloading the page
+          history.pushState(null, '', urlToFetch);
+
+          // Reinitialize wishlist functionality
+          reinitializeWishlist();
         })
         .catch((error) => console.error('Error fetching filtered results:', error));
     };
