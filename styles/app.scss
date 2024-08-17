@@ -1293,6 +1293,7 @@ accordion-item.open,
     @apply font-bold;
   }
 }
+.customer-register__heading,
 .customer-register{
   @screen xl{
     padding-right: calc(5.36vw - 27px);
@@ -1520,4 +1521,9 @@ accordion-item.open,
 
 .ds_element{
   @apply max-sm:bg-[#3d5eda];
+}
+.default-address{
+  input{
+    display: none;
+  }
 }

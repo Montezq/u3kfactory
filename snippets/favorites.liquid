@@ -5,6 +5,13 @@
 {% endcomment %}
 
 {% if customer %}
+  {%- assign data_no_vatiant = true -%}
+  {%- for collection in product.collections -%}
+    {% if collection.handle contains 'original' or collection.handle contains 'limited' %}
+      {%- assign data_no_vatiant = false -%}
+    {%- endif -%}
+  {%- endfor -%}
+
   <button
     class="w-full wishlist-button"
     type="button"
@@ -18,7 +25,17 @@
     data-image="{{ product | image_url: width: 1200 }}"
     data-url="{{ product.url }}"
     data-toggle="true"
-    data-no-variant="true"
+    data-no-variant="{{ data_no_vatiant }}"
+    {% unless data_no_variant %}
+      {%- for option in product.options_with_values -%}
+        {%- for value in option.values -%}
+          {% if option.selected_value == value %}
+            {% assign value_option = value | downcase %}
+            data-variant-option-{{ option.name }}="{{- value_option -}}"
+          {% endif %}
+        {%- endfor -%}
+      {%- endfor -%}
+    {% endunless %}
   >
     <span class="visually-hidden">{{ 'general.favorites.save_product' | t }}</span>
     {%- render 'icon-heart' -%}

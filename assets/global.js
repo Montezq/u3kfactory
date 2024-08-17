@@ -189,6 +189,7 @@ class QuantityInput extends HTMLElement {
 
   validateQtyRules() {
     const value = parseInt(this.input.value);
+    console.log(value)
     if (this.input.min) {
       const min = parseInt(this.input.min);
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
@@ -1124,8 +1125,10 @@ class VariantSelects extends HTMLElement {
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const destination = document.getElementById(`price-${this.dataset.section}-buy`);
         const destination2 = document.getElementById(`price-${this.dataset.section}`);
+        const destination3 = document.getElementById(`price-${this.dataset.section}-buy-2`);
         const source = html.getElementById(`price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}-buy`);
         const source2 = html.getElementById(`price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+        const source3 = html.getElementById(`price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}-buy-2`);
         const skuSource = html.getElementById(`Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
         const skuDestination = document.getElementById(`Sku-${this.dataset.section}`);
         const inventorySource = html.getElementById(`Inventory-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
@@ -1143,6 +1146,7 @@ class VariantSelects extends HTMLElement {
   
         if (source && destination) destination.innerHTML = source.innerHTML;
         if (source2 && destination2) destination2.innerHTML = source2.innerHTML;
+        if (source3 && destination3) destination3.innerHTML = source3.innerHTML;
         if (inventorySource && inventoryDestination) inventoryDestination.innerHTML = inventorySource.innerHTML;
         if (skuSource && skuDestination) {
           skuDestination.innerHTML = skuSource.innerHTML;

@@ -5,7 +5,7 @@
     <h1
       id="bar"
       tabindex="-1"
-      class="font-coutureBold text-xl ds_element md:text-[30px] uppercase text-center max-lg:w-full max-lg:left-0 max-lg:py-2 fixed top-[52px]  bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+      class="font-coutureBold lg:pr-5  text-xl ds_element md:text-[30px] uppercase text-center max-lg:w-full max-lg:left-0 max-lg:py-2 fixed top-[52px]  bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
     >
       {{ 'customer.recover_password.title' | t }}
     </h1>
@@ -65,7 +65,7 @@
     <h1
       id="bar"
       tabindex="-1"
-      class="font-coutureBold text-xl ds_element md:text-[30px] uppercase text-center max-lg:w-full max-lg:left-0 max-lg:py-2 fixed top-[52px]  bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+      class="font-coutureBold lg:pr-5 text-xl ds_element md:text-[30px] uppercase text-center max-lg:w-full max-lg:left-0 max-lg:py-2 fixed top-[52px]  bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
     >
       {{ 'customer.login_page.title' | t }}
     </h1>
@@ -161,6 +161,20 @@
     </div>
   {%- endif -%}
 </div>
+{%- if recover_success -%}
+  <div class="removed-wishlist__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
+    <div
+      class="border border-[#5a5a5a] bg-white px-4 py-3.5 removed-wishlist__modal-wrapper w-full"
+      aria-modal="true"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div class="removed-wishlist__modal-heading text-center">
+        <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">Instructions Sent</h2>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
 <script>
   // Function to toggle password visibility
   function togglePasswordVisibility(event) {
@@ -183,6 +197,15 @@
       button.addEventListener('click', togglePasswordVisibility);
     });
   });
+  {% if recover_success %}
+    const instructionsSent = document.querySelector('.removed-wishlist__modal');
+    if (instructionsSent) {
+      instructionsSent.classList.remove('hidden');
+      setTimeout(() => {
+        instructionsSent.classList.add('hidden');
+      }, 1000); // Wait for 1 second before hiding the modal
+    }
+  {% endif %}
 </script>
 {% schema %}
 {

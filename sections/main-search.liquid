@@ -3,7 +3,7 @@
 <div class="template-search max-lg:px-2{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %}">
   <div
     id="bar"
-    class="ds_element dissapearing heading__search max-lg:pt-2 max-lg:pb-4 fixed top-[67px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out flex justify-center"
+    class="ds_element dissapearing heading__search max-lg:py-3 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out flex justify-center"
   >
     <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">
       {{- 'templates.search.title' | t -}}
@@ -49,6 +49,19 @@
             {% endif %}
           {% endunless %}
         {% endfor %}
+      {% elsif item.object_type == 'page' %}
+        {% if item.title == 'Terms of Service' %}
+          <div class="search__group hidden page__search-group">
+            <h2 class="uppercase text-[14px] mb-3 md:mb-5">{{ item.title }}</h2>
+            <a href="{{ item.url }}" class="btn"> GO TO PAGE </a>
+          </div>
+        {% endif %}
+        {% if item.title == 'Return Policy' %}
+          <div class="search__group hidden page__search-group">
+            <h2 class="uppercase text-[14px] mb-3 md:mb-5">{{ item.title }}</h2>
+            <a href="{{ item.url }}" class="btn"> GO TO PAGE </a>
+          </div>
+        {% endif %}
       {% endif %}
     {% endfor %}
 
@@ -97,11 +110,13 @@
       </div>
     {% endfor %}
   {%- endif -%}
+
   <div class="search__body text-center">
     <p role="status" class="uppercase text-[17px]" id="search-status"></p>
   </div>
-  <div id="search-results-container"></div>
+  <div id="search-results-container" class="pb-[82px]"></div>
 </div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const searchResultsContainer = document.getElementById('search-results-container');
@@ -112,34 +127,84 @@
     const termList = searchTerms.map((term) => term.charAt(0).toUpperCase() + term.slice(1)).join(', ');
 
     if (groupedResults && groupedResults.length > 0) {
-      const totalResults = groupedResults.reduce((acc, group) => acc + group.products.length, 0);
+      const totalResults = groupedResults.reduce((acc, group) => acc + group.items.length, 0);
       searchStatus.innerHTML = `${totalResults} Search results for <strong>"${termList}"</strong> found:`;
 
-      groupedResults.forEach((group) => {
-        const groupContainer = document.createElement('div');
-        groupContainer.classList.add('search__group');
-
-        const groupTitle = document.createElement('h2');
-        groupTitle.classList.add('uppercase', 'text-[14px]', 'mb-3', 'md:mb-5');
-        // Replace hyphens with spaces in collection title
-        groupTitle.textContent = group.collection.replace(/-/g, ' ').replace(/all|ALL|All/, '');
-        groupContainer.appendChild(groupTitle);
-
-        const productList = document.createElement('ul');
-        productList.classList.add('grid', 'search__grid', 'grid-cols-3');
-        productList.setAttribute('role', 'list');
-        group.products.forEach((productHTML) => {
-          const listItem = document.createElement('li');
-          listItem.innerHTML = productHTML;
-          productList.appendChild(listItem);
-        });
-        groupContainer.appendChild(productList);
-        searchResultsContainer.appendChild(groupContainer);
+      // Reorder the groupedResults array to move 'page-search' to the end
+      groupedResults.sort((a, b) => {
+        if (a.collection === 'page-search') return 1;
+        if (b.collection === 'page-search') return -1;
+        return 0;
       });
 
-      // Clear the grouped results from local storage after displaying them
-      localStorage.removeItem('groupedSearchResults');
-      localStorage.removeItem('searchTerms');
+      groupedResults.forEach((group) => {
+        if (group.collection === 'page-search') {
+          // Apply the final HTML structure for pages
+          group.items.forEach((itemHTML) => {
+            // Parse the itemHTML to extract title and URL
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(itemHTML, 'text/html');
+
+            const title = doc.querySelector('h2').textContent.trim();
+            const url = doc.querySelector('a').getAttribute('href');
+
+            // Create the final HTML structure for the page
+            const pageContainer = document.createElement('div');
+            pageContainer.classList.add('search__group', 'page__search-group');
+
+            const pageTitle = document.createElement('h2');
+            pageTitle.classList.add('uppercase', 'text-[14px]', 'mb-3', 'md:mb-5');
+            pageTitle.textContent = title;
+
+            const pageLink = document.createElement('a');
+            pageLink.classList.add('btn', 'btn_primary', '!text-[24px]', 'relative', 'w-full', 'max-w-[320px]');
+            pageLink.setAttribute('href', url);
+
+            const linkText = document.createElement('span');
+            linkText.textContent = 'GO TO PAGE';
+
+            const linkIcon = document.createElement('span');
+            linkIcon.classList.add(
+              'absolute',
+              'top-1/2',
+              '-translate-y-1/2',
+              'right-[18px]',
+              'icon-FULL-ICON-SET-WEBSITE-FINAL_Choose-Medium-Arrow',
+              'text-[22px]'
+            );
+
+            pageLink.appendChild(linkText);
+            pageLink.appendChild(linkIcon);
+
+            pageContainer.appendChild(pageTitle);
+            pageContainer.appendChild(pageLink);
+            searchResultsContainer.appendChild(pageContainer);
+          });
+        } else {
+          // Default structure for products
+          const groupContainer = document.createElement('div');
+          groupContainer.classList.add('search__group');
+
+          const groupTitle = document.createElement('h2');
+          groupTitle.classList.add('uppercase', 'text-[14px]', 'mb-3', 'md:mb-5');
+          // Replace hyphens with spaces in collection title
+          groupTitle.textContent = group.collection.replace(/-/g, ' ').replace(/all|ALL|All/, '');
+          groupContainer.appendChild(groupTitle);
+
+          const itemList = document.createElement('ul');
+          itemList.classList.add('grid', 'search__grid', 'grid-cols-3');
+          itemList.setAttribute('role', 'list');
+
+          group.items.forEach((itemHTML) => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = itemHTML;
+            itemList.appendChild(listItem);
+          });
+
+          groupContainer.appendChild(itemList);
+          searchResultsContainer.appendChild(groupContainer);
+        }
+      });
     } else {
       searchStatus.innerHTML = `No search results found for <strong>"${termList}"</strong>.`;
     }
