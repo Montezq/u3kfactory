@@ -204,7 +204,7 @@
       }
 
       // Validate Password
-      if (passwordField.value.trim() === '') {
+      if (passwordField.value.trim() === '' || password.length < 8) {
         passwordError.classList.remove('hidden');
         isValid = false;
       }
