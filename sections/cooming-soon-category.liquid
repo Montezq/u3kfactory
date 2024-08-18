@@ -105,6 +105,18 @@
                   </p>
                 </div>
               </div>
+              <div
+                class="tooltip tooltip_exist absolute top-full mt-[11px] whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+              >
+                <div class="flex items-center">
+                  <div class="w-5 sm:w-7 h-5 sm:h-7 mr-[7px]">
+                    {%- render 'icon-info' -%}
+                  </div>
+                  <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
+                    This email is already in the notification list.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <button
@@ -160,7 +172,11 @@
     var live_url = window.location.href;
     var result = live_url.includes('form_type=customer');
     if (result) {
-      console.log('already exist');
+      const tooltipExist = document.querySelector('.tooltip_exist');
+      tooltipExist.classList.remove('opacity-0', 'invisible');
+      setTimeout(() => {
+        tooltipExist.classList.add('opacity-0', 'invisible');
+      }, 3000);
     }
   });
 </script>
