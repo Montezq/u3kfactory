@@ -26,7 +26,10 @@
         "video": "shopify:\/\/files\/videos\/Tote Bags Coming Soon.mov",
         "image": "shopify:\/\/shop_images\/SMARPTHONE-HOMEPAGE-SLIDE-3.jpg",
         "heading": "DESIGNED ACCESSORIES",
-        "subgheading": "COMING SOON"
+        "subgheading": "COMING SOON",
+        "mobile_cover_type": "video",
+        "mobile_video": "shopify:\/\/files\/videos\/REEL.mp4",
+        "mobile_image": "shopify:\/\/shop_images\/ad-campaign33.jpg"
       }
     }
   },

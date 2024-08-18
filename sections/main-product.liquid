@@ -134,7 +134,7 @@
                       currency: 'symbol',
                       use_variant: true,
                       show_badges: true,
-                      price_class: 'price--large'
+                      price_class: 'price--large !font-bold'
                     -%}
                   </div>
                   <div class="flex-1">
@@ -166,17 +166,33 @@
                           0
                         </div>
                         <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
+                          0
+                        </div>
+                        <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
                           {{ quantity }}
                         </div>
+                      {%- elsif length == 2 -%}
+                        <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
+                          0
+                        </div>
+                        {% for i in (0..length) %}
+                          {% assign char = quantity_str | slice: i, 1 %}
+                          {% if char != '' %}
+                            <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
+                              {{ char }}
+                            </div>
+                          {% endif %}
+                        {% endfor %}
+                      {% else %}
+                        {% for i in (0..length) %}
+                          {% assign char = quantity_str | slice: i, 1 %}
+                          {% if char != '' %}
+                            <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
+                              {{ char }}
+                            </div>
+                          {% endif %}
+                        {% endfor %}
                       {% endif %}
-                      {% for i in (0..length) %}
-                        {% assign char = quantity_str | slice: i, 1 %}
-                        {% if char != '' %}
-                          <div class="w-5 md:w-[26px] h-10 md:h-[46px] leading-none bg-black mr-[2px] flex items-center justify-center text-2xl md:text-[33px] text-white">
-                            {{ char }}
-                          </div>
-                        {% endif %}
-                      {% endfor %}
                     {% endif %}
                   </div>
                   <div class="leading-none md:ml-2 text-sm md:text-[19px] max-md:mt-2 uppercase">COPIES LEFT</div>
@@ -317,7 +333,7 @@
                       type="text"
                       name="contact[artist]"
                       id="artist"
-                      value="Contacting {{ artist }}"
+                      value="Contacting {{ product.vendor }}"
                     >
                     <div class="contact-subject contact-us__item">
                       <div class="blcok uppercase pl-2.5 font-axis font-extrabold text-[11px] md:text-[13px]">
@@ -434,7 +450,7 @@
                               {%- render 'icon-info' -%}
                             </div>
                             <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
-                              Please write a valid email address to be able to receive updates.
+                              Please write a valid email address to be able to receive replies.
                             </p>
                           </div>
                         </div>
@@ -480,6 +496,44 @@
               contactModal.classList.add('hidden');
               bodyEl.classList.remove('overflow-hidden');
             }
+            const form = document.querySelector('form');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const emailTooltip = document.getElementById('email-tooltip');
+            const messageError = document.getElementById('message-error');
+            const submitButton = document.getElementById('submit-button');
+
+            submitButton.addEventListener('click', function (event) {
+              let valid = true;
+
+              // Validate email
+              const emailValue = emailInput.value.trim();
+              if (emailValue === '' || !validateEmail(emailValue)) {
+                emailTooltip.classList.remove('opacity-0', 'invisible');
+                valid = false;
+              } else {
+                emailTooltip.classList.add('opacity-0', 'invisible');
+              }
+
+              // Validate message
+              const messageValue = messageInput.value.trim();
+              if (messageValue === '') {
+                messageError.classList.remove('hidden');
+                valid = false;
+              } else {
+                messageError.classList.add('hidden');
+              }
+
+              if (valid) {
+                form.submit(); // Submit the form if validation passes
+              }
+            });
+
+            // Function to validate email format
+            function validateEmail(email) {
+              const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              return re.test(String(email).toLowerCase());
+            }
           });
         </script>
     {% endcase %}
@@ -490,6 +544,7 @@
 {% else %}
   {%- render 'login-modal' -%}
 {% endif %}
+{%- render 'product-not-available' -%}
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
     color_scheme: section.settings.color_scheme,

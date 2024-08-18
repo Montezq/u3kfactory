@@ -8,7 +8,7 @@
 {%- endunless -%}
 
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
-
+{%- render 'product-not-available' -%}
 <div class="cart__wrapper flex flex-col relative lg:pr-7" id="main-cart-items" data-id="{{ section.id }}">
   <cart-items class="gradient isolate js-contents{% if cart == empty %} is-empty{% endif %}">
     <div class="page-width">
@@ -17,8 +17,8 @@
         data-id="{{ section.id }}"
         class="cart__heading ds_element fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out max-lg:py-2"
       >
-        <div class="flex justify-between lg:w-fit lg:border-b lg:border-b-black lg:pb-[3px] w-full">
-          <h1 class="md:min-w-[520px] font-coutureBold text-xl md:text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
+        <div class="flex justify-between lg:min-w-full lg:w-fit lg:border-b lg:border-b-black lg:pb-[3px] w-full">
+          <h1 class="md:min-w-[492px] font-coutureBold text-xl md:text-[29px] tracking-wide leading-none whitespace-nowrap mr-5 max-md:hidden">
             {{ 'sections.cart.title' | t }}
           </h1>
           <div class="totals max-md:w-full">
@@ -162,7 +162,7 @@
                                   data-index="{{ item.index | plus: 1 }}"
                                 >
                                 <button
-                                  class="quantity__button w-7 h-7 border-l border-l-black"
+                                  class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]"
                                   name="plus"
                                   type="button"
                                 >
@@ -201,7 +201,7 @@
                               name="minus"
                               type="button"
                             >
-                              <span class="visually-hidden">
+                              <span class="visually-hidden" name="minus">
                                 {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
                               </span>
                               -
@@ -227,11 +227,11 @@
                               data-index="{{ item.index | plus: 1 }}"
                             >
                             <button
-                              class="quantity__button w-7 h-7 border-l border-l-black"
+                              class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]"
                               name="plus"
                               type="button"
                             >
-                              <span class="visually-hidden">
+                              <span class="visually-hidden" name="plus">
                                 {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
                               </span>
                               +

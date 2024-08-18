@@ -65,14 +65,14 @@
         >
           <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Shopping-Bag-v3 text-[28px] block"></span>
           {%- if cart != empty -%}
-            <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-1">
+            <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-[3px]">
               {%- if cart.item_count < 100 -%}
                 <span aria-hidden="true">{{ cart.item_count }}</span>
               {%- endif -%}
               <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
             </div>
           {%- else -%}
-            <span class="absolute left-1/2 -translate-x-1/2 top-1"> 0 </span>
+            <span class="absolute left-1/2 -translate-x-1/2 top-[3px]"> 0 </span>
           {%- endif -%}
         </a>
       </div>
@@ -82,6 +82,21 @@
     class="header__personal max-lg:!bg-white max-lg:h-full fixed lg:relative top-0 left-0 w-[82vw] lg:w-[84px] lg:flex lg:items-center lg:justify-center px-1 z-[1] max-lg:-translate-x-full max-lg:duration-300 max-lg:ease-in-out"
     style="background-color: {{ settings.default_color }}"
   >
+    {%- if section.settings.header_image != blank -%}
+      {%- assign image_height = section.settings.header_image.width
+        | divided_by: section.settings.header_image.aspect_ratio
+      -%}
+      {{
+        section.settings.header_image
+        | image_url: width: 168
+        | image_tag:
+          width: section.settings.image.width,
+          height: image_height,
+          class: 'w-full h-full object-cover absolute top-0 left-0',
+          widths: '84, 168, 332',
+          fetchpriority: 'high'
+      }}
+    {%- endif -%}
     {%- if section.settings.personal_menu != blank -%}
       <div class="header__personal-menu relative max-lg:flex max-lg:flex-col max-lg:pt-4 max-lg:pr-2 max-lg:pb-8 max-lg:pl-9 lg:absolute max-lg:h-full w-full lg:w-auto left-1/2 -translate-x-1/2 group">
         <div class="header__personal-menu-icon lg:cursor-pointer max-lg:pb-4 max-lg:flex max-lg:justify-end">
@@ -132,7 +147,7 @@
         </div>
       </div>
     {%- endif -%}
-    <div class="header__personal-data hidden lg:flex flex-col justify-center item items-center">
+    <div class="header__personal-data hidden lg:flex flex-col justify-center item items-center relative z-[2]">
       <a
         href="/pages/account-slides"
         class="header__personal-data-user flex flex-col justify-center item items-center mb-6"
@@ -140,7 +155,7 @@
         <div class="header__personal-data-user-icon w-[34px] mb-1.5">
           <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Account text-[34px] block"></span>
         </div>
-        <div class="header__personal-data-user-name text-[15px] text-center font-open uppercase font-semibold">
+        <div class="header__personal-data-user-name text-[15px] text-center font-open uppercase tracking-[.1em] font-semibold">
           {%- if customer -%}
             {%- if customer.first_name -%}
               {{ customer.first_name | slice: 0, 1 }}.
@@ -158,7 +173,7 @@
         class="header__personal-data-cart w-[38px] flex justify-center relative font-coutureBold text-[26px]"
         id="cart-icon-bubble"
       >
-        <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Shopping-Bag-v3 text-[52px] block"></span>
+        <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Shopping-Bag-v3 text-[56px] block"></span>
         {%- if cart != empty -%}
           <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-2.5">
             {%- if cart.item_count < 100 -%}
@@ -249,7 +264,7 @@
       endfor
     -%}
     <div class="header__menu-content pl-10 lg:pl-[0] pr-5 lg:pr-0 mt-[72px] lg:mt-0 flex flex-col overflow-auto relative z-[1]{% unless link_ative or active_item %} lg:pt-[16vh] transition-all duration-500{% endunless %}">
-      <div class="header__menu-logo lg:pl-2">
+      <div class="header__menu-logo lg:pl-2 w-fit">
         {%- if request.page_type == 'index' -%}
           <h1>
         {%- endif -%}
@@ -349,6 +364,12 @@
       "type": "image_picker",
       "id": "mobile_image",
       "label": "t:sections.header.settings.mobile_image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "header_image",
+      "label": "Image for personal bar",
+      "info": "If empty the default color will be picked"
     }
   ]
 }

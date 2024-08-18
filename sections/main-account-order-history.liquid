@@ -2,7 +2,7 @@
 {%- liquid
   assign orders_count = 0
   for order in customer.orders
-    if order.cancelled == false or order.metafields.custom.delivery_completed != true
+    if order.cancelled == false and order.metafields.custom.delivery_completed != true
       assign orders_count = orders_count | plus: 1
     endif
   endfor
@@ -13,6 +13,7 @@
     class="ds_element dissapearing main-account-order__heading max-lg:py-2 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
   >
     <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">My Orders</h1>
+
     <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-2 max-lg:hidden">
       <li>
         <a href="/account?view=order-history-active" class="text-[13px] font-bold underline uppercase"> Active </a>
@@ -146,7 +147,7 @@
                   <button
                     class="btn btn_outlined w-full uppercase !text-xl md:!text-2xl {% if order.tags contains 'processing' %}cancel-order{% else %}unavailable-cancel-order{% endif %}"
                   >
-                    Cancel order
+                    Request cancellation
                   </button>
                   {%- if order.tags contains 'processing' -%}
                     <div class="cancel-order__modal remove-order__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[9999999]">
@@ -218,7 +219,7 @@
         {%- endif -%}
       {%- endfor -%}
     </ul>
-    {%- if orders_count < 0 -%}
+    {%- if orders_count < 1 -%}
       <div>
         <h2 class="text-xl md:text-[30px] uppercase text-center tracking-xwidest py-[30vh]">NO ORDERS</h2>
       </div>

@@ -1,5 +1,8 @@
 // Function to handle adding or removing a product to/from the wishlist
+
+
 function addToWishlist(event) {
+  let bodyEl = document.querySelector('body');
   const button = event.currentTarget;
 
   // Get the data attributes from the button
@@ -40,7 +43,7 @@ function addToWishlist(event) {
         removedModal.classList.add('hidden');
       }, 1000); // Wait for 1 second before hiding the modal
     }
-    return
+    return;
   }
   if (!existingItem) {
     // Check if there is an item with the same productId and noVariant set to true
@@ -72,6 +75,7 @@ function addToWishlist(event) {
     // Show the wishlist modal if the user hasn't opted out
     if (!localStorage.getItem('dontShowWishlistModal')) {
       document.querySelector('.wishlist__modal').classList.remove('hidden');
+      bodyEl.classList.add('overflow-hidden');
     }
   } else if (dataToggle) {
     // Remove the item from the wishlist
@@ -108,12 +112,12 @@ function checkWishlistButtons() {
     const productId = button.getAttribute('data-id');
     const dataToggle = button.getAttribute('data-toggle') === 'true';
     const variantId = button.getAttribute('data-variant-id');
-    if(dataToggle){
+    if (dataToggle) {
       const match = wishlist.find(item => item.productId === productId);
       if (match) {
         button.classList.add('match');
       }
-      return
+      return;
     }
 
     const match = wishlist.find(item => item.variantId === variantId);
@@ -126,7 +130,9 @@ function checkWishlistButtons() {
 
 // Function to hide the wishlist modal
 function hideWishlistModal() {
+  let bodyEl = document.querySelector('body');
   document.querySelector('.wishlist__modal').classList.add('hidden');
+  bodyEl.classList.remove('overflow-hidden');
 }
 
 // Function to handle the "Don't show this again" action
@@ -136,8 +142,8 @@ function dontShowWishlistModal(event) {
   hideWishlistModal();
 }
 
-// Ensure the DOM is fully loaded before attaching event listeners and checking buttons
-document.addEventListener('DOMContentLoaded', () => {
+// Function to reinitialize the wishlist functionality
+const reinitializeWishlist = () => {
   // Find all wishlist buttons
   const wishlistButtons = document.querySelectorAll('.wishlist-button');
 
@@ -157,9 +163,24 @@ document.addEventListener('DOMContentLoaded', () => {
     wishlistModalCloseButton.addEventListener('click', hideWishlistModal);
   }
 
+  const wishlistModalWrapper = document.querySelector('.wishlist__modal-wrapper');
+  const wishlistModal = document.querySelector('.wishlist__modal');
+  if (wishlistModal) {
+    wishlistModal.addEventListener('click', (event) => {
+      if (!wishlistModalWrapper.contains(event.target)) {
+        hideWishlistModal();
+      }
+    });
+  }
+
   // Attach event listener to "Don't show this again" link
   const dontShowWishlistModalLink = document.querySelector('.dont-show-wishlist-modal');
   if (dontShowWishlistModalLink) {
     dontShowWishlistModalLink.addEventListener('click', dontShowWishlistModal);
   }
+}
+
+// Initial call to reinitialize the wishlist functionality
+document.addEventListener('DOMContentLoaded', () => {
+  reinitializeWishlist();
 });

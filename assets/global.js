@@ -183,7 +183,6 @@ class QuantityInput extends HTMLElement {
   onButtonClick(event) {
     event.preventDefault();
     const previousValue = this.input.value;
-
     event.target.name === 'plus' ? this.input.stepUp() : this.input.stepDown();
     if (previousValue !== this.input.value) this.input.dispatchEvent(this.changeEvent);
   }
@@ -1108,8 +1107,6 @@ class VariantSelects extends HTMLElement {
     const section = this.closest('section');
     if (!section) return;
 
-    const productForm = section.querySelector('product-form');
-    if (productForm) productForm.handleErrorMessage();
   }
 
   renderProductInfo() {
@@ -1331,6 +1328,14 @@ class AccordionItem extends HTMLElement {
         content.style.height = content.scrollHeight + 'px';
         content.setAttribute('aria-expanded', 'true');
         this.dispatchEvent(new CustomEvent('toggleItem', { bubbles: true, detail: this }));
+        const hasVerticalScroll = () => {
+          // Check if the document has more scroll height than the viewport height
+          return document.documentElement.scrollHeight > document.documentElement.clientHeight;
+        };
+      
+        if (hasVerticalScroll()) {
+          document.body.classList.add('accordion-menu__opened_scrolled');
+        }
       }
     });
   }
@@ -1344,6 +1349,14 @@ class AccordionItem extends HTMLElement {
         document.querySelector('.header__menu-content').classList.remove('lg:pt-[16vh]');
         content.style.height = `${content.scrollHeight}px`;
       });
+      const hasVerticalScroll = () => {
+        // Check if the document has more scroll height than the viewport height
+        return document.documentElement.scrollHeight > document.documentElement.clientHeight;
+      };
+    
+      if (hasVerticalScroll()) {
+        document.body.classList.add('accordion-menu__opened_scrolled');
+      }
     } else {
       this.classList.remove('open')
       content.style.height = '0';

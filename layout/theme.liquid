@@ -162,7 +162,9 @@
           font-style: normal;
           font-display: swap;
         }
-
+        .header-item__custom-active{
+          color: {{settings.second_color}} !important;
+        }
       {% if template.name == "index" %}
         body{
           overflow: hidden;
@@ -187,6 +189,43 @@
   </head>
 
   <body class="pl-0 gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Get the referrer URL
+        const referrer = document.referrer;
+
+        // Get the current URL
+        const currentUrl = window.location.href;
+
+        // Function to add custom-active class based on the referrer URL and remove style attribute from others
+        const addCustomActiveClass = (referrerPath) => {
+          // Find all <a> elements with a data-url attribute
+          const anchorElements = document.querySelectorAll('a[data-url]');
+
+          anchorElements.forEach((anchor) => {
+            const dataUrl = anchor.getAttribute('data-url');
+            if (dataUrl === referrerPath) {
+              anchor.classList.add('header-item__custom-active');
+            } else {
+              anchor.style.removeProperty('color');
+            }
+          });
+        };
+
+        // Check if the referrer URL contains 'all' and the current URL contains '/products'
+        if (
+          (referrer.includes('all-original') || referrer.includes('all-limited')) &&
+          currentUrl.includes('/products')
+        ) {
+          // Extract the path from the referrer URL
+          const referrerPath = new URL(referrer).pathname;
+          localStorage.setItem('savedReferrerUrl', referrerPath); // Save the referrer path
+
+          // Add custom-active class to matching <a> elements and remove style attribute from others
+          addCustomActiveClass(referrerPath);
+        }
+      });
+    </script>
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
@@ -194,7 +233,7 @@
     {% section 'share' %}
     <main
       id="MainContent"
-      class="content-for-layout focus-none main relative min-h-full pt-[53px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0 overflow-hidden"
+      class="content-for-layout focus-none main relative min-h-full pt-[53px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0 overflow-hidden{% if template.name == 'product' %} pb-[82px]{% endif %}"
       role="main"
       tabindex="-1"
     >
