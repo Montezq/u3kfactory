@@ -1816,6 +1816,9 @@ video {
 .pt-\[6vh\] {
   padding-top: 6vh;
 }
+.pl-5 {
+  padding-left: 1.25rem;
+}
 .\!text-center {
   text-align: center !important;
 }

@@ -101,8 +101,8 @@
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="password-error">
                 <span> *Password is required </span>
               </div>
-              <div class="form-errors hidden text-[10px] md:text-[13px]" id="password-error2">
-                <span> *Password at least 8 characters in length </span>
+              <div class="form-errors hidden text-[10px] md:text-[13px] line-clamp-1 pl-5" id="password-error2">
+                <span> *Password must be at least 8 characters in length </span>
               </div>
               {%- if form.errors contains 'password' -%}
                 <div class="form-errors">
