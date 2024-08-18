@@ -1139,7 +1139,10 @@ class VariantSelects extends HTMLElement {
         const volumePricingDestination = document.getElementById(`Volume-${this.dataset.section}`);
         const qtyRules = document.getElementById(`Quantity-Rules-${this.dataset.section}`);
         const volumeNote = document.getElementById(`Volume-Note-${this.dataset.section}`);
-  
+        const destinationCopy = document.getElementById(`copy-${this.dataset.section}`);
+        const sourceCopy = html.getElementById(`copy-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+
+
         if (volumeNote) volumeNote.classList.remove('hidden');
         if (volumePricingDestination) volumePricingDestination.classList.remove('hidden');
         if (qtyRules) qtyRules.classList.remove('hidden');
@@ -1147,6 +1150,8 @@ class VariantSelects extends HTMLElement {
         if (source && destination) destination.innerHTML = source.innerHTML;
         if (source2 && destination2) destination2.innerHTML = source2.innerHTML;
         if (source3 && destination3) destination3.innerHTML = source3.innerHTML;
+        if (destinationCopy && sourceCopy) destinationCopy.innerHTML = sourceCopy.innerHTML;
+        console.log(destinationCopy)
         if (inventorySource && inventoryDestination) inventoryDestination.innerHTML = inventorySource.innerHTML;
         if (skuSource && skuDestination) {
           skuDestination.innerHTML = skuSource.innerHTML;

@@ -149,7 +149,7 @@
                 </div>
               {%- when 'copies_left' -%}
                 <div class="flex flex-col lg:flex-row items-center copies-left__wrapper">
-                  <div class="flex">
+                  <div class="flex" id="copy-{{ section.id }}">
                     {% assign quantity = product.selected_or_first_available_variant.inventory_quantity %}
                     {% assign quantity_str = quantity | append: '' %}
                     {% if quantity_str == '0' %}
