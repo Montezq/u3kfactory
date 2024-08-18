@@ -101,7 +101,11 @@
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="password-error">
                 <span> *Password is required </span>
               </div>
-              <div class="form-errors hidden text-[10px] md:text-[13px] line-clamp-1 pl-5" id="password-error2">
+              <div
+                class="form-errors hidden text-[10px] md:text-[13px] line-clamp-1 pl-5"
+                title="*Password must be at least 8 characters in length"
+                id="password-error2"
+              >
                 <span> *Password must be at least 8 characters in length </span>
               </div>
               {%- if form.errors contains 'password' -%}
@@ -180,6 +184,20 @@
     const passwordError2 = document.getElementById('password-error2');
     const emailError = document.getElementById('email-error');
 
+    // Function to hide error messages when input fields lose focus
+    function hideErrorOnBlur(field, errorElement) {
+      field.addEventListener('blur', () => {
+        errorElement.classList.add('hidden');
+      });
+    }
+
+    // Attach blur event listeners to each field
+    hideErrorOnBlur(firstNameField, firstNameError);
+    hideErrorOnBlur(lastNameField, lastNameError);
+    hideErrorOnBlur(emailField, emailError);
+    hideErrorOnBlur(passwordField, passwordError);
+    hideErrorOnBlur(passwordField, passwordError2);
+
     registerButton.addEventListener('click', function (event) {
       let isValid = true;
 
@@ -187,6 +205,7 @@
       firstNameError.classList.add('hidden');
       lastNameError.classList.add('hidden');
       passwordError.classList.add('hidden');
+      passwordError2.classList.add('hidden');
       emailError.classList.add('hidden');
 
       const emailValue = emailField.value.trim();
@@ -225,6 +244,7 @@
       // If the form is valid, submit the form (Shopify's default handling)
       // You can remove this comment if you're handling form submission manually.
     });
+
     function validateEmail(email) {
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(String(email).toLowerCase());
