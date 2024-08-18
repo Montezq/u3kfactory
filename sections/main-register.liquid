@@ -211,9 +211,7 @@
       if (passwordField.value.trim() === '') {
         passwordError.classList.remove('hidden');
         isValid = false;
-      }
-
-      if (passwordField.value.length < 8) {
+      } else if (passwordField.value.length < 8) {
         passwordError2.classList.remove('hidden');
         isValid = false;
       }
