@@ -101,6 +101,9 @@
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="password-error">
                 <span> *Password is required </span>
               </div>
+              <div class="form-errors hidden text-[10px] md:text-[13px]" id="password-error2">
+                <span> *Password at least 8 characters in length </span>
+              </div>
               {%- if form.errors contains 'password' -%}
                 <div class="form-errors">
                   <span id="RegisterForm-password-error" class="form__message">
@@ -174,6 +177,7 @@
     const firstNameError = document.getElementById('first-name-error');
     const lastNameError = document.getElementById('last-name-error');
     const passwordError = document.getElementById('password-error');
+    const passwordError2 = document.getElementById('password-error2');
     const emailError = document.getElementById('email-error');
 
     registerButton.addEventListener('click', function (event) {
@@ -204,8 +208,13 @@
       }
 
       // Validate Password
-      if (passwordField.value.trim() === '' || password.length < 8) {
+      if (passwordField.value.trim() === '') {
         passwordError.classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (passwordField.value.length < 8) {
+        passwordError2.classList.remove('hidden');
         isValid = false;
       }
 
