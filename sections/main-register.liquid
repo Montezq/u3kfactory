@@ -73,6 +73,9 @@
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="email-error">
                 <span> *Email is required </span>
               </div>
+              <div class="form-errors hidden text-[10px] md:text-[13px]" id="email-error2">
+                <span> *Valid Email is required </span>
+              </div>
             </div>
             <div class="relative">
               <input
@@ -183,20 +186,50 @@
     const passwordError = document.getElementById('password-error');
     const passwordError2 = document.getElementById('password-error2');
     const emailError = document.getElementById('email-error');
+    const emailError2 = document.getElementById('email-error2');
 
-    // Function to hide error messages when input fields lose focus
-    function hideErrorOnBlur(field, errorElement) {
+    // Function to validate fields on blur and hide error messages if valid
+    function validateOnBlur(field, errorElement, secondaryErrorElement = null, validationFn = null) {
       field.addEventListener('blur', () => {
-        errorElement.classList.add('hidden');
+        const value = field.value.trim();
+        let isValid = true;
+
+        if (validationFn) {
+          isValid = validationFn(value);
+        } else {
+          isValid = value !== '';
+        }
+
+        if (isValid) {
+          errorElement.classList.add('hidden');
+          if (secondaryErrorElement) {
+            secondaryErrorElement.classList.add('hidden');
+          }
+        } else {
+          errorElement.classList.remove('hidden');
+          if (secondaryErrorElement) {
+            secondaryErrorElement.classList.add('hidden');
+          }
+        }
       });
     }
 
-    // Attach blur event listeners to each field
-    hideErrorOnBlur(firstNameField, firstNameError);
-    hideErrorOnBlur(lastNameField, lastNameError);
-    hideErrorOnBlur(emailField, emailError);
-    hideErrorOnBlur(passwordField, passwordError);
-    hideErrorOnBlur(passwordField, passwordError2);
+    // Validation function for email
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
+    }
+
+    // Validation function for password (minimum 8 characters)
+    function validatePassword(password) {
+      return password.length >= 8;
+    }
+
+    // Attach blur event listeners to each field with appropriate validation
+    validateOnBlur(firstNameField, firstNameError);
+    validateOnBlur(lastNameField, lastNameError);
+    validateOnBlur(emailField, emailError, emailError2, (value) => value !== '' && validateEmail(value));
+    validateOnBlur(passwordField, passwordError, passwordError2, (value) => value !== '' && validatePassword(value));
 
     registerButton.addEventListener('click', function (event) {
       let isValid = true;
@@ -207,10 +240,16 @@
       passwordError.classList.add('hidden');
       passwordError2.classList.add('hidden');
       emailError.classList.add('hidden');
+      emailError2.classList.add('hidden');
 
       const emailValue = emailField.value.trim();
-      if (emailValue === '' || !validateEmail(emailValue)) {
+      if (emailValue === '') {
         emailError.classList.remove('hidden');
+        emailError2.classList.add('hidden');
+        isValid = false;
+      } else if (!validateEmail(emailValue)) {
+        emailError2.classList.remove('hidden');
+        emailError.classList.add('hidden');
         isValid = false;
       }
 
@@ -229,9 +268,11 @@
       // Validate Password
       if (passwordField.value.trim() === '') {
         passwordError.classList.remove('hidden');
+        passwordError2.classList.add('hidden');
         isValid = false;
       } else if (passwordField.value.length < 8) {
         passwordError2.classList.remove('hidden');
+        passwordError.classList.add('hidden');
         isValid = false;
       }
 
@@ -244,11 +285,6 @@
       // If the form is valid, submit the form (Shopify's default handling)
       // You can remove this comment if you're handling form submission manually.
     });
-
-    function validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(String(email).toLowerCase());
-    }
   });
 </script>
 {% schema %}
