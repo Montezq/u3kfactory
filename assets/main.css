@@ -1837,9 +1837,6 @@ video {
 .font-coutureBold {
   font-family: "Couture Bold", sans-serif;
 }
-.font-helvetica {
-  font-family: "Neue Helvetica", sans-serif;
-}
 .font-helveticaLight {
   font-family: "Neue Helvetica Light", sans-serif;
 }
@@ -2006,9 +2003,6 @@ video {
 }
 .\!font-semibold {
   font-weight: 600 !important;
-}
-.font-\[900\] {
-  font-weight: 900;
 }
 .font-black {
   font-weight: 900;
