@@ -1151,7 +1151,6 @@ class VariantSelects extends HTMLElement {
         if (source2 && destination2) destination2.innerHTML = source2.innerHTML;
         if (source3 && destination3) destination3.innerHTML = source3.innerHTML;
         if (destinationCopy && sourceCopy) destinationCopy.innerHTML = sourceCopy.innerHTML;
-        console.log(destinationCopy)
         if (inventorySource && inventoryDestination) inventoryDestination.innerHTML = inventorySource.innerHTML;
         if (skuSource && skuDestination) {
           skuDestination.innerHTML = skuSource.innerHTML;

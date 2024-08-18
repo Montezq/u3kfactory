@@ -165,7 +165,7 @@
                                   data-index="{{ item.index | plus: 1 }}"
                                 >
                                 <button
-                                  class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]"
+                                  class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]{% if quantity == 1 %} cursor-not-allowed{% endif %}"
                                   name="plus"
                                   type="button"
                                 >
@@ -209,7 +209,7 @@
                             -
                           </button>
                           <input
-                            class="quantity__input text-center w-[30px] min-w-[30px]"
+                            class="quantity__input text-center w-[30px] min-w-[30px]{% if quantity == 1 %} cursor-not-allowed{% endif %}"
                             data-quantity-variant-id="{{ item.variant.id }}"
                             type="number"
                             name="updates[]"
@@ -219,9 +219,6 @@
                             data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
                             min="0"
                             data-min="{{ item.variant.quantity_rule.min }}"
-                            {% if item.variant.quantity_rule.max != null %}
-                              max="{{ item.variant.quantity_rule.max }}"
-                            {% endif %}
                             {% if item.variant.quantity_rule.max != null %}
                               max="{{ item.variant.quantity_rule.max }}"
                             {% elsif quantity == 1 %}
@@ -234,7 +231,7 @@
                             data-index="{{ item.index | plus: 1 }}"
                           >
                           <button
-                            class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]"
+                            class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]{% if quantity == 1 %} cursor-not-allowed{% endif %}"
                             name="plus"
                             type="button"
                           >
