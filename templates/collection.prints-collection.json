@@ -19,20 +19,19 @@
         "enable_sorting": true
       }
     },
-    "cooming_soon_category_7TaQLh": {
+    "cooming_soon_category_PL8H7X": {
       "type": "cooming-soon-category",
       "settings": {
-        "cover_type": "image",
-        "video": "shopify:\/\/files\/videos\/Tote Bags Coming Soon.mov",
-        "image": "shopify:\/\/shop_images\/wallpaperflare_remastered.jpg",
-        "heading": "CYBERPUNK ILLUSTRATIONS",
-        "subgheading": "COOMING SOON",
+        "cover_type": "video",
+        "image": "shopify:\/\/shop_images\/comics_coming_soon.jpg",
+        "heading": "COMICS ART PRINTS",
+        "subgheading": "COMING SOON",
         "mobile_cover_type": "video"
       }
     }
   },
   "order": [
     "product-grid",
-    "cooming_soon_category_7TaQLh"
+    "cooming_soon_category_PL8H7X"
   ]
 }
