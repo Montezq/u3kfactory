@@ -19,11 +19,11 @@
     "collection_list_bLgNT6": {
       "type": "collection-list",
       "blocks": {
-        "featured_collection_3xkKH4": {
+        "featured_collection_X9YwHJ": {
           "type": "featured_collection",
           "settings": {
-            "collection": "suprematism-prints",
-            "collection_title": "Suprematism"
+            "collection": "abstract-prints",
+            "collection_title": "ABSTRACT"
           }
         },
         "featured_collection_jgLr4k": {
@@ -33,11 +33,11 @@
             "collection_title": "Revisited Pop"
           }
         },
-        "featured_collection_X9YwHJ": {
+        "featured_collection_3xkKH4": {
           "type": "featured_collection",
           "settings": {
-            "collection": "abstract-prints",
-            "collection_title": "ABSTRACT"
+            "collection": "suprematism-prints",
+            "collection_title": "Suprematism"
           }
         },
         "featured_collection_VCtbQF": {
@@ -64,9 +64,9 @@
         }
       },
       "block_order": [
-        "featured_collection_3xkKH4",
-        "featured_collection_jgLr4k",
         "featured_collection_X9YwHJ",
+        "featured_collection_jgLr4k",
+        "featured_collection_3xkKH4",
         "featured_collection_VCtbQF",
         "featured_collection_xwfWj6",
         "featured_collection_qtyCjU"
