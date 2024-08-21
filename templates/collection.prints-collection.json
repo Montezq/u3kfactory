@@ -22,7 +22,7 @@
     "cooming_soon_category_PL8H7X": {
       "type": "cooming-soon-category",
       "settings": {
-        "cover_type": "video",
+        "cover_type": "image",
         "image": "shopify:\/\/shop_images\/comics_coming_soon.jpg",
         "heading": "COMICS ART PRINTS",
         "subgheading": "COMING SOON",
