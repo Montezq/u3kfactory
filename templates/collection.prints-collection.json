@@ -11,6 +11,7 @@
   "sections": {
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "settings": {
         "heading": "",
         "grid_template": "medium",
@@ -20,12 +21,13 @@
     },
     "cooming_soon_category_7TaQLh": {
       "type": "cooming-soon-category",
-      "disabled": true,
       "settings": {
-        "cover_type": "video",
+        "cover_type": "image",
         "video": "shopify:\/\/files\/videos\/Tote Bags Coming Soon.mov",
-        "heading": "Coomin Soon",
-        "subgheading": "Some TEXT"
+        "image": "shopify:\/\/shop_images\/wallpaperflare_remastered.jpg",
+        "heading": "CYBERPUNK ILLUSTRATIONS",
+        "subgheading": "COOMING SOON",
+        "mobile_cover_type": "video"
       }
     }
   },
