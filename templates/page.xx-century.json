@@ -19,18 +19,18 @@
     "collection_list_bLgNT6": {
       "type": "collection-list",
       "blocks": {
-        "featured_collection_X9YwHJ": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "abstract-prints",
-            "collection_title": "ABSTRACT"
-          }
-        },
         "featured_collection_jgLr4k": {
           "type": "featured_collection",
           "settings": {
             "collection": "revisited-pop-prints",
             "collection_title": "Revisited Pop"
+          }
+        },
+        "featured_collection_X9YwHJ": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "abstract-prints",
+            "collection_title": "ABSTRACT"
           }
         },
         "featured_collection_3xkKH4": {
@@ -64,8 +64,8 @@
         }
       },
       "block_order": [
-        "featured_collection_X9YwHJ",
         "featured_collection_jgLr4k",
+        "featured_collection_X9YwHJ",
         "featured_collection_3xkKH4",
         "featured_collection_VCtbQF",
         "featured_collection_xwfWj6",
