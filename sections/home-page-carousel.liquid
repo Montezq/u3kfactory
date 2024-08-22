@@ -34,7 +34,7 @@
         {%- endfor -%}
       </ul>
     </div>
-    <div class="home-page__carousel-wrapper-btn absolute z-[2] flex flex-col items-center w-full">
+    <div class="home-page__carousel-wrapper-btn absolute z-[2] flex flex-col items-center w-fit left-1/2 -translate-x-1/2">
       {% assign first_block = section.blocks | first %}
       <div class="mb-5">
         <a href="{{ first_block.settings.btn_url }}" class="btn main-btn btn_white-outlined">
