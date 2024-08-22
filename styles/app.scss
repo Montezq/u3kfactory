@@ -1517,6 +1517,11 @@ accordion-item.open,
     @apply bg-black;
   }
 }
+#cart-notification-added-product .cart-item:last-child>div{
+  border-width: 0px;
+}
+
+
 
 
 
