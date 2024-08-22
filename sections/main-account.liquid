@@ -117,7 +117,7 @@
                   >
                 </div>
                 <div class="field flex flex-col justify-end mt-10">
-                  <div class="w-full md:w-[226px] grid gap-5 ml-auto">
+                  <div class="w-full md:w-[250px] grid gap-5 ml-auto">
                     <div class="fake-checkbox__wrapper flex">
                       <div class="w-fit ml-auto">
                         {{ form.set_as_default_checkbox }}
@@ -237,7 +237,7 @@
                   >
                 </div>
                 <div class="field flex flex-col justify-end mt-10">
-                  <div class="w-full md:w-[226px] grid gap-5 ml-auto">
+                  <div class="w-full md:w-[250px] grid gap-5 ml-auto">
                     <div class="fake-checkbox__wrapper flex">
                       <div class="w-fit ml-auto">
                         {{ form.set_as_default_checkbox }}
@@ -295,7 +295,7 @@
             </label>
           {%- endfor -%}
         </div>
-        <div class="flex flex-col space-y-4 md:space-y-[21px] w-full md:w-[226px] md:ml-auto">
+        <div class="flex flex-col space-y-4 md:space-y-[21px] w-full md:w-[250px] md:ml-auto">
           <button class="btn btn_primary !text-[17px] w-full uppercase add-new-address !font-coutureBold font-bold">
             Add New
           </button>
@@ -468,7 +468,7 @@
                 >
               </div>
             </div>
-            <div class="space-y-[21px] w-full md:w-[226px] md:ml-auto">
+            <div class="space-y-[21px] w-full md:w-[250px] md:ml-auto">
               <button class="btn btn_primary !text-[17px] w-full uppercase !font-coutureBold font-bold">
                 {{ 'customer.login_page.submit' | t }}
               </button>
@@ -486,7 +486,7 @@
         <div class="grid md:grid-cols-2 gap-8 md:justify-between">
           <div></div>
           <div>
-            <div class="flex flex-col space-y-[21px] w-full md:w-[226px] md:ml-auto">
+            <div class="flex flex-col space-y-[21px] w-full md:w-[250px] md:ml-auto">
               <button class="btn btn_primary !text-[17px] w-full uppercase !px-1.5 !font-coutureBold font-bold change-password">
                 Change Password
               </button>
@@ -586,7 +586,9 @@
       textDefault = document.querySelector('.text-default-address'),
       textNew = document.querySelector('.text-insert-address'),
       deleteButton = document.querySelector('.delete-address-button'),
-      setDefaultButtons = document.querySelectorAll('.default-address');
+      setDefaultButtons = document.querySelectorAll('.default-address'),
+      addressLabels = document.querySelectorAll('.my-account__adress'),
+      editButton = document.querySelector('.edit-address-button');
 
     addNew.addEventListener('click', () => {
       newAaddress.classList.remove('hidden');
@@ -613,31 +615,32 @@
       }
     });
 
-    const addressLabels = document.querySelectorAll('.my-account__adress');
-    const editButton = document.querySelector('.edit-address-button');
+    function updateAddressButtons(addressId) {
+      deleteButton.setAttribute('data-target', `/account/addresses/${addressId}`);
+      editButton.setAttribute('data-target', `address-${addressId}`);
+
+      // Match and display the corresponding default address button
+      setDefaultButtons.forEach((button) => {
+        if (button.getAttribute('data-id') === addressId) {
+          button.classList.remove('hidden');
+        } else {
+          button.classList.add('hidden');
+        }
+      });
+    }
 
     addressLabels.forEach((label) => {
+      const addressId = label.querySelector('input').getAttribute('data-id');
+
       label.addEventListener('click', function () {
-        const addressId = this.querySelector('input').getAttribute('data-id');
-        deleteButton.setAttribute('data-target', `/account/addresses/${addressId}`);
-        editButton.setAttribute('data-target', `address-${addressId}`);
-
-        // Match and display the corresponding default address button
-        setDefaultButtons.forEach((button) => {
-          if (button.getAttribute('data-id') === addressId) {
-            button.classList.remove('hidden');
-          } else {
-            button.classList.add('hidden');
-          }
-        });
+        updateAddressButtons(addressId);
       });
-    });
 
-    // Trigger click event on the initially checked radio's parent label to set initial values
-    const checkedRadio = document.querySelector('.address-radio:checked');
-    if (checkedRadio) {
-      checkedRadio.closest('.my-account__adress').click();
-    }
+      // If the address is initially checked, update buttons on page load
+      if (label.querySelector('input').checked) {
+        updateAddressButtons(addressId);
+      }
+    });
 
     // Edit address button click handler
     editButton.addEventListener('click', function () {
