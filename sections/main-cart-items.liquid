@@ -165,7 +165,7 @@
                                   data-index="{{ item.index | plus: 1 }}"
                                 >
                                 <button
-                                  class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]{% if quantity == 1 %} cursor-not-allowed{% endif %}"
+                                  class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]"
                                   name="plus"
                                   type="button"
                                 >
@@ -209,7 +209,7 @@
                             -
                           </button>
                           <input
-                            class="quantity__input text-center w-[30px] min-w-[30px]{% if quantity == 1 %} cursor-not-allowed{% endif %}"
+                            class="quantity__input text-center w-[30px] min-w-[30px]"
                             data-quantity-variant-id="{{ item.variant.id }}"
                             type="number"
                             name="updates[]"
@@ -231,7 +231,7 @@
                             data-index="{{ item.index | plus: 1 }}"
                           >
                           <button
-                            class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]{% if quantity == 1 %} cursor-not-allowed{% endif %}"
+                            class="quantity__button w-7 h-7 border-l border-l-black pb-[3px]"
                             name="plus"
                             type="button"
                           >
@@ -276,6 +276,30 @@
     </div>
   </cart-items>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Select all quantity__input elements
+    const quantityInputs = document.querySelectorAll('.quantity__input');
+
+    quantityInputs.forEach((input) => {
+      const maxQuantity = parseInt(input.getAttribute('max'), 10);
+      if (maxQuantity === 1) {
+        const plusButton = input.nextElementSibling;
+        console.log(plusButton);
+        const modal = document.querySelector('.product-not-available__modal');
+
+        plusButton.addEventListener('click', () => {
+          // Add the class to the modal
+          modal.classList.remove('hidden');
+
+          setTimeout(() => {
+            modal.classList.add('hidden');
+          }, 1500);
+        });
+      }
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "t:sections.main-cart-items.name",
