@@ -27,9 +27,16 @@
         {%- if product.selected_or_first_available_variant.featured_media != null -%}
           {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
           <li
-            class="splide__slide bg-gray-200{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            class="splide__slide bg-gray-150{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
           >
+            {%- liquid
+              assign media_position = media_position | default: 0 | plus: 1
+              assign lazy_load = false
+              if media_position > 1
+                assign lazy_load = true
+              endif
+            -%}
             {% render 'product-thumbnail',
               media: media,
               media_width: media_width,
@@ -40,9 +47,16 @@
         {%- endif -%}
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
           <li
-            class="splide__slide bg-gray-200 !w-[102%] !-ml-[1%]{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            class="splide__slide bg-gray-150 !w-[102%] !-ml-[1%]{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
           >
+            {%- liquid
+              assign media_position = media_position | default: 0 | plus: 1
+              assign lazy_load = false
+              if media_position > 1
+                assign lazy_load = true
+              endif
+            -%}
             {% render 'product-thumbnail',
               media: media,
               media_width: media_width,
@@ -70,7 +84,7 @@
       {%- endcapture -%}
       {%- if featured_media != null -%}
         <li
-          class="splide__slide bg-gray-200"
+          class="splide__slide bg-gray-150"
           data-media-id="{{ section.id }}-{{ media.id }}"
         >
           {{
@@ -90,7 +104,7 @@
       {%- for media in product.media -%}
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
           <li
-            class="splide__slide bg-gray-200"
+            class="splide__slide bg-gray-150"
             data-media-id="{{ section.id }}-{{ media.id }}"
           >
             {{
