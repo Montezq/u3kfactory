@@ -493,12 +493,6 @@
           });
 
           document.addEventListener('click', (event) => {
-            if (contactModal.classList.contains('hidden')) return;
-
-            if (!contactWrapper.contains(event.target) && !contactOpen.contains(event.target)) {
-              contactModal.classList.add('hidden');
-              bodyEl.classList.remove('overflow-hidden');
-            }
             const form = document.querySelector('form');
             const emailInput = document.getElementById('email');
             const messageInput = document.getElementById('message');
@@ -514,6 +508,9 @@
               if (emailValue === '' || !validateEmail(emailValue)) {
                 emailTooltip.classList.remove('opacity-0', 'invisible');
                 valid = false;
+                setTimeout(() => {
+                  emailTooltip.classList.add('opacity-0', 'invisible');
+                }, 1500);
               } else {
                 emailTooltip.classList.add('opacity-0', 'invisible');
               }
