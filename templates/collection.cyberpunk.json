@@ -11,6 +11,7 @@
   "sections": {
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "settings": {
         "heading": "",
         "grid_template": "small",
