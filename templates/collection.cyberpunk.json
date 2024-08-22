@@ -12,12 +12,25 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
+        "heading": "",
+        "grid_template": "small",
         "enable_filtering": true,
         "enable_sorting": true
+      }
+    },
+    "cooming_soon_category_4QGcyx": {
+      "type": "cooming-soon-category",
+      "settings": {
+        "cover_type": "video",
+        "video": "shopify:\/\/files\/videos\/Coming Soon Desktop.mov",
+        "heading": "",
+        "subgheading": "",
+        "mobile_cover_type": "video"
       }
     }
   },
   "order": [
-    "product-grid"
+    "product-grid",
+    "cooming_soon_category_4QGcyx"
   ]
 }
