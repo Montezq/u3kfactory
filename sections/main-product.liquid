@@ -346,17 +346,39 @@
                         <div class="select-trigger cursor-pointer border border-black flex h-10 lg:h-12">
                           <div class="flex items-center pl-2.5 flex-1">
                             <span class="selected-text line-clamp-1 text-[11px] lg:text-sm text-gray-750 font-open uppercase">
-                              Collaboration
+                              {{ product.title }}
                             </span>
                           </div>
-                          <div class="w-11 select-icon border-black flex items-center justify-center">
+                          <div class="w-11 remove-icon border-black flex items-center justify-center">
+                            <span
+                              class="icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button font-semibold duration-100 ease-in-out relative text-[25px]"
+                            >
+                              <span class="path1"></span>
+                              <span class="path2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span>
+                            </span>
+                          </div>
+                          <div class="w-11 select-icon border-black items-center justify-center hidden">
                             <span
                               class="icon-FULL-ICON-SET-WEBSITE-FINAL_Next-Button-Arrow font-semibold text-xs duration-100 ease-in-out"
                             ></span>
                           </div>
                         </div>
                         <ul class="select-options select-options_w-full hidden absolute z-[2] top-full left-0 border border-t-0 border-black bg-white">
-                          <li class="custom-option selected">
+                          <li class="custom-option selected hidden">
+                            <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                              <input
+                                checked
+                                type="radio"
+                                name="contact[regarding]"
+                                value="{{ product.title }}"
+                                class="invisible w-0 h-0"
+                              >
+                              <span class="line-clamp-1 text-[11px] lg:text-sm text-gray-750 font-open uppercase">
+                                {{- product.title -}}
+                              </span>
+                            </label>
+                          </li>
+                          <li class="custom-option">
                             <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
                               <input
                                 checked
@@ -573,10 +595,52 @@
   document.addEventListener('click', function (e) {
     const target = e.target;
     const customSelect = target.closest('.custom-select');
+
     const allCustomSelects = document.querySelectorAll('.custom-select');
 
+    // If customSelect is null, it means the click was outside, so close all dropdowns
+    if (!customSelect) {
+      allCustomSelects.forEach((select) => {
+        select.classList.remove('open');
+      });
+      return;
+    }
+
+    const removeIcon = target.closest('.remove-icon');
+    const selectIcon = customSelect.querySelector('.select-icon');
+    const selectTrigger = customSelect.querySelector('.select-trigger');
+
+    // Prevent dropdown from expanding until .remove-icon is clicked
+    if (removeIcon) {
+      // Remove the 'flex' class from the remove-icon and add 'hidden'
+      removeIcon.classList.remove('flex');
+      removeIcon.classList.add('hidden');
+
+      // Add 'flex' class to the select-icon and remove 'hidden'
+      selectIcon.classList.remove('hidden');
+      selectIcon.classList.add('flex');
+
+      // Remove the first li and make the second one selected
+      const optionsList = customSelect.querySelector('.select-options');
+      const firstOption = optionsList.querySelector('li');
+      const secondOption = optionsList.querySelector('li:nth-child(2)');
+
+      if (firstOption) {
+        firstOption.remove();
+      }
+
+      if (secondOption) {
+        secondOption.classList.add('selected');
+        const selectedText = secondOption.querySelector('span').textContent;
+        customSelect.querySelector('.selected-text').textContent = selectedText;
+      }
+
+      // Prevent default dropdown toggle behavior after clicking remove-icon
+      return;
+    }
+
     // Clicking on the trigger toggles the current dropdown and closes others
-    if (customSelect && target.closest('.select-trigger')) {
+    if (target.closest('.select-trigger') && !selectTrigger.querySelector('.remove-icon.flex')) {
       // Close all dropdowns first
       allCustomSelects.forEach((select) => {
         if (select !== customSelect) {
@@ -585,7 +649,7 @@
       });
       // Toggle the clicked custom select
       customSelect.classList.toggle('open');
-    } else if (customSelect && target.tagName === 'INPUT' && target.type === 'radio') {
+    } else if (target.tagName === 'INPUT' && target.type === 'radio') {
       // Remove selected class from all options
       customSelect.querySelectorAll('li').forEach((li) => {
         li.classList.remove('selected');

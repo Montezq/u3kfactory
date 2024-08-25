@@ -58,6 +58,32 @@ body{
 *:focus-visible{
   outline: none;
 }
+@keyframes bounceWithPause {
+  0%, 43% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-20px);
+  }
+  48% {
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-10px); 
+  }
+  52%{
+    transform: translateY(0px); 
+  }
+  100% {
+    transform: translateY(0); 
+  }
+}
+
+.home-page__carousel-btn {
+  animation: bounceWithPause 8s infinite;
+}
+
+
 input[type="search"] {
   -webkit-appearance: none; /* Remove default styling in Safari */
   -moz-appearance: none;    /* Remove default styling in Firefox */
@@ -197,7 +223,6 @@ input[type="search"]::-moz-search-clear {
 }
 .icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button .path2:before {
   content: "\e914";
-  margin-left: -1em;
   color: rgb(255, 255, 255);
 }
 .icon-FULL-ICON-SET-WEBSITE-FINAL_Hand-Truck-Icon:before {
@@ -1520,7 +1545,10 @@ accordion-item.open,
 #cart-notification-added-product .cart-item:last-child>div{
   border-width: 0px;
 }
-
+.splide__slide-custom-w{
+  width: calc(100% + 2px) !important;
+  margin-left: -1px !important;
+}
 
 
 
