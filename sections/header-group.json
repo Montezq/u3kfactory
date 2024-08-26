@@ -16,7 +16,8 @@
       "settings": {
         "menu": "main-menu",
         "personal_menu": "personal-menu",
-        "mobile_image": "shopify:\/\/shop_images\/Background.png"
+        "mobile_image": "shopify:\/\/shop_images\/Background.png",
+        "header_image": "shopify:\/\/shop_images\/Bara_patern_5.png"
       }
     }
   },
