@@ -582,8 +582,9 @@ input{
 }
 .header__menu{
   @screen lg{
-    padding-top: clamp(50px, 8.17vh, 8.17vh);
-    padding-left: clamp(50px, 3.18vw, 3.18vw);
+    padding-top: clamp(50px, 9.17vh, 9.17vh);
+    padding-bottom: clamp(50px, 5vh, 5vh);
+    padding-left: clamp(50px, calc(3.18vw - 8px), calc(3.18vw - 8px));
   }
 }
 .header__menu-content{
@@ -839,7 +840,7 @@ accordion-item.open,
 }
 
 .product-section{
-  margin-bottom: clamp(2px, calc(14vh - 48px), calc(146px - 48px));
+  margin-bottom: clamp(2px, calc(12vh - 48px), calc(146px - 48px));
 }
 .price{
   &.price-mobile{
@@ -895,11 +896,11 @@ accordion-item.open,
   }
 }
 .product__title{
-  margin-bottom: clamp(27px, 2.94vh, 32px);
+  margin-bottom: clamp(32px, 2.94vh, 32px);
 }
 .product__description{
   @screen md{
-    margin-bottom: clamp(32px, 6.43vh, 70px);
+    margin-bottom: clamp(32px, 6.43vh, 50px);
   }
 }
 .product__description *{
@@ -1032,7 +1033,7 @@ accordion-item.open,
 }
 .cart__heading{
   @screen lg{
-    padding-top: clamp(42px, 6.4vh ,126px);
+    padding-top: clamp(42px, 5.4vh, 126px);
   }
   @apply max-lg:px-[18px];
 }
@@ -1042,7 +1043,7 @@ accordion-item.open,
   @apply right-0;
   z-index: 1;
   @screen lg{
-    @apply pr-12;
+    @apply pr-16;
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
 }
@@ -1074,6 +1075,11 @@ accordion-item.open,
   row-gap: clamp(10px, 1.1vh, 1.1vh);
   li{
     margin-right: clamp(12px, 1.41vw, 1.41vw);
+  }
+}
+.cart__wrapper {
+  @screen lg{
+    padding-right: clamp(0px, calc(3.7vw - 27px), calc(3.7vw - 27px))
   }
 }
 .cart__wrapper-items{
@@ -1128,8 +1134,8 @@ accordion-item.open,
     margin-bottom: 32px;
     padding-bottom: 6px;
     @screen md{
-      margin-bottom: 56px;
-      padding-bottom: 8px;
+      margin-bottom: 44px;
+      padding-bottom: 20px;
     }
     &:after{
       content: "";
@@ -1304,7 +1310,7 @@ accordion-item.open,
 .customer-register__form-wrapper{
   padding-top: 40px;
   @screen md{
-    padding-top: clamp(48px, calc(28.7vh - 62px), calc(28.7vh - 62px));
+    padding-top: clamp(48px, calc(35.7vh - 62px), calc(35.7vh - 62px));
   }
 }
 .form-errors{
@@ -1356,8 +1362,8 @@ accordion-item.open,
   }
 }
 .main-account__heading{
-  @apply lg:pr-5;
   @screen lg{
+    padding-right: clamp(20px, 5.37vw, 5.37vw);
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(45px, calc(10.84vh - 27px), 130px);
   }
@@ -1382,7 +1388,7 @@ accordion-item.open,
   @screen lg{
     padding-top: clamp(80px, calc(19.47vh - 27px), 273px);
     padding-bottom: clamp(92px,9.2vh,154px);
-    padding-right: 7px;
+    padding-right: clamp(0px, calc(5.37vw - 27px), calc(5.37vw - 27px));
   }
 }
 .my-account__body-item-heading{
@@ -1448,12 +1454,12 @@ accordion-item.open,
 }
 .custom-page__content{
   &>*{
-    margin-bottom: clamp(32px, 3.95vh, 3.95vh);
+    margin-bottom: clamp(32px, 3.5vh, 3.5vh);
     font-size: 20px;
     @apply text-base;
     @apply md:text-xl;
     @apply tracking-wider;
-    @apply leading-snug;
+    line-height: 1.2;
     &:last-child{
       margin-bottom: 0;
     }
@@ -1521,7 +1527,7 @@ accordion-item.open,
 }
 .header__personal-data{
   @screen lg{
-    @apply pt-[1.49vh]
+    @apply pt-[2.49vh]
   }
 }
 .margin-variant-picker{

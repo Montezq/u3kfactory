@@ -1031,8 +1031,8 @@ video {
 .h-screen {
   height: 100vh;
 }
-.max-h-\[34dvh\] {
-  max-height: 34dvh;
+.max-h-\[24dvh\] {
+  max-height: 24dvh;
 }
 .max-h-\[360px\] {
   max-height: 360px;
@@ -1804,6 +1804,9 @@ video {
 .pt-8 {
   padding-top: 2rem;
 }
+.pt-\[12vh\] {
+  padding-top: 12vh;
+}
 .pt-\[35vh\] {
   padding-top: 35vh;
 }
@@ -1818,9 +1821,6 @@ video {
 }
 .pt-\[60px\] {
   padding-top: 60px;
-}
-.pt-\[6vh\] {
-  padding-top: 6vh;
 }
 .\!text-center {
   text-align: center !important;
@@ -2995,8 +2995,9 @@ input:focus-visible{
     top: clamp(50px, 9.3vh, 9.3vh);
 }
 .header__menu{
-    padding-top: clamp(50px, 8.17vh, 8.17vh);
-    padding-left: clamp(50px, 3.18vw, 3.18vw);
+    padding-top: clamp(50px, 9.17vh, 9.17vh);
+    padding-bottom: clamp(50px, 5vh, 5vh);
+    padding-left: clamp(50px, calc(3.18vw - 8px), calc(3.18vw - 8px));
 }
   }
 @media screen and (min-height: 1100px){
@@ -3333,7 +3334,7 @@ input:focus-visible{
   }
 
 .product-section{
-  margin-bottom: clamp(2px, calc(14vh - 48px), calc(146px - 48px));
+  margin-bottom: clamp(2px, calc(12vh - 48px), calc(146px - 48px));
 }
 .price.price-mobile {
   font-size: 1.125rem;
@@ -3415,11 +3416,11 @@ input:focus-visible{
 }
   }
 .product__title{
-  margin-bottom: clamp(27px, 2.94vh, 32px);
+  margin-bottom: clamp(32px, 2.94vh, 32px);
 }
 @media (min-width: 768px){
 .product__description{
-    margin-bottom: clamp(32px, 6.43vh, 70px);
+    margin-bottom: clamp(32px, 6.43vh, 50px);
 }
   }
 .product__description * {
@@ -3581,7 +3582,7 @@ input:focus-visible{
 }
 @media (min-width: 1024px){
 .cart__heading{
-    padding-top: clamp(42px, 6.4vh ,126px);
+    padding-top: clamp(42px, 5.4vh, 126px);
 }
   }
 .cart__footer-wrapper,
@@ -3593,7 +3594,7 @@ input:focus-visible{
 @media (min-width: 1024px){
 .cart__footer-wrapper,
 .cart__heading {
-    padding-right: 3rem;
+    padding-right: 4rem;
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
   }
@@ -3640,6 +3641,11 @@ input:focus-visible{
 }
 .cart__footer-privacy-menu li{
     margin-right: clamp(12px, 1.41vw, 1.41vw);
+  }
+@media (min-width: 1024px){
+.cart__wrapper {
+    padding-right: clamp(0px, calc(3.7vw - 27px), calc(3.7vw - 27px));
+}
   }
 .cart__wrapper-items{
   padding: 42px 8px 67px;
@@ -3708,8 +3714,8 @@ input:focus-visible{
   }
 @media (min-width: 768px){
 .contact-us__modal-heading h2{
-      margin-bottom: 56px;
-      padding-bottom: 8px;
+      margin-bottom: 44px;
+      padding-bottom: 20px;
   }
     }
 .contact-us__modal-heading h2:after{
@@ -3916,7 +3922,7 @@ input:focus-visible{
 @media (min-width: 768px){
 .customer-login__form-wrapper,
 .customer-register__form-wrapper{
-    padding-top: clamp(48px, calc(28.7vh - 62px), calc(28.7vh - 62px));
+    padding-top: clamp(48px, calc(35.7vh - 62px), calc(35.7vh - 62px));
 }
   }
 .form-errors {
@@ -3999,19 +4005,18 @@ input:focus-visible{
     margin-top: 8px;
 }
   }
-@media (min-width: 1024px) {
-
-  .main-account__heading {
-    padding-right: 1.25rem;
+@media (min-width: 1024px){
+.main-account__heading{
+    padding-right: clamp(20px, 5.37vw, 5.37vw);
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(45px, calc(10.84vh - 27px), 130px);
-  }
+}
 .main-account-order__heading {
     padding-right: 1.25rem;
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(110px, 14.05vh, 219px);
   }
-}
+  }
 .my-account-order__body {
   padding-top: 56px;
 }
@@ -4034,7 +4039,7 @@ input:focus-visible{
 .my-account__body{
     padding-top: clamp(80px, calc(19.47vh - 27px), 273px);
     padding-bottom: clamp(92px,9.2vh,154px);
-    padding-right: 7px;
+    padding-right: clamp(0px, calc(5.37vw - 27px), calc(5.37vw - 27px));
 }
   }
 .my-account__body-item-heading{
@@ -4106,7 +4111,7 @@ input:focus-visible{
   }
   }
 .custom-page__content>*{
-    margin-bottom: clamp(32px, 3.95vh, 3.95vh);
+    margin-bottom: clamp(32px, 3.5vh, 3.5vh);
     font-size: 20px;
     font-size: 1rem;
     line-height: 1.5rem;
@@ -4120,7 +4125,7 @@ input:focus-visible{
 }
 .custom-page__content>* {
   letter-spacing: .04em;
-  line-height: 1.375;
+    line-height: 1.2;
 }
 .custom-page__content>*:last-child{
       margin-bottom: 0;
@@ -4216,7 +4221,7 @@ input:focus-visible{
 }
 @media (min-width: 1024px){
 .header__personal-data {
-    padding-top: 1.49vh;
+    padding-top: 2.49vh;
   }}
 .margin-variant-picker {
   margin-bottom: 0.75rem;
@@ -4981,12 +4986,12 @@ input:focus-visible{
     margin-bottom: 2rem;
   }
 
-  .md\:mb-\[30px\] {
-    margin-bottom: 30px;
-  }
-
   .md\:mb-\[40px\] {
     margin-bottom: 40px;
+  }
+
+  .md\:mb-\[44px\] {
+    margin-bottom: 44px;
   }
 
   .md\:mb-\[61px\] {
@@ -5048,16 +5053,12 @@ input:focus-visible{
     height: 122px;
   }
 
-  .md\:h-\[320px\] {
-    height: 320px;
-  }
-
   .md\:h-\[34px\] {
     height: 34px;
   }
 
-  .md\:max-h-\[36vh\] {
-    max-height: 36vh;
+  .md\:max-h-\[30vh\] {
+    max-height: 30vh;
   }
 
   .md\:\!w-full {
@@ -5070,6 +5071,10 @@ input:focus-visible{
 
   .md\:w-3\.5 {
     width: 0.875rem;
+  }
+
+  .md\:w-40 {
+    width: 10rem;
   }
 
   .md\:w-44 {
@@ -5134,6 +5139,10 @@ input:focus-visible{
 
   .md\:max-w-\[70\%\] {
     max-width: 70%;
+  }
+
+  .md\:max-w-\[74\%\] {
+    max-width: 74%;
   }
 
   .md\:grid-cols-2 {
@@ -5472,8 +5481,8 @@ input:focus-visible{
     left: 0px;
   }
 
-  .lg\:left-\[63\%\] {
-    left: 63%;
+  .lg\:left-\[62\.3\%\] {
+    left: 62.3%;
   }
 
   .lg\:right-0 {
@@ -5512,12 +5521,12 @@ input:focus-visible{
     margin-bottom: 1.5rem;
   }
 
-  .lg\:mb-\[30px\] {
-    margin-bottom: 30px;
-  }
-
   .lg\:mb-\[32px\] {
     margin-bottom: 32px;
+  }
+
+  .lg\:mb-\[44px\] {
+    margin-bottom: 44px;
   }
 
   .lg\:ml-2 {
@@ -5755,20 +5764,12 @@ input:focus-visible{
     padding-bottom: 0.5rem;
   }
 
-  .lg\:pb-2\.5 {
-    padding-bottom: 0.625rem;
-  }
-
   .lg\:pb-4 {
     padding-bottom: 1rem;
   }
 
   .lg\:pb-\[3px\] {
     padding-bottom: 3px;
-  }
-
-  .lg\:pb-\[50px\] {
-    padding-bottom: 50px;
   }
 
   .lg\:pb-\[92px\] {
@@ -5791,10 +5792,6 @@ input:focus-visible{
     padding-right: 1.25rem;
   }
 
-  .lg\:pr-7 {
-    padding-right: 1.75rem;
-  }
-
   .lg\:pr-\[20px\] {
     padding-right: 20px;
   }
@@ -5807,8 +5804,8 @@ input:focus-visible{
     padding-top: 0.5rem;
   }
 
-  .lg\:pt-\[16vh\] {
-    padding-top: 16vh;
+  .lg\:pt-\[17vh\] {
+    padding-top: 17vh;
   }
 
   .lg\:pt-\[27px\] {
