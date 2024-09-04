@@ -5280,6 +5280,10 @@ input:focus-visible{
     padding-bottom: 25px;
   }
 
+  .md\:pb-\[27px\] {
+    padding-bottom: 27px;
+  }
+
   .md\:pb-\[30px\] {
     padding-bottom: 30px;
   }
