@@ -88,10 +88,10 @@
                           </a>
                           <p class="text-sm md:text-[17px] italic max-md:leading-none">by {{ item.product.vendor }}</p>
                         </div>
-                        <dl class="space-y-1.5">
+                        <dl class="grid gap-1.5">
                           {%- unless item.product.has_only_default_variant -%}
                             {%- for option in item.options_with_values -%}
-                              <div class="product-option">
+                              <div class="product-option{% if option.name == 'Medium' %} order-2{% endif %}">
                                 <dd class="text-lg md:text-[22px] leading-none max-md:font-bold">
                                   {{ option.value }}
                                 </dd>
