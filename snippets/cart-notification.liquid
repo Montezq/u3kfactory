@@ -42,11 +42,6 @@
           <p class="text-[9px] md:text-[11px] leading-none tracking-widest uppercase mb-5 italic font-bold">
             *FREE SHIPPING FOR ORDERS OVER 100 EUR
           </p>
-          <ul>
-            {% for rate in shipping_rates %}
-              <li>{{ rate.title }}: {{ rate.price | money }}</li>
-            {% endfor %}
-          </ul>
         </div>
         <div class="flex flex-col items-center pb-5">
           <a
