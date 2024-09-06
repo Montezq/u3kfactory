@@ -663,7 +663,7 @@ accordion-item.open,
   @apply bg-white;
 }
 .collection-list__card{
-  height: calc(100vh / 3 - 42px);
+  height: calc(100vh / 3 - 82px);
   @screen md{
     height: calc(100vh / 3 - 50px);
   }
