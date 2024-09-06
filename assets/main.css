@@ -3088,16 +3088,16 @@ input:focus-visible{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .collection-list__card{
-  height: calc(100dvh / 3 - 48px);
+  height: calc(100vh / 3 - 42px);
 }
 @media (min-width: 768px){
 .collection-list__card{
-    height: calc(100dvh / 3 - 50px);
+    height: calc(100vh / 3 - 50px);
 }
   }
 @media (min-width: 1024px){
 .collection-list__card{
-    height: calc(100dvh / 3 - 36px);
+    height: calc(100vh / 3 - 36px);
 }
   }
 @media screen and (max-width: 1200px) and (min-width: 1024px) {

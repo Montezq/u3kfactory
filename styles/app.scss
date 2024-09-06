@@ -663,12 +663,12 @@ accordion-item.open,
   @apply bg-white;
 }
 .collection-list__card{
-  height: calc(100dvh / 3 - 48px);
+  height: calc(100vh / 3 - 42px);
   @screen md{
-    height: calc(100dvh / 3 - 50px);
+    height: calc(100vh / 3 - 50px);
   }
   @screen lg{
-    height: calc(100dvh / 3 - 36px);
+    height: calc(100vh / 3 - 36px);
   }
 }
 .card-collection__title{
