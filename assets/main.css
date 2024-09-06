@@ -731,6 +731,9 @@ video {
 .z-10 {
   z-index: 10;
 }
+.z-\[10\] {
+  z-index: 10;
+}
 .z-\[1\] {
   z-index: 1;
 }
@@ -748,9 +751,6 @@ video {
 }
 .z-\[999\] {
   z-index: 999;
-}
-.z-\[10\] {
-  z-index: 10;
 }
 .order-2 {
   -webkit-box-ordinal-group: 3;
@@ -1983,9 +1983,6 @@ video {
 .text-\[8vw\] {
   font-size: 8vw;
 }
-.text-\[9\.3vw\] {
-  font-size: 9.3vw;
-}
 .text-\[9px\] {
   font-size: 9px;
 }
@@ -3091,16 +3088,16 @@ input:focus-visible{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .collection-list__card{
-  height: calc(100vh / 3 - 48px);
+  height: calc(100dvh / 3 - 48px);
 }
 @media (min-width: 768px){
 .collection-list__card{
-    height: calc(100vh / 3 - 50px);
+    height: calc(100dvh / 3 - 50px);
 }
   }
 @media (min-width: 1024px){
 .collection-list__card{
-    height: calc(100vh / 3 - 36px);
+    height: calc(100dvh / 3 - 36px);
 }
   }
 @media screen and (max-width: 1200px) and (min-width: 1024px) {
@@ -4621,12 +4618,12 @@ input:focus-visible{
     padding-top: 66px;
   }
 
-  .max-lg\:text-\[1px\] {
-    font-size: 1px;
-  }
-
   .max-lg\:text-\[11px\] {
     font-size: 11px;
+  }
+
+  .max-lg\:text-\[1px\] {
+    font-size: 1px;
   }
 
   .max-lg\:duration-300 {
@@ -4959,10 +4956,6 @@ input:focus-visible{
 
   .sm\:text-\[37px\] {
     font-size: 37px;
-  }
-
-  .sm\:text-\[40px\] {
-    font-size: 40px;
   }
 }
 @media (min-width: 768px) {
