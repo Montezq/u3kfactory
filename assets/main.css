@@ -3088,7 +3088,7 @@ input:focus-visible{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .collection-list__card{
-  height: calc(100vh / 3 - 72px);
+  height: calc(100vh / 3 - 70px);
 }
 @media (min-width: 768px){
 .collection-list__card{
