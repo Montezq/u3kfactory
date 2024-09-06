@@ -1180,6 +1180,9 @@ video {
 .min-w-\[30px\] {
   min-width: 30px;
 }
+.min-w-\[90px\] {
+  min-width: 90px;
+}
 .max-w-60 {
   max-width: 15rem;
 }
@@ -4620,6 +4623,10 @@ input:focus-visible{
 
   .max-lg\:text-\[1px\] {
     font-size: 1px;
+  }
+
+  .max-lg\:text-\[11px\] {
+    font-size: 11px;
   }
 
   .max-lg\:duration-300 {

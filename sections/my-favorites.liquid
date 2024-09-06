@@ -68,7 +68,9 @@
         </div>
         <div class="wishlist__item-data flex-1 max-md:px-1 max-lg:px-4 max-md:flex max-md:flex-wrap">
           <div class="wishlist__item-data-title md:mb-14 max-md:w-[40%]">
-            <h2 class="text-[20px] md:text-[32px] font-semibold leading-none md:mb-3">${item.productTitle}</h2>
+            <h2 class="text-[20px] md:text-[32px] font-semibold leading-none md:mb-3"><a href="${item.productUrl}">${
+        item.productTitle
+      }</a></h2>
             <h3 class="leading-none text-base md:text-[26px] font-helveticaThinCond italic tracking-wide font-normal">by ${
               item.productVendor
             }</h3>
