@@ -20,10 +20,10 @@
       "type": "account-slides",
       "settings": {
         "title": "My Account",
-        "sign_image": "shopify:\/\/shop_images\/LOG-IN-ACCOUNT-SLIDE-IMAGE.jpg",
-        "orders_image": "shopify:\/\/shop_images\/MY-ORDERS-ACCOUNT-SLIDE-IMAGE.jpg",
-        "favorites_image": "shopify:\/\/shop_images\/MY-FAVORITES-ACCOUNT-SLIDE-IMAGE.jpg",
-        "preferences_image": "shopify:\/\/shop_images\/MY-PREFERENCES-ACCOUNT-SLIDE-IMAGE.jpg"
+        "sign_image": "shopify:\/\/shop_images\/SIGN-IN-ACCOUNT-SLIDE-IMAGE.jpg",
+        "orders_image": "shopify:\/\/shop_images\/MY-ORDERS-ACCOUNT-SLIDE-IMAGE_03fb919c-14c9-4838-9c0e-1b3e5285c5dd.jpg",
+        "favorites_image": "shopify:\/\/shop_images\/MY-FAVORITES-ACCOUNT-SLIDE-IMAGE_1b6fce12-0940-42da-be74-199752fd37e2.jpg",
+        "preferences_image": "shopify:\/\/shop_images\/MY-PREFERENCES-ACCOUNT-SLIDE-IMAGE_3ad6f5f4-4a5a-48a0-9487-ba27d6f19a10.jpg"
       }
     }
   },
