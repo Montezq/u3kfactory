@@ -1,4 +1,4 @@
-<div class="w-full min-h-screen flex flex-col items-center relative overflow-hidden py-8">
+<div class="w-full min-h-[100vh] flex flex-col items-center relative overflow-hidden py-8">
   <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full">
     <div
       class="w-full h-full{% if section.settings.mobile_image != blank or section.settings.mobile_video != blank %} max-md:hidden{% endif %}"
@@ -75,7 +75,7 @@
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="mt-[20vh] max-w-[600px] w-full mx-auto">
+    <div class="mt-[20dvh] max-w-[600px] w-full mx-auto">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="newsletter, coming-soon">
         <div class="newsletter-form__field-wrapper">
@@ -180,7 +180,7 @@
       submitButton.addEventListener('click', function (event) {
         const emailField = form.querySelector('.email-input');
         const email = emailField.value;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
         if (emailRegex.test(email) && email) {
           submitForm();
@@ -206,7 +206,37 @@
       setTimeout(() => {
         tooltipExist.classList.add('opacity-0', 'invisible');
       }, 3000);
+      history.replaceState(null, null, ' ');
     }
+
+    function removeQueryParameter(param) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete(param);
+      url.hash = ''; // Remove any hash fragment
+      history.replaceState(null, null, url.href);
+    }
+
+    function removeQueryParameterAndPreventBack(param) {
+      const url = new URL(window.location.href);
+
+      // Remove the query parameter and clear hash
+      url.searchParams.delete(param);
+      url.hash = '';
+
+      // Replace the current history entry with the updated URL
+      history.replaceState(null, null, url.href);
+
+      // Push a new state with a unique identifier to prevent back navigation
+      history.pushState({ noBack: true }, null, url.href);
+
+      // Intercept the back navigation to prevent it
+      window.onpopstate = function (event) {
+        history.go(1);
+      };
+    }
+
+    // Call the function to remove the query parameter and prevent back navigation
+    removeQueryParameterAndPreventBack('customer_posted');
   });
 </script>
 

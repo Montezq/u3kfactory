@@ -74,7 +74,7 @@
                       </span>
                     </label>
                   </li>
-                  <li class="custom-option">
+                  <li class="custom-option" id="fromProduct">
                     <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
                       <input
                         type="radio"
@@ -331,6 +331,36 @@
         }, 1000); // Wait for 1 second before hiding the modal
         history.replaceState(null, null, ' ');
       }
+    }
+
+    const referrer = document.referrer;
+
+    if (referrer.includes('/products/')) {
+      const inquire = document.querySelector('#fromProduct');
+      const customOptions = document.querySelectorAll('.custom-option');
+      customOptions.forEach((option) => {
+        option.classList.remove('selected');
+      });
+      // Remove checked from all radio inputs
+      const allRadioInputs = document.querySelectorAll('input[type="radio"]');
+      allRadioInputs.forEach((radio) => {
+        radio.checked = false; // Uncheck all radio buttons
+      });
+
+      // Find the radio input inside #fromProduct and check it
+      const inquireRadio = inquire.querySelector('input[type="radio"]');
+      if (inquireRadio) {
+        inquireRadio.checked = true; // Check the radio button inside #fromProduct
+      }
+
+      // Update the title in .select-trigger span with the title from #fromProduct span
+      const inquireSpan = inquire.querySelector('span'); // Get the span inside #fromProduct
+      const selectTriggerSpan = document.querySelector('.select-trigger span'); // Get the span inside .select-trigger
+      if (inquireSpan && selectTriggerSpan) {
+        selectTriggerSpan.textContent = inquireSpan.textContent; // Update the text of .select-trigger span
+      }
+
+      inquire.classList.add('selected');
     }
   });
 </script>

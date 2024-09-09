@@ -277,7 +277,7 @@
   </cart-items>
 </div>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  function setupQuantityButtonListeners() {
     // Select all quantity__input elements
     const quantityInputs = document.querySelectorAll('.quantity__input');
 
@@ -285,20 +285,31 @@
       const maxQuantity = parseInt(input.getAttribute('max'), 10);
       if (maxQuantity === 1) {
         const plusButton = input.nextElementSibling;
-        console.log(plusButton);
         const modal = document.querySelector('.product-not-available__modal');
 
-        plusButton.addEventListener('click', () => {
+        // Remove existing event listeners to avoid duplicate bindings
+        plusButton.removeEventListener('click', handleClick);
+
+        function handleClick() {
           // Add the class to the modal
           modal.classList.remove('hidden');
 
           setTimeout(() => {
             modal.classList.add('hidden');
           }, 1500);
-        });
+        }
+
+        plusButton.addEventListener('click', handleClick);
       }
     });
-  });
+  }
+
+  document.addEventListener('DOMContentLoaded', setupQuantityButtonListeners);
+
+  // You can call this function again whenever you need to reinitialize it
+  function reinitializeQuantityButtons() {
+    setupQuantityButtonListeners();
+  }
 </script>
 {% schema %}
 {

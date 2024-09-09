@@ -219,6 +219,7 @@ class CartItems extends HTMLElement {
       })
       .finally(() => {
         this.disableLoading(line);
+        reinitializeQuantityButtons()
       });
   }
 

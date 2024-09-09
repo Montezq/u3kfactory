@@ -149,7 +149,8 @@
       submitButton.addEventListener('click', function (event) {
         const emailField = form.querySelector('.email-input');
         const email = emailField.value;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex =
+          /^(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~\-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~\-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])")@(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-zA-Z0-9-]*[a-zA-Z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)|\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]+)$/;
 
         if (emailRegex.test(email) && email) {
           console.log('if');
@@ -178,6 +179,35 @@
         tooltipExist.classList.add('opacity-0', 'invisible');
       }, 3000);
     }
+
+    function removeQueryParameter(param) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete(param);
+      url.hash = ''; // Remove any hash fragment
+      history.replaceState(null, null, url.href);
+    }
+
+    function removeQueryParameterAndPreventBack(param) {
+      const url = new URL(window.location.href);
+
+      // Remove the query parameter and clear hash
+      url.searchParams.delete(param);
+      url.hash = '';
+
+      // Replace the current history entry with the updated URL
+      history.replaceState(null, null, url.href);
+
+      // Push a new state with a unique identifier to prevent back navigation
+      history.pushState({ noBack: true }, null, url.href);
+
+      // Intercept the back navigation to prevent it
+      window.onpopstate = function (event) {
+        history.go(1);
+      };
+    }
+
+    // Call the function to remove the query parameter and prevent back navigation
+    removeQueryParameterAndPreventBack('customer_posted');
   });
 </script>
 

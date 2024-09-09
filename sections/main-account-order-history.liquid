@@ -161,7 +161,7 @@
                             x
                           </button>
                           <div
-                            class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[360px] cancel-order__modal-wrapper w-full"
+                            class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[380px] cancel-order__modal-wrapper w-full"
                             aria-modal="true"
                             role="dialog"
                             tabindex="-1"
@@ -169,8 +169,12 @@
                             <div class="cancel-order__modal-heading text-center mb-4">
                               <h2 class="font-bold text-xl md:text-[25px] uppercase">Order Cancellation</h2>
                             </div>
-                            <div class="cancel-order__modal-body mb-10 md:mb-14">
-                              <p class="text-base md:text-[22px] text-center leading-snug">Are you sure?</p>
+                            <div class="cancel-order__modal-body mb-8">
+                              <p class="text-base md:text-[21px] text-center leading-snug">
+                                Your order is not canceled automatically, our staff needs to review the request and
+                                cancel it manually. You will receive a confirmation email as soon as the order has been
+                                canceled successfully. Proceed with the cancellation request?
+                              </p>
                             </div>
                             <div class="cancel-order__modal-footer text-center relative">
                               {% form 'contact', return_to: '/account?view=order-history-active' %}
@@ -232,7 +236,7 @@
   </div>
   <div class="order-canceled__modal hidden border bg-white py-3 md:py-[18px] px-2 md:px-3.5 border-black fixed top-1/2 left-[50%] lg:left-[62.3%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
     <p class="uppercase text-lg md:text-2xl tracking-xwidest font-bold text-center whitespace-nowrap">
-      order canceled successfully
+      CANCELLATION REQUEST SENT
     </p>
   </div>
   <div class="unavailable-order__modal remove-order__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[9999999]">
@@ -404,20 +408,6 @@
         handleFormSubmission(event);
       });
     });
-
-    // Function to check local storage and remove cancelled orders on page load
-    function removeCancelledOrders() {
-      const cancelledOrders = JSON.parse(localStorage.getItem('cancelledOrders')) || [];
-      cancelledOrders.forEach((orderId) => {
-        const orderElement = document.querySelector(`.order[data-order-id="${orderId}"]`);
-        if (orderElement) {
-          orderElement.remove();
-        }
-      });
-    }
-
-    // Remove cancelled orders on page load
-    removeCancelledOrders();
   });
 </script>
 {% schema %}

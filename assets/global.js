@@ -189,7 +189,6 @@ class QuantityInput extends HTMLElement {
 
   validateQtyRules() {
     const value = parseInt(this.input.value);
-    console.log(value)
     if (this.input.min) {
       const min = parseInt(this.input.min);
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
@@ -957,7 +956,8 @@ customElements.define('slideshow-component', SlideshowComponent);
 class VariantSelects extends HTMLElement {
   constructor() {
     super();
-    this.addEventListener('click', this.onVariantChange);
+    this.previousVariant = null; // Track the previous variant
+    this.addEventListener('click', this.onVariantChange.bind(this));
   }
 
   onVariantChange(event) {
@@ -969,15 +969,24 @@ class VariantSelects extends HTMLElement {
     this.removeErrorMessage();
     this.updateVariantStatuses();
 
-    if (!this.currentVariant) {
-      this.toggleAddButton(true, '', true);
-      this.setUnavailable();
-    } else {
-      // this.updateMedia();
-      this.updateURL();
-      this.updateVariantInput();
-      this.renderProductInfo();
-      this.updateShareUrl();
+    const previousVariantId = this.previousVariant ? this.previousVariant.id : null;
+    const currentVariantId = this.currentVariant ? this.currentVariant.id : null;
+
+    // Check if the variant has changed
+    if (previousVariantId !== currentVariantId) {
+      if (!this.currentVariant || !this.currentVariant.available) {
+        console.log('Variant is unavailable'); 
+        this.toggleAddButton(true, '', true);
+        this.setUnavailable();
+      } else {
+        // this.updateMedia();
+        this.updateURL();
+        this.updateVariantInput();
+        this.renderProductInfo();
+        this.updateShareUrl();
+      }
+
+      this.previousVariant = this.currentVariant; // Update previous variant
     }
   }
 
@@ -1119,8 +1128,9 @@ class VariantSelects extends HTMLElement {
     )
       .then((response) => response.text())
       .then((responseText) => {
+
         // Prevent unnecessary UI changes from abandoned selections
-        if (this.currentVariant.id !== requestedVariantId) return;
+        if (this.currentVariant?.id !== requestedVariantId) return
   
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const destination = document.getElementById(`price-${this.dataset.section}-buy`);
@@ -1386,6 +1396,8 @@ class AccordionItem extends HTMLElement {
 
   close() {
     const content = this.querySelector('.accordion-content');
+    const items = document.querySelectorAll('a.header__menu-item')
+    items.forEach( (item) => item.classList.remove('open'))
     if (!this.isOpen) return; 
     this.classList.remove('open')
     this.isOpen = false;
