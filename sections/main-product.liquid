@@ -330,7 +330,8 @@
                 </div>
 
                 <div class="contact-us__modal-body">
-                  {% form 'contact' %}
+                  {% assign page_url = page.url | append: '#contact-artist-form' %}
+                  {% form 'contact', id: 'contact-artist-form', return_to: page_url %}
                     <input
                       class="absolute top-0 left-0 w-0 h-0 p-0 invisible"
                       type="text"
@@ -381,7 +382,6 @@
                           <li class="custom-option">
                             <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
                               <input
-                                checked
                                 type="radio"
                                 name="contact[regarding]"
                                 value="Collaboration"
@@ -504,9 +504,26 @@
             contactWrapper = document.querySelector('.contact-us__modal-wrapper'),
             bodyEl = document.querySelector('body');
 
+          const removeIcon = document.querySelector('.remove-icon');
+          const selectIcon = document.querySelector('.select-icon');
+          const selectTrigger = document.querySelector('.select-trigger span');
+          const optionsList = document.querySelector('.select-options');
+          const firstOption = optionsList.querySelector('li input[type="radio"]');
+          const secondOption = optionsList.querySelector('li:nth-child(2) input[type="radio"]');
+
           contactOpen.addEventListener('click', () => {
             contactModal.classList.remove('hidden');
             bodyEl.classList.add('overflow-hidden');
+            // Remove the 'flex' class from the remove-icon and add 'hidden'
+            removeIcon.classList.add('flex');
+            removeIcon.classList.remove('hidden');
+
+            // Add 'flex' class to the select-icon and remove 'hidden'
+            selectIcon.classList.add('hidden');
+            selectIcon.classList.remove('flex');
+            firstOption.checked = true;
+            secondOption.checked = false;
+            selectTrigger.textContent = '{{ product.title }}';
           });
 
           contactClose.addEventListener('click', () => {
@@ -515,7 +532,7 @@
           });
 
           document.addEventListener('click', (event) => {
-            const form = document.querySelector('form');
+            const form = document.querySelector('#contact-artist-form');
             const emailInput = document.getElementById('email');
             const messageInput = document.getElementById('message');
             const emailTooltip = document.getElementById('email-tooltip');
@@ -557,7 +574,32 @@
               return re.test(String(email).toLowerCase());
             }
           });
+          document.addEventListener('DOMContentLoaded', function () {
+            if (window.location.hash === '#contact-artist-form') {
+              const instructionsSent = document.querySelector('.instructions-sent-modal');
+              console.log(instructionsSent);
+              if (instructionsSent) {
+                instructionsSent.classList.remove('hidden');
+                setTimeout(() => {
+                  instructionsSent.classList.add('hidden');
+                }, 1000); // Wait for 1 second before hiding the modal
+                history.replaceState(null, null, ' ');
+              }
+            }
+          });
         </script>
+        <div class="instructions-sent-modal hidden fixed top-1/2 left-[50%] lg:left-[62.3%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
+          <div
+            class="border border-[#5a5a5a] bg-white px-4 py-3.5 removed-wishlist__modal-wrapper w-full"
+            aria-modal="true"
+            role="dialog"
+            tabindex="-1"
+          >
+            <div class="removed-wishlist__modal-heading text-center">
+              <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">Message Sent</h2>
+            </div>
+          </div>
+        </div>
     {% endcase %}
   {% endfor %}
 </section>
@@ -625,9 +667,11 @@
       const firstOption = optionsList.querySelector('li');
       const secondOption = optionsList.querySelector('li:nth-child(2)');
 
-      if (firstOption) {
-        firstOption.remove();
-      }
+      firstOption.querySelector('input[type="radio"]').checked = false;
+      secondOption.querySelector('input[type="radio"]').checked = true;
+
+      console.log(firstOption.querySelector('input[type="radio"]').checked);
+      console.log(secondOption.querySelector('input[type="radio"]').checked);
 
       if (secondOption) {
         secondOption.classList.add('selected');
