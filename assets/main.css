@@ -1174,6 +1174,9 @@ video {
 .w-full {
   width: 100%;
 }
+.w-\[150px\] {
+  width: 150px;
+}
 .min-w-\[140px\] {
   min-width: 140px;
 }
@@ -1485,6 +1488,9 @@ video {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.text-ellipsis {
+  text-overflow: ellipsis;
 }
 .whitespace-nowrap {
   white-space: nowrap;
