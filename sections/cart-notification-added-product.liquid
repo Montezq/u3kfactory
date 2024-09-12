@@ -17,8 +17,8 @@
               >
             </div>
           {%- endif -%}
-          <div class="ml-5 md:ml-[25px] flex-1">
-            <h3 class="cart-notification-product__name text-xl lg:text-[25px] font-bold leading-none truncate">
+          <div class="ml-3.5 md:ml-[25px] flex-1">
+            <h3 class="cart-notification-product__name text-xl lg:text-[25px] max-w-[55vw] sm:max-w-[300px] font-bold leading-none truncate">
               {{ item.product.title | escape }}
             </h3>
             <p class="text-gray-850 italic max-lg:text-[11px] mb-3">by {{ item.product.vendor }}</p>
@@ -37,7 +37,7 @@
                   {%- assign property_first_char = property.first | slice: 0 -%}
                   {%- if property.last != blank and property_first_char != '_' -%}
                     <div class="product-option">
-                      <dd class="text-base lg:text-[22px] leading-none whitespace-nowrap w-[150px] truncate">
+                      <dd class="text-base lg:text-[22px] leading-none whitespace-nowrap w-[35vw] md:w-[150px] truncate">
                         {{ property.last }}
                       </dd>
                     </div>
