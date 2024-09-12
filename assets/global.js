@@ -980,7 +980,7 @@ class VariantSelects extends HTMLElement {
           instructionsSent.classList.remove('hidden');
           setTimeout(() => {
             instructionsSent.classList.add('hidden');
-          }, 1000); // Wait for 1 second before hiding the modal
+          }, 2000); // Wait for 1 second before hiding the modal
           history.replaceState(null, null, ' ');
         }
         this.toggleAddButton(true, '', true);
