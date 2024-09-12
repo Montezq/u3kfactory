@@ -4255,6 +4255,12 @@ input:focus-visible{
   margin-left: -1px !important;
 }
 
+@media screen and (min-width: 1921px) {
+    .header__menu-item span{
+      font-size: 1.5vw;
+    }
+}
+
 
 
 
@@ -4581,6 +4587,22 @@ input:focus-visible{
     padding-bottom: 2rem;
   }
 
+  .max-lg\:pb-\[106px\] {
+    padding-bottom: 106px;
+  }
+
+  .max-lg\:pb-\[82px\] {
+    padding-bottom: 82px;
+  }
+
+  .max-lg\:pb-\[86px\] {
+    padding-bottom: 86px;
+  }
+
+  .max-lg\:pb-\[90px\] {
+    padding-bottom: 90px;
+  }
+
   .max-lg\:pl-9 {
     padding-left: 2.25rem;
   }
@@ -4619,26 +4641,6 @@ input:focus-visible{
 
   .max-lg\:pt-\[66px\] {
     padding-top: 66px;
-  }
-
-  .max-lg\:pb-\[130px\] {
-    padding-bottom: 130px;
-  }
-
-  .max-lg\:pb-\[106px\] {
-    padding-bottom: 106px;
-  }
-
-  .max-lg\:pb-\[90px\] {
-    padding-bottom: 90px;
-  }
-
-  .max-lg\:pb-\[86px\] {
-    padding-bottom: 86px;
-  }
-
-  .max-lg\:pb-\[82px\] {
-    padding-bottom: 82px;
   }
 
   .max-lg\:text-\[11px\] {

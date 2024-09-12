@@ -528,6 +528,7 @@
 
           contactClose.addEventListener('click', () => {
             contactModal.classList.add('hidden');
+            contactModal.querySelector('textarea').value = '';
             bodyEl.classList.remove('overflow-hidden');
           });
 

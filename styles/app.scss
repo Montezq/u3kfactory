@@ -1556,6 +1556,14 @@ accordion-item.open,
   margin-left: -1px !important;
 }
 
+@media screen and (min-width: 1921px) {
+  .header__menu-item{
+    span{
+      font-size: 1.5vw;
+    }
+  }
+}
+
 
 
 
