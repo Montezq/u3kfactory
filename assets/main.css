@@ -4621,6 +4621,26 @@ input:focus-visible{
     padding-top: 66px;
   }
 
+  .max-lg\:pb-\[130px\] {
+    padding-bottom: 130px;
+  }
+
+  .max-lg\:pb-\[106px\] {
+    padding-bottom: 106px;
+  }
+
+  .max-lg\:pb-\[90px\] {
+    padding-bottom: 90px;
+  }
+
+  .max-lg\:pb-\[86px\] {
+    padding-bottom: 86px;
+  }
+
+  .max-lg\:pb-\[82px\] {
+    padding-bottom: 82px;
+  }
+
   .max-lg\:text-\[11px\] {
     font-size: 11px;
   }
