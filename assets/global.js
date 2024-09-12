@@ -975,7 +975,14 @@ class VariantSelects extends HTMLElement {
     // Check if the variant has changed
     if (previousVariantId !== currentVariantId) {
       if (!this.currentVariant || !this.currentVariant.available) {
-        console.log('Variant is unavailable'); 
+        const instructionsSent = document.querySelector('.combination-modal');
+        if (instructionsSent) {
+          instructionsSent.classList.remove('hidden');
+          setTimeout(() => {
+            instructionsSent.classList.add('hidden');
+          }, 1000); // Wait for 1 second before hiding the modal
+          history.replaceState(null, null, ' ');
+        }
         this.toggleAddButton(true, '', true);
         this.setUnavailable();
       } else {

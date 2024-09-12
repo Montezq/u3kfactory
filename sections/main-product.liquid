@@ -578,7 +578,6 @@
           document.addEventListener('DOMContentLoaded', function () {
             if (window.location.hash === '#contact-artist-form') {
               const instructionsSent = document.querySelector('.instructions-sent-modal');
-              console.log(instructionsSent);
               if (instructionsSent) {
                 instructionsSent.classList.remove('hidden');
                 setTimeout(() => {
@@ -603,6 +602,18 @@
         </div>
     {% endcase %}
   {% endfor %}
+  <div class="combination-modal hidden fixed top-1/2 left-[50%] lg:left-[62.3%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
+    <div
+      class="border border-[#5a5a5a] bg-white px-4 py-3.5 removed-wishlist__modal-wrapper w-full"
+      aria-modal="true"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div class="removed-wishlist__modal-heading text-center">
+        <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">Combination unavailable</h2>
+      </div>
+    </div>
+  </div>
 </section>
 {% if customer %}
   {%- render 'wishlist-modal' -%}
