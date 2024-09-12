@@ -1358,7 +1358,7 @@ class AccordionItem extends HTMLElement {
           return document.documentElement.scrollHeight > document.documentElement.clientHeight;
         };
       
-        if (hasVerticalScroll()) {
+        if (window.location.pathname !== '/') {
           document.body.classList.add('accordion-menu__opened_scrolled');
         }
       }

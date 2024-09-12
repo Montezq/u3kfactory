@@ -2368,7 +2368,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-.home-page__carousel-btn {
+.bounce-text {
   -webkit-animation: bounceWithPause 8s infinite;
        -o-animation: bounceWithPause 8s infinite;
           animation: bounceWithPause 8s infinite;
