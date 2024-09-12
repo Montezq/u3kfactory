@@ -82,7 +82,25 @@
                     autocomplete="address-line1"
                   >
                   <div>
-                    <p class="text-sm font-bold text-right">*Include street number and apartment number</p>
+                    <p class="text-sm font-bold text-right">*Include street number</p>
+                  </div>
+                </div>
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
+                      Apartment number
+                    </label>
+                  </div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[address2]"
+                    id="AddressAddress1New"
+                    autocomplete="address-line2"
+                    value="{{ form.address2 }}"
+                  >
+                  <div>
+                    <p class="text-sm font-bold text-right">*Optional</p>
                   </div>
                 </div>
               </div>
@@ -209,7 +227,25 @@
                     value="{{ form.address1 }}"
                   >
                   <div>
-                    <p class="text-xs md:text-sm font-bold text-right">*Include street number and apartment number</p>
+                    <p class="text-xs md:text-sm font-bold text-right">*Include street number</p>
+                  </div>
+                </div>
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
+                      Apartment number
+                    </label>
+                  </div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[address2]"
+                    id="AddressAddress1New"
+                    autocomplete="address-line2"
+                    value="{{ form.address2 }}"
+                  >
+                  <div>
+                    <p class="text-sm font-bold text-right">*Optional</p>
                   </div>
                 </div>
               </div>
@@ -374,9 +410,25 @@
                         value="{{ form.address1 }}"
                       >
                       <div>
-                        <p class="text-xs md:text-sm font-bold text-right">
-                          *Include street number and apartment number
-                        </p>
+                        <p class="text-xs md:text-sm font-bold text-right">*Include street number</p>
+                      </div>
+                    </div>
+                    <div class="field flex flex-col">
+                      <div class="pl-4 mb-1 flex">
+                        <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
+                          Apartment number
+                        </label>
+                      </div>
+                      <input
+                        class="input-field"
+                        type="text"
+                        name="address[address2]"
+                        id="AddressAddress1New"
+                        autocomplete="address-line2"
+                        value="{{ form.address2 }}"
+                      >
+                      <div>
+                        <p class="text-sm font-bold text-right">*Optional</p>
                       </div>
                     </div>
                   </div>
