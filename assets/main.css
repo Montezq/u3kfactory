@@ -1186,6 +1186,9 @@ video {
 .w-\[35vw\] {
   width: 35vw;
 }
+.w-\[25vw\] {
+  width: 25vw;
+}
 .min-w-\[140px\] {
   min-width: 140px;
 }
@@ -4942,6 +4945,10 @@ input:focus-visible{
 
   .sm\:w-8 {
     width: 2rem;
+  }
+
+  .sm\:w-\[150px\] {
+    width: 150px;
   }
 
   .sm\:max-w-\[350px\] {
