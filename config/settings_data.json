@@ -40,10 +40,19 @@
               "title": "Facebook",
               "share_url": "https:\/\/www.facebook.com\/sharer\/sharer.php?u="
             }
+          },
+          "share_item_G3QGF8": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Twitter",
+              "title": "X \/ TWITTER",
+              "share_url": "https:\/\/twitter.com\/intent\/tweet?url="
+            }
           }
         },
         "block_order": [
-          "share_item_LanjBr"
+          "share_item_LanjBr",
+          "share_item_G3QGF8"
         ],
         "settings": {
         }
