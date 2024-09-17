@@ -13,7 +13,7 @@
       {
         "type": "text",
         "id": "free_shipping",
-        "label": "Free Shipping Metafield"
+        "label": "Free Shipping Price"
       },
     ]
   },
