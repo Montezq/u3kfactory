@@ -452,6 +452,11 @@ input{
     @apply block;
     @apply border-b-white;
   }
+  .header__menu-content{
+    @media screen and (min-height: 1100px){
+      padding-top: 0;
+    }
+  }
 }
 .accordion-menu__opened_scrolled{
   .content-for-layout{
@@ -1557,13 +1562,6 @@ accordion-item.open,
   margin-left: -1px !important;
 }
 
-@media screen and (min-width: 1921px) {
-  .header__menu-item{
-    span{
-      font-size: 1.5vw;
-    }
-  }
-}
 
 
 

@@ -2,6 +2,7 @@ module.exports = {
   plugins: {
     'tailwindcss/nesting': 'postcss-nesting',
     tailwindcss: {},
+    cssnano:{},
     autoprefixer: {
       "overrideBrowserslist": [
         ">0.3%",
