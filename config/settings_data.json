@@ -65,6 +65,14 @@
               "share_url": "#copy"
             }
           },
+          "share_item_qTtKdm": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Telegram",
+              "title": "Telegram",
+              "share_url": "https:\/\/t.me\/share\/url?url="
+            }
+          },
           "share_item_tyi6Qe": {
             "type": "share_item",
             "settings": {
@@ -103,6 +111,7 @@
           "share_item_G3QGF8",
           "share_item_gnDNCU",
           "share_item_nktmyg",
+          "share_item_qTtKdm",
           "share_item_tyi6Qe",
           "share_item_FwCWMF",
           "share_item_md3jDR",
