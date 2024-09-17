@@ -77,7 +77,7 @@
     {%- endif -%}
     <div class="mt-[20dvh] max-w-[600px] w-full mx-auto">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
-        <input type="hidden" name="contact[tags]" value="newsletter, coming-soon">
+        <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
           <div class="flex max-md:flex-col items-center md:items-end">
             <div class="relative flex-1 max-md:w-[240px] max-md:mb-[25px] md:mr-5">
@@ -246,6 +246,12 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "contact_tags",
+      "label": "Tag name",
+      "info": "Tags from the Shopify Customers Segments"
+    },
     {
       "type": "select",
       "id": "cover_type",
