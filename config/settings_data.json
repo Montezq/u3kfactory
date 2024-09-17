@@ -80,6 +80,14 @@
               "title": "Line",
               "share_url": "https:\/\/social-plugins.line.me\/lineit\/share?url="
             }
+          },
+          "share_item_md3jDR": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Tumblr",
+              "title": "TUMBLR",
+              "share_url": "https:\/\/www.tumblr.com\/widgets\/share\/tool?canonicalUrl="
+            }
           }
         },
         "block_order": [
@@ -88,7 +96,8 @@
           "share_item_gnDNCU",
           "share_item_nktmyg",
           "share_item_tyi6Qe",
-          "share_item_FwCWMF"
+          "share_item_FwCWMF",
+          "share_item_md3jDR"
         ],
         "settings": {
         }
