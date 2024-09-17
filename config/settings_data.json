@@ -72,6 +72,14 @@
               "title": "WHATSAPP",
               "share_url": "https:\/\/api.whatsapp.com\/send?text="
             }
+          },
+          "share_item_FwCWMF": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Line",
+              "title": "Line",
+              "share_url": "https:\/\/social-plugins.line.me\/lineit\/share?url="
+            }
           }
         },
         "block_order": [
@@ -79,7 +87,8 @@
           "share_item_G3QGF8",
           "share_item_gnDNCU",
           "share_item_nktmyg",
-          "share_item_tyi6Qe"
+          "share_item_tyi6Qe",
+          "share_item_FwCWMF"
         ],
         "settings": {
         }
