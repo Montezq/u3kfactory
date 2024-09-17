@@ -88,6 +88,14 @@
               "title": "TUMBLR",
               "share_url": "https:\/\/www.tumblr.com\/widgets\/share\/tool?canonicalUrl="
             }
+          },
+          "share_item_j3cHKE": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Reddit",
+              "title": "REDDIT",
+              "share_url": "https:\/\/www.reddit.com\/submit?url="
+            }
           }
         },
         "block_order": [
@@ -97,7 +105,8 @@
           "share_item_nktmyg",
           "share_item_tyi6Qe",
           "share_item_FwCWMF",
-          "share_item_md3jDR"
+          "share_item_md3jDR",
+          "share_item_j3cHKE"
         ],
         "settings": {
         }
