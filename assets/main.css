@@ -728,6 +728,9 @@ video {
 .isolate {
   isolation: isolate;
 }
+.\!z-10 {
+  z-index: 10 !important;
+}
 .z-10 {
   z-index: 10;
 }
@@ -860,8 +863,11 @@ video {
 .ml-2 {
   margin-left: 0.5rem;
 }
-.ml-5 {
-  margin-left: 1.25rem;
+.ml-3 {
+  margin-left: 0.75rem;
+}
+.ml-3\.5 {
+  margin-left: 0.875rem;
 }
 .ml-\[22px\] {
   margin-left: 22px;
@@ -943,12 +949,6 @@ video {
 }
 .mt-auto {
   margin-top: auto;
-}
-.ml-3 {
-  margin-left: 0.75rem;
-}
-.ml-3\.5 {
-  margin-left: 0.875rem;
 }
 .line-clamp-1 {
   overflow: hidden;
@@ -1055,6 +1055,9 @@ video {
 .max-h-\[380px\] {
   max-height: 380px;
 }
+.max-h-\[420px\] {
+  max-height: 420px;
+}
 .min-h-\[100dvh\] {
   min-height: 100dvh;
 }
@@ -1160,9 +1163,6 @@ video {
 .w-\[82vw\] {
   width: 82vw;
 }
-.w-\[90\%\] {
-  width: 90%;
-}
 .w-\[90px\] {
   width: 90px;
 }
@@ -1180,14 +1180,8 @@ video {
 .w-full {
   width: 100%;
 }
-.w-\[150px\] {
-  width: 150px;
-}
-.w-\[35vw\] {
-  width: 35vw;
-}
-.w-\[25vw\] {
-  width: 25vw;
+.min-w-0 {
+  min-width: 0px;
 }
 .min-w-\[140px\] {
   min-width: 140px;
@@ -1200,9 +1194,6 @@ video {
 }
 .min-w-\[90px\] {
   min-width: 90px;
-}
-.min-w-0 {
-  min-width: 0px;
 }
 .max-w-60 {
   max-width: 15rem;
@@ -1274,9 +1265,6 @@ video {
 }
 .max-w-full {
   max-width: 100%;
-}
-.max-w-\[55vw\] {
-  max-width: 55vw;
 }
 .flex-1 {
   -webkit-box-flex: 1;
@@ -1506,9 +1494,6 @@ video {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-.text-ellipsis {
-  text-overflow: ellipsis;
 }
 .whitespace-nowrap {
   white-space: nowrap;
@@ -3133,7 +3118,7 @@ input:focus-visible{
 }
   }
 .collection-hero{
-  padding-top: clamp(21px, calc(5vh - 29px), calc(5vh - 29px));
+  padding-top: 60px;
 }
 @media (min-width: 1024px){
 .collection-hero{
@@ -4950,20 +4935,12 @@ input:focus-visible{
     width: 2rem;
   }
 
-  .sm\:w-\[150px\] {
-    width: 150px;
-  }
-
   .sm\:max-w-\[350px\] {
     max-width: 350px;
   }
 
   .sm\:max-w-\[471px\] {
     max-width: 471px;
-  }
-
-  .sm\:max-w-\[300px\] {
-    max-width: 300px;
   }
 
   .sm\:gap-6 {
@@ -5170,10 +5147,6 @@ input:focus-visible{
 
   .md\:w-full {
     width: 100%;
-  }
-
-  .md\:w-\[150px\] {
-    width: 150px;
   }
 
   .md\:min-w-\[132px\] {

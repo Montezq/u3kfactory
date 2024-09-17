@@ -595,54 +595,59 @@
       {%- endif -%}
     </div>
   </div>
-  <div class="remove-account__modal hidden fixed top-1/2 left-[50%] lg:left-[62.3%] -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] md:w-full max-w-[320px]">
-    <button
-      type="button"
-      class="remove-account__modal-close modal__close-button font-bold !font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
-      aria-label="{{ 'accessibility.close' | t }}"
-    >
-      x
-    </button>
-    <div
-      class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[360px] remove-account__modal-wrapper w-full"
-      aria-modal="true"
-      role="dialog"
-      tabindex="-1"
-    >
-      <div class="remove-account__modal-heading text-center mb-5">
-        <h2 class="font-bold text-[25px] uppercase">ACCOUNT REMOVAL</h2>
-      </div>
-      <div class="remove-account__modal-body mb-6">
-        <p class="text-[22px] text-center font-bold leading-snug">
-          All the data related to this account will be lost. This includes order history. <br>
-          Are you sure?
-        </p>
-      </div>
-      <div class="remove-account__modal-footer text-center relative">
-        {% form 'contact' %}
-          <input
-            class="w-0 h-0 absolute top-0 left-0"
-            type="text"
-            name="contact[regardin]"
-            id="reagarding"
-            value="Delete account request from {{ customer.first_name }} {{ customer.last_name }}"
-          >
-          <input
-            class="w-0 h-0 absolute top-0 left-0"
-            type="email"
-            name="contact[email]"
-            id="email"
-            value="{{ customer.email }}"
-          >
-          <input
-            class="w-0 h-0 absolute top-0 left-0"
-            type="text"
-            name="contact[user_id]"
-            id="text"
-            value="User Profile https://admin.shopify.com/store/u3faktory/customers/{{ customer.id }}"
-          >
-          <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">Yes, delete account</button>
-        {% endform %}
+  <div class="remove-account__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[9999999]">
+    <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
+      <div class="my-auto relative left-[50%] lg:left-[62.3%] -translate-x-1/2 z-10 max-w-[260px] md:max-w-[352px] w-full">
+        <button
+          type="button"
+          class="remove-account__modal-close modal__close-button font-bold !font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          x
+        </button>
+        <div
+          class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[420px] remove-account__modal-wrapper w-full"
+          aria-modal="true"
+          role="dialog"
+          tabindex="-1"
+        >
+          <div class="remove-account__modal-heading text-center mb-5">
+            <h2 class="font-bold text-[25px] uppercase">ACCOUNT REMOVAL</h2>
+          </div>
+          <div class="remove-account__modal-body mb-6">
+            <p class="text-base md:text-[21px] text-center leading-snug">
+              Your account will not be deleted automatically. Your staff will review your request and delete it
+              manually. All the data related to this account will be lost. This includes order history. <br>
+              Proceed with the account termination request?
+            </p>
+          </div>
+          <div class="remove-account__modal-footer text-center relative">
+            {% form 'contact' %}
+              <input
+                class="w-0 h-0 absolute top-0 left-0"
+                type="text"
+                name="contact[regardin]"
+                id="reagarding"
+                value="Delete account request from {{ customer.first_name }} {{ customer.last_name }}"
+              >
+              <input
+                class="w-0 h-0 absolute top-0 left-0"
+                type="email"
+                name="contact[email]"
+                id="email"
+                value="{{ customer.email }}"
+              >
+              <input
+                class="w-0 h-0 absolute top-0 left-0"
+                type="text"
+                name="contact[user_id]"
+                id="text"
+                value="User Profile https://admin.shopify.com/store/u3faktory/customers/{{ customer.id }}"
+              >
+              <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">Yes, delete account</button>
+            {% endform %}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -697,6 +702,7 @@
       setDefaultButtons = document.querySelectorAll('.default-address'),
       addressLabels = document.querySelectorAll('.my-account__adress'),
       editButton = document.querySelector('.edit-address-button');
+    const bodyEl = document.querySelector('body');
 
     addNew.addEventListener('click', () => {
       newAaddress.classList.remove('hidden');
@@ -786,21 +792,21 @@
       resetWrapper.classList.add('hidden');
     });
 
-    var removeAccountOpen = document.querySelectorAll('.delete-account-cta'),
-      removeAccountModal = document.querySelector('.remove-account__modal'),
-      removeAccountClose = document.querySelectorAll('.remove-account__modal-close');
+    var removeAccountOpen = document.querySelectorAll('.delete-account-cta');
 
+    const removeAccountModal = document.querySelector('.remove-account__modal');
+    removeAccountModal.addEventListener('click', (event) => {
+      let modalBody = removeAccountModal.querySelector('.remove-account__modal-wrapper');
+      if (!modalBody.contains(event.target)) {
+        removeAccountModal.classList.add('hidden');
+        bodyEl.classList.remove('overflow-hidden');
+      }
+    });
     removeAccountOpen.forEach((button) => {
       button.addEventListener('click', (event) => {
         event.preventDefault();
         removeAccountModal.classList.remove('hidden');
-      });
-    });
-
-    removeAccountClose.forEach((button) => {
-      button.addEventListener('click', (event) => {
-        event.preventDefault();
-        removeAccountModal.classList.add('hidden');
+        bodyEl.classList.add('overflow-hidden');
       });
     });
   });

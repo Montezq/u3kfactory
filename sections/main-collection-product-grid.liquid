@@ -6,8 +6,21 @@
 >
   <div class="collection__wrapper flex flex-col">
     {%- if collection.products.size > 0 -%}
+      <div
+        id="bar"
+        class="ds_element dissapearing main-account-order__heading max-lg:py-2 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out lg:hidden !z-10"
+      >
+        <h1 class="collection-hero__title text-xl md:text-3xl font-coutureBold text-center">
+          <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+          {%- if section.settings.heading != blank -%}
+            {{ section.settings.heading }}
+          {%- else -%}
+            {{- collection.title | escape -}}
+          {%- endif -%}
+        </h1>
+      </div>
       <div class="collection-hero lg:fixed pb-5 md:pb-9 top-[27px] bg-gray-10 lg:bg-white z-[2]">
-        <div class="pb-5 lg:pb-2">
+        <div class="pb-5 lg:pb-2 max-lg:hidden">
           <h1 class="collection-hero__title text-xl md:text-3xl font-coutureBold text-center">
             <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
             {%- if section.settings.heading != blank -%}
