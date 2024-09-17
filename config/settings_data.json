@@ -32,6 +32,19 @@
     "sections": {
       "share": {
         "type": "share",
+        "blocks": {
+          "share_item_LanjBr": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Facebook",
+              "title": "Facebook",
+              "share_url": "https:\/\/www.facebook.com\/sharer\/sharer.php?u="
+            }
+          }
+        },
+        "block_order": [
+          "share_item_LanjBr"
+        ],
         "settings": {
         }
       }
