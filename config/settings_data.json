@@ -56,12 +56,21 @@
               "title": "PINTEREST",
               "share_url": "https:\/\/pinterest.com\/pin\/create\/button\/?url="
             }
+          },
+          "share_item_nktmyg": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Copy-Link",
+              "title": "COPY LINK",
+              "share_url": "#copy"
+            }
           }
         },
         "block_order": [
           "share_item_LanjBr",
           "share_item_G3QGF8",
-          "share_item_gnDNCU"
+          "share_item_gnDNCU",
+          "share_item_nktmyg"
         ],
         "settings": {
         }
