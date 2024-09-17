@@ -48,11 +48,20 @@
               "title": "X \/ TWITTER",
               "share_url": "https:\/\/twitter.com\/intent\/tweet?url="
             }
+          },
+          "share_item_gnDNCU": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Pinterest",
+              "title": "PINTEREST",
+              "share_url": "https:\/\/pinterest.com\/pin\/create\/button\/?url="
+            }
           }
         },
         "block_order": [
           "share_item_LanjBr",
-          "share_item_G3QGF8"
+          "share_item_G3QGF8",
+          "share_item_gnDNCU"
         ],
         "settings": {
         }
