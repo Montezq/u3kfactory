@@ -3122,6 +3122,7 @@ input:focus-visible{
 }
 @media (min-width: 1024px){
 .collection-hero{
+    padding-top: clamp(21px, calc(5vh - 29px), calc(5vh - 29px));
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
     height: clamp(110px, calc(14.05vh  - 27px), calc(219px - 27px));
     top: 27px;
