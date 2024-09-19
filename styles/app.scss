@@ -898,15 +898,20 @@ accordion-item.open,
 }
 .product__info-wrapper{
   @screen md{
-    padding-top: clamp(32px, 5.4vh, 5.4vh);
+    padding-top: clamp(32px, 5.24vh, 5.24vh);
   }
 }
 .product__title{
-  margin-bottom: clamp(32px, 2.94vh, 32px);
+  margin-bottom: clamp(24px, 2.23vh, 26px);
 }
 .product__description{
   @screen md{
-    margin-bottom: clamp(32px, 6.43vh, 50px);
+    margin-bottom: clamp(39px, 7.92vh, 86px);
+  }
+}
+.product-variant-picker__margin{
+  @screen lg{
+    margin-bottom: clamp(32px, 9.46vh, 103px)
   }
 }
 .product__description *{
@@ -959,7 +964,7 @@ accordion-item.open,
 }
 
 .plus-info{
-  padding-bottom: clamp(50px, 14.6vh, 178px);
+  padding-bottom: clamp(48px, 13.97vh, 170px);
   @media screen and (min-width: 1280px){
     max-width: calc(80.2vh + 23.2rem);
     height: max-content;
