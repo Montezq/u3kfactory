@@ -24,7 +24,7 @@
               {%- endif -%}
               {%- if block.settings.carouse_heading -%}
                 <div class="home-page__carousel-content-label leading-none">
-                  <h2 class="text-[8vw] sm:text-[37px] tracking-widerx font-normal">
+                  <h2 class="text-[8.72vw] sm:text-[37px] tracking-widest font-normal">
                     {{ block.settings.carouse_heading }}
                   </h2>
                 </div>
@@ -37,7 +37,7 @@
     <div class="home-page__carousel-wrapper-btn absolute z-[2] flex flex-col items-center w-fit left-1/2 -translate-x-1/2">
       {% assign first_block = section.blocks | first %}
       <div class="mb-5">
-        <a href="{{ first_block.settings.btn_url }}" class="btn main-btn btn_white-outlined">
+        <a href="{{ first_block.settings.btn_url }}" class="btn main-btn btn_white-outlined !pl-[15px] !pr-[17px]">
           {{ section.settings.button_title }}
         </a>
       </div>
@@ -45,11 +45,11 @@
     </div>
   </div>
   <div class="absolute bottom-0 w-full flex flex-col items-center mb-2.5 home-page__carousel-btn ">
-    <div class="text-center mb-[3px] bounce-text">
-      <strong class="font-coutureBold tracking-widerx text-sm">LATEST</strong>
+    <div class="text-center bounce-text">
+      <strong class="font-coutureBold tracking-widerx text-[12.18px]">LATEST</strong>
     </div>
     <div>
-      <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Dropdown-arrow !font-extrabold text-xl"></span>
+      <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Dropdown-arrow !font-extrabold text-[15.6px]"></span>
     </div>
   </div>
 </div>

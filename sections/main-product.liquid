@@ -1,6 +1,6 @@
 <section
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient pb-12 product-section"
+  class="section-{{ section.id }}-padding gradient product-section"
   data-section="{{ section.id }}"
 >
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
@@ -60,11 +60,11 @@
         </div>
       </div>
     </div>
-    <div class="product flex lg:gap-[46px] max-xl:flex-col">
+    <div class="product flex max-xl:flex-col">
       <div class="grid__item product__media-wrapper xl:w-[61%]">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
-      <div class="product__info-wrapper xl:min-w-[360px] md:px-2 max-lg:px-4 grid__item flex-1{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="product__info-wrapper xl:min-w-[360px] md:pr-2 max-lg:px-4 grid__item flex-1{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <product-info
           id="ProductInfo-{{ section.id }}"
           data-section="{{ section.id }}"

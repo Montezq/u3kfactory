@@ -15,7 +15,7 @@
 -%}
 
 <header class="lg:flex max-lg:h-fit header lg:w-fit lg:h-screen fixed top-0 left-0 bottom-0 right-0 z-[999] lg:z-[2]{% if menu_open %} menu-open{% endif %}">
-  <div class="header__mobile !bg-red px-4 py-3 flex items-center justify-between lg:hidden{% if template.name != "index" %} bg-gray-10{% endif %}">
+  <div class="header__mobile !bg-red px-[14.4px] py-3 flex items-center justify-between lg:hidden{% if template.name != "index" %} bg-gray-10{% endif %}">
     <div class="header__mobile-hamburger w-10">
       {%- render 'icon-hamburger' -%}
     </div>
@@ -65,14 +65,14 @@
         >
           <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Shopping-Bag-v3 text-[28px] block"></span>
           {%- if cart != empty -%}
-            <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-[3px]">
+            <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-[2px] lg:top-[3px]">
               {%- if cart.item_count < 100 -%}
-                <span aria-hidden="true">{{ cart.item_count }}</span>
+                <span aria-hidden="true" class="max-lg:text-[14px]">{{ cart.item_count }}</span>
               {%- endif -%}
               <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
             </div>
           {%- else -%}
-            <span class="absolute left-1/2 -translate-x-1/2 top-[3px]"> 0 </span>
+            <span class="absolute left-1/2 -translate-x-1/2 top-[2px] lg:top-[3px] max-lg:text-[14px]"> 0 </span>
           {%- endif -%}
         </a>
       </div>

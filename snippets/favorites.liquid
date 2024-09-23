@@ -10,7 +10,7 @@
     {%- assign data_no_variant = false -%}
   {%- endif -%}
   <button
-    class="w-full wishlist-button"
+    class="w-full wishlist-button block"
     type="button"
     aria-label="{{ 'general.favorites.save_product' | t  }}"
     title="{{ 'general.favorites.save_product' | t  }}"
@@ -39,7 +39,7 @@
   </button>
 {% else %}
   <button
-    class="w-full cta-login-button"
+    class="w-full cta-login-button block"
     type="button"
     aria-label="{{ 'general.favorites.save_product' | t  }}"
     title="{{ 'general.favorites.save_product' | t  }}"
