@@ -86,7 +86,7 @@
       "settings": {
         "heading": "Artwork Description",
         "content_metafield": "{{ product.metafields.custom.print_details | metafield_tag }}",
-        "content": "<p>The painting represents the moment between two actions, a pause, in which the only slight movement is created by the lines in perspective and the other compositional elements remain <em>as if waiting.</em> The artist's choices of a bare composition and a moderate use of colors aim to induce the viewer into a deeper and more personal search of the meaning of the work compared to what one might perceive at first and not get lost, instead, in surrounding irrelevant elements and superfluous colors.</p>"
+        "content": "<p>The painting represents the moment between two actions, a pause, in which the only slight movement is created by the lines in perspective and the other compositional elements remain <em>as if waiting.</em> The artist's choices of a bare composition and a moderate use of colors aim to induce the viewer into a deeper and more personal search of the meaning of the work compared to what one might perceive at first and not get lost, instead, in surrounding irrelevant elements and superfluous colors effects.</p>"
       }
     },
     "plus_info_9jRrKL": {
