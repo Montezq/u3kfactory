@@ -42,7 +42,7 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "taxes_text": "* VAT INCLUDED \/ EXCLUDED SHIPPING COST"
+            "taxes_text": "* VAT INCLUDED / EXCLUDED SHIPPING COST"
           }
         },
         "favorites_aWJUfw": {
@@ -84,18 +84,25 @@
     "plus_info_GRqWAV": {
       "type": "plus-info",
       "settings": {
-        "heading": "Artwork Details",
+        "heading": "Artwork Description",
         "content_metafield": "{{ product.metafields.custom.print_details | metafield_tag }}",
-        "content": "<p>This fine art giclée print is delivered unframed. The paper has a matt, light textured surface. <\/p>",
-        "image": "shopify:\/\/shop_images\/INFO-PRINTING-DETAILS-IMAGE.jpg"
+        "content": ""
       }
     },
     "plus_info_9jRrKL": {
       "type": "plus-info",
       "settings": {
-        "heading": "Shipping Details",
+        "heading": "Technical Details",
         "content_metafield": "",
-        "content": "<p>Blah asjahsak<\/p>"
+        "content": "<p>Blah asjahsak</p>"
+      }
+    },
+    "plus_info_pYwGWR": {
+      "type": "plus-info",
+      "settings": {
+        "heading": "Shipping and Returns",
+        "content_metafield": "",
+        "content": ""
       }
     }
   },
@@ -103,6 +110,7 @@
     "main",
     "related-products",
     "plus_info_GRqWAV",
-    "plus_info_9jRrKL"
+    "plus_info_9jRrKL",
+    "plus_info_pYwGWR"
   ]
 }
