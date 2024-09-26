@@ -1553,11 +1553,17 @@ accordion-item.open,
   @apply mt-5;
   @screen md{
     margin-bottom: clamp(32px, 4.87vh, 53px);
+    @apply mt-0;
+  }
+}
+.limited-product__variant-picker{
+  @screen md{
+    margin-bottom: clamp(32px, 3.76vh, 41px) !important;
   }
 }
 .limited-product__short-description{
   @screen md{
-    margin-bottom: clamp(32px, 3.76vh, 41px) !important;
+    margin-bottom: clamp(32px, 6.43vh, 70px);
   }
 }
 .toggle-password.visible:before{

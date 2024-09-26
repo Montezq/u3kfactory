@@ -92,14 +92,14 @@
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div
-                    class="product__description max-lg:mt-14 max-lg:order-5"
+                    class="product__description max-lg:mt-14 max-lg:order-5{% if product.template_suffix == 'limited-product-page' %} limited-product__short-description{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {{ product.description }}
                   </div>
                 {%- endif -%}
               {%- when 'variant_picker' -%}
-                <div class="{%- if product.variants.size > 1 -%}mb-5 product-variant-picker__margin{% else %}margin-variant-picker{% endif %}{% if product.template_suffix == 'limited-product-page' %} limited-product__short-description{% endif %}">
+                <div class="{%- if product.variants.size > 1 -%}mb-5 product-variant-picker__margin{% else %}margin-variant-picker{% endif %}{% if product.template_suffix == 'limited-product-page' %} limited-product__variant-picker{% endif %}">
                   {% render 'product-variant-picker',
                     product: product,
                     block: block,
