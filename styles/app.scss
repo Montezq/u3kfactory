@@ -1555,6 +1555,11 @@ accordion-item.open,
     margin-bottom: clamp(32px, 4.87vh, 53px);
   }
 }
+.limited-product__short-description{
+  @screen md{
+    margin-bottom: clamp(32px, 3.76vh, 41px) !important;
+  }
+}
 .toggle-password.visible:before{
   content: "\e90d";
 }
