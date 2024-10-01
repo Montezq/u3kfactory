@@ -12,6 +12,8 @@
     "artist_page_CQ4qbw": {
       "type": "artist-page",
       "settings": {
+        "first_image": "shopify://shop_images/NEBBIA-INTERIOR-IMAGE_9b756f3b-a9ad-4f21-b4e2-73332394858e.jpg",
+        "second_image": "shopify://shop_images/BLUE-STILL-LIFE-INTERIOR-IMAGE-2_0d70300c-8265-4677-8ef3-f3be9b40a5ee.jpg",
         "facebook_nickname": "",
         "facebook_url": "",
         "instagram_nickname": "",
