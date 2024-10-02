@@ -1,4 +1,4 @@
-<div class="w-full min-h-[100vh] flex flex-col items-center relative overflow-hidden py-8">
+<div class="w-full min-h-[100vh] flex flex-col items-center relative overflow-hidden pb-8 pt-10">
   <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full">
     <div
       class="w-full h-full{% if section.settings.mobile_image != blank or section.settings.mobile_video != blank %} max-md:hidden{% endif %}"
@@ -75,7 +75,7 @@
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="mt-[20dvh] max-w-[600px] w-full mx-auto">
+    <div class="mt-[18dvh] max-w-[600px] w-full mx-auto">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
@@ -88,7 +88,7 @@
                 autocorrect="off"
                 autocapitalize="off"
                 autocomplete="off"
-                class="bg-transparent email-input max-md:text-center w-full border-b border-b-white text-white pl-[4px] pb-[2px] tracking-wider placeholder:tracking-wider placeholder:text-white"
+                class="bg-transparent email-input max-md:text-center text-[20px] w-full border-b border-b-white text-white pl-[4px] pb-[2px] tracking-wider placeholder:tracking-wider placeholder:text-white"
                 {% if form.errors %}
                   autofocus
                   aria-invalid="true"

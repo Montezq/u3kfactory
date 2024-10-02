@@ -143,8 +143,8 @@ input[type="search"]::-moz-search-clear {
   @apply text-[4.8vw];
   @apply md:text-[4.4vw];
   @apply lg:text-[40px];
-  @apply lg:pb-[38px];
-  @apply lg:mb-[42px];
+  @apply lg:pb-[42px];
+  @apply lg:mb-[40px];
 }
 .coming-soon__subheading{
   @apply text-[4.8vw];
@@ -219,11 +219,12 @@ input[type="search"]::-moz-search-clear {
 }
 .icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button .path1:before {
   content: "\e913";
-  color: rgb(193, 193, 193);
+  color: #000;
 }
 .icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button .path2:before {
   content: "\e914";
   color: rgb(255, 255, 255);
+  margin-left: -1em;
 }
 .icon-FULL-ICON-SET-WEBSITE-FINAL_Hand-Truck-Icon:before {
   content: "\e915";
@@ -523,7 +524,7 @@ input{
   }
 }
 .home-page__carousel-wrapper-btn{
-  top: calc(35vh + 125px);
+  top: calc(35vh + 120px);
 }
 .home-page__banner-content-heading{
   h2{
@@ -588,7 +589,7 @@ input{
 .header__menu{
   @screen lg{
     padding-top: clamp(50px, 9.17vh, 9.17vh);
-    padding-bottom: clamp(50px, 5vh, 5vh);
+    padding-bottom: clamp(45px, 4vh, 4vh);
     padding-left: clamp(50px, calc(3.18vw - 8px), calc(3.18vw - 8px));
   }
 }
@@ -717,7 +718,7 @@ accordion-item.open,
       row-gap: 50px;
       @screen md{
         column-gap: clamp(27px, 4vw, 4vw);
-        row-gap: clamp(50px, 9vh, 160px);
+        row-gap: clamp( calc(110px - 69px), calc(16.53vh - 69px), calc(217px - 69px));
       }
     }
   }
@@ -729,7 +730,7 @@ accordion-item.open,
       row-gap: 50px;
       @screen md{
         column-gap: clamp(27px, 2.14vw, 2.14vw);
-        row-gap: clamp(50px, 9vh, 160px);
+        row-gap: clamp( calc(110px - 69px), calc(16.53vh - 69px), calc(217px - 69px));
       }
     }
   }
@@ -741,7 +742,7 @@ accordion-item.open,
       row-gap: 50px;
       @screen md{
         column-gap: clamp(27px, 1.41vw, 1.41vw);
-        row-gap: clamp(50px, 9vh, 160px);
+        row-gap: clamp( calc(110px - 69px), calc(16.53vh - 69px), calc(217px - 69px));
       }
     }
     .card__content{
@@ -754,7 +755,7 @@ accordion-item.open,
   .card__media{
     margin-bottom: 8px;
     @screen md{
-      margin-bottom: clamp(10px, 1.1vh, 1.1vh);
+      margin-bottom: clamp(8px, 1.1vh, 1.1vh);
     }
   }
 }
@@ -1108,7 +1109,7 @@ accordion-item.open,
   }
   @screen lg{
     @apply px-0;
-    padding-top: clamp(146px, 23.97vh, 417px);
+    padding-top: clamp(141px, 23.27vh, 404px);
   }
 }
 .cart-item__content-left{
@@ -1397,7 +1398,7 @@ accordion-item.open,
   @apply pt-[56px];
   @screen lg{
     padding-top: clamp(110px, 14.05vh, 219px);
-    padding-bottom: 27px;
+    padding-bottom: 130px;
   }
 }
 .my-account__body{
@@ -1589,7 +1590,9 @@ accordion-item.open,
 .plus-info__heading{
   margin-bottom:  clamp(20px, 1.96vh, 22px);
 }
-
+.product-card-wrapper .price-item{
+  @apply max-md:text-[12px]
+}
 
 
 

@@ -10,11 +10,11 @@
 <div class="customer order-wrapper max-lg:px-2 max-lg:pb-[86px]">
   <div
     id="bar"
-    class="ds_element dissapearing main-account-order__heading max-lg:py-2 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    class="ds_element dissapearing main-account-order__heading max-lg:py-2 fixed top-[52px] lg:top-[23px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
   >
     <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">My Orders</h1>
 
-    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-2 max-lg:hidden">
+    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-1.5 max-lg:hidden">
       <li>
         <a href="/account?view=order-history-active" class="text-[13px] font-bold underline uppercase"> Active </a>
       </li>
@@ -155,10 +155,12 @@
                         <div class="my-auto relative left-[50%] lg:left-[62.3%] -translate-x-1/2 z-10 max-w-[260px] md:max-w-[352px] w-full">
                           <button
                             type="button"
-                            class="cancel-order__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+                            class="cancel-order__modal-close modal__close-button absolute bottom-full mb-4 right-0 w-7 md:w-[34px] h-7 md:h-[34px] rounded-full leading-none flex justify-center items-center cursor-pointer"
                             aria-label="{{ 'accessibility.close' | t }}"
                           >
-                            x
+                            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button text-[28px] md:text-[34px]"
+                              ><span class="path1"></span><span class="path2"></span
+                            ></span>
                           </button>
                           <div
                             class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[380px] cancel-order__modal-wrapper w-full"
@@ -244,10 +246,12 @@
       <div class="my-auto relative left-[50%] lg:left-[62.3%] -translate-x-1/2 z-10 max-w-[260px] md:max-w-[352px] w-full">
         <button
           type="button"
-          class="remove-unavailable-order__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+          class="remove-unavailable-order__modal-close modal__close-button absolute bottom-full mb-4 right-0 w-7 md:w-[34px] h-7 md:h-[34px] rounded-full leading-none flex justify-center items-center cursor-pointer"
           aria-label="{{ 'accessibility.close' | t }}"
         >
-          x
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button text-[28px] md:text-[34px]"
+            ><span class="path1"></span><span class="path2"></span
+          ></span>
         </button>
         <div
           class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[360px] unavailable-order__modal-wrapper w-full"
