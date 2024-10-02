@@ -39,7 +39,7 @@
             src="{{ card_product.featured_media | image_url: width: 1200 }}"
             sizes="(min-width: 1200px) {{ 1600 | divided_by: 2 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
             alt="{{ card_product.featured_media.alt | escape }}"
-            class="aspect-[25/24]"
+            class="aspect-square"
             {% unless lazy_load == false %}
               loading="lazy"
             {% endunless %}
@@ -49,11 +49,11 @@
         </a>
       {%- endif -%}
     </div>
-    <div class="card__content px-2.5">
-      <div class="flex justify-between">
+    <div class="card__content px-1 md:px-2.5">
+      <div class="flex justify-between max-md:mb-0.5">
         <div class="card__information flex-1">
           <h3
-            class="card__heading text-lg md:text-xl font-bold uppercase tracking-widest leading-none line-clamp-1 pr-5"
+            class="card__heading text-[15px] md:text-xl font-bold uppercase tracking-widest !leading-none line-clamp-1 pr-1.5 md:pr-5"
             title="{{ card_product.title | escape }}"
             {% if card_product.featured_media %}
               id="title-{{ section_id }}-{{ card_product.id }}"
@@ -77,10 +77,10 @@
           </h4>
         </div>
         <div class="flex gap-4 sm:gap-6 w-fit">
-          <div class="w-[15px] md:w-[17px]">
+          <div class="w-[13.5px] md:w-[17px]">
             {%- render 'favorites', product: card_product -%}
           </div>
-          <div class="w-[10px] md:w-3">
+          <div class="w-[9px] md:w-3">
             {%- render 'share-button', product: card_product -%}
           </div>
         </div>

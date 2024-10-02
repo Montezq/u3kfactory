@@ -3,10 +3,14 @@
   Usage:
   {% render 'favorites' %}
 {% endcomment %}
-
+{{ market.custom.free_shipping }}
 {% if customer %}
+  {%- assign data_no_variant = true -%}
+  {% if product.variants.size == 1 %}
+    {%- assign data_no_variant = false -%}
+  {%- endif -%}
   <button
-    class="w-full wishlist-button"
+    class="w-full wishlist-button block"
     type="button"
     aria-label="{{ 'general.favorites.save_product' | t  }}"
     title="{{ 'general.favorites.save_product' | t  }}"
@@ -18,14 +22,24 @@
     data-image="{{ product | image_url: width: 1200 }}"
     data-url="{{ product.url }}"
     data-toggle="true"
-    data-no-variant="true"
+    data-no-variant="{{ data_no_variant }}"
+    {% unless data_no_variant %}
+      {%- for option in product.options_with_values -%}
+        {%- for value in option.values -%}
+          {% if option.selected_value == value %}
+            {% assign value_option = value | downcase %}
+            data-variant-option-{{ option.name }}="{{- value_option -}}"
+          {% endif %}
+        {%- endfor -%}
+      {%- endfor -%}
+    {% endunless %}
   >
     <span class="visually-hidden">{{ 'general.favorites.save_product' | t }}</span>
     {%- render 'icon-heart' -%}
   </button>
 {% else %}
   <button
-    class="w-full cta-login-button"
+    class="w-full cta-login-button block"
     type="button"
     aria-label="{{ 'general.favorites.save_product' | t  }}"
     title="{{ 'general.favorites.save_product' | t  }}"

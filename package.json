@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "U3Faktory shopify theme",
   "scripts": {
-    "dev": "concurrently \"npm run watch:css\" \"npm run shopify:dev\"",
+    "dev": "concurrently \"npm run watch:css\" \"npm run watch4k:css\" \"npm run shopify:dev\"",
     "watch:css": "postcss styles/app.scss -o assets/main.css --watch",
+    "watch4k:css": "postcss styles/app4k.scss -o assets/main4k.css --watch",
     "shopify:dev": "shopify theme dev --live-reload full-page -e dev"
   },
   "devDependencies": {

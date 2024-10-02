@@ -1,12 +1,12 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-<div class="customer order-wrapper max-lg:px-2">
+<div class="customer order-wrapper max-lg:px-2 max-lg:pb-[86px]">
   <div
     id="bar"
-    class="ds_element dissapearing main-account-order__heading max-lg:py-2 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    class="ds_element dissapearing main-account-order__heading max-lg:py-2 fixed top-[52px] lg:top-[23px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
   >
     <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">My Orders</h1>
-    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-2 max-lg:hidden">
+    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-1.5 max-lg:hidden">
       <li>
         <a href="/account?view=order-history-active" class="text-[13px] font-bold  uppercase"> Active </a>
       </li>
@@ -91,7 +91,7 @@
                               {%- unless item.product.has_only_default_variant -%}
                                 {%- for option in item.options_with_values -%}
                                   <div class="product-option leading-none">
-                                    <dd class="text-lg md:text-[21px] leading-none font-bold">
+                                    <dd class="text-lg md:text-[21px] leading-none font-helveticaLight">
                                       {{ option.value }}
                                     </dd>
                                   </div>
@@ -101,7 +101,7 @@
                                 {%- assign property_first_char = property.first | slice: 0 -%}
                                 {%- if property.last != blank and property_first_char != '_' -%}
                                   <div class="product-option leading-none">
-                                    <dd class="text-lg md:text-[21px] leading-none font-bold">
+                                    <dd class="text-lg md:text-[21px] leading-none font-helveticaLight ">
                                       {{ property.last }}
                                     </dd>
                                   </div>

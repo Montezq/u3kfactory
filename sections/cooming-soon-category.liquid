@@ -72,7 +72,7 @@
     {%- endif -%}
     <div class="coming-soon__category-email max-w-[280px] sm:max-w-[350px] w-full mx-auto">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
-        <input type="hidden" name="contact[tags]" value="newsletter, coming-soon">
+        <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
           <div class="flex flex-col items-center">
             <div class="relative flex-1 w-full mb-[25px]">
@@ -83,7 +83,7 @@
                 autocorrect="off"
                 autocapitalize="off"
                 autocomplete="off"
-                class="bg-transparent email-input w-full !text-center border-b border-b-white text-white pl-[4px] pb-[2px] tracking-wider placeholder:tracking-wider placeholder:text-white"
+                class="bg-transparent email-input text-[20px] w-full !text-center border-b border-b-white text-white pl-[4px] pb-[2px] tracking-wider placeholder:tracking-wider placeholder:text-white"
                 {% if form.errors %}
                   autofocus
                   aria-invalid="true"
@@ -102,6 +102,18 @@
                   </div>
                   <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
                     Please write a valid email address to be able to recieve updates.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="tooltip tooltip_exist absolute top-full mt-[11px] whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+              >
+                <div class="flex items-center">
+                  <div class="w-5 sm:w-7 h-5 sm:h-7 mr-[7px]">
+                    {%- render 'icon-info' -%}
+                  </div>
+                  <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
+                    This email is already in the notification list.
                   </p>
                 </div>
               </div>
@@ -137,7 +149,8 @@
       submitButton.addEventListener('click', function (event) {
         const emailField = form.querySelector('.email-input');
         const email = emailField.value;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex =
+          /^(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~\-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~\-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])")@(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-zA-Z0-9-]*[a-zA-Z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)|\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]+)$/;
 
         if (emailRegex.test(email) && email) {
           console.log('if');
@@ -160,8 +173,41 @@
     var live_url = window.location.href;
     var result = live_url.includes('form_type=customer');
     if (result) {
-      console.log('already exist');
+      const tooltipExist = document.querySelector('.tooltip_exist');
+      tooltipExist.classList.remove('opacity-0', 'invisible');
+      setTimeout(() => {
+        tooltipExist.classList.add('opacity-0', 'invisible');
+      }, 3000);
     }
+
+    function removeQueryParameter(param) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete(param);
+      url.hash = ''; // Remove any hash fragment
+      history.replaceState(null, null, url.href);
+    }
+
+    function removeQueryParameterAndPreventBack(param) {
+      const url = new URL(window.location.href);
+
+      // Remove the query parameter and clear hash
+      url.searchParams.delete(param);
+      url.hash = '';
+
+      // Replace the current history entry with the updated URL
+      history.replaceState(null, null, url.href);
+
+      // Push a new state with a unique identifier to prevent back navigation
+      history.pushState({ noBack: true }, null, url.href);
+
+      // Intercept the back navigation to prevent it
+      window.onpopstate = function (event) {
+        history.go(1);
+      };
+    }
+
+    // Call the function to remove the query parameter and prevent back navigation
+    removeQueryParameterAndPreventBack('customer_posted');
   });
 </script>
 
@@ -171,6 +217,12 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "contact_tags",
+      "label": "Tag name",
+      "info": "Tags from the Shopify Customers Segments"
+    },
     {
       "type": "select",
       "id": "cover_type",

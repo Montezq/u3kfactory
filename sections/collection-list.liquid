@@ -2,32 +2,26 @@
   <div>
     {%- unless section.settings.title == blank -%}
       <div
-        id="bar"
-        class="ds_element dissapearing home-page__carousel-btn-top py-2 text-center fixed max-lg:duration-300 max-lg:ease-in-out bg-gray-10 lg:hidden"
+        class="left-0 right-0 ds_element z-10 dissapearing home-page__carousel-btn-top py-2 text-center fixed max-lg:duration-300 max-lg:ease-in-out bg-gray-10 lg:hidden"
       >
         <h2
           id="SectionHeading-{{ section.id }}"
-          class="text-center font-coutureBold text-xl{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="text-center font-coutureBold text-xl"
         >
           {{ section.settings.title }}
         </h2>
       </div>
     {%- endunless -%}
 
-    <div class="max-lg:pt-[44px]{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="max-lg:pt-[44px]">
       <ul
-        class="grid gap-y-4 md:gap-y-[27px] pb-[27px]"
+        class="grid gap-y-4 md:gap-y-[27px] md:pb-[27px] collection-list"
         id="Slider-{{ section.id }}"
         role="list"
       >
         {%- for block in section.blocks -%}
           <li
-            class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {{ block.shopify_attributes }}
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-              style="--animation-order: {{ forloop.index }};"
-            {% endif %}
           >
             {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
             {%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}

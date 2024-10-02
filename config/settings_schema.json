@@ -8,6 +8,16 @@
     "theme_support_url": "https:\/\/www.upwork.com\/freelancers\/iontalmaci2"
   },
   {
+    "name": "General",
+    "settings": [
+      {
+        "type": "text",
+        "id": "free_shipping",
+        "label": "Free Shipping Price"
+      },
+    ]
+  },
+  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {

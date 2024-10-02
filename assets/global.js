@@ -956,7 +956,8 @@ customElements.define('slideshow-component', SlideshowComponent);
 class VariantSelects extends HTMLElement {
   constructor() {
     super();
-    this.addEventListener('click', this.onVariantChange);
+    this.previousVariant = null; // Track the previous variant
+    this.addEventListener('click', this.onVariantChange.bind(this));
   }
 
   onVariantChange(event) {
@@ -968,15 +969,31 @@ class VariantSelects extends HTMLElement {
     this.removeErrorMessage();
     this.updateVariantStatuses();
 
-    if (!this.currentVariant) {
-      this.toggleAddButton(true, '', true);
-      this.setUnavailable();
-    } else {
-      // this.updateMedia();
-      this.updateURL();
-      this.updateVariantInput();
-      this.renderProductInfo();
-      this.updateShareUrl();
+    const previousVariantId = this.previousVariant ? this.previousVariant.id : null;
+    const currentVariantId = this.currentVariant ? this.currentVariant.id : null;
+
+    // Check if the variant has changed
+    if (previousVariantId !== currentVariantId) {
+      if (!this.currentVariant || !this.currentVariant.available) {
+        const instructionsSent = document.querySelector('.combination-modal');
+        if (instructionsSent) {
+          instructionsSent.classList.remove('hidden');
+          setTimeout(() => {
+            instructionsSent.classList.add('hidden');
+          }, 2000); // Wait for 1 second before hiding the modal
+          history.replaceState(null, null, ' ');
+        }
+        this.toggleAddButton(true, '', true);
+        this.setUnavailable();
+      } else {
+        // this.updateMedia();
+        this.updateURL();
+        this.updateVariantInput();
+        this.renderProductInfo();
+        this.updateShareUrl();
+      }
+
+      this.previousVariant = this.currentVariant; // Update previous variant
     }
   }
 
@@ -1118,14 +1135,17 @@ class VariantSelects extends HTMLElement {
     )
       .then((response) => response.text())
       .then((responseText) => {
+
         // Prevent unnecessary UI changes from abandoned selections
-        if (this.currentVariant.id !== requestedVariantId) return;
+        if (this.currentVariant?.id !== requestedVariantId) return
   
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const destination = document.getElementById(`price-${this.dataset.section}-buy`);
         const destination2 = document.getElementById(`price-${this.dataset.section}`);
+        const destination3 = document.getElementById(`price-${this.dataset.section}-buy-2`);
         const source = html.getElementById(`price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}-buy`);
         const source2 = html.getElementById(`price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+        const source3 = html.getElementById(`price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}-buy-2`);
         const skuSource = html.getElementById(`Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
         const skuDestination = document.getElementById(`Sku-${this.dataset.section}`);
         const inventorySource = html.getElementById(`Inventory-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
@@ -1136,13 +1156,18 @@ class VariantSelects extends HTMLElement {
         const volumePricingDestination = document.getElementById(`Volume-${this.dataset.section}`);
         const qtyRules = document.getElementById(`Quantity-Rules-${this.dataset.section}`);
         const volumeNote = document.getElementById(`Volume-Note-${this.dataset.section}`);
-  
+        const destinationCopy = document.getElementById(`copy-${this.dataset.section}`);
+        const sourceCopy = html.getElementById(`copy-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+
+
         if (volumeNote) volumeNote.classList.remove('hidden');
         if (volumePricingDestination) volumePricingDestination.classList.remove('hidden');
         if (qtyRules) qtyRules.classList.remove('hidden');
   
         if (source && destination) destination.innerHTML = source.innerHTML;
         if (source2 && destination2) destination2.innerHTML = source2.innerHTML;
+        if (source3 && destination3) destination3.innerHTML = source3.innerHTML;
+        if (destinationCopy && sourceCopy) destinationCopy.innerHTML = sourceCopy.innerHTML;
         if (inventorySource && inventoryDestination) inventoryDestination.innerHTML = inventorySource.innerHTML;
         if (skuSource && skuDestination) {
           skuDestination.innerHTML = skuSource.innerHTML;
@@ -1321,7 +1346,7 @@ class AccordionItem extends HTMLElement {
     button.addEventListener('click', () => {
       content.style.transition = 'height 0.3s ease-out';
       if (!this.isOpen) {
-        document.querySelector('.header__menu-content').classList.remove('lg:pt-[16vh]');
+        document.querySelector('.header__menu-content').classList.remove('lg:pt-[16.4vh]');
         this.isOpen = true;
         document.body.classList.add('accordion-menu__opened');
         this.classList.add('open')
@@ -1333,7 +1358,7 @@ class AccordionItem extends HTMLElement {
           return document.documentElement.scrollHeight > document.documentElement.clientHeight;
         };
       
-        if (hasVerticalScroll()) {
+        if (window.location.pathname !== '/') {
           document.body.classList.add('accordion-menu__opened_scrolled');
         }
       }
@@ -1346,7 +1371,7 @@ class AccordionItem extends HTMLElement {
       this.classList.add('open')
       document.body.classList.add('accordion-menu__opened');
       requestAnimationFrame(() => {
-        document.querySelector('.header__menu-content').classList.remove('lg:pt-[16vh]');
+        document.querySelector('.header__menu-content').classList.remove('lg:pt-[16.4vh]');
         content.style.height = `${content.scrollHeight}px`;
       });
       const hasVerticalScroll = () => {
@@ -1378,6 +1403,8 @@ class AccordionItem extends HTMLElement {
 
   close() {
     const content = this.querySelector('.accordion-content');
+    const items = document.querySelectorAll('a.header__menu-item')
+    items.forEach( (item) => item.classList.remove('open'))
     if (!this.isOpen) return; 
     this.classList.remove('open')
     this.isOpen = false;

@@ -5,13 +5,13 @@
 >
   <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Shopping-Bag-v3 text-[28px]"></span>
   {%- if cart != empty -%}
-    <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-[3px]">
+    <div class="cart-count-bubble absolute left-1/2 -translate-x-1/2 top-[2px] lg:top-[3px] max-lg:text-[14px]">
       {%- if cart.item_count < 100 -%}
         <span aria-hidden="true">{{ cart.item_count }}</span>
       {%- endif -%}
       <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
     </div>
   {%- else -%}
-    <span class="absolute left-1/2 -translate-x-1/2 top-[3px]"> 0 </span>
+    <span class="absolute left-1/2 -translate-x-1/2 top-[2px] lg:top-[3px] max-lg:text-[14px]"> 0 </span>
   {%- endif -%}
 </a>

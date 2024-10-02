@@ -1,7 +1,7 @@
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-<div class="my-favorites">
+<div class="my-favorites max-lg:pb-[90px]">
   <div
     id="bar"
     class="ds_element dissapearing my-favorites__heading max-lg:py-2 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out flex justify-center"
@@ -10,6 +10,9 @@
   </div>
   <div class="my-favorites__body">
     <ul class="wishlist__list wishlist__container"></ul>
+    <div class="no-favorites hidden">
+      <h2 class="text-xl md:text-[30px] uppercase text-center tracking-xwidest py-[30vh]">NO FAVORITES</h2>
+    </div>
   </div>
 </div>
 {%- if settings.cart_type == 'notification' -%}
@@ -35,6 +38,9 @@
   function renderWishlist() {
     // Get current wishlist items from localStorage
     const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const noFavorites = document.querySelector('.no-favorites');
+
+    if (wishlist.length < 1) noFavorites.classList.remove('hidden');
 
     // Find the wishlist container
     const wishlistContainer = document.querySelector('.wishlist__container');
@@ -62,7 +68,9 @@
         </div>
         <div class="wishlist__item-data flex-1 max-md:px-1 max-lg:px-4 max-md:flex max-md:flex-wrap">
           <div class="wishlist__item-data-title md:mb-14 max-md:w-[40%]">
-            <h2 class="text-[20px] md:text-[32px] font-semibold leading-none md:mb-3">${item.productTitle}</h2>
+            <h2 class="text-[20px] md:text-[32px] font-semibold leading-none md:mb-3"><a href="${item.productUrl}">${
+        item.productTitle
+      }</a></h2>
             <h3 class="leading-none text-base md:text-[26px] font-helveticaThinCond italic tracking-wide font-normal">by ${
               item.productVendor
             }</h3>
@@ -87,7 +95,7 @@
               item.noVariant
                 ? ''
                 : `
-              <h4 class="text-[22px] md:text-[24px] tracking-xwidest md:hidden leading-none mt-4">
+              <h4 class="font-bold text-sm tracking-xwidest md:hidden leading-none mt-4">
                 ${(() => {
                   const priceString = item.productPrice;
                   const priceNumber = Number(priceString.replace(/[^0-9]/g, ''));
@@ -98,7 +106,7 @@
               `
             }
           </div>
-          <div class="wishlist__item-data-buttons max-md:w-full">
+          <div class="wishlist__item-data-buttons max-md:w-full product">
             <div class="md:max-w-[360px] mt-4">
               ${
                 item.noVariant
@@ -116,11 +124,11 @@
                   : `
                   <div class="flex md:max-w-[360px] mb-4">
                     <div id="price-template--17986287468764__main-buy" class="max-w-[136px] max-md:hidden w-full border-2 border-black text-center flex items-center justify-center no-js-hidden" role="status">
-                      <div class="price text-xl font-helveticaThinCond tracking-widest leading-none font-semibold price--large">
+                      <div class="price text-sm md:text-xl tracking-widest leading-none !font-bold">
                         <div class="price__container">
                           <div class="price__regular">
                             <span class="visually-hidden visually-hidden--inline">Regular price</span>
-                            <span class="price-item price-item--regular font-helvetica font-[900]">
+                            <span class="price-item">
                               ${(() => {
                                 const priceString = item.productPrice;
                                 const priceNumber = Number(priceString.replace(/[^0-9]/g, ''));

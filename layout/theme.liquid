@@ -1,3 +1,5 @@
+{% comment %} // text-3xl = 1.56vw lh 1.2 {% endcomment %}
+
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
@@ -174,6 +176,7 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'main.css' | asset_url | stylesheet_tag }}
+    {{ 'main4k.css' | asset_url | stylesheet_tag }}
 
     {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
       {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
@@ -233,7 +236,7 @@
     {% section 'share' %}
     <main
       id="MainContent"
-      class="content-for-layout focus-none main relative min-h-full pt-[53px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0 overflow-hidden{% if template.name == 'product' %} pb-[82px]{% endif %}"
+      class="content-for-layout focus-none main relative min-h-full pt-[52px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0 overflow-hidden{% if template.name == 'product' %} pb-[82px]{% endif %}"
       role="main"
       tabindex="-1"
     >
@@ -308,15 +311,23 @@
           localStorage.setItem('searchTerms', JSON.stringify(words));
 
           const promises = words.map((word) => {
-            return fetch(`/search?q=${word}&type=product`)
+            return fetch(`/search?q=${word}&type=product,page`)
               .then((response) => response.text())
               .then((data) => {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(data, 'text/html');
-                return Array.from(doc.querySelectorAll('.grid__item')).map((item) => {
+
+                // Process products
+                const products = Array.from(doc.querySelectorAll('.grid__item')).map((item) => {
                   const collections = item.getAttribute('data-collections').split(',');
                   return { html: item.outerHTML, collections };
                 });
+
+                // Process pages
+                const pages = Array.from(doc.querySelectorAll('.page__search-group')).map((item) => {
+                  return { html: item.outerHTML, collections: ['page-search'] };
+                });
+                return [...products, ...pages];
               });
           });
 
@@ -325,21 +336,24 @@
 
             // Filter collections containing 'all'
             const collectionsMap = new Map();
-            flattenedResults.forEach((product) => {
-              product.collections.forEach((collection) => {
-                if (collection.includes('all') && collection !== 'home-page-collection') {
+            flattenedResults.forEach((item) => {
+              item.collections.forEach((collection) => {
+                if (
+                  (collection.includes('all') || collection === 'page-search') &&
+                  collection !== 'home-page-collection'
+                ) {
                   if (!collectionsMap.has(collection)) {
                     collectionsMap.set(collection, []);
                   }
-                  collectionsMap.get(collection).push(product.html);
+                  collectionsMap.get(collection).push(item.html);
                 }
               });
             });
 
             // Convert collectionsMap to an array of objects for easier processing in the search page
-            const groupedResults = Array.from(collectionsMap.entries()).map(([collection, products]) => ({
+            const groupedResults = Array.from(collectionsMap.entries()).map(([collection, items]) => ({
               collection,
-              products,
+              items,
             }));
 
             // Store the grouped results in local storage

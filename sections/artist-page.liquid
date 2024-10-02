@@ -5,7 +5,7 @@
   >
     <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">{{ page.title | escape }}</h1>
   </div>
-  <div class="artist-page__body custom-page__body max-md:pt-[52px] max-lg:pt-[56px] pb-10">
+  <div class="artist-page__body custom-page__body max-md:pt-[52px] max-lg:pt-[56px] pb-[90px]">
     {%- if section.settings.first_image != blank or section.settings.second_image != blank -%}
       <div class="custom-page__images{% if section.settings.second_image != blank %} max-md:gap-6 grid md:grid-cols-2{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {%- if section.settings.first_image != blank -%}
@@ -117,13 +117,15 @@
 </div>
 <div class="contact-us__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[99999]">
   <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
-    <div class="relative my-auto left-[50%] lg:left-[63%] -translate-x-1/2 w-[94%] md:w-full max-w-[400px] md:max-w-[471px]">
+    <div class="relative my-auto left-[50%] lg:left-[62.3%] -translate-x-1/2 w-[94%] md:w-full max-w-[400px] md:max-w-[471px]">
       <button
         type="button"
-        class="contact-us__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+        class="contact-us__modal-close modal__close-button absolute bottom-full mb-4 right-0 w-7 md:w-[34px] h-7 md:h-[34px] rounded-full leading-none flex justify-center items-center cursor-pointer"
         aria-label="{{ 'accessibility.close' | t }}"
       >
-        x
+        <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button text-[28px] md:text-[34px]"
+          ><span class="path1"></span><span class="path2"></span
+        ></span>
       </button>
       <div
         class="border border-[#5a5a5a] bg-white px-2.5 pt-5 contact-us__modal-wrapper modal-wrapper w-full"
@@ -132,7 +134,7 @@
         tabindex="-1"
       >
         <div class="contact-us__modal-heading text-center mb-[30px]">
-          <p class="text-base md:text-[19px] tracking-widest font-normal uppercase leading-none mb-6 md:mb-[30px]">
+          <p class="text-base md:text-[19px] tracking-widest font-normal uppercase leading-none mb-6 md:mb-[44px]">
             You Are contacting
           </p>
           {% assign full_string = page.title %}
@@ -145,7 +147,8 @@
         </div>
 
         <div class="contact-us__modal-body">
-          {% form 'contact' %}
+          {% assign page_url = page.url | append: '#contact-artist-form' %}
+          {% form 'contact', id: 'contact-artist-form', return_to: page_url %}
             <input
               class="absolute top-0 left-0 w-0 h-0 p-0 invisible"
               type="text"
@@ -272,6 +275,18 @@
     </div>
   </div>
 </div>
+<div class="removed-wishlist__modal hidden fixed top-1/2 left-[50%] lg:left-[62.3%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
+  <div
+    class="border border-[#5a5a5a] bg-white px-4 py-3.5 removed-wishlist__modal-wrapper w-full"
+    aria-modal="true"
+    role="dialog"
+    tabindex="-1"
+  >
+    <div class="removed-wishlist__modal-heading text-center">
+      <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">Message Sent</h2>
+    </div>
+  </div>
+</div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const contactOpen = document.querySelector('.contact-us'),
@@ -288,15 +303,6 @@
     contactClose.addEventListener('click', () => {
       contactModal.classList.add('hidden');
       bodyEl.classList.remove('overflow-hidden');
-    });
-
-    document.addEventListener('click', (event) => {
-      if (contactModal.classList.contains('hidden')) return;
-
-      if (!contactWrapper.contains(event.target) && !contactOpen.contains(event.target)) {
-        contactModal.classList.add('hidden');
-        bodyEl.classList.remove('overflow-hidden');
-      }
     });
     document.addEventListener('click', function (e) {
       const target = e.target;
@@ -333,7 +339,7 @@
         });
       }
     });
-    const form = document.querySelector('form');
+    const form = document.querySelector('#contact-artist-form');
     const emailInput = document.getElementById('email');
     const messageInput = document.getElementById('message');
     const emailTooltip = document.getElementById('email-tooltip');
@@ -348,6 +354,9 @@
       if (emailValue === '' || !validateEmail(emailValue)) {
         emailTooltip.classList.remove('opacity-0', 'invisible');
         valid = false;
+        setTimeout(() => {
+          emailTooltip.classList.add('opacity-0', 'invisible');
+        }, 1500);
       } else {
         emailTooltip.classList.add('opacity-0', 'invisible');
       }
@@ -370,6 +379,16 @@
     function validateEmail(email) {
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(String(email).toLowerCase());
+    }
+    if (window.location.hash === '#contact-artist-form') {
+      const instructionsSent = document.querySelector('.removed-wishlist__modal');
+      if (instructionsSent) {
+        instructionsSent.classList.remove('hidden');
+        setTimeout(() => {
+          instructionsSent.classList.add('hidden');
+        }, 1000); // Wait for 1 second before hiding the modal
+        history.replaceState(null, null, ' ');
+      }
     }
   });
 </script>

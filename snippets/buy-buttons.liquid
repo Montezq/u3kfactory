@@ -69,7 +69,7 @@
               disabled
             {% endif %}
           >
-            <span class="w-full pr-2">
+            <span class="w-full{% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %} pr-2.5{% else %} pr-2{% endif %}">
               {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
                 {{ 'products.product.sold_out' | t }}
               {%- else -%}
@@ -77,7 +77,7 @@
               {%- endif -%}
             </span>
             <span
-              class="block -mr-[3px] {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}icon-FULL-ICON-SET-WEBSITE-FINAL_Sold-Out-v2{% else %}icon-FULL-ICON-SET-WEBSITE-FINAL_Add-to-Cart-v2{% endif %} max-md:absolute max-md:top-1/2 max-md:-translate-y-1/2 max-md:right-5 text-[28px] md:ml-auto"
+              class="block -mt-0.5 -mr-[3px] {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}icon-FULL-ICON-SET-WEBSITE-FINAL_Sold-Out-v2{% else %}icon-FULL-ICON-SET-WEBSITE-FINAL_Add-to-Cart-v2{% endif %} max-md:absolute max-md:top-1/2 max-md:-translate-y-1/2 max-md:right-5 text-[28px] md:ml-auto"
             >
             </span>
           </button>

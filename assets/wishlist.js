@@ -19,7 +19,7 @@ function addToWishlist(event) {
   let optionSize, optionMaterial;
   if (!noVariant) {
     optionSize = button.getAttribute('data-variant-option-size');
-    optionMaterial = button.getAttribute('data-variant-option-material');
+    optionMaterial = button.getAttribute('data-variant-option-medium') || button.getAttribute('data-variant-option-material');
   }
 
   // Get current wishlist items from localStorage or initialize as an empty array

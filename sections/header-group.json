@@ -16,7 +16,8 @@
       "settings": {
         "menu": "main-menu",
         "personal_menu": "personal-menu",
-        "mobile_image": "shopify:\/\/shop_images\/Background.png"
+        "mobile_image": "shopify://shop_images/MENU-SMARTPHONE-final2.jpg",
+        "header_image": "shopify://shop_images/Bara_patern_FINAL_TEST_VER_1.png"
       }
     }
   },

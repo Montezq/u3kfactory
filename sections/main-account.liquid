@@ -12,10 +12,10 @@
     }
   }
 </style>
-<div class="customer account max-lg:px-2">
+<div class="customer account max-lg:pb-[106px] max-lg:px-2">
   <div
     id="bar"
-    class="ds_element dissapearing main-account__heading max-lg:py-2 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out flex justify-center"
+    class="ds_element dissapearing main-account__heading max-lg:py-2 fixed top-[52px] lg:top-[23px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out flex justify-center"
   >
     <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">Prefererences</h1>
   </div>
@@ -30,14 +30,17 @@
       </div>
       <div class="hidden new-address">
         <div id="AddAddress">
-          {%- form 'customer_address', customer.new_address -%}
+          {%- form 'customer_address', customer.new_address, id: 'newCustomerAddress' -%}
             <div class="grid md:grid-cols-2 gap-[32px] md:justify-between">
               <div class="new-address__grid-col max-w-[468px]">
                 <div class="field flex flex-col">
-                  <div class="pl-4 mb-1 flex">
-                    <label for="AddressFirstNameNew" class="text-[11px] md:text-[13px] font-axis">
+                  <div class="pl-4 mb-1 flex justify-between">
+                    <label for="AddressFirstNameNew" class="text-[11px] md:text-[13px] font-axis ">
                       {{ 'customer.addresses.first_name' | t }}
                     </label>
+                    <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
+                      <span> *Field required </span>
+                    </div>
                   </div>
                   <input
                     class="input-field"
@@ -48,10 +51,13 @@
                   >
                 </div>
                 <div class="field flex flex-col">
-                  <div class="pl-4 mb-1 flex">
+                  <div class="pl-4 mb-1 flex justify-between">
                     <label for="AddressLastNameNew" class="text-[11px] md:text-[13px] font-axis">
                       {{ 'customer.addresses.last_name' | t }}
                     </label>
+                    <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
+                      <span> *Field required </span>
+                    </div>
                   </div>
                   <input
                     class="input-field"
@@ -62,8 +68,11 @@
                   >
                 </div>
                 <div class="field flex flex-col">
-                  <div class="pl-4 mb-1 flex">
+                  <div class="pl-4 mb-1 flex justify-between">
                     <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis"> Address </label>
+                    <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
+                      <span> *Field required </span>
+                    </div>
                   </div>
                   <input
                     class="input-field"
@@ -73,14 +82,35 @@
                     autocomplete="address-line1"
                   >
                   <div>
-                    <p class="text-sm font-bold text-right">*Include street number and apartment number</p>
+                    <p class="text-sm font-bold text-right">*Include street number</p>
+                  </div>
+                </div>
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
+                      Apartment number
+                    </label>
+                  </div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[address2]"
+                    id="AddressAddress1New"
+                    autocomplete="address-line2"
+                    value="{{ form.address2 }}"
+                  >
+                  <div>
+                    <p class="text-sm font-bold text-right">*Optional</p>
                   </div>
                 </div>
               </div>
               <div class="new-address__grid-col max-w-[468px] w-full ml-auto">
                 <div class="field flex flex-col">
-                  <div class="pl-4 mb-1 flex">
+                  <div class="pl-4 mb-1 flex justify-between">
                     <label for="AddressCityNew" class="text-[11px] md:text-[13px] font-axis"> City </label>
+                    <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
+                      <span> *Field required </span>
+                    </div>
                   </div>
                   <input
                     class="input-field"
@@ -91,8 +121,11 @@
                   >
                 </div>
                 <div class="field flex flex-col">
-                  <div class="pl-4 mb-1 flex">
+                  <div class="pl-4 mb-1 flex justify-between">
                     <label for="AddressCountryNew" class="text-[11px] md:text-[13px] font-axis"> Country </label>
+                    <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
+                      <span> *Field required </span>
+                    </div>
                   </div>
                   <input
                     class="input-field"
@@ -104,8 +137,11 @@
                   >
                 </div>
                 <div class="field flex flex-col">
-                  <div class="pl-4 mb-1 flex">
+                  <div class="pl-4 mb-1 flex justify-between">
                     <label for="AddressZipNew" class="text-[11px] md:text-[13px] font-axis"> zip code </label>
+                    <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
+                      <span> *Field required </span>
+                    </div>
                   </div>
                   <input
                     class="input-field"
@@ -117,7 +153,7 @@
                   >
                 </div>
                 <div class="field flex flex-col justify-end mt-10">
-                  <div class="w-full md:w-[226px] grid gap-5 ml-auto">
+                  <div class="w-full md:w-[250px] grid gap-5 ml-auto">
                     <div class="fake-checkbox__wrapper flex">
                       <div class="w-fit ml-auto">
                         {{ form.set_as_default_checkbox }}
@@ -129,11 +165,9 @@
                         </label>
                       </div>
                     </div>
-                    <button class="btn btn_primary !text-[17px] w-full font-coutureBold font-bold">
-                      Add this address
-                    </button>
+                    <button class="btn btn_primary !text-[17px] w-full !font-coutureBold font-bold">Add address</button>
                     <button
-                      class="btn btn_outlined !text-[17px] w-full font-coutureBold font-bold cancel-new-address"
+                      class="btn btn_outlined !text-[17px] w-full !font-coutureBold font-bold cancel-new-address"
                       type="reset"
                     >
                       Cancel
@@ -193,7 +227,25 @@
                     value="{{ form.address1 }}"
                   >
                   <div>
-                    <p class="text-xs md:text-sm font-bold text-right">*Include street number and apartment number</p>
+                    <p class="text-xs md:text-sm font-bold text-right">*Include street number</p>
+                  </div>
+                </div>
+                <div class="field flex flex-col">
+                  <div class="pl-4 mb-1 flex">
+                    <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
+                      Apartment number
+                    </label>
+                  </div>
+                  <input
+                    class="input-field"
+                    type="text"
+                    name="address[address2]"
+                    id="AddressAddress1New"
+                    autocomplete="address-line2"
+                    value="{{ form.address2 }}"
+                  >
+                  <div>
+                    <p class="text-sm font-bold text-right">*Optional</p>
                   </div>
                 </div>
               </div>
@@ -239,7 +291,7 @@
                   >
                 </div>
                 <div class="field flex flex-col justify-end mt-10">
-                  <div class="w-full md:w-[226px] grid gap-5 ml-auto">
+                  <div class="w-full md:w-[250px] grid gap-5 ml-auto">
                     <div class="fake-checkbox__wrapper flex">
                       <div class="w-fit ml-auto">
                         {{ form.set_as_default_checkbox }}
@@ -251,11 +303,11 @@
                         </label>
                       </div>
                     </div>
-                    <button class="btn btn_primary !text-[17px] w-full font-coutureBold font-bold">
-                      Edit this address
+                    <button class="btn btn_primary !text-[17px] w-full !font-coutureBold font-bold">
+                      Update address
                     </button>
                     <button
-                      class="btn btn_outlined !text-[17px] w-full font-coutureBold font-bold cancel-edit-address"
+                      class="btn btn_outlined !text-[17px] w-full !font-coutureBold font-bold cancel-edit-address"
                       type="reset"
                     >
                       Cancel
@@ -297,25 +349,153 @@
             </label>
           {%- endfor -%}
         </div>
-        <div class="flex flex-col space-y-4 md:space-y-[21px] w-full md:w-[226px] md:ml-auto">
-          <button class="btn btn_primary !text-[17px] w-full uppercase add-new-address font-coutureBold font-bold">
-            Add Mew
+        <div class="flex flex-col space-y-4 md:space-y-[21px] w-full md:w-[250px] md:ml-auto">
+          <button class="btn btn_primary !text-[17px] w-full uppercase add-new-address !font-coutureBold font-bold">
+            Add New
           </button>
           <button
-            class="btn btn_primary !text-[17px] w-full uppercase font-coutureBold font-bold edit-address-button"
+            class="btn btn_primary !text-[17px] w-full uppercase !font-coutureBold font-bold edit-address-button"
             data-target="address-{{ address_id }}"
           >
             Edit Address
           </button>
+          {%- for address in customer.addresses -%}
+            <div
+              class="default-address {% unless forloop.index != 1 %}hidden{% endunless %}"
+              data-id="{{ address.id }}"
+            >
+              {%- form 'customer_address', address -%}
+                <div class="hidden">
+                  <div class="new-address__grid-col max-w-[468px]">
+                    <div class="field flex flex-col">
+                      <div class="pl-4 mb-1 flex">
+                        <label for="AddressFirstNameNew" class="text-[11px] md:text-[13px] font-axis">
+                          {{ 'customer.addresses.first_name' | t }}
+                        </label>
+                      </div>
+                      <input
+                        class="input-field"
+                        type="text"
+                        name="address[first_name]"
+                        id="AddressFirstNameNew"
+                        autocomplete="given-name"
+                        value="{{ form.first_name }}"
+                      >
+                    </div>
+                    <div class="field flex flex-col">
+                      <div class="pl-4 mb-1 flex">
+                        <label for="AddressLastNameNew" class="text-[11px] md:text-[13px] font-axis">
+                          {{ 'customer.addresses.last_name' | t }}
+                        </label>
+                      </div>
+                      <input
+                        class="input-field"
+                        type="text"
+                        name="address[last_name]"
+                        id="AddressLastNameNew"
+                        autocomplete="family-name"
+                        value="{{ form.last_name }}"
+                      >
+                    </div>
+                    <div class="field flex flex-col">
+                      <div class="pl-4 mb-1 flex">
+                        <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis"> Address </label>
+                      </div>
+                      <input
+                        class="input-field"
+                        type="text"
+                        name="address[address1]"
+                        id="AddressAddress1New"
+                        autocomplete="address-line1"
+                        value="{{ form.address1 }}"
+                      >
+                      <div>
+                        <p class="text-xs md:text-sm font-bold text-right">*Include street number</p>
+                      </div>
+                    </div>
+                    <div class="field flex flex-col">
+                      <div class="pl-4 mb-1 flex">
+                        <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
+                          Apartment number
+                        </label>
+                      </div>
+                      <input
+                        class="input-field"
+                        type="text"
+                        name="address[address2]"
+                        id="AddressAddress1New"
+                        autocomplete="address-line2"
+                        value="{{ form.address2 }}"
+                      >
+                      <div>
+                        <p class="text-sm font-bold text-right">*Optional</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="new-address__grid-col max-w-[468px] w-full ml-auto">
+                    <div class="field flex flex-col">
+                      <div class="pl-4 mb-1 flex">
+                        <label for="AddressCityNew" class="text-[11px] md:text-[13px] font-axis"> City </label>
+                      </div>
+                      <input
+                        class="input-field"
+                        type="text"
+                        name="address[city]"
+                        id="AddressCityNew"
+                        autocomplete="address-level2"
+                        value="{{ form.city }}"
+                      >
+                    </div>
+                    <div class="field flex flex-col">
+                      <div class="pl-4 mb-1 flex">
+                        <label for="AddressCountryNew" class="text-[11px] md:text-[13px] font-axis"> Country </label>
+                      </div>
+                      <input
+                        class="input-field"
+                        type="text"
+                        name="address[country]"
+                        id="AddressCountryNew"
+                        autocomplete="country"
+                        data-default="{{ form.country }}"
+                        value="{{ form.country }}"
+                      >
+                    </div>
+                    <div class="field flex flex-col">
+                      <div class="pl-4 mb-1 flex">
+                        <label for="AddressZipNew" class="text-[11px] md:text-[13px] font-axis"> zip code </label>
+                      </div>
+                      <input
+                        class="input-field"
+                        type="text"
+                        name="address[zip]"
+                        id="AddressZipNew"
+                        autocomplete="postal-code"
+                        value="{{ form.zip }}"
+                      >
+                    </div>
+                  </div>
+                </div>
+                {{ form.set_as_default_checkbox }}
+                <label for="address_default_address_{{ form.id }}" class="block">
+                  <button
+                    class="btn btn_primary !text-[17px] w-full uppercase !font-coutureBold font-bold set-default-address-button"
+                    data-target="address-{{ address.id }}"
+                  >
+                    Set as Default
+                  </button>
+                </label>
+              {%- endform -%}
+            </div>
+          {%- endfor -%}
           <div>
             <button
-              class="btn btn_outlined !text-[17px] w-full uppercase delete-address-button font-coutureBold font-bold"
+              class="btn btn_outlined !text-[17px] w-full uppercase delete-address-button !font-coutureBold font-bold"
               data-target="/account/addresses/{{ address_id }}"
               data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"
             >
               Remove Address
             </button>
-            <div class="md:hidden text-right text-xs md:text-sm font-bold">*Buttons affect selected address</div>
+            <div class="text-right text-xs md:text-sm font-bold">*Buttons affect selected address</div>
           </div>
         </div>
       </div>
@@ -358,13 +538,13 @@
                 >
               </div>
             </div>
-            <div class="space-y-[21px] w-full md:w-[226px] md:ml-auto">
-              <button class="btn btn_primary !text-[17px] w-full uppercase font-coutureBold font-bold">
+            <div class="space-y-[21px] w-full md:w-[250px] md:ml-auto">
+              <button class="btn btn_primary !text-[17px] w-full uppercase !font-coutureBold font-bold">
                 {{ 'customer.login_page.submit' | t }}
               </button>
               <button
                 type="button"
-                class="btn btn_outlined !text-[17px] w-full uppercase font-coutureBold font-bold toggle-change-password"
+                class="btn btn_outlined !text-[17px] w-full uppercase !font-coutureBold font-bold toggle-change-password"
               >
                 Cancel
               </button>
@@ -376,12 +556,12 @@
         <div class="grid md:grid-cols-2 gap-8 md:justify-between">
           <div></div>
           <div>
-            <div class="flex flex-col space-y-[21px] w-full md:w-[226px] md:ml-auto">
-              <button class="btn btn_primary !text-[17px] w-full uppercase font-coutureBold font-bold change-password">
+            <div class="flex flex-col space-y-[21px] w-full md:w-[250px] md:ml-auto">
+              <button class="btn btn_primary !text-[17px] w-full uppercase !px-1.5 !font-coutureBold font-bold change-password">
                 Change Password
               </button>
               <button
-                class="btn btn_outlined !text-[17px] w-full uppercase font-coutureBold font-bold delete-account-cta"
+                class="btn btn_outlined !text-[17px] w-full uppercase !font-coutureBold font-bold delete-account-cta"
               >
                 Delete account
               </button>
@@ -399,81 +579,132 @@
         <div class="max-md:hidden">
           <ul class="cart__footer-privacy-menu flex items-center flex-wrap">
             {%- for link in section.settings.privacy_menu.links -%}
-              <li>
-                <a
-                  href="{{ link.url }}"
-                  class="underline font-helveticaThinCond font-bold tracking-wider uppercase text-sm whitespace-nowrap"
-                >
-                  {{ link.title | escape }}
-                </a>
-              </li>
+              {%- unless link.url == '/pages/info' -%}
+                <li>
+                  <a
+                    href="{{ link.url }}"
+                    class="underline font-helveticaThinCond font-bold tracking-wider uppercase text-sm whitespace-nowrap"
+                  >
+                    {{ link.title | escape }}
+                  </a>
+                </li>
+              {%- endunless -%}
             {%- endfor -%}
           </ul>
         </div>
       {%- endif -%}
     </div>
   </div>
-  <div class="remove-account__modal hidden fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] md:w-full max-w-[320px]">
-    <button
-      type="button"
-      class="remove-account__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
-      aria-label="{{ 'accessibility.close' | t }}"
-    >
-      x
-    </button>
-    <div
-      class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[360px] remove-account__modal-wrapper w-full"
-      aria-modal="true"
-      role="dialog"
-      tabindex="-1"
-    >
-      <div class="remove-account__modal-heading text-center mb-5">
-        <h2 class="font-bold text-[25px] uppercase">ACCOUNT REMOVAL</h2>
-      </div>
-      <div class="remove-account__modal-body mb-6">
-        <p class="text-[22px] text-center font-bold leading-snug">
-          All the data related to this account will be lost. This includes order history. <br>
-          Are you sure?
-        </p>
-      </div>
-      <div class="remove-account__modal-footer text-center relative">
-        {% form 'contact' %}
-          <input
-            class="w-0 h-0 absolute top-0 left-0"
-            type="text"
-            name="contact[regardin]"
-            id="reagarding"
-            value="Delete account request from {{ customer.first_name }} {{ customer.last_name }}"
-          >
-          <input
-            class="w-0 h-0 absolute top-0 left-0"
-            type="email"
-            name="contact[email]"
-            id="email"
-            value="{{ customer.email }}"
-          >
-          <input
-            class="w-0 h-0 absolute top-0 left-0"
-            type="text"
-            name="contact[user_id]"
-            id="text"
-            value="User Profile https://admin.shopify.com/store/u3faktory/customers/{{ customer.id }}"
-          >
-          <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">Yes, delete account</button>
-        {% endform %}
+  <div class="remove-account__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[9999999]">
+    <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
+      <div class="my-auto relative left-[50%] lg:left-[62.3%] -translate-x-1/2 z-10 max-w-[260px] md:max-w-[352px] w-full">
+        <button
+          type="button"
+          class="remove-account__modal-close modal__close-button font-bold !font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button text-[28px] md:text-[34px]"
+            ><span class="path1"></span><span class="path2"></span
+          ></span>
+        </button>
+        <div
+          class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[420px] remove-account__modal-wrapper w-full"
+          aria-modal="true"
+          role="dialog"
+          tabindex="-1"
+        >
+          <div class="remove-account__modal-heading text-center mb-5">
+            <h2 class="font-bold text-[25px] uppercase">ACCOUNT REMOVAL</h2>
+          </div>
+          <div class="remove-account__modal-body mb-6">
+            <p class="text-base md:text-[21px] text-center leading-snug">
+              Your account will not be deleted automatically. Your staff will review your request and delete it
+              manually. All the data related to this account will be lost. This includes order history. <br>
+              Proceed with the account termination request?
+            </p>
+          </div>
+          <div class="remove-account__modal-footer text-center relative">
+            {% form 'contact' %}
+              <input
+                class="w-0 h-0 absolute top-0 left-0"
+                type="text"
+                name="contact[regardin]"
+                id="reagarding"
+                value="Delete account request from {{ customer.first_name }} {{ customer.last_name }}"
+              >
+              <input
+                class="w-0 h-0 absolute top-0 left-0"
+                type="email"
+                name="contact[email]"
+                id="email"
+                value="{{ customer.email }}"
+              >
+              <input
+                class="w-0 h-0 absolute top-0 left-0"
+                type="text"
+                name="contact[user_id]"
+                id="text"
+                value="User Profile https://admin.shopify.com/store/u3faktory/customers/{{ customer.id }}"
+              >
+              <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">Yes, delete account</button>
+            {% endform %}
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('newCustomerAddress').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form submission for validation
+      let isValid = true;
+
+      // Get form fields
+      const firstName = document.getElementById('AddressFirstNameNew');
+      const lastName = document.getElementById('AddressLastNameNew');
+      const address = document.getElementById('AddressAddress1New');
+      const city = document.getElementById('AddressCityNew');
+      const country = document.getElementById('AddressCountryNew');
+      const zip = document.getElementById('AddressZipNew');
+
+      // Array to loop through fields
+      const fields = [
+        { field: firstName, error: firstName.closest('.field').querySelector('.form-errors') },
+        { field: lastName, error: lastName.closest('.field').querySelector('.form-errors') },
+        { field: address, error: address.closest('.field').querySelector('.form-errors') },
+        { field: city, error: city.closest('.field').querySelector('.form-errors') },
+        { field: country, error: country.closest('.field').querySelector('.form-errors') },
+        { field: zip, error: zip.closest('.field').querySelector('.form-errors') },
+      ];
+
+      // Loop through fields and validate
+      fields.forEach(({ field, error }) => {
+        if (field.value.trim() === '') {
+          isValid = false;
+          error.classList.remove('hidden');
+        } else {
+          error.classList.add('hidden');
+        }
+      });
+
+      // If form is valid, submit the form
+      if (isValid) {
+        this.submit();
+      }
+    });
+
     const addNew = document.querySelector('.add-new-address'),
       cancelAddNewAaddress = document.querySelector('.cancel-new-address'),
       newAaddress = document.querySelector('.new-address'),
       currentAddress = document.querySelector('.current-address'),
       textDefault = document.querySelector('.text-default-address'),
       textNew = document.querySelector('.text-insert-address'),
-      deleteButton = document.querySelector('.delete-address-button');
+      deleteButton = document.querySelector('.delete-address-button'),
+      setDefaultButtons = document.querySelectorAll('.default-address'),
+      addressLabels = document.querySelectorAll('.my-account__adress'),
+      editButton = document.querySelector('.edit-address-button');
+    const bodyEl = document.querySelector('body');
 
     addNew.addEventListener('click', () => {
       newAaddress.classList.remove('hidden');
@@ -481,6 +712,7 @@
       currentAddress.classList.add('!hidden');
       textDefault.classList.add('!hidden');
     });
+
     cancelAddNewAaddress.addEventListener('click', () => {
       newAaddress.classList.add('hidden');
       textNew.classList.add('hidden');
@@ -499,22 +731,32 @@
       }
     });
 
-    const addressLabels = document.querySelectorAll('.my-account__adress');
-    const editButton = document.querySelector('.edit-address-button');
+    function updateAddressButtons(addressId) {
+      deleteButton.setAttribute('data-target', `/account/addresses/${addressId}`);
+      editButton.setAttribute('data-target', `address-${addressId}`);
+
+      // Match and display the corresponding default address button
+      setDefaultButtons.forEach((button) => {
+        if (button.getAttribute('data-id') === addressId) {
+          button.classList.remove('hidden');
+        } else {
+          button.classList.add('hidden');
+        }
+      });
+    }
 
     addressLabels.forEach((label) => {
-      label.addEventListener('click', function () {
-        const addressId = this.querySelector('input').getAttribute('data-id');
-        deleteButton.setAttribute('data-target', `/account/addresses/${addressId}`);
-        editButton.setAttribute('data-target', `address-${addressId}`);
-      });
-    });
+      const addressId = label.querySelector('input').getAttribute('data-id');
 
-    // Trigger click event on the initially checked radio's parent label to set initial values
-    const checkedRadio = document.querySelector('.address-radio:checked');
-    if (checkedRadio) {
-      checkedRadio.closest('.my-account__adress').click();
-    }
+      label.addEventListener('click', function () {
+        updateAddressButtons(addressId);
+      });
+
+      // If the address is initially checked, update buttons on page load
+      if (label.querySelector('input').checked) {
+        updateAddressButtons(addressId);
+      }
+    });
 
     // Edit address button click handler
     editButton.addEventListener('click', function () {
@@ -546,26 +788,27 @@
       manipulationMain.classList.add('hidden');
       resetWrapper.classList.remove('hidden');
     });
+
     toggleChangePasswordBtn.addEventListener('click', () => {
       manipulationMain.classList.remove('hidden');
       resetWrapper.classList.add('hidden');
     });
 
-    var removeAccountOpen = document.querySelectorAll('.delete-account-cta'),
-      removeAccountModal = document.querySelector('.remove-account__modal'),
-      removeAccountClose = document.querySelectorAll('.remove-account__modal-close');
+    var removeAccountOpen = document.querySelectorAll('.delete-account-cta');
 
+    const removeAccountModal = document.querySelector('.remove-account__modal');
+    removeAccountModal.addEventListener('click', (event) => {
+      let modalBody = removeAccountModal.querySelector('.remove-account__modal-wrapper');
+      if (!modalBody.contains(event.target)) {
+        removeAccountModal.classList.add('hidden');
+        bodyEl.classList.remove('overflow-hidden');
+      }
+    });
     removeAccountOpen.forEach((button) => {
       button.addEventListener('click', (event) => {
         event.preventDefault();
         removeAccountModal.classList.remove('hidden');
-      });
-    });
-
-    removeAccountClose.forEach((button) => {
-      button.addEventListener('click', (event) => {
-        event.preventDefault();
-        removeAccountModal.classList.add('hidden');
+        bodyEl.classList.add('overflow-hidden');
       });
     });
   });

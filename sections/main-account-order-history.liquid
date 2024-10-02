@@ -7,14 +7,14 @@
     endif
   endfor
 -%}
-<div class="customer order-wrapper max-lg:px-2">
+<div class="customer order-wrapper max-lg:px-2 max-lg:pb-[86px]">
   <div
     id="bar"
-    class="ds_element dissapearing main-account-order__heading max-lg:py-2 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    class="ds_element dissapearing main-account-order__heading max-lg:py-2 fixed top-[52px] lg:top-[23px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
   >
     <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">My Orders</h1>
 
-    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-2 max-lg:hidden">
+    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-1.5 max-lg:hidden">
       <li>
         <a href="/account?view=order-history-active" class="text-[13px] font-bold underline uppercase"> Active </a>
       </li>
@@ -106,7 +106,7 @@
                               {%- unless item.product.has_only_default_variant -%}
                                 {%- for option in item.options_with_values -%}
                                   <div class="product-option leading-none">
-                                    <dd class="text-lg md:text-[21px] leading-none font-bold">
+                                    <dd class="text-lg md:text-[21px] leading-none font-helveticaLight">
                                       {{ option.value }}
                                     </dd>
                                   </div>
@@ -116,7 +116,7 @@
                                 {%- assign property_first_char = property.first | slice: 0 -%}
                                 {%- if property.last != blank and property_first_char != '_' -%}
                                   <div class="product-option leading-none">
-                                    <dd class="text-lg md:text-[21px] leading-none font-bold">
+                                    <dd class="text-lg md:text-[21px] leading-none font-helveticaLight">
                                       {{ property.last }}
                                     </dd>
                                   </div>
@@ -152,16 +152,18 @@
                   {%- if order.tags contains 'processing' -%}
                     <div class="cancel-order__modal remove-order__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[9999999]">
                       <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
-                        <div class="my-auto relative left-[50%] lg:left-[63%] -translate-x-1/2 z-10 max-w-[260px] md:max-w-[352px] w-full">
+                        <div class="my-auto relative left-[50%] lg:left-[62.3%] -translate-x-1/2 z-10 max-w-[260px] md:max-w-[352px] w-full">
                           <button
                             type="button"
-                            class="cancel-order__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+                            class="cancel-order__modal-close modal__close-button absolute bottom-full mb-4 right-0 w-7 md:w-[34px] h-7 md:h-[34px] rounded-full leading-none flex justify-center items-center cursor-pointer"
                             aria-label="{{ 'accessibility.close' | t }}"
                           >
-                            x
+                            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button text-[28px] md:text-[34px]"
+                              ><span class="path1"></span><span class="path2"></span
+                            ></span>
                           </button>
                           <div
-                            class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[360px] cancel-order__modal-wrapper w-full"
+                            class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[380px] cancel-order__modal-wrapper w-full"
                             aria-modal="true"
                             role="dialog"
                             tabindex="-1"
@@ -169,8 +171,12 @@
                             <div class="cancel-order__modal-heading text-center mb-4">
                               <h2 class="font-bold text-xl md:text-[25px] uppercase">Order Cancellation</h2>
                             </div>
-                            <div class="cancel-order__modal-body mb-10 md:mb-14">
-                              <p class="text-base md:text-[22px] text-center leading-snug">Are you sure?</p>
+                            <div class="cancel-order__modal-body mb-8">
+                              <p class="text-base md:text-[21px] text-center leading-snug">
+                                Your order is not canceled automatically, our staff needs to review the request and
+                                cancel it manually. You will receive a confirmation email as soon as the order has been
+                                canceled successfully. Proceed with the cancellation request?
+                              </p>
                             </div>
                             <div class="cancel-order__modal-footer text-center relative">
                               {% form 'contact', return_to: '/account?view=order-history-active' %}
@@ -225,25 +231,27 @@
       </div>
     {% endif %}
   </div>
-  <div class="no-tracking-order__modal hidden border bg-white py-3 md:py-[18px] px-2 md:px-3.5 border-black fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
+  <div class="no-tracking-order__modal hidden border bg-white py-3 md:py-[18px] px-2 md:px-3.5 border-black fixed top-1/2 left-[50%] lg:left-[62.3%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
     <p class="uppercase text-lg md:text-2xl tracking-xwidest font-bold text-center whitespace-nowrap">
       NO TRACKING DETAILS AT THIS TIME
     </p>
   </div>
-  <div class="order-canceled__modal hidden border bg-white py-3 md:py-[18px] px-2 md:px-3.5 border-black fixed top-1/2 left-[50%] lg:left-[63%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
+  <div class="order-canceled__modal hidden border bg-white py-3 md:py-[18px] px-2 md:px-3.5 border-black fixed top-1/2 left-[50%] lg:left-[62.3%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
     <p class="uppercase text-lg md:text-2xl tracking-xwidest font-bold text-center whitespace-nowrap">
-      order canceled successfully
+      CANCELLATION REQUEST SENT
     </p>
   </div>
   <div class="unavailable-order__modal remove-order__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[9999999]">
     <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
-      <div class="my-auto relative left-[50%] lg:left-[63%] -translate-x-1/2 z-10 max-w-[260px] md:max-w-[352px] w-full">
+      <div class="my-auto relative left-[50%] lg:left-[62.3%] -translate-x-1/2 z-10 max-w-[260px] md:max-w-[352px] w-full">
         <button
           type="button"
-          class="remove-unavailable-order__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 md:w-[34px] h-7 md:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+          class="remove-unavailable-order__modal-close modal__close-button absolute bottom-full mb-4 right-0 w-7 md:w-[34px] h-7 md:h-[34px] rounded-full leading-none flex justify-center items-center cursor-pointer"
           aria-label="{{ 'accessibility.close' | t }}"
         >
-          x
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button text-[28px] md:text-[34px]"
+            ><span class="path1"></span><span class="path2"></span
+          ></span>
         </button>
         <div
           class="border border-[#5a5a5a] bg-white px-2 pt-8 pb-4 max-h-[360px] unavailable-order__modal-wrapper w-full"
@@ -404,20 +412,6 @@
         handleFormSubmission(event);
       });
     });
-
-    // Function to check local storage and remove cancelled orders on page load
-    function removeCancelledOrders() {
-      const cancelledOrders = JSON.parse(localStorage.getItem('cancelledOrders')) || [];
-      cancelledOrders.forEach((orderId) => {
-        const orderElement = document.querySelector(`.order[data-order-id="${orderId}"]`);
-        if (orderElement) {
-          orderElement.remove();
-        }
-      });
-    }
-
-    // Remove cancelled orders on page load
-    removeCancelledOrders();
   });
 </script>
 {% schema %}

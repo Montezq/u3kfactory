@@ -42,7 +42,7 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "taxes_text": "* VAT INCLUDED \/ EXCLUDED SHIPPING COST"
+            "taxes_text": "* VAT INCLUDED / EXCLUDED SHIPPING COST"
           }
         },
         "favorites_aWJUfw": {
@@ -84,18 +84,17 @@
     "plus_info_GRqWAV": {
       "type": "plus-info",
       "settings": {
-        "heading": "Artwork Details",
+        "heading": "Artwork Description",
         "content_metafield": "{{ product.metafields.custom.print_details | metafield_tag }}",
-        "content": "<p>This fine art giclée print is delivered unframed. The paper has a matt, light textured surface. <\/p>",
-        "image": "shopify:\/\/shop_images\/INFO-PRINTING-DETAILS-IMAGE.jpg"
+        "content": "<p>The painting represents the moment between two actions, a pause, in which the only slight movement is created by the lines in perspective and the other compositional elements remain <em>as if waiting.</em> The artist's choices of a bare composition and a moderate use of colors aim to induce the viewer into a deeper and more personal search of the meaning of the work compared to what one might perceive at first and not get lost, instead, in surrounding irrelevant elements and superfluous colors effects.<br/><br/><br/><strong>Technical details</strong><br/><br/>This painting is from 2023. Fine art acrylic paints were used as the material and canvas as the support. The dimensions of the painting are 60x60 cm. The style of the painting recalls the characteristics of the geometric abstract movement.<br/><br/>Due to the calibration differences between computer monitors, tablets, smartphones, etc. the color on the artwork shown on our website may vary slightly from the actual artwork.</p>"
       }
     },
-    "plus_info_9jRrKL": {
+    "plus_info_pYwGWR": {
       "type": "plus-info",
       "settings": {
-        "heading": "Shipping Details",
+        "heading": "Shipping and Returns",
         "content_metafield": "",
-        "content": "<p>Blah asjahsak<\/p>"
+        "content": ""
       }
     }
   },
@@ -103,6 +102,6 @@
     "main",
     "related-products",
     "plus_info_GRqWAV",
-    "plus_info_9jRrKL"
+    "plus_info_pYwGWR"
   ]
 }

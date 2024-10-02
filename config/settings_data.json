@@ -9,6 +9,7 @@
 */
 {
   "current": {
+    "free_shipping": "90 EUR",
     "logo": "shopify:\/\/shop_images\/FULL_ICON_SET_WEBSITE_FINAL_LOGO_3.svg",
     "default_color": "#de6961",
     "second_color": "#bd5851",
@@ -32,6 +33,91 @@
     "sections": {
       "share": {
         "type": "share",
+        "blocks": {
+          "share_item_LanjBr": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Facebook",
+              "title": "Facebook",
+              "share_url": "https:\/\/www.facebook.com\/sharer\/sharer.php?u="
+            }
+          },
+          "share_item_G3QGF8": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Twitter",
+              "title": "X \/ TWITTER",
+              "share_url": "https:\/\/twitter.com\/intent\/tweet?url="
+            }
+          },
+          "share_item_gnDNCU": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Pinterest",
+              "title": "PINTEREST",
+              "share_url": "https:\/\/pinterest.com\/pin\/create\/button\/?url="
+            }
+          },
+          "share_item_nktmyg": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Copy-Link",
+              "title": "COPY LINK",
+              "share_url": "#copy"
+            }
+          },
+          "share_item_qTtKdm": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Telegram",
+              "title": "Telegram",
+              "share_url": "https:\/\/t.me\/share\/url?url="
+            }
+          },
+          "share_item_tyi6Qe": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Whatsapp",
+              "title": "WHATSAPP",
+              "share_url": "https:\/\/api.whatsapp.com\/send?text="
+            }
+          },
+          "share_item_FwCWMF": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Line",
+              "title": "Line",
+              "share_url": "https:\/\/social-plugins.line.me\/lineit\/share?url="
+            }
+          },
+          "share_item_md3jDR": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Tumblr",
+              "title": "TUMBLR",
+              "share_url": "https:\/\/www.tumblr.com\/widgets\/share\/tool?canonicalUrl="
+            }
+          },
+          "share_item_j3cHKE": {
+            "type": "share_item",
+            "settings": {
+              "icon": "icon-FULL-ICON-SET-WEBSITE-FINAL_Reddit",
+              "title": "REDDIT",
+              "share_url": "https:\/\/www.reddit.com\/submit?url="
+            }
+          }
+        },
+        "block_order": [
+          "share_item_LanjBr",
+          "share_item_G3QGF8",
+          "share_item_gnDNCU",
+          "share_item_nktmyg",
+          "share_item_qTtKdm",
+          "share_item_tyi6Qe",
+          "share_item_FwCWMF",
+          "share_item_md3jDR",
+          "share_item_j3cHKE"
+        ],
         "settings": {
         }
       }

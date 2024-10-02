@@ -17,20 +17,9 @@
         "enable_filtering": true,
         "enable_sorting": true
       }
-    },
-    "cooming_soon_category_7TaQLh": {
-      "type": "cooming-soon-category",
-      "disabled": true,
-      "settings": {
-        "cover_type": "video",
-        "video": "shopify:\/\/files\/videos\/Tote Bags Coming Soon.mov",
-        "heading": "Coomin Soon",
-        "subgheading": "Some TEXT"
-      }
     }
   },
   "order": [
-    "product-grid",
-    "cooming_soon_category_7TaQLh"
+    "product-grid"
   ]
 }

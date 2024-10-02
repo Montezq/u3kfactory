@@ -3,9 +3,11 @@
 <div class="customer register customer-register max-lg:px-4">
   <h1
     id="bar"
-    class="font-coutureBold text-xl ds_element md:text-[30px] uppercase text-center max-lg:w-full max-lg:left-0 max-lg:py-2 fixed top-[52px]  bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    class="font-coutureBold lg:pr-5 text-xl ds_element md:text-[30px] uppercase text-center max-lg:w-full max-lg:left-0 max-lg:py-2 fixed top-[52px]  bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
   >
-    {{ 'customer.register.title' | t }}
+    <span class="inline-block customer-register__heading">
+      {{ 'customer.register.title' | t }}
+    </span>
   </h1>
   <div class="customer-register__form-wrapper pb-8">
     <div class="customer-login__form-wrapper-heading text-center mb-10">
@@ -68,14 +70,12 @@
               <label for="RegisterForm-email" class="text-[11px] md:text-[13px] font-axis">
                 {{ 'customer.register.email' | t }}
               </label>
-              {%- if form.errors contains 'email' -%}
-                <div class="form-errors">
-                  <span id="RegisterForm-email-error" class="form__message">
-                    {{ form.errors.translated_fields.email | capitalize }}
-                    {{ form.errors.messages.email }}.
-                  </span>
-                </div>
-              {%- endif -%}
+              <div class="form-errors hidden text-[10px] md:text-[13px]" id="email-error">
+                <span> *Email is required </span>
+              </div>
+              <div class="form-errors hidden text-[10px] md:text-[13px]" id="email-error2">
+                <span> *Valid Email is required </span>
+              </div>
             </div>
             <div class="relative">
               <input
@@ -94,19 +94,6 @@
                   aria-invalid="true" aria-describedby="RegisterForm-email-error"
                 {% endif %}
               >
-              <div
-                class="tooltip tooltip_right absolute top-full right-0 2xl:right-auto 2xl:left-0 mt-2.5 whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
-                id="email-tooltip"
-              >
-                <div class="flex items-center">
-                  <div class="w-5 sm:w-7 h-5 sm:h-7 mr-[7px]">
-                    {%- render 'icon-info' -%}
-                  </div>
-                  <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
-                    Please write a valid email address to be able to receive updates.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
           <div class="field flex flex-col">
@@ -116,6 +103,13 @@
               </label>
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="password-error">
                 <span> *Password is required </span>
+              </div>
+              <div
+                class="form-errors hidden text-[10px] md:text-[13px] line-clamp-1 pl-5"
+                title="*Password must be at least 8 characters in length"
+                id="password-error2"
+              >
+                <span> *Password must be at least 8 characters in length </span>
               </div>
               {%- if form.errors contains 'password' -%}
                 <div class="form-errors">
@@ -186,11 +180,56 @@
     const lastNameField = document.getElementById('RegisterForm-LastName');
     const emailField = document.getElementById('RegisterForm-email');
     const passwordField = document.getElementById('RegisterForm-password');
-    const emailTooltip = document.getElementById('email-tooltip');
 
     const firstNameError = document.getElementById('first-name-error');
     const lastNameError = document.getElementById('last-name-error');
     const passwordError = document.getElementById('password-error');
+    const passwordError2 = document.getElementById('password-error2');
+    const emailError = document.getElementById('email-error');
+    const emailError2 = document.getElementById('email-error2');
+
+    // Function to validate fields on blur and hide error messages if valid
+    function validateOnBlur(field, errorElement, secondaryErrorElement = null, validationFn = null) {
+      field.addEventListener('blur', () => {
+        const value = field.value.trim();
+        let isValid = true;
+
+        if (validationFn) {
+          isValid = validationFn(value);
+        } else {
+          isValid = value !== '';
+        }
+
+        if (isValid) {
+          errorElement.classList.add('hidden');
+          if (secondaryErrorElement) {
+            secondaryErrorElement.classList.add('hidden');
+          }
+        } else {
+          errorElement.classList.remove('hidden');
+          if (secondaryErrorElement) {
+            secondaryErrorElement.classList.add('hidden');
+          }
+        }
+      });
+    }
+
+    // Validation function for email
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
+    }
+
+    // Validation function for password (minimum 8 characters)
+    function validatePassword(password) {
+      return password.length >= 8;
+    }
+
+    // Attach blur event listeners to each field with appropriate validation
+    validateOnBlur(firstNameField, firstNameError);
+    validateOnBlur(lastNameField, lastNameError);
+    validateOnBlur(emailField, emailError, emailError2, (value) => value !== '' && validateEmail(value));
+    validateOnBlur(passwordField, passwordError, passwordError2, (value) => value !== '' && validatePassword(value));
 
     registerButton.addEventListener('click', function (event) {
       let isValid = true;
@@ -199,16 +238,19 @@
       firstNameError.classList.add('hidden');
       lastNameError.classList.add('hidden');
       passwordError.classList.add('hidden');
+      passwordError2.classList.add('hidden');
+      emailError.classList.add('hidden');
+      emailError2.classList.add('hidden');
 
       const emailValue = emailField.value.trim();
-      if (emailValue === '' || !validateEmail(emailValue)) {
-        emailTooltip.classList.remove('opacity-0', 'invisible');
-        setTimeout(() => {
-          emailTooltip.classList.add('opacity-0', 'invisible');
-        }, 1000);
-        valid = false;
-      } else {
-        emailTooltip.classList.add('opacity-0', 'invisible');
+      if (emailValue === '') {
+        emailError.classList.remove('hidden');
+        emailError2.classList.add('hidden');
+        isValid = false;
+      } else if (!validateEmail(emailValue)) {
+        emailError2.classList.remove('hidden');
+        emailError.classList.add('hidden');
+        isValid = false;
       }
 
       // Validate First Name
@@ -226,6 +268,11 @@
       // Validate Password
       if (passwordField.value.trim() === '') {
         passwordError.classList.remove('hidden');
+        passwordError2.classList.add('hidden');
+        isValid = false;
+      } else if (passwordField.value.length < 8) {
+        passwordError2.classList.remove('hidden');
+        passwordError.classList.add('hidden');
         isValid = false;
       }
 
@@ -238,10 +285,6 @@
       // If the form is valid, submit the form (Shopify's default handling)
       // You can remove this comment if you're handling form submission manually.
     });
-    function validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(String(email).toLowerCase());
-    }
   });
 </script>
 {% schema %}

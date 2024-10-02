@@ -26,7 +26,7 @@
     {%- endif -%}
   </div>
   <div class="relative z-[1] h-full home-page__banner-content hidden border-b-[27px] border-b-transparent">
-    <div class="flex flex-col items-center justify-center text-center pt-[4%] h-full px-[35px]">
+    <div class="flex flex-col items-center justify-center text-center pt-[4%] h-full pl-[35px] pr-[42px]">
       {%- if section.settings.heading -%}
         <div class="home-page__banner-content-heading">
           <h2 class="text-white tracking-widest mb-4">{{ section.settings.heading }}</h2>
@@ -38,7 +38,7 @@
         </div>
       {%- endif -%}
       {%- if section.settings.btn_url -%}
-        <div class="mt-[50px]">
+        <div class="mt-[50px] home-page__banner-content-btn">
           <a href="{{ section.settings.btn_url }}" class="btn btn_white-outlined">
             {{ section.settings.button_title }}
           </a>
