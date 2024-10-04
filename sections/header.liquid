@@ -15,11 +15,11 @@
 -%}
 
 <header class="lg:flex max-lg:h-fit header lg:w-fit lg:h-screen fixed top-0 left-0 bottom-0 right-0 z-[999] lg:z-[2]{% if menu_open %} menu-open{% endif %}">
-  <div class="header__mobile !bg-red pl-[14px] pr-[12px] py-[13px] flex items-center justify-between lg:hidden{% if template.name != "index" %} bg-gray-10{% endif %}">
+  <div class="header__mobile !bg-red pr-[14px] pl-[12px] py-[13px] flex items-center justify-between lg:hidden{% if template.name != "index" %} bg-gray-10{% endif %}">
     <div class="header__mobile-hamburger w-10">
       {%- render 'icon-hamburger' -%}
     </div>
-    <div class="flex items-end gap-x-[18px]">
+    <div class="flex items-center gap-x-[18px]">
       <div class="flex itmes-end">
         <form action="{{ routes.search_url }}" class="hidden relative search-form search-form-mobile items-end">
           <input
@@ -47,14 +47,14 @@
           </div>
         </form>
         <div class="search-trigger -mr-[3px]">
-          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2 text-[23px] block"></span>
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2 text-[22px] block"></span>
         </div>
       </div>
       <a
         href="/pages/account-slides"
       >
         <div class="w-6">
-          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Account text-[24px] block"></span>
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Account text-[22px] block"></span>
         </div>
       </a>
       <div class="w-5">
