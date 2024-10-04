@@ -50,7 +50,7 @@
       {%- endif -%}
     </div>
     <div class="card__content px-1 md:px-2.5">
-      <div class="flex justify-between max-md:mb-0.5">
+      <div class="flex justify-between max-md:mb-[1px]">
         <div class="card__information flex-1">
           <h3
             class="card__heading text-[15px] md:text-xl font-bold uppercase tracking-widest !leading-none line-clamp-1 pr-1.5 md:pr-5"
@@ -76,7 +76,7 @@
             </a>
           </h4>
         </div>
-        <div class="flex gap-4 sm:gap-6 w-fit">
+        <div class="flex gap-4 sm:gap-6 w-fit max-md:mt-0.5">
           <div class="w-[13.5px] md:w-[17px]">
             {%- render 'favorites', product: card_product -%}
           </div>
@@ -87,7 +87,11 @@
       </div>
       <div class="flex md:justify-end -mr-0.5">
         {%- if card_product.selected_or_first_available_variant.available -%}
-          {% render 'price', product: card_product, price_class: 'font-helveticaLight', show_compare_at_price: true %}
+          {% render 'price',
+            product: card_product,
+            price_class: 'md:font-helveticaLight max-md:font-bold',
+            show_compare_at_price: true
+          %}
         {%- else -%}
           <div class="font-helveticaLight price text-sm md:text-xl  tracking-widest leading-none uppercase">
             {{ 'products.product.sold_out' | t }}
