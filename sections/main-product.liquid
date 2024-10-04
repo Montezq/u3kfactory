@@ -92,7 +92,7 @@
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div
-                    class="product__description max-lg:mt-14 max-lg:order-5{% if product.template_suffix == 'limited-product-page' or product.template_suffix == 'originals-product-page' %} limited-product__short-description{% endif %}"
+                    class="max-lg:border max-lg:p-4 product__description max-lg:mt-14 max-lg:order-5{% if product.template_suffix == 'limited-product-page' or product.template_suffix == 'originals-product-page' %} limited-product__short-description{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {{ product.description }}
