@@ -4,9 +4,9 @@
 <div class="my-favorites max-lg:pb-[90px]">
   <div
     id="bar"
-    class="ds_element dissapearing my-favorites__heading max-lg:py-2 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out flex justify-center"
+    class="ds_element dissapearing my-favorites__heading max-lg:py-[13px] fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out flex justify-center"
   >
-    <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">My Favorites</h1>
+    <h1 class="font-coutureBold text-[19px] md:text-3xl max-lg:leading-none uppercase text-center">My Favorites</h1>
   </div>
   <div class="my-favorites__body">
     <ul class="wishlist__list wishlist__container"></ul>
@@ -67,16 +67,22 @@
           >
         </div>
         <div class="wishlist__item-data flex-1 max-md:px-1 max-lg:px-4 max-md:flex max-md:flex-wrap">
-          <div class="wishlist__item-data-title md:mb-14 max-md:w-[40%]">
-            <h2 class="text-[20px] md:text-[32px] font-semibold leading-none md:mb-3"><a href="${item.productUrl}">${
-        item.productTitle
-      }</a></h2>
-            <h3 class="leading-none text-base md:text-[26px] font-helveticaThinCond italic tracking-wide font-normal">by ${
+          <div class="wishlist__item-data-title md:mb-14 max-md:flex-1 min-w-0">
+            <h2 class="text-[19px] md:text-[32px] font-semibold leading-none md:mb-3 truncate pr-2.5">
+              <a href="${item.productUrl}">
+                ${item.productTitle}
+              </a>
+            </h2>
+            <h3 class="leading-none text-[13px] md:text-[26px] font-helveticaThinCond italic tracking-wide font-normal">by ${
               item.productVendor
             }</h3>
           </div>
-          <div class="wishlist__item-data-variant mb-4 md:mb-[90px] max-md:w-[60%] max-md:text-right">
-            <h4 class="text-[22px] md:text-[24px] tracking-xwidest mb-4 font-bold leading-none">${
+          <div class="wishlist__item-data-variant mb-2.5 md:mb-[90px] max-md:w-[60%] max-md:text-right max-md:flex-1">
+            <h4 class="text-[17px] md:text-[24px] mb-2 tracking-xwidest font-bold leading-none">${
+              item.noVariant ? 'NO SIZE SELECTED' : `${optionSizeCapitalized} ${optionMaterialCapitalized}`
+            }
+            </h4>
+            <h4 class="text-[17px] md:text-[24px] tracking-xwidest font-bold leading-none">${
               item.noVariant ||
               item.optionMaterial == 'paper print' ||
               item.optionMaterial == 'oil print' ||
@@ -87,24 +93,20 @@
                 ? 'Unmounted'
                 : ''
             }</h4>
-
-            <h4 class="text-[22px] md:text-[24px] tracking-xwidest font-bold leading-none">${
-              item.noVariant ? 'NO SIZE SELECTED' : `${optionSizeCapitalized} ${optionMaterialCapitalized}`
-            }</h4>
-            ${
-              item.noVariant
-                ? ''
-                : `
-              <h4 class="font-bold text-sm tracking-xwidest md:hidden leading-none mt-4">
+            <h4 class="font-bold text-[17px] md:text-sm tracking-xwidest md:hidden leading-none mt-2">
+              ${
+                item.noVariant
+                  ? '0.00 {{ cart.currency.symbol }}'
+                  : `
                 ${(() => {
                   const priceString = item.productPrice;
                   const priceNumber = Number(priceString.replace(/[^0-9]/g, ''));
                   const formattedPrice = (priceNumber / 100).toFixed(2);
-                  return formattedPrice + ' €';
+                  return formattedPrice + ' {{ cart.currency.symbol }}';
                 })()}
+                `
+              }
               </h4>
-              `
-            }
           </div>
           <div class="wishlist__item-data-buttons max-md:w-full product">
             <div class="md:max-w-[360px] mt-4">

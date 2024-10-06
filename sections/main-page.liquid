@@ -1,9 +1,11 @@
 <div class="default-page custom-page max-md:px-0 max-lg:px-4">
   <div
     id="bar"
-    class="ds_element dissapearing custom-page__heading default-page__heading max-lg:py-2 fixed top-[52px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    class="ds_element dissapearing custom-page__heading default-page__heading max-lg:py-[13px] fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
   >
-    <h1 class="font-coutureBold text-xl md:text-3xl uppercase text-center">{{ page.title | escape }}</h1>
+    <h1 class="font-coutureBold text-[19px] md:text-3xl max-lg:leading-none uppercase text-center">
+      {{ page.title | escape }}
+    </h1>
   </div>
   <div class="default-page__body custom-page__body max-lg:pt-20 pb-10 lg:pb-[92px]">
     <div class="custom-page__content max-md:px-2{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
