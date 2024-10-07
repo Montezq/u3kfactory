@@ -1,4 +1,4 @@
-<div class="customer order-wrapper max-lg:px-2 max-lg:pb-[86px]">
+<div class="customer order-wrapper max-lg:px-[5px] max-lg:pb-[86px]">
   <div
     id="bar"
     class="ds_element dissapearing main-account-order__heading max-lg:py-[13px] fixed top-[54px] lg:top-[23px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
@@ -19,17 +19,20 @@
     </ul>
   </div>
   <div class="my-account-order__body max-md:pb-6">
-    <ul class="flex space-x-4 justify-center pt-4 pb-3 lg:hidden">
+    <ul class="flex space-x-[26px] justify-center pt-2 pb-3 lg:hidden">
       <li>
-        <a href="/account?view=order-history-active" class="text-[11px] font-bold  uppercase"> Active </a>
+        <a href="/account?view=order-history-active" class="text-[13px] font-bold  uppercase"> Active </a>
       </li>
       <li>
-        <a href="/account?view=order-history-completed" class="text-[11px] font-bold underline uppercase">
+        <a
+          href="/account?view=order-history-completed"
+          class="text-[13px] font-bold underline underline-offset-4 uppercase"
+        >
           Completed
         </a>
       </li>
       <li>
-        <a href="/account?view=order-history-canceled" class="text-[11px] font-bold uppercase"> Canceled </a>
+        <a href="/account?view=order-history-canceled" class="text-[13px] font-bold uppercase"> Canceled </a>
       </li>
     </ul>
     {%- assign orders_count = 0 -%}
@@ -117,7 +120,7 @@
                   </li>
                 {%- endfor -%}
               </ul>
-              <div class="md:w-[325px] w-full space-y-5 pb-5 max-xl:pt-6 xl:border-b xl:border-b-[#8c8c8c]">
+              <div class="md:w-[325px] w-full space-y-3 pb-5 max-xl:pt-6 xl:border-b xl:border-b-[#8c8c8c]">
                 <a href="/pages/contact" class="btn btn_primary w-full uppercase !text-xl md:!text-2xl">Contact Us</a>
               </div>
             </div>
