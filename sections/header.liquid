@@ -15,11 +15,11 @@
 -%}
 
 <header class="lg:flex max-lg:h-fit header lg:w-fit lg:h-screen fixed top-0 left-0 bottom-0 right-0 z-[999] lg:z-[2]{% if menu_open %} menu-open{% endif %}">
-  <div class="header__mobile !bg-red pr-[14px] pl-[12px] py-[15px] flex items-e justify-between lg:hidden{% if template.name != "index" %} bg-gray-10{% endif %}">
-    <div class="header__mobile-hamburger w-10">
+  <div class="header__mobile !bg-red pl-[15px] pr-3.5 py-[15px] max-md:h-[54px] flex items-center justify-between lg:hidden{% if template.name != "index" %} bg-gray-10{% endif %}">
+    <div class="header__mobile-hamburger max-md:mt-[1px] w-10">
       {%- render 'icon-hamburger' -%}
     </div>
-    <div class="flex items-center gap-x-[18px]">
+    <div class="flex items-center gap-x-[16px] mt-0.5">
       <div class="flex itmes-end">
         <form action="{{ routes.search_url }}" class="hidden relative search-form search-form-mobile items-end">
           <input
@@ -46,8 +46,8 @@
             </div>
           </div>
         </form>
-        <div class="search-trigger -mr-[3px]">
-          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2 text-[22px] block"></span>
+        <div class="search-trigger -mt-[1px] -mr-[1px]">
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2 text-[21px] block"></span>
         </div>
       </div>
       <a

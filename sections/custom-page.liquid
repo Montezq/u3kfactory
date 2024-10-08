@@ -1,13 +1,13 @@
 <div class="custom-page max-md:px-0 max-lg:px-4">
   <div
     id="bar"
-    class="ds_element dissapearing custom-page__heading artist-page__heading max-lg:py-[13px] fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
+    class="ds_element dissapearing custom-page__heading artist-page__heading max-lg:pt-[7px] max-lg:pb-[8px] fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
   >
     <h1 class="font-coutureBold text-[19px] md:text-3xl max-lg:leading-none uppercase text-center">
       {{ page.title | escape }}
     </h1>
   </div>
-  <div class="custom-page__body max-lg:pt-[56px] pb-10">
+  <div class="custom-page__body max-lg:pt-[34px] pb-10">
     {%- for block in section.blocks -%}
       <div class="custom-page__body-section">
         {%- if block.settings.section_title != blank -%}

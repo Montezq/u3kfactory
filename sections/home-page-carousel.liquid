@@ -16,7 +16,7 @@
             </div>
             <div class="relative z-[1] h-full home-page__carousel-content text-center text-black pt-[37.04vh] duration-300 ease-in-out opacity-0">
               {%- if block.settings.carouse_label -%}
-                <div class="home-page__carousel-content-label mb-[18px]">
+                <div class="home-page__carousel-content-label mb-4">
                   <h2 class="font-semibold leading-none text-[8.72vw] sm:text-[37px] tracking-widest">
                     {{ block.settings.carouse_label }}
                   </h2>
@@ -36,7 +36,7 @@
     </div>
     <div class="home-page__carousel-wrapper-btn absolute z-[2] flex flex-col items-center w-fit left-1/2 -translate-x-1/2">
       {% assign first_block = section.blocks | first %}
-      <div class="mb-5">
+      <div class="mb-[22px]">
         <a href="{{ first_block.settings.btn_url }}" class="btn main-btn btn_white-outlined !pl-[15px] !pr-[17px]">
           {{ section.settings.button_title }}
         </a>

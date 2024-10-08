@@ -524,7 +524,7 @@ input{
   }
 }
 .home-page__carousel-wrapper-btn{
-  top: calc(40vh + 120px);
+  top: calc(40vh + 96px);
 }
 .home-page__banner-content-heading{
   h2{
@@ -683,7 +683,7 @@ accordion-item.open,
   }
 }
 .collection-hero{
-  padding-top: 54px;
+  padding-top: 47px;
   @screen lg{
     padding-top: clamp(21px, calc(5vh - 29px), calc(5vh - 29px));
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
@@ -864,7 +864,7 @@ accordion-item.open,
   }
 }
 .product{
-  @apply pt-10;
+  @apply pt-[34px];
   @apply md:pt-[1vh];
   .price__container{
     @apply md:text-[24px];
@@ -1298,7 +1298,7 @@ accordion-item.open,
   }
 }
 .search__body{
-  @apply pt-[76px];
+  @apply pt-[66px];
   @apply pb-10;
   @screen lg{
     padding-top: clamp(84px, calc(17.18vh - 27px), 221px);
@@ -1403,7 +1403,7 @@ accordion-item.open,
   }
 }
 .my-account-order__body{
-  @apply pt-[56px];
+  @apply pt-[47px];
   @screen lg{
     padding-top: clamp(110px, 14.05vh, 219px);
     padding-bottom: 130px;
