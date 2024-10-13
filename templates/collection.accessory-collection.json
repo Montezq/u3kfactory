@@ -25,12 +25,10 @@
         "contact_tags": "",
         "cover_type": "video",
         "video": "shopify://files/videos/ACCESSORY-VIDEO-DEKSTOP-saturatie.mov",
-        "image": "shopify://shop_images/SMARPTHONE-HOMEPAGE-SLIDE-3.jpg",
         "heading": "U3 DESIGNED ACCESSORIES",
         "subgheading": "COMING SOON",
         "mobile_cover_type": "video",
-        "mobile_video": "shopify://files/videos/REEL.mp4",
-        "mobile_image": "shopify://shop_images/ad-campaign33.jpg"
+        "mobile_video": "shopify://files/videos/Accessory-Coming-Soon-Mobil.mp4"
       }
     }
   },
