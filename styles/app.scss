@@ -136,8 +136,8 @@ input[type="search"]::-moz-search-clear {
   @apply w-full;
 }
 .coming-soon__heading{
-  @apply mb-[6vw];
-  @apply pb-[5.4vw];
+  @apply mb-[5.65vw];
+  @apply pb-[4.4vw];
   @apply md:mb-[4vw];
   @apply md:pb-[3.4vw];
   @apply text-[4.8vw];
@@ -147,12 +147,13 @@ input[type="search"]::-moz-search-clear {
   @apply lg:mb-[40px];
 }
 .coming-soon__subheading{
-  @apply text-[4.8vw];
+  @apply text-[4.92vw];
   @apply md:text-[4.4vw];
   @apply lg:text-[40px];
 }
 .maintenance__heading{
-  @apply text-[5vw];
+  @apply text-[4.53vw];
+  @apply md:text-[5vw];
   @apply sm:text-[28px];
   @apply lg:text-[2.4vw];
   @media screen and (min-width: 1380px) {
@@ -414,9 +415,12 @@ input{
   @apply text-white;
 }
 .btn_outlined{
-  @apply border-[2px];
+  @apply border;
   @apply border-black;
   @apply text-black;
+  @screen md{
+    @apply border-[2px];
+  }
 }
 .btn_white-outlined{
   @apply border-[2px];
@@ -1206,12 +1210,12 @@ accordion-item.open,
 .coming-soon__category{
   height: calc(100vh - 27px);
   @media screen and (max-width: 1024px){
-    height: calc(100vh - 67px);
+    height: calc(100vh - 54px);
   }
   h2{
     @media screen and (max-width: 640px){
-      margin-bottom: 7vw;
-      padding-bottom: 7vw;
+      margin-bottom: 5vw;
+      padding-bottom: 4.9vw;
     }
   }
   h2,
@@ -1226,7 +1230,7 @@ accordion-item.open,
       font-size: 6vw;
     }
     @media screen and (max-width: 640px){
-      font-size: 7vw;
+      font-size: 8.22vw;
     }
   }
 }
@@ -1306,7 +1310,7 @@ accordion-item.open,
   }
 }
 .my-favorites__body{
-  @apply pt-[45px];
+  @apply pt-[34px];
   @apply md:pt-[60px];
   @screen lg{
     padding-top: clamp(84px, calc(17.18vh - 27px), 221px);
@@ -1359,7 +1363,10 @@ accordion-item.open,
   }
 }
 .wishlist__item{
-  margin-bottom: clamp(110px, 16.53vh, 217px);
+  margin-bottom: clamp(119px, 16.53vh, 217px);
+  @screen md{
+    margin-bottom: clamp(110px, 16.53vh, 217px);
+  }
   @media screen and (max-width: 1330px) {
     flex-direction: column;
   }
@@ -1385,7 +1392,7 @@ accordion-item.open,
     margin-top: clamp(50px, 3.04vh, 3.04vh);
   }
   @media screen and (max-width: 768px) {
-    margin-top: 8px
+    margin-top: 10px
   }
 }
 .main-account__heading{
@@ -1403,7 +1410,7 @@ accordion-item.open,
   }
 }
 .my-account-order__body{
-  @apply pt-[47px];
+  @apply pt-[57px];
   @screen lg{
     padding-top: clamp(110px, 14.05vh, 219px);
     padding-bottom: 130px;
@@ -1451,7 +1458,10 @@ accordion-item.open,
   }
 }
 .order__body-item{
-  margin-bottom: clamp(32px, 3.49vh, 3.49vh);
+  margin-bottom: 24px;
+  @screen md{
+    margin-bottom: clamp(32px, 3.49vh, 3.49vh);
+  }
   &:last-child{
     margin-bottom: 0;
   }

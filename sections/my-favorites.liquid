@@ -66,7 +66,7 @@
             height="640"
           >
         </div>
-        <div class="wishlist__item-data flex-1 max-md:px-1 max-lg:px-4 max-md:flex max-md:flex-wrap">
+        <div class="wishlist__item-data flex-1 max-md:px-2.5 max-lg:px-4 max-md:flex max-md:flex-wrap">
           <div class="wishlist__item-data-title md:mb-14 max-md:flex-1 min-w-0">
             <h2 class="text-[19px] md:text-[32px] font-semibold leading-none md:mb-3 truncate pr-2.5">
               <a href="${item.productUrl}">
@@ -78,7 +78,7 @@
             }</h3>
           </div>
           <div class="wishlist__item-data-variant mb-2.5 md:mb-[90px] max-md:w-[60%] max-md:text-right max-md:flex-1">
-            <h4 class="text-[17px] md:text-[24px] mb-2 tracking-xwidest font-bold leading-none">${
+            <h4 class="text-[17px] md:text-[24px] mb-[9px] tracking-xwidest font-bold leading-none">${
               item.noVariant ? 'NO SIZE SELECTED' : `${optionSizeCapitalized} ${optionMaterialCapitalized}`
             }
             </h4>
@@ -93,7 +93,7 @@
                 ? 'Unmounted'
                 : ''
             }</h4>
-            <h4 class="font-bold text-[17px] md:text-sm tracking-xwidest md:hidden leading-none mt-2">
+            <h4 class="font-bold text-[17px] md:text-sm tracking-xwidest md:hidden leading-none mt-[11px]">
               ${
                 item.noVariant
                   ? '0.00 {{ cart.currency.symbol }}'
@@ -108,7 +108,7 @@
               }
               </h4>
           </div>
-          <div class="wishlist__item-data-buttons max-md:w-full product">
+          <div class="wishlist__item-data-buttons max-md:w-full product !pt-[22px] md:!pt-[1vh]">
             <div class="md:max-w-[360px] mt-4">
               ${
                 item.noVariant
@@ -124,7 +124,7 @@
                   </a>
                 `
                   : `
-                  <div class="flex md:max-w-[360px] mb-4">
+                  <div class="flex md:max-w-[360px] mb-[11px] md:mb-4">
                     <div id="price-template--17986287468764__main-buy" class="max-w-[136px] max-md:hidden w-full border-2 border-black text-center flex items-center justify-center no-js-hidden" role="status">
                       <div class="price text-sm md:text-xl tracking-widest leading-none !font-bold">
                         <div class="price__container">
@@ -161,8 +161,8 @@
                             <input type="hidden" name="id" value="${item.variantId}" class="product-variant-id">
                             <div class="product-form__buttons">
                               <button id="ProductSubmitButton-template--17986287468764__main" type="submit" name="add" class="product-form__submit flex items-center btn btn_primary btn_small w-full relative md:flex">
-                                <span>Add to cart</span>
-                                <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Add-to-Cart-v1 max-md:absolute max-md:top-1/2 max-md:-translate-y-1/2 max-md:right-5 text-[28px] md:ml-auto"></span>
+                                <span class="w-full pr-2">Add to cart</span>
+                                <span class="block -mt-0.5 -mr-[3px] icon-FULL-ICON-SET-WEBSITE-FINAL_Add-to-Cart-v2 max-md:absolute max-md:top-1/2 max-md:-translate-y-1/2 max-md:right-5 text-[28px] md:ml-auto"></span>
                               </button>
                             </div>
                             <input type="hidden" name="product-id" value="${item.productId}">
