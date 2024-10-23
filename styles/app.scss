@@ -402,7 +402,7 @@ input{
   @apply leading-none;
   @apply uppercase;
   @apply px-3.5;
-  @apply py-2.5;
+  @apply pt-[11px] pb-2.5;
   @apply inline-block;
   @apply text-center;
 }
@@ -609,7 +609,7 @@ input{
   }
 }
 .header__menu-logo{
-  @apply pb-10;
+  @apply pb-[32px];
   @screen lg{
     padding-bottom: clamp(50px, 8.17vh, 8.17vh);
   }
@@ -1022,13 +1022,15 @@ accordion-item.open,
   box-shadow: 0px 6px 11px rgba(0, 0, 0, .35);
 }
 .cart-notification__header p{
-  @apply pb-4;
-  @apply mb-[11px];
+  @apply pb-[13px];
+  @apply md:pb-4;
+  @apply mb-[10px];
+  @apply md:mb-[11px];
   @apply relative;
   &:after{
     content: "";
     display: block;
-    width: 20px;
+    width: 16px;
     height: 1px;
     @apply bg-black;
     position: absolute;
@@ -1036,6 +1038,9 @@ accordion-item.open,
     margin-top: 1px;
     left: 50%;
     transform: translateX(-50%);
+    @screen md{
+      width: 20px;
+    }
   }
 }
 .cart-notification__wrapper{
@@ -1162,22 +1167,25 @@ accordion-item.open,
 .contact-us__modal-heading{
   h2{
     position: relative;
-    margin-bottom: 32px;
-    padding-bottom: 6px;
+    margin-bottom: 42px;
+    padding-bottom: 8px;
     @screen md{
       margin-bottom: 44px;
       padding-bottom: 20px;
     }
     &:after{
       content: "";
+      width: 142px;
       display: block;
-      width: 192px;
       height: 1px;
       background-color: #000;
       position: absolute;
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
+      @screen md{
+        width: 192px;
+      }
     }
   }
 }
@@ -1190,21 +1198,24 @@ accordion-item.open,
     padding-right: 8px;
     @apply font-open;
     @apply text-[13px];
-    @apply text-[#636262];
+    @apply text-black;
   }
   input:not([type='submit']),
   select{
-    height: 40px;
+    height: 30px;
   }
   textarea{
-    height: 80px;
+    height: 78px;
     resize: none;
     @screen md{
       height: 106px;
     }
   }
   .contact-us__item{
-    margin-bottom: 28px;
+    margin-bottom: 23px;
+    @screen md{
+      margin-bottom: 28px;
+    }
   }
 }
 .coming-soon__category{

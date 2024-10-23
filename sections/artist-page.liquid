@@ -118,7 +118,7 @@
   </div>
 </div>
 <div class="contact-us__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[99999]">
-  <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
+  <div class="relative w-full h-full flex pt-[60px] pb-6 overflow-y-auto">
     <div class="relative my-auto left-[50%] lg:left-[62.3%] -translate-x-1/2 w-[94%] md:w-full max-w-[365px] md:max-w-[471px]">
       <button
         type="button"
@@ -130,19 +130,21 @@
         ></span>
       </button>
       <div
-        class="border border-[#5a5a5a] bg-white px-2.5 pt-5 contact-us__modal-wrapper modal-wrapper w-full"
+        class="border border-black bg-white px-[7px] md:px-2.5 pt-4 md:pt-5 contact-us__modal-wrapper modal-wrapper w-full"
         aria-modal="true"
         role="dialog"
         tabindex="-1"
       >
-        <div class="contact-us__modal-heading text-center mb-[30px]">
-          <p class="text-base md:text-[19px] tracking-widest font-normal uppercase leading-none mb-6 md:mb-[44px]">
+        <div class="contact-us__modal-heading text-center mb-[24px] md:mb-[30px]">
+          <p class="text-[15px] md:text-[19px] tracking-widest font-normal uppercase leading-none mb-6 md:mb-[44px]">
             You Are contacting
           </p>
           {% assign full_string = page.title %}
           {% assign words_array = full_string | split: ' ' %}
           {% assign artist = words_array[0] %}
-          <h2 class="font-coutureBold text-4xl md:text-[42px]">{{ artist }}</h2>
+          <h2 class="font-coutureBold text-[32px] max-md:tracking-wide md:text-[42px] leading-none tracking-[.1em] font-bold">
+            {{ artist }}
+          </h2>
           <div>
             <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Small-Envelope text-[44px] md:text-[60px]"> </span>
           </div>
@@ -159,11 +161,11 @@
               value="Contacting {{ artist }}"
             >
             <div class="contact-subject contact-us__item">
-              <div class="blcok uppercase pl-2.5 font-axis font-extrabold text-[11px] md:text-[13px]">Regarding</div>
+              <div class="blcok uppercase pl-2.5 font-axis font-extrabold text-[10px] md:text-[13px]">Regarding</div>
               <div class="custom-select custom-select_w-full relative">
-                <div class="select-trigger cursor-pointer border border-black flex h-10 md:h-12">
+                <div class="select-trigger cursor-pointer border border-black flex h-[30px] md:h-12">
                   <div class="flex items-center pl-2.5 flex-1">
-                    <span class="selected-text line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase">
+                    <span class="selected-text line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase">
                       Collaboration
                     </span>
                   </div>
@@ -175,7 +177,7 @@
                 </div>
                 <ul class="select-options select-options_w-full hidden absolute z-[2] top-full left-0 border border-t-0 border-black bg-white">
                   <li class="custom-option selected">
-                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                    <label class="cursor-pointer px-2.5 h-[30px] md:h-11 flex items-center duration-200 ease-in-out">
                       <input
                         checked
                         type="radio"
@@ -183,36 +185,36 @@
                         value="Collaboration"
                         class="invisible w-0 h-0"
                       >
-                      <span class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase"
                         >Collaboration</span
                       >
                     </label>
                   </li>
                   <li class="custom-option">
-                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                    <label class="cursor-pointer px-2.5 h-[30px] md:h-11 flex items-center duration-200 ease-in-out">
                       <input type="radio" name="contact[regarding]" value="Commission" class="invisible w-0 h-0">
-                      <span class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase"
                         >Commission</span
                       >
                     </label>
                   </li>
                   <li class="custom-option">
-                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                    <label class="cursor-pointer px-2.5 h-[30px] md:h-11 flex items-center duration-200 ease-in-out">
                       <input
                         type="radio"
                         name="contact[regarding]"
                         value="Interview"
                         class="invisible w-0 h-0"
                       >
-                      <span class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
+                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase"
                         >Interview</span
                       >
                     </label>
                   </li>
                   <li class="custom-option">
-                    <label class="cursor-pointer px-2.5 h-11 flex items-center duration-200 ease-in-out">
+                    <label class="cursor-pointer px-2.5 h-[30px] md:h-11 flex items-center duration-200 ease-in-out">
                       <input type="radio" name="contact[regarding]" value="Other" class="invisible w-0 h-0">
-                      <span class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase">Other</span>
+                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase">Other</span>
                     </label>
                   </li>
                 </ul>
@@ -220,7 +222,7 @@
             </div>
             <div class="contact-message contact-us__item">
               <div class="flex items-end pl-2.5 justify-between">
-                <label for="message" class="blcok uppercase font-axis font-extrabold text-[11px] md:text-[13px]"
+                <label for="message" class="blcok uppercase font-axis font-extrabold text-[10px] md:text-[13px]"
                   >Your Message</label
                 >
                 <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
@@ -231,7 +233,7 @@
             </div>
             <div class="contact-email contact-us__item">
               <div class="flex justify-between">
-                <label for="email" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[11px] md:text-[13px]"
+                <label for="email" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[10px] md:text-[13px]"
                   >Email</label
                 >
                 <span class="text-right text-[10px] md:text-[13px] font-bold line-clamp-1 max-w-[60%]">
@@ -262,10 +264,10 @@
               </div>
             </div>
 
-            <div class="submit pb-4">
+            <div class="submit pb-[12px] md:pb-4">
               <button
                 type="button"
-                class="btn btn_primary w-full max-w-80 !block mx-auto cursor-pointer"
+                class="btn btn_primary w-full max-w-80 !block mx-auto cursor-pointer !pb-[12px] !pt-[13px]"
                 id="submit-button"
               >
                 SUBMIT MESSAGE

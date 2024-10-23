@@ -10,7 +10,7 @@
 {% endcomment %}
 
 <cart-notification class="cart-notification fixed top-0 left-0 w-full h-[100dvh] z-[99999]" id="cart-notification">
-  <div class="relative w-full h-full flex pt-[60px] pb-4 overflow-y-auto">
+  <div class="relative w-full h-full flex pt-[60px] pb-6 overflow-y-auto">
     <div class="cart-notification-wrapper my-auto relative left-[50%] lg:left-[62.3%] -translate-x-1/2 z-10 max-w-[471px]">
       <button
         type="button"
@@ -22,33 +22,33 @@
         ></span>
       </button>
       <div
-        class="focus-inset border border-[#5a5a5a] bg-white px-2.5 pt-5 cart-notification-wrapper-block"
+        class="focus-inset border border-black bg-white px-[7px] md:px-2.5 pt-4 md:pt-5 cart-notification-wrapper-block"
         aria-modal="true"
         aria-label="{{ 'general.cart.item_added' | t }}"
         role="dialog"
         tabindex="-1"
       >
         <div class="cart-notification__header text-center uppercase leading-none mb-[24px] lg:mb-[32px]">
-          <p class="text-[17px] md:text-[19px] tracking-widest font-normal">Added To</p>
-          <h2 class="cart-notification__heading uppercase text-[34px] md:text-[42px] font-coutureBold leading-none tracking-widest font-bold">
+          <p class="text-[15px] md:text-[19px] tracking-widest font-normal">Added To</p>
+          <h2 class="cart-notification__heading uppercase text-[32px] md:text-[42px] font-coutureBold leading-none tracking-[.1em] font-bold">
             CART
           </h2>
-          <div class="mt-[28px] lg:mt-10">
-            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Shopping-Bag-Logo text-[40px] lg:text-[58px]"> </span>
+          <div class="mt-[25px] lg:mt-10">
+            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Shopping-Bag-Logo text-[43px] lg:text-[58px]"> </span>
           </div>
         </div>
-        <div class="mb-1.5 max-h-[24dvh] md:max-h-[30vh] cart-notification__wrapper overflow-x-hidden overflow-y-auto">
+        <div class="mb-1.5 max-h-[28dvh] md:max-h-[30vh] cart-notification__wrapper overflow-x-hidden overflow-y-auto">
           <div id="cart-notification-added-product"></div>
         </div>
         <div>
-          <p class="text-[9px] md:text-[11px] leading-none tracking-widest uppercase mb-5 italic font-bold">
+          <p class="text-[8px] md:text-[11px] leading-none tracking-widest uppercase mb-4 md:mb-5 italic font-bold">
             *FREE SHIPPING FOR ORDERS OVER {{ settings.free_shipping }}
           </p>
         </div>
-        <div class="flex flex-col items-center pb-5">
+        <div class="flex flex-col items-center mb-[11px] md:pb-5">
           <a
             href="{{ routes.cart_url }}"
-            class="btn btn_outlined text-[20px] md:!text-[24px] mb-4 w-full max-w-[90%] md:max-w-[74%]"
+            class="btn btn_outlined text-[20px] md:!text-[24px] mb-[11px] md:mb-4 w-full max-w-[90%] md:max-w-[74%]"
           >
             Go To Cart
           </a>

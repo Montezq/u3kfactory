@@ -6,7 +6,7 @@
 {% endcomment %}
 <nav>
   <accordion-list>
-    <ul role="list" class="space-y-[18px] ">
+    <ul role="list" class="space-y-[15px] md:space-y-[18px] ">
       {%- for link in section.settings.menu.links -%}
         <li
           {% if forloop.first %}
@@ -53,7 +53,7 @@
                 class="header__menu-item accordion-toggle cursor-pointer"
               >
                 <span
-                  class="inline-block font-coutureBold tracking-widerx text-[30px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{%- if link.child_active or active_item %} header__active-menu-item{% endif %}"
+                  class="inline-block font-coutureBold tracking-widerx text-[28px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black{%- if link.child_active or active_item %} header__active-menu-item{% endif %}"
                 >
                   {{- link.title | escape -}}
                 </span>
@@ -63,7 +63,7 @@
               >
                 <ul
                   id="HeaderMenu-MenuList-{{ forloop.index }}"
-                  class="space-y-2 md:space-y-1 pb-2.5 md:pb-[30px] pt-2"
+                  class="space-y-[7px] md:space-y-1 pb-2 md:pb-[30px] pt-2"
                   role="list"
                   tabindex="-1"
                 >
@@ -99,7 +99,7 @@
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                           href="{{ childlink.url }}"
                           data-url="{{ childlink.url }}"
-                          class="font-coutureBold text-[20px] md:text-[23px] text-gray-800 md:text-gray-200 uppercase duration-300 ease-in-out tracking-widerx{% if childlink.current or active_item %} header__menu-item-active{% endif %}"
+                          class="font-coutureBold text-[18px] md:text-[23px] text-gray-800 md:text-gray-200 uppercase duration-300 ease-in-out tracking-widerx{% if childlink.current or active_item %} header__menu-item-active{% endif %}"
                           style="{% if childlink.current or active_item %}color: {{settings.second_color}}{% endif %}"
                           {% if childlink.current %}
                             aria-current="page"
@@ -117,13 +117,13 @@
             <a
               id="HeaderMenu-{{ link.handle }}"
               href="{{ link.url }}"
-              class="header__menu-item font-coutureBold tracking-widerx text-[30px] md:text-[29px] uppercase leading-none relative {% if link.current %} open{% endif %}"
+              class="header__menu-item font-coutureBold tracking-widerx text-[28px] md:text-[29px] uppercase leading-none relative {% if link.current %} open{% endif %}"
               {% if link.current %}
                 aria-current="page"
               {% endif %}
             >
               <span
-                class="inline-block single-menu-span font-coutureBold tracking-widerx text-[30px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black"
+                class="inline-block single-menu-span font-coutureBold tracking-widerx text-[28px] md:text-[29px] uppercase leading-none relative after:content-[''] after:block after:h-[1px] after:absolute after:-left-[8px] after:top-1/2 after:bg-black"
               >
                 {{- link.title | escape -}}
               </span>
