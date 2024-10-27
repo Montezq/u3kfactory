@@ -1346,7 +1346,7 @@ class AccordionItem extends HTMLElement {
     button.addEventListener('click', () => {
       content.style.transition = 'height 0.3s ease-out';
       if (!this.isOpen) {
-        document.querySelector('.header__menu-content').classList.remove('lg:pt-[16.4vh]');
+        document.querySelector('.header__menu-content').classList.remove('lg:pt-[16vh]');
         this.isOpen = true;
         document.body.classList.add('accordion-menu__opened');
         this.classList.add('open')
@@ -1371,7 +1371,7 @@ class AccordionItem extends HTMLElement {
       this.classList.add('open')
       document.body.classList.add('accordion-menu__opened');
       requestAnimationFrame(() => {
-        document.querySelector('.header__menu-content').classList.remove('lg:pt-[16.4vh]');
+        document.querySelector('.header__menu-content').classList.remove('lg:pt-[16vh]');
         content.style.height = `${content.scrollHeight}px`;
       });
       const hasVerticalScroll = () => {

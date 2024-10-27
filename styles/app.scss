@@ -592,8 +592,8 @@ input{
 }
 .header__menu{
   @screen lg{
-    padding-top: clamp(50px, 9.17vh, 9.17vh);
-    padding-bottom: clamp(45px, 4vh, 4vh);
+    padding-top: clamp(50px, calc(9.17vh + 2px), calc(9.17vh + 2px));
+    padding-bottom: clamp(40px, calc(5vh - 3px), calc(5vh - 3px));
     padding-left: clamp(50px, calc(3.18vw - 8px), calc(3.18vw - 8px));
   }
 }
@@ -611,7 +611,7 @@ input{
 .header__menu-logo{
   @apply pb-[32px];
   @screen lg{
-    padding-bottom: clamp(50px, 8.17vh, 8.17vh);
+    padding-bottom: clamp(50px, 7.82vh, 7.82vh);
   }
 }
 
