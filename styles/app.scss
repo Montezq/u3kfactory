@@ -856,8 +856,8 @@ accordion-item.open,
 .product-section{
   margin-bottom: 54px;
   @screen lg{
-    margin-bottom: clamp(calc(48px - 27px), calc(10.06vh - 3.68vh), calc(133px - 56px));
-    padding-bottom: clamp(34px, 3.68vh, 56px);
+    margin-bottom: clamp(calc(48px - 27px), calc(10.06vh - 3.2vh), calc(133px - 50px));
+    padding-bottom: clamp(34px, 4vh, 50px);
   }
 }
 .price{
@@ -914,20 +914,20 @@ accordion-item.open,
 }
 .product__info-wrapper{
   @screen md{
-    padding-top: clamp(32px, 5.24vh, 5.24vh);
+    padding-top: clamp(32px, 5vh, 5vh);
   }
 }
 .product__title{
-  margin-bottom: clamp(24px, 2.23vh, 26px);
+  margin-bottom: clamp(22px, 2.23vh, 24px);
 }
 .product__description{
   @screen md{
-    margin-bottom: clamp(39px, 7.92vh, 86px);
+    margin-bottom: clamp(39px, 5.78vh, 86px);
   }
 }
 .product-variant-picker__margin{
   @screen lg{
-    margin-bottom: clamp(32px, 9.46vh, 103px)
+    margin-bottom: clamp(32px, 9.06vh, 99px)
   }
 }
 .product__description *{
@@ -943,7 +943,7 @@ accordion-item.open,
 .contact-btn{
   @apply mb-2;
   @screen md{
-    margin-bottom: clamp(32px, 3.95vh, 43px);
+    margin-bottom: clamp(32px, 3.53vh, 43px);
   }
 }
 
@@ -1161,7 +1161,7 @@ accordion-item.open,
 .copies-left__wrapper{
   @apply mb-2;
   @screen md{
-    margin-bottom: clamp(32px, 4.14vh, 45px);
+    margin-bottom: clamp(32px, 3.72vh, 45px);
   }
 }
 .contact-us__modal-heading{
@@ -1202,7 +1202,7 @@ accordion-item.open,
   }
   input:not([type='submit']),
   select{
-    height: 30px;
+    @apply h-[30px] md:h-10;
   }
   textarea{
     height: 78px;
@@ -1585,7 +1585,7 @@ accordion-item.open,
   @apply mb-2;
   @apply mt-2;
   @screen md{
-    margin-bottom: clamp(32px, 4.87vh, 53px);
+    margin-bottom: clamp(32px, 3.77vh, 53px);
     @apply mt-0;
   }
 }
@@ -1594,9 +1594,9 @@ accordion-item.open,
     margin-bottom: clamp(32px, 3.76vh, 41px) !important;
   }
 }
-.limited-product__short-description{
+.originals-product__short-description{
   @screen md{
-    margin-bottom: clamp(32px, 6.43vh, 70px);
+    margin-bottom: clamp(32px, 5.37vh, 70px);
   }
 }
 

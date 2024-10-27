@@ -1,7 +1,9 @@
 {
   "sections": {
     "my-favorites": {
-      "type": "my-favorites"
+      "type": "my-favorites",
+      "settings": {
+      }
     }
   },
   "order": [

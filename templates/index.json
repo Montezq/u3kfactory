@@ -1,24 +1,15 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
 {
   "sections": {
     "home_page_jFgCyG": {
       "type": "home-page",
       "settings": {
         "cover_type": "video",
-        "video": "shopify://files/videos/HomePage Video.mov",
-        "image": "shopify://shop_images/u3-art-prints-coming-soon-16.9-1200p.jpg",
-        "heading": "<em>20% OFF</em>",
+        "video": "shopify:\/\/files\/videos\/HomePage Video.mov",
+        "image": "shopify:\/\/shop_images\/u3-art-prints-coming-soon-16.9-1200p.jpg",
+        "heading": "<em>20% OFF<\/em>",
         "sub_heading": "USE THE DISCOUNT CODE \"LAUNCH\"",
-        "btn_url": "shopify://collections/all-xx-century-prints",
-        "button_title": "<em>SHOP NOW</em>"
+        "btn_url": "shopify:\/\/collections\/all-xx-century-prints",
+        "button_title": "<em>SHOP NOW<\/em>"
       }
     },
     "home_page_carousel_CmtNEK": {
@@ -27,37 +18,37 @@
         "carousel_item_CgwQFb": {
           "type": "carousel_item",
           "settings": {
-            "carousel_image": "shopify://shop_images/SMARPTHONE-HOMEPAGE-SLIDE-1.jpg",
+            "carousel_image": "shopify:\/\/shop_images\/SMARPTHONE-HOMEPAGE-SLIDE-1.jpg",
             "carouse_label": "NEW",
             "carouse_heading": "SUPREMATIST PRINTS",
-            "btn_url": "shopify://collections/suprematism-prints"
+            "btn_url": "shopify:\/\/collections\/suprematism-prints"
           }
         },
         "carousel_item_pyAfWq": {
           "type": "carousel_item",
           "settings": {
-            "carousel_image": "shopify://shop_images/SMARPTHONE-HOMEPAGE-SLIDE-2.jpg",
+            "carousel_image": "shopify:\/\/shop_images\/SMARPTHONE-HOMEPAGE-SLIDE-2.jpg",
             "carouse_label": "NEW",
             "carouse_heading": "TRAVEL POSTERS",
-            "btn_url": "shopify://collections/travel-poster-prints"
+            "btn_url": "shopify:\/\/collections\/travel-poster-prints"
           }
         },
         "carousel_item_LX6UYq": {
           "type": "carousel_item",
           "settings": {
-            "carousel_image": "shopify://shop_images/SMARPTHONE-HOMEPAGE-SLIDE-3.jpg",
+            "carousel_image": "shopify:\/\/shop_images\/SMARPTHONE-HOMEPAGE-SLIDE-3.jpg",
             "carouse_label": "NEW",
             "carouse_heading": "URBAN PHOTOGRAPHY",
-            "btn_url": "shopify://collections/urban-prints"
+            "btn_url": "shopify:\/\/collections\/urban-prints"
           }
         },
         "carousel_item_ywAmj6": {
           "type": "carousel_item",
           "settings": {
-            "carousel_image": "shopify://shop_images/SMARPTHONE-HOMEPAGE-SLIDE-4.jpg",
+            "carousel_image": "shopify:\/\/shop_images\/SMARPTHONE-HOMEPAGE-SLIDE-4.jpg",
             "carouse_label": "NEW",
             "carouse_heading": "POP ART PRINTS",
-            "btn_url": "shopify://collections/revisited-pop-prints"
+            "btn_url": "shopify:\/\/collections\/revisited-pop-prints"
           }
         }
       },
@@ -68,7 +59,7 @@
         "carousel_item_ywAmj6"
       ],
       "settings": {
-        "button_title": "<em>SHOP NOW</em>"
+        "button_title": "<em>SHOP NOW<\/em>"
       }
     },
     "product_list_fjgKQ3": {

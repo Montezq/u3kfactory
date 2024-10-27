@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "product-grid": {
@@ -24,11 +15,11 @@
       "settings": {
         "contact_tags": "",
         "cover_type": "video",
-        "video": "shopify://files/videos/ACCESSORY-VIDEO-DEKSTOP-saturatie.mov",
+        "video": "shopify:\/\/files\/videos\/ACCESSORY-VIDEO-DEKSTOP-saturatie.mov",
         "heading": "U3 DESIGNED ACCESSORIES",
         "subgheading": "COMING SOON",
         "mobile_cover_type": "video",
-        "mobile_video": "shopify://files/videos/Accessory-Coming-Soon-Mobil.mp4"
+        "mobile_video": "shopify:\/\/files\/videos\/Accessory-Coming-Soon-Mobil.mp4"
       }
     }
   },

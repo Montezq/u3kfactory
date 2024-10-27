@@ -57,13 +57,21 @@
   </div>
   <div class="relative z-[1] flex flex-col items-center text-center my-auto max-sm:h-full">
     <div class="coming-soong__logo pb-[72px] md:pb-[66px] max-sm:mt-auto">
-      <h1 class="font-coutureBold text-[100px] md:text-[154px] h-[84px] md:h-[109px] text-white text-logo leading-none flex items-center">
-        <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_LOGO-4 leading-none block"></span>
+      <h1 class="font-coutureBold w-[100px] md:w-[154px] text-[100px] md:text-[154px] h-[84px] md:h-[109px] text-white text-logo leading-none flex items-center">
+        {%- if section.settings.logo -%}
+          {{
+            section.settings.logo
+            | image_url: width: 320
+            | image_tag: width: section.settings.logo.width, class: 'w-full', widths: '320', fetchpriority: 'high'
+          }}
+        {%- else -%}
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_LOGO-3 leading-none block"></span>
+        {%- endif -%}
       </h1>
     </div>
     <div class="text-white leading-none text-center">
       <h2 class="maintenance__heading font-helveticaThinCond coming-soong__devider tracking-[.2em] leading-[1.12]">
-        WEBSITE IS UNDER <strong> MAINTENANCE </strong> <br class="lg:hidden">
+        <strong>WEBSITE</strong> IS UNDER <strong> MAINTENANCE </strong> <br class="lg:hidden">
         <span class="max-lg:hidden">-</span> WE’LL BE <strong>BACK ONLINE</strong> IN
         <strong>NO TIME</strong>
       </h2>
@@ -110,6 +118,11 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Section Logo"
+    },
     {
       "type": "select",
       "id": "cover_type",

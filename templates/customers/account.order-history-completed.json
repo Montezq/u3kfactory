@@ -1,7 +1,9 @@
 {
   "sections": {
     "main": {
-      "type": "main-account-order-history-completed"
+      "type": "main-account-order-history-completed",
+      "settings": {
+      }
     }
   },
   "order": [

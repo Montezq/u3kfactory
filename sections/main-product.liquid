@@ -69,7 +69,7 @@
           id="ProductInfo-{{ section.id }}"
           data-section="{{ section.id }}"
           data-url="{{ product.url }}"
-          class="lg:max-w-96 flex flex-col"
+          class="lg:max-w-[364px] flex flex-col"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -79,7 +79,7 @@
                 {% render block %}
               {%- when 'title' -%}
                 <div class="product__title max-lg:hidden" {{ block.shopify_attributes }}>
-                  <h1 class="text-[32px] font-semibold leading-none mb-3">{{ product.title | escape }}</h1>
+                  <h1 class="text-[32px] font-semibold leading-none mb-[11px]">{{ product.title | escape }}</h1>
                   <h2 class="leading-none text-[26px] font-helveticaThinCond italic tracking-wide font-normal">
                     <a
                       href="{{ product.metafields.custom.artist_page.value.url }}"
@@ -92,7 +92,7 @@
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div
-                    class="max-lg:border max-lg:p-[18px] product__description max-lg:text-sm max-lg:mt-[52px] max-lg:order-5{% if product.template_suffix == 'limited-product-page' or product.template_suffix == 'originals-product-page' %} limited-product__short-description{% endif %}"
+                    class="max-lg:border max-lg:p-[18px] product__description max-lg:text-sm max-lg:mt-[52px] max-lg:order-5{% if product.template_suffix == 'originals-product-page' %} originals-product__short-description{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {{ product.description }}
@@ -108,7 +108,7 @@
                 </div>
               {%- when 'contact_originals' -%}
                 <div class="contact-btn">
-                  <p class="text-[9px] lg:text-sm leading-none mb-1.5">
+                  <p class="text-[9px] lg:text-sm leading-none mb-2">
                     <i>NEED MORE INFORMATION ABOUT THIS PIECE?</i>
                   </p>
                   <button
@@ -120,7 +120,7 @@
                 </div>
               {%- when 'buy_buttons' -%}
                 {%- if block.settings.taxes_text != blank -%}
-                  <div class="mb-3 max-lg:hidden">
+                  <div class="mb-2.5 max-lg:hidden">
                     <p class="text-[13px] text-gray-850 italic font-semibold">
                       {{ block.settings.taxes_text }}
                     </p>
@@ -204,11 +204,11 @@
                   <div class="leading-none lg:ml-2 text-xs lg:text-[19px] max-lg:mt-1.5 uppercase">COPIES LEFT</div>
                 </div>
               {%- when 'favorites' -%}
-                <div class="lg:max-w-[360px] mt-[11px] lg:mt-4">
+                <div class="lg:max-w-[360px] mt-3 lg:mt-[15px]">
                   {%- render 'favorites-button', product: product -%}
                 </div>
               {%- when 'contact' -%}
-                <div class="max-w-[360px] mt-4 max-lg:hidden">
+                <div class="max-w-[360px] mt-6 max-lg:hidden">
                   <a
                     href="/pages/contact"
                     class="italic uppercase flex items-center leading-none text-lg text-gray-300 cursor-pointer w-fit font-semibold tracking-widerx contact-us"
