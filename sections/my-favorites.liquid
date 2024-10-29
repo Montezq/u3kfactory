@@ -78,7 +78,7 @@
             }</h3>
           </div>
           <div class="wishlist__item-data-variant mb-2.5 md:mb-[90px] max-md:w-[60%] max-md:text-right max-md:flex-1 flex flex-col">
-            <h4 class="text-[17px] md:text-[24px] max-md:mb-[9px] tracking-xwidest font-bold leading-none">${
+            <h4 class="text-[17px] md:text-[24px] max-md:mb-2.5 tracking-xwidest font-bold leading-none">${
               item.noVariant ? 'NO SIZE SELECTED' : `${optionSizeCapitalized} ${optionMaterialCapitalized}`
             }
             </h4>
@@ -93,7 +93,7 @@
                 ? 'Unmounted'
                 : ''
             }</h4>
-            <h4 class="font-bold text-[17px] md:text-sm tracking-xwidest md:hidden leading-none mt-[11px]">
+            <h4 class="font-bold text-[17px] md:text-sm tracking-xwidest md:hidden leading-none mt-[15px]">
               ${
                 item.noVariant
                   ? '0.00 {{ cart.currency.symbol }}'
@@ -115,7 +115,7 @@
                   ? `
                   <a
                     href="${item.productUrl}"
-                    class="btn btn_primary btn_small flex text-center uppercase relative w-full mb-4"
+                    class="btn btn_primary btn_small !pb-[6px] flex text-center uppercase relative w-full mb-4"
                   >
                     <span class="text-white">choose size/medium</span>
                     <span
@@ -174,7 +174,7 @@
                   </div>
                 `
               }
-              <button class="btn btn_primary btn_small flex text-center uppercase relative w-full remove-from-wishlist" data-id="${
+              <button class="btn btn_primary btn_small !pb-[6px] flex text-center uppercase relative w-full remove-from-wishlist" data-id="${
                 item.productId
               }" data-variant-id="${item.variantId}">
                 <span class="text-white">remove from list</span>

@@ -19,7 +19,7 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
-    <div id="bar" class="lg:hidden px-3 bg-gray-10 fixed top-[54px] duration-300 ease-in-out pb-0.5 pt-0">
+    <div id="bar" class="lg:hidden px-3.5 bg-gray-10 fixed top-[54px] duration-300 ease-in-out pb-0.5 pt-0">
       <div class="flex justify-between items-center">
         <div class="flex-1 line-clamp-1">
           <h2 class="text-[19px] leading-none font-semibold">
@@ -51,7 +51,7 @@
             {%- case block.type -%}
               {%- when 'buy_buttons' -%}
                 {%- if block.settings.taxes_text != blank -%}
-                  <p class="text-[8px] text-gray-850 italic font-semibold leading-none mt-[3px]">
+                  <p class="text-[8px] text-gray-850 italic font-semibold leading-none mt-1">
                     {{ block.settings.taxes_text }}
                   </p>
                 {%- endif -%}
@@ -92,7 +92,7 @@
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div
-                    class="max-lg:border max-lg:p-[18px] product__description max-lg:text-sm max-lg:mt-[52px] max-lg:order-5{% if product.template_suffix == 'originals-product-page' %} originals-product__short-description{% endif %}"
+                    class="max-lg:border max-lg:border-black max-lg:px-3 max-lg:py-[11px] product__description max-lg:text-sm max-lg:mt-[54px] max-lg:order-5{% if product.template_suffix == 'originals-product-page' %} originals-product__short-description{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {{ product.description }}
@@ -108,7 +108,7 @@
                 </div>
               {%- when 'contact_originals' -%}
                 <div class="contact-btn">
-                  <p class="text-[9px] lg:text-sm leading-none mb-2">
+                  <p class="text-[9px] lg:text-sm leading-none mb-[7px]">
                     <i>NEED MORE INFORMATION ABOUT THIS PIECE?</i>
                   </p>
                   <button
@@ -201,7 +201,7 @@
                       {% endif %}
                     {% endif %}
                   </div>
-                  <div class="leading-none lg:ml-2 text-xs lg:text-[19px] max-lg:mt-1.5 uppercase">COPIES LEFT</div>
+                  <div class="leading-none lg:ml-2 text-xs lg:text-[19px] max-lg:mt-[5px] uppercase">COPIES LEFT</div>
                 </div>
               {%- when 'favorites' -%}
                 <div class="lg:max-w-[360px] mt-3 lg:mt-[15px]">

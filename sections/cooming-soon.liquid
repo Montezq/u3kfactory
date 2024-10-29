@@ -1,4 +1,4 @@
-<div class="w-full min-h-[100vh] flex flex-col items-center relative overflow-hidden pb-10 md:pb-8 pt-8">
+<div class="w-full min-h-[100vh] flex flex-col items-center relative overflow-hidden pb-8 pt-10 md:pt-8">
   <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full">
     <div
       class="w-full h-full{% if section.settings.mobile_image != blank or section.settings.mobile_video != blank %} max-md:hidden{% endif %}"
@@ -56,7 +56,7 @@
     </div>
   </div>
   <div class="relative z-[1] flex flex-col items-center text-center my-auto">
-    <div class="coming-soong__logo pb-[70px] md:pb-[75px]">
+    <div class="coming-soong__logo pb-[64px] md:pb-[75px]">
       <h1 class="font-coutureBold w-[100px] md:w-[154px] text-[100px] md:text-[154px] h-[84px] md:h-[109px] text-white text-logo leading-none flex items-center">
         {%- if section.settings.logo -%}
           {{
@@ -72,7 +72,7 @@
     {%- if section.settings.heading != blank or section.settings.subgheading != blank -%}
       <div class="text-white leading-none">
         {%- if section.settings.heading != blank -%}
-          <h2 class="coming-soon__heading tracking-widest coming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[465px] after:min-w-[260px] after:w-[55%] md:after:w-[80%] after:h-[1px] after:bg-white">
+          <h2 class="coming-soon__heading tracking-widest coming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[465px] after:min-w-[200px] after:w-[55%] md:after:w-[80%] after:h-[1px] after:bg-white">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
@@ -83,7 +83,7 @@
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="mt-[17.3dvh] max-w-[600px] w-full mx-auto">
+    <div class="mt-[17dvh] md:mt-[17.3dvh] max-w-[600px] w-full mx-auto">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
@@ -134,7 +134,7 @@
 
             <button
               type="button"
-              class="submit-button bg-black font-axis text-[18px] md:text-xl pb-[9px] pt-[11px] md:pt-[4px] md:pb-[3px] px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[200px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
+              class="submit-button bg-black font-axis text-[18px] md:text-xl pb-[7px] pt-[9px] md:pt-[4px] md:pb-[3px] px-2 md:px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[200px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
               name="commit"
               id="submitNewsletter"
               aria-label="{{ 'newsletter.keep_updated' | t }}"
@@ -149,7 +149,7 @@
         </div>
       {% endform %}
     </div>
-    <div class="coming-soon__socials mt-[10vh]">
+    <div class="coming-soon__socials mt-[11vh]">
       <ul class="flex gap-[56px]">
         {%- if settings.social_facebook_link != blank -%}
           <li class="text-[27px] md:text-[32px] text-white">

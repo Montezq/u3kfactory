@@ -14,7 +14,7 @@
     {%- if product.variants.size >= 1 and template != 'product.originals-product-page' -%}
       <variant-selects
         id="variant-selects-{{ section.id }}"
-        class="no-js-hidden product__options grid grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-[27px] lg:max-w-[218px]"
+        class="no-js-hidden product__options grid grid-cols-2 lg:grid-cols-1 gap-[15px] lg:gap-[27px] lg:max-w-[218px]"
         data-section="{{ section.id }}"
         data-url="{{ product.url }}"
         {% if update_url == false %}
