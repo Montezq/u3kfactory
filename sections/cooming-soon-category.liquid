@@ -59,12 +59,12 @@
     {%- if section.settings.heading != blank or section.settings.subgheading != blank -%}
       <div class="text-white leading-none">
         {%- if section.settings.heading != blank -%}
-          <h2 class="text-[70px] font-helveticaThinCond italic tracking-widest pb-[38px] mb-[42px] coming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[278px] after:min-w-[180px] after:w-[90%] md:after:w-[80%] after:h-[1px] after:bg-white">
+          <h2 class="text-[70px] font-helveticaThinCond italic tracking-widest pb-10 mb-[38px] coming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[278px] after:min-w-[180px] after:w-[90%] md:after:w-[80%] after:h-[1px] after:bg-white">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
         {%- if section.settings.subgheading != blank -%}
-          <h3 class="font-helveticaLight text-[70px] tracking-widest uppercase">
+          <h3 class="font-helveticaLight text-[71px] tracking-widest uppercase">
             {{ section.settings.subgheading }}
           </h3>
         {%- endif -%}
@@ -83,7 +83,7 @@
                 autocorrect="off"
                 autocapitalize="off"
                 autocomplete="off"
-                class="bg-transparent email-input max-md:text-center text-[16px] max-md:h-[20px] w-full border-b border-b-white text-white pl-[4px] pb-[2px] tracking-wider placeholder:tracking-wider placeholder:text-white"
+                class="bg-transparent email-input max-md:text-center text-[16px] max-md:h-[20px] w-full border-b border-b-white text-white pl-[4px] pb-[0px] tracking-wider placeholder:tracking-wider placeholder:text-white"
                 {% if form.errors %}
                   autofocus
                   aria-invalid="true"
@@ -121,7 +121,7 @@
 
             <button
               type="button"
-              class="submit-button btn_white-outlined !font-couture !text-[18px] md:!text-[22px] !pb-[7px] !pt-[9px] md:!py-[7px] !px-[5px] md:!px-3 uppercase text-white whitespace-nowrap !tracking-widest min-w-[200px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
+              class="submit-button btn_white-outlined !border-2 !font-couture !text-[18px] md:!text-[22px] !pb-[7px] !pt-[9px] !px-[5px] md:!px-3 uppercase text-white whitespace-nowrap !tracking-widest min-w-[200px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
               name="commit"
               id="submitNewsletter"
               aria-label="{{ 'newsletter.keep_updated' | t }}"

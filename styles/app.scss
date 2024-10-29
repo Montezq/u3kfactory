@@ -143,7 +143,7 @@ input[type="search"]::-moz-search-clear {
   @apply text-[4.8vw];
   @apply md:text-[4.4vw];
   @apply lg:text-[40px];
-  @apply lg:pb-[42px];
+  @apply lg:pb-[41px];
   @apply lg:mb-[40px];
 }
 .coming-soon__subheading{
@@ -1253,7 +1253,7 @@ accordion-item.open,
   }
 }
 .coming-soon__category-email{
-  margin-top: clamp(70px, 22vh, 208px);
+  margin-top: clamp(70px, calc(22vh - 40px), calc(208px - 40px));
   @media screen and (max-width: 767px){
     margin-top: clamp(70px, 12vh, 208px);
   }
