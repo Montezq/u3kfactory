@@ -686,10 +686,11 @@ accordion-item.open,
     font-size: 5cqw;
   }
 }
-.collection-hero{
+.collection-hero,
+.my-favorites__heading{
   padding-top: 47px;
   @screen lg{
-    padding-top: clamp(21px, calc(5vh - 29px), calc(5vh - 29px));
+    padding-top: clamp(17px, calc(5vh - 29px), calc(5vh - 29px));
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
     height: clamp(110px, calc(14.05vh  - 27px), calc(219px - 27px));
     @apply top-[27px];
@@ -1079,7 +1080,7 @@ accordion-item.open,
   @apply right-0;
   z-index: 1;
   @screen lg{
-    @apply pr-16;
+    @apply pr-[3.33vw];
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
 }
@@ -1126,7 +1127,7 @@ accordion-item.open,
   }
   @screen lg{
     @apply px-0;
-    padding-top: clamp(141px, 23.27vh, 404px);
+    padding-top: clamp(141px, 21.59vh, 404px);
   }
 }
 .cart-item__content-left{
@@ -1286,8 +1287,7 @@ accordion-item.open,
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
   }
 }
-.heading__search, 
-.my-favorites__heading,
+.heading__search,
 .contact__heading,
 .custom-page__heading{
   @apply lg:pr-5;
@@ -1324,7 +1324,7 @@ accordion-item.open,
   @apply pt-[34px];
   @apply md:pt-[60px];
   @screen lg{
-    padding-top: clamp(84px, calc(17.18vh - 27px), 221px);
+    padding-top: clamp(110px, calc(14.05vh  - 27px), calc(219px - 27px));
   }
 }
 
@@ -1380,23 +1380,25 @@ accordion-item.open,
   }
   @media screen and (max-width: 1330px) {
     flex-direction: column;
+    @apply grid-cols-1;
   }
   &:last-child{
-    @apply mb-10;
+    @apply mb-[130px];
   }
 }
 .wishlist__item-img{
-  width: clamp(361px, 34vw, 34vw);
+  width: calc(100% - 2vw);
   @media screen and (max-width: 1330px) {
     width: clamp(461px, 37vw, 37vw);
+    @apply grid-cols-2
   }
   @media not all and (min-width: 1024px) {
     width: 100%;
   }
 }
 .wishlist__item-data{
-  margin-left: clamp(32px, 2.35vw, 2.35vw);
-  @apply pt-4;
+  margin-left: clamp(0px, .35vw, .35vw);
+  @apply pt-[19px];
   @media screen and (max-width: 1330px) {
     margin-left: 0;
     @apply pt-0;
@@ -1416,6 +1418,7 @@ accordion-item.open,
 .main-account-order__heading{
   @apply lg:pr-5;
   @screen lg{
+    padding-right: clamp(0px, calc(3.7vw - 7px),calc(3.7vw - 7px));
     padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
     height: clamp(110px, 14.05vh, 219px);
   }
@@ -1424,6 +1427,7 @@ accordion-item.open,
   @apply pt-[57px];
   @screen lg{
     padding-top: clamp(110px, 14.05vh, 219px);
+    padding-right: clamp(0px,calc(3.7vw - 27px),calc(3.7vw - 27px));
     padding-bottom: 130px;
   }
 }

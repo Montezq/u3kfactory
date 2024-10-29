@@ -14,7 +14,7 @@
   >
     <h1 class="font-coutureBold text-[19px] md:text-3xl max-lg:leading-none uppercase text-center">My Orders</h1>
 
-    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-1.5 max-lg:hidden">
+    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-0.5 max-lg:hidden">
       <li>
         <a href="/account?view=order-history-active" class="text-[13px] font-bold underline uppercase"> Active </a>
       </li>
@@ -150,7 +150,7 @@
                 </a>
                 <div>
                   <button
-                    class="btn btn_outlined w-full uppercase !text-xl md:!text-2xl {% if order.tags contains 'processing' %}cancel-order{% else %}unavailable-cancel-order{% endif %}"
+                    class="btn btn_outlined !border w-full uppercase !text-xl md:!text-2xl {% if order.tags contains 'processing' %}cancel-order{% else %}unavailable-cancel-order{% endif %}"
                   >
                     Request cancellation
                   </button>
@@ -213,7 +213,7 @@
                                   id="text"
                                   value="Order URL https://admin.shopify.com/store/u3faktory/orders/{{ order.id }}"
                                 >
-                                <button type="submit" class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">
+                                <button type="submit" class="w-full btn btn_outlined !text-xl md:!text-2xl">
                                   Yes , Cancel It
                                 </button>
                               {% endform %}
@@ -237,12 +237,12 @@
     {% endif %}
   </div>
   <div class="no-tracking-order__modal hidden border bg-white py-3 md:py-[18px] px-2 md:px-3.5 border-black fixed top-1/2 left-[50%] lg:left-[62.3%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
-    <p class="uppercase text-lg md:text-2xl tracking-xwidest font-bold text-center whitespace-nowrap">
+    <p class="uppercase text-lg md:text-2xl tracking-xwidest text-center whitespace-nowrap">
       NO TRACKING DETAILS AT THIS TIME
     </p>
   </div>
   <div class="order-canceled__modal hidden border bg-white py-3 md:py-[18px] px-2 md:px-3.5 border-black fixed top-1/2 left-[50%] lg:left-[62.3%] -translate-x-1/2 -translate-y-1/2 z-10 w-[96%] md:w-full max-w-fit">
-    <p class="uppercase text-lg md:text-2xl tracking-xwidest font-bold text-center whitespace-nowrap">
+    <p class="uppercase text-lg md:text-2xl tracking-xwidest text-center whitespace-nowrap">
       CANCELLATION REQUEST SENT
     </p>
   </div>
