@@ -225,7 +225,7 @@ input[type="search"]::-moz-search-clear {
 .icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button .path2:before {
   content: "\e914";
   color: rgb(255, 255, 255);
-  margin-left: -1em;
+  margin-left: -1.02em;
 }
 .icon-FULL-ICON-SET-WEBSITE-FINAL_Hand-Truck-Icon:before {
   content: "\e915";
@@ -1169,15 +1169,15 @@ accordion-item.open,
 .contact-us__modal-heading{
   h2{
     position: relative;
-    margin-bottom: 42px;
-    padding-bottom: 8px;
+    margin-bottom: 43px;
+    padding-bottom: 10px;
     @screen md{
       margin-bottom: 44px;
       padding-bottom: 20px;
     }
     &:after{
       content: "";
-      width: 142px;
+      width: 140px;
       display: block;
       height: 1px;
       background-color: #000;
@@ -1214,7 +1214,7 @@ accordion-item.open,
     }
   }
   .contact-us__item{
-    margin-bottom: 23px;
+    margin-bottom: 16px;
     @screen md{
       margin-bottom: 28px;
     }
