@@ -1024,15 +1024,15 @@ accordion-item.open,
   box-shadow: 0px 6px 11px rgba(0, 0, 0, .35);
 }
 .cart-notification__header p{
-  @apply pb-[13px];
+  @apply pb-[9px];
   @apply md:pb-4;
-  @apply mb-[10px];
+  @apply mb-[9px];
   @apply md:mb-[11px];
   @apply relative;
   &:after{
     content: "";
     display: block;
-    width: 16px;
+    width: 15px;
     height: 1px;
     @apply bg-black;
     position: absolute;
@@ -1047,8 +1047,8 @@ accordion-item.open,
 }
 .cart-notification__wrapper{
   &::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+    width: 3px;
+    height: 3px;
   }
   &::-webkit-scrollbar-track {
     background: transparent; 

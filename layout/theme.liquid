@@ -1,5 +1,3 @@
-{% comment %} // text-3xl = 1.56vw lh 1.2 {% endcomment %}
-
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
@@ -50,18 +48,6 @@
             font-style: normal;
             font-display: swap;
         }
-
-        @font-face {
-            font-family: 'Helvetica Cond';
-            src: url("{{ 'HelveticaNeueLTStd-Cn.woff2' | asset_url }}") format('woff2');
-            src: url("{{ 'HelveticaNeueLTStd-Cn.?#iefix' | asset_url }}") format('embedded-opentype'),
-                url("{{ 'HelveticaNeueLTStd-Cn.woff2' | asset_url }}") format('woff2'),
-                url("{{ 'HelveticaNeueLTStd-Cn.woff' | asset_url }}") format('woff'),
-                url("{{ 'HelveticaNeueLTStd-Cn.ttf' | asset_url }}") format('truetype'),
-                url("{{ 'HelveticaNeueLTStd-Cn.svg#HelveticaNeueLTStd-Cn' | asset_url }}") format('svg');
-            font-display: swap;
-        }
-
         @font-face {
             font-family: 'Couture BoldItalic';
             src: url("{{ 'Couture-BoldItalic.woff2' | asset_url }}") format('woff2');
@@ -137,19 +123,6 @@
           font-weight: normal;
           font-style: normal;
           font-display: block;
-        }
-
-        @font-face {
-          font-family: 'Neue Helvetica';
-          src: url("{{ 'NeueHelveticaforZara-Lt.woff2' | asset_url }}") format('woff2');
-          src: url("{{ 'NeueHelveticaforZara-Lt.eot?#iefix' | asset_url }}") format('embedded-opentype'),
-              url("{{ 'NeueHelveticaforZara-Lt.woff2' | asset_url }}") format('woff2'),
-              url("{{ 'NeueHelveticaforZara-Lt.woff' | asset_url }}") format('woff'),
-              url("{{ 'NeueHelveticaforZara-Lt.ttf' | asset_url }}") format('truetype'),
-              url("{{ 'NeueHelveticaforZara-Lt.svg#NeueHelveticaforZara-Lt' | asset_url }}") format('svg');
-          font-weight: bold;
-          font-style: normal;
-          font-display: swap;
         }
 
         @font-face {
