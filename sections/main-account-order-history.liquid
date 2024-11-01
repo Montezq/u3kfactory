@@ -94,12 +94,12 @@
                             </div>
                           {% endif %}
                         </div>
-                        <div class="flex max-md:flex-col w-full ml-[22px] md:pl-2 md:pr-[14px] pt-2 md:pt-1.5 {% if forloop.last %}xl:border-b xl:border-b-[#8c8c8c]{% endif %}">
+                        <div class="flex max-md:flex-col w-full ml-3 md:pl-2 md:pr-[14px] pt-2 md:pt-1.5 {% if forloop.last %}xl:border-b xl:border-b-[#8c8c8c]{% endif %}">
                           <div class="pb-3 cart-item__content-left">
-                            <div class="mb-5 md:mb-2">
+                            <div class="mb-[18px] md:mb-2">
                               <a
                                 href="{{ item.url }}"
-                                class="uppercase text-xl md:text-[22px] lg:text-[25px] font-bold leading-none inline-block"
+                                class="uppercase text-xl md:text-[22px] lg:text-[25px] font-bold leading-none block  md:inline-block"
                               >
                                 {{- item.product.title | escape -}}
                               </a>
@@ -111,7 +111,7 @@
                               {%- unless item.product.has_only_default_variant -%}
                                 {%- for option in item.options_with_values -%}
                                   <div class="product-option leading-none">
-                                    <dd class="text-lg md:text-[21px] leading-none font-helveticaLight">
+                                    <dd class="text-base md:text-[22px] leading-none font-helveticaLight">
                                       {{ option.value }}
                                     </dd>
                                   </div>
@@ -121,7 +121,7 @@
                                 {%- assign property_first_char = property.first | slice: 0 -%}
                                 {%- if property.last != blank and property_first_char != '_' -%}
                                   <div class="product-option leading-none">
-                                    <dd class="text-lg md:text-[21px] leading-none font-helveticaLight">
+                                    <dd class="text-base md:text-[22px] leading-none font-helveticaLight">
                                       {{ property.last }}
                                     </dd>
                                   </div>
@@ -232,7 +232,7 @@
     </ul>
     {%- if orders_count < 1 -%}
       <div>
-        <h2 class="text-xl md:text-[30px] uppercase text-center tracking-xwidest py-[30vh]">NO ORDERS</h2>
+        <h2 class="text-[19px] md:text-[30px] uppercase text-center tracking-xwidest py-[26vh]">NO ORDERS</h2>
       </div>
     {% endif %}
   </div>

@@ -55,7 +55,7 @@
       {%- endif -%}
     </div>
   </div>
-  <div class="relative z-[1] flex flex-col items-center text-center my-auto">
+  <div class="relative z-[1] flex flex-col items-center text-center mt-[116px] md:my-auto">
     {%- if section.settings.heading != blank or section.settings.subgheading != blank -%}
       <div class="text-white leading-none">
         {%- if section.settings.heading != blank -%}
@@ -70,7 +70,7 @@
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="coming-soon__category-email max-md:pb-[20%] max-w-[213px] md:max-w-[350px] w-full mx-auto">
+    <div class="coming-soon__category-email max-md:pb-[20%] max-w-[211px] md:max-w-[350px] w-full mx-auto">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
@@ -83,7 +83,7 @@
                 autocorrect="off"
                 autocapitalize="off"
                 autocomplete="off"
-                class="bg-transparent email-input max-md:text-center text-[16px] max-md:h-[20px] w-full border-b border-b-white text-white pl-[4px] pb-[0px] tracking-wider placeholder:tracking-wider placeholder:text-white"
+                class="bg-transparent email-input max-md:text-center text-[16px] max-md:h-[20px] w-full border-b border-b-white text-white pl-[4px] pb-[0px] tracking-wider placeholder:tracking-wider placeholder:text-white font-open placeholder:font-open"
                 {% if form.errors %}
                   autofocus
                   aria-invalid="true"
@@ -94,7 +94,7 @@
                 placeholder="{{ 'newsletter.label' | t }}"
               >
               <div
-                class="tooltip-form absolute top-full -left-[70px] sm:-left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
+                class="tooltip-form absolute top-full -left-[74px] sm:-left-[120px] mt-2.5 whitespace-nowrap bg-white border border-black py-[5px] sm:py-2 px-1 sm:pr-[6px] sm:pl-[8px] duration-300 transition-all ease-in-out opacity-0 invisible"
               >
                 <div class="flex items-center">
                   <div class="w-5 sm:w-7 h-5 sm:h-7 mr-[7px]">
@@ -121,7 +121,7 @@
 
             <button
               type="button"
-              class="submit-button btn_white-outlined !border-2 !font-couture !text-[18px] md:!text-[22px] !pb-[7px] !pt-[9px] !px-[5px] md:!px-3 uppercase text-white whitespace-nowrap !tracking-widest min-w-[200px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
+              class="submit-button btn_white-outlined !border-2 !font-couture !text-[18px] md:!text-[22px] !pb-[6px] !pt-[8px] !px-[4px] md:!px-3 uppercase text-white whitespace-nowrap !tracking-widest min-w-[200px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
               name="commit"
               id="submitNewsletter"
               aria-label="{{ 'newsletter.keep_updated' | t }}"

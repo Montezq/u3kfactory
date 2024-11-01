@@ -10,6 +10,9 @@
     data-url="{{ product.url }}"
     data-toggle="false"
     data-no-variant="false"
+    {%- if product.template_suffix == 'originals-product-page' -%}
+      data-unframed="true"
+    {%- endif -%}
     {%- unless product.has_only_default_variant -%}
       {%- for option in product.options_with_values -%}
         {%- for value in option.values -%}

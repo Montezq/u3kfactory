@@ -51,7 +51,7 @@
             {%- case block.type -%}
               {%- when 'buy_buttons' -%}
                 {%- if block.settings.taxes_text != blank -%}
-                  <p class="text-[8px] text-gray-850 italic font-semibold leading-none mt-1">
+                  <p class="text-[8px] text-gray-850 italic leading-none mt-1 mr-[2px]">
                     {{ block.settings.taxes_text }}
                   </p>
                 {%- endif -%}
@@ -92,14 +92,14 @@
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div
-                    class="max-lg:border max-lg:border-black max-lg:px-3 max-lg:py-[11px] product__description max-lg:text-sm max-lg:mt-[54px] max-lg:order-5{% if product.template_suffix == 'originals-product-page' %} originals-product__short-description{% endif %}"
+                    class="max-lg:border max-lg:border-black max-lg:px-3 max-lg:py-[10px] product__description max-lg:text-sm max-lg:mt-[55px] max-lg:order-5{% if product.template_suffix == 'originals-product-page' %} originals-product__short-description{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {{ product.description }}
                   </div>
                 {%- endif -%}
               {%- when 'variant_picker' -%}
-                <div class="{%- if product.variants.size > 1 -%}mb-4 product-variant-picker__margin{% else %}margin-variant-picker{% endif %}{% if product.template_suffix == 'limited-product-page' %} !mb-2.5 limited-product__variant-picker{% endif %}">
+                <div class="{%- if product.variants.size > 1 or product.template_suffix != 'originals-product-page' -%}mb-4 product-variant-picker__margin{% else %}margin-variant-picker{% endif %}{% if product.template_suffix == 'limited-product-page' %} !mb-2.5 limited-product__variant-picker{% endif %}">
                   {% render 'product-variant-picker',
                     product: product,
                     block: block,
@@ -108,12 +108,12 @@
                 </div>
               {%- when 'contact_originals' -%}
                 <div class="contact-btn">
-                  <p class="text-[9px] lg:text-sm leading-none mb-[7px]">
+                  <p class="text-[9px] lg:text-sm leading-none mb-[5px]">
                     <i>NEED MORE INFORMATION ABOUT THIS PIECE?</i>
                   </p>
                   <button
                     href="/pages/contact"
-                    class="btn btn_primary w-full lg:max-w-[360px] contact-us"
+                    class="btn btn_primary w-full lg:max-w-[360px] contact-us btn_small_mobile"
                   >
                     Contact the artist
                   </button>
@@ -204,7 +204,7 @@
                   <div class="leading-none lg:ml-2 text-xs lg:text-[19px] max-lg:mt-[5px] uppercase">COPIES LEFT</div>
                 </div>
               {%- when 'favorites' -%}
-                <div class="lg:max-w-[360px] mt-3 lg:mt-[15px]">
+                <div class="lg:max-w-[360px] mt-[13px] lg:mt-[15px]">
                   {%- render 'favorites-button', product: product -%}
                 </div>
               {%- when 'contact' -%}
@@ -307,11 +307,11 @@
     {%- case block.type -%}
       {%- when 'contact_originals' -%}
         <div class="contact-us__modal hidden fixed top-0 left-0 w-full h-[100dvh] z-[99999]">
-          <div class="relative w-full h-full flex pt-[40px] pb-6 md:pb-4 overflow-y-auto overflow-x-hidden">
-            <div class="relative my-auto left-[50%] lg:left-[62.3%] -translate-x-1/2 w-[94%] lg:w-full max-w-[400px] lg:max-w-[471px]">
+          <div class="relative max-md:mt-[34px] w-full h-full flex pt-[40px] pb-6 md:pb-4 overflow-y-auto overflow-x-hidden">
+            <div class="relative cart-notification-wrapper md:my-auto left-[50%] lg:left-[62.3%] -translate-x-1/2 w-[94%] lg:w-full max-w-[400px] lg:max-w-[471px]">
               <button
                 type="button"
-                class="contact-us__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-4 right-0 text-[18px] text-white w-7 lg:w-[34px] h-7 lg:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
+                class="contact-us__modal-close modal__close-button font-bold font-coutureBold absolute bottom-full mb-[11px] right-0 text-[18px] text-white w-7 lg:w-[34px] h-7 lg:h-[34px] bg-black rounded-full leading-none flex justify-center items-center cursor-pointer"
                 aria-label="{{ 'accessibility.close' | t }}"
               >
                 <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Grey-X-Button text-[28px] md:text-[34px]">
@@ -324,7 +324,7 @@
                 role="dialog"
                 tabindex="-1"
               >
-                <div class="contact-us__modal-heading text-center mb-[26px] md:mb-[30px]">
+                <div class="contact-us__modal-heading text-center mb-[24px] md:mb-[30px]">
                   <p class="text-[15px] md:text-[19px] tracking-widest font-normal uppercase leading-none mb-7 md:mb-[44px]">
                     You Are contacting
                   </p>
@@ -491,7 +491,7 @@
                     <div class="submit pb-[12px] md:pb-4">
                       <button
                         type="button"
-                        class="btn btn_primary w-full max-w-80 !block mx-auto cursor-pointer !pb-[12px] !pt-[13px]"
+                        class="btn btn_primary w-full max-w-[90%] md:max-w-80 !block mx-auto cursor-pointer !pb-[11px] !pt-[11px]"
                         id="submit-button"
                       >
                         SUBMIT MESSAGE

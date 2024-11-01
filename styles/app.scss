@@ -136,7 +136,7 @@ input[type="search"]::-moz-search-clear {
   @apply w-full;
 }
 .coming-soon__heading{
-  @apply mb-[5.08vw];
+  @apply mb-[4.8vw];
   @apply pb-[4.9vw];
   @apply md:mb-[4vw];
   @apply md:pb-[3.4vw];
@@ -410,6 +410,10 @@ input{
   @apply text-2xl;
   @apply py-[7px];
 }
+.btn_small_mobile{
+  @apply max-md:text-2xl;
+  @apply max-md:py-[7px];
+}
 .btn_primary{
   @apply bg-black;
   @apply text-white;
@@ -609,7 +613,7 @@ input{
   }
 }
 .header__menu-logo{
-  @apply pb-[72px];
+  @apply pb-[79px];
   @screen lg{
     padding-bottom: clamp(50px, 7.82vh, 7.82vh);
   }
@@ -688,7 +692,7 @@ accordion-item.open,
 }
 .collection-hero,
 .my-favorites__heading{
-  padding-top: 40px;
+  padding-top: 43px;
   @screen lg{
     padding-top: clamp(17px, calc(5vh - 29px), calc(5vh - 29px));
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
@@ -712,15 +716,15 @@ accordion-item.open,
 #product-grid-wrapper{
   &.collection-grid__list-big{
     &.collection-product-grid{
-      @apply max-md:px-0;
+      @apply max-md:px-[0];
       .collection-hero{
-        @apply max-md:px-[18px]
+        @apply max-md:px-[15px]
       }
     }
     .collection-grid__list{
       @apply grid-cols-1;
       @apply xl:grid-cols-2;
-      row-gap: 59px;
+      row-gap: 61px;
       @screen md{
         column-gap: clamp(27px, 4vw, 4vw);
         row-gap: clamp( calc(110px - 69px), calc(16.53vh - 69px), calc(217px - 69px));
@@ -732,7 +736,7 @@ accordion-item.open,
       @apply grid-cols-2;
       @apply xl:grid-cols-3;
       column-gap: 4px;
-      row-gap: 59px;
+      row-gap: 61px;
       @screen md{
         column-gap: clamp(27px, 2.14vw, 2.14vw);
         row-gap: clamp( calc(110px - 69px), calc(16.53vh - 69px), calc(217px - 69px));
@@ -893,8 +897,8 @@ accordion-item.open,
     @apply md:!hidden;
     @apply flex;
     @apply gap-2;
-    @apply mt-1;
-    @apply mb-2;
+    @apply mt-[5px];
+    @apply mb-1.5;
     button{
       @apply block;
       @apply w-[11px];
@@ -943,7 +947,7 @@ accordion-item.open,
   @apply font-bold;
 }
 .contact-btn{
-  @apply mb-2;
+  @apply mb-[13px];
   @screen md{
     margin-bottom: clamp(32px, 3.53vh, 43px);
   }
@@ -1073,7 +1077,7 @@ accordion-item.open,
     padding-top: clamp(42px, 5.4vh, 126px);
   }
   @apply max-lg:px-[18px];
-  @apply max-md:px-3;
+  @apply max-md:px-3.5;
 }
 .cart__footer-wrapper,
 .cart__heading{
@@ -1099,7 +1103,7 @@ accordion-item.open,
   }
 }
 .cart__checkout-button{
-  padding: 7px 12px 8px;
+  padding: 10px 12px;
   @screen md{
     padding: 6px 10px 6px 23px;
   }
@@ -1161,7 +1165,7 @@ accordion-item.open,
   }
 }
 .copies-left__wrapper{
-  @apply mb-1.5;
+  @apply mb-[5px];
   @screen md{
     margin-bottom: clamp(32px, 3.72vh, 45px);
   }
@@ -1227,8 +1231,8 @@ accordion-item.open,
   }
   h2{
     @media screen and (max-width: 640px){
-      margin-bottom: 4.76vw;
-      padding-bottom: 4.54vw;
+      margin-bottom: 4.45vw;
+      padding-bottom: 4.3vw;
     }
   }
   h2,
@@ -1248,15 +1252,15 @@ accordion-item.open,
   }
 }
 .main-404{
-  height: calc(100vh - 27px);
+  min-height: calc(100dvh - 54px);
   @media screen and (max-width: 1024px){
-    height: calc(100vh - 90px);
+    min-height: calc(100vh - 90px);
   }
 }
 .coming-soon__category-email{
   margin-top: clamp(70px, calc(22vh - 40px), calc(208px - 40px));
   @media screen and (max-width: 767px){
-    margin-top: clamp(70px, 12vh, 208px);
+    margin-top: 107px;
   }
 }
 .search__grid{
@@ -1406,7 +1410,7 @@ accordion-item.open,
     margin-top: clamp(50px, 3.04vh, 3.04vh);
   }
   @media screen and (max-width: 768px) {
-    @apply mt-3;
+    @apply mt-2.5;
   }
 }
 .main-account__heading{
@@ -1425,7 +1429,7 @@ accordion-item.open,
   }
 }
 .my-account-order__body{
-  @apply pt-[57px];
+  @apply pt-[48px];
   @screen lg{
     padding-top: clamp(110px, 14.05vh, 219px);
     padding-right: clamp(0px,calc(3.7vw - 27px),calc(3.7vw - 27px));
@@ -1587,8 +1591,8 @@ accordion-item.open,
   }
 }
 .margin-variant-picker{
-  @apply mb-2;
-  @apply mt-1;
+  @apply mb-[7px];
+  @apply mt-[3px];
   @screen md{
     margin-bottom: clamp(32px, 3.77vh, 53px);
     @apply mt-0;
@@ -1625,7 +1629,10 @@ accordion-item.open,
 }
 
 .plus-info__heading{
-  margin-bottom:  clamp(20px, 1.96vh, 22px);
+  margin-bottom: 18px;
+  @screen md{
+    margin-bottom:  clamp(20px, 1.96vh, 22px);
+  }
 }
 .product-card-wrapper .price-item{
   @apply max-md:text-[12px]

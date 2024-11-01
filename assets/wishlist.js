@@ -15,6 +15,7 @@ function addToWishlist(event) {
   const productPrice = button.getAttribute('data-price');
   const noVariant = button.getAttribute('data-no-variant') === 'true';
   const dataToggle = button.getAttribute('data-toggle') === 'true';
+  const dataUnframed = button.getAttribute('data-unframed') === 'true';
 
   let optionSize, optionMaterial;
   if (!noVariant) {
@@ -65,6 +66,9 @@ function addToWishlist(event) {
     if (!noVariant) {
       newItem.optionSize = optionSize;
       newItem.optionMaterial = optionMaterial;
+    }
+    if(dataUnframed){
+      newItem.dataUnframed = dataUnframed
     }
     wishlist.unshift(newItem);
 
