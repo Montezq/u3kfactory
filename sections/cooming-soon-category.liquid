@@ -70,7 +70,7 @@
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="coming-soon__category-email max-md:pb-[20%] max-w-[211px] md:max-w-[350px] w-full mx-auto">
+    <div class="coming-soon__category-email max-md:pb-[20%] max-w-[208px] md:max-w-[350px] w-full mx-auto">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
@@ -83,7 +83,7 @@
                 autocorrect="off"
                 autocapitalize="off"
                 autocomplete="off"
-                class="bg-transparent email-input max-md:text-center text-[16px] max-md:h-[20px] w-full border-b border-b-white text-white pl-[4px] pb-[0px] tracking-wider placeholder:tracking-wider placeholder:text-white font-open placeholder:font-open"
+                class="bg-transparent email-input max-md:text-center text-[16px] max-md:h-[20px] w-full border-b border-b-white text-white pl-[4px] pb-[1px] tracking-widest placeholder:tracking-widest placeholder:text-white font-open placeholder:font-open"
                 {% if form.errors %}
                   autofocus
                   aria-invalid="true"
@@ -121,7 +121,7 @@
 
             <button
               type="button"
-              class="submit-button btn_white-outlined !border-2 !font-couture !text-[18px] md:!text-[22px] !pb-[6px] !pt-[8px] !px-[4px] md:!px-3 uppercase text-white whitespace-nowrap !tracking-widest min-w-[200px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
+              class="submit-button btn_white-outlined !border-2 !font-couture !text-[18px] md:!text-[22px] !pb-[6px] !pt-[8px] !pr-[2px] !pl-[3px] md:!px-3 uppercase text-white whitespace-nowrap !tracking-widest min-w-[200px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
               name="commit"
               id="submitNewsletter"
               aria-label="{{ 'newsletter.keep_updated' | t }}"

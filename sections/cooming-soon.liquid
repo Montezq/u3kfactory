@@ -1,4 +1,4 @@
-<div class="w-full min-h-[100dvh] flex flex-col items-center relative overflow-hidden pb-[23px] md:pb-8 pt-[54px] md:pt-8">
+<div class="w-full min-h-[100dvh] flex flex-col items-center relative overflow-hidden pb-[23px] md:pb-8 pt-[102px] md:pt-8">
   <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full">
     <div
       class="w-full h-full{% if section.settings.mobile_image != blank or section.settings.mobile_video != blank %} max-md:hidden{% endif %}"
@@ -56,7 +56,7 @@
     </div>
   </div>
   <div class="relative z-[1] flex max-md:flex-1 flex-col items-center text-center md:my-auto">
-    <div class="coming-soong__logo pb-[76px] md:pb-[75px]">
+    <div class="coming-soong__logo pb-[67px] md:pb-[75px]">
       <h1 class="font-coutureBold w-[100px] md:w-[154px] text-[100px] md:text-[154px] h-[84px] md:h-[109px] text-white text-logo leading-none flex items-center">
         {%- if section.settings.logo -%}
           {{
@@ -88,7 +88,7 @@
         <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
           <div class="flex max-md:flex-col items-center md:items-end">
-            <div class="relative mb-[3px] flex-1 max-md:w-[211px] max-md:mb-[23px] md:mr-5">
+            <div class="relative mb-[3px] flex-1 max-md:w-[208px] max-md:mb-[23px] md:mr-5">
               <input
                 id="NewsletterForm--{{ section.id }}"
                 name="contact[email]"
@@ -96,7 +96,7 @@
                 autocorrect="off"
                 autocapitalize="off"
                 autocomplete="off"
-                class="bg-transparent email-input max-md:text-center text-[16px] max-md:h-[20px] w-full border-b border-b-white text-white pl-[4px] tracking-xwidest placeholder:tracking-xwidest placeholder:text-white font-open placeholder:font-open"
+                class="bg-transparent email-input max-md:text-center text-[16px] max-md:h-[20px] w-full border-b border-b-white text-white pl-[4px] pb-[1px] tracking-widest placeholder:tracking-widest placeholder:text-white font-open placeholder:font-open"
                 {% if form.errors %}
                   autofocus
                   aria-invalid="true"
@@ -134,7 +134,7 @@
 
             <button
               type="button"
-              class="submit-button bg-black font-axis text-[18px] md:text-xl pb-[6px] pt-[8px] md:pt-[4px] md:pb-[3px] px-[11px] md:px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[200px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
+              class="submit-button bg-black font-axis text-[18px] md:text-xl pb-[6px] pt-[8px] md:pt-[4px] md:pb-[3px] pl-[9px] pr-[10px] md:px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[200px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
               name="commit"
               id="submitNewsletter"
               aria-label="{{ 'newsletter.keep_updated' | t }}"

@@ -947,7 +947,7 @@ accordion-item.open,
   @apply font-bold;
 }
 .contact-btn{
-  @apply mb-[13px];
+  @apply mb-[11px];
   @screen md{
     margin-bottom: clamp(32px, 3.53vh, 43px);
   }
@@ -1077,7 +1077,8 @@ accordion-item.open,
     padding-top: clamp(42px, 5.4vh, 126px);
   }
   @apply max-lg:px-[18px];
-  @apply max-md:px-3.5;
+  @apply max-md:pl-[15px];
+  @apply max-md:pr-3.5;
 }
 .cart__footer-wrapper,
 .cart__heading{
@@ -1097,7 +1098,6 @@ accordion-item.open,
   @apply max-lg:px-[18px];
   @apply max-md:px-[5px];
   @apply max-md:pb-[7px];
-  @apply max-md:pt-1;
   @screen md{
     height: clamp(92px, 9.2vh, 154px);
   }
@@ -1225,9 +1225,9 @@ accordion-item.open,
   }
 }
 .coming-soon__category{
-  height: calc(100vh - 27px);
+  height: calc(100dvh - 27px);
   @media screen and (max-width: 1024px){
-    height: calc(100vh - 54px);
+    max-height: calc(100dvh - 54px);
   }
   h2{
     @media screen and (max-width: 640px){
@@ -1254,7 +1254,7 @@ accordion-item.open,
 .main-404{
   min-height: calc(100dvh - 54px);
   @media screen and (max-width: 1024px){
-    min-height: calc(100vh - 90px);
+    min-height: calc(100dvh - 54px);
   }
 }
 .coming-soon__category-email{
@@ -1591,8 +1591,8 @@ accordion-item.open,
   }
 }
 .margin-variant-picker{
-  @apply mb-[7px];
-  @apply mt-[3px];
+  @apply mb-[6px];
+  @apply mt-[5px];
   @screen md{
     margin-bottom: clamp(32px, 3.77vh, 53px);
     @apply mt-0;

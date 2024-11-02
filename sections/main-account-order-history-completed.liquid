@@ -19,7 +19,7 @@
     </ul>
   </div>
   <div class="my-account-order__body max-md:pb-6">
-    <ul class="flex space-x-[26px] justify-center pt-4 pb-3 lg:hidden">
+    <ul class="flex space-x-[26px] justify-center pt-[13px] pb-3 lg:hidden">
       <li>
         <a href="/account?view=order-history-active" class="text-[13px] font-bold  uppercase"> Active </a>
       </li>
@@ -84,7 +84,7 @@
                             <div class="mb-[18px] md:mb-2">
                               <a
                                 href="{{ item.url }}"
-                                class="uppercase text-xl md:text-[22px] lg:text-[25px] font-bold leading-none block  md:inline-block"
+                                class="uppercase text-[19px] md:text-[22px] lg:text-[25px] font-bold leading-none block  md:inline-block"
                               >
                                 {{- item.product.title | escape -}}
                               </a>
@@ -92,7 +92,7 @@
                                 by {{ item.product.vendor }}
                               </p>
                             </div>
-                            <dl class="space-y-2 md:space-y-1.5">
+                            <dl class="grid gap-1.5">
                               {%- unless item.product.has_only_default_variant -%}
                                 {%- for option in item.options_with_values -%}
                                   <div class="product-option leading-none">
@@ -130,7 +130,7 @@
     </ul>
     {%- if orders_count < 1 -%}
       <div>
-        <h2 class="text-[19px] md:text-[30px] uppercase text-center tracking-xwidest py-[26vh]">NO ORDERS</h2>
+        <h2 class="text-[18px] md:text-[30px] uppercase text-center tracking-xwidest py-[24.8vh]">NO ORDERS</h2>
       </div>
     {% endif %}
   </div>
