@@ -694,7 +694,7 @@ accordion-item.open,
 .my-favorites__heading{
   padding-top: 43px;
   @screen lg{
-    padding-top: clamp(17px, calc(5vh - 29px), calc(5vh - 29px));
+    padding-top: clamp(13px, calc(5vh - 33px), calc(5vh - 33px));
     left: clamp(434px, calc(84px + 22vw), calc(84px + 22vw));
     height: clamp(110px, calc(14.05vh  - 27px), calc(219px - 27px));
     @apply top-[27px];
@@ -764,7 +764,7 @@ accordion-item.open,
   .card__media{
     margin-bottom: 8px;
     @screen md{
-      margin-bottom: clamp(8px, 1.1vh, 1.1vh);
+      margin-bottom: clamp(8px, calc(1.1vh - 1px), calc(1.1vh - 1px));
     }
   }
 }
@@ -1258,7 +1258,7 @@ accordion-item.open,
   }
 }
 .coming-soon__category-email{
-  margin-top: clamp(70px, calc(22vh - 40px), calc(208px - 40px));
+  margin-top: clamp(67px, calc(22vh - 37px), calc(208px - 37px));
   @media screen and (max-width: 767px){
     margin-top: 107px;
   }
@@ -1421,17 +1421,16 @@ accordion-item.open,
   }
 }
 .main-account-order__heading{
-  @apply lg:pr-5;
   @screen lg{
     padding-right: clamp(0px, calc(3.7vw - 7px),calc(3.7vw - 7px));
-    padding-top: clamp(23px, calc(5vh - 27px), calc(5vh - 27px));
-    height: clamp(110px, 14.05vh, 219px);
+    padding-top: clamp(17px, calc(5vh - 29px), calc(5vh - 29px));
+    height: clamp(110px,calc(14.05vh - 27px),192px);
   }
 }
 .my-account-order__body{
   @apply pt-[48px];
   @screen lg{
-    padding-top: clamp(110px, 14.05vh, 219px);
+    padding-top: clamp(110px,calc(14.05vh - 27px),192px);
     padding-right: clamp(0px,calc(3.7vw - 27px),calc(3.7vw - 27px));
     padding-bottom: 130px;
   }

@@ -60,7 +60,7 @@
       const optionMaterialCapitalized = item.optionMaterial ? capitalizeWords(item.optionMaterial) : '';
 
       wishlistItem.innerHTML = `
-        <div class="wishlist__item-img aspect-square">
+        <div class="wishlist__item-img aspect-square md:aspect-[4/3.83]">
           <img
             class="w-full h-full object-cover"
             src="${item.productImage}"
@@ -69,7 +69,7 @@
           >
         </div>
         <div class="wishlist__item-data flex-1 max-md:px-2.5 max-lg:px-4 max-md:flex max-md:flex-wrap">
-          <div class="wishlist__item-data-title md:mb-16 max-md:flex-1 min-w-0">
+          <div class="wishlist__item-data-title md:mb-[59px] max-md:flex-1 min-w-0">
             <h2 class="text-[19px] md:text-[33px] font-semibold leading-none md:mb-[7px] truncate pr-2.5">
               <a href="${item.productUrl}">
                 ${item.productTitle}
@@ -84,7 +84,7 @@
               item.noVariant ? 'NO SIZE SELECTED' : `${optionSizeCapitalized} ${optionMaterialCapitalized}`
             }
             </h4>
-            <h4 class="text-[17px] md:text-[24px] tracking-xwidest font-bold leading-none md:mb-[21px] md:-order-1">${
+            <h4 class="text-[17px] md:text-[24px] tracking-xwidest font-bold leading-none md:mb-5 md:-order-1">${
               item.noVariant ||
               item.dataUnframed ||
               item.optionMaterial == 'paper print' ||

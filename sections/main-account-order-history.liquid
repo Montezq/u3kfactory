@@ -14,7 +14,7 @@
   >
     <h1 class="font-coutureBold text-[19px] md:text-3xl max-lg:leading-none uppercase text-center">My Orders</h1>
 
-    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-0.5 max-lg:hidden">
+    <ul class="flex space-x-[23px] max-lg:justify-center pt-5 lg:pt-[1px] max-lg:hidden">
       <li>
         <a href="/account?view=order-history-active" class="text-[13px] font-bold underline uppercase"> Active </a>
       </li>
@@ -94,7 +94,7 @@
                             </div>
                           {% endif %}
                         </div>
-                        <div class="flex max-md:flex-col w-full ml-3.5 md:pl-2 md:pr-[14px] pt-2 md:pt-1.5 {% if forloop.last %}xl:border-b xl:border-b-[#8c8c8c]{% endif %}">
+                        <div class="flex max-md:flex-col w-full ml-3.5 md:ml-[22px] md:pl-2 md:pr-[14px] pt-2 md:pt-1.5 {% if forloop.last %}xl:border-b xl:border-b-[#8c8c8c]{% endif %}">
                           <div class="pb-3 cart-item__content-left">
                             <div class="mb-[18px] md:mb-2">
                               <a
@@ -135,8 +135,12 @@
                   </li>
                 {%- endfor -%}
               </ul>
-              <div class="md:w-[325px] w-full space-y-3 pb-5 max-xl:pt-6 xl:border-b xl:border-b-[#8c8c8c]">
-                <a href="/pages/contact" class="btn btn_primary w-full uppercase !text-xl md:!text-2xl">Contact Us</a>
+              <div class="md:w-[325px] w-full space-y-3 md:space-y-[21px] pb-5 md:pb-[18px] max-xl:pt-6 xl:border-b xl:border-b-[#8c8c8c]">
+                <a
+                  href="/pages/contact"
+                  class="btn btn_primary w-full uppercase !text-xl md:!text-2xl md:!py-[7px]"
+                  >Contact Us</a
+                >
                 <a
                   {% if order.metafields.custom.order_tracking != blank %}
                     target="_blank"
@@ -144,13 +148,13 @@
                   {% else %}
                     href="#"
                   {% endif %}
-                  class="btn btn_primary w-full uppercase !text-xl md:!text-2xl track-order"
+                  class="btn btn_primary w-full uppercase !text-xl md:!text-2xl track-order md:!py-[7px]"
                 >
                   Track order
                 </a>
                 <div>
                   <button
-                    class="btn btn_outlined !border w-full uppercase !text-xl md:!text-2xl {% if order.tags contains 'processing' %}cancel-order{% else %}unavailable-cancel-order{% endif %}"
+                    class="btn btn_outlined !border w-full md:!py-[6px] uppercase !text-xl md:!text-2xl {% if order.tags contains 'processing' %}cancel-order{% else %}unavailable-cancel-order{% endif %}"
                   >
                     Request cancellation
                   </button>

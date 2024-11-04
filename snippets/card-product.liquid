@@ -39,7 +39,7 @@
             src="{{ card_product.featured_media | image_url: width: 1200 }}"
             sizes="(min-width: 1200px) {{ 1600 | divided_by: 2 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
             alt="{{ card_product.featured_media.alt | escape }}"
-            class="aspect-square"
+            class="aspect-square md:aspect-[4/3.83]"
             {% unless lazy_load == false %}
               loading="lazy"
             {% endunless %}
@@ -50,7 +50,7 @@
       {%- endif -%}
     </div>
     <div class="card__content px-1 md:px-2.5">
-      <div class="flex justify-between max-md:items-center max-md:mb-[1px]">
+      <div class="flex justify-between max-md:items-center mb-[1px] md:mb-[5px]">
         <div class="card__information flex-1">
           <h3
             class="card__heading text-[15px] md:text-xl font-bold uppercase tracking-widest !leading-none line-clamp-1 pr-1.5 md:pr-5"
@@ -76,7 +76,7 @@
             </a>
           </h4>
         </div>
-        <div class="flex gap-4 sm:gap-6 w-fit ">
+        <div class="flex gap-4 sm:gap-6 w-fit md:mt-0.5">
           <div class="w-[13.5px] md:w-[17px]">
             {%- render 'favorites', product: card_product -%}
           </div>

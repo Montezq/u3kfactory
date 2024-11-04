@@ -1,4 +1,4 @@
-<div class="w-full min-h-[100dvh] flex flex-col items-center relative overflow-hidden pb-[23px] md:pb-8 pt-[102px] md:pt-8">
+<div class="w-full min-h-[100dvh] flex flex-col items-center relative overflow-hidden pb-[23px] md:pb-7 pt-[102px] md:pt-8">
   <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full">
     <div
       class="w-full h-full{% if section.settings.mobile_image != blank or section.settings.mobile_video != blank %} max-md:hidden{% endif %}"
@@ -83,7 +83,7 @@
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="mt-[15.46dvh] md:mt-[17.3dvh] max-w-[600px] w-full mx-auto max-md:mb-[11vh]">
+    <div class="mt-[15.46dvh] md:mt-[15.36dvh] max-w-[600px] w-full mx-auto max-md:mb-[11vh]">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
@@ -149,8 +149,8 @@
         </div>
       {% endform %}
     </div>
-    <div class="coming-soon__socials mt-auto md:mt-[11vh]">
-      <ul class="flex gap-[56px]">
+    <div class="coming-soon__socials mt-auto md:mt-[12.02vh]">
+      <ul class="flex gap-14 md:gap-[52px]">
         {%- if settings.social_facebook_link != blank -%}
           <li class="text-[27px] md:text-[32px] text-white">
             <a href="{{ settings.social_facebook_link }}" class="block">

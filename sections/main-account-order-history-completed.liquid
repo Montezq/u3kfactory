@@ -4,7 +4,7 @@
     class="ds_element dissapearing main-account-order__heading max-lg:pt-[7px] max-lg:pb-[8px] fixed top-[54px] lg:top-[23px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
   >
     <h1 class="font-coutureBold text-[19px] md:text-3xl max-lg:leading-none uppercase text-center">My Orders</h1>
-    <ul class="flex space-x-5 max-lg:justify-center pt-5 lg:pt-0.5 max-lg:hidden">
+    <ul class="flex space-x-[23px] max-lg:justify-center pt-5 lg:pt-[1px] max-lg:hidden">
       <li>
         <a href="/account?view=order-history-active" class="text-[13px] font-bold  uppercase"> Active </a>
       </li>
@@ -79,12 +79,12 @@
                             </div>
                           {% endif %}
                         </div>
-                        <div class="flex max-md:flex-col w-full ml-3.5 md:pl-2 md:pr-[14px] pt-2 md:pt-1.5 {% if forloop.last %}xl:border-b xl:border-b-[#8c8c8c]{% endif %}">
+                        <div class="flex max-md:flex-col w-full ml-3.5 md:ml-[22px] md:pl-2 md:pr-[14px] pt-2 md:pt-1.5 {% if forloop.last %}xl:border-b xl:border-b-[#8c8c8c]{% endif %}">
                           <div class="pb-3 cart-item__content-left">
                             <div class="mb-[18px] md:mb-2">
                               <a
                                 href="{{ item.url }}"
-                                class="uppercase text-[19px] md:text-[22px] lg:text-[25px] font-bold leading-none block  md:inline-block"
+                                class="uppercase text-[19px] md:text-[22px] lg:text-[25px] font-bold leading-none block  md:inline-block "
                               >
                                 {{- item.product.title | escape -}}
                               </a>
@@ -120,8 +120,10 @@
                   </li>
                 {%- endfor -%}
               </ul>
-              <div class="md:w-[325px] w-full space-y-3 pb-5 max-xl:pt-6 xl:border-b xl:border-b-[#8c8c8c]">
-                <a href="/pages/contact" class="btn btn_primary w-full uppercase !text-xl md:!text-2xl">Contact Us</a>
+              <div class="md:w-[325px] w-full space-y-3 md:space-y-[21px] pb-5 md:pb-[18px] max-xl:pt-6 xl:border-b xl:border-b-[#8c8c8c]">
+                <a href="/pages/contact" class="btn btn_primary w-full uppercase !text-xl md:!text-2xl md:!py-[6px]"
+                  >Contact Us</a
+                >
               </div>
             </div>
           </li>
