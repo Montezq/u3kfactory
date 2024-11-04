@@ -532,7 +532,7 @@ input{
   }
 }
 .home-page__carousel-wrapper-btn{
-  top: calc(40vh + 96px);
+  top: calc(40vh + 98px);
 }
 .home-page__banner-content-heading{
   h2{
@@ -1260,7 +1260,7 @@ accordion-item.open,
 .coming-soon__category-email{
   margin-top: clamp(67px, calc(22vh - 37px), calc(208px - 37px));
   @media screen and (max-width: 767px){
-    margin-top: 107px;
+    margin-top: 113px;
   }
 }
 .search__grid{
@@ -1639,9 +1639,6 @@ accordion-item.open,
 
 
 
-.ds_element{
-  @apply max-sm:bg-[#3d5eda];
-}
 .default-address{
   input{
     display: none;
