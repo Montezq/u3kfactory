@@ -56,7 +56,7 @@
     </div>
   </div>
   <div class="relative z-[1] flex max-md:flex-1 flex-col items-center text-center md:my-auto">
-    <div class="coming-soong__logo pb-[67px] md:pb-[75px]">
+    <div class="coming-soong__logo pb-[51px] md:pb-[75px]">
       <h1 class="font-coutureBold w-[100px] md:w-[154px] text-[100px] md:text-[154px] h-[84px] md:h-[109px] text-white text-logo leading-none flex items-center">
         {%- if section.settings.logo -%}
           {{
@@ -96,7 +96,7 @@
                 autocorrect="off"
                 autocapitalize="off"
                 autocomplete="off"
-                class="bg-transparent email-input max-md:text-center text-[16px] max-md:h-[20px] w-full border-b border-b-white text-white pl-[4px] pb-[1px] tracking-widest placeholder:tracking-widest placeholder:text-white font-open placeholder:font-open"
+                class="bg-transparent email-input max-md:text-center text-[16px] max-md:h-[20px] w-full border-b border-b-white text-white pl-[4px] pb-[1px] tracking-widerx placeholder:tracking-widerx placeholder:text-white font-open placeholder:font-open"
                 {% if form.errors %}
                   autofocus
                   aria-invalid="true"
@@ -134,7 +134,7 @@
 
             <button
               type="button"
-              class="submit-button bg-black font-axis text-[18px] md:text-xl pb-[6px] pt-[8px] md:pt-[4px] md:pb-[3px] pl-[9px] pr-[10px] md:px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[200px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
+              class="submit-button bg-black font-axis text-[18px] md:text-xl pb-[6px] pt-[8px] md:pt-[4px] md:pb-[3px] pl-[9px] pr-[10px] md:px-3 uppercase text-white whitespace-nowrap tracking-wider min-w-[208px] md:min-w-[224px] {% if form.posted_successfully? %} pointer-events-none{% endif %}"
               name="commit"
               id="submitNewsletter"
               aria-label="{{ 'newsletter.keep_updated' | t }}"
