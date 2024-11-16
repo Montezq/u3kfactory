@@ -293,13 +293,15 @@
                 // Process products
                 const products = Array.from(doc.querySelectorAll('.grid__item')).map((item) => {
                   const collections = item.getAttribute('data-collections').split(',');
-                  return { html: item.outerHTML, collections };
+                  const productId = item.getAttribute('data-product-id');
+                  return { id: productId, html: item.outerHTML, collections };
                 });
 
                 // Process pages
                 const pages = Array.from(doc.querySelectorAll('.page__search-group')).map((item) => {
-                  return { html: item.outerHTML, collections: ['page-search'] };
+                  return { id: null, html: item.outerHTML, collections: ['page-search'] };
                 });
+
                 return [...products, ...pages];
               });
           });
@@ -309,6 +311,7 @@
 
             // Filter collections containing 'all'
             const collectionsMap = new Map();
+
             flattenedResults.forEach((item) => {
               item.collections.forEach((collection) => {
                 if (
@@ -316,17 +319,25 @@
                   collection !== 'home-page-collection'
                 ) {
                   if (!collectionsMap.has(collection)) {
-                    collectionsMap.set(collection, []);
+                    collectionsMap.set(collection, new Map());
                   }
-                  collectionsMap.get(collection).push(item.html);
+                  const uniqueItems = collectionsMap.get(collection);
+
+                  // Ensure only unique products are added based on 'id' or content
+                  if (item.id && !uniqueItems.has(item.id)) {
+                    uniqueItems.set(item.id, item.html);
+                  } else if (!item.id) {
+                    // For pages or items without an ID, add directly
+                    uniqueItems.set(item.html, item.html);
+                  }
                 }
               });
             });
 
             // Convert collectionsMap to an array of objects for easier processing in the search page
-            const groupedResults = Array.from(collectionsMap.entries()).map(([collection, items]) => ({
+            const groupedResults = Array.from(collectionsMap.entries()).map(([collection, itemsMap]) => ({
               collection,
-              items,
+              items: Array.from(itemsMap.values()), // Get only the HTML values
             }));
 
             // Store the grouped results in local storage

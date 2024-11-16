@@ -16,10 +16,20 @@
       <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
   {% endcomment %}
-
+  {% assign collections_list = '' %}
+  {% for collection in product.collections %}
+    {% assign collections_list = collections_list | append: collection.handle %}
+    {% if forloop.last == false %}
+      {% assign collections_list = collections_list | append: ',' %}
+    {% endif %}
+  {% endfor %}
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div>
-    <div id="bar" class="lg:hidden px-3.5 bg-gray-10 fixed top-[54px] duration-300 ease-in-out pb-0.5 pt-0">
+    <div
+      id="bar"
+      class="lg:hidden px-3.5 bg-gray-10 fixed top-[54px] duration-300 ease-in-out pb-0.5 pt-0"
+      data-collection="{{ collections_list }}"
+    >
       <div class="flex justify-between items-center">
         <div class="flex-1 line-clamp-1">
           <h2 class="text-[19px] leading-none font-semibold">

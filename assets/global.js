@@ -968,13 +968,15 @@ class VariantSelects extends HTMLElement {
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
-
+    reinitializeWishlist();
     const previousVariantId = this.previousVariant ? this.previousVariant.id : null;
     const currentVariantId = this.currentVariant ? this.currentVariant.id : null;
+    const productCollectionsElement = document.querySelector('[data-collection]');
+    const collections = productCollectionsElement.getAttribute('data-collection')
 
     // Check if the variant has changed
     if (previousVariantId !== currentVariantId) {
-      if (!this.currentVariant || !this.currentVariant.available) {
+      if ((!this.currentVariant || !this.currentVariant.available) && (collections.includes('prints') && (!collections.includes('emanuel') && !collections.includes('valen') && !collections.includes('mihu') && !collections.includes('gavriil')) )) {
         const instructionsSent = document.querySelector('.combination-modal');
         if (instructionsSent) {
           instructionsSent.classList.remove('hidden');

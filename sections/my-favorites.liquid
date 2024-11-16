@@ -61,12 +61,14 @@
 
       wishlistItem.innerHTML = `
         <div class="wishlist__item-img aspect-square md:aspect-[4/3.83]">
-          <img
-            class="w-full h-full object-cover"
-            src="${item.productImage}"
-            width="656"
-            height="640"
-          >
+          <a href="${item.productUrl}">
+            <img
+              class="w-full h-full object-cover"
+              src="${item.productImage}"
+              width="656"
+              height="640"
+            >
+          </a>
         </div>
         <div class="wishlist__item-data flex-1 max-md:px-2.5 max-lg:px-4 max-md:flex max-md:flex-wrap">
           <div class="wishlist__item-data-title md:mb-[59px] max-md:flex-1 min-w-0">
@@ -79,7 +81,7 @@
               item.productVendor
             }</h3>
           </div>
-          <div class="wishlist__item-data-variant mb-[5px] md:mb-[90px] max-md:w-[60%] max-md:text-right max-md:flex-1 flex flex-col max-md:mt-[1px]">
+          <div class="wishlist__item-data-variant mb-[5px] md:mb-[90px] max-md:w-[60%] max-md:text-right max-md:flex-1 flex flex-col max-md:mt-[1px] whitespace-nowrap w-fit">
             <h4 class="text-[17px] md:text-[24px] max-md:mb-[9px] tracking-xwidest font-bold leading-none">${
               item.noVariant ? 'NO SIZE SELECTED' : `${optionSizeCapitalized} ${optionMaterialCapitalized}`
             }
@@ -90,7 +92,8 @@
               item.optionMaterial == 'paper print' ||
               item.optionMaterial == 'oil print' ||
               item.optionMaterial == 'PAPER PRINT' ||
-              item.optionMaterial == 'OIL PRINT'
+              item.optionMaterial == 'OIL PRINT' ||
+              item.collectionList.includes('original')
                 ? 'Unframed'
                 : item.optionMaterial == 'canvas print' || item.optionMaterial == 'CANVAS PRINT'
                 ? 'Unstretched'
@@ -112,6 +115,13 @@
               </h4>
           </div>
           <div class="wishlist__item-data-buttons max-md:w-full product !pt-[17px] md:!pt-[1vh]">
+            ${
+              item.vatText
+                ? `<p class="text-[10px] md:text-[13px] font-bold leading-none italic md:whitespace-nowrap text-gray-850 ${
+                    item.noVariant ? 'md:hidden' : ''
+                  }">${item.vatText}</p>`
+                : ``
+            }
             <div class="md:max-w-[360px] mt-4">
               ${
                 item.noVariant

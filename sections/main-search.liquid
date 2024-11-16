@@ -98,6 +98,7 @@
               <li
                 class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 data-collections="{{ product.collections | map: 'handle' | join: ',' }}"
+                data-product-id="{{ product.id }}"
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
                 {% endif %}

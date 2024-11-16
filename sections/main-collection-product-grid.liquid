@@ -5,11 +5,21 @@
   id="product-grid-wrapper"
 >
   <div class="collection__wrapper flex flex-col">
-    {%- if collection.products.size > 0 -%}
-      <div
-        id="bar"
-        class="ds_element dissapearing main-account-order__heading max-lg:pt-[7px] max-lg:pb-[8px] fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out lg:hidden !z-10"
-      >
+    <div
+      id="bar"
+      class="ds_element dissapearing main-account-order__heading max-lg:pt-[7px] max-lg:pb-[8px] fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out lg:hidden !z-10"
+    >
+      <h1 class="collection-hero__title text-[19px] md:text-3xl max-lg:leading-none font-coutureBold text-center">
+        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+        {%- if section.settings.heading != blank -%}
+          {{ section.settings.heading }}
+        {%- else -%}
+          {{- collection.title | escape -}}
+        {%- endif -%}
+      </h1>
+    </div>
+    <div class="collection-hero lg:fixed pb-3.5 md:pb-9 top-[23px] bg-gray-10 lg:bg-white z-[2]">
+      <div class="pb-5 lg:pb-1 collection-hero__title-wrapper max-lg:hidden">
         <h1 class="collection-hero__title text-[19px] md:text-3xl max-lg:leading-none font-coutureBold text-center">
           <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
           {%- if section.settings.heading != blank -%}
@@ -19,211 +29,199 @@
           {%- endif -%}
         </h1>
       </div>
-      <div class="collection-hero lg:fixed pb-3.5 md:pb-9 top-[23px] bg-gray-10 lg:bg-white z-[2]">
-        <div class="pb-5 lg:pb-1 collection-hero__title-wrapper max-lg:hidden">
-          <h1 class="collection-hero__title text-[19px] md:text-3xl max-lg:leading-none font-coutureBold text-center">
-            <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-            {%- if section.settings.heading != blank -%}
-              {{ section.settings.heading }}
-            {%- else -%}
-              {{- collection.title | escape -}}
-            {%- endif -%}
-          </h1>
+      <div class="flex max-lg:flex-col lg:items-center relative">
+        <div class="lg:mr-6 max-lg:mt-[15px] filters-title">
+          <button class="uppercase font-semibold text-[13px] tracking-widerx open-filter">
+            <span class="flex items-center">
+              + Filters
+              <span class="flex items-center ml-1.5"
+                ><span class="-mt-[2px]">(</span><span class="filter_counter">0</span
+                ><span class="-mt-[2px]">)</span></span
+              >
+            </span>
+          </button>
         </div>
-        <div class="flex max-lg:flex-col lg:items-center relative">
-          <div class="lg:mr-6 max-lg:mt-[15px] filters-title">
-            <button class="uppercase font-semibold text-[13px] tracking-widerx open-filter">
-              <span class="flex items-center">
-                + Filters
-                <span class="flex items-center ml-1.5"
-                  ><span class="-mt-[2px]">(</span><span class="filter_counter">0</span
-                  ><span class="-mt-[2px]">)</span></span
-                >
-              </span>
-            </button>
-          </div>
-          <div class="w-full lg:w-[162px] max-lg:-order-1 mt-1 range-wrapper">
-            {%- liquid
+        <div class="w-full lg:w-[162px] max-lg:-order-1 mt-1 range-wrapper">
+          {%- liquid
+            assign value = 3
+            if section.settings.grid_template == 'small'
               assign value = 3
-              if section.settings.grid_template == 'small'
-                assign value = 3
-              elsif section.settings.grid_template == 'medium'
-                assign value = 2
-              else
-                assign value = 1
-              endif
-            -%}
-            <input
-              class="w-full block range range-input"
-              type="range"
-              id="grid_template"
-              name="Grid Template"
-              min="1"
-              max="3"
-              value="{{ value }}"
-              step="1"
-            >
-          </div>
-          <div class="absolute top-6 lg:top-0 left-0 bg-gray-10 lg:bg-white z-[2] md:!w-full filter-modal pb-10 md:min-h-[150px] hidden">
-            {%- liquid
-              assign sort_by = collection.sort_by | default: collection.default_sort_by
-              if collection.url
-                assign results_url = collection.url
-              else
-                assign terms = collection.terms | escape
-                assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
-              endif
-            -%}
-            <div class="flex md:pt-[3px]">
-              <div class="flex flex-col pr-7 mr-3 pt-1 relative after:content-[''] after:block after:w-[1px] after:h-[57px] after:absolute after:top-0 after:left-full after:bg-gray-100">
-                <button class="uppercase font-semibold text-[13px] tracking-wider close-filter text-gray-850 mb-2">
-                  Close
-                </button>
-                <div
-                  class="uppercase cursor-pointer font-semibold text-[13px] tracking-wider inline-block text-gray-600 filter__item-clear"
-                  data-href="{{  results_url }}"
-                >
-                  Clear
-                </div>
+            elsif section.settings.grid_template == 'medium'
+              assign value = 2
+            else
+              assign value = 1
+            endif
+          -%}
+          <input
+            class="w-full block range range-input"
+            type="range"
+            id="grid_template"
+            name="Grid Template"
+            min="1"
+            max="3"
+            value="{{ value }}"
+            step="1"
+          >
+        </div>
+        <div class="absolute top-6 lg:top-0 left-0 bg-gray-10 lg:bg-white z-[2] md:!w-full filter-modal pb-10 md:min-h-[150px] hidden">
+          {%- liquid
+            assign sort_by = collection.sort_by | default: collection.default_sort_by
+            if collection.url
+              assign results_url = collection.url
+            else
+              assign terms = collection.terms | escape
+              assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+            endif
+          -%}
+          <div class="flex md:pt-[3px]">
+            <div class="flex flex-col pr-7 mr-3 pt-1 relative after:content-[''] after:block after:w-[1px] after:h-[57px] after:absolute after:top-0 after:left-full after:bg-gray-100">
+              <button class="uppercase font-semibold text-[13px] tracking-wider close-filter text-gray-850 mb-2">
+                Close
+              </button>
+              <div
+                class="uppercase cursor-pointer font-semibold text-[13px] tracking-wider inline-block text-gray-600 filter__item-clear"
+                data-href="{{  results_url }}"
+              >
+                Clear
               </div>
-              <div class="flex flex-wrap gap-5">
-                {%- for filter in collection.filters -%}
-                  <div class="w-[120px] md:w-40 mt-[1px]">
-                    <h3 class="uppercase font-bold mb-0.5 text-[13px] tracking-xwidest text-gray-850">
-                      {{ filter.label | escape }}
-                    </h3>
-                    <ul>
-                      {%- for value in filter.values -%}
-                        {%- liquid
-                          assign filter_active = false
-                          assign filter_url = value.url_to_add
-                          if value.active
-                            assign filter_url = value.url_to_remove
-                            assign filter_active = true
-                          endif
-                        -%}
-                        <li>
-                          <label class="block w-fit filter-label relative cursor-pointer">
-                            <input
-                              class="!w-0 !h-0 opacity-0 absolute top-0 left-0"
-                              type="checkbox"
-                              value="{{value.label}}"
-                              {% if filter_active %}
-                                checked
-                              {% endif %}
-                            >
-                            <div
-                              data-href="{{ filter_url }}"
-                              class="flex items-center filter__item filter__item-filter uppercase font-bold text-[11px] tracking-widest text-gray-850"
-                            >
-                              <span>
-                                {{ value.label | escape }}
-                              </span>
-                              <span
-                                class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
-                              ></span>
-                            </div>
-                          </label>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  </div>
-                {%- endfor -%}
-                <div class="w-40 md:w-40 mt-[1px]">
-                  <h3 class="uppercase font-bold mb-0.5 text-[13px] tracking-xwidest text-gray-850">Added</h3>
+            </div>
+            <div class="flex flex-wrap gap-5">
+              {%- for filter in collection.filters -%}
+                <div class="w-[120px] md:w-40 mt-[1px]">
+                  <h3 class="uppercase font-bold mb-0.5 text-[13px] tracking-xwidest text-gray-850">
+                    {{ filter.label | escape }}
+                  </h3>
                   <ul>
-                    {%- assign sort_by = collection.sort_by | default: false -%}
-                    {%- for option in collection.sort_options -%}
-                      {%- if option.value contains 'created-descending' -%}
-                        {%- liquid
-                          assign filter_active = false
-                          if sort_by contains option.value
-                            assign filter_active = true
-                          endif
-                        -%}
-                        <li>
-                          <label class="block w-fit filter-label relative cursor-pointer">
-                            <input
-                              class="!w-0 !h-0 opacity-0 absolute top-0 left-0"
-                              type="radio"
-                              name="sort_by"
-                              value="{{ option.value | escape }}"
-                              {% if filter_active %}
-                                checked
-                              {% endif %}
-                            >
-                            <div
-                              data-href="?sort_by={{ option.value }}"
-                              class="flex items-center filter__item uppercase font-bold text-[11px] tracking-widest text-gray-850"
-                            >
-                              <span> Newest First</span>
-                              <span
-                                class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
-                              ></span>
-                            </div>
-                          </label>
-                        </li>
-                      {%- elsif option.value contains 'created-ascending' -%}
-                        {%- liquid
-                          assign filter_active = false
-                          if sort_by contains option.value
-                            assign filter_active = true
-                          endif
-                        -%}
-                        <li>
-                          <label class="block w-fit filter-label relative cursor-pointer">
-                            <input
-                              class="!w-0 !h-0 opacity-0 absolute top-0 left-0"
-                              type="radio"
-                              name="sort_by"
-                              value="{{ option.value | escape }}"
-                              {% if filter_active %}
-                                checked
-                              {% endif %}
-                            >
-                            <div
-                              data-href="?sort_by={{ option.value }}"
-                              class="flex items-center filter__item uppercase font-bold text-[11px] tracking-widest text-gray-850"
-                            >
-                              <span> Oldest First </span>
-                              <span
-                                class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
-                              ></span>
-                            </div>
-                          </label>
-                        </li>
-                      {%- endif -%}
+                    {%- for value in filter.values -%}
+                      {%- liquid
+                        assign filter_active = false
+                        assign filter_url = value.url_to_add
+                        if value.active
+                          assign filter_url = value.url_to_remove
+                          assign filter_active = true
+                        endif
+                      -%}
+                      <li>
+                        <label class="block w-fit filter-label relative cursor-pointer">
+                          <input
+                            class="!w-0 !h-0 opacity-0 absolute top-0 left-0"
+                            type="checkbox"
+                            value="{{value.label}}"
+                            {% if filter_active %}
+                              checked
+                            {% endif %}
+                          >
+                          <div
+                            data-href="{{ filter_url }}"
+                            class="flex items-center filter__item filter__item-filter uppercase font-bold text-[11px] tracking-widest text-gray-850"
+                          >
+                            <span>
+                              {{ value.label | escape }}
+                            </span>
+                            <span
+                              class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
+                            ></span>
+                          </div>
+                        </label>
+                      </li>
                     {%- endfor -%}
                   </ul>
                 </div>
-                <div class="w-40 md:w-44 hidden lg:block">
-                  {%- liquid
+              {%- endfor -%}
+              <div class="w-40 md:w-40 mt-[1px]">
+                <h3 class="uppercase font-bold mb-0.5 text-[13px] tracking-xwidest text-gray-850">Added</h3>
+                <ul>
+                  {%- assign sort_by = collection.sort_by | default: false -%}
+                  {%- for option in collection.sort_options -%}
+                    {%- if option.value contains 'created-descending' -%}
+                      {%- liquid
+                        assign filter_active = false
+                        if sort_by contains option.value
+                          assign filter_active = true
+                        endif
+                      -%}
+                      <li>
+                        <label class="block w-fit filter-label relative cursor-pointer">
+                          <input
+                            class="!w-0 !h-0 opacity-0 absolute top-0 left-0"
+                            type="radio"
+                            name="sort_by"
+                            value="{{ option.value | escape }}"
+                            {% if filter_active %}
+                              checked
+                            {% endif %}
+                          >
+                          <div
+                            data-href="?sort_by={{ option.value }}"
+                            class="flex items-center filter__item uppercase font-bold text-[11px] tracking-widest text-gray-850"
+                          >
+                            <span> Newest First</span>
+                            <span
+                              class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
+                            ></span>
+                          </div>
+                        </label>
+                      </li>
+                    {%- elsif option.value contains 'created-ascending' -%}
+                      {%- liquid
+                        assign filter_active = false
+                        if sort_by contains option.value
+                          assign filter_active = true
+                        endif
+                      -%}
+                      <li>
+                        <label class="block w-fit filter-label relative cursor-pointer">
+                          <input
+                            class="!w-0 !h-0 opacity-0 absolute top-0 left-0"
+                            type="radio"
+                            name="sort_by"
+                            value="{{ option.value | escape }}"
+                            {% if filter_active %}
+                              checked
+                            {% endif %}
+                          >
+                          <div
+                            data-href="?sort_by={{ option.value }}"
+                            class="flex items-center filter__item uppercase font-bold text-[11px] tracking-widest text-gray-850"
+                          >
+                            <span> Oldest First </span>
+                            <span
+                              class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
+                            ></span>
+                          </div>
+                        </label>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              </div>
+              <div class="w-40 md:w-44 hidden lg:block">
+                {%- liquid
+                  assign value = 3
+                  if section.settings.grid_template == 'small'
                     assign value = 3
-                    if section.settings.grid_template == 'small'
-                      assign value = 3
-                    elsif section.settings.grid_template == 'medium'
-                      assign value = 2
-                    else
-                      assign value = 1
-                    endif
-                  -%}
-                  <input
-                    class="w-full block range range-input mt-2.5"
-                    type="range"
-                    id="grid_template"
-                    name="Grid Template"
-                    min="1"
-                    max="3"
-                    value="{{ value }}"
-                    step="1"
-                  >
-                </div>
+                  elsif section.settings.grid_template == 'medium'
+                    assign value = 2
+                  else
+                    assign value = 1
+                  endif
+                -%}
+                <input
+                  class="w-full block range range-input mt-2.5"
+                  type="range"
+                  id="grid_template"
+                  name="Grid Template"
+                  min="1"
+                  max="3"
+                  value="{{ value }}"
+                  step="1"
+                >
               </div>
             </div>
           </div>
         </div>
       </div>
-    {%- endif -%}
+    </div>
     <div
       class="flex-1 w-full collection__wrapper-inside{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       id="ProductGridContainer"

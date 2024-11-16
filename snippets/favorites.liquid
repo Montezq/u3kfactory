@@ -9,6 +9,20 @@
   {% if product.variants.size == 1 %}
     {%- assign data_no_variant = false -%}
   {%- endif -%}
+  {% assign vat_text = '' %}
+  {% for collection in product.collections %}
+    {% if collection.metafields.custom.vat_shipping != blank %}
+      {% assign vat_text = collection.metafields.custom.vat_shipping %}
+      {% break %}
+    {%- endif -%}
+  {% endfor %}
+  {% assign collections_list = '' %}
+  {% for collection in product.collections %}
+    {% assign collections_list = collections_list | append: collection.handle %}
+    {% if forloop.last == false %}
+      {% assign collections_list = collections_list | append: ',' %}
+    {% endif %}
+  {% endfor %}
   <button
     class="w-full wishlist-button block"
     type="button"
@@ -23,6 +37,8 @@
     data-url="{{ product.url }}"
     data-toggle="true"
     data-no-variant="{{ data_no_variant }}"
+    data-vat-text="{{ vat_text }}"
+    data-collections="{{ collections_list }}"
     {% unless data_no_variant %}
       {%- for option in product.options_with_values -%}
         {%- for value in option.values -%}

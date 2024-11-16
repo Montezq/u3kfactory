@@ -46,6 +46,9 @@
     </div>
   </div>
 </div>
+<div class="link-copied__modal hidden border bg-white py-3 z-[999999] md:py-[18px] px-2 md:px-3.5 border-black fixed top-1/2 left-[50%] lg:left-[62.3%] -translate-x-1/2 -translate-y-1/2 w-[96%] md:w-full max-w-fit">
+  <p class="uppercase text-lg md:text-2xl tracking-xwidest text-center whitespace-nowrap">Link Copied</p>
+</div>
 <script>
   function initializeShareModal() {
     const shareButtons = document.querySelectorAll('.share-button'),
@@ -53,7 +56,8 @@
       shareModalBody = document.querySelector('.share__modal-wrapper'),
       shareItems = document.querySelectorAll('.share__item a'),
       shareClose = document.querySelector('.share__modal-close'),
-      bodyEl = document.querySelector('body');
+      bodyEl = document.querySelector('body'),
+      linkCopiedModal = document.querySelector('.link-copied__modal');
 
     function resetShareItemsHref() {
       shareItems.forEach((item) => {
@@ -67,7 +71,12 @@
     function copyToClipboard(text) {
       navigator.clipboard
         .writeText(text)
-        .then(() => {})
+        .then(() => {
+          linkCopiedModal.classList.remove('hidden');
+          setTimeout(() => {
+            linkCopiedModal.classList.add('hidden');
+          }, 1600);
+        })
         .catch((err) => {
           console.error('Could not copy text: ', err);
         });
