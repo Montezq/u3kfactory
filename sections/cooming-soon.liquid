@@ -77,13 +77,13 @@
           </h2>
         {%- endif -%}
         {%- if section.settings.subgheading != blank -%}
-          <h3 class="font-helveticaLight tracking-xlwidest coming-soon__subheading md:pl-[7px]">
+          <h3 class="font-helveticaLight tracking-xlwidest coming-soon__subheading md:pl-2.5">
             {{ section.settings.subgheading }}
           </h3>
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="mt-[15.46dvh] md:mt-[20.36dvh] max-w-[600px] w-full mx-auto max-md:mb-[11vh]">
+    <div class="mt-[15.46dvh] md:mt-[19.36dvh] max-w-[600px] w-full mx-auto max-md:mb-[11vh]">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
@@ -149,7 +149,7 @@
         </div>
       {% endform %}
     </div>
-    <div class="coming-soon__socials mt-auto md:mt-[9.7vh]">
+    <div class="coming-soon__socials mt-auto md:mt-[9.4vh]">
       <ul class="flex gap-14 md:gap-[52px]">
         {%- if settings.social_facebook_link != blank -%}
           <li class="text-[27px] md:text-[32px] text-white">
