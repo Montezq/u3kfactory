@@ -56,7 +56,7 @@
     </div>
   </div>
   <div class="relative z-[1] flex max-md:flex-1 flex-col items-center text-center md:my-auto">
-    <div class="coming-soong__logo pb-[51px] md:pb-[75px]">
+    <div class="coming-soong__logo pb-[51px] md:pb-[76px]">
       <h1 class="font-coutureBold w-[100px] md:w-[154px] text-[100px] md:text-[154px] h-[84px] md:h-[109px] text-white text-logo leading-none flex items-center">
         {%- if section.settings.logo -%}
           {{
@@ -72,18 +72,18 @@
     {%- if section.settings.heading != blank or section.settings.subgheading != blank -%}
       <div class="text-white leading-none">
         {%- if section.settings.heading != blank -%}
-          <h2 class="coming-soon__heading tracking-widest coming-soong__devider relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[465px] after:min-w-[200px] after:w-[201px] md:after:w-[80%] after:h-[1px] after:bg-white">
+          <h2 class="coming-soon__heading tracking-widest coming-soong__devider md:pl-0.5 relative after::content-[''] after:block after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:max-w-[465px] after:min-w-[200px] after:w-[201px] md:after:w-[80%] after:h-[1px] after:bg-white">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
         {%- if section.settings.subgheading != blank -%}
-          <h3 class="font-helveticaLight tracking-xlwidest coming-soon__subheading">
+          <h3 class="font-helveticaLight tracking-xlwidest coming-soon__subheading md:pl-[7px]">
             {{ section.settings.subgheading }}
           </h3>
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="mt-[15.46dvh] md:mt-[15.36dvh] max-w-[600px] w-full mx-auto max-md:mb-[11vh]">
+    <div class="mt-[15.46dvh] md:mt-[20.36dvh] max-w-[600px] w-full mx-auto max-md:mb-[11vh]">
       {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
@@ -149,7 +149,7 @@
         </div>
       {% endform %}
     </div>
-    <div class="coming-soon__socials mt-auto md:mt-[12.02vh]">
+    <div class="coming-soon__socials mt-auto md:mt-[9.7vh]">
       <ul class="flex gap-14 md:gap-[52px]">
         {%- if settings.social_facebook_link != blank -%}
           <li class="text-[27px] md:text-[32px] text-white">
