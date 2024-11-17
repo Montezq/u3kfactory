@@ -152,5 +152,89 @@
     "slider": {
       "of": "de"
     }
+  },
+  "customer": {
+    "order": {
+      "cancelled_html": "Comanda anulată pe {{ date }}",
+      "cancelled_reason": "Motiv: {{ reason }}",
+      "billing_address": "Adresa de facturare",
+      "payment_status": "Starea plății",
+      "shipping_address": "Adresa de transport",
+      "fulfillment_status": "Starea de îndeplinire",
+      "discount": "Reducere",
+      "shipping": "Transport",
+      "tax": "Taxa",
+      "product": "Produs",
+      "price": "Preţ",
+      "quantity": "Cantitate",
+      "total_refunded": "Rambursat",
+      "fulfilled_at_html": "S-a îndeplinit {{ date }}",
+      "track_shipment": "Urmăriți expedierea",
+      "tracking_url": "Link de urmărire",
+      "tracking_company": "Purtător",
+      "tracking_number": "Număr de urmărire",
+      "total_duties": "Îndatoriri"
+    },
+    "orders": {
+      "title": "Istoricul comenzilor",
+      "order_number": "Comanda",
+      "order_number_link": "Numărul comenzii {{ number }}",
+      "date": "Data",
+      "payment_status": "Starea plății",
+      "fulfillment_status": "Starea de îndeplinire",
+      "none": "Încă nu ați plasat nicio comandă."
+    },
+    "recover_password": {
+      "title": "Resetarea parolei",
+      "subtext": "VEȚI PRIMI UN EMAIL CU INSTRUCȚIUNI PE ACESTĂ ADRĂ",
+      "success": "V-am trimis un e-mail cu un link pentru a vă actualiza parola."
+    },
+    "register": {
+      "title": "Creează cont",
+      "first_name": "Prenume",
+      "last_name": "Nume",
+      "email": "E-mail",
+      "password": "Parolă",
+      "submit": "Înscrieți-vă"
+    },
+    "reset_password": {
+      "title": "Resetați parola contului",
+      "subtext": "Introduceți o nouă parolă",
+      "password": "Parolă",
+      "password_confirm": "Confirmați parola",
+      "submit": "Confirmați parola"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "how_to_use_gift_card": "Utilizați codul cardului cadou online sau codul QR în magazin",
+      "title": "Iată soldul cardului dvs. cadou de {{ value }} pentru {{ shop }} !",
+      "subtext": "Cardul dvs. cadou",
+      "gift_card_code": "Cod card cadou",
+      "shop_link": "Vizitați magazinul online",
+      "add_to_apple_wallet": "Adăugați în portofelul Apple",
+      "qr_image_alt": "Cod QR — scanați pentru a valorifica cardul cadou",
+      "copy_code": "Copiați codul cardului cadou",
+      "expiration_date": "Expiră {{ expires_on }}",
+      "copy_code_success": "Cod copiat cu succes",
+      "expired": "Expirat"
+    }
+  },
+  "recipient": {
+    "form": {
+      "checkbox": "Vreau să trimit asta ca un cadou",
+      "expanded": "Formularul destinatarului cardului cadou a fost extins",
+      "collapsed": "Formularul destinatarului cardului cadou s-a restrâns",
+      "email_label": "E-mailul destinatarului",
+      "email_label_optional_for_no_js_behavior": "E-mailul destinatarului (opțional)",
+      "email": "E-mail",
+      "name_label": "Numele destinatarului (opțional)",
+      "name": "Nume",
+      "message_label": "Mesaj (opțional)",
+      "message": "Mesaj",
+      "max_characters": "{{ max_chars }} caractere max",
+      "send_on": "AAAA-LL-ZZ",
+      "send_on_label": "Trimiteți pe (opțional)"
+    }
   }
 }
