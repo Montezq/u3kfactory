@@ -150,7 +150,10 @@
       "save_product": "Salvați în Favoritele mele"
     },
     "slider": {
-      "of": "de"
+      "of": "de",
+      "next_slide": "Glisați spre dreapta",
+      "previous_slide": "Glisați spre stânga",
+      "name": "Glisor"
     }
   },
   "customer": {
@@ -235,6 +238,133 @@
       "max_characters": "{{ max_chars }} caractere max",
       "send_on": "AAAA-LL-ZZ",
       "send_on_label": "Trimiteți pe (opțional)"
+    }
+  },
+  "newsletter": {
+    "label": "E-mail",
+    "success": "Multumesc pentru abonare",
+    "keep_updated": "Tine-ma la curent",
+    "noted": "Notat!",
+    "button_label": "Abonați-vă"
+  },
+  "accessibility": {
+    "skip_to_text": "Treci la conținut",
+    "skip_to_product_info": "Treceți la informațiile despre produs",
+    "close": "Aproape",
+    "unit_price_separator": "pe",
+    "vendor": "Furnizor:",
+    "error": "Eroare",
+    "refresh_page": "Alegerea unei selecții are ca rezultat o reîmprospătare a întregii pagini.",
+    "link_messages": {
+      "new_window": "Se deschide într-o fereastră nouă.",
+      "external": "Deschide site-ul extern."
+    },
+    "loading": "Încărcare...",
+    "total_reviews": "total de recenzii",
+    "star_reviews_info": "{{ rating_value }} din {{ rating_max }} stele",
+    "collapsible_content_title": "Conținut pliabil",
+    "complementary_products": "Produse complementare"
+  },
+  "blogs": {
+    "article": {
+      "read_more_title": "Citește mai mult: {{ title }}",
+      "comments": {
+        "one": "{{ count }} comentariu",
+        "other": "{{ count }} comentarii"
+      },
+      "moderated": "Vă rugăm să rețineți că comentariile trebuie aprobate înainte de a fi publicate.",
+      "comment_form_title": "Lasă un comentariu",
+      "name": "Nume",
+      "email": "E-mail",
+      "message": "Comentariu",
+      "post": "Postează comentariu",
+      "back_to_blog": "Înapoi la blog",
+      "share": "Distribuie acest articol",
+      "success": "Comentariul tău a fost postat cu succes! Multumesc!",
+      "success_moderated": "Comentariul dvs. a fost postat cu succes. Îl vom publica în scurt timp, deoarece blogul nostru este moderat."
+    }
+  },
+  "onboarding": {
+    "product_title": "Exemplu de titlu de produs",
+    "collection_title": "Numele colecției tale"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Adaugă in coş",
+      "choose_options": "Alegeți opțiunile",
+      "choose_product_options": "Alegeți opțiuni pentru {{ product_name }}",
+      "description": "Descriere",
+      "inventory_in_stock": "În stoc",
+      "inventory_in_stock_show_count": "{{ quantity }} în stoc",
+      "inventory_low_stock": "Stoc redus",
+      "inventory_low_stock_show_count": "Stoc redus: {{ quantity }} rămasă",
+      "inventory_out_of_stock": "Epuizat",
+      "inventory_out_of_stock_continue_selling": "În stoc",
+      "on_sale": "Vânzare",
+      "product_variants": "Variante de produs",
+      "media": {
+        "gallery_viewer": "Vizualizator galerie",
+        "load_image": "Încărcați imaginea {{ index }} în vizualizarea galeriei",
+        "load_model": "Încărcați modelul 3D {{ index }} în vizualizarea galeriei",
+        "load_video": "Redați videoclipul {{ index }} în vizualizarea galeriei",
+        "image_available": "Imaginea {{ index }} este acum disponibilă în vizualizarea galeriei",
+        "open_media": "Deschideți media {{ index }} în mod modal",
+        "play_model": "Joacă 3D Viewer",
+        "play_video": "Redați videoclipul"
+      },
+      "quantity": {
+        "label": "Cantitate",
+        "input_label": "Cantitate pentru {{ product }}",
+        "increase": "Creșteți cantitatea pentru {{ product }}",
+        "decrease": "Reduceți cantitatea pentru {{ product }}",
+        "minimum_of": "Minimum de {{ quantity }}",
+        "maximum_of": "Maxim de {{ quantity }}",
+        "multiples_of": "Creșteri de {{ quantity }}",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> în coș",
+        "note": "Vedeți regulile de cantitate"
+      },
+      "volume_pricing": {
+        "title": "Tarifarea volumului",
+        "note": "Prețul pentru volum disponibil",
+        "minimum": "{{ quantity }} +",
+        "price_at_each": "la {{ price }} /ea"
+      },
+      "pickup_availability": {
+        "view_store_info": "Vizualizați informațiile despre magazin",
+        "check_other_stores": "Verifica disponibilitatea in alte magazine",
+        "pick_up_available": "Ridicare disponibilă",
+        "pick_up_available_at_html": "Ridicare disponibilă la <span class=\"color-foreground\">{{ location_name }}</span>",
+        "pick_up_unavailable_at_html": "Ridicare indisponibilă momentan la <span class=\"color-foreground\">{{ location_name }}</span>",
+        "unavailable": "Nu s-a putut încărca disponibilitatea ridicării",
+        "refresh": "Reîmprospăta"
+      },
+      "price": {
+        "from_price_html": "De la {{ price }}",
+        "regular_price": "Preț normal",
+        "sale_price": "Pret de vanzare",
+        "unit_price": "Preț unitar"
+      },
+      "share": "Distribuie acest produs",
+      "sold_out": "Epuizat",
+      "unavailable": "Indisponibil",
+      "vendor": "Furnizor",
+      "variant_sold_out_or_unavailable": "Varianta epuizată sau indisponibilă",
+      "video_exit_message": "{{ title }} deschide videoclipul pe ecran complet în aceeași fereastră.",
+      "view_full_details": "Vezi detalii complete",
+      "xr_button": "Vedeți în spațiul dvs",
+      "xr_button_label": "Vizualizați în spațiul dvs., încarcă elementul în fereastra de realitate augmentată",
+      "include_taxes": "Taxe incluse.",
+      "shipping_policy_html": "<a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">Livrare</a> calculată la checkout."
+    },
+    "modal": {
+      "label": "Galeria media"
+    },
+    "facets": {
+      "filter_and_operator_subtitle": "Se potrivesc cu toate",
+      "apply": "Aplicați",
+      "clear": "Clar",
+      "clear_all": "Eliminați toate",
+      "from": "Din"
     }
   }
 }
