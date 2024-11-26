@@ -71,7 +71,13 @@
       </div>
     {%- endif -%}
     <div class="coming-soon__category-email max-md:pb-[20%] max-w-[208px] md:max-w-[350px] w-full mx-auto">
-      {% form 'customer', class: 'newsletter-form', id: 'newsletter-form' %}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+            {% render block %}
+        {%- endcase -%}
+      {%- endfor -%}
+      {% form 'customer', class: 'newsletter-form-cms', id: 'newsletter-form-cms' %}
         <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
           <div class="flex flex-col items-center">
@@ -126,11 +132,8 @@
               id="submitNewsletter"
               aria-label="{{ 'newsletter.keep_updated' | t }}"
             >
-              {%- if form.posted_successfully? -%}
-                {{ 'newsletter.noted' | t }}
-              {%- else -%}
-                {{ 'newsletter.keep_updated' | t }}
-              {%- endif -%}
+              <span class="noted hidden">{{ 'newsletter.noted' | t }}</span>
+              <span class="not-noted">{{ 'newsletter.keep_updated' | t }}</span>
             </button>
           </div>
         </div>
@@ -143,20 +146,18 @@
     let mainWrapper = document.querySelector('body');
     mainWrapper.classList.add('main_coming-soon');
     function validateAndSubmitForm() {
-      const form = document.getElementById('newsletter-form');
+      const form = document.getElementById('newsletter-form-cms');
       const tooltip = document.querySelector('.tooltip-form');
       const submitButton = form.querySelector('.submit-button');
+      const emailField = form.querySelector('.email-input');
       submitButton.addEventListener('click', function (event) {
-        const emailField = form.querySelector('.email-input');
         const email = emailField.value;
         const emailRegex =
           /^(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~\-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~\-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])")@(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-zA-Z0-9-]*[a-zA-Z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)|\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]+)$/;
 
         if (emailRegex.test(email) && email) {
-          console.log('if');
           submitForm();
         } else {
-          console.log('else');
           tooltip.classList.remove('opacity-0', 'invisible');
           setTimeout(() => {
             tooltip.classList.add('opacity-0', 'invisible');
@@ -165,49 +166,43 @@
       });
 
       function submitForm() {
-        form.submit();
+        const formEmbed = document.querySelector('#app-embed');
+        if (formEmbed) {
+          // Access the shadow root
+          const shadowRoot = formEmbed.shadowRoot;
+
+          if (shadowRoot) {
+            // Query the input and submit elements inside the shadow root
+            const inputElement = shadowRoot.querySelector('input[type="text"]');
+            const submitButtonInside = shadowRoot.querySelector('button[type="submit"]');
+
+            // Update the input field value and dispatch an input event
+            if (inputElement) {
+              inputElement.value = emailField.value;
+
+              // Dispatch the input event to ensure the value is registered
+              const event = new Event('input', { bubbles: true, cancelable: true });
+              inputElement.dispatchEvent(event);
+            }
+
+            // Trigger the submit button click
+            if (submitButtonInside) {
+              console.log();
+              submitButton.querySelector('.not-noted').classList.add('hidden');
+              submitButton.querySelector('.noted').classList.remove('hidden');
+              submitButton.disabled = true;
+              submitButtonInside.click();
+            }
+          } else {
+            console.error('Shadow root not found on form-embed element.');
+          }
+        } else {
+          console.error('Form-embed element not found.');
+        }
       }
     }
 
     validateAndSubmitForm();
-    var live_url = window.location.href;
-    var result = live_url.includes('form_type=customer');
-    if (result) {
-      const tooltipExist = document.querySelector('.tooltip_exist');
-      tooltipExist.classList.remove('opacity-0', 'invisible');
-      setTimeout(() => {
-        tooltipExist.classList.add('opacity-0', 'invisible');
-      }, 3000);
-    }
-
-    function removeQueryParameter(param) {
-      const url = new URL(window.location.href);
-      url.searchParams.delete(param);
-      url.hash = ''; // Remove any hash fragment
-      history.replaceState(null, null, url.href);
-    }
-
-    function removeQueryParameterAndPreventBack(param) {
-      const url = new URL(window.location.href);
-
-      // Remove the query parameter and clear hash
-      url.searchParams.delete(param);
-      url.hash = '';
-
-      // Replace the current history entry with the updated URL
-      history.replaceState(null, null, url.href);
-
-      // Push a new state with a unique identifier to prevent back navigation
-      history.pushState({ noBack: true }, null, url.href);
-
-      // Intercept the back navigation to prevent it
-      window.onpopstate = function (event) {
-        history.go(1);
-      };
-    }
-
-    // Call the function to remove the query parameter and prevent back navigation
-    removeQueryParameterAndPreventBack('customer_posted');
   });
 </script>
 
@@ -288,6 +283,11 @@
       "type": "image_picker",
       "id": "mobile_image",
       "label": "Mobile Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
     }
   ],
   "presets": [
