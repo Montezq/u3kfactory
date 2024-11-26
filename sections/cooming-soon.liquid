@@ -146,11 +146,8 @@
               id="submitNewsletter"
               aria-label="{{ 'newsletter.keep_updated' | t }}"
             >
-              {%- if form.posted_successfully? -%}
-                {{ 'newsletter.noted' | t }}
-              {%- else -%}
-                {{ 'newsletter.keep_updated' | t }}
-              {%- endif -%}
+              <span class="noted hidden">{{ 'newsletter.noted' | t }}</span>
+              <span class="not-noted">{{ 'newsletter.keep_updated' | t }}</span>
             </button>
           </div>
         </div>
