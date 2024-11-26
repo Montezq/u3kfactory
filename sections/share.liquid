@@ -51,7 +51,7 @@
 </div>
 <script>
   function initializeShareModal() {
-    const shareButtons = document.querySelectorAll('.share-button'),
+    let shareButtons = document.querySelectorAll('.share-button'),
       shareModal = document.querySelector('.share__modal'),
       shareModalBody = document.querySelector('.share__modal-wrapper'),
       shareItems = document.querySelectorAll('.share__item a'),

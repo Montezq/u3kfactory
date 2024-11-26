@@ -116,7 +116,7 @@
               {%- for link in section.settings.personal_menu.links -%}
                 <li
                   {% if forloop.last %}
-                    class="[&>a]:border-b-0 [&>a]:pb-0  max-lg:pb-4"
+                    class="[&>a:after]:!hidden [&>a]:pb-0  max-lg:pb-4"
                   {% endif -%}
                   {% if forloop.first %}
                     class="max-lg:pt-[50px]"

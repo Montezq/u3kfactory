@@ -384,8 +384,10 @@
           history.pushState(null, '', urlToFetch);
 
           reinitializeWishlist();
-          initializeLoginModal();
           initializeShareModal();
+          {%- unless customer -%}
+            initializeLoginModal();
+          {%- endunless -%}
         })
         .catch((error) => console.error('Error fetching filtered results:', error));
     };

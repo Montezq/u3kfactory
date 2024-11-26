@@ -24,7 +24,6 @@ function addToWishlist(event) {
     optionSize = button.getAttribute('data-variant-option-size');
     optionMaterial = button.getAttribute('data-variant-option-material') || button.getAttribute('data-variant-option-medium');
   }
-  console.log(optionMaterial)
   // Get current wishlist items from localStorage or initialize as an empty array
   let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
@@ -154,7 +153,6 @@ function dontShowWishlistModal(event) {
 const reinitializeWishlist = () => {
   // Find all wishlist buttons
   const wishlistButtons = document.querySelectorAll('.wishlist-button');
-  console.log(wishlistButtons)
   if (wishlistButtons.length > 0) {
     // Loop through each button and attach a click event listener
     wishlistButtons.forEach(button => {
