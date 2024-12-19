@@ -1196,11 +1196,13 @@ class VariantSelects extends HTMLElement {
         // Update the add to wishlist button with the new variant data
         const wishlistButton = document.querySelector('.wishlist-button');
         if (wishlistButton) {
+          wishlistButton.removeAttribute('disabled')
           wishlistButton.setAttribute('data-variant-id', this.currentVariant.id);
           wishlistButton.setAttribute('data-variant-option-size', this.currentVariant.option1);
           wishlistButton.setAttribute('data-variant-option-material', this.currentVariant.option2);
           wishlistButton.setAttribute('data-price', this.currentVariant.price);
           wishlistButton.classList.remove('match'); // Reset the match class
+          wishlistButton.setAttribute('data-available', this.currentVariant.available);
         }
 
         // Check if the current variant is in the wishlist stored in local storage
@@ -1246,10 +1248,12 @@ class VariantSelects extends HTMLElement {
     const volumeNote = document.getElementById(`Volume-Note-${this.dataset.section}`);
     const volumeTable = document.getElementById(`Volume-${this.dataset.section}`);
     const qtyRules = document.getElementById(`Quantity-Rules-${this.dataset.section}`);
+    const wishlistButton = document.querySelector('.wishlist-button');
+    const instructionsSent = document.querySelector('.combination-modal');
 
     if (!addButton) return;
     addButtonText.textContent = window.variantStrings.unavailable;
-    const instructionsSent = document.querySelector('.combination-modal');
+
     if (instructionsSent) {
       instructionsSent.classList.remove('hidden');
       setTimeout(() => {
@@ -1257,6 +1261,7 @@ class VariantSelects extends HTMLElement {
       }, 2000); // Wait for 1 second before hiding the modal
       history.replaceState(null, null, ' ');
     }
+    wishlistButton.setAttribute('disabled', 'disabled');
     if (price) price.classList.add('hidden');
     if (inventory) inventory.classList.add('hidden');
     if (sku) sku.classList.add('hidden');

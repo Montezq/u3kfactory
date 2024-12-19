@@ -14,6 +14,7 @@ function addToWishlist(event) {
   const productVendor = button.getAttribute('data-vendor');
   const productPrice = button.getAttribute('data-price');
   const vatText = button.getAttribute('data-vat-text');
+  const available = button.getAttribute('data-available');
   const collectionList = button.getAttribute('data-collections');
   const noVariant = button.getAttribute('data-no-variant') === 'true';
   const dataToggle = button.getAttribute('data-toggle') === 'true';
@@ -64,7 +65,8 @@ function addToWishlist(event) {
       productPrice,
       noVariant,
       vatText,
-      collectionList
+      collectionList,
+      available
     };
     if (!noVariant) {
       newItem.optionSize = optionSize;
