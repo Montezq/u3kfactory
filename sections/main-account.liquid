@@ -320,13 +320,13 @@
         </div>
       {%- endfor -%}
       <div data-current-address class="grid md:grid-cols-2 gap-x-8 max-md:gap-y-20 md:justify-between current-address">
-        <div class="space-y-6 md:space-y-[37px]">
+        <div class="grid gap-y-6 md:gap-y-[37px]">
           {%- for address in customer.addresses -%}
             {% if forloop.index == 1 %}
               {% assign address_id = address.id %}
             {% endif %}
             <label
-              class="my-account__adress block cursor-pointer w-[240px] relative"
+              class="my-account__adress block cursor-pointer w-[240px] relative{% if address == customer.default_address %} -order-1{% endif %}"
               id="address-{{ address.id }}"
             >
               <input
@@ -334,7 +334,7 @@
                 name="adress_item"
                 class="absolute w-0 left-0 top-0"
                 data-id="{{ address.id }}"
-                {% if forloop.index == 1 %}
+                {% if address == customer.default_address %}
                   checked
                 {% endif %}
               >
@@ -475,7 +475,13 @@
                     </div>
                   </div>
                 </div>
-                {{ form.set_as_default_checkbox }}
+                <input
+                  type="checkbox"
+                  id="address_default_address_{{ address.id }}"
+                  name="address[default]"
+                  value="1"
+                  checked
+                >
                 <label for="address_default_address_{{ form.id }}" class="block">
                   <button
                     class="btn btn_primary !text-[17px] w-full uppercase !font-coutureBold font-bold set-default-address-button"

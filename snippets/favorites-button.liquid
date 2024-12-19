@@ -27,6 +27,9 @@
     data-vat-text="{{ vat_text }}"
     data-collections="{{ collections_list }}"
     data-available="{{ product.selected_or_first_available_variant.available }}"
+    {% unless product.selected_or_first_available_variant.available %}
+      disabled
+    {% endunless %}
     {%- if product.template_suffix == 'originals-product-page' -%}
       data-unframed="true"
     {%- endif -%}

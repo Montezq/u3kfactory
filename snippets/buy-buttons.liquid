@@ -45,7 +45,6 @@
           {% endif %}
           class="product-variant-id"
         >
-        {% comment %} <input type="hidden" name="properties[UniqueID]" value="{{ 'now' | date: '%s' }}"> {% endcomment %}
 
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}

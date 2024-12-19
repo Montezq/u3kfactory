@@ -39,6 +39,9 @@
     data-no-variant="{{ data_no_variant }}"
     data-vat-text="{{ vat_text }}"
     data-collections="{{ collections_list }}"
+    {% unless product.selected_or_first_available_variant.available %}
+      disabled
+    {% endunless %}
     {% unless data_no_variant %}
       {%- for option in product.options_with_values -%}
         {%- for value in option.values -%}

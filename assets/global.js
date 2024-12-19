@@ -1203,6 +1203,9 @@ class VariantSelects extends HTMLElement {
           wishlistButton.setAttribute('data-price', this.currentVariant.price);
           wishlistButton.classList.remove('match'); // Reset the match class
           wishlistButton.setAttribute('data-available', this.currentVariant.available);
+          if(!this.currentVariant.available){
+            wishlistButton.setAttribute('disabled', 'disabled');
+          }
         }
 
         // Check if the current variant is in the wishlist stored in local storage
@@ -1261,7 +1264,7 @@ class VariantSelects extends HTMLElement {
       }, 2000); // Wait for 1 second before hiding the modal
       history.replaceState(null, null, ' ');
     }
-    wishlistButton.setAttribute('disabled', 'disabled');
+    if(wishlistButton) wishlistButton.setAttribute('disabled', 'disabled');
     if (price) price.classList.add('hidden');
     if (inventory) inventory.classList.add('hidden');
     if (sku) sku.classList.add('hidden');
