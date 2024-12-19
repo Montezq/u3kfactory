@@ -1,5 +1,6 @@
 {%- if cart != empty -%}
   {%- for item in cart.items -%}
+    <div class="{% if forloop.last %} newest{% endif %}"></div>
     {%- for i in (1..item.quantity) -%}
       <div
         class="cart-item pr-[7px] md:pr-2.5"
