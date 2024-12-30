@@ -166,6 +166,12 @@
 
   <body class="pl-0 gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <script>
+      function makeHeaderTransparentIfComingSoon() {
+        if (document.querySelector('.coming-soon__category')) {
+          const sectionHeader = document.querySelector('.section-header');
+          if (sectionHeader) sectionHeader.classList.add('section-header_transparent');
+        }
+      }
       document.addEventListener('DOMContentLoaded', () => {
         // Get the referrer URL
         const referrer = document.referrer;
@@ -200,6 +206,7 @@
           // Add custom-active class to matching <a> elements and remove style attribute from others
           addCustomActiveClass(referrerPath);
         }
+        makeHeaderTransparentIfComingSoon();
       });
     </script>
     {%- if settings.cart_type == 'drawer' -%}

@@ -16,6 +16,11 @@ html{
   @apply w-full;
   @apply h-full;
 }
+.section-header_transparent{
+  .header__mobile{
+    @apply !bg-transparent;
+  }
+}
 body{
   &::-webkit-scrollbar {
     width: 7px;
