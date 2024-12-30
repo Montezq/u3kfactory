@@ -185,6 +185,7 @@ class QuantityInput extends HTMLElement {
     const previousValue = this.input.value;
     event.target.name === 'plus' ? this.input.stepUp() : this.input.stepDown();
     if (previousValue !== this.input.value) this.input.dispatchEvent(this.changeEvent);
+  
   }
 
   validateQtyRules() {
@@ -199,6 +200,43 @@ class QuantityInput extends HTMLElement {
       const buttonPlus = this.querySelector(".quantity__button[name='plus']");
       buttonPlus.classList.toggle('disabled', value >= max);
     }
+    setTimeout(() => {
+      const bar = document.getElementById('bar');
+      const scrollContainer = document.querySelector('.cs-scroll');
+      let lastScrollTop = 0;
+      if (bar) {
+        function handleScroll() {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          let containerScrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
+
+          if (scrollTop > lastScrollTop || containerScrollTop > lastScrollTop) {
+            bar.style.transform = 'translateY(-100%)';
+          } else {
+            bar.style.transform = 'translateY(0)';
+          }
+
+          lastScrollTop = Math.max(scrollTop, containerScrollTop);
+        }
+
+        function checkWidthAndScroll() {
+          if (window.innerWidth <= 1023) {
+            window.addEventListener('scroll', handleScroll);
+            if (scrollContainer) {
+              scrollContainer.addEventListener('scroll', handleScroll);
+            }
+          } else {
+            window.removeEventListener('scroll', handleScroll);
+            if (scrollContainer) {
+              scrollContainer.removeEventListener('scroll', handleScroll);
+            }
+            bar.style.transform = 'translateY(0)';
+          }
+        }
+
+        window.addEventListener('resize', checkWidthAndScroll);
+        checkWidthAndScroll(); // Initial check
+      }
+    }, 1000);
   }
 }
 
