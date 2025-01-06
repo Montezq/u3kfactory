@@ -1,16 +1,25 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "artist_page_E83R4a": {
       "type": "artist-page",
       "settings": {
-        "first_image": "shopify:\/\/shop_images\/YELLOW-FLOWER-INTERIOR-IMAGE_85b1625d-32ed-4c56-9fdb-f46b76835eff.jpg",
-        "second_image": "shopify:\/\/shop_images\/BLACK-HOLE-INTERIOR-IMAGE-2_67b5a908-d020-4e15-a89f-c24259e20e77.jpg",
+        "first_image": "shopify://shop_images/CLOUDS-4-TIMES-INTERIOR-IMAGE_0735b52c-8585-45ec-8663-ae278464612e.jpg",
+        "second_image": "shopify://shop_images/LIGHT-LINE-1-INTERIOR-IMAGE-2.jpg",
         "facebook_nickname": "M i H U",
-        "facebook_url": "https:\/\/www.facebook.com\/",
+        "facebook_url": "https://www.facebook.com/",
         "instagram_nickname": "M_I_H_U.M_I_H_U",
-        "instagram_url": "https:\/\/www.facebook.com\/",
+        "instagram_url": "https://www.facebook.com/",
         "pinterest_nickname": "VALENTINA_U3",
-        "pinterest_url": "https:\/\/www.facebook.com\/"
+        "pinterest_url": "https://www.facebook.com/"
       }
     }
   },
