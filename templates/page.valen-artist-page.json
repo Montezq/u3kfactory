@@ -1,10 +1,19 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "artist_page_NTKMgU": {
       "type": "artist-page",
       "settings": {
-        "first_image": "shopify:\/\/shop_images\/TO-BE-OR-NOT-TO-BE-NO-2-INTERIOR-IMAGE_34e23ad2-9bb4-4eb2-965f-8f554e8a8ed6.jpg",
-        "second_image": "shopify:\/\/shop_images\/STILL-LIFE-WITH-OLD-CHAIR-INTERIOR-IMAGE-2_3e7056f9-905e-4e5c-a11b-0eb278ea2796.jpg",
+        "first_image": "shopify://shop_images/TO-BE-OR-NOT-TO-BE-NO-2-INTERIOR-IMAGE_34e23ad2-9bb4-4eb2-965f-8f554e8a8ed6.jpg",
+        "second_image": "shopify://shop_images/GEOMETRIC-BLUE-INTERIOR-IMAGE-2.jpg",
         "facebook_nickname": "",
         "facebook_url": "",
         "instagram_nickname": "",
