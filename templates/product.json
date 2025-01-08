@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -5,13 +14,11 @@
       "blocks": {
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -22,24 +29,21 @@
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "taxes_text": "* VAT INCLUDED \/ EXCLUDED SHIPPING COST"
+            "taxes_text": "* VAT INCLUDED / EXCLUDED SHIPPING COST"
           }
         },
         "favorites_iXPAc4": {
           "type": "favorites",
-          "settings": {
-          }
+          "settings": {}
         },
         "contact_dneKxt": {
           "type": "contact",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -51,8 +55,7 @@
         "favorites_iXPAc4",
         "contact_dneKxt"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "related-products": {
       "type": "related-products",
@@ -76,16 +79,16 @@
       "type": "plus-info",
       "settings": {
         "heading": "Print Details",
-        "content_metafield": "{{ product.metafields.custom.print_details | metafield_tag }}",
-        "content": "<p><strong>This print comes with a white border around the motif. The sizes displayed indicate the actual size of the art print including the white border. This fine art giclée print is delivered unframed.<\/strong><br\/><br\/>The paper has a matt, light textured surface. The high quality Hahnemühle\/ILFord paper and canvas that we use for our prints combined with the Lucia Pro inks guarantees archival conservation of colors, with the print retaining its intended appearance for up to a 100 years. We recommend to keep the prints away from direct sunlight and under glass in the case of the paper prints.<\/p>"
+        "content_metafield": "<p>{{ product.metafields.custom.print_details | metafield_tag }}</p>",
+        "content": "<p><strong>This print comes with a white border around the motif. The sizes displayed indicate the actual size of the art print including the white border. This fine art giclée print is delivered unframed.</strong><br/><br/>The paper has a matt, light textured surface. The high quality Hahnemühle/ILFord paper and canvas that we use for our prints combined with the Lucia Pro inks guarantees archival conservation of colors, with the print retaining its intended appearance for up to a 100 years. We recommend to keep the prints away from direct sunlight and under glass in the case of the paper prints.</p>"
       }
     },
     "plus_info_Hz8NNJ": {
       "type": "plus-info",
       "settings": {
-        "heading": "Shipping & Packaging",
+        "heading": "Shipping & Returns",
         "content_metafield": "",
-        "content": "<p><strong>Worldwide shipping available.<\/strong><br\/><br\/>The larger prints are carefully wrapped in acid free silk paper and packed in sturdy cardboard tubes sealed with plastic taps to assure maximum protection from bending and moisture during the shipment. The A4, A3 prints are shipped in plastic envelopes with a recycled sturdy cardboard sheet as support to avoid bending.<br\/><\/p>"
+        "content": "<p><strong>Worldwide shipping available.</strong><br/><br/>The larger prints are carefully wrapped in acid free silk paper and packed in sturdy cardboard tubes sealed with plastic taps to assure maximum protection from bending and moisture during the shipment. The A4, A3 prints are shipped in plastic envelopes with a recycled sturdy cardboard sheet as support to avoid bending.<br/></p>"
       }
     }
   },
