@@ -1,0 +1,190 @@
+<div class="w-full min-h-[100dvh] flex flex-col items-center relative overflow-hidden pb-[23px] md:pb-10 pt-[102px] md:pt-2">
+  <div class="absolute top-0 left-0 bottom-0 right-0 w-full h-full">
+    <div
+      class="w-full h-full{% if section.settings.mobile_image != blank or section.settings.mobile_video != blank %} max-md:hidden{% endif %}"
+    >
+      {%- if section.settings.cover_type == 'video' -%}
+        {{
+          section.settings.video
+          | video_tag:
+            image_size: '1100x',
+            autoplay: true,
+            loop: true,
+            controls: false,
+            class: 'w-full h-full object-cover',
+            muted: true
+        }}
+      {%- else -%}
+        {{
+          section.settings.image
+          | image_url: width: 3840
+          | image_tag:
+            width: section.settings.image.width,
+            class: 'w-full h-full object-cover',
+            height: '100vh',
+            sizes: '100vw',
+            widths: '900, 1320, 1800, 2136, 2400, 3600, 7680',
+            fetchpriority: 'high'
+        }}
+      {%- endif -%}
+    </div>
+    <div class="w-full h-full{% if section.settings.mobile_image != blank or section.settings.mobile_video != blank %} md:hidden{% else %} hidden{% endif %}">
+      {%- if section.settings.mobile_cover_type == 'video' -%}
+        {{
+          section.settings.mobile_video
+          | video_tag:
+            image_size: '1100x',
+            autoplay: true,
+            loop: true,
+            controls: false,
+            class: 'w-full h-full object-cover',
+            muted: true
+        }}
+      {%- else -%}
+        {{
+          section.settings.mobile_image
+          | image_url: width: 1440
+          | image_tag:
+            width: section.settings.mobile_image.width,
+            class: 'w-full h-full object-cover',
+            height: '100vh',
+            sizes: '100vw',
+            widths: '450, 660, 900, 1440',
+            fetchpriority: 'high'
+        }}
+      {%- endif -%}
+    </div>
+  </div>
+  <div class="relative z-[1] flex flex-col max-md:flex-1 items-center text-center md:my-auto  max-sm:h-full">
+    <div class="coming-soong__logo pb-[49px] md:pb-[87px]">
+      <h1 class="font-coutureBold w-[100px] md:w-[154px] text-[100px] md:text-[154px] h-[84px] md:h-[109px] text-white text-logo leading-none flex items-center">
+        {%- if section.settings.logo -%}
+          {{
+            section.settings.logo
+            | image_url: width: 320
+            | image_tag: width: section.settings.logo.width, class: 'w-full', widths: '320', fetchpriority: 'high'
+          }}
+        {%- else -%}
+          <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_LOGO-3 leading-none block"></span>
+        {%- endif -%}
+      </h1>
+    </div>
+    <div class="text-white leading-none text-center">
+      <h2 class="maintenance__heading font-helveticaThinCond coming-soong__devider tracking-[.26em] leading-[1.24] md:pl-1.5">
+        WE ARE<strong> NOT SHIPPING </strong> TO YOUR <strong>LOCATION</strong> <strong>AT THE MOMENT</strong>
+        <br class="lg:hidden">
+        <span class="max-lg:hidden">-</span> FOLLOW US TO BE <strong>UPDATED</strong>
+        <strong>NO TIME</strong>
+      </h2>
+    </div>
+    <div class="mt-[12.55vh] md:mt-[9.8vh] ">
+      <span
+        class="icon-FULL-ICON-SET-WEBSITE-FINAL_Gears-Icon leading-none block text-[73px] sm:text-[107px] text-white"
+      ></span>
+    </div>
+    <div class="coming-soon__socials mt-auto sm:mt-[14vh] sm:pt-[6.25vh] relative afteR:content after:block after:absolute after:top-0 after:left-1/2 after:-translate-x-1/2 after:w-[74px] after:h-[1px] after:bg-white after:max-md:hidden">
+      <ul class="flex gap-[56px] md:gap-[52px]">
+        {%- if settings.social_facebook_link != blank -%}
+          <li class="text-[27px] md:text-[32px] text-white">
+            <a href="{{ settings.social_facebook_link }}" class="block">
+              <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Facebook block leading-none"></span>
+              <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_instagram_link != blank -%}
+          <li class="text-[27px] md:text-[32px] text-white">
+            <a href="{{ settings.social_instagram_link }}" class="block">
+              <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Instagram block leading-none"></span>
+              <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_pinterest_link != blank -%}
+          <li class="text-[27px] md:text-[32px] text-white">
+            <a href="{{ settings.social_pinterest_link }}" class="block">
+              <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Pinterest block leading-none"></span>
+              <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blocked Market",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Section Logo"
+    },
+    {
+      "type": "select",
+      "id": "cover_type",
+      "options": [
+        {
+          "value": "video",
+          "label": "Video"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "video",
+      "label": "Cover Type"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "select",
+      "id": "mobile_cover_type",
+      "options": [
+        {
+          "value": "video",
+          "label": "Video"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "video",
+      "label": "Cover Type For Mobile"
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Mobile Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blocked Market"
+    }
+  ]
+}
+{% endschema %}
