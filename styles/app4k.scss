@@ -35,6 +35,35 @@
       font-size: 5.6vw;
     }
   }
+  .coming-soon__heading{
+    font-size: 2.1vw;
+    margin-bottom: 2.1vw;
+    padding-bottom: 2.16vw;
+    &:after{
+      max-width: 24.23vw;
+      height: .08vw;
+    }
+  }
+  .coming-soon__subheading{
+    font-size: 2.1vw;
+  }
+  .cooming-soon__form{
+    max-width: 31.23vw;
+  }
+  .cooming-soon__form-input{
+    margin-right: 1vw;
+    margin-bottom: .16vw;
+    input{
+      font-size: .85vw;
+    }
+  }
+  .newsletter-form__field-wrapper{
+    .submit-button{
+      font-size: 1.04vw;
+      padding: .22vw .63vw .16vw;
+      line-height: 1.48vw;
+    }
+  }
   .coming-soon__socials{
     &:after{
       width: 3.9vw;

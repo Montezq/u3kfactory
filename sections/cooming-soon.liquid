@@ -86,7 +86,7 @@
         {%- endif -%}
       </div>
     {%- endif -%}
-    <div class="mt-[15.46dvh] md:mt-[19.36dvh] max-w-[600px] w-full mx-auto max-md:mb-[11vh]">
+    <div class="mt-[15.46dvh] md:mt-[19.36dvh] max-w-[600px] w-full mx-auto max-md:mb-[11vh] cooming-soon__form">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when '@app' -%}
@@ -97,7 +97,7 @@
         <input type="hidden" name="contact[tags]" value="{{section.settings.contact_tags}}">
         <div class="newsletter-form__field-wrapper">
           <div class="flex max-md:flex-col items-center md:items-end">
-            <div class="relative mb-[3px] flex-1 max-md:w-[208px] max-md:mb-[23px] md:mr-5">
+            <div class="relative mb-[3px] flex-1 max-md:w-[208px] max-md:mb-[23px] md:mr-5 cooming-soon__form-input">
               <input
                 id="NewsletterForm--{{ section.id }}"
                 type="email"
