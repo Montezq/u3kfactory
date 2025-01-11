@@ -22,7 +22,6 @@
     {% endif %}
 
     {% render 'meta-tags' %}
-
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
@@ -168,6 +167,11 @@
     {% assign blocked_locales_str = settings.market_blocked | default: '' %}
     {% assign blocked_locales_array = blocked_locales_str | split: ',' %}
     <script>
+      window.addEventListener("pageshow", function (event) {
+        if (event.persisted) {
+          window.location.reload();
+        }
+      });
       var blockedLocales = [
         {% for locale in blocked_locales_array %}
           "{{ locale | strip | upcase }}"{% unless forloop.last %},{% endunless %}
@@ -186,7 +190,8 @@
         .catch(function(error) {
           console.error("Geolocation API error:", error);
         });
-
+    </script>
+    <script>
       function makeHeaderTransparentIfComingSoon() {
         if (document.querySelector('.coming-soon__category')) {
           const sectionHeader = document.querySelector('.section-header');
