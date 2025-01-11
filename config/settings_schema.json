@@ -15,6 +15,11 @@
         "id": "free_shipping",
         "label": "Free Shipping Price"
       },
+      {
+        "type": "text",
+        "id": "market_blocked",
+        "label": "Country Codes for Blocked Markets"
+      },
     ]
   },
   {

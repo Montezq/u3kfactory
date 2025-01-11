@@ -12,12 +12,23 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
-        "privacy_menu": "footer"
+        "privacy_menu": ""
+      }
+    },
+    "blocked_market_jikffk": {
+      "type": "blocked-market",
+      "settings": {
+        "cover_type": "image",
+        "image": "shopify://shop_images/Maintenance_Image.jpg",
+        "mobile_cover_type": "image",
+        "mobile_image": "shopify://shop_images/Maintenance_Image.jpg"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "blocked_market_jikffk"
   ]
 }

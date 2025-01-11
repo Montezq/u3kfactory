@@ -5,45 +5,51 @@
     - localPosition: pass in the position in which the form is coming up to create specific IDs
 {%- endcomment -%}
 
-<div class="disclosure">
-  <button
-    type="button"
-    class="disclosure__button localization-form__select localization-selector link link--text caption-large"
-    aria-expanded="false"
-    aria-controls="{{ localPosition }}List"
-    aria-describedby="{{ localPosition }}Label"
-  >
-    <span>{{ localization.language.endonym_name | capitalize }}</span>
-    {% render 'icon-caret' %}
-  </button>
-  <div class="disclosure__list-wrapper" hidden>
-    <ul id="{{ localPosition }}List" role="list" class="disclosure__list list-unstyled">
+{% assign path_without_lang = request.path %}
+
+{% for lang in localization.available_languages %}
+  {% assign prefix = '/' | append: lang.iso_code %}
+  {% assign prefix_length = prefix | size %}
+  {% assign start_of_path = path_without_lang | slice: 0, prefix_length %}
+
+  {% if start_of_path == prefix %}
+    {% assign path_without_lang = path_without_lang | remove_first: prefix %}
+  {% endif %}
+{% endfor %}
+
+<div class="relative text-[12px] group language-wrapper font-helveticaLight">
+  <div class="flex text-center cursor-pointer">
+    <div class="language__drop-item w-[21px] h-[20px] border border-black flex justify-center items-center">
       {%- for language in localization.available_languages -%}
-        <li class="disclosure__item" tabindex="-1">
-          <a
-            class="link link--text disclosure__link caption-large focus-inset"
-            href="#"
-            hreflang="{{ language.iso_code }}"
-            lang="{{ language.iso_code }}"
-            {% if language.iso_code == localization.language.iso_code %}
-              aria-current="true"
-            {% endif %}
-            data-value="{{ language.iso_code }}"
-          >
-            <span
-              {% if language.iso_code != localization.language.iso_code %}
-                class="visibility-hidden"
-              {% endif %}
-            >
-              {%- render 'icon-checkmark' -%}
-            </span>
-            <span>
-              {{ language.endonym_name | capitalize }}
-            </span>
-          </a>
-        </li>
+        {% if language.iso_code == localization.language.iso_code %}
+          <span class="leading-none">
+            {{ language.iso_code | upcase }}
+          </span>
+        {% endif %}
       {%- endfor -%}
-    </ul>
+    </div>
+    <div
+      class="w-[12px] h-[20px] border !border-l-0 border-black flex items-center justify-center -ml-[1px] language__drop-arrow"
+    ></div>
   </div>
+  <ul class="language-switcher absolute top-full left-0 text-center w-[21px] invisible group-hover:visible">
+    {% for language in localization.available_languages %}
+      {% assign new_prefix = '/' | append: language.iso_code %}
+      <li class="language__drop-items h-[19px] border border-black -mt-[1px]">
+        <a
+          href="{% if language.primary %}{% if path_without_lang == '' %}/{% else %}{{ path_without_lang }}{% endif %}{% else %}{{ new_prefix }}{{ path_without_lang }}{% endif %}"
+          {% if language.iso_code == localization.language.iso_code %}
+            aria-current="true"
+          {% endif %}
+          data-value="{{ language.iso_code }}"
+          class="flex justify-center items-center h-full"
+        >
+          <span class="leading-none">
+            {{ language.iso_code | upcase }}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 </div>
 <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
