@@ -13,7 +13,7 @@
     "main": {
       "type": "main-page",
       "settings": {
-        "privacy_menu": "footer"
+        "privacy_menu": ""
       }
     }
   },
