@@ -1574,7 +1574,7 @@ accordion-item.open,
     h2{
       @apply py-1;
       @apply px-0.5;
-      @apply w-fit;
+      @apply inline-block;
       @apply text-lg;
       @apply md:text-xl;
       @apply leading-none;

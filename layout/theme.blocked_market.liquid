@@ -1,446 +1,171 @@
 <!doctype html>
-<html class="no-js" lang="{{ request.locale.iso_code }}">
+<html class="no-js full-height" lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
-    <title>
-      {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
-    </title>
+    <title>{{ shop.name }}</title>
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
+    <meta name="description" content="{{ page_description | escape }}">
 
     {% render 'meta-tags' %}
 
-    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    {%- if settings.animations_reveal_on_scroll -%}
-      <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-
     {{ content_for_header }}
+
     {% style %}
-        :root {
-          --default-color: {{ settings.default_color }};
-          --secodn-color: {{ settings.second_color }};
-        }
-        @font-face {
-            font-family: 'Helvetica Neue LT Std';
-            src: url("{{ 'HelveticaNeueLTStd-ThCn.ttf' | asset_url }}") format('truetype');
-            src: url("{{ 'HelveticaNeueLTStd-ThCn.eot#iefix' | asset_url }}") format('embedded-opentype'),
-                url("{{ 'HelveticaNeueLTStd-ThCn.woff2' | asset_url }}") format('woff2'),
-                url("{{ 'HelveticaNeueLTStd-ThCn.woff' | asset_url }}") format('woff'),
-                url("{{ 'HelveticaNeueLTStd-ThCn.ttf' | asset_url }}") format('truetype'),
-                url("{{ 'HelveticaNeueLTStd-ThCn.svg#HelveticaNeueLTStd-ThCn' | asset_url }}") format('svg');
-            font-weight: 100;
-            font-style: normal;
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Couture BoldItalic';
-            src: url("{{ 'Couture-BoldItalic.woff2' | asset_url }}") format('woff2');
-            src: url("{{ 'Couture-BoldItalic.?#iefix' | asset_url }}") format('embedded-opentype'),
-                url("{{ 'Couture-BoldItalic.woff2' | asset_url }}") format('woff2'),
-                url("{{ 'Couture-BoldItalic.woff' | asset_url }}") format('woff'),
-                url("{{ 'Couture-BoldItalic.ttf' | asset_url }}") format('truetype'),
-                url("{{ 'Couture-BoldItalic.svg#Couture-BoldItalic' | asset_url }}") format('svg');
-            font-weight: bold;
-            font-style: italic;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Couture Bold';
-            src: url("{{ 'Couture-Bold.woff2' | asset_url }}") format('woff2');
-            src: url("{{ 'Couture-Bold.?#iefix' | asset_url }}") format('embedded-opentype'),
-                url("{{ 'Couture-Bold.woff2' | asset_url }}") format('woff2'),
-                url("{{ 'Couture-Bold.woff' | asset_url }}") format('woff'),
-                url("{{ 'Couture-Bold.ttf' | asset_url }}") format('truetype'),
-                url("{{ 'Couture-Bold.svg#Couture-Bold' | asset_url }}") format('svg');
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Open Sans Semibold';
-            src: url("{{ 'OpenSans-Semibold.woff2' | asset_url }}") format('woff2');
-            src: url("{{ 'OpenSans-Semibold.?#iefix' | asset_url }}") format('embedded-opentype'),
-                url("{{ 'OpenSans-Semibold.woff2' | asset_url }}") format('woff2'),
-                url("{{ 'OpenSans-Semibold.woff' | asset_url }}") format('woff'),
-                url("{{ 'OpenSans-Semibold.ttf' | asset_url }}") format('truetype'),
-                url("{{ 'OpenSans-Semibold.svg#OpenSans-Semibold' | asset_url }}") format('svg');
-            font-weight: 600;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Open Sans';
-            src: url("{{ 'OpenSans.woff2' | asset_url }}") format('woff2');
-            src: url("{{ 'OpenSans.?#iefix' | asset_url }}") format('embedded-opentype'),
-                url("{{ 'OpenSans.woff2' | asset_url }}") format('woff2'),
-                url("{{ 'OpenSans.woff' | asset_url }}") format('woff'),
-                url("{{ 'OpenSans.ttf' | asset_url }}") format('truetype'),
-                url("{{ 'OpenSans.svg#OpenSans' | asset_url }}") format('svg');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'AXIS Extra';
-            src: url("{{ 'AXIS-ExtraBold.woff2' | asset_url }}") format('woff2');
-            src: url("{{ 'AXIS-ExtraBold.?#iefix' | asset_url }}") format('embedded-opentype'),
-                url("{{ 'AXIS-ExtraBold.woff2' | asset_url }}") format('woff2'),
-                url("{{ 'AXIS-ExtraBold.woff' | asset_url }}") format('woff'),
-                url("{{ 'AXIS-ExtraBold.ttf' | asset_url }}") format('truetype'),
-                url("{{ 'AXIS-ExtraBold.svg#AXIS-ExtraBold' | asset_url }}") format('svg');
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-          font-family: 'icomoon';
-          src:  url("{{ 'icomoon.eot?2nrby7' | asset_url }}");
-          src:  url("{{ 'icomoon.eot?2nrby7#iefix' | asset_url }}") format('embedded-opentype'),
-            url("{{ 'icomoon.ttf?2nrby7' | asset_url }}") format('truetype'),
-            url("{{ 'icomoon.woff?2nrby7' | asset_url }}") format('woff'),
-            url("{{ 'icomoon.svg?2nrby7#icomoon' | asset_url }}") format('svg');
-          font-weight: normal;
+      :root {
+        --default-color: {{ settings.default_color }};
+        --secodn-color: {{ settings.second_color }};
+      }
+      @font-face {
+          font-family: 'Helvetica Neue LT Std';
+          src: url("{{ 'HelveticaNeueLTStd-ThCn.ttf' | asset_url }}") format('truetype');
+          src: url("{{ 'HelveticaNeueLTStd-ThCn.eot#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'HelveticaNeueLTStd-ThCn.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'HelveticaNeueLTStd-ThCn.woff' | asset_url }}") format('woff'),
+              url("{{ 'HelveticaNeueLTStd-ThCn.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'HelveticaNeueLTStd-ThCn.svg#HelveticaNeueLTStd-ThCn' | asset_url }}") format('svg');
+          font-weight: 100;
           font-style: normal;
-          font-display: block;
-        }
+          font-display: swap;
+      }
 
-        @font-face {
-          font-family: 'Neue Helvetica Light';
-          src: url("{{ 'HelveticaNeueLTStd-LtCn.woff2' | asset_url }}") format('woff2');
-          src: url("{{ 'HelveticaNeueLTStd-LtCn.eot?#iefix' | asset_url }}") format('embedded-opentype'),
-              url("{{ 'HelveticaNeueLTStd-LtCn.woff2' | asset_url }}") format('woff2'),
-              url("{{ 'HelveticaNeueLTStd-LtCn.woff' | asset_url }}") format('woff'),
-              url("{{ 'HelveticaNeueLTStd-LtCn.ttf' | asset_url }}") format('truetype'),
-              url("{{ 'HelveticaNeueLTStd-LtCn.svg#HelveticaNeueLTStd-LtCn' | asset_url }}") format('svg');
+      @font-face {
+          font-family: 'Helvetica Cond';
+          src: url("{{ 'HelveticaNeueLTStd-Cn.woff2' | asset_url }}") format('woff2');
+          src: url("{{ 'HelveticaNeueLTStd-Cn.?#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'HelveticaNeueLTStd-Cn.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'HelveticaNeueLTStd-Cn.woff' | asset_url }}") format('woff'),
+              url("{{ 'HelveticaNeueLTStd-Cn.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'HelveticaNeueLTStd-Cn.svg#HelveticaNeueLTStd-Cn' | asset_url }}") format('svg');
+          font-display: swap;
+      }
+
+      @font-face {
+          font-family: 'Couture BoldItalic';
+          src: url("{{ 'Couture-BoldItalic.woff2' | asset_url }}") format('woff2');
+          src: url("{{ 'Couture-BoldItalic.?#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'Couture-BoldItalic.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'Couture-BoldItalic.woff' | asset_url }}") format('woff'),
+              url("{{ 'Couture-BoldItalic.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'Couture-BoldItalic.svg#Couture-BoldItalic' | asset_url }}") format('svg');
+          font-weight: bold;
+          font-style: italic;
+          font-display: swap;
+      }
+
+      @font-face {
+          font-family: 'Couture Bold';
+          src: url("{{ 'Couture-Bold.woff2' | asset_url }}") format('woff2');
+          src: url("{{ 'Couture-Bold.?#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'Couture-Bold.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'Couture-Bold.woff' | asset_url }}") format('woff'),
+              url("{{ 'Couture-Bold.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'Couture-Bold.svg#Couture-Bold' | asset_url }}") format('svg');
           font-weight: bold;
           font-style: normal;
           font-display: swap;
-        }
-        .header-item__custom-active{
-          color: {{settings.second_color}} !important;
-        }
-      {% if template.name == "index" %}
-        body{
-          overflow: hidden;
-        }
-      {% endif %}
+      }
+
+      @font-face {
+          font-family: 'Open Sans Semibold';
+          src: url("{{ 'OpenSans-Semibold.woff2' | asset_url }}") format('woff2');
+          src: url("{{ 'OpenSans-Semibold.?#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'OpenSans-Semibold.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'OpenSans-Semibold.woff' | asset_url }}") format('woff'),
+              url("{{ 'OpenSans-Semibold.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'OpenSans-Semibold.svg#OpenSans-Semibold' | asset_url }}") format('svg');
+          font-weight: 600;
+          font-style: normal;
+          font-display: swap;
+      }
+
+      @font-face {
+          font-family: 'Open Sans';
+          src: url("{{ 'OpenSans.woff2' | asset_url }}") format('woff2');
+          src: url("{{ 'OpenSans.?#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'OpenSans.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'OpenSans.woff' | asset_url }}") format('woff'),
+              url("{{ 'OpenSans.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'OpenSans.svg#OpenSans' | asset_url }}") format('svg');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+      }
+
+      @font-face {
+          font-family: 'AXIS Extra';
+          src: url("{{ 'AXIS-ExtraBold.woff2' | asset_url }}") format('woff2');
+          src: url("{{ 'AXIS-ExtraBold.?#iefix' | asset_url }}") format('embedded-opentype'),
+              url("{{ 'AXIS-ExtraBold.woff2' | asset_url }}") format('woff2'),
+              url("{{ 'AXIS-ExtraBold.woff' | asset_url }}") format('woff'),
+              url("{{ 'AXIS-ExtraBold.ttf' | asset_url }}") format('truetype'),
+              url("{{ 'AXIS-ExtraBold.svg#AXIS-ExtraBold' | asset_url }}") format('svg');
+          font-weight: bold;
+          font-style: normal;
+          font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'icomoon';
+        src:  url("{{ 'icomoon.eot?2nrby7' | asset_url }}");
+        src:  url("{{ 'icomoon.eot?2nrby7#iefix' | asset_url }}") format('embedded-opentype'),
+          url("{{ 'icomoon.ttf?2nrby7' | asset_url }}") format('truetype'),
+          url("{{ 'icomoon.woff?2nrby7' | asset_url }}") format('woff'),
+          url("{{ 'icomoon.svg?2nrby7#icomoon' | asset_url }}") format('svg');
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: 'Neue Helvetica';
+        src: url("{{ 'NeueHelveticaforZara-Lt.woff2' | asset_url }}") format('woff2');
+        src: url("{{ 'NeueHelveticaforZara-Lt.eot?#iefix' | asset_url }}") format('embedded-opentype'),
+            url("{{ 'NeueHelveticaforZara-Lt.woff2' | asset_url }}") format('woff2'),
+            url("{{ 'NeueHelveticaforZara-Lt.woff' | asset_url }}") format('woff'),
+            url("{{ 'NeueHelveticaforZara-Lt.ttf' | asset_url }}") format('truetype'),
+            url("{{ 'NeueHelveticaforZara-Lt.svg#NeueHelveticaforZara-Lt' | asset_url }}") format('svg');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Neue Helvetica Light';
+        src: url("{{ 'HelveticaNeueLTStd-LtCn.woff2' | asset_url }}") format('woff2');
+        src: url("{{ 'HelveticaNeueLTStd-LtCn.eot?#iefix' | asset_url }}") format('embedded-opentype'),
+            url("{{ 'HelveticaNeueLTStd-LtCn.woff2' | asset_url }}") format('woff2'),
+            url("{{ 'HelveticaNeueLTStd-LtCn.woff' | asset_url }}") format('woff'),
+            url("{{ 'HelveticaNeueLTStd-LtCn.ttf' | asset_url }}") format('truetype'),
+            url("{{ 'HelveticaNeueLTStd-LtCn.svg#HelveticaNeueLTStd-LtCn' | asset_url }}") format('svg');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'main.css' | asset_url | stylesheet_tag }}
-    {{ 'main4k.css' | asset_url | stylesheet_tag }}
-
-    {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
-      {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
-      <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-      if (Shopify.designMode) {
-        document.documentElement.classList.add('shopify-design-mode');
-      }
     </script>
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
   </head>
 
-  <body class="pl-0 gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
-    <script>
-      function makeHeaderTransparentIfComingSoon() {
-        if (document.querySelector('.coming-soon__category')) {
-          const sectionHeader = document.querySelector('.section-header');
-          if (sectionHeader) sectionHeader.classList.add('section-header_transparent');
-        }
-      }
-      document.addEventListener('DOMContentLoaded', () => {
-        // Get the referrer URL
-        const referrer = document.referrer;
-
-        // Get the current URL
-        const currentUrl = window.location.href;
-
-        // Function to add custom-active class based on the referrer URL and remove style attribute from others
-        const addCustomActiveClass = (referrerPath) => {
-          // Find all <a> elements with a data-url attribute
-          const anchorElements = document.querySelectorAll('a[data-url]');
-
-          anchorElements.forEach((anchor) => {
-            const dataUrl = anchor.getAttribute('data-url');
-            if (dataUrl === referrerPath) {
-              anchor.classList.add('header-item__custom-active');
-            } else {
-              anchor.style.removeProperty('color');
-            }
-          });
-        };
-
-        // Check if the referrer URL contains 'all' and the current URL contains '/products'
-        if (
-          (referrer.includes('all-original') || referrer.includes('all-limited')) &&
-          currentUrl.includes('/products')
-        ) {
-          // Extract the path from the referrer URL
-          const referrerPath = new URL(referrer).pathname;
-          localStorage.setItem('savedReferrerUrl', referrerPath); // Save the referrer path
-
-          // Add custom-active class to matching <a> elements and remove style attribute from others
-          addCustomActiveClass(referrerPath);
-        }
-        makeHeaderTransparentIfComingSoon();
-      });
-    </script>
-    {%- if settings.cart_type == 'drawer' -%}
-      {%- render 'cart-drawer' -%}
-    {%- endif -%}
-    {% sections 'header-group' %}
-    {% section 'share' %}
-    <main
-      id="MainContent"
-      class="content-for-layout focus-none main relative min-h-full pt-[54px] lg:pt-[27px] lg:pr-[20px] max-lg:!pl-0 overflow-hidden{% if template.name == 'product' %} pb-[82px]{% endif %}"
-      role="main"
-      tabindex="-1"
-    >
-      <div class="max-lg:hidden fixed w-[80vw] top-0 right-0 desktop-search-wrapper flex justify-end z-[4]{% if template.name != "index" and template != '404' %} bg-white{% endif %}">
-        <form
-          id="search-form"
-          action="{{ routes.search_url }}"
-          class="flex items-end relative w-[190px] search-form"
-        >
-          <input
-            class="border-0 border-b border-b-black w-[171px] bg-transparent flex-1"
-            id="search-input"
-            type="search"
-            name="q"
-            autocomplete="off"
-          >
-          <input name="options[prefix]" type="hidden" value="last">
-          <input type="hidden" name="type" value="product">
-          <input type="hidden" name="options[unavailable_products]" value="hide">
-          <button type="submit" class="ml-1" aria-label="{{ 'general.search.search' | t }}">
-            <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Search-Icon-v2"></span>
-          </button>
-          <div
-            class="tooltip tooltip_search absolute top-full -left-[20px] rounded-[6px] mt-2.5 whitespace-nowrap bg-white border border-black p-1 hidden"
-          >
-            <div class="flex items-center">
-              <div class="w-7 h-7 mr-[7px]">
-                {%- render 'icon-info' -%}
-              </div>
-              <p class="leading-none text-[15px] tracking-wider font-open">Please fill out this field.</p>
-            </div>
-          </div>
-        </form>
-      </div>
+  <body class="blocked-market gradient">
+    <main id="MainContent" class="blocked-market-main">
       {{ content_for_layout }}
     </main>
-
-    {% comment %} {% sections 'footer-group' %} {% endcomment %}
-    <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
-    <script>
-      const searchForms = document.querySelectorAll('.search-form');
-      const searchTrigger = document.querySelector('.search-trigger');
-      const searchFormMobile = document.querySelector('.search-form-mobile');
-
-      // Add event listener for the search-trigger click
-      searchTrigger.addEventListener('click', function () {
-        searchTrigger.classList.add('hidden');
-        searchFormMobile.classList.remove('hidden');
-        searchFormMobile.classList.add('flex');
-      });
-
-      searchForms.forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          event.preventDefault();
-
-          const searchInput = form.querySelector('input[type="search"]');
-          const tooltip = form.querySelector('.tooltip_search');
-
-          if (searchInput.value.trim() === '') {
-            tooltip.classList.remove('hidden');
-
-            setTimeout(function () {
-              tooltip.classList.add('hidden');
-            }, 2000);
-            return;
-          }
-
-          const query = searchInput.value.trim();
-          const words = query.split(' ');
-
-          // Store the search terms in local storage
-          localStorage.setItem('searchTerms', JSON.stringify(words));
-
-          const promises = words.map((word) => {
-            return fetch(`/search?q=${word}&type=product,page`)
-              .then((response) => response.text())
-              .then((data) => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(data, 'text/html');
-
-                // Process products
-                const products = Array.from(doc.querySelectorAll('.grid__item')).map((item) => {
-                  const collections = item.getAttribute('data-collections').split(',');
-                  const productId = item.getAttribute('data-product-id');
-                  return { id: productId, html: item.outerHTML, collections };
-                });
-
-                // Process pages
-                const pages = Array.from(doc.querySelectorAll('.page__search-group')).map((item) => {
-                  return { id: null, html: item.outerHTML, collections: ['page-search'] };
-                });
-
-                return [...products, ...pages];
-              });
-          });
-
-          Promise.all(promises).then((results) => {
-            const flattenedResults = [].concat(...results);
-
-            // Filter collections containing 'all'
-            const collectionsMap = new Map();
-
-            flattenedResults.forEach((item) => {
-              item.collections.forEach((collection) => {
-                if (
-                  (collection.includes('all') || collection === 'page-search') &&
-                  collection !== 'home-page-collection'
-                ) {
-                  if (!collectionsMap.has(collection)) {
-                    collectionsMap.set(collection, new Map());
-                  }
-                  const uniqueItems = collectionsMap.get(collection);
-
-                  // Ensure only unique products are added based on 'id' or content
-                  if (item.id && !uniqueItems.has(item.id)) {
-                    uniqueItems.set(item.id, item.html);
-                  } else if (!item.id) {
-                    // For pages or items without an ID, add directly
-                    uniqueItems.set(item.html, item.html);
-                  }
-                }
-              });
-            });
-
-            // Convert collectionsMap to an array of objects for easier processing in the search page
-            const groupedResults = Array.from(collectionsMap.entries()).map(([collection, itemsMap]) => ({
-              collection,
-              items: Array.from(itemsMap.values()), // Get only the HTML values
-            }));
-
-            // Store the grouped results in local storage
-            localStorage.setItem('groupedSearchResults', JSON.stringify(groupedResults));
-
-            // Redirect to the search results page
-            window.location.href = '/search';
-          });
-        });
-      });
-    </script>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const bar = document.getElementById('bar');
-        const scrollContainer = document.querySelector('.cs-scroll');
-        let lastScrollTop = 0;
-
-        if (bar) {
-          function handleScroll() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            let containerScrollTop = scrollContainer ? scrollContainer.scrollTop : 0;
-
-            if (scrollTop > lastScrollTop || containerScrollTop > lastScrollTop) {
-              bar.style.transform = 'translateY(-100%)';
-            } else {
-              bar.style.transform = 'translateY(0)';
-            }
-
-            lastScrollTop = Math.max(scrollTop, containerScrollTop);
-          }
-
-          function checkWidthAndScroll() {
-            if (window.innerWidth <= 1023) {
-              window.addEventListener('scroll', handleScroll);
-              if (scrollContainer) {
-                scrollContainer.addEventListener('scroll', handleScroll);
-              }
-            } else {
-              window.removeEventListener('scroll', handleScroll);
-              if (scrollContainer) {
-                scrollContainer.removeEventListener('scroll', handleScroll);
-              }
-              bar.style.transform = 'translateY(0)';
-            }
-          }
-
-          window.addEventListener('resize', checkWidthAndScroll);
-          checkWidthAndScroll(); // Initial check
-        }
-      });
-    </script>
-    <script>
-      window.shopUrl = '{{ request.origin }}';
-      window.routes = {
-        cart_add_url: '{{ routes.cart_add_url }}',
-        cart_change_url: '{{ routes.cart_change_url }}',
-        cart_update_url: '{{ routes.cart_update_url }}',
-        cart_url: '{{ routes.cart_url }}',
-        predictive_search_url: '{{ routes.predictive_search_url }}',
-      };
-
-      window.cartStrings = {
-        error: `{{ 'sections.cart.cart_error' | t }}`,
-        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
-      };
-
-      window.variantStrings = {
-        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
-        soldOut: `{{ 'products.product.sold_out' | t }}`,
-        unavailable: `{{ 'products.product.unavailable' | t }}`,
-        unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
-      };
-
-      window.quickOrderListStrings = {
-        itemsAdded: `{{ 'sections.quick_order_list.items_added.other' | t: quantity: '[quantity]' }}`,
-        itemAdded: `{{ 'sections.quick_order_list.items_added.one' | t: quantity: '[quantity]' }}`,
-        itemsRemoved: `{{ 'sections.quick_order_list.items_removed.other' | t: quantity: '[quantity]' }}`,
-        itemRemoved: `{{ 'sections.quick_order_list.items_removed.one' | t: quantity: '[quantity]' }}`,
-        viewCart: `{{- 'sections.quick_order_list.view_cart' | t -}}`,
-        each: `{{- 'sections.quick_order_list.each' | t: money: '[money]' }}`,
-      };
-
-      window.accessibilityStrings = {
-        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
-        shareSuccess: `{{ 'general.share.success_message' | t }}`,
-        pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
-        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
-        recipientFormExpanded: `{{ 'recipient.form.expanded' | t }}`,
-        recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
-        countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
-      };
-    </script>
-    {%- render 'wishlist-modal-removed' -%}
-    {%- if settings.predictive_search_enabled -%}
-      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
+    <ul hidden>
+      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
+    </ul>
   </body>
 </html>

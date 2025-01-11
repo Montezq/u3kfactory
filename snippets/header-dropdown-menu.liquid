@@ -16,13 +16,41 @@
           {% endcomment %}
         >
           {%- if link.links != blank -%}
+            {% comment %}
+              {% if template.name == 'collection' %}
+                {% for product in collection.products %}
+                  {% for collection in product.collections %}
+                    {% for childlink in link.links %}
+                      {% assign collection_title = collection.handle
+                        | escape
+                        | downcase
+                        | remove: 'all-'
+                        | remove: '-prints'
+                      %}
+                      {% assign childlink_title = childlink.url
+                        | escape
+                        | downcase
+                        | remove: '/collections/'
+                        | remove: '/pages/'
+                        | remove: '/it'
+                      %}
+                      {{ collection_title }} --- {{ childlink_title }}
+                      <br>
+                      {% if collection_title == childlink_title %}
+                        {% assign active_item = true %}
+                      {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                {% endfor %}
+              {% endif %}
+            {% endcomment %}
             {%- liquid
               assign active_item = false
               if template.name == 'collection'
                 for product in collection.products
                   for collection in product.collections
                     for childlink in link.links
-                      assign collection_title = collection.handle | escape | downcase | remove: 'all-' | remove: '-prints'
+                      assign collection_title = collection.handle | escape | downcase | remove: 'all-' | remove: '-prints' | remove: '/it'
                       assign childlink_title = childlink.url | escape | downcase | remove: '/collections/' | remove: '/pages/'
                       if collection_title == childlink_title
                         assign active_item = true
