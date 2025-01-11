@@ -162,6 +162,28 @@
   </head>
 
   <body class="blocked-market gradient">
+    {% assign blocked_locales_str = settings.market_blocked | default: '' %}
+    {% assign blocked_locales_array = blocked_locales_str | split: ',' %}
+    <script>
+      var blockedLocales = [
+        {% for locale in blocked_locales_array %}
+          "{{ locale | strip | upcase }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ];
+
+      fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(function(data) {
+          var userCountryCode = data.country_code ? data.country_code.toUpperCase() : "";
+
+          if (blockedLocales.indexOf(userCountryCode) !== -1) {
+            window.location.href = "/pages/blocked-market";
+          }
+        })
+        .catch(function(error) {
+          console.error("Geolocation API error:", error);
+        });
+    </script>
     <main id="MainContent" class="blocked-market-main">
       {{ content_for_layout }}
     </main>
