@@ -167,18 +167,13 @@
     {% assign blocked_locales_str = settings.market_blocked | default: '' %}
     {% assign blocked_locales_array = blocked_locales_str | split: ',' %}
     <script>
-      window.addEventListener("pageshow", function (event) {
-        if (event.persisted) {
-          window.location.reload();
-        }
-      });
       var blockedLocales = [
         {% for locale in blocked_locales_array %}
           "{{ locale | strip | upcase }}"{% unless forloop.last %},{% endunless %}
         {% endfor %}
       ];
 
-      fetch('https://ipapi.co/json/')
+      fetch('https://ipwhois.app/json/')
         .then(response => response.json())
         .then(function(data) {
           var userCountryCode = data.country_code ? data.country_code.toUpperCase() : "";
