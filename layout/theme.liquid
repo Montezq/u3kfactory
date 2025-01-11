@@ -250,6 +250,9 @@
             </div>
           </div>
         </form>
+        <div class="language-block mt-auto ml-3{% if template.name != "index" and template != '404' %} language-block__color{% endif %}">
+          {%- render 'language-localization' -%}
+        </div>
       </div>
       {{ content_for_layout }}
     </main>
