@@ -12,9 +12,9 @@
   <div class="customer-register__form-wrapper pb-8">
     <div class="customer-login__form-wrapper-heading text-center mb-10">
       <div class="customer-login__form-wrapper-heading flex justify-center items-center mb-10">
-        <p class="text-sm uppercase font-bold">NAME FOR DELIVERY</p>
+        <p class="text-sm uppercase font-bold">{{ 'customer.register.delivery_name' | t }}</p>
         <span class="uppercase text-xs md:text-sm font-bold px-2.5"> I </span>
-        <p class="text-sm uppercase font-bold">YOUR FUTURE LOG IN DETAILS</p>
+        <p class="text-sm uppercase font-bold">{{ 'customer.register.future_login_details' | t }}</p>
       </div>
     </div>
     {%- form 'create_customer', novalidate: 'novalidate' -%}
@@ -26,7 +26,7 @@
                 {{ 'customer.register.first_name' | t }}
               </label>
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="first-name-error">
-                <span> *First Name is required </span>
+                <span> *{{ 'customer.register.first_name_required' | t }} </span>
               </div>
             </div>
             <input
@@ -46,7 +46,7 @@
                 {{ 'customer.register.last_name' | t }}
               </label>
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="last-name-error">
-                <span> *Last Name is required </span>
+                <span> *{{ 'customer.register.last_name_required' | t }} </span>
               </div>
             </div>
             <input
@@ -60,7 +60,7 @@
               autocomplete="family-name"
             >
             <div>
-              <p class="text-sm font-bold text-right">*Make sure to provide real Name and Surname</p>
+              <p class="text-sm font-bold text-right">*{{ 'customer.register.real_name' | t }}</p>
             </div>
           </div>
         </div>
@@ -71,10 +71,10 @@
                 {{ 'customer.register.email' | t }}
               </label>
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="email-error">
-                <span> *Email is required </span>
+                <span> *{{ 'customer.register.email_required' | t }} </span>
               </div>
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="email-error2">
-                <span> *Valid Email is required </span>
+                <span> *{{ 'customer.register.email_required_valid' | t }} </span>
               </div>
             </div>
             <div class="relative">
@@ -102,14 +102,14 @@
                 {{ 'customer.register.password' | t }}
               </label>
               <div class="form-errors hidden text-[10px] md:text-[13px]" id="password-error">
-                <span> *Password is required </span>
+                <span> *{{ 'customer.register.password_required' | t }} </span>
               </div>
               <div
                 class="form-errors hidden text-[10px] md:text-[13px] line-clamp-1 pl-5"
                 title="*Password must be at least 8 characters in length"
                 id="password-error2"
               >
-                <span> *Password must be at least 8 characters in length </span>
+                <span> *{{ 'customer.register.password_match' | t }} </span>
               </div>
               {%- if form.errors contains 'password' -%}
                 <div class="form-errors">
@@ -136,7 +136,7 @@
               ></span>
             </div>
             <div>
-              <p class="text-sm font-bold text-right">*Profile Log in info</p>
+              <p class="text-sm font-bold text-right">*{{ 'customer.register.login_info' | t }}</p>
             </div>
           </div>
           <div class="flex justify-end">

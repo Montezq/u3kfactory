@@ -25,7 +25,7 @@
             <h2
               class="totals__total text-[19px] md:text-[25px] font-semibold md:font-bold leading-none uppercase whitespace-nowrap max-md:flex max-md:justify-between max-md:items-center max-md:w-full"
             >
-              <span class="max-md:mr-2">Total </span>
+              <span class="max-md:mr-2">{{ 'customer.order.total' | t }} </span>
               <span class="totals__total-value header-cart-data"> {{ cart.total_price | money_with_currency }}</span>
             </h2>
           </div>
@@ -35,7 +35,7 @@
       <div class="cart__warnings">
         <div class="flex flex-col items-center cart__empty-wrapper md:pl-1">
           <h1 class="cart__empty-text font-open uppercase text-center tracking-[.28em] font-semibold">
-            YOUR CART IS EMPTY
+            {{ 'sections.cart.empty' | t }}
           </h1>
           <img
             class="w-[32vw] md:w-[175px]"
@@ -44,7 +44,7 @@
             height="550"
           >
           <h2 class="cart__empty-text-h2 uppercase text-center tracking-[.28em] font-open font-semibold">
-            GO FILL IT UP!
+            {{ 'sections.cart.go_fill_up' | t }}
           </h2>
         </div>
       </div>
@@ -88,7 +88,8 @@
                             {{- item.product.title | escape -}}
                           </a>
                           <p class="text-[13px] md:text-[17px] italic max-md:leading-none">
-                            by {{ item.product.vendor }}
+                            {{ 'missing_translations.by' | t }}
+                            {{ item.product.vendor }}
                           </p>
                         </div>
                         <dl class="grid gap-1.5">
@@ -125,7 +126,8 @@
                               class="text-right text-[20px] font-bold whitespace-nowrap"
                               aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                             >
-                              Remove <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Trash-Bin-v3"></span>
+                              {{ 'sections.cart.remove' | t }}
+                              <span class="icon-FULL-ICON-SET-WEBSITE-FINAL_Trash-Bin-v3"></span>
                             </a>
                           </cart-remove-button>
                           <quantity-popover>

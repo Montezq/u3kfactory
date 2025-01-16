@@ -42,7 +42,9 @@
               <div class="w-7 h-7 mr-[7px]">
                 {%- render 'icon-info' -%}
               </div>
-              <p class="leading-none text-[15px] tracking-wider font-open">Please fill out this field.</p>
+              <p class="leading-none text-[15px] tracking-wider font-open">
+                {{ 'missing_translations.fill_out_field' | t }}
+              </p>
             </div>
           </div>
         </form>
@@ -140,7 +142,8 @@
         <div class="header__personal-menu-footer mt-auto lg:hidden">
           <div class="tracking-wide max-w-60 pt-4">
             <small class="text-lg font-open">
-              U3&copy; All rights reserved <br>
+              {{ 'missing_translations.copyrights' | t }}
+              <br>
               {{ 'now' | date: '%Y' }}
             </small>
           </div>
@@ -292,7 +295,7 @@
       {% render 'social-icons' %}
       <div class="mt-[15px] tracking-wide max-w-[212px] hidden lg:block">
         <small class="text-lg font-open leading-tight md:leading-[19px] block">
-          U3&copy; All rights reserved
+          {{ 'missing_translations.copyrights' | t }}
           {{ 'now' | date: '%Y' }}
         </small>
       </div>

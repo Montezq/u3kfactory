@@ -31,7 +31,8 @@
         </noscript>
         <div class="totals">
           <p class="whitespace-nowrap text-[25px] font-bold leading-none uppercase px-4 max-md:hidden">
-            Total <span class="totals__total-value">{{ cart.total_price | money_with_currency }}</span>
+            {{ 'customer.order.total' | t }}
+            <span class="totals__total-value">{{ cart.total_price | money_with_currency }}</span>
           </p>
         </div>
         <button

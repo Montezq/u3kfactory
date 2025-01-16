@@ -26,13 +26,15 @@
       {%- unless section.settings.enable_filtering or section.settings.enable_sorting -%}
         {%- if search.results_count > 0 -%}
           <p role="status" class="uppercase text-[17px]">
-            {{ search.results_count }} Search results for <strong>"{{ term_list }}"</strong> found in
+            {{ search.results_count }}
+            {{ 'templates.search.results_for' | t }}
+            <strong>"{{ term_list }}"</strong> {{ 'templates.search.results_found_in' | t }}
           </p>
         {%- endif -%}
       {%- endunless -%}
       {%- if search.results_count == 0 and search.filters == empty -%}
         <p role="status" class="uppercase text-[17px] py-[30vh]">
-          {{ 'templates.search.no_results_html' | t: terms: term_list }}
+          {{ 'templates.search.no_results' | t: terms: term_list }}
         </p>
       {%- endif -%}
     {%- endif -%}
@@ -53,13 +55,13 @@
         {% if item.title == 'Terms of Service' %}
           <div class="search__group hidden page__search-group">
             <h2 class="uppercase text-[14px] mb-3 md:mb-5">{{ item.title }}</h2>
-            <a href="{{ item.url }}" class="btn"> GO TO PAGE </a>
+            <a href="{{ item.url }}" class="btn"> {{ 'missing_translations.go_to_page' | t }} </a>
           </div>
         {% endif %}
         {% if item.title == 'Return Policy' %}
           <div class="search__group hidden page__search-group">
             <h2 class="uppercase text-[14px] mb-3 md:mb-5">{{ item.title }}</h2>
-            <a href="{{ item.url }}" class="btn"> GO TO PAGE </a>
+            <a href="{{ item.url }}" class="btn"> {{ 'missing_translations.go_to_page' | t }} </a>
           </div>
         {% endif %}
       {% endif %}
@@ -207,7 +209,7 @@
         }
       });
     } else {
-      searchStatus.innerHTML = `No search results found for <strong>"${termList}"</strong>.`;
+      searchStatus.innerHTML = `{{ "templates.search.no_results" | t }} <strong>"${termList}"</strong>.`;
     }
   });
 </script>

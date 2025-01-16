@@ -1,15 +1,26 @@
 {
   "missing_translations":{
+    "copyrights": "U3&copy; All rights reserved",
+    "latest": "Latest",
     "my_orders": "My Orders",
-    "my_favorites": "My Favorites",
     "preferences": "Preferences",
-    "contact_the_artis": "Contact the artist",
+    "contact_the_artist": "Contact the artist",
     "you_are_contacting": "You Are Contacting",
     "your_message": "Your Message",
     "field_required": "Field required",
-    "submit_message": "SUBMIT MESSAGE",
+    "submit_message": "Submit message",
     "message_sent": "Message Sent",
-    "contact_artis_reasons":{
+    "combination_unavailable": "Combination unavailable",
+    "by": "by",
+    "optional": "Optional",
+    "available_soon": "AVAILABLE SOON",
+    "respond_time": "*We generally respond in the course of 4 hours. Please specify the problem you have as clear as possible in the message space so we can get to work right away and resolve whichever issues you have.",
+    "you_can_also_contact_us": "You can also contact us by sending a email to",
+    "email_in_notification_list": "This email is already in the notification list.",
+    "fill_out_field": "Please fill out this field.",
+    "instructions_sent": "Instructions Sent",
+    "link_copied": "Link Copied",
+    "contact_artist_reasons":{
       "collaboration": "Collaboration",
       "commission": "Commission",
       "interview": "Interview",
@@ -20,7 +31,31 @@
     },
     "blocked_market":{
       "heading_html": "WE ARE<strong> NOT SHIPPING <\/strong> TO YOUR <strong>LOCATION<\/strong> <strong>AT THE MOMENT<\/strong><br class=\"md:hidden\"> <span class=\"max-lg:hidden\">-<\/span> FOLLOW US TO BE <strong>UPDATED<\/strong>"
-    }
+    },
+    "maintenance":{
+      "heading_html": "<strong>WEBSITE<\/strong> IS UNDER <strong> MAINTENANCE <\/strong> <br class=\"lg:hidden\"> <span class=\"max-lg:hidden\">-<\/span> WE’LL BE <strong>BACK ONLINE<\/strong> IN <strong>NO TIME<\/strong>"
+    },
+    "direct_chat":{
+      "title": "Direct chat"
+    },
+    "company_details":{
+      "title": "COMPANY DETAILS",
+      "line_1": "U3 Art Faktory Srl",
+      "line_2": "Str. Vadu Voda Nr. 1C",
+      "line_3": "Sat. Horpaz, judetul Iasi",
+      "line_4": "Romania"
+    },
+    "my_favorites": {
+      "choose_size": "choose size/medium",
+      "title": "My Favorites",
+      "no_favorites": "NO FAVORITES",
+      "no_size": "NO SIZE SELECTED",
+      "unframed": "Unframed",
+      "unstretched": "Unstretched",
+      "regular_price": "Regular price",
+      "remove": "remove from list"
+    },
+    "go_to_page": "GO TO PAGE"
   },
   "general": {
     "password_page": {
@@ -105,26 +140,6 @@
     "collapsible_content_title": "Collapsible content",
     "complementary_products": "Complementary products"
   },
-  "blogs": {
-    "article": {
-      "blog": "Blog",
-      "read_more_title": "Read more: {{ title }}",
-      "comments": {
-        "one": "{{ count }} comment",
-        "other": "{{ count }} comments"
-      },
-      "moderated": "Please note, comments need to be approved before they are published.",
-      "comment_form_title": "Leave a comment",
-      "name": "Name",
-      "email": "Email",
-      "message": "Comment",
-      "post": "Post comment",
-      "back_to_blog": "Back to blog",
-      "share": "Share this article",
-      "success": "Your comment was posted successfully! Thank you!",
-      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated."
-    }
-  },
   "onboarding": {
     "product_title": "Example product title",
     "collection_title": "Your collection's name"
@@ -132,6 +147,8 @@
   "products": {
     "product": {
       "add_to_cart": "Add to cart",
+      "copies_left": "COPIES LEFT",
+      "contact_larger_sizes": "Contact us for larger sizes",
       "choose_options": "Choose options",
       "choose_product_options": "Choose options for {{ product_name }}",
       "description": "Description",
@@ -144,6 +161,8 @@
       "sku": "SKU",
       "on_sale": "Sale",
       "product_variants": "Product variants",
+      "no_products": "CAN’T&nbsp; SEE&nbsp; ANY&nbsp; PRODUCTS&nbsp; HERE",
+      "need_more_info": "NEED MORE INFORMATION ABOUT THIS PIECE?",
       "media": {
         "gallery_viewer": "Gallery Viewer",
         "load_image": "Load image {{ index }} in gallery view",
@@ -232,12 +251,18 @@
       "sort_button": "Sort",
       "sort_by_label": "Sort by:",
       "to": "To",
-      "clear_filter": "Remove filter"
+      "clear_filter": "Clear",
+      "close": "Close",
+      "added": "Added",
+      "newest_first": "Newest First",
+      "oldest_first": "Oldest First"
     }
   },
   "templates": {
     "search": {
-      "no_results_html": "No search results found for <strong>“{{ terms }}”<\/strong>.",
+      "results_for": "Search results for",
+      "results_found_in": "found in",
+      "no_results": "No search results found for",
       "page": "Page",
       "products": "Products",
       "results_pages_with_count": {
@@ -266,10 +291,13 @@
       "pages": "Pages"
     },
     "cart": {
-      "cart": "Cart"
+      "cart": "Cart",
+      "empty": "YOUR CART IS EMPTY"
     },
     "contact": {
       "form": {
+        "contact_us": "Contact Us",
+        "contact_by": "CONTACT US BY EMAIL",
         "title": "Contact form",
         "name": "Name",
         "email": "Email",
@@ -278,7 +306,16 @@
         "send": "Send",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
         "error_heading": "Please adjust the following:",
-        "contacted_back": "You will be contacted back on this email address"
+        "contacted_back": "You will be contacted back on this email address",
+        "write_valid_email": "Please write a valid email address to be able to receive updates."
+      },
+      "regarding":{
+        "title": "Regarding",
+        "order_problems": "Order problems",
+        "paymnet_issues": "Payment Issues",
+        "inquire_sizes": "Inquire About Bigger Sizes",
+        "refund": "Refund Request",
+        "other": "Other",
       }
     },
     "404": {
@@ -288,13 +325,6 @@
     }
   },
   "sections": {
-    "announcements": {
-      "previous_announcement": "Previous announcement",
-      "next_announcement": "Next announcement",
-      "carousel": "Carousel",
-      "announcement": "Announcement",
-      "announcement_bar": "Announcement bar"
-    },
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
@@ -307,11 +337,13 @@
       "title": "my shopping cart",
       "caption": "Cart items",
       "remove_title": "Remove {{ title }}",
+      "remove": "Remove",
       "estimated_total": "Estimated total",
       "new_estimated_total": "New estimated total",
       "note": "Order special instructions",
       "checkout": "PROCEED TO ORDER",
       "empty": "Your cart is empty",
+      "go_fill_up": "GO FILL IT UP!",
       "cart_error": "There was an error while updating your cart. Please try again.",
       "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
       "taxes_and_shipping_policy_at_checkout_html": "Taxes, Discounts and <a href=\"{{ link }}\">shipping<\/a> calculated at checkout",
@@ -334,18 +366,6 @@
     "footer": {
       "payment": "Payment methods"
     },
-    "featured_blog": {
-      "view_all": "View all",
-      "onboarding_title": "Blog post",
-      "onboarding_content": "Give your customers a summary of your blog post"
-    },
-    "featured_collection": {
-      "view_all": "View all",
-      "view_all_label": "View all products in the {{ collection_name }} collection"
-    },
-    "collection_list": {
-      "view_all": "View all"
-    },
     "collection_template": {
       "empty_title": "Oh No !",
       "empty_products": "CAN’T  SEE  ANY  PRODUCTS  HERE",
@@ -354,15 +374,6 @@
     },
     "video": {
       "load_video": "Load video: {{ description }}"
-    },
-    "slideshow": {
-      "load_slide": "Load slide",
-      "previous_slideshow": "Previous slide",
-      "next_slideshow": "Next slide",
-      "pause_slideshow": "Pause slideshow",
-      "play_slideshow": "Play slideshow",
-      "carousel": "Carousel",
-      "slide": "Slide"
     },
     "page": {
       "title": "Page title"
@@ -404,7 +415,16 @@
       "title": "Account",
       "details": "Account details",
       "view_addresses": "View addresses",
-      "return": "Return to Account details"
+      "return": "Return to Account details",
+      "default_name": "Default name / address",
+      "new_address": "Insert new address",
+      "address": "Address",
+      "change_password": "Change Password",
+      "delete": "Delete Account",
+      "cancel": "Cancel",
+      "removal": "ACCOUNT REMOVAL",
+      "removal_info_html": "Your account will not be deleted automatically. Your staff will review your request and delete it manually. All the data related to this account will be lost. This includes order history. <br> Proceed with the account termination request?",
+      "yes_delete": "Yes, delete account"
     },
     "account_fallback": "Account",
     "activate_account": {
@@ -416,9 +436,11 @@
       "cancel": "Decline invitation"
     },
     "addresses": {
-      "title": "Addresses",
+      "title": "Address",
       "default": "Default",
       "add_new": "Add a new address",
+      "add_new_short": "Add new",
+      "apartment_number": "Apartment number",
       "edit_address": "Edit address",
       "first_name": "First name",
       "last_name": "Last name",
@@ -426,17 +448,19 @@
       "address1": "Address 1",
       "address2": "Address 2",
       "city": "City",
-      "country": "Country\/region",
+      "country": "Country",
       "province": "Province",
-      "zip": "Postal\/ZIP code",
+      "zip": "zip code",
       "phone": "Phone",
       "set_default": "Set as default",
+      "street_number": "Include street number",
       "add": "Add address",
       "update": "Update address",
       "cancel": "Cancel",
       "edit": "Edit",
-      "delete": "Delete",
-      "delete_confirm": "Are you sure you wish to delete this address?"
+      "delete": "Remove Address",
+      "delete_confirm": "Are you sure you wish to delete this address?",
+      "info_butons": "Buttons affect selected address"
     },
     "log_in": "Log in",
     "log_out": "Log out",
@@ -444,6 +468,7 @@
     "login_page": {
       "cancel": "Back to Login",
       "create_account": "Sign Up",
+      "no_account": "DON'T HAVE AN ACCOUNT?",
       "email": "E-mail",
       "forgot_password": "Forgot password?",
       "guest_continue": "Continue",
@@ -455,10 +480,17 @@
       "submit": "SEND INSTRUCTIONS"
     },
     "order": {
+      "number": "Order No.",
       "title": "Order {{ name }}",
       "date_html": "Placed on {{ date }}",
+      "cancellation": "Order Cancellation",
+      "cancellation_sent": "CANCELLATION REQUEST SENT",
+      "cancellation_info": "Your order is not canceled automatically, our staff needs to review the request and cancel it manually. You will receive a confirmation email as soon as the order has been canceled successfully. Proceed with the cancellation request?",
+      "cancellation_processed": "Your order has already been processed hence it can no longer be canceled. For a refund refer to our Refund Policy.",
+      "yes_cancel": "Yes , Cancel It",
       "cancelled_html": "Order Cancelled on {{ date }}",
       "cancelled_reason": "Reason: {{ reason }}",
+      "request_cancellation": "Request cancellation",
       "billing_address": "Billing Address",
       "payment_status": "Payment Status",
       "shipping_address": "Shipping Address",
@@ -473,16 +505,31 @@
       "total": "Total",
       "total_refunded": "Refunded",
       "fulfilled_at_html": "Fulfilled {{ date }}",
+      "track": "Track order",
       "track_shipment": "Track shipment",
       "tracking_url": "Tracking link",
       "tracking_company": "Carrier",
       "tracking_number": "Tracking number",
+      "tracking_details": "NO TRACKING DETAILS AT THIS TIME",
       "subtotal": "Subtotal",
-      "total_duties": "Duties"
+      "total_duties": "Duties",
+      "heading":{
+        "title": "My Orders",
+        "active": "Active",
+        "completed": "Completed",
+        "canceled": "Canceled"
+      },
     },
     "orders": {
       "title": "Order history",
-      "order_number": "Order",
+      "order_number": "Order No.",
+      "no_orders": "NO ORDERS",
+      "order_status": "Status",
+      "order_canceled": "Canceled",
+      "order_delivered": "Delivered",
+      "order_processing": "Processing",
+      "order_ready": "ready for shipment",
+      "order_transit": "in transit",
       "order_number_link": "Order number {{ number }}",
       "date": "Date",
       "payment_status": "Payment status",
@@ -497,18 +544,31 @@
     },
     "register": {
       "title": "Create account",
-      "first_name": "First name",
+      "first_name": "NAME FOR DELIVERY",
+      "first_name_required": "First Name is required",
       "last_name": "Last name",
+      "last_name_required": "Last Name is required",
       "email": "Email",
+      "email_required": "Email is required",
+      "email_required_valid": "Valid Email is required",
       "password": "Password",
-      "submit": "Sign Up"
+      "password_required": "Password is required",
+      "password_match": "Password must be at least 8 characters in length",
+      "submit": "Sign Up",
+      "delivery_name": "NAME FOR DELIVERY",
+      "future_login_details": "YOUR FUTURE LOG IN DETAILS",
+      "real_name": "Make sure to provide real Name and Surname",
+      "login_info": "Profile Log in info"
     },
     "reset_password": {
-      "title": "Reset account password",
-      "subtext": "Enter a new password",
-      "password": "Password",
+      "title": "Password Reset",
+      "subtext": "WRITE A NEW PASSWORD, AT LEAST 8 CHARACTERS IN LENGTH",
+      "new_password": "New password",
+      "new_password_requirements": "Password must be at least 8 characters in length",
+      "new_password_match": "Passwords do not match",
       "password_confirm": "Confirm password",
-      "submit": "Confirm Password"
+      "submit": "Confirm Password",
+      "successfully": "Password changed successfully",
     }
   },
   "gift_cards": {
