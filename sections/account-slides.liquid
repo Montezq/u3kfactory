@@ -55,9 +55,9 @@
               <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
                 <h3 class="font-helveticaThinCond card-collection__title text-4xl md:text-5xl lg:text-6xl 2xl:text-[74px] tracking-widest text-center text-white uppercase font-thin">
                   {%- if customer -%}
-                    Sign Out
+                    {{ 'customer.login_page.sign_out' | t }}
                   {%- else -%}
-                    Sign In
+                    {{ 'customer.login_page.sign_in' | t }}
                   {%- endif -%}
                 </h3>
               </div>
@@ -99,7 +99,7 @@
               </div>
               <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
                 <h3 class="font-helveticaThinCond card-collection__title text-4xl md:text-5xl lg:text-6xl 2xl:text-[74px] tracking-widest text-center text-white uppercase font-thin">
-                  My Orders
+                  {{ 'missing_translations.my_orders' | t }}
                 </h3>
               </div>
             </a>
@@ -140,7 +140,7 @@
               </div>
               <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
                 <h3 class="font-helveticaThinCond card-collection__title text-4xl md:text-5xl lg:text-6xl 2xl:text-[74px] tracking-widest text-center text-white uppercase font-thin">
-                  My FAvorites
+                  {{ 'missing_translations.my_favorites' | t }}
                 </h3>
               </div>
             </a>
@@ -181,7 +181,7 @@
               </div>
               <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
                 <h3 class="font-helveticaThinCond card-collection__title text-4xl md:text-5xl lg:text-6xl 2xl:text-[74px] tracking-widest text-center text-white uppercase font-thin">
-                  PREFERENCES
+                  {{ 'missing_translations.preferences' | t }}
                 </h3>
               </div>
             </a>

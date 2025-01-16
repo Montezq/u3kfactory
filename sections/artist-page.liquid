@@ -57,7 +57,9 @@
     </div>
     <div class="artist-page__contacts max-md:px-2{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <div class="artist-page__contacts-contact flex justify-center">
-        <button class="btn btn_primary btn_small w-[360px] max-w-full contact-us">Contact the artist</button>
+        <button class="btn btn_primary btn_small w-[360px] max-w-full contact-us">
+          {{ 'missing_translations.contact_the_artis' | t }}
+        </button>
       </div>
     </div>
     {%- if section.settings.facebook_url != blank
@@ -137,7 +139,7 @@
       >
         <div class="contact-us__modal-heading text-center mb-[21px] md:mb-[30px]">
           <p class="text-[15px] md:text-[19px] tracking-widest font-bold uppercase leading-none mb-6 md:mb-[44px]">
-            You Are contacting
+            {{ 'missing_translations.you_are_contacting' | t }}
           </p>
           {% assign full_string = page.title %}
           {% assign words_array = full_string | split: ' ' %}
@@ -166,7 +168,7 @@
                 <div class="select-trigger cursor-pointer border border-black flex h-[30px] md:h-12">
                   <div class="flex items-center pl-2.5 flex-1">
                     <span class="selected-text line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase">
-                      Collaboration
+                      {{ 'missing_translations.contact_artis_reasons.collaboration' | t }}
                     </span>
                   </div>
                   <div class="w-11 select-icon border-black flex items-center justify-center">
@@ -182,20 +184,12 @@
                         checked
                         type="radio"
                         name="contact[regarding]"
-                        value="Collaboration"
+                        value="{{ "missing_translations.contact_artis_reasons.collaboration" | t }}"
                         class="invisible w-0 h-0"
                       >
-                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase"
-                        >Collaboration</span
-                      >
-                    </label>
-                  </li>
-                  <li class="custom-option">
-                    <label class="cursor-pointer px-2.5 h-[30px] md:h-11 flex items-center duration-200 ease-in-out">
-                      <input type="radio" name="contact[regarding]" value="Commission" class="invisible w-0 h-0">
-                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase"
-                        >Commission</span
-                      >
+                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase">
+                        {{- 'missing_translations.contact_artis_reasons.collaboration' | t -}}
+                      </span>
                     </label>
                   </li>
                   <li class="custom-option">
@@ -203,18 +197,38 @@
                       <input
                         type="radio"
                         name="contact[regarding]"
-                        value="Interview"
+                        value="{{ "missing_translations.contact_artis_reasons.commission" | t }}"
                         class="invisible w-0 h-0"
                       >
-                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase"
-                        >Interview</span
-                      >
+                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase">
+                        {{- 'missing_translations.contact_artis_reasons.commission' | t -}}
+                      </span>
                     </label>
                   </li>
                   <li class="custom-option">
                     <label class="cursor-pointer px-2.5 h-[30px] md:h-11 flex items-center duration-200 ease-in-out">
-                      <input type="radio" name="contact[regarding]" value="Other" class="invisible w-0 h-0">
-                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase">Other</span>
+                      <input
+                        type="radio"
+                        name="contact[regarding]"
+                        value="{{ "missing_translations.contact_artis_reasons.interview" | t }}"
+                        class="invisible w-0 h-0"
+                      >
+                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase">
+                        {{- 'missing_translations.contact_artis_reasons.interview' | t -}}
+                      </span>
+                    </label>
+                  </li>
+                  <li class="custom-option">
+                    <label class="cursor-pointer px-2.5 h-[30px] md:h-11 flex items-center duration-200 ease-in-out">
+                      <input
+                        type="radio"
+                        name="contact[regarding]"
+                        value="{{ "missing_translations.contact_artis_reasons.other" | t }}"
+                        class="invisible w-0 h-0"
+                      >
+                      <span class="line-clamp-1 text-[10px] md:text-sm text-gray-750 font-open uppercase">
+                        {{- 'missing_translations.contact_artis_reasons.other' | t -}}
+                      </span>
                     </label>
                   </li>
                 </ul>
@@ -222,22 +236,22 @@
             </div>
             <div class="contact-message contact-us__item">
               <div class="flex items-end pl-2.5 justify-between">
-                <label for="message" class="blcok uppercase font-axis font-extrabold text-[10px] md:text-[13px]"
-                  >Your Message</label
-                >
+                <label for="message" class="blcok uppercase font-axis font-extrabold text-[10px] md:text-[13px]">
+                  {{- 'missing_translations.your_message' | t -}}
+                </label>
                 <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
-                  <span> *Field required </span>
+                  <span> *{{ 'missing_translations.field_required' | t }} </span>
                 </div>
               </div>
               <textarea class="block w-full py-2" name="contact[message]" id="message"></textarea>
             </div>
             <div class="contact-email contact-us__item">
               <div class="flex justify-between">
-                <label for="email" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[10px] md:text-[13px]"
-                  >Email</label
-                >
+                <label for="email" class="blcok uppercase pl-2.5 font-axis font-extrabold text-[10px] md:text-[13px]">
+                  {{- 'templates.contact.form.email' | t -}}
+                </label>
                 <span class="text-right text-[10px] md:text-[13px] font-bold line-clamp-1 max-w-[60%]">
-                  *You will be contacted back on this email address
+                  {{ 'templates.contact.form.contacted_back' | t }}
                 </span>
               </div>
               <div class="relative">
@@ -257,7 +271,7 @@
                       {%- render 'icon-info' -%}
                     </div>
                     <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
-                      Please write a valid email address to be able to receive replies.
+                      {{ 'missing_translations.tooltip.write_valid_email' | t }}
                     </p>
                   </div>
                 </div>
@@ -270,7 +284,7 @@
                 class="btn btn_primary w-full max-w-[90%] md:max-w-80 !block mx-auto cursor-pointer !pb-[11px] !pt-[11px]"
                 id="submit-button"
               >
-                SUBMIT MESSAGE
+                {{ 'missing_translations.submit_message' | t }}
               </button>
             </div>
           {% endform %}
@@ -287,7 +301,9 @@
     tabindex="-1"
   >
     <div class="removed-wishlist__modal-heading text-center">
-      <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">Message Sent</h2>
+      <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">
+        {{ 'missing_translations.message_sent' | t }}
+      </h2>
     </div>
   </div>
 </div>

@@ -1,4 +1,27 @@
 {
+  "missing_translations":{
+    "my_orders": "My Orders",
+    "my_favorites": "My Favorites",
+    "preferences": "Preferences",
+    "contact_the_artis": "Contact the artist",
+    "you_are_contacting": "You Are Contacting",
+    "your_message": "Your Message",
+    "field_required": "Field required",
+    "submit_message": "SUBMIT MESSAGE",
+    "message_sent": "Message Sent",
+    "contact_artis_reasons":{
+      "collaboration": "Collaboration",
+      "commission": "Commission",
+      "interview": "Interview",
+      "other": "Other",
+    },
+    "tooltip":{
+      "write_valid_email": "Please write a valid email address to be able to receive replies."
+    },
+    "blocked_market":{
+      "heading_html": "WE ARE<strong> NOT SHIPPING <\/strong> TO YOUR <strong>LOCATION<\/strong> <strong>AT THE MOMENT<\/strong><br class=\"md:hidden\"> <span class=\"max-lg:hidden\">-<\/span> FOLLOW US TO BE <strong>UPDATED<\/strong>"
+    }
+  },
   "general": {
     "password_page": {
       "login_form_heading": "Enter store using password:",
@@ -65,7 +88,6 @@
     "button_label": "Subscribe"
   },
   "accessibility": {
-    "buttons": "Submit",
     "skip_to_text": "Skip to content",
     "skip_to_product_info": "Skip to product information",
     "close": "Close",
@@ -255,7 +277,8 @@
         "comment": "Comment",
         "send": "Send",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
-        "error_heading": "Please adjust the following:"
+        "error_heading": "Please adjust the following:",
+        "contacted_back": "You will be contacted back on this email address"
       }
     },
     "404": {
@@ -427,6 +450,7 @@
       "guest_title": "Continue as a guest",
       "password": "Password",
       "title": "LOG IN",
+      "sign_out": "Sign Out",
       "sign_in": "Sign in",
       "submit": "SEND INSTRUCTIONS"
     },
