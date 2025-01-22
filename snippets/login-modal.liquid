@@ -17,12 +17,13 @@
         tabindex="-1"
       >
         <div class="login__modal-heading text-center mb-6 md:mb-[40px]">
-          <h2 class="font-coutureBold text-lg md:text-[22px] uppercase">CREATE AN ACCOUNT</h2>
+          <h2 class="font-coutureBold text-lg md:text-[22px] uppercase">
+            {{ 'missing_translations.login_modal.create_account' | t }}
+          </h2>
         </div>
         <div class="login__modal-body mb-6 md:mb-[40px]">
           <p class="text-[11px] md:text-[13px] uppercase tracking-[0.1em] font-black leading-snug">
-            SIGN UP NOW SO YOU CAN ACCESS ALL THE FUNCTIONS RESERVED FOR MEMEBERS ONLY. YOU CAN STILL PURCHASE AS A
-            GUEST BUT YOU WILL HAVE TO INTRODUCE YOUR INFO EVERY TIME SINCE IT WON’T BE SAVED TO AN ACCOUNT.
+            {{ 'missing_translations.login_modal.sign_up' | t }}
           </p>
         </div>
         <div class="login__modal-footer pb-4 md:pb-[25px] text-center">
@@ -30,9 +31,11 @@
             href="{{ routes.account_register_url }}"
             class="btn btn_primary !text-xl md:!text-2xl w-full mb-1.5 !py-1.5"
           >
-            SIGN UP NOW
+            {{ 'missing_translations.login_modal.sign_up_now' | t }}
           </a>
-          <a href="#" class="underline text-[11px] md:text-[13px] font-black login__modal-close"> CONTINUE AS GUEST </a>
+          <a href="#" class="underline text-[11px] md:text-[13px] font-black login__modal-close">
+            {{ 'missing_translations.login_modal.continue_guest' | t }}
+          </a>
         </div>
       </div>
     </div>

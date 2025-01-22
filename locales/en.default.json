@@ -20,6 +20,7 @@
     "fill_out_field": "Please fill out this field.",
     "instructions_sent": "Instructions Sent",
     "link_copied": "Link Copied",
+    "dont_show_again": "I GOT IT, DON’T SHOW AGAIN",
     "contact_artist_reasons":{
       "collaboration": "Collaboration",
       "commission": "Commission",
@@ -53,7 +54,18 @@
       "unframed": "Unframed",
       "unstretched": "Unstretched",
       "regular_price": "Regular price",
-      "remove": "remove from list"
+      "remove": "remove from list",
+      "save_for_later": "save for later",
+      "remove_favorites": "REMOVED FROM FAVORITES",
+      "saved": "SAVED TO MY FAVORITES",
+      "find_favorites": "YOU CAN FIND ALL YOUR SAVED PRODUCTS IN MY FAVORITES SECTION BY NAVIGATING TO YOUR PROFILE. SAVE ALL THE ART THAT INTERESTS YOU FOR LATER SO YOU CAN FIND IT EASILY EVERYTIME.",
+      "go_to_my_favorites": "GO TO MY FAVORITES"
+    },
+    "login_modal":{
+      "create_account": "CREATE AN ACCOUNT",
+      "sign_up": "SIGN UP NOW SO YOU CAN ACCESS ALL THE FUNCTIONS RESERVED FOR MEMEBERS ONLY. YOU CAN STILL PURCHASE AS A GUEST BUT YOU WILL HAVE TO INTRODUCE YOUR INFO EVERY TIME SINCE IT WON’T BE SAVED TO AN ACCOUNT.",
+      "sign_up_now": "SIGN UP NOW",
+      "continue_guest": "CONTINUE AS GUEST"
     },
     "go_to_page": "GO TO PAGE"
   },
@@ -100,7 +112,8 @@
     "cart": {
       "view": "View cart ({{ count }})",
       "view_empty_cart": "View cart",
-      "item_added": "Item added to your cart"
+      "item_added": "Item added to your cart",
+      "item_added_to": "Added to"
     },
     "share": {
       "share_product": "Share This Product"
@@ -163,6 +176,7 @@
       "product_variants": "Product variants",
       "no_products": "CAN’T&nbsp; SEE&nbsp; ANY&nbsp; PRODUCTS&nbsp; HERE",
       "need_more_info": "NEED MORE INFORMATION ABOUT THIS PIECE?",
+      "no_more_pieces": "No more pieces available",
       "media": {
         "gallery_viewer": "Gallery Viewer",
         "load_image": "Load image {{ index }} in gallery view",
@@ -344,6 +358,8 @@
       "checkout": "PROCEED TO ORDER",
       "empty": "Your cart is empty",
       "go_fill_up": "GO FILL IT UP!",
+      "go_to_cart": "Go To Cart",
+      "free_shipping": "FREE SHIPPING FOR ORDERS OVER",
       "cart_error": "There was an error while updating your cart. Please try again.",
       "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
       "taxes_and_shipping_policy_at_checkout_html": "Taxes, Discounts and <a href=\"{{ link }}\">shipping<\/a> calculated at checkout",

@@ -17,19 +17,20 @@
         tabindex="-1"
       >
         <div class="wishlist__modal-heading text-center mb-7 md:mb-[40px]">
-          <h2 class="font-coutureBold text-lg md:text-[22px] uppercase">SAVED TO MY FAVORITES</h2>
+          <h2 class="font-coutureBold text-lg md:text-[22px] uppercase">
+            {{ 'missing_translations.my_favorites.saved' | t }}
+          </h2>
         </div>
         <div class="wishlist__modal-body mb-7 md:mb-[40px]">
           <p class="text-[11px] md:text-[13px] uppercase tracking-[0.1em] font-black leading-snug">
-            YOU CAN FIND ALL YOUR SAVED PRODUCTS IN MY FAVORITES SECTION BY NAVIGATING TO YOUR PROFILE. SAVE ALL THE ART
-            THAT INTERESTS YOU FOR LATER SO YOU CAN FIND IT EASILY EVERYTIME.
+            {{ 'missing_translations.my_favorites.find_favorites' | t }}
           </p>
         </div>
         <div class="wishlist__modal-footer pb-[25px] text-center">
-          <a href="/pages/my-favorites" class="btn btn_outlined !text-xl md:!text-2xl w-full mb-1.5 !py-1.5">
-            GO TO MY FAVORITES
+          <a href="/pages/my-favorites" class="btn btn_outlined !text-xl md:!text-2xl w-full mb-1.5 !py-1.5"> </a>
+          <a href="#" class="underline dont-show-wishlist-modal text-[13px] font-black">
+            {{ 'missing_translations.dont_show_again' | t }}
           </a>
-          <a href="#" class="underline dont-show-wishlist-modal text-[13px] font-black"> I GOT IT, DON’T SHOW AGAIN </a>
         </div>
       </div>
     </div>
