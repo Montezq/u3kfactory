@@ -124,7 +124,7 @@
                     {%- render 'icon-info' -%}
                   </div>
                   <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
-                    Please write a valid email address to be able to recieve updates.
+                    {{ 'templates.contact.form.write_valid_email' | t }}
                   </p>
                 </div>
               </div>
@@ -136,7 +136,7 @@
                     {%- render 'icon-info' -%}
                   </div>
                   <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
-                    This email is already in the notification list.
+                    {{ 'missing_translations.email_in_notification_list' | t }}
                   </p>
                 </div>
               </div>

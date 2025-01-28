@@ -53,7 +53,8 @@
             class="text-[13px] italic block leading-none"
           >
             <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-            by {{ product.vendor }}
+            {{ 'missing_translations.by' | t }}
+            {{ product.vendor }}
           </a>
         </div>
         <div class="text-end">
@@ -95,7 +96,8 @@
                       href="{{ product.metafields.custom.artist_page.value.url }}"
                     >
                       <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-                      by {{ product.vendor }}
+                      {{ 'missing_translations.by' | t }}
+                      {{ product.vendor }}
                     </a>
                   </h2>
                 </div>
@@ -119,13 +121,13 @@
               {%- when 'contact_originals' -%}
                 <div class="contact-btn">
                   <p class="text-[9px] lg:text-sm leading-none mb-[5px]">
-                    <i>NEED MORE INFORMATION ABOUT THIS PIECE?</i>
+                    <i>{{ 'products.product.need_more_info' | t }}</i>
                   </p>
                   <button
                     href="/pages/contact"
                     class="btn btn_primary w-full lg:max-w-[360px] contact-us btn_small_mobile"
                   >
-                    Contact the artist
+                    {{ 'missing_translations.contact_the_artist' | t }}
                   </button>
                 </div>
               {%- when 'buy_buttons' -%}
@@ -211,7 +213,9 @@
                       {% endif %}
                     {% endif %}
                   </div>
-                  <div class="leading-none lg:ml-2 text-xs lg:text-[19px] max-lg:mt-[5px] uppercase">COPIES LEFT</div>
+                  <div class="leading-none lg:ml-2 text-xs lg:text-[19px] max-lg:mt-[5px] uppercase">
+                    {{ 'products.product.copies_left' | t }}
+                  </div>
                 </div>
               {%- when 'favorites' -%}
                 <div class="lg:max-w-[360px] mt-[11px] lg:mt-[15px]">
@@ -223,7 +227,7 @@
                     href="/pages/contact"
                     class="italic uppercase flex items-center leading-none text-lg text-gray-300 cursor-pointer w-fit font-semibold tracking-widerx contact-us"
                   >
-                    <span> Contact us for larger sizes </span>
+                    <span> {{ 'products.product.contact_larger_sizes' | t }} </span>
                     <span
                       class="icon-FULL-ICON-SET-WEBSITE-FINAL_Big-Envelope text-[#121212] !font-semibold inline-block ml-2 -mt-[1px]"
                     ></span>
@@ -336,7 +340,7 @@
               >
                 <div class="contact-us__modal-heading text-center mb-[21px] md:mb-[30px]">
                   <p class="text-[15px] md:text-[19px] tracking-widest font-bold uppercase leading-none mb-7 md:mb-[44px]">
-                    You Are contacting
+                    {{ 'missing_translations.you_are_contacting' | t }}
                   </p>
                   <h2 class="font-coutureBold text-[32px] max-md:tracking-wide md:text-[42px] leading-none tracking-widest font-bold">
                     {{ product.vendor }}
@@ -358,7 +362,7 @@
                     >
                     <div class="contact-subject contact-us__item">
                       <div class="blcok uppercase pl-2.5 font-axis font-extrabold text-[10px] lg:text-[13px]">
-                        Regarding
+                        {{ 'templates.contact.regarding.title' | t }}
                       </div>
                       <div class="custom-select custom-select_w-full relative">
                         <div class="select-trigger cursor-pointer border border-black flex h-[30px] md:h-10 lg:h-12">
@@ -400,12 +404,12 @@
                               <input
                                 type="radio"
                                 name="contact[regarding]"
-                                value="Collaboration"
+                                value="{{- 'missing_translations.contact_artist_reasons.collaboration' | t -}}"
                                 class="invisible w-0 h-0"
                               >
-                              <span class="line-clamp-1 text-[10px] lg:text-sm text-gray-750 font-open uppercase"
-                                >Collaboration</span
-                              >
+                              <span class="line-clamp-1 text-[10px] lg:text-sm text-gray-750 font-open uppercase">
+                                {{- 'missing_translations.contact_artist_reasons.collaboration' | t -}}
+                              </span>
                             </label>
                           </li>
                           <li class="custom-option">
@@ -413,12 +417,12 @@
                               <input
                                 type="radio"
                                 name="contact[regarding]"
-                                value="Commission"
+                                value="{{- 'missing_translations.contact_artist_reasons.commission' | t -}}"
                                 class="invisible w-0 h-0"
                               >
-                              <span class="line-clamp-1 text-[10px] lg:text-sm text-gray-750 font-open uppercase"
-                                >Commission</span
-                              >
+                              <span class="line-clamp-1 text-[10px] lg:text-sm text-gray-750 font-open uppercase">
+                                {{- 'missing_translations.contact_artist_reasons.commission' | t -}}
+                              </span>
                             </label>
                           </li>
                           <li class="custom-option">
@@ -426,12 +430,12 @@
                               <input
                                 type="radio"
                                 name="contact[regarding]"
-                                value="Interview"
+                                value="{{- 'missing_translations.contact_artist_reasons.interview' | t -}}"
                                 class="invisible w-0 h-0"
                               >
-                              <span class="line-clamp-1 text-[10px] lg:text-sm text-gray-750 font-open uppercase"
-                                >Interview</span
-                              >
+                              <span class="line-clamp-1 text-[10px] lg:text-sm text-gray-750 font-open uppercase">
+                                {{- 'missing_translations.contact_artist_reasons.interview' | t -}}
+                              </span>
                             </label>
                           </li>
                           <li class="custom-option">
@@ -439,12 +443,12 @@
                               <input
                                 type="radio"
                                 name="contact[regarding]"
-                                value="Other"
+                                value="{{ "missing_translations.contact_artist_reasons.other" | t }}"
                                 class="invisible w-0 h-0"
                               >
-                              <span class="line-clamp-1 text-[10px] lg:text-sm text-gray-750 font-open uppercase"
-                                >Other</span
-                              >
+                              <span class="line-clamp-1 text-[10px] lg:text-sm text-gray-750 font-open uppercase">
+                                {{- 'missing_translations.contact_artist_reasons.other' | t -}}
+                              </span>
                             </label>
                           </li>
                         </ul>
@@ -455,10 +459,11 @@
                         <label
                           for="message"
                           class="blcok uppercase font-axis font-extrabold text-[10px] lg:text-[13px]"
-                          >Your Message</label
                         >
+                          {{- 'missing_translations.your_message' | t -}}
+                        </label>
                         <div class="form-errors hidden text-[10px] lg:text-[13px]" id="message-error">
-                          <span> *Field required </span>
+                          <span> *{{ 'missing_translations.field_required' | t }} </span>
                         </div>
                       </div>
                       <textarea class="block w-full py-2" name="contact[message]" id="message"></textarea>
@@ -468,10 +473,11 @@
                         <label
                           for="email"
                           class="blcok uppercase pl-2.5 font-axis font-extrabold text-[10px] lg:text-[13px]"
-                          >Email</label
                         >
+                          {{- 'templates.contact.form.email' | t -}}
+                        </label>
                         <span class="text-right text-[10px] lg:text-[13px] font-bold line-clamp-1 max-w-[60%]">
-                          *You will be contacted back on this email address
+                          *{{ 'templates.contact.form.contacted_back' | t }}
                         </span>
                       </div>
                       <div class="relative">
@@ -491,7 +497,7 @@
                               {%- render 'icon-info' -%}
                             </div>
                             <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
-                              Please write a valid email address to be able to receive replies.
+                              {{ 'templates.contact.form.write_valid_email' | t }}
                             </p>
                           </div>
                         </div>
@@ -504,7 +510,7 @@
                         class="btn btn_primary w-full max-w-[90%] md:max-w-80 !block mx-auto cursor-pointer !pb-[11px] !pt-[11px]"
                         id="submit-button"
                       >
-                        SUBMIT MESSAGE
+                        {{ 'missing_translations.submit_message' | t }}
                       </button>
                     </div>
                   {% endform %}
@@ -612,7 +618,9 @@
             tabindex="-1"
           >
             <div class="removed-wishlist__modal-heading text-center">
-              <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">Message Sent</h2>
+              <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">
+                {{ 'missing_translations.message_sent' | t }}
+              </h2>
             </div>
           </div>
         </div>
@@ -626,7 +634,9 @@
       tabindex="-1"
     >
       <div class="removed-wishlist__modal-heading text-center">
-        <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">Combination unavailable</h2>
+        <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">
+          {{ 'missing_translations.combination_unavailable' | t }}
+        </h2>
       </div>
     </div>
   </div>

@@ -76,13 +76,13 @@
           <div class="flex md:pt-[3px]">
             <div class="flex flex-col pr-7 mr-3 pt-1 relative after:content-[''] after:block after:w-[1px] after:h-[57px] after:absolute after:top-0 after:left-full after:bg-gray-100">
               <button class="uppercase font-semibold text-[13px] tracking-wider close-filter text-gray-850 mb-2">
-                Close
+                {{ 'products.facets.close' | t }}
               </button>
               <div
                 class="uppercase cursor-pointer font-semibold text-[13px] tracking-wider inline-block text-gray-600 filter__item-clear"
                 data-href="{{  results_url }}"
               >
-                Clear
+                {{ 'products.facets.clear' | t }}
               </div>
             </div>
             <div class="flex flex-wrap gap-5">
@@ -129,7 +129,9 @@
                 </div>
               {%- endfor -%}
               <div class="w-40 md:w-40 mt-[1px]">
-                <h3 class="uppercase font-bold mb-0.5 text-[13px] tracking-xwidest text-gray-850">Added</h3>
+                <h3 class="uppercase font-bold mb-0.5 text-[13px] tracking-xwidest text-gray-850">
+                  {{ 'products.facets.added' | t }}
+                </h3>
                 <ul>
                   {%- assign sort_by = collection.sort_by | default: false -%}
                   {%- for option in collection.sort_options -%}
@@ -155,7 +157,7 @@
                             data-href="?sort_by={{ option.value }}"
                             class="flex items-center filter__item uppercase font-bold text-[11px] tracking-widest text-gray-850"
                           >
-                            <span> Newest First</span>
+                            <span> {{ 'products.facets.newest_first' | t }}</span>
                             <span
                               class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
                             ></span>
@@ -184,7 +186,7 @@
                             data-href="?sort_by={{ option.value }}"
                             class="flex items-center filter__item uppercase font-bold text-[11px] tracking-widest text-gray-850"
                           >
-                            <span> Oldest First </span>
+                            <span> {{ 'products.facets.oldest_first' | t }} </span>
                             <span
                               class="filter_checked w-[7px] h-[7px] bg-gray-850 ml-2 opacity-0 duration-300 ease-in-out"
                             ></span>
@@ -241,7 +243,7 @@
           </div>
           <div>
             <h3 class="text-center uppercase text-sm md:text-[17px] xl:text-[25px] tracking-[0.3em] xl:tracking-[0.5em] font-open md:pl-[9px]">
-              CAN’T&nbsp; SEE&nbsp; ANY&nbsp; PRODUCTS&nbsp; HERE
+              {{ 'products.product.no_products' | t }}
             </h3>
           </div>
           <div class="flex justify-center collection__empty-btn md:pl-[4px]">

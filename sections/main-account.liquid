@@ -17,15 +17,17 @@
     id="bar"
     class="ds_element dissapearing main-account__heading max-lg:pt-[7px] max-lg:pb-[8px] fixed top-[54px] lg:top-[23px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out flex justify-center"
   >
-    <h1 class="font-coutureBold text-[19px] md:text-3xl max-lg:leading-none uppercase text-center">Prefererences</h1>
+    <h1 class="font-coutureBold text-[19px] md:text-3xl max-lg:leading-none uppercase text-center">
+      {{ 'missing_translations.preferences' | t }}
+    </h1>
   </div>
 
   <div class="my-account__body max-md:pb-6">
     <div class="my-account__body-item pb-8 md:pb-9 mb-4 md:mb-[61px] border-b border-b-black max-lg:mt-8">
       <div class="my-account__body-item-heading">
         <h2 class="font-axis text-sm md:text-base font-extrabold">
-          <span class="text-default-address">Default name / address</span>
-          <span class="text-insert-address hidden">Insert new address </span>
+          <span class="text-default-address">{{ 'customer.account.default_name' | t }}</span>
+          <span class="text-insert-address hidden">{{ 'customer.account.new_address' | t }}</span>
         </h2>
       </div>
       <div class="hidden new-address">
@@ -39,7 +41,7 @@
                       {{ 'customer.addresses.first_name' | t }}
                     </label>
                     <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
-                      <span> *Field required </span>
+                      <span> *{{ 'missing_translations.field_required' | t }} </span>
                     </div>
                   </div>
                   <input
@@ -56,7 +58,7 @@
                       {{ 'customer.addresses.last_name' | t }}
                     </label>
                     <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
-                      <span> *Field required </span>
+                      <span> *{{ 'missing_translations.field_required' | t }} </span>
                     </div>
                   </div>
                   <input
@@ -69,9 +71,11 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex justify-between">
-                    <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis"> Address </label>
+                    <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
+                      {{ 'customer.addresses.title' | t }}
+                    </label>
                     <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
-                      <span> *Field required </span>
+                      <span> *{{ 'missing_translations.field_required' | t }} </span>
                     </div>
                   </div>
                   <input
@@ -82,13 +86,13 @@
                     autocomplete="address-line1"
                   >
                   <div>
-                    <p class="text-sm font-bold text-right">*Include street number</p>
+                    <p class="text-sm font-bold text-right">*{{ 'customer.addresses.street_number' | t }}</p>
                   </div>
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
                     <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
-                      Apartment number
+                      {{ 'customer.addresses.apartment_number' | t }}
                     </label>
                   </div>
                   <input
@@ -100,16 +104,18 @@
                     value="{{ form.address2 }}"
                   >
                   <div>
-                    <p class="text-sm font-bold text-right">*Optional</p>
+                    <p class="text-sm font-bold text-right">*{{ 'missing_translations.optional' | t }}</p>
                   </div>
                 </div>
               </div>
               <div class="new-address__grid-col max-w-[468px] w-full ml-auto">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex justify-between">
-                    <label for="AddressCityNew" class="text-[11px] md:text-[13px] font-axis"> City </label>
+                    <label for="AddressCityNew" class="text-[11px] md:text-[13px] font-axis">
+                      {{ 'customer.addresses.city' | t }}
+                    </label>
                     <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
-                      <span> *Field required </span>
+                      <span> *{{ 'missing_translations.field_required' | t }} </span>
                     </div>
                   </div>
                   <input
@@ -122,9 +128,11 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex justify-between">
-                    <label for="AddressCountryNew" class="text-[11px] md:text-[13px] font-axis"> Country </label>
+                    <label for="AddressCountryNew" class="text-[11px] md:text-[13px] font-axis">
+                      {{ 'customer.addresses.country' | t }}
+                    </label>
                     <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
-                      <span> *Field required </span>
+                      <span> *{{ 'missing_translations.field_required' | t }} </span>
                     </div>
                   </div>
                   <input
@@ -138,9 +146,11 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex justify-between">
-                    <label for="AddressZipNew" class="text-[11px] md:text-[13px] font-axis"> zip code </label>
+                    <label for="AddressZipNew" class="text-[11px] md:text-[13px] font-axis">
+                      {{ 'customer.addresses.zip' | t }}
+                    </label>
                     <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
-                      <span> *Field required </span>
+                      <span> *{{ 'missing_translations.field_required' | t }} </span>
                     </div>
                   </div>
                   <input
@@ -165,12 +175,14 @@
                         </label>
                       </div>
                     </div>
-                    <button class="btn btn_primary !text-[17px] w-full !font-coutureBold font-bold">Add address</button>
+                    <button class="btn btn_primary !text-[17px] w-full !font-coutureBold font-bold">
+                      {{ 'customer.addresses.add' | t }}
+                    </button>
                     <button
                       class="btn btn_outlined !text-[17px] w-full !font-coutureBold font-bold cancel-new-address"
                       type="reset"
                     >
-                      Cancel
+                      {{ 'customer.addresses.cancel' | t }}
                     </button>
                   </div>
                 </div>
@@ -216,7 +228,9 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis"> Address </label>
+                    <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
+                      {{ 'customer.addresses.title' | t }}
+                    </label>
                   </div>
                   <input
                     class="input-field"
@@ -227,13 +241,13 @@
                     value="{{ form.address1 }}"
                   >
                   <div>
-                    <p class="text-xs md:text-sm font-bold text-right">*Include street number</p>
+                    <p class="text-xs md:text-sm font-bold text-right">*{{ 'customer.addresses.street_number' | t }}</p>
                   </div>
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
                     <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
-                      Apartment number
+                      {{ 'customer.addresses.apartment_number' | t }}
                     </label>
                   </div>
                   <input
@@ -245,14 +259,16 @@
                     value="{{ form.address2 }}"
                   >
                   <div>
-                    <p class="text-sm font-bold text-right">*Optional</p>
+                    <p class="text-sm font-bold text-right">*{{ 'missing_translations.optional' | t }}</p>
                   </div>
                 </div>
               </div>
               <div class="new-address__grid-col max-w-[468px] w-full ml-auto">
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressCityNew" class="text-[11px] md:text-[13px] font-axis"> City </label>
+                    <label for="AddressCityNew" class="text-[11px] md:text-[13px] font-axis">
+                      {{ 'customer.addresses.city' | t }}
+                    </label>
                   </div>
                   <input
                     class="input-field"
@@ -265,7 +281,9 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressCountryNew" class="text-[11px] md:text-[13px] font-axis"> Country </label>
+                    <label for="AddressCountryNew" class="text-[11px] md:text-[13px] font-axis">
+                      {{ 'customer.addresses.country' | t }}
+                    </label>
                   </div>
                   <input
                     class="input-field"
@@ -279,7 +297,9 @@
                 </div>
                 <div class="field flex flex-col">
                   <div class="pl-4 mb-1 flex">
-                    <label for="AddressZipNew" class="text-[11px] md:text-[13px] font-axis"> zip code </label>
+                    <label for="AddressZipNew" class="text-[11px] md:text-[13px] font-axis">
+                      {{ 'customer.addresses.zip' | t }}
+                    </label>
                   </div>
                   <input
                     class="input-field"
@@ -304,13 +324,13 @@
                       </div>
                     </div>
                     <button class="btn btn_primary !text-[17px] w-full !font-coutureBold font-bold">
-                      Update address
+                      {{ 'customer.addresses.update' | t }}
                     </button>
                     <button
                       class="btn btn_outlined !text-[17px] w-full !font-coutureBold font-bold cancel-edit-address"
                       type="reset"
                     >
-                      Cancel
+                      {{ 'customer.addresses.cancel' | t }}
                     </button>
                   </div>
                 </div>
@@ -351,13 +371,13 @@
         </div>
         <div class="flex flex-col space-y-4 md:space-y-[21px] w-full md:w-[250px] md:ml-auto">
           <button class="btn btn_primary !text-[17px] w-full uppercase add-new-address !font-coutureBold font-bold">
-            Add New
+            {{ 'customer.addresses.add_new_short' | t }}
           </button>
           <button
             class="btn btn_primary !text-[17px] w-full uppercase !font-coutureBold font-bold edit-address-button"
             data-target="address-{{ address_id }}"
           >
-            Edit Address
+            {{ 'customer.addresses.edit_address' | t }}
           </button>
           {%- for address in customer.addresses -%}
             <div
@@ -399,7 +419,9 @@
                     </div>
                     <div class="field flex flex-col">
                       <div class="pl-4 mb-1 flex">
-                        <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis"> Address </label>
+                        <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
+                          {{ 'customer.addresses.title' | t }}
+                        </label>
                       </div>
                       <input
                         class="input-field"
@@ -410,13 +432,15 @@
                         value="{{ form.address1 }}"
                       >
                       <div>
-                        <p class="text-xs md:text-sm font-bold text-right">*Include street number</p>
+                        <p class="text-xs md:text-sm font-bold text-right">
+                          *{{ 'customer.addresses.street_number' | t }}
+                        </p>
                       </div>
                     </div>
                     <div class="field flex flex-col">
                       <div class="pl-4 mb-1 flex">
                         <label for="AddressAddress1New" class="text-[11px] md:text-[13px] font-axis">
-                          Apartment number
+                          {{ 'customer.addresses.apartment_number' | t }}
                         </label>
                       </div>
                       <input
@@ -428,14 +452,16 @@
                         value="{{ form.address2 }}"
                       >
                       <div>
-                        <p class="text-sm font-bold text-right">*Optional</p>
+                        <p class="text-sm font-bold text-right">*{{ 'missing_translations.optional' | t }}</p>
                       </div>
                     </div>
                   </div>
                   <div class="new-address__grid-col max-w-[468px] w-full ml-auto">
                     <div class="field flex flex-col">
                       <div class="pl-4 mb-1 flex">
-                        <label for="AddressCityNew" class="text-[11px] md:text-[13px] font-axis"> City </label>
+                        <label for="AddressCityNew" class="text-[11px] md:text-[13px] font-axis">
+                          {{ 'customer.addresses.city' | t }}
+                        </label>
                       </div>
                       <input
                         class="input-field"
@@ -448,7 +474,9 @@
                     </div>
                     <div class="field flex flex-col">
                       <div class="pl-4 mb-1 flex">
-                        <label for="AddressCountryNew" class="text-[11px] md:text-[13px] font-axis"> Country </label>
+                        <label for="AddressCountryNew" class="text-[11px] md:text-[13px] font-axis">
+                          {{ 'customer.addresses.country' | t }}
+                        </label>
                       </div>
                       <input
                         class="input-field"
@@ -462,7 +490,9 @@
                     </div>
                     <div class="field flex flex-col">
                       <div class="pl-4 mb-1 flex">
-                        <label for="AddressZipNew" class="text-[11px] md:text-[13px] font-axis"> zip code </label>
+                        <label for="AddressZipNew" class="text-[11px] md:text-[13px] font-axis">
+                          {{ 'customer.addresses.zip' | t }}
+                        </label>
                       </div>
                       <input
                         class="input-field"
@@ -487,7 +517,7 @@
                     class="btn btn_primary !text-[17px] w-full uppercase !font-coutureBold font-bold set-default-address-button"
                     data-target="address-{{ address.id }}"
                   >
-                    Set as Default
+                    {{ 'customer.addresses.set_default' | t }}
                   </button>
                 </label>
               {%- endform -%}
@@ -499,9 +529,9 @@
               data-target="/account/addresses/{{ address_id }}"
               data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"
             >
-              Remove Address
+              {{ 'customer.addresses.delete' | t }}
             </button>
-            <div class="text-right text-xs md:text-sm font-bold">*Buttons affect selected address</div>
+            <div class="text-right text-xs md:text-sm font-bold">*{{ 'customer.addresses.info_butons' | t }}</div>
           </div>
         </div>
       </div>
@@ -509,7 +539,8 @@
     <div class="my-account__body-item">
       <div class="my-account__body-item-heading">
         <h2 class="font-axis text-sm md:text-base font-extrabold">
-          Change Password<span class="del-acc__text">/Delete Account</span>
+          {{ 'customer.account.change_password' | t -}}
+          <span class="del-acc__text">/{{ 'customer.account.delete' | t }}</span>
         </h2>
       </div>
       <div class="reset-password__wrapper hidden">
@@ -552,7 +583,7 @@
                 type="button"
                 class="btn btn_outlined !text-[17px] w-full uppercase !font-coutureBold font-bold toggle-change-password"
               >
-                Cancel
+                {{ 'customer.account.cancel' | t }}
               </button>
             </div>
           </div>
@@ -564,12 +595,12 @@
           <div>
             <div class="flex flex-col space-y-[21px] w-full md:w-[250px] md:ml-auto">
               <button class="btn btn_primary !text-[17px] w-full uppercase !px-1.5 !font-coutureBold font-bold change-password">
-                Change Password
+                {{ 'customer.account.change_password' | t }}
               </button>
               <button
                 class="btn btn_outlined !text-[17px] w-full uppercase !font-coutureBold font-bold delete-account-cta"
               >
-                Delete account
+                {{ 'customer.account.delete' | t }}
               </button>
             </div>
           </div>
@@ -620,13 +651,11 @@
           tabindex="-1"
         >
           <div class="remove-account__modal-heading text-center mb-5">
-            <h2 class="font-bold text-[25px] uppercase">ACCOUNT REMOVAL</h2>
+            <h2 class="font-bold text-[25px] uppercase">{{ 'customer.account.removal' | t }}</h2>
           </div>
           <div class="remove-account__modal-body mb-6">
             <p class="text-base md:text-[21px] text-center leading-snug">
-              Your account will not be deleted automatically. Your staff will review your request and delete it
-              manually. All the data related to this account will be lost. This includes order history. <br>
-              Proceed with the account termination request?
+              {{ 'customer.account.removal_info_html' | t }}
             </p>
           </div>
           <div class="remove-account__modal-footer text-center relative">
@@ -652,7 +681,9 @@
                 id="text"
                 value="User Profile https://admin.shopify.com/store/u3faktory/customers/{{ customer.id }}"
               >
-              <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">Yes, delete account</button>
+              <button class="w-full btn btn_outlined font-black !text-xl md:!text-2xl">
+                {{ 'customer.account.yes_delete' | t }}
+              </button>
             {% endform %}
           </div>
         </div>

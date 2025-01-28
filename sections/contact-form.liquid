@@ -4,14 +4,16 @@
       id="bar"
       class="ds_element dissapearing contact__heading max-lg:pt-[7px] max-lg:pb-[8px] fixed top-[54px] lg:top-[27px] bg-gray-10 lg:bg-white max-lg:duration-300 max-lg:ease-in-out"
     >
-      <h1 class="font-coutureBold text-[19px] md:text-3xl max-lg:leading-none uppercase text-center">Contact Us</h1>
+      <h1 class="font-coutureBold text-[19px] md:text-3xl max-lg:leading-none uppercase text-center">
+        {{ 'templates.contact.form.contact_us' | t }}
+      </h1>
     </div>
     <div class="contact__body grid max-lg:pt-[57px]">
       <div class="contact__body-wrapper grid md:grid-cols-2 gap-[50px] md:items-center">
         <div class="max-w-[526px]">
           <div class="mb-5 max-lg:pt-2 md:mb-8">
             <h2 class="font-coutureBold text-center text-[19px] md:text-3xl max-lg:leading-none uppercase">
-              CONTACT US BY EMAIL
+              {{ 'templates.contact.form.contact_by' | t }}
             </h2>
           </div>
           {%- liquid
@@ -29,13 +31,13 @@
             {%- endif -%}
             <div class="field flex flex-col mb-5">
               <div class="pl-4 mb-1">
-                <p class="text-[11px] md:text-[13px] font-axis">Regarding</p>
+                <p class="text-[11px] md:text-[13px] font-axis">{{ 'templates.contact.regarding.title' | t }}</p>
               </div>
               <div class="custom-select custom-select_w-full relative">
                 <div class="select-trigger cursor-pointer border border-black flex h-10 md:h-12">
                   <div class="flex items-center pl-2.5 flex-1">
                     <span class="selected-text line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase">
-                      Order problems
+                      {{ 'templates.contact.regarding.order_problems' | t }}
                     </span>
                   </div>
                   <div class="w-11 select-icon border-black flex items-center justify-center">
@@ -51,13 +53,13 @@
                         checked
                         type="radio"
                         name="contact[regarding]"
-                        value="Order Problems"
+                        value="{{ 'templates.contact.regarding.order_problems' | t }}"
                         class="invisible w-0 h-0"
                       >
                       <span
                         class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
                       >
-                        Order Problems
+                        {{ 'templates.contact.regarding.order_problems' | t }}
                       </span>
                     </label>
                   </li>
@@ -66,13 +68,13 @@
                       <input
                         type="radio"
                         name="contact[regarding]"
-                        value="Payment Issues"
+                        value="{{ 'templates.contact.regarding.paymnet_issues' | t }}"
                         class="invisible w-0 h-0"
                       >
                       <span
                         class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
                       >
-                        Payment Issues
+                        {{ 'templates.contact.regarding.paymnet_issues' | t }}
                       </span>
                     </label>
                   </li>
@@ -81,13 +83,13 @@
                       <input
                         type="radio"
                         name="contact[regarding]"
-                        value="Inquire About Bigger Sizes"
+                        value="{{ "templates.contact.regarding.inquire_sizes" | t }}"
                         class="invisible w-0 h-0"
                       >
                       <span
                         class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
                       >
-                        Inquire about bigger sizes
+                        {{ 'templates.contact.regarding.inquire_sizes' | t }}
                       </span>
                     </label>
                   </li>
@@ -96,13 +98,13 @@
                       <input
                         type="radio"
                         name="contact[regarding]"
-                        value="Refund Request"
+                        value="{{ 'templates.contact.regarding.refund' | t }}"
                         class="invisible w-0 h-0"
                       >
                       <span
                         class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
                       >
-                        Refund Request
+                        {{ 'templates.contact.regarding.refund' | t }}
                       </span>
                     </label>
                   </li>
@@ -111,13 +113,13 @@
                       <input
                         type="radio"
                         name="contact[regarding]"
-                        value="Other"
+                        value="{{ 'templates.contact.regarding.other' | t }}"
                         class="invisible w-0 h-0"
                       >
                       <span
                         class="line-clamp-1 text-[11px] md:text-sm text-gray-750 font-open uppercase"
                       >
-                        Other
+                        {{ 'templates.contact.regarding.other' | t }}
                       </span>
                     </label>
                   </li>
@@ -126,9 +128,11 @@
             </div>
             <div class="field flex flex-col mb-5">
               <div class="pl-4 mb-1 flex items-end justify-between">
-                <label for="ContactForm-body" class="text-[11px] md:text-[13px] font-axis"> Your message </label>
+                <label for="ContactForm-body" class="text-[11px] md:text-[13px] font-axis">
+                  {{ 'missing_translations.your_message' | t }}
+                </label>
                 <div class="form-errors hidden text-[10px] md:text-[13px]" id="message-error">
-                  <span> *Field required </span>
+                  <span> *{{ 'missing_translations.field_required' | t }} </span>
                 </div>
               </div>
               <textarea
@@ -146,7 +150,7 @@
                 </label>
                 <div>
                   <p class="text-right text-[10px] md:text-[14px] font-bold">
-                    *You will be contacted back on this email adress
+                    *{{ 'templates.contact.form.contacted_back' | t }}
                   </p>
                 </div>
               </div>
@@ -173,7 +177,7 @@
                       {%- render 'icon-info' -%}
                     </div>
                     <p class="leading-none text-[10px] sm:text-[15px] tracking-wider font-open">
-                      Please write a valid email address to be able to receive updates.
+                      {{ 'templates.contact.form.write_valid_email' | t }}
                     </p>
                   </div>
                 </div>
@@ -185,16 +189,15 @@
                 type="button"
                 class="btn btn_primary btn_small w-[320px] max-w-full"
               >
-                Submit message
+                {{ 'missing_translations.submit_message' | t }}
               </button>
             </div>
             <div class="space-y-5">
               <p class="text-sm md:text-[17px] font-bold">
-                *We generally respond in the course of 4 hours. Please specify the problem you have as clear as possible
-                in the message space so we can get to work right away and resolve whichever issues you have.
+                {{ 'missing_translations.respond_time' | t }}
               </p>
               <p class="text-sm md:text-[17px] font-bold">
-                You can also contact us by sending a email to
+                {{ 'missing_translations.you_can_also_contact_us' | t }}
                 <br class="max-md:hidden">
                 customersupport@u3faktory.com
               </p>
@@ -207,7 +210,9 @@
           </div>
           <div class="max-md:mx-auto md:ml-auto w-fit">
             <div class="mb-5">
-              <h2 class="uppercase font-coutureBold leading-none text-[22px] md:text-[28px]">Direct chat</h2>
+              <h2 class="uppercase font-coutureBold leading-none text-[22px] md:text-[28px]">
+                {{ 'missing_translations.direct_chat.title' | t }}
+              </h2>
             </div>
             <div class="mb-7">
               <img
@@ -219,20 +224,20 @@
               >
             </div>
             <div class="mb-8">
-              <p class="uppercase font-bold text-xs md:text-sm">AVAILABLE SOON</p>
+              <p class="uppercase font-bold text-xs md:text-sm">{{ 'missing_translations.available_soon' | t }}</p>
             </div>
             {% comment %}
               <div>
                 <p class="font-bold text-sm text-[17px] leading-tight">
-                  COMPANY DETAILS
+                  {{ "missing_translations.company_details.title" }}
                   <br>
-                  U3 Art Faktory Srl
+                  {{ "missing_translations.company_details.line_1" }}
                   <br>
-                  Str. Vadu Voda Nr. 1C
+                  {{ "missing_translations.company_details.line_2" }}
                   <br>
-                  Sat. Horpaz, judetul Iasi
+                  {{ "missing_translations.company_details.line_3" }}
                   <br>
-                  Romania
+                  {{ "missing_translations.company_details.line_4" }}
                 </p>
               </div>
             {% endcomment %}
@@ -250,7 +255,9 @@
     tabindex="-1"
   >
     <div class="removed-wishlist__modal-heading text-center">
-      <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">Message Sent</h2>
+      <h2 class="text-[21px] sm:text-[24px] uppercase tracking-xwidest whitespace-nowrap">
+        {{ 'missing_translations.message_sent' | t }}
+      </h2>
     </div>
   </div>
 </div>
