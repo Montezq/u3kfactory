@@ -24,6 +24,7 @@
     "email_in_notification_list": "Questa email è già nell'elenco delle notifiche.",
     "fill_out_field": "Si prega di compilare questo campo.",
     "instructions_sent": "Istruzioni inviate",
-    "link_copied": "Link copiato"
+    "link_copied": "Link copiato",
+    "optional": "Facoltativo"
   }
 }
