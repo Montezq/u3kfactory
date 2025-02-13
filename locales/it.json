@@ -83,6 +83,9 @@
       "headings": {
         "total": "Totale"
       }
+    },
+    "quick_order_list": {
+      "view_cart": "Vedi carrello"
     }
   }
 }
