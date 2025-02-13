@@ -52,6 +52,11 @@
     },
     "cart": {
       "empty": "IL TUO CARRELLO È VUOTO"
+    },
+    "contact": {
+      "regarding": {
+        "title": "Riguardo a"
+      }
     }
   }
 }
