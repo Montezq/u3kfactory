@@ -43,6 +43,7 @@
     }
   },
   "newsletter": {
-    "keep_updated": "Tienimi aggiornato"
+    "keep_updated": "Tienimi aggiornato",
+    "noted": "Notato!"
   }
 }
