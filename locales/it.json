@@ -37,7 +37,8 @@
       "close": "Chiudi",
       "added": "Aggiunti",
       "clear": "Rimuovi",
-      "filter_button": "Filtri"
+      "filter_button": "Filtri",
+      "filter_by_label": "Filtri"
     }
   }
 }
