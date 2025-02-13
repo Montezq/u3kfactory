@@ -34,7 +34,6 @@
       "inventory_out_of_stock": "Esaurito"
     },
     "facets": {
-      "clear_filter": "Rimuovi",
       "close": "Chiudi",
       "added": "Aggiunti"
     }
