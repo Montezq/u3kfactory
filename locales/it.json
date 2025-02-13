@@ -59,7 +59,8 @@
         "order_problems": "Problemi con il mio ordine",
         "paymnet_issues": "Problemi di pagamento",
         "other": "Altro",
-        "refund": "Richiesta di rimborso"
+        "refund": "Richiesta di rimborso",
+        "inquire_sizes": "Info su formati più grandi"
       },
       "form": {
         "contact_us": "Contattaci",
