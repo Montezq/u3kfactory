@@ -86,6 +86,9 @@
     },
     "quick_order_list": {
       "view_cart": "Vedi carrello"
+    },
+    "footer": {
+      "payment": "Metodi di pagamento"
     }
   }
 }
