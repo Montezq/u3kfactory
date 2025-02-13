@@ -73,7 +73,10 @@
   "sections": {
     "cart": {
       "title": "Il mio carrello",
-      "empty": "Il tuo carrello è vuoto"
+      "empty": "Il tuo carrello è vuoto",
+      "remove": "Rimuovi",
+      "go_fill_up": "VAI A RIEMPIRLO!",
+      "go_to_cart": "Vai al carrello"
     }
   }
 }
