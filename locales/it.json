@@ -31,14 +31,14 @@
     "product": {
       "add_to_cart": "Aggiungi",
       "copies_left": "COPIE RIMASTE",
-      "inventory_out_of_stock": "Esaurito"
+      "inventory_out_of_stock": "Esaurito",
+      "need_more_info": "HAI BISOGNO DI PIÙ INFO SU QUESTO QUADRO?"
     },
     "facets": {
       "close": "Chiudi",
       "added": "Aggiunti",
       "clear": "Rimuovi",
-      "filter_button": "Filtri",
-      "filter_by_label": "Filtri"
+      "filter_button": "Filtri"
     }
   }
 }
