@@ -56,7 +56,8 @@
     "contact": {
       "regarding": {
         "title": "Riguardo a",
-        "order_problems": "Problemi con l'ordine"
+        "order_problems": "Problemi con l'ordine",
+        "paymnet_issues": "Problemi di pagamento"
       },
       "form": {
         "contact_us": "Contattaci",
