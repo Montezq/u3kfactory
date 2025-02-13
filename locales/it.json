@@ -21,6 +21,9 @@
     "combination_unavailable": "Combinazione non disponibile",
     "respond_time": "Generalmente rispondiamo nel giro di 4 ore. Ti preghiamo di specificare il problema riscontrato nel modo più chiaro possibile nello spazio dei messaggi in modo che possiamo metterci subito al lavoro e risolverlo. ",
     "you_can_also_contact_us": "Puoi contattarci anche inviando una email a ",
-    "email_in_notification_list": "Questa email è già nell'elenco delle notifiche."
+    "email_in_notification_list": "Questa email è già nell'elenco delle notifiche.",
+    "fill_out_field": "Si prega di compilare questo campo.",
+    "instructions_sent": "Istruzioni inviate",
+    "link_copied": "Link copiato"
   }
 }
