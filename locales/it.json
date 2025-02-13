@@ -29,7 +29,8 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Aggiungi"
+      "add_to_cart": "Aggiungi",
+      "copies_left": "COPIE RIMASTE"
     }
   }
 }
