@@ -69,5 +69,10 @@
         "post_success": "Grazie per averci contattato. Ti risponderemo il prima possibile.\n"
       }
     }
+  },
+  "sections": {
+    "cart": {
+      "title": "Il mio carrello"
+    }
   }
 }
