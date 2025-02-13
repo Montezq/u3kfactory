@@ -34,7 +34,7 @@
       "inventory_out_of_stock": "Esaurito"
     },
     "facets": {
-      "clear": "Cancella"
+      "clear": "Togli"
     }
   }
 }
