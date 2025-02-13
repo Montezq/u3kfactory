@@ -55,7 +55,8 @@
     },
     "contact": {
       "regarding": {
-        "title": "Riguardo a"
+        "title": "Riguardo a",
+        "order_problems": "Problemi con l'ordine"
       },
       "form": {
         "contact_us": "Contattaci",
