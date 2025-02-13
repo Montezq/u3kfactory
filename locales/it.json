@@ -41,5 +41,8 @@
       "clear": "Rimuovi",
       "filter_button": "Filtri"
     }
+  },
+  "newsletter": {
+    "keep_updated": "Tienimi aggiornato"
   }
 }
