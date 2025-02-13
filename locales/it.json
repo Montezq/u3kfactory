@@ -59,7 +59,8 @@
       },
       "form": {
         "contact_us": "Contattaci",
-        "contact_by": "Contattaci via email"
+        "contact_by": "Contattaci via email",
+        "contacted_back": "Verrai ricontattato a questo indirizzo email"
       }
     }
   }
