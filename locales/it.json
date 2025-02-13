@@ -32,6 +32,9 @@
       "add_to_cart": "Aggiungi",
       "copies_left": "COPIE RIMASTE",
       "inventory_out_of_stock": "Esaurito"
+    },
+    "facets": {
+      "clear": "Rimuovi"
     }
   }
 }
