@@ -26,7 +26,11 @@
     "instructions_sent": "Istruzioni inviate",
     "link_copied": "Link copiato",
     "optional": "Facoltativo",
-    "dont_show_again": "HO CAPITO, NON MOSTRARE PIÙ"
+    "dont_show_again": "HO CAPITO, NON MOSTRARE PIÙ",
+    "contact_artist_reasons": {
+      "collaboration": "Collaborazione",
+      "commission": "Commissione"
+    }
   },
   "products": {
     "product": {
