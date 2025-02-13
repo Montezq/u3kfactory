@@ -45,5 +45,10 @@
   "newsletter": {
     "keep_updated": "Tienimi aggiornato",
     "noted": "Notato!"
+  },
+  "templates": {
+    "404": {
+      "title": "LA PAGINA CHE STAI CERCANDO NON È PIÙ QUI"
+    }
   }
 }
