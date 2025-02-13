@@ -56,6 +56,10 @@
     "contact": {
       "regarding": {
         "title": "Riguardo a"
+      },
+      "form": {
+        "contact_us": "Contattaci",
+        "contact_by": "Contattaci via email"
       }
     }
   }
