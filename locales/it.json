@@ -72,7 +72,8 @@
   },
   "sections": {
     "cart": {
-      "title": "Il mio carrello"
+      "title": "Il mio carrello",
+      "empty": "Il tuo carrello è vuoto"
     }
   }
 }
