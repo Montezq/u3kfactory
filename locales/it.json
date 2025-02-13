@@ -78,7 +78,8 @@
       "go_fill_up": "VAI A RIEMPIRLO!",
       "go_to_cart": "Vai al carrello",
       "cart_error": "Si è verificato un errore durante l'aggiornamento del carrello. Per favore riprova.",
-      "checkout": "PROCEDI ALL'ACQUISTO"
+      "checkout": "PROCEDI ALL'ACQUISTO",
+      "estimated_total": "Totale stimato"
     }
   }
 }
