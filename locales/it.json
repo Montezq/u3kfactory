@@ -30,7 +30,8 @@
   "products": {
     "product": {
       "add_to_cart": "Aggiungi",
-      "copies_left": "COPIE RIMASTE"
+      "copies_left": "COPIE RIMASTE",
+      "inventory_out_of_stock": "Esaurito"
     }
   }
 }
