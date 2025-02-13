@@ -26,5 +26,10 @@
     "instructions_sent": "Istruzioni inviate",
     "link_copied": "Link copiato",
     "optional": "Facoltativo"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Aggiungi"
+    }
   }
 }
