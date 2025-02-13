@@ -36,7 +36,8 @@
     "facets": {
       "close": "Chiudi",
       "added": "Aggiunti",
-      "clear": "Rimuovi"
+      "clear": "Rimuovi",
+      "filter_button": "Filtri"
     }
   }
 }
