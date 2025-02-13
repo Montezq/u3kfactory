@@ -58,7 +58,8 @@
         "title": "Riguardo a",
         "order_problems": "Problemi con il mio ordine",
         "paymnet_issues": "Problemi di pagamento",
-        "other": "Altro"
+        "other": "Altro",
+        "refund": "Richiesta di rimborso"
       },
       "form": {
         "contact_us": "Contattaci",
