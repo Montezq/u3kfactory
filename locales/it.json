@@ -82,7 +82,8 @@
       "estimated_total": "Totale stimato",
       "headings": {
         "total": "Totale"
-      }
+      },
+      "free_shipping": "SPEDIZIONE GRATUITA PER ORDINI SUPERIORI A"
     },
     "quick_order_list": {
       "view_cart": "Vedi carrello"
