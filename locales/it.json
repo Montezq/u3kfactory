@@ -17,6 +17,8 @@
     "field_required": "Il campo è obbligatorio",
     "latest": "Ultimi",
     "submit_message": "Invia messaggio",
-    "message_sent": "Messaggio inviato"
+    "message_sent": "Messaggio inviato",
+    "combination_unavailable": "Combinazione non disponibile",
+    "respond_time": "Generalmente rispondiamo nel giro di 4 ore. Ti preghiamo di specificare il problema riscontrato nel modo più chiaro possibile nello spazio dei messaggi in modo che possiamo metterci subito al lavoro e risolverlo. "
   }
 }
