@@ -167,7 +167,8 @@
       "default": "Predefinito",
       "add_new": "Aggiungi un nuovo indirizzo",
       "add_new_short": "Aggiungi nuovo",
-      "edit_address": "Modifica indirizzo"
+      "edit_address": "Modifica indirizzo",
+      "set_default": "Imposta come predefinito"
     }
   }
 }
