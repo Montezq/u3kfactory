@@ -129,7 +129,8 @@
       "title": "Attiva account",
       "subtext": "Crea la tua password per attivare il tuo account.",
       "password_confirm": "Conferma password",
-      "submit": "Attiva account"
+      "submit": "Attiva account",
+      "cancel": "Rifiuta l'invito"
     },
     "login_page": {
       "no_account": "NON HAI UN ACCOUNT?",
