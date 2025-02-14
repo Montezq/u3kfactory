@@ -168,7 +168,8 @@
       "yes_delete": "Sì, elimina l'account",
       "details": "Dettagli account",
       "view_addresses": "Vedi indirizzi",
-      "return": "Ritorna a dettagli account"
+      "return": "Ritorna a dettagli account",
+      "removal_info_html": "Il tuo account non verrà eliminato automaticamente. Il nostro staff esaminerà la tua richiesta e la eliminerà manualmente. Tutti i dati relativi a questo account andranno persi. Ciò include la cronologia degli ordini. <br> Procedere con la richiesta di eliminazione dell'account?\n"
     },
     "addresses": {
       "title": "Indirizzo",
