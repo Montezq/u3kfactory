@@ -165,7 +165,10 @@
       "new_address": "Inserire un nuovo indirizzo",
       "cancel": "Annulla",
       "removal": "RIMOZIONE ACCOUNT",
-      "yes_delete": "Sì, elimina l'account"
+      "yes_delete": "Sì, elimina l'account",
+      "details": "Dettagli account",
+      "view_addresses": "Vedi indirizzi",
+      "return": "Ritorna a dettagli account"
     },
     "addresses": {
       "title": "Indirizzo",
