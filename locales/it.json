@@ -29,7 +29,12 @@
     "dont_show_again": "HO CAPITO, NON MOSTRARE PIÙ",
     "contact_artist_reasons": {
       "collaboration": "Collaborazione",
-      "commission": "Commissione"
+      "commission": "Commissione",
+      "interview": "Intervista",
+      "other": "Altro"
+    },
+    "tooltip": {
+      "write_valid_email": "Si prega di scrivere un indirizzo email valido per poter ricevere risposte."
     }
   },
   "products": {
