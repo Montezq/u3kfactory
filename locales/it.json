@@ -157,7 +157,7 @@
     },
     "account": {
       "change_password": "Cambia Password",
-      "delete": "Cancella Account",
+      "delete": "Elimina Account",
       "default_name": "Nome predefinito / indirizzo"
     }
   }
