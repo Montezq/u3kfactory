@@ -41,7 +41,9 @@
       "choose_size": "Scelgi misure/supporto",
       "remove": "Rimuovi dalla lista",
       "remove_favorites": "Rimosso dai preferiti",
-      "unframed": "Senza cornice"
+      "unframed": "Senza cornice",
+      "no_favorites": "NESSUN PREFERITO",
+      "no_size": "MISURE NON SCELTE"
     },
     "login_modal": {
       "create_account": "CREARE UN ACCOUNT",
