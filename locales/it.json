@@ -40,7 +40,8 @@
       "title": "I Miei Preferiti",
       "choose_size": "Scelgi misure/supporto",
       "remove": "Rimuovi dalla lista",
-      "remove_favorites": "Rimosso dai preferiti"
+      "remove_favorites": "Rimosso dai preferiti",
+      "unframed": "Senza cornice"
     },
     "login_modal": {
       "create_account": "CREARE UN ACCOUNT",
