@@ -162,7 +162,10 @@
       "delete": "Elimina Account",
       "default_name": "Nome predefinito / indirizzo",
       "address": "Indirizzo",
-      "new_address": "Inserire un nuovo indirizzo"
+      "new_address": "Inserire un nuovo indirizzo",
+      "cancel": "Annulla",
+      "removal": "RIMOZIONE ACCOUNT",
+      "yes_delete": "Sì, elimina l'account"
     },
     "addresses": {
       "title": "Indirizzo",
