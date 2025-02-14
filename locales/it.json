@@ -138,7 +138,11 @@
       "subtext": "RICEVERAI UNA MAIL CON LE ISTRUZIONI A QUESTO INDIRIZZO"
     },
     "register": {
-      "title": "Crea account"
+      "title": "Crea account",
+      "first_name": "Nome per spedizione",
+      "first_name_required": "Il nome è obbligatorio",
+      "last_name": "Cognome",
+      "last_name_required": "Il cognome è obbligatorio"
     }
   }
 }
