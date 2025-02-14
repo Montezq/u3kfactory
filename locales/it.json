@@ -159,7 +159,8 @@
       "change_password": "Cambia Password",
       "delete": "Elimina Account",
       "default_name": "Nome predefinito / indirizzo",
-      "address": "Indirizzo"
+      "address": "Indirizzo",
+      "new_address": "Inserire un nuovo indirizzo"
     }
   }
 }
