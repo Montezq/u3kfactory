@@ -137,7 +137,8 @@
       "forgot_password": "Hai dimenticato la password?",
       "submit": "INVIA ISTRUZIONI",
       "guest_continue": "Prosegui",
-      "guest_title": "Prosegui come ospite"
+      "guest_title": "Prosegui come ospite",
+      "cancel": "Torna a Login"
     },
     "recover_password": {
       "subtext": "RICEVERAI UNA MAIL CON LE ISTRUZIONI A QUESTO INDIRIZZO",
