@@ -200,6 +200,11 @@
       "update": "Aggiorna indirizzo",
       "cancel": "Annulla"
     },
-    "guest": "Ospite"
+    "guest": "Ospite",
+    "order": {
+      "number": "Ordine Nr.",
+      "cancellation": "Annullamento ordine",
+      "cancellation_sent": "RICHIESTA DI CANCELLAZIONE INVIATA"
+    }
   }
 }
