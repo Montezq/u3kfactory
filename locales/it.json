@@ -40,10 +40,12 @@
       "title": "I Miei Preferiti",
       "choose_size": "Scelgi misure/supporto",
       "remove": "Rimuovi dalla lista",
-      "remove_favorites": "Rimosso dai preferiti",
+      "remove_favorites": "RIMOSSO DAI PREFERITI",
       "unframed": "Senza cornice",
       "no_favorites": "NESSUN PREFERITO",
-      "no_size": "MISURE NON SCELTE"
+      "no_size": "MISURE NON SCELTE",
+      "save_for_later": "Salva per dopo",
+      "saved": "AGGIUNTO AI PREFERITI"
     },
     "login_modal": {
       "create_account": "CREARE UN ACCOUNT",
