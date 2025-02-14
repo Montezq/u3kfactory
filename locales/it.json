@@ -188,7 +188,15 @@
       "last_name": "Cognome",
       "company": "Azienda",
       "address1": "Indirizzo 1",
-      "address2": "Indirizzo 2"
+      "address2": "Indirizzo 2",
+      "city": "Città",
+      "country": "Paese",
+      "province": "Provincia",
+      "zip": "Cap",
+      "phone": "Telefono",
+      "street_number": "Includere numero civico",
+      "add": "Aggiungi indirizzo",
+      "update": "Aggiorna indirizzo"
     },
     "guest": "Ospite"
   }
