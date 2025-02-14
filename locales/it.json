@@ -45,7 +45,8 @@
       "no_favorites": "NESSUN PREFERITO",
       "no_size": "MISURE NON SCELTE",
       "save_for_later": "Salva per dopo",
-      "saved": "AGGIUNTO AI PREFERITI"
+      "saved": "AGGIUNTO AI PREFERITI",
+      "go_to_my_favorites": "VAI AI MIEI PREFERITI"
     },
     "login_modal": {
       "create_account": "CREARE UN ACCOUNT",
