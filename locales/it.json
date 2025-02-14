@@ -182,7 +182,13 @@
       "delete": "Rimuovi indirizzo",
       "edit": "Modifica",
       "delete_confirm": "Sei sicuro di voler eliminare questo indirizzo?",
-      "info_butons": "I pulsanti influiscono sull'indirizzo selezionato"
+      "info_butons": "I pulsanti influiscono sull'indirizzo selezionato",
+      "apartment_number": "Numero civico",
+      "first_name": "Nome",
+      "last_name": "Cognome",
+      "company": "Azienda",
+      "address1": "Indirizzo 1",
+      "address2": "Indirizzo 2"
     },
     "guest": "Ospite"
   }
