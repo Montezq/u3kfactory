@@ -37,7 +37,8 @@
       "write_valid_email": "Si prega di scrivere un indirizzo email valido per poter ricevere risposte."
     },
     "my_favorites": {
-      "title": "I Miei Preferiti"
+      "title": "I Miei Preferiti",
+      "choose_size": "Scelgi misure/supporto"
     }
   },
   "products": {
