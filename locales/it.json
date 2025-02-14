@@ -122,5 +122,13 @@
     "footer": {
       "payment": "Metodi di pagamento"
     }
+  },
+  "customer": {
+    "activate_account": {
+      "title": "Attiva account",
+      "subtext": "Crea la tua password per attivare il tuo account.",
+      "password_confirm": "Conferma password",
+      "submit": "Attiva account"
+    }
   }
 }
