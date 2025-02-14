@@ -148,7 +148,9 @@
       "email_required": "La email è obbligatoria",
       "email_required_valid": "È richiesta una e-mail valida",
       "password_required": "La password è obbligatoria",
-      "password_match": "La password deve contenere almeno 8 caratteri"
+      "password_match": "La password deve contenere almeno 8 caratteri",
+      "delivery_name": "NOME PER SPEDIZIONE",
+      "future_login_details": "I TUOI FUTURI DETTAGLI PER IL LOG IN"
     }
   }
 }
