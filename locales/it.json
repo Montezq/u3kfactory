@@ -73,7 +73,9 @@
   },
   "newsletter": {
     "keep_updated": "Tienimi aggiornato",
-    "noted": "Notato!"
+    "noted": "Notato!",
+    "success": "Grazie per l'iscrizione",
+    "button_label": "Iscriviti"
   },
   "templates": {
     "404": {
