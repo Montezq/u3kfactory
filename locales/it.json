@@ -134,7 +134,8 @@
     "login_page": {
       "no_account": "NON HAI UN ACCOUNT?",
       "forgot_password": "Hai dimenticato la password?",
-      "submit": "INVIA ISTRUZIONI"
+      "submit": "INVIA ISTRUZIONI",
+      "guest_continue": "Prosegui"
     },
     "recover_password": {
       "subtext": "RICEVERAI UNA MAIL CON LE ISTRUZIONI A QUESTO INDIRIZZO",
