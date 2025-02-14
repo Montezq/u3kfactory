@@ -38,7 +38,14 @@
     },
     "my_favorites": {
       "title": "I Miei Preferiti",
-      "choose_size": "Scelgi misure/supporto"
+      "choose_size": "Scelgi misure/supporto",
+      "remove": "Rimuovi dalla lista",
+      "remove_favorites": "Rimosso dai preferiti"
+    },
+    "login_modal": {
+      "create_account": "CREARE UN ACCOUNT",
+      "sign_up": "ISCRIVITI SUBITO PER POTER ACCEDERE A TUTTE LE FUNZIONI RISERVATE SOLO AGLI ISCRITTI. PUOI ANCORA ACQUISTARE COME OSPITE MA DOVRAI INTRODURRE OGNI VOLTA I TUOI DATI, VISTO CHE NON VERRANNO SALVATI SU UN ACCOUNT.\n",
+      "continue_guest": "CONTINUA COME OSPITE"
     }
   },
   "products": {
