@@ -82,7 +82,8 @@
       "title": "LA PAGINA CHE STAI CERCANDO NON È PIÙ QUI"
     },
     "cart": {
-      "empty": "IL TUO CARRELLO È VUOTO"
+      "empty": "IL TUO CARRELLO È VUOTO",
+      "cart": "Carrello"
     },
     "contact": {
       "regarding": {
