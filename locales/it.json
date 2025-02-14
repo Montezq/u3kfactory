@@ -161,6 +161,12 @@
       "default_name": "Nome predefinito / indirizzo",
       "address": "Indirizzo",
       "new_address": "Inserire un nuovo indirizzo"
+    },
+    "addresses": {
+      "title": "Indirizzo",
+      "default": "Predefinito",
+      "add_new": "Aggiungi un nuovo indirizzo",
+      "add_new_short": "Aggiungi nuovo"
     }
   }
 }
