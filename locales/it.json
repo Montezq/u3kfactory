@@ -129,6 +129,10 @@
       "subtext": "Crea la tua password per attivare il tuo account.",
       "password_confirm": "Conferma password",
       "submit": "Attiva account"
+    },
+    "login_page": {
+      "no_account": "NON HAI UN ACCOUNT?",
+      "forgot_password": "Hai dimenticato la password?"
     }
   }
 }
