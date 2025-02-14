@@ -144,7 +144,9 @@
       "first_name": "Nome per spedizione",
       "first_name_required": "Il nome è obbligatorio",
       "last_name": "Cognome",
-      "last_name_required": "Il cognome è obbligatorio"
+      "last_name_required": "Il cognome è obbligatorio",
+      "email_required": "La email è obbligatoria",
+      "email_required_valid": "È richiesta una e-mail valida"
     }
   }
 }
