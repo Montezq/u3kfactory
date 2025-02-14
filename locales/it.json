@@ -196,7 +196,8 @@
       "phone": "Telefono",
       "street_number": "Includere numero civico",
       "add": "Aggiungi indirizzo",
-      "update": "Aggiorna indirizzo"
+      "update": "Aggiorna indirizzo",
+      "cancel": "Annulla"
     },
     "guest": "Ospite"
   }
