@@ -234,6 +234,9 @@
       "order_ready": "Pronto per la spedizione",
       "order_transit": "In transito",
       "none": "Non hai ancora effettuato alcun ordine."
+    },
+    "reset_password": {
+      "title": "Reimpostazione password"
     }
   }
 }
