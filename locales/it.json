@@ -218,7 +218,8 @@
         "active": "Attivi",
         "completed": "Completati",
         "canceled": "Annullati"
-      }
+      },
+      "track": "Traccia l'ordine"
     },
     "orders": {
       "order_number": "Ordine Nr.",
