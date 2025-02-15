@@ -103,7 +103,8 @@
       }
     },
     "search": {
-      "results_for": "Risultati della ricerca per"
+      "results_for": "Risultati della ricerca per",
+      "title": "Risultati della ricerca"
     }
   },
   "sections": {
