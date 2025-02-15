@@ -239,7 +239,8 @@
       "title": "Reimpostazione password",
       "subtext": "SCRIVI UNA NUOVA PASSWORD DI ALMENO 8 CARATTERI DI LUNGHEZZA\n",
       "new_password": "Nuova password",
-      "new_password_requirements": "La password deve contenere almeno 8 caratteri"
+      "new_password_requirements": "La password deve contenere almeno 8 caratteri",
+      "new_password_match": "Le password non corrispondono"
     }
   }
 }
