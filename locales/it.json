@@ -99,7 +99,8 @@
         "contact_us": "Contattaci",
         "contact_by": "Contattaci via email",
         "contacted_back": "Verrai ricontattato a questo indirizzo email",
-        "post_success": "Grazie per averci contattato. Ti risponderemo il prima possibile.\n"
+        "post_success": "Grazie per averci contattato. Ti risponderemo il prima possibile.\n",
+        "write_valid_email": "Si prega di scrivere un indirizzo email valido per poter ricevere gli aggiornamenti."
       }
     },
     "search": {
