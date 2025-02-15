@@ -12,6 +12,9 @@
     "search": {
       "title": "Rezultatele cautarii",
       "no_results": "Nu s-au gasit rezultate de cautare pentru"
+    },
+    "cart": {
+      "cart": "Cos"
     }
   }
 }
