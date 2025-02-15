@@ -224,7 +224,13 @@
     },
     "orders": {
       "order_number": "Ordine Nr.",
-      "no_orders": "NESSUN ORDINE"
+      "no_orders": "NESSUN ORDINE",
+      "order_status": "Stato",
+      "order_canceled": "Annullato",
+      "order_delivered": "Spedito",
+      "order_processing": "In elaborazione",
+      "order_ready": "Pronto per la spedizione",
+      "order_transit": "In transito"
     }
   }
 }
