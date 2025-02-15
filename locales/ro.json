@@ -40,7 +40,8 @@
   "sections": {
     "cart": {
       "title": "Cosul meu",
-      "remove": "Elimina"
+      "remove": "Elimina",
+      "checkout": "FINALIZEAZA COMANDA"
     }
   }
 }
