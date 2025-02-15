@@ -10,7 +10,8 @@
 {
   "templates": {
     "search": {
-      "title": "Rezultatele cautarii"
+      "title": "Rezultatele cautarii",
+      "no_results": "Nu s-au gasit rezultate de cautare pentru"
     }
   }
 }
