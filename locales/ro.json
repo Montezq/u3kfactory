@@ -31,7 +31,9 @@
       "regarding": {
         "title": "Referitor la",
         "order_problems": "Probleme cu comanda",
-        "paymnet_issues": "Probleme de plata"
+        "paymnet_issues": "Probleme de plata",
+        "inquire_sizes": "Info despre dimensiuni mai mari",
+        "other": "Altceva"
       }
     }
   }
