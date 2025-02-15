@@ -22,7 +22,8 @@
     },
     "contact": {
       "form": {
-        "contact_us": "Contactati-ne"
+        "contact_us": "Contactati-ne",
+        "contact_by": "CONTACTATI-NE PE EMAIL"
       }
     }
   }
