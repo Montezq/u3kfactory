@@ -220,7 +220,8 @@
         "canceled": "Annullati"
       },
       "track": "Traccia l'ordine",
-      "total": "Totale"
+      "total": "Totale",
+      "tracking_details": "NESSUN DETTAGLIO DI TRACCIAMENTO IN QUESTO MOMENTO"
     },
     "orders": {
       "order_number": "Ordine Nr.",
