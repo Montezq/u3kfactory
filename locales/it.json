@@ -207,7 +207,8 @@
       "cancellation_sent": "RICHIESTA DI ANNULLAMENTO INVIATA",
       "cancellation_info": "Il tuo ordine non viene annullato automaticamente, il nostro staff deve esaminare la richiesta e annullarlo manualmente. Riceverai una email di conferma non appena l'ordine sarà stato annullato con successo. Procedere con la richiesta di annullamento?\n",
       "cancellation_processed": "Il tuo ordine è già stato elaborato quindi non può più essere annullato. Per un rimborso fare riferimento alla nostra Politica di rimborso.\n",
-      "title": "Ordine"
+      "title": "Ordine",
+      "yes_cancel": "Sì, annullalo"
     }
   }
 }
