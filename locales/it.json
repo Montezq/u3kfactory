@@ -216,6 +216,9 @@
       "heading": {
         "title": "I miei ordini"
       }
+    },
+    "orders": {
+      "order_number": "Ordine Nr."
     }
   }
 }
