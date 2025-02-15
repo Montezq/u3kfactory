@@ -210,7 +210,9 @@
       "title": "Ordine",
       "yes_cancel": "Sì, annullalo",
       "request_cancellation": "Richiedi l'annullamento",
-      "billing_address": "Indirizzo di fatturazione"
+      "billing_address": "Indirizzo di fatturazione",
+      "payment_status": "Stato del pagamento",
+      "shipping_address": "Indirizzo di spedizione"
     }
   }
 }
