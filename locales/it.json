@@ -219,7 +219,8 @@
         "completed": "Completati",
         "canceled": "Annullati"
       },
-      "track": "Traccia l'ordine"
+      "track": "Traccia l'ordine",
+      "total": "Totale"
     },
     "orders": {
       "order_number": "Ordine Nr.",
