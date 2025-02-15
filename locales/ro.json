@@ -39,7 +39,8 @@
   },
   "sections": {
     "cart": {
-      "title": "Cosul meu"
+      "title": "Cosul meu",
+      "remove": "Elimina"
     }
   }
 }
