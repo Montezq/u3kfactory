@@ -236,7 +236,8 @@
       "none": "Non hai ancora effettuato alcun ordine."
     },
     "reset_password": {
-      "title": "Reimpostazione password"
+      "title": "Reimpostazione password",
+      "subtext": "SCRIVI UNA NUOVA PASSWORD DI ALMENO 8 CARATTERI DI LUNGHEZZA\n"
     }
   }
 }
