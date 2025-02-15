@@ -221,7 +221,8 @@
       }
     },
     "orders": {
-      "order_number": "Ordine Nr."
+      "order_number": "Ordine Nr.",
+      "no_orders": "NESSUN ORDINE"
     }
   }
 }
