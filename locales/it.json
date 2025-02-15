@@ -230,7 +230,8 @@
       "order_delivered": "Spedito",
       "order_processing": "In elaborazione",
       "order_ready": "Pronto per la spedizione",
-      "order_transit": "In transito"
+      "order_transit": "In transito",
+      "none": "Non hai ancora effettuato alcun ordine."
     }
   }
 }
