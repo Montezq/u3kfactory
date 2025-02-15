@@ -209,7 +209,7 @@
       "cancellation_processed": "Il tuo ordine è già stato elaborato quindi non può più essere annullato. Per un rimborso fare riferimento alla nostra Politica di rimborso.\n",
       "title": "Ordine",
       "yes_cancel": "Sì, annullalo",
-      "request_cancellation": "Richiedi l'annullamento",
+      "request_cancellation": "Richiedi annullamento",
       "billing_address": "Indirizzo di fatturazione",
       "payment_status": "Stato del pagamento",
       "shipping_address": "Indirizzo di spedizione",
