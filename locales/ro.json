@@ -36,5 +36,10 @@
         "other": "Altceva"
       }
     }
+  },
+  "sections": {
+    "cart": {
+      "title": "Cosul meu"
+    }
   }
 }
