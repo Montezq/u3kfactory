@@ -23,7 +23,8 @@
     "contact": {
       "form": {
         "contact_us": "Contactati-ne",
-        "contact_by": "CONTACTATI-NE PE EMAIL"
+        "contact_by": "CONTACTATI-NE PE EMAIL",
+        "post_success": "Va mulțumim ca ne-ati contactat. Va vom raspunde cat mai curand posibil."
       }
     }
   }
