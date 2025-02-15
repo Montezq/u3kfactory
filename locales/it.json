@@ -212,7 +212,10 @@
       "request_cancellation": "Richiedi l'annullamento",
       "billing_address": "Indirizzo di fatturazione",
       "payment_status": "Stato del pagamento",
-      "shipping_address": "Indirizzo di spedizione"
+      "shipping_address": "Indirizzo di spedizione",
+      "heading": {
+        "title": "I miei ordini"
+      }
     }
   }
 }
