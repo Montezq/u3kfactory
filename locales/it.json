@@ -204,7 +204,8 @@
     "order": {
       "number": "Ordine Nr.",
       "cancellation": "Annullamento ordine",
-      "cancellation_sent": "RICHIESTA DI CANCELLAZIONE INVIATA"
+      "cancellation_sent": "RICHIESTA DI ANNULLAMENTO INVIATA",
+      "cancellation_info": "Il tuo ordine non viene annullato automaticamente, il nostro staff deve rivedere la richiesta e annullare l'ordine manualmente. Riceverai un'e-mail di conferma non appena l'ordine sarà stato annullato con successo. Procedere con la richiesta di annullamento?\n"
     }
   }
 }
