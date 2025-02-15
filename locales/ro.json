@@ -14,7 +14,11 @@
       "no_results": "Nu s-au gasit rezultate de cautare pentru"
     },
     "cart": {
-      "cart": "Cos"
+      "cart": "Cos",
+      "empty": "COSUL ESTE GOL"
+    },
+    "404": {
+      "title": "PAGINA PE CARE O CAUTATI NU MAI ESTE AICI"
     }
   }
 }
