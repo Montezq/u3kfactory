@@ -19,6 +19,11 @@
     },
     "404": {
       "title": "PAGINA PE CARE O CAUTATI NU MAI ESTE AICI"
+    },
+    "contact": {
+      "form": {
+        "contact_us": "Contactati-ne"
+      }
     }
   }
 }
