@@ -101,6 +101,9 @@
         "contacted_back": "Verrai ricontattato a questo indirizzo email",
         "post_success": "Grazie per averci contattato. Ti risponderemo il prima possibile.\n"
       }
+    },
+    "search": {
+      "results_for": "Risultati della ricerca per"
     }
   },
   "sections": {
