@@ -214,7 +214,10 @@
       "payment_status": "Stato del pagamento",
       "shipping_address": "Indirizzo di spedizione",
       "heading": {
-        "title": "I miei ordini"
+        "title": "I miei ordini",
+        "active": "Attivi",
+        "completed": "Completati",
+        "canceled": "Annullati"
       }
     },
     "orders": {
