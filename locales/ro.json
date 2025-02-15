@@ -30,7 +30,8 @@
       },
       "regarding": {
         "title": "Referitor la",
-        "order_problems": "Probleme cu comanda"
+        "order_problems": "Probleme cu comanda",
+        "paymnet_issues": "Probleme de plata"
       }
     }
   }
