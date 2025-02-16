@@ -41,7 +41,8 @@
     "cart": {
       "title": "Cosul meu",
       "remove": "Elimina",
-      "checkout": "FINALIZEAZA COMANDA"
+      "checkout": "FINALIZEAZA COMANDA",
+      "empty": "Cosul tau este gol"
     }
   }
 }
