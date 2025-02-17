@@ -110,7 +110,8 @@
       "title": "Favoritele mele",
       "no_size": "MARIME NESELECTATA",
       "unframed": "Fara rama",
-      "unstretched": "Fara sasiu"
+      "unstretched": "Fara sasiu",
+      "no_favorites": "Niciun favorit"
     }
   }
 }
