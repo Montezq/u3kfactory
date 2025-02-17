@@ -214,7 +214,8 @@
     "orders": {
       "title": "Istoricul comenzilor",
       "order_number": "Comanda Nr.",
-      "no_orders": "NICIO COMANDA"
+      "no_orders": "NICIO COMANDA",
+      "order_canceled": "Anulata"
     }
   }
 }
