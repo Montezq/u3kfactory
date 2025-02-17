@@ -94,6 +94,7 @@
     "email_in_notification_list": "Acest email este deja in lista de notificari.",
     "fill_out_field": "Va rugam sa completati acest camp.",
     "instructions_sent": "Instructiuni trimise",
-    "link_copied": "Link copiat"
+    "link_copied": "Link copiat",
+    "dont_show_again": "AM INTELES, NU MAI AFISA"
   }
 }
