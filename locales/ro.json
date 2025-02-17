@@ -47,6 +47,9 @@
       "free_shipping": "LIVRARE GRATUITA PENTRU COMENZI DE PESTE",
       "cart_error": "A aparut o eroare la actualizarea cosului. Va rugam sa incercati din nou.",
       "estimated_total": "Total estimat"
+    },
+    "footer": {
+      "payment": "Modalitati de plata"
     }
   }
 }
