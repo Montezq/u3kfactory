@@ -73,7 +73,7 @@
     }
   },
   "newsletter": {
-    "keep_updated": "Tienimi aggiornato",
+    "keep_updated": "Aggiornami",
     "noted": "Notato!",
     "success": "Grazie per l'iscrizione",
     "button_label": "Iscriviti"
@@ -99,7 +99,7 @@
         "contact_us": "Contattaci",
         "contact_by": "Contattaci via email",
         "contacted_back": "Verrai ricontattato a questo indirizzo email",
-        "post_success": "Grazie per averci contattato. Ti risponderemo il prima possibile.\n",
+        "post_success": "Grazie per averci contattato. Ti risponderemo il prima possibile.",
         "write_valid_email": "Si prega di scrivere un indirizzo email valido per poter ricevere gli aggiornamenti."
       }
     },
