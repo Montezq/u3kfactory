@@ -178,6 +178,13 @@
       "delete_confirm": "Esti sigur ca vrei sa stergi aceasta adresa?",
       "info_butons": "Butoanele afecteaza adresa selectata"
     },
-    "guest": "Oaspete"
+    "guest": "Oaspete",
+    "login_page": {
+      "cancel": "Inapoi la Login",
+      "no_account": "Nu ai un cont?",
+      "forgot_password": "Ai uitat parola?",
+      "guest_continue": "Continua",
+      "guest_title": "Continua ca oaspete"
+    }
   }
 }
