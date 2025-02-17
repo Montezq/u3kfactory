@@ -150,6 +150,12 @@
       "password_confirm": "Confirma parola",
       "submit": "Activeaza cont",
       "cancel": "Refuza invitatia"
+    },
+    "addresses": {
+      "title": "Adresa",
+      "default": "Prestabilit",
+      "add_new": "Adauga o noua adresa",
+      "add_new_short": "Adauga nou"
     }
   }
 }
