@@ -239,6 +239,10 @@
       "password_match": "Parola trebuie sa aiba cel putin 8 caractere",
       "delivery_name": "NUME LIVARARE",
       "future_login_details": "DETALII AUTENTIFICARE"
+    },
+    "reset_password": {
+      "title": "Resetare parola",
+      "subtext": "SCRIE O PAROLA NOUA, CU O LUNGIME DE MINIM 8 CARACTERE"
     }
   }
 }
