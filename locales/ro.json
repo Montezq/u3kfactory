@@ -79,6 +79,9 @@
   },
   "missing_translations": {
     "latest": "Ultimele",
-    "my_orders": "Comenzile mele"
+    "my_orders": "Comenzile mele",
+    "preferences": "Preferinte",
+    "contact_the_artist": "Contacteaza artistul",
+    "you_are_contacting": "Contactezi pe"
   }
 }
