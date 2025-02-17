@@ -125,5 +125,13 @@
       "create_account": "CREEAZA UN ACCOUNT",
       "sign_up": "INSCRIETE ACUM PENTRU A PUTEA ACCESA TOATE FUNCTIILE REZERVATE NUMAI MEMBRILOR. POTI CUMPARA ORICUM CA OASPETE, DAR VA TREBUI SA INTRODUCI INFORMATIILE DE FIECARE DATA, FIINDCA NU VOR FI SALVATE PE UN ACCOUNT.\n"
     }
+  },
+  "customer": {
+    "account": {
+      "details": "Detalii account",
+      "view_addresses": "Vezi adrese",
+      "return": "Intoarce-te la detalii account",
+      "default_name": "Nume prestabilit / adresa"
+    }
   }
 }
