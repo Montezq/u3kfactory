@@ -131,7 +131,15 @@
       "details": "Detalii account",
       "view_addresses": "Vezi adrese",
       "return": "Intoarce-te la detalii account",
-      "default_name": "Nume prestabilit / adresa"
+      "default_name": "Nume prestabilit / adresa",
+      "new_address": "Introduce adresa noua",
+      "address": "Adresa",
+      "change_password": "Schimba password",
+      "delete": "Sterge account",
+      "cancel": "Anula",
+      "removal": "Stergere account",
+      "removal_info_html": "Contul tau nu va fi sters automat. Personalul nostru va examina solicitarea si il va sterge manual. Toate datele legate de acest cont se vor pierde. Aceasta include istoricul comenzilor. <br> Continui cu solicitarea de inchidere a contului?",
+      "yes_delete": "Da, sterge account"
     }
   }
 }
