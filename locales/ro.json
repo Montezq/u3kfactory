@@ -101,6 +101,9 @@
       "commission": "Comanda",
       "interview": "Interviu",
       "other": "Altceva"
+    },
+    "tooltip": {
+      "write_valid_email": "Va rugam sa scrieti o adresa de email valida pentru a putea primi raspunsuri."
     }
   }
 }
