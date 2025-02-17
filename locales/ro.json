@@ -215,7 +215,10 @@
       "title": "Istoricul comenzilor",
       "order_number": "Comanda Nr.",
       "no_orders": "NICIO COMANDA",
-      "order_canceled": "Anulata"
+      "order_canceled": "Anulata",
+      "order_delivered": "Livrata",
+      "order_ready": "Gata de livrare",
+      "order_transit": "In tranzit"
     }
   }
 }
