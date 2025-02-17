@@ -225,6 +225,13 @@
       "title": "Resetare parola",
       "subtext": "VEI PRIMI UN EMAIL CU INSTRUCTIUNI PE ACESTA ADRESA",
       "success": "Ti-am trimis un email cu un link pentru ati actualiza parola."
+    },
+    "register": {
+      "title": "Creeaza un cont",
+      "first_name": "NUME PENTRU LIVRARE",
+      "first_name_required": "Prenumele este obligatoriu",
+      "last_name": "Numele ",
+      "last_name_required": "Numele este obligatoriu"
     }
   }
 }
