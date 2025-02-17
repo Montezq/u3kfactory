@@ -231,7 +231,11 @@
       "first_name": "NUME PENTRU LIVRARE",
       "first_name_required": "Prenumele este obligatoriu",
       "last_name": "Numele ",
-      "last_name_required": "Numele este obligatoriu"
+      "last_name_required": "Numele este obligatoriu",
+      "email_required": "Emailul este obligatoriu",
+      "email_required_valid": "Este necesar un email valid",
+      "password": "Parola",
+      "password_required": "Parola este bligatorie"
     }
   }
 }
