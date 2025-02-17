@@ -84,6 +84,9 @@
     "contact_the_artist": "Contacteaza artistul",
     "you_are_contacting": "Contactezi pe",
     "your_message": "Mesajul tau",
-    "field_required": "Camp obligatoriu"
+    "field_required": "Camp obligatoriu",
+    "submit_message": "Trimite mesajul",
+    "message_sent": "Mesaj trimis",
+    "combination_unavailable": "Combinatie indisponibila"
   }
 }
