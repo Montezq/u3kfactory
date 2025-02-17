@@ -44,7 +44,8 @@
       "checkout": "FINALIZEAZA COMANDA",
       "empty": "Cosul tau este gol",
       "go_to_cart": "Du-te la cos",
-      "free_shipping": "LIVRARE GRATUITA PENTRU COMENZI DE PESTE"
+      "free_shipping": "LIVRARE GRATUITA PENTRU COMENZI DE PESTE",
+      "cart_error": "A aparut o eroare la actualizarea cosului. Va rugam sa incercati din nou."
     }
   }
 }
