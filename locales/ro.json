@@ -111,7 +111,9 @@
       "no_size": "MARIME NESELECTATA",
       "unframed": "Fara rama",
       "unstretched": "Fara sasiu",
-      "no_favorites": "Niciun favorit"
+      "no_favorites": "Niciun favorit",
+      "remove": "Eliminati din lista",
+      "save_for_later": "salveaza"
     }
   }
 }
