@@ -220,6 +220,10 @@
       "order_ready": "Gata de livrare",
       "order_transit": "In tranzit",
       "none": "Inca nu ai plasat nicio comanda."
+    },
+    "recover_password": {
+      "title": "Resetare parola",
+      "subtext": "VEI PRIMI UN EMAIL CU INSTRUCTIUNI PE ACESTA ADRESA\n"
     }
   }
 }
