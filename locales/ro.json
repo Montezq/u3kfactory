@@ -189,7 +189,10 @@
       "submit": "Trimite instructiuni"
     },
     "order": {
-      "number": "Comanda Nr."
+      "number": "Comanda Nr.",
+      "cancellation": "Anularea comenzii",
+      "cancellation_sent": "CERERE DE ANULARE TRIMISA",
+      "cancellation_info": "Comanda nu este anulata automat, personalul nostru trebuie sa examineze cererea si sa o anuleze manual. Veti primi un email de confirmare imediat ce comanda a fost anulata cu succes. Continuati cu cererea de anulare?"
     }
   }
 }
