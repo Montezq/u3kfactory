@@ -200,7 +200,8 @@
       "payment_status": "Starea platii",
       "shipping_address": "Adresa de livrare",
       "fulfillment_status": "Starea de indeplinire",
-      "discount": "Reducere"
+      "discount": "Reducere",
+      "track": "Urmarire colet"
     }
   }
 }
