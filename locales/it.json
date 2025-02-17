@@ -229,7 +229,8 @@
       "track": "Traccia l'ordine",
       "total": "Totale",
       "tracking_details": "NESSUN DETTAGLIO DI TRACCIAMENTO IN QUESTO MOMENTO",
-      "tracking_number": "Numero di tracciamento"
+      "tracking_number": "Numero di tracciamento",
+      "discount": "Sconto"
     },
     "orders": {
       "order_number": "Ordine Nr.",
