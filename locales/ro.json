@@ -223,7 +223,8 @@
     },
     "recover_password": {
       "title": "Resetare parola",
-      "subtext": "VEI PRIMI UN EMAIL CU INSTRUCTIUNI PE ACESTA ADRESA\n"
+      "subtext": "VEI PRIMI UN EMAIL CU INSTRUCTIUNI PE ACESTA ADRESA",
+      "success": "Ti-am trimis un email cu un link pentru ati actualiza parola."
     }
   }
 }
