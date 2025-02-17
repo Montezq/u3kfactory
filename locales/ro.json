@@ -73,6 +73,7 @@
   },
   "newsletter": {
     "success": "Multumim pentru inscriere",
-    "keep_updated": "Anunta-ma"
+    "keep_updated": "Anunta-ma",
+    "noted": "Notat!"
   }
 }
