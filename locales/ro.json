@@ -201,7 +201,9 @@
       "shipping_address": "Adresa de livrare",
       "fulfillment_status": "Starea de indeplinire",
       "discount": "Reducere",
-      "track": "Urmareste livrarea"
+      "track": "Urmareste livrarea",
+      "tracking_number": "Numarul de tracking",
+      "tracking_details": "NICI UN DETALIU DE URMARIRE IN ACEST MOMENT"
     }
   }
 }
