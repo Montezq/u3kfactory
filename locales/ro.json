@@ -235,7 +235,8 @@
       "email_required": "Emailul este obligatoriu",
       "email_required_valid": "Este necesar un email valid",
       "password": "Parola",
-      "password_required": "Parola este bligatorie"
+      "password_required": "Parola este bligatorie",
+      "password_match": "Parola trebuie sa aiba cel putin 8 caractere"
     }
   }
 }
