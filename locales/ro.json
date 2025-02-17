@@ -120,7 +120,8 @@
       "find_favorites": "POTI GASI TOATE PRODUSELE SALVATE IN SECTIUNEA FAVORITELE MELE NAVIGAND LA PROFILUL TAU. SALVEAZA TOATA ARTA CARE TE INTERESEAZA ASA INCAT SA O POȚI GĂSI USOR DE FIECARE DATA."
     },
     "login_modal": {
-      "continue_guest": "CONTINUA CA OASPETE"
+      "continue_guest": "CONTINUA CA OASPETE",
+      "sign_up_now": "INSCRIETE ACUM"
     }
   }
 }
