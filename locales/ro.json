@@ -65,7 +65,9 @@
     },
     "facets": {
       "close": "Inchide",
-      "added": "Adaugat"
+      "added": "Adaugat",
+      "newest_first": "Cele mai noi",
+      "oldest_first": "Cele mai vechi"
     }
   }
 }
