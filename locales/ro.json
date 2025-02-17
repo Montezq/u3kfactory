@@ -70,5 +70,8 @@
       "oldest_first": "Cele mai vechi",
       "clear": "Sterge"
     }
+  },
+  "newsletter": {
+    "success": "Multumim pentru inscriere"
   }
 }
