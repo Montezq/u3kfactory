@@ -172,7 +172,11 @@
       "add": "Adauga adresa",
       "update": "Actualizeaza adresa",
       "street_number": "Include numarul strazii",
-      "delete": "Sterge adresa"
+      "delete": "Sterge adresa",
+      "cancel": "Anula",
+      "edit": "Modifica",
+      "delete_confirm": "Esti sigur ca vrei sa stergi aceasta adresa?",
+      "info_butons": "Butoanele afecteaza adresa selectata"
     }
   }
 }
