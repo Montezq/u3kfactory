@@ -168,7 +168,9 @@
       "province": "Regiune",
       "zip": "Cod postal",
       "phone": "Telefon",
-      "set_default": "Alege prestabilit"
+      "set_default": "Alege prestabilit",
+      "add": "Adauga adresa",
+      "update": "Actualizeaza adresa"
     }
   }
 }
