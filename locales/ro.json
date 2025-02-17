@@ -184,7 +184,9 @@
       "no_account": "Nu ai un cont?",
       "forgot_password": "Ai uitat parola?",
       "guest_continue": "Continua",
-      "guest_title": "Continua ca oaspete"
+      "guest_title": "Continua ca oaspete",
+      "password": "Parola",
+      "submit": "Trimite instructiuni"
     }
   }
 }
