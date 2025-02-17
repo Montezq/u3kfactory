@@ -203,7 +203,13 @@
       "discount": "Reducere",
       "track": "Urmareste livrarea",
       "tracking_number": "Numarul de tracking",
-      "tracking_details": "NICI UN DETALIU DE URMARIRE IN ACEST MOMENT"
+      "tracking_details": "NICI UN DETALIU DE URMARIRE IN ACEST MOMENT",
+      "heading": {
+        "title": "Comenzile mele",
+        "active": "Active",
+        "completed": "Completate",
+        "canceled": "Anulate"
+      }
     }
   }
 }
