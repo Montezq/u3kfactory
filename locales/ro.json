@@ -76,5 +76,9 @@
     "keep_updated": "Anunta-ma",
     "noted": "Notat!",
     "button_label": "Inscrie-te"
+  },
+  "missing_translations": {
+    "latest": "Ultimele",
+    "my_orders": "Comenzile mele"
   }
 }
