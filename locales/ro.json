@@ -114,7 +114,8 @@
       "no_favorites": "Niciun favorit",
       "remove": "Elimina din lista",
       "save_for_later": "salveaza in favorite",
-      "remove_favorites": "ELIMINAT DIN PREFERATE"
+      "remove_favorites": "ELIMINAT DIN PREFERATE",
+      "saved": "SALVAT IN PREFERATE"
     }
   }
 }
