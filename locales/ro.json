@@ -50,6 +50,9 @@
     },
     "footer": {
       "payment": "Modalitati de plata"
+    },
+    "quick_order_list": {
+      "view_cart": "Vezi cosul"
     }
   }
 }
