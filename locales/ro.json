@@ -187,6 +187,9 @@
       "guest_title": "Continua ca oaspete",
       "password": "Parola",
       "submit": "Trimite instructiuni"
+    },
+    "order": {
+      "number": "Comanda Nr."
     }
   }
 }
