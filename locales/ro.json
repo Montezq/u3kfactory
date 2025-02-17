@@ -107,7 +107,10 @@
     },
     "my_favorites": {
       "choose_size": "Alege marimi/mediu",
-      "title": "Favoritele mele"
+      "title": "Favoritele mele",
+      "no_size": "MARIME NESELECTATA",
+      "unframed": "Fara rama",
+      "unstretched": "Fara sasiu"
     }
   }
 }
