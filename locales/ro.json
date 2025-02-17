@@ -192,7 +192,8 @@
       "number": "Comanda Nr.",
       "cancellation": "Anularea comenzii",
       "cancellation_sent": "CERERE DE ANULARE TRIMISA",
-      "cancellation_info": "Comanda nu este anulata automat, personalul nostru trebuie sa examineze cererea si sa o anuleze manual. Veti primi un email de confirmare imediat ce comanda a fost anulata cu succes. Continuati cu cererea de anulare?"
+      "cancellation_info": "Comanda nu este anulata automat, personalul nostru trebuie sa examineze cererea si sa o anuleze manual. Veti primi un email de confirmare imediat ce comanda a fost anulata cu succes. Continuati cu cererea de anulare?",
+      "cancellation_processed": "Comanda ta a fost deja procesata, prin urmare, nu mai poate fi anulata. Pentru o rambursare, consultati Politica noastra de rambursare."
     }
   }
 }
