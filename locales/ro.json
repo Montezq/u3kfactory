@@ -218,7 +218,8 @@
       "order_canceled": "Anulata",
       "order_delivered": "Livrata",
       "order_ready": "Gata de livrare",
-      "order_transit": "In tranzit"
+      "order_transit": "In tranzit",
+      "none": "Inca nu ai plasat nicio comanda."
     }
   }
 }
