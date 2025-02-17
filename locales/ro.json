@@ -155,7 +155,20 @@
       "title": "Adresa",
       "default": "Prestabilit",
       "add_new": "Adauga o noua adresa",
-      "add_new_short": "Adauga nou"
+      "add_new_short": "Adauga nou",
+      "apartment_number": "Nr. apartament",
+      "edit_address": "Edita adresa",
+      "first_name": "Prenumele",
+      "last_name": "Numele de familie",
+      "company": "Companie",
+      "address1": "Adresa 1",
+      "address2": "Adresa 2",
+      "city": "Oras",
+      "country": "Tara",
+      "province": "Regiune",
+      "zip": "Cod postal",
+      "phone": "Telefon",
+      "set_default": "Seteaza ca prestabilit"
     }
   }
 }
