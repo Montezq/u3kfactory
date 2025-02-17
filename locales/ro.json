@@ -54,5 +54,11 @@
     "quick_order_list": {
       "view_cart": "Vezi cosul"
     }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Adauga",
+      "copies_left": "Copii ramase"
+    }
   }
 }
