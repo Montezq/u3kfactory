@@ -91,6 +91,9 @@
     "optional": "Facultativ",
     "respond_time": "*In general, raspundem in decurs de 4 ore. Va rugam sa specificati cat mai clar problema pe care o aveti in spatiul de mesaje, astfel incat sa ne putem pune la lucru imediat si s-o rezolvam cat mai curand.\n",
     "you_can_also_contact_us": "De asemenea, ne puteti contacta trimitand un email la",
-    "email_in_notification_list": "Acest email este deja in lista de notificari."
+    "email_in_notification_list": "Acest email este deja in lista de notificari.",
+    "fill_out_field": "Va rugam sa completati acest camp.",
+    "instructions_sent": "Instructiuni trimise",
+    "link_copied": "Link copiat"
   }
 }
