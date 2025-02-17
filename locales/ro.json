@@ -170,7 +170,8 @@
       "phone": "Telefon",
       "set_default": "Alege prestabilit",
       "add": "Adauga adresa",
-      "update": "Actualizeaza adresa"
+      "update": "Actualizeaza adresa",
+      "street_number": "Include numarul strazii"
     }
   }
 }
