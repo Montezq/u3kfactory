@@ -60,7 +60,8 @@
       "add_to_cart": "Adauga",
       "copies_left": "Copii ramase",
       "contact_larger_sizes": "Contactati-ne pentru marimi mai mari",
-      "inventory_out_of_stock": "Terminat"
+      "inventory_out_of_stock": "Terminat",
+      "need_more_info": "ITI TREBUIE MAI MULTE INFO DESPRE ACEASTĂ PIESA?"
     }
   }
 }
