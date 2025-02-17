@@ -244,7 +244,11 @@
       "title": "Resetare parola",
       "subtext": "SCRIE O PAROLA NOUA, CU O LUNGIME DE MINIM 8 CARACTERE",
       "new_password": "Parola noua",
-      "new_password_requirements": "Parola trebuie sa contina cel putin 8 caractere"
+      "new_password_requirements": "Parola trebuie sa contina cel putin 8 caractere",
+      "new_password_match": "Parolele nu se potrivesc",
+      "password_confirm": "Confirma parola",
+      "submit": "Confirma parola",
+      "successfully": "Parola a fost schimbata cu succes"
     }
   }
 }
