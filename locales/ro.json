@@ -104,6 +104,10 @@
     },
     "tooltip": {
       "write_valid_email": "Va rugam sa scrieti o adresa de email valida pentru a putea primi raspunsuri."
+    },
+    "my_favorites": {
+      "choose_size": "Alege marimi/mediu",
+      "title": "Favoritele"
     }
   }
 }
