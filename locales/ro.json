@@ -67,7 +67,8 @@
       "close": "Inchide",
       "added": "Adaugat",
       "newest_first": "Cele mai noi",
-      "oldest_first": "Cele mai vechi"
+      "oldest_first": "Cele mai vechi",
+      "clear": "Sterge"
     }
   }
 }
