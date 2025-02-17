@@ -58,7 +58,8 @@
   "products": {
     "product": {
       "add_to_cart": "Adauga",
-      "copies_left": "Copii ramase"
+      "copies_left": "Copii ramase",
+      "contact_larger_sizes": "Contactati-ne pentru marimi mai mari"
     }
   }
 }
