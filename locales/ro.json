@@ -145,7 +145,11 @@
     "account_fallback": "Cont",
     "activate_account": {
       "title": "Activeaza cont",
-      "subtext": "Creeaza-ti parola pentru a-ti activa contul."
+      "subtext": "Creeaza-ti parola pentru a-ti activa contul.",
+      "password": "Parola",
+      "password_confirm": "Confirma parola",
+      "submit": "Activeaza cont",
+      "cancel": "Refuza invitatia"
     }
   }
 }
