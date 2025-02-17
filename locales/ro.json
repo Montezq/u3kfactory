@@ -42,7 +42,9 @@
       "title": "Cosul meu",
       "remove": "Elimina",
       "checkout": "FINALIZEAZA COMANDA",
-      "empty": "Cosul tau este gol"
+      "empty": "Cosul tau este gol",
+      "go_to_cart": "Du-te la cos",
+      "free_shipping": "LIVRARE GRATUITA PENTRU COMENZI DE PESTE"
     }
   }
 }
