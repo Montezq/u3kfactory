@@ -74,6 +74,7 @@
   "newsletter": {
     "success": "Multumim pentru inscriere",
     "keep_updated": "Anunta-ma",
-    "noted": "Notat!"
+    "noted": "Notat!",
+    "button_label": "Inscrie-te"
   }
 }
