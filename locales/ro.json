@@ -210,6 +210,11 @@
         "completed": "Completate",
         "canceled": "Anulate"
       }
+    },
+    "orders": {
+      "title": "Istoricul comenzilor",
+      "order_number": "Comanda Nr.",
+      "no_orders": "NICIO COMANDA"
     }
   }
 }
