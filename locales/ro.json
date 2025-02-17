@@ -242,7 +242,9 @@
     },
     "reset_password": {
       "title": "Resetare parola",
-      "subtext": "SCRIE O PAROLA NOUA, CU O LUNGIME DE MINIM 8 CARACTERE"
+      "subtext": "SCRIE O PAROLA NOUA, CU O LUNGIME DE MINIM 8 CARACTERE",
+      "new_password": "Parola noua",
+      "new_password_requirements": "Parola trebuie sa contina cel putin 8 caractere"
     }
   }
 }
