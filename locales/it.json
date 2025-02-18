@@ -162,7 +162,7 @@
       "email_required_valid": "È richiesta una e-mail valida",
       "password_required": "La password è obbligatoria",
       "password_match": "La password deve contenere almeno 8 caratteri",
-      "delivery_name": "NOME PER LA SPEDIZIONE",
+      "delivery_name": "NOME SPEDIZIONE",
       "future_login_details": "LE TUE FUTURE CREDENZIALI",
       "real_name": "Assicurati di fornire il tuo vero nome e cognome"
     },
@@ -191,7 +191,7 @@
       "edit": "Modifica",
       "delete_confirm": "Sei sicuro di voler eliminare questo indirizzo?",
       "info_butons": "I pulsanti influiscono sull'indirizzo selezionato",
-      "apartment_number": "Numero civico",
+      "apartment_number": "Numero apartamento",
       "first_name": "Nome",
       "last_name": "Cognome",
       "company": "Azienda",
