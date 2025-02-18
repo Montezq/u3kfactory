@@ -33,7 +33,8 @@
         "order_problems": "Probleme cu comanda",
         "paymnet_issues": "Probleme de plata",
         "inquire_sizes": "Info despre dimensiuni mai mari",
-        "other": "Altceva"
+        "other": "Altceva",
+        "refund": "Cerere de rambursare"
       }
     }
   },
