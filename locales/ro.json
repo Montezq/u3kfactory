@@ -15,18 +15,18 @@
     },
     "cart": {
       "cart": "Cos",
-      "empty": "COSUL ESTE GOL"
+      "empty": "COSUL TAU ESTE GOL"
     },
     "404": {
-      "title": "PAGINA PE CARE O CAUTATI NU MAI ESTE AICI"
+      "title": "PAGINA PE CARE O CAUTI NU MAI ESTE AICI"
     },
     "contact": {
       "form": {
         "contact_us": "Contactati-ne",
         "contact_by": "CONTACTATI-NE PE EMAIL",
-        "post_success": "Va multumim ca ne-ati contactat. Va vom raspunde cat mai curand posibil.",
-        "contacted_back": "Veti fi contactat pe aceasta adresa de email",
-        "write_valid_email": "Va rugam sa scrieti o adresa de email valida pentru a putea primi actualizari."
+        "post_success": "Multumim ca ne-ai contactat. Iti vom raspunde cat mai curand posibil.",
+        "contacted_back": "Vei fi contactat pe aceasta adresa de email",
+        "write_valid_email": "Te rugam sa scrii o adresa de email valida pentru a putea primi actualizari."
       },
       "regarding": {
         "title": "Referitor la",
