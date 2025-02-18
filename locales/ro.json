@@ -60,9 +60,9 @@
     "product": {
       "add_to_cart": "Adauga",
       "copies_left": "Copii ramase",
-      "contact_larger_sizes": "Contactati-ne pentru marimi mai mari",
+      "contact_larger_sizes": "Contacteaza-ne pentru marimi mai mari",
       "inventory_out_of_stock": "Terminat",
-      "need_more_info": "ITI TREBUIE MAI MULTE INFO DESPRE ACEASTĂ PIESA?"
+      "need_more_info": "AI NEVOIE DE MAI MULTE INFO DESPRE ACEASTA PIESA?"
     },
     "facets": {
       "close": "Inchide",
