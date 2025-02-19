@@ -63,7 +63,8 @@
       "copies_left": "COPIE RIMASTE",
       "inventory_out_of_stock": "Esaurito",
       "need_more_info": "HAI BISOGNO DI PIÙ INFO SU QUESTO QUADRO?",
-      "contact_larger_sizes": "Contattaci per formati più grandi"
+      "contact_larger_sizes": "Contattaci per formati più grandi",
+      "unavailable": "Inesistente"
     },
     "facets": {
       "close": "Chiudi",
