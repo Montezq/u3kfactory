@@ -62,7 +62,8 @@
       "copies_left": "Copii ramase",
       "contact_larger_sizes": "Contacteaza-ne pentru marimi mai mari",
       "inventory_out_of_stock": "Terminat",
-      "need_more_info": "AI NEVOIE DE MAI MULTE INFO DESPRE ACEASTA PIESA?"
+      "need_more_info": "AI NEVOIE DE MAI MULTE INFO DESPRE ACEASTA PIESA?",
+      "unavailable": "Indisponibil"
     },
     "facets": {
       "close": "Inchide",
